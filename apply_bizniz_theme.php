@@ -1,0 +1,1386 @@
+<?php
+require_once('/var/www/html/wp-load.php');
+
+$page_id = 13; // Beranda page ID
+
+$html = <<<'HTML'
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PT Lotus Pradipta Mulia - Distributor Nasional Otomotif & Pelumas</title>
+  
+  <!-- Google Fonts: Inter & Plus Jakarta Sans (Gaya Bizniz Theme OkeTheme) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome 5 CDN untuk Ikon Bizniz Theme -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <style>
+    /* ==========================================================================
+       BIZNIZ THEME (OKETHEME INSPIRATION) - PT LOTUS PRADIPTA MULIA
+       Corporate, Clean, Professional, High-Density Indonesian Company Profile
+       ========================================================================== */
+    :root {
+      --primary: #0F3057;       /* Navy Korporat Dalam */
+      --primary-dark: #001E3D;  /* Dark Blue */
+      --accent: #00587A;        /* Steel Blue */
+      --highlight: #008891;     /* Cyan / Teal */
+      --cta-btn: #E63946;       /* Energetic Crimson Red for CTA */
+      --cta-hover: #D62828;
+      --gold: #F59E0B;
+      --gold-dark: #D97706;
+      --text-main: #1E293B;
+      --text-muted: #64748B;
+      --bg-light: #F8FAFC;
+      --bg-white: #FFFFFF;
+      --border-color: #E2E8F0;
+      --shadow-sm: 0 2px 8px rgba(15, 48, 87, 0.05);
+      --shadow-md: 0 8px 24px rgba(15, 48, 87, 0.08);
+      --shadow-lg: 0 16px 40px rgba(15, 48, 87, 0.12);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .container {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* --------------------------------------------------------------------------
+       1. TOP BAR (Signature OkeTheme Bizniz)
+       -------------------------------------------------------------------------- */
+    .top-bar {
+      background: var(--primary-dark);
+      color: #CBD5E1;
+      font-size: 12px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .top-bar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .top-info {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .top-info span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .top-info i {
+      color: #38BDF8;
+    }
+    .top-hours {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .top-hours i {
+      color: var(--gold);
+    }
+
+    /* --------------------------------------------------------------------------
+       2. MAIN NAVBAR & HEADER
+       -------------------------------------------------------------------------- */
+    .main-header {
+      background: #FFFFFF;
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      gap: 20px;
+    }
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-logo-img {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+    }
+    .brand-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.2;
+      letter-spacing: 0.3px;
+    }
+    .brand-subtitle {
+      font-size: 10.5px;
+      color: var(--highlight);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      display: block;
+      margin-top: 1px;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+    .main-nav a {
+      color: var(--text-main);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 6px 0;
+      position: relative;
+    }
+    .main-nav a:hover,
+    .main-nav a.active {
+      color: var(--highlight);
+    }
+    .main-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--highlight);
+      transition: width 0.25s ease;
+    }
+    .main-nav a:hover::after {
+      width: 100%;
+    }
+
+    .header-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-portal-login {
+      background: var(--highlight);
+      color: #FFFFFF !important;
+      padding: 9px 18px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 3px 10px rgba(0, 136, 145, 0.3);
+    }
+    .btn-portal-login:hover {
+      background: var(--accent);
+      transform: translateY(-1px);
+    }
+    .btn-portal-register {
+      background: var(--gold);
+      color: #FFFFFF !important;
+      padding: 9px 18px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 3px 10px rgba(245, 158, 11, 0.3);
+    }
+    .btn-portal-register:hover {
+      background: var(--gold-dark);
+      transform: translateY(-1px);
+    }
+
+    /* --------------------------------------------------------------------------
+       3. HERO SLIDER BANNER (Signature Bizniz Theme)
+       -------------------------------------------------------------------------- */
+    .hero-slider {
+      position: relative;
+      min-height: 580px;
+      background: linear-gradient(135deg, rgba(0, 24, 51, 0.94) 0%, rgba(15, 48, 87, 0.90) 50%, rgba(13, 148, 136, 0.85) 100%),
+                  url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      color: #FFFFFF;
+      padding: 80px 0 120px 0;
+      border-bottom: 4px solid var(--highlight);
+    }
+    .hero-content {
+      max-width: 880px;
+    }
+    .hero-tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245, 158, 11, 0.2);
+      border: 1px solid var(--gold);
+      color: #FDE68A;
+      font-size: 11.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 7px 18px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+    }
+    .hero-company-title {
+      font-size: 48px;
+      line-height: 1.15;
+      font-weight: 900;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
+    }
+    .hero-headline {
+      font-size: 21px;
+      line-height: 1.4;
+      font-weight: 700;
+      color: #E2E8F0;
+      margin-bottom: 18px;
+      letter-spacing: -0.2px;
+    }
+    .hero-headline span {
+      color: #FDE68A;
+    }
+    .hero-desc {
+      font-size: 16px;
+      line-height: 1.75;
+      color: #CBD5E1;
+      margin-bottom: 34px;
+      max-width: 760px;
+    }
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .btn-hero-main {
+      background: linear-gradient(135deg, #008891 0%, #00587A 100%);
+      color: #FFFFFF !important;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 18px rgba(0, 136, 145, 0.45);
+      transition: all 0.25s ease;
+    }
+    .btn-hero-main:hover {
+      background: linear-gradient(135deg, #00727A 0%, #004560 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(0, 136, 145, 0.55);
+    }
+    .btn-hero-outline {
+      background: rgba(255, 255, 255, 0.1);
+      color: #FFFFFF !important;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      font-size: 15px;
+      font-weight: 700;
+      padding: 12px 26px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      backdrop-filter: blur(8px);
+      transition: all 0.25s ease;
+    }
+    .btn-hero-outline:hover {
+      background: #FFFFFF;
+      color: var(--primary) !important;
+      border-color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+    .btn-hero-wa {
+      background: #25D366;
+      color: #FFFFFF !important;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 26px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+      transition: all 0.25s ease;
+    }
+    .btn-hero-wa:hover {
+      background: #1EBE5D;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(37, 211, 102, 0.5);
+    }
+
+    /* --------------------------------------------------------------------------
+       4. FLOATING FEATURE BAR (Card di Bawah Slider - Bizniz Layout)
+       -------------------------------------------------------------------------- */
+    .floating-bar {
+      margin-top: -60px;
+      position: relative;
+      z-index: 20;
+      margin-bottom: 60px;
+    }
+    .feature-boxes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: #FFFFFF;
+      border-radius: 10px;
+      padding: 24px;
+      box-shadow: var(--shadow-md);
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-bottom-color: var(--highlight);
+    }
+    .feature-icon-box {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      background: #E0F2FE;
+      color: #0284C7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .feature-card:nth-child(2) .feature-icon-box { background: #FEF3C7; color: var(--gold-dark); }
+    .feature-card:nth-child(3) .feature-icon-box { background: #CCFBF1; color: #0F766E; }
+    .feature-card:nth-child(4) .feature-icon-box { background: #FCE7F3; color: #DB2777; }
+    
+    .feature-info h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    .feature-info p {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* --------------------------------------------------------------------------
+       SECTION COMMON HEADINGS (Gaya OkeTheme)
+       -------------------------------------------------------------------------- */
+    .sec-block {
+      padding: 70px 0;
+    }
+    .sec-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 50px auto;
+    }
+    .sec-sub {
+      color: var(--highlight);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .sec-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.25;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+    }
+    .sec-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* --------------------------------------------------------------------------
+       5. ABOUT SECTION (Split Layout Bizniz)
+       -------------------------------------------------------------------------- */
+    .about-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    .about-visual {
+      position: relative;
+    }
+    .about-img-main {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: var(--shadow-lg);
+    }
+    .about-exp-badge {
+      position: absolute;
+      bottom: -20px;
+      right: 20px;
+      background: var(--primary);
+      color: #FFFFFF;
+      padding: 20px 24px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 30, 61, 0.3);
+      border-left: 4px solid var(--gold);
+    }
+    .about-exp-badge strong {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--gold);
+      display: block;
+      line-height: 1;
+    }
+    .about-exp-badge span {
+      font-size: 12px;
+      color: #E2E8F0;
+      font-weight: 600;
+    }
+
+    .about-content h3 {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    .about-content p {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .about-checklist {
+      list-style: none;
+      margin: 20px 0 26px 0;
+    }
+    .about-checklist li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-main);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .about-checklist i {
+      color: #10B981;
+      font-size: 16px;
+    }
+
+    /* --------------------------------------------------------------------------
+       6. PRODUCTS & SERVICES GRID (Signature Bizniz Card Style)
+       -------------------------------------------------------------------------- */
+    .product-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 26px;
+    }
+    .bizniz-card {
+      background: #FFFFFF;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .bizniz-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: #CBD5E1;
+    }
+    .card-thumb-wrap {
+      position: relative;
+      height: 190px;
+      overflow: hidden;
+    }
+    .card-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .bizniz-card:hover .card-thumb {
+      transform: scale(1.06);
+    }
+    .card-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--primary);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .card-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+    }
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .card-text {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .card-brands-box {
+      background: #F8FAFC;
+      border-radius: 6px;
+      padding: 10px 14px;
+      border: 1px solid var(--border-color);
+    }
+    .card-brands-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .card-brands-val {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* --------------------------------------------------------------------------
+       7. WHY CHOOSE US (6 Grid Features Bizniz)
+       -------------------------------------------------------------------------- */
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+    .benefit-item {
+      background: #FFFFFF;
+      padding: 28px;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      gap: 18px;
+      transition: all 0.3s ease;
+    }
+    .benefit-item:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--highlight);
+      transform: translateY(-3px);
+    }
+    .benefit-icon-round {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(0, 136, 145, 0.1);
+      color: var(--highlight);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .benefit-item h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+    .benefit-item p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* --------------------------------------------------------------------------
+       8. STATS COUNTER BANNER (Bizniz Theme Style)
+       -------------------------------------------------------------------------- */
+    .stats-banner {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #FFFFFF;
+      padding: 60px 0;
+    }
+    .stats-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      text-align: center;
+    }
+    .stat-box-inner strong {
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--gold);
+      display: block;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-box-inner span {
+      font-size: 14px;
+      color: #CBD5E1;
+      font-weight: 600;
+    }
+
+    /* --------------------------------------------------------------------------
+       9. WEB FLEET SHOWCASE SECTION
+       -------------------------------------------------------------------------- */
+    .fleet-sec {
+      background: #FFFFFF;
+      padding: 80px 0;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .fleet-wrap {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    .fleet-card-preview {
+      background: #001E3D;
+      border-radius: 12px;
+      padding: 24px;
+      color: #FFFFFF;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid #1E3A8A;
+    }
+    .fleet-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+    }
+    .fleet-card-head span {
+      font-size: 12px;
+      color: #38BDF8;
+      font-family: monospace;
+    }
+    .unit-row {
+      background: #0F3057;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+      border-left: 4px solid var(--highlight);
+    }
+    .unit-row.blue { border-left-color: #38BDF8; }
+    .unit-row.green { border-left-color: #10B981; }
+    .unit-row strong {
+      display: block;
+      font-size: 13px;
+      color: #FFFFFF;
+    }
+    .unit-row p {
+      font-size: 11.5px;
+      color: #94A3B8;
+      margin-top: 2px;
+    }
+
+    /* --------------------------------------------------------------------------
+       10. BRAND PARTNERS
+       -------------------------------------------------------------------------- */
+    .brands-sec {
+      padding: 50px 0;
+      background: #F1F5F9;
+      text-align: center;
+    }
+    .brands-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .brands-chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+    }
+    .brand-chip {
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 10px 22px;
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 14px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+
+    /* --------------------------------------------------------------------------
+       11. FOOTER (Gaya Signature OkeTheme)
+       -------------------------------------------------------------------------- */
+    .main-footer {
+      background: var(--primary-dark);
+      color: #94A3B8;
+      padding: 60px 0 24px 0;
+      border-top: 3px solid var(--highlight);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 36px;
+      margin-bottom: 50px;
+    }
+    .footer-col h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 18px;
+      position: relative;
+      padding-bottom: 8px;
+    }
+    .footer-col h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background: var(--gold);
+    }
+    .footer-col p {
+      font-size: 13.5px;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .footer-links-list {
+      list-style: none;
+    }
+    .footer-links-list li {
+      margin-bottom: 10px;
+    }
+    .footer-links-list a {
+      color: #CBD5E1;
+      font-size: 13.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .footer-links-list a:hover {
+      color: var(--gold);
+      padding-left: 4px;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 24px;
+      text-align: center;
+      font-size: 12.5px;
+      color: #64748B;
+    }
+
+    /* --------------------------------------------------------------------------
+       RESPONSIVE MOBILE
+       -------------------------------------------------------------------------- */
+    @media (max-width: 991px) {
+      .hero-title { font-size: 34px; }
+      .about-split { grid-template-columns: 1fr; }
+      .fleet-wrap { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .main-nav { display: none; }
+      .floating-bar { margin-top: 20px; }
+    }
+    @media (max-width: 600px) {
+      .hero-title { font-size: 28px; }
+      .top-info { display: none; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR (INFO & JAM KERJA) -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-info">
+        <span><i class="fas fa-phone-alt"></i> (0711) 571-0888 / 0812-7888-2000</span>
+        <span><i class="fas fa-envelope"></i> info@lotuspradipta.co.id</span>
+        <span><i class="fas fa-map-marker-alt"></i> Pergudangan Palembang Star 1 Blok E5</span>
+      </div>
+      <div class="top-hours">
+        <i class="fas fa-clock"></i>
+        <span>Senin - Sabtu: 08:00 - 17:00 WIB</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN HEADER NAVIGATION -->
+  <header class="main-header">
+    <div class="container header-inner">
+      <a href="#" class="brand-wrap">
+        <img src="/wp-content/uploads/2026/10/logo.png" alt="PT Lotus Pradipta Mulia Logo" class="brand-logo-img" onerror="this.style.display='none'">
+        <div>
+          <div class="brand-title">PT LOTUS PRADIPTA MULIA</div>
+          <span class="brand-subtitle">Distributor Otomotif & Pelumas Nasional</span>
+        </div>
+      </a>
+
+      <!-- Menu Utama Navigasi -->
+      <ul class="main-nav">
+        <li><a href="#" class="active">Beranda</a></li>
+        <li><a href="#about">Tentang Kami</a></li>
+        <li><a href="#products">Produk Resmi</a></li>
+        <li><a href="#benefits">Keunggulan</a></li>
+        <li><a href="#fleet">Web Fleet</a></li>
+        <li><a href="#contact">Kontak</a></li>
+      </ul>
+
+      <!-- Action Buttons Menuju Web Fleet -->
+      <div class="header-cta-group">
+        <a href="http://localhost:3000/#login" target="_blank" rel="noopener noreferrer" class="btn-portal-login">
+          <i class="fas fa-sign-in-alt"></i> Login Web Fleet
+        </a>
+        <a href="http://localhost:3000/#register" target="_blank" rel="noopener noreferrer" class="btn-portal-register">
+          <i class="fas fa-user-plus"></i> Daftar Mitra
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SLIDER BANNER (Signature Bizniz Theme) -->
+  <section class="hero-slider">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-tagline">
+          <i class="fas fa-shield-alt"></i> DISTRIBUTOR RESMI NASIONAL • EST. 2000 • TERDAFTAR KEMENDAG RI
+        </div>
+        <h1 class="hero-company-title">
+          PT LOTUS PRADIPTA MULIA
+        </h1>
+        <h2 class="hero-headline">
+          Distribusi Suku Cadang &amp; Pelumas Terpercaya untuk <span>Kendaraan &amp; Bengkel Bisnis Anda</span>
+        </h2>
+        <p class="hero-desc">
+          Menjadi mitra strategis terpercaya lebih dari <strong>24 tahun</strong> (sejak 2000) dalam penyediaan produk pelumas, aki, ban, dan sparepart berkualitas standar OEM dengan dukungan sistem integrasi monitoring kendaraan terpadu (<strong>Web Fleet</strong>).
+        </p>
+        <div class="hero-buttons">
+          <a href="https://wa.me/6281278882000?text=Halo%20PT%20Lotus%20Pradipta%20Mulia%2C%20saya%20ingin%20konsultasi%20kemitraan%20distribusi" target="_blank" rel="noopener noreferrer" class="btn-hero-wa">
+            <i class="fab fa-whatsapp"></i> Hubungi Kami
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOATING QUICK FEATURES BAR (Bizniz Layout Signature) -->
+  <div class="floating-bar">
+    <div class="container">
+      <div class="feature-boxes">
+        
+        <div class="feature-card">
+          <div class="feature-icon-box"><i class="fas fa-certificate"></i></div>
+          <div class="feature-info">
+            <h4>100% Produk Original</h4>
+            <p>Jaminan keaslian komponen langsung dari prinsipal resmi pabrikan OEM.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box"><i class="fas fa-truck-moving"></i></div>
+          <div class="feature-info">
+            <h4>Rantai Pasok Cepat</h4>
+            <p>Jaringan logistik terpadu menjangkau wilayah SUMBAGUT & SUMBAGSEL.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box"><i class="fas fa-laptop-code"></i></div>
+          <div class="feature-info">
+            <h4>Integrasi Web Fleet</h4>
+            <p>Portal digital pemantauan servis kendaraan & tata kelola armada transparan.</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box"><i class="fas fa-headset"></i></div>
+          <div class="feature-info">
+            <h4>Support Profesional</h4>
+            <p>Tim berpengalaman siap melayani kebutuhan konsultasi armada Anda.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT SECTION (Tentang Perusahaan - Split Layout) -->
+  <section id="about" class="sec-block" style="background:#FFFFFF;">
+    <div class="container">
+      
+      <div class="about-split">
+        <div class="about-visual">
+          <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80" alt="Gudang PT Lotus Pradipta Mulia" class="about-img-main">
+          <div class="about-exp-badge">
+            <strong>24+ Tahun</strong>
+            <span>Dedikasi Distribusi Sejak 2000</span>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <span class="sec-sub">TENTANG KAMI</span>
+          <h3>Membangun Kepercayaan Melalui Keandalan Mutu & Layanan Logistik</h3>
+          <p>
+            <strong>PT Lotus Pradipta Mulia</strong> didirikan pada tahun 2000 berawal dari inisiatif untuk memfokuskan jalur distribusi pelumas terkemuka <strong>Federal Oil</strong> di wilayah Sumatera Utara (Sumut).
+          </p>
+          <p>
+            Dalam perkembangannya selama lebih dari dua dekade, perusahaan bertumbuh pesat menjadi distributor besar berskala nasional dengan portofolio yang meluas ke sektor aki (battery), ban kendaraan, dan suku cadang mesin, melayani seluruh kawasan <strong>SUMBAGUT</strong> (Medan, Aceh, Pekanbaru) serta <strong>SUMBAGSEL</strong> (Palembang, Lampung, Jambi, Bengkulu, Bangka Belitung).
+          </p>
+          
+          <ul class="about-checklist">
+            <li><i class="fas fa-check-circle"></i> Mitra distributor resmi terdaftar di Kementerian Perdagangan RI</li>
+            <li><i class="fas fa-check-circle"></i> Fasilitas pergudangan utama di Komp. Pergudangan Palembang Star 1 Blok E5</li>
+            <li><i class="fas fa-check-circle"></i> Terkoneksi dengan sistem digital pemantauan armada komersial (Web Fleet)</li>
+          </ul>
+
+          <a href="http://localhost:3000/#register" target="_blank" rel="noopener noreferrer" class="btn-hero-main" style="padding: 12px 24px; font-size: 14px;">
+            Bergabung Sebagai Mitra Armada &rarr;
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PRODUCTS SECTION (Katalog Produk Resmi Bizniz) -->
+  <section id="products" class="sec-block">
+    <div class="container">
+      
+      <div class="sec-header">
+        <span class="sec-sub">KATALOG RESMI</span>
+        <h2 class="sec-title">Produk & Komponen yang Didistribusikan</h2>
+        <p class="sec-desc">
+          Produk pilihan berstandar internasional untuk kendaraan roda dua, roda empat, armada komersial angkutan, dan industri.
+        </p>
+      </div>
+
+      <div class="product-cards-grid">
+        
+        <!-- Card 1: Oli -->
+        <div class="bizniz-card">
+          <div class="card-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=800&q=80" alt="Pelumas & Oli Mesin" class="card-thumb">
+            <span class="card-tag">Pelumas</span>
+          </div>
+          <div class="card-body">
+            <div>
+              <h3 class="card-title">Oli Mesin & Transmisi</h3>
+              <p class="card-text">
+                Pelumas otomotif berperforma tinggi dengan formula perlindungan keausan mesin maksimal dan efisiensi bahan bakar.
+              </p>
+            </div>
+            <div class="card-brands-box">
+              <span class="card-brands-label">Merek Resmi:</span>
+              <span class="card-brands-val">Federal Oil</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Aki -->
+        <div class="bizniz-card">
+          <div class="card-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=800&q=80" alt="Aki & Baterai Kendaraan" class="card-thumb">
+            <span class="card-tag">Elektrikal</span>
+          </div>
+          <div class="card-body">
+            <div>
+              <h3 class="card-title">Aki & Baterai Kendaraan</h3>
+              <p class="card-text">
+                Aki Maintenance Free (MF) & aki basah berteknologi Jepang dengan daya starter tinggi di segala kondisi cuaca.
+              </p>
+            </div>
+            <div class="card-brands-box">
+              <span class="card-brands-label">Merek Resmi:</span>
+              <span class="card-brands-val">Furukawa Battery (FB)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Ban -->
+        <div class="bizniz-card">
+          <div class="card-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1578844251758-2f71da64c96f?auto=format&fit=crop&w=800&q=80" alt="Ban Motor & Truk" class="card-thumb">
+            <span class="card-tag">Roda & Ban</span>
+          </div>
+          <div class="card-body">
+            <div>
+              <h3 class="card-title">Ban Motor, Mobil & Truk</h3>
+              <p class="card-text">
+                Daya cengkeram optimal, jarak tempuh ekstra, dan ketahanan tapak untuk efisiensi operasional armada komersial.
+              </p>
+            </div>
+            <div class="card-brands-box">
+              <span class="card-brands-label">Merek Resmi:</span>
+              <span class="card-brands-val">Michelin • Indotube • Kaizen</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Sparepart -->
+        <div class="bizniz-card">
+          <div class="card-thumb-wrap">
+            <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=800&q=80" alt="Sparepart OEM" class="card-thumb">
+            <span class="card-tag">Suku Cadang</span>
+          </div>
+          <div class="card-body">
+            <div>
+              <h3 class="card-title">Sparepart Mesin & Lampu</h3>
+              <p class="card-text">
+                Piston kit, kampas rem, shock absorber, dan bohlam lampu halogen serta LED otomotif berstandar OEM internasional.
+              </p>
+            </div>
+            <div class="card-brands-box">
+              <span class="card-brands-label">Merek Resmi:</span>
+              <span class="card-brands-val">RKN • Ichidai • Sachs • Philips • Osram</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BENEFITS SECTION (6 Grid Features Bizniz) -->
+  <section id="benefits" class="sec-block" style="background:#FFFFFF;">
+    <div class="container">
+      
+      <div class="sec-header">
+        <span class="sec-sub">MENGAPA KAMI?</span>
+        <h2 class="sec-title">Keunggulan Layanan PT Lotus Pradipta Mulia</h2>
+        <p class="sec-desc">
+          Standar keunggulan operasional yang menjadikan kami mitra terpercaya ribuan bengkel dan armada komersial.
+        </p>
+      </div>
+
+      <div class="benefit-grid">
+        
+        <div class="benefit-item">
+          <div class="benefit-icon-round"><i class="fas fa-check-double"></i></div>
+          <div>
+            <h4>100% Produk Original</h4>
+            <p>Seluruh suku cadang, aki, dan pelumas bergaransi resmi langsung dari pabrikan OEM terkemuka.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon-round"><i class="fas fa-shipping-fast"></i></div>
+          <div>
+            <h4>Kecepatan Distribusi</h4>
+            <p>Armada logistik teratur menjamin ketersediaan stok tepat waktu di bengkel dan pangkalan armada Anda.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon-round"><i class="fas fa-map-marked-alt"></i></div>
+          <div>
+            <h4>Cakupan Wilayah Luas</h4>
+            <p>Jaringan suplai mencakup 8 provinsi di Sumatera Bagian Utara (SUMBAGUT) & Selatan (SUMBAGSEL).</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon-round"><i class="fas fa-tags"></i></div>
+          <div>
+            <h4>Harga Kompetitif Mitra</h4>
+            <p>Struktur harga distributor langsung yang mendukung profitabilitas mitra bengkel dan efisiensi fleet.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon-round"><i class="fas fa-desktop"></i></div>
+          <div>
+            <h4>Monitoring Web Fleet</h4>
+            <p>Portal digital terintegrasi untuk melacak status servis unit, alur pengerjaan bengkel, dan invoice.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon-round"><i class="fas fa-users-cog"></i></div>
+          <div>
+            <h4>Dukungan Teknis Ahli</h4>
+            <p>Tim marketing dan technical support berpengalaman siap memberikan konsultasi produk secara berkala.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STATS COUNTER BANNER (Bizniz Theme Style) -->
+  <section class="stats-banner">
+    <div class="container">
+      <div class="stats-items">
+        <div class="stat-box-inner">
+          <strong>24+</strong>
+          <span>Tahun Pengalaman (Est. 2000)</span>
+        </div>
+        <div class="stat-box-inner">
+          <strong>2</strong>
+          <span>Region (SUMBAGUT & SUMBAGSEL)</span>
+        </div>
+        <div class="stat-box-inner">
+          <strong>8+</strong>
+          <span>Merek Resmi Terdistribusi</span>
+        </div>
+        <div class="stat-box-inner">
+          <strong>1.500+</strong>
+          <span>Mitra Bengkel & Armada Terlayani</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WEB FLEET SHOWCASE SECTION -->
+  <section id="fleet" class="fleet-sec">
+    <div class="container">
+      
+      <div class="fleet-wrap">
+        <div>
+          <span class="sec-sub">INTEGRASI DIGITAL FLEET</span>
+          <h2 class="sec-title">Portal Pemantauan Armada Pelanggan (Web Fleet)</h2>
+          <p class="sec-desc" style="margin-bottom: 24px;">
+            Mitra perusahaan dan pemilik armada komersial dapat memantau seluruh proses servis kendaraan secara real-time dari saat masuk bengkel hingga pass keluar, lengkap dengan rekapitulasi suku cadang dan invoice transparan.
+          </p>
+
+          <ul class="about-checklist" style="margin-bottom: 30px;">
+            <li><i class="fas fa-check-circle"></i> Monitoring alur kerja 5 tahap (Check-in, Inspeksi SA, Mekanik, QC Final, Pass Keluar)</li>
+            <li><i class="fas fa-check-circle"></i> Kepastian suku cadang asli bergaransi PT Lotus Pradipta Mulia</li>
+            <li><i class="fas fa-check-circle"></i> Riwayat perawatan armada tersimpan rapi dan terpusat dalam portal</li>
+          </ul>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 14px;">
+            <a href="http://localhost:3000/#login" target="_blank" rel="noopener noreferrer" class="btn-portal-login" style="padding: 12px 24px; font-size: 14px;">
+              <i class="fas fa-lock"></i> Masuk Web Fleet &rarr;
+            </a>
+            <a href="http://localhost:3000/#register" target="_blank" rel="noopener noreferrer" class="btn-portal-register" style="padding: 12px 24px; font-size: 14px;">
+              <i class="fas fa-user-plus"></i> Daftar Akun Mitra Baru
+            </a>
+          </div>
+        </div>
+
+        <div class="fleet-card-preview">
+          <div class="fleet-card-head">
+            <span style="font-weight: 700; color: #FFFFFF;"><i class="fas fa-car-side"></i> LIVE MONITORING ARMADA</span>
+            <span>portal.lotuspradipta.co.id</span>
+          </div>
+          <div>
+            <div class="unit-row">
+              <strong>Unit BK 8821 XA - Hino 500 Tronton</strong>
+              <p>Status: Pengerjaan Mekanik • Ganti Kampas Rem RKN & Oli Federal</p>
+            </div>
+            <div class="unit-row blue">
+              <strong>Unit BG 9021 LP - Isuzu Giga Box</strong>
+              <p>Status: QC Final & Uji Jalan • Lolos Inspeksi Foreman</p>
+            </div>
+            <div class="unit-row green">
+              <strong>Unit BL 4120 MM - Mitsubishi L300</strong>
+              <p>Status: Selesai Servis • Pass Keluar (Gate Out) Siap</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BRAND PARTNERS CHIPS -->
+  <section class="brands-sec">
+    <div class="container">
+      <div class="brands-label">Merek Resmi Terdistribusi Nasional</div>
+      <div class="brands-chips">
+        <span class="brand-chip"><i class="fas fa-oil-can" style="color:#0284C7;"></i> Federal Oil</span>
+        <span class="brand-chip"><i class="fas fa-car-battery" style="color:#059669;"></i> Furukawa Battery</span>
+        <span class="brand-chip"><i class="fas fa-circle-notch" style="color:#D97706;"></i> Michelin</span>
+        <span class="brand-chip"><i class="fas fa-ring" style="color:#7C3AED;"></i> Indotube</span>
+        <span class="brand-chip"><i class="fas fa-truck-monster" style="color:#DC2626;"></i> Kaizen Tires</span>
+        <span class="brand-chip"><i class="fas fa-cogs" style="color:#475569;"></i> RKN Parts</span>
+        <span class="brand-chip"><i class="fas fa-wrench" style="color:#0F766E;"></i> Ichidai</span>
+        <span class="brand-chip"><i class="fas fa-lightbulb" style="color:#EAB308;"></i> Philips Automotive</span>
+        <span class="brand-chip"><i class="fas fa-lightbulb" style="color:#F97316;"></i> Osram</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT & HUB SECTION -->
+  <section id="contact" class="sec-block" style="background:#FFFFFF;">
+    <div class="container">
+      
+      <div class="sec-header">
+        <span class="sec-sub">LOKASI & HUB DISTRIBUSI</span>
+        <h2 class="sec-title">Kantor Utama & Pusat Pergudangan</h2>
+        <p class="sec-desc">
+          Pusat logistik dan pergudangan modern untuk melayani pasokan suku cadang armada di seluruh Pulau Sumatera.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+        
+        <div style="background:#F8FAFC; border:1px solid var(--border-color); border-radius:10px; padding:30px; box-shadow:var(--shadow-sm);">
+          <div style="color:var(--highlight); font-size:24px; margin-bottom:12px;"><i class="fas fa-warehouse"></i></div>
+          <h4 style="font-size:18px; font-weight:700; color:var(--primary); margin-bottom:10px;">Kantor Pusat & Gudang Palembang</h4>
+          <p style="font-size:14px; color:var(--text-muted); line-height:1.7; margin-bottom:16px;">
+            <strong>Komplek Pergudangan Palembang Star 1 Blok E5</strong><br>
+            Jl. Letjen Harun Sohar / Jl. Tanjung Api-Api, Kebun Bunga, Kec. Sukarami, Kota Palembang, Sumatera Selatan.
+          </p>
+          <div style="font-size:13px; color:#0F766E; font-weight:600;">
+            <i class="fas fa-check-circle"></i> Terdaftar Resmi di Kementerian Perdagangan RI
+          </div>
+        </div>
+
+        <div style="background:#F8FAFC; border:1px solid var(--border-color); border-radius:10px; padding:30px; box-shadow:var(--shadow-sm);">
+          <div style="color:#0284C7; font-size:24px; margin-bottom:12px;"><i class="fas fa-map-marked-alt"></i></div>
+          <h4 style="font-size:18px; font-weight:700; color:var(--primary); margin-bottom:10px;">Cakupan Wilayah Regional</h4>
+          <div style="margin-bottom:14px;">
+            <strong style="color:#0284C7; font-size:13px; display:block;">REGION SUMBAGUT:</strong>
+            <span style="font-size:13px; color:var(--text-muted);">Medan (Sumut), Aceh, dan Pekanbaru (Riau).</span>
+          </div>
+          <div>
+            <strong style="color:#0F766E; font-size:13px; display:block;">REGION SUMBAGSEL:</strong>
+            <span style="font-size:13px; color:var(--text-muted);">Palembang (Sumsel), Lampung, Jambi, Bengkulu, dan Bangka Belitung.</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MAIN FOOTER (Signature Bizniz Theme OkeTheme) -->
+  <footer class="main-footer">
+    <div class="container">
+      
+      <div class="footer-grid">
+        
+        <!-- Kolom 1: Profil -->
+        <div class="footer-col">
+          <h4>PT LOTUS PRADIPTA MULIA</h4>
+          <p>
+            Distributor nasional resmi pelumas, aki kendaraan, ban, dan suku cadang otomotif terkemuka sejak tahun 2000.
+          </p>
+          <p style="font-size:12.5px; color:#64748B;">
+            Terdaftar di Kementerian Perdagangan Republik Indonesia.
+          </p>
+        </div>
+
+        <!-- Kolom 2: Navigasi -->
+        <div class="footer-col">
+          <h4>Navigasi Cepat</h4>
+          <ul class="footer-links-list">
+            <li><a href="#"><i class="fas fa-chevron-right" style="font-size:10px;"></i> Beranda</a></li>
+            <li><a href="#about"><i class="fas fa-chevron-right" style="font-size:10px;"></i> Tentang Kami</a></li>
+            <li><a href="#products"><i class="fas fa-chevron-right" style="font-size:10px;"></i> Produk Resmi</a></li>
+            <li><a href="#benefits"><i class="fas fa-chevron-right" style="font-size:10px;"></i> Keunggulan</a></li>
+            <li><a href="#contact"><i class="fas fa-chevron-right" style="font-size:10px;"></i> Kontak & Hub</a></li>
+          </ul>
+        </div>
+
+        <!-- Kolom 3: Layanan Portal -->
+        <div class="footer-col">
+          <h4>Portal Web Fleet</h4>
+          <ul class="footer-links-list">
+            <li><a href="http://localhost:3000/#login" target="_blank" rel="noopener noreferrer"><i class="fas fa-sign-in-alt"></i> Login Web Fleet</a></li>
+            <li><a href="http://localhost:3000/#register" target="_blank" rel="noopener noreferrer"><i class="fas fa-user-plus"></i> Pendaftaran Mitra Baru</a></li>
+            <li><a href="#fleet"><i class="fas fa-info-circle"></i> Panduan Alur Servis</a></li>
+          </ul>
+        </div>
+
+        <!-- Kolom 4: Hub Kantor -->
+        <div class="footer-col">
+          <h4>Hub Logistik</h4>
+          <p style="font-size:13px; line-height:1.6;">
+            Komp. Pergudangan Palembang Star 1 Blok E5, Jl. Letjen Harun Sohar, Palembang, Sumatera Selatan.
+          </p>
+          <p style="font-size:13px; color:#FDE68A;">
+            <i class="fas fa-phone-alt"></i> (0711) 571-0888
+          </p>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        &copy; 2026 PT Lotus Pradipta Mulia. Seluruh Hak Cipta Dilindungi Undang-Undang. Terdaftar Resmi di Kemendag RI.
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
+HTML;
+
+// Update page
+$page_data = [
+    'ID'            => $page_id,
+    'post_content'  => $html,
+    'post_status'   => 'publish',
+    'post_type'     => 'page',
+];
+wp_update_post($page_data);
+
+// Configure page template to template-bizniz.php (Astra Custom Template)
+update_post_meta($page_id, '_wp_page_template', 'template-bizniz.php');
+delete_post_meta($page_id, '_elementor_edit_mode');
+
+echo "Halaman Beranda berhasil di-update dengan gaya Bizniz Theme OkeTheme!\n";
