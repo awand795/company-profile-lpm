@@ -1,0 +1,21 @@
+/*
+Theme Name: Master Truck
+Theme URI: https://mastertruck.co.id/
+Author: Master Truck
+Description: Company profile Master Truck — bengkel perawatan truk niaga dan alat berat sekaligus penyedia suku cadang, KIM III Medan. Tema klasik sederhana yang merender front-page.php sebagai halaman depan tanpa Page Template.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.6
+Requires PHP: 8.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: mastertruck
+Tags: business, one-column, custom-logo
+*/
+
+/*
+ * File ini hanya berisi header metadata theme yang WAJIB ada agar WordPress
+ * mengenali folder sebagai theme.
+ * * Style halaman depan dimuat dari assets/css/style.css (disalin ke folder
+ * assets/ dalam theme ini oleh sync-to-wp.ps1), bukan dari file ini.
+ */

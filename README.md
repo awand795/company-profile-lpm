@@ -1,58 +1,70 @@
-# MASTER TRUCK — Landing Page (Mockup Theme CarService)
+# MASTER TRUCK — Landing Page (Theme CarServ)
 
-Landing page **MASTER TRUCK** — Bengkel spesialis perawatan truk niaga & alat berat, sekaligus Distributor Nasional Resmi Pelumas Pertamina, Mobil, Ban Dunlop, Aki Incoe/GS Astra, serta Filter & Sparepart OEM. Berlokasi di **KIM III Medan**.
+Landing page **MASTER TRUCK** — Bengkel spesialis perawatan truk niaga & alat berat, sekaligus Distributor Nasional Resmi Pelumas Pertamina, Mobil Delvac, Ban Dunlop, Aki Incoe/GS Astra, serta Filter & Sparepart OEM. Berlokasi strategis di **KIM III Medan**.
 
-## 🎨 Theme / Desain
+## 🎨 Theme & Desain
 
-Mockup ini dibangun dari nol meniru gaya **CarService – Mechanic & Auto Repair WordPress Theme** oleh QuanticaLabs (ThemeForest #12777824):
+Menggunakan tema resmi **[CarServ](https://themewagon.github.io/carserv/)** oleh **HTML Codex & ThemeWagon**:
+- **Warna Utama**: Merah CarServ (`#D81324`) & Biru Navy Gelap (`#0B2154`)
+- **Font**: Barlow (600/700) & Ubuntu (400/500)
+- **Komponen**: Header Carousel interaktif, Topbar kontak & link fleet, Tabbed Services, Fakta counter angka, Form Booking Servis via WhatsApp, Tim Teknisi, dan Testimonial Carousel (OwlCarousel).
 
-| Elemen            | Nilai                                                        |
-| ----------------- | ------------------------------------------------------------ |
-| Font utama        | Open Sans (300/400/600/700/800)                               |
-| Warna utama       | `#1E69B8` (biru) · aksen `#5FC7AE` · `#F68220`                 |
-| Warna gelap       | `#1A2530` · `#111A22`                                         |
-| Ciri khas layout  | Baris putih dipisah gutter abu-abu 25px, box-header bergaris bawah biru, tombol `.more` dengan aksen bar kiri |
-
-## 📁 Struktur
+## 📁 Struktur Berkas
 
 ```text
-├── index.html              # Mockup landing page (buka langsung di browser)
+├── index.html                           # Mockup landing page mandiri
 ├── assets/
-│   ├── css/style.css       # Seluruh style mockup (mudah diporting ke WP)
-│   ├── js/main.js          # Slider, menu mobile, counter, animasi reveal
-│   └── images/             # Foto bengkel & slider
-├── docker-compose.yml      # Stack WordPress + MariaDB (localhost:8080)
-└── database_dump.sql       # Backup database WordPress
+│   ├── css/
+│   │   ├── bootstrap.min.css            # Bootstrap 5
+│   │   └── style.css                    # Stylesheet tema CarServ
+│   ├── js/
+│   │   └── main.js                      # Inisialisasi carousel, counter, datetimepicker, dll.
+│   ├── lib/                             # Pustaka animasi, owlcarousel, tempusdominus, dll.
+│   └── img/                             # Foto & aset gambar tema CarServ
+├── wp-integration/
+│   ├── template-mastertruck.php         # Template Page WordPress (CarServ)
+│   └── mastertruck/                     # Mirror aset untuk tema WordPress aktif
+├── sync-to-wp.ps1                       # Skrip sinkronisasi otomatis ke container Docker
+├── docker-compose.yml                   # Stack WordPress + MariaDB (localhost:8080)
+└── database_dump.sql                    # Backup database WordPress
 ```
+
+## 🖼️ Panduan Mengganti Foto Bawaan Tema
+Seluruh foto tema CarServ tersimpan di folder `assets/img/`. Anda dapat mengganti foto-foto berikut dengan foto asli bengkel Anda kapan saja:
+
+| Nama File | Keterangan & Ukuran |
+| --------- | ------------------- |
+| `carousel-bg-1.jpg` & `carousel-bg-2.jpg` | Background slide banner utama (1920x1080 px) |
+| `carousel-1.png` & `carousel-2.png` | Gambar unit di atas slide banner (transparan PNG) |
+| `about.jpg` | Foto fasilitas bengkel di bagian Tentang Kami |
+| `service-1.jpg` s/d `service-4.jpg` | Foto 4 kategori layanan (Diagnostik, Overhaul, Ban, Ganti Oli) |
+| `team-1.jpg` s/d `team-4.jpg` | Foto tim teknisi / mekanik |
+| `testimonial-1.jpg` s/d `testimonial-4.jpg` | Foto avatar testimoni pelanggan |
+
+> **Catatan:** Setelah mengganti foto di `assets/img/`, salin foto ke `wp-integration/mastertruck/img/` lalu jalankan `.\sync-to-wp.ps1` untuk memperbarui tampilan di WordPress.
 
 ## 🚀 Cara Menjalankan
 
-### Mockup statis (untuk review desain)
-Buka `index.html` langsung di browser, atau:
-```bash
+### Mockup Statis (Review di Browser)
+```powershell
 start index.html
 ```
 
-### WordPress (stack Docker)
-```bash
-docker compose up -d
-# Akses: http://localhost:8080/
+### WordPress (Container Docker)
+Website WordPress berjalan di:
+```text
+http://localhost:8080/
 ```
 
-## 🔐 Portal Login & Pendaftaran
+### Sinkronisasi ke WordPress
+```powershell
+.\sync-to-wp.ps1
+```
 
-Halaman login & daftar mengarah ke portal operasional **Web Fleet Management System KIM 3 Medan** (`http://localhost:3000`):
-- **Login Web Fleet** → `/#login`
-- **Pendaftaran Mitra Baru** → `/#register`
-
-Akses tersedia di top bar, menu *Portal Fleet* (dropdown), section *Portal Web Fleet*, dan footer.
-
-## 🗺️ Langkah Selanjutnya
-
-1. Review mockup & berikan masukan desain
-2. Porting mockup menjadi template WordPress (menggantikan tema lama yang sudah dihapus)
-3. Integrasi final dengan portal Web Fleet
+## 🔐 Integrasi Portal Web Fleet
+- **Login Web Fleet** → `http://localhost:3000/#login`
+- **Pendaftaran Mitra Baru** → `http://localhost:3000/#register`
 
 ---
 
-&copy; 2026 MASTER TRUCK. Seluruh Hak Cipta Dilindungi.
+&copy; 2026 PT MASTER TRUCK INDONESIA. Theme based on CarServ by HTML Codex & ThemeWagon.
