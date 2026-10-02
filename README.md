@@ -1,56 +1,58 @@
-# MASTER TRUCK - Company Profile & Landing Page
+# MASTER TRUCK — Landing Page (Mockup Theme CarService)
 
-Landing Page & Company Profile resmi **MASTER TRUCK** — Distributor Nasional Resmi Pelumas Pertamina, Mobil Lubricants, Ban Truk & Alat Berat, Aki Incoe/GS Astra, serta Filter & Sparepart Otomotif Terkemuka di Indonesia.
+Landing page **MASTER TRUCK** — Bengkel spesialis perawatan truk niaga & alat berat, sekaligus Distributor Nasional Resmi Pelumas Pertamina, Mobil, Ban Dunlop, Aki Incoe/GS Astra, serta Filter & Sparepart OEM. Berlokasi di **KIM III Medan**.
 
-Website ini terintegrasi langsung dengan portal operasional **Web Fleet Management System KIM 3 Medan**.
+## 🎨 Theme / Desain
 
----
+Mockup ini dibangun dari nol meniru gaya **CarService – Mechanic & Auto Repair WordPress Theme** oleh QuanticaLabs (ThemeForest #12777824):
 
-## 🌟 Fitur Utama
-- **Desain Modern Korporat**: Mengusung tata letak *clean*, responsif, dan elegan terinspirasi dari standar *OkeTheme Bizniz*.
-- **Integrasi Web Fleet Portal**: Tombol aksi langsung terhubung ke sistem kemitraan:
-  - *Masuk Portal Web Fleet*: Login cepat armada fleet.
-  - *Registrasi Kemitraan Kendaraan*: Pendaftaran customer fleet baru.
-  - *Hubungi Kami*: Konsultasi cepat via WhatsApp Support.
-- **Katalog Produk & Prinsipal Resmi**: Menampilkan produk resmi Pertamina Lubricants, Mobil, Dunlop, Incoe, dll.
-- **Peta Jangkauan Distribusi**: Cakupan logistik Sumatera Bagian Utara (Sumbagut) & Sumatera Bagian Selatan (Sumbagsel).
+| Elemen            | Nilai                                                        |
+| ----------------- | ------------------------------------------------------------ |
+| Font utama        | Open Sans (300/400/600/700/800)                               |
+| Warna utama       | `#1E69B8` (biru) · aksen `#5FC7AE` · `#F68220`                 |
+| Warna gelap       | `#1A2530` · `#111A22`                                         |
+| Ciri khas layout  | Baris putih dipisah gutter abu-abu 25px, box-header bergaris bawah biru, tombol `.more` dengan aksen bar kiri |
 
----
+## 📁 Struktur
+
+```text
+├── index.html              # Mockup landing page (buka langsung di browser)
+├── assets/
+│   ├── css/style.css       # Seluruh style mockup (mudah diporting ke WP)
+│   ├── js/main.js          # Slider, menu mobile, counter, animasi reveal
+│   └── images/             # Foto bengkel & slider
+├── docker-compose.yml      # Stack WordPress + MariaDB (localhost:8080)
+└── database_dump.sql       # Backup database WordPress
+```
 
 ## 🚀 Cara Menjalankan
 
-### Opsi 1: Menjalankan Langsung (Static Web / GitHub Pages)
-Buka file `index.html` langsung di browser Anda atau host pada layanan static hosting (GitHub Pages, Vercel, Netlify):
+### Mockup statis (untuk review desain)
+Buka `index.html` langsung di browser, atau:
 ```bash
-# Preview langsung di browser lokal
 start index.html
 ```
 
-### Opsi 2: Menjalankan Menggunakan Docker Compose (WordPress Stack)
-Proyek ini dilengkapi konfigurasi Docker lengkap dengan WordPress & MariaDB:
-
-1. **Jalankan Container**:
-   ```bash
-   docker compose up -d
-   ```
-2. **Akses WordPress**:
-   - URL: `http://localhost:8080/`
-   - Database Dump: File `database_dump.sql` disediakan untuk restore instan data WordPress & template aktif.
-
----
-
-## 📁 Struktur Direktori
-```text
-├── index.html                 # Halaman static standalone (siap deploy tanpa PHP)
-├── template-bizniz.php        # WordPress Custom Page Template (Astra / Bizniz Theme)
-├── docker-compose.yml         # Konfigurasi container WordPress & MariaDB
-├── database_dump.sql          # Backup database MariaDB WordPress lengkap
-├── apply_bizniz_theme.php     # Skrip automasi inject template ke WordPress
-├── update_stunning_landing.php# Skrip update konten landing page
-└── README.md                  # Dokumentasi proyek
+### WordPress (stack Docker)
+```bash
+docker compose up -d
+# Akses: http://localhost:8080/
 ```
 
+## 🔐 Portal Login & Pendaftaran
+
+Halaman login & daftar mengarah ke portal operasional **Web Fleet Management System KIM 3 Medan** (`http://localhost:3000`):
+- **Login Web Fleet** → `/#login`
+- **Pendaftaran Mitra Baru** → `/#register`
+
+Akses tersedia di top bar, menu *Portal Fleet* (dropdown), section *Portal Web Fleet*, dan footer.
+
+## 🗺️ Langkah Selanjutnya
+
+1. Review mockup & berikan masukan desain
+2. Porting mockup menjadi template WordPress (menggantikan tema lama yang sudah dihapus)
+3. Integrasi final dengan portal Web Fleet
+
 ---
 
-## 📄 Hak Cipta
 &copy; 2026 MASTER TRUCK. Seluruh Hak Cipta Dilindungi.

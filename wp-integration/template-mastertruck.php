@@ -1,3 +1,12 @@
+<?php
+/**
+ * Template Name: Master Truck Landing
+ * Template Post Type: page
+ *
+ * Landing page Master Truk - gaya tema CarService (QuanticaLabs #12777824)
+ */
+$mt_base = get_stylesheet_directory_uri() . '/mastertruck';
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -15,7 +24,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
   <!-- Stylesheet mockup -->
-  <link rel="stylesheet" href="assets/css/style.css?v=3">
+  <link rel="stylesheet" href="<?php echo esc_url( $mt_base ); ?>/style.css?v=3">
 </head>
 <body>
 
@@ -441,6 +450,6 @@
   <!-- Tombol kembali ke atas -->
   <button class="scroll-top" aria-label="Kembali ke atas"><i class="fas fa-arrow-up"></i></button>
 
-  <script src="assets/js/main.js?v=3"></script>
+  <script src="<?php echo esc_url( $mt_base ); ?>/main.js?v=3"></script>
 </body>
 </html>

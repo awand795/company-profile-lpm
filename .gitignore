@@ -6,3 +6,7 @@ desktop.ini
 # Temporary files
 *.tmp
 *.log
+
+# Screenshot preview (artefak mockup)
+mockup_*.png
+wp_*.png
