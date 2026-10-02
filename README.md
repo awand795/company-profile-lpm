@@ -1,6 +1,6 @@
-# PT Lotus Pradipta Mulia - Company Profile & Landing Page
+# MASTER TRUCK - Company Profile & Landing Page
 
-Landing Page & Company Profile resmi **PT Lotus Pradipta Mulia** — Distributor Nasional Resmi Pelumas Pertamina, Mobil Lubricants, Ban Truk & Alat Berat, Aki Incoe/GS Astra, serta Filter & Sparepart Otomotif Terkemuka di Indonesia.
+Landing Page & Company Profile resmi **MASTER TRUCK** — Distributor Nasional Resmi Pelumas Pertamina, Mobil Lubricants, Ban Truk & Alat Berat, Aki Incoe/GS Astra, serta Filter & Sparepart Otomotif Terkemuka di Indonesia.
 
 Website ini terintegrasi langsung dengan portal operasional **Web Fleet Management System KIM 3 Medan**.
 
@@ -53,4 +53,4 @@ Proyek ini dilengkapi konfigurasi Docker lengkap dengan WordPress & MariaDB:
 ---
 
 ## 📄 Hak Cipta
-&copy; 2026 PT Lotus Pradipta Mulia. Seluruh Hak Cipta Dilindungi.
+&copy; 2026 MASTER TRUCK. Seluruh Hak Cipta Dilindungi.

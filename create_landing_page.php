@@ -11,7 +11,7 @@ $page_content = <<<'HTML'
     
     <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(20, 184, 166, 0.15); border: 1px solid rgba(20, 184, 166, 0.4); padding: 6px 16px; rounded: 50px; border-radius: 50px; margin-bottom: 24px;">
       <span style="display: inline-block; width: 8px; height: 8px; background: #2DD4BF; border-radius: 50%; box-shadow: 0 0 10px #2DD4BF;"></span>
-      <span style="font-size: 12px; font-weight: 700; letter-spacing: 1.5px; color: #5EEAD4; text-transform: uppercase;">DISTRIBUTOR NASIONAL OTOMOTIF & PELUMAS</span>
+      <span style="font-size: 12px; font-weight: 700; letter-spacing: 1.5px; color: #5EEAD4; text-transform: uppercase;">Bengkel Perawatan & Perbaikan Truk dan Armada Niaga</span>
     </div>
 
     <h1 style="font-size: 46px; line-height: 1.2; font-weight: 800; margin: 0 0 20px 0; color: #FFFFFF; letter-spacing: -0.5px;">
@@ -19,7 +19,7 @@ $page_content = <<<'HTML'
     </h1>
 
     <p style="font-size: 18px; line-height: 1.6; color: #CBD5E1; max-width: 780px; margin: 0 0 36px 0;">
-      PT Lotus Pradipta Mulia telah lebih dari <strong>24 tahun</strong> (Est. 2000) menjadi distributor resmi terpercaya pelumas, aki, ban, dan suku cadang untuk ribuan jaringan bengkel serta armada komersial di seluruh Pulau Sumatera.
+      MASTER TRUCK telah lebih dari <strong>24 tahun</strong> (Est. 2000) menjadi distributor resmi terpercaya pelumas, aki, ban, dan suku cadang untuk ribuan jaringan bengkel serta armada komersial di seluruh Pulau Sumatera.
     </p>
 
     <!-- ACTION BUTTONS -->
@@ -78,7 +78,7 @@ $page_content = <<<'HTML'
         </div>
         <h3 style="font-size: 20px; font-weight: 700; color: #0F172A; margin: 0 0 14px 0;">Awal Mula & Perkembangan</h3>
         <p style="font-size: 14px; line-height: 1.7; color: #475569; margin-bottom: 16px;">
-          PT Lotus Pradipta Mulia didirikan pada tahun 2000 berawal dari inisiatif untuk memfokuskan jalur distribusi pelumas terkemuka <strong>Federal Oil</strong> di wilayah Sumatera Utara.
+          MASTER TRUCK didirikan pada tahun 2000 berawal dari inisiatif untuk memfokuskan jalur distribusi pelumas terkemuka <strong>Federal Oil</strong> di wilayah Sumatera Utara.
         </p>
         <p style="font-size: 14px; line-height: 1.7; color: #475569; margin: 0;">
           Seiring berjalannya waktu dan meningkatnya kepercayaan pelaku industri, perusahaan memperluas portofolio produk ke sektor aki, ban, dan sparepart mesin, sekaligus mengekspansi jaringan operasional hingga mencakup seluruh Pulau Sumatera (SUMBAGUT & SUMBAGSEL).
@@ -217,7 +217,7 @@ $page_content = <<<'HTML'
             <span style="color: #2DD4BF; font-weight: bold;">✔</span> Validasi invoice dan persetujuan penawaran servis secara digital.
           </div>
           <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #E2E8F0;">
-            <span style="color: #2DD4BF; font-weight: bold;">✔</span> Garansi ketersediaan komponen resmi PT Lotus Pradipta Mulia.
+            <span style="color: #2DD4BF; font-weight: bold;">✔</span> Garansi ketersediaan komponen resmi MASTER TRUCK.
           </div>
         </div>
 
@@ -283,7 +283,7 @@ $page_content = <<<'HTML'
         <h3 style="font-size: 20px; font-weight: 700; color: #0F172A; margin: 0 0 12px 0;">Kantor Pusat & Pergudangan Utama</h3>
         <p style="font-size: 14px; line-height: 1.7; color: #475569; margin-bottom: 16px;">
           <strong>Komplek Pergudangan Palembang Star 1, Blok E5</strong><br>
-          Jl. Letjen Harun Sohar / Jl. Tanjung Api-Api, Kebun Bunga, Kec. Sukarami, Kota Palembang, Sumatera Selatan.
+          Jl. Pulau Bunaken Komplek Warehouse KIM III No. 3A, Mabar, Kec. Medan Labuhan, Kota Medan, Sumatera Utara 20242.
         </p>
         <div style="font-size: 13px; color: #64748B;">
           <strong>Legalitas:</strong> Terdaftar Resmi di Kementerian Perdagangan Republik Indonesia.
@@ -315,7 +315,7 @@ $page_content = <<<'HTML'
 <footer style="background: #090D16; color: #94A3B8; padding: 50px 24px 30px 24px; border-top: 1px solid #1E293B;">
   <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
     <div>
-      <div style="font-size: 16px; font-weight: 800; color: #FFFFFF; margin-bottom: 6px;">PT LOTUS PRADIPTA MULIA</div>
+      <div style="font-size: 16px; font-weight: 800; color: #FFFFFF; margin-bottom: 6px;">MASTER TRUCK</div>
       <div style="font-size: 12px; color: #64748B;">Distributor Resmi Nasional Pelumas, Aki, Ban & Suku Cadang Otomotif</div>
     </div>
     <div style="display: flex; gap: 20px; font-size: 13px;">
@@ -324,14 +324,14 @@ $page_content = <<<'HTML'
     </div>
   </div>
   <div style="max-width: 1200px; margin: 30px auto 0 auto; padding-top: 20px; border-top: 1px solid #1E293B; font-size: 12px; text-align: center; color: #475569;">
-    &copy; 2026 PT Lotus Pradipta Mulia. Hak Cipta Dilindungi Undang-Undang. Terdaftar di Kemendag RI.
+    &copy; 2026 MASTER TRUCK. Hak Cipta Dilindungi Undang-Undang. Terdaftar di Kemendag RI.
   </div>
 </footer>
 HTML;
 
 // 2. Buat atau update halaman Beranda
 $page_data = [
-    'post_title'    => 'Beranda - PT Lotus Pradipta Mulia',
+    'post_title'    => 'Beranda - MASTER TRUCK',
     'post_name'     => 'beranda',
     'post_content'  => $page_content,
     'post_status'   => 'publish',

@@ -9,7 +9,7 @@ $html = <<<'HTML'
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PT Lotus Pradipta Mulia - Distributor Nasional Otomotif & Pelumas</title>
+  <title>MASTER TRUCK - Bengkel Perawatan & Perbaikan Truk dan Armada Niaga</title>
   
   <!-- Google Fonts: Inter & Plus Jakarta Sans (Gaya Bizniz Theme OkeTheme) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +21,7 @@ $html = <<<'HTML'
 
   <style>
     /* ==========================================================================
-       BIZNIZ THEME (OKETHEME INSPIRATION) - PT LOTUS PRADIPTA MULIA
+       BIZNIZ THEME (OKETHEME INSPIRATION) - MASTER TRUCK
        Corporate, Clean, Professional, High-Density Indonesian Company Profile
        ========================================================================== */
     :root {
@@ -854,9 +854,9 @@ $html = <<<'HTML'
   <div class="top-bar">
     <div class="container top-bar-inner">
       <div class="top-info">
-        <span><i class="fas fa-phone-alt"></i> (0711) 571-0888 / 0812-7888-2000</span>
-        <span><i class="fas fa-envelope"></i> info@lotuspradipta.co.id</span>
-        <span><i class="fas fa-map-marker-alt"></i> Pergudangan Palembang Star 1 Blok E5</span>
+        <span><i class="fas fa-phone-alt"></i> (061) 8882-9999 / 0812-3456-7890</span>
+        <span><i class="fas fa-envelope"></i> contact@mastertruck.id</span>
+        <span><i class="fas fa-map-marker-alt"></i> Warehouse KIM III No. 3A, Medan</span>
       </div>
       <div class="top-hours">
         <i class="fas fa-clock"></i>
@@ -869,9 +869,9 @@ $html = <<<'HTML'
   <header class="main-header">
     <div class="container header-inner">
       <a href="#" class="brand-wrap">
-        <img src="/wp-content/uploads/2026/10/logo.png" alt="PT Lotus Pradipta Mulia Logo" class="brand-logo-img" onerror="this.style.display='none'">
+        <img src="/wp-content/uploads/2026/10/logo.png" alt="MASTER TRUCK Logo" class="brand-logo-img" onerror="this.style.display='none'">
         <div>
-          <div class="brand-title">PT LOTUS PRADIPTA MULIA</div>
+          <div class="brand-title">MASTER TRUCK</div>
           <span class="brand-subtitle">Distributor Otomotif & Pelumas Nasional</span>
         </div>
       </a>
@@ -906,7 +906,7 @@ $html = <<<'HTML'
           <i class="fas fa-shield-alt"></i> DISTRIBUTOR RESMI NASIONAL • EST. 2000 • TERDAFTAR KEMENDAG RI
         </div>
         <h1 class="hero-company-title">
-          PT LOTUS PRADIPTA MULIA
+          MASTER TRUCK
         </h1>
         <h2 class="hero-headline">
           Distribusi Suku Cadang &amp; Pelumas Terpercaya untuk <span>Kendaraan &amp; Bengkel Bisnis Anda</span>
@@ -915,7 +915,7 @@ $html = <<<'HTML'
           Menjadi mitra strategis terpercaya lebih dari <strong>24 tahun</strong> (sejak 2000) dalam penyediaan produk pelumas, aki, ban, dan sparepart berkualitas standar OEM dengan dukungan sistem integrasi monitoring kendaraan terpadu (<strong>Web Fleet</strong>).
         </p>
         <div class="hero-buttons">
-          <a href="https://wa.me/6281278882000?text=Halo%20PT%20Lotus%20Pradipta%20Mulia%2C%20saya%20ingin%20konsultasi%20kemitraan%20distribusi" target="_blank" rel="noopener noreferrer" class="btn-hero-wa">
+          <a href="https://wa.me/6281234567890?text=Halo%20Master%20Truck%2C%20saya%20ingin%20konsultasi%20perawatan%20armada%20truk" target="_blank" rel="noopener noreferrer" class="btn-hero-wa">
             <i class="fab fa-whatsapp"></i> Hubungi Kami
           </a>
         </div>
@@ -970,7 +970,7 @@ $html = <<<'HTML'
       
       <div class="about-split">
         <div class="about-visual">
-          <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80" alt="Gudang PT Lotus Pradipta Mulia" class="about-img-main">
+          <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80" alt="Gudang MASTER TRUCK" class="about-img-main">
           <div class="about-exp-badge">
             <strong>24+ Tahun</strong>
             <span>Dedikasi Distribusi Sejak 2000</span>
@@ -981,15 +981,15 @@ $html = <<<'HTML'
           <span class="sec-sub">TENTANG KAMI</span>
           <h3>Membangun Kepercayaan Melalui Keandalan Mutu & Layanan Logistik</h3>
           <p>
-            <strong>PT Lotus Pradipta Mulia</strong> didirikan pada tahun 2000 berawal dari inisiatif untuk memfokuskan jalur distribusi pelumas terkemuka <strong>Federal Oil</strong> di wilayah Sumatera Utara (Sumut).
+            <strong>MASTER TRUCK</strong> didirikan pada tahun 2000 berawal dari inisiatif untuk memfokuskan jalur distribusi pelumas terkemuka <strong>Federal Oil</strong> di wilayah Sumatera Utara (Sumut).
           </p>
           <p>
-            Dalam perkembangannya selama lebih dari dua dekade, perusahaan bertumbuh pesat menjadi distributor besar berskala nasional dengan portofolio yang meluas ke sektor aki (battery), ban kendaraan, dan suku cadang mesin, melayani seluruh kawasan <strong>SUMBAGUT</strong> (Medan, Aceh, Pekanbaru) serta <strong>SUMBAGSEL</strong> (Palembang, Lampung, Jambi, Bengkulu, Bangka Belitung).
+            Dalam perkembangannya selama lebih dari dua dekade, perusahaan bertumbuh pesat menjadi distributor besar berskala nasional dengan portofolio yang meluas ke sektor aki (battery), ban kendaraan, dan suku cadang mesin, melayani seluruh kawasan <strong>SUMBAGUT</strong> (Medan, Aceh, Pekanbaru) serta seluruh wilayah Sumatera Bagian Utara.
           </p>
           
           <ul class="about-checklist">
             <li><i class="fas fa-check-circle"></i> Mitra distributor resmi terdaftar di Kementerian Perdagangan RI</li>
-            <li><i class="fas fa-check-circle"></i> Fasilitas pergudangan utama di Komp. Pergudangan Palembang Star 1 Blok E5</li>
+            <li><i class="fas fa-check-circle"></i> Fasilitas pergudangan utama di Komp. Warehouse KIM III No. 3A, Medan</li>
             <li><i class="fas fa-check-circle"></i> Terkoneksi dengan sistem digital pemantauan armada komersial (Web Fleet)</li>
           </ul>
 
@@ -1107,7 +1107,7 @@ $html = <<<'HTML'
       
       <div class="sec-header">
         <span class="sec-sub">MENGAPA KAMI?</span>
-        <h2 class="sec-title">Keunggulan Layanan PT Lotus Pradipta Mulia</h2>
+        <h2 class="sec-title">Keunggulan Layanan MASTER TRUCK</h2>
         <p class="sec-desc">
           Standar keunggulan operasional yang menjadikan kami mitra terpercaya ribuan bengkel dan armada komersial.
         </p>
@@ -1206,7 +1206,7 @@ $html = <<<'HTML'
 
           <ul class="about-checklist" style="margin-bottom: 30px;">
             <li><i class="fas fa-check-circle"></i> Monitoring alur kerja 5 tahap (Check-in, Inspeksi SA, Mekanik, QC Final, Pass Keluar)</li>
-            <li><i class="fas fa-check-circle"></i> Kepastian suku cadang asli bergaransi PT Lotus Pradipta Mulia</li>
+            <li><i class="fas fa-check-circle"></i> Kepastian suku cadang asli bergaransi MASTER TRUCK</li>
             <li><i class="fas fa-check-circle"></i> Riwayat perawatan armada tersimpan rapi dan terpusat dalam portal</li>
           </ul>
 
@@ -1279,10 +1279,10 @@ $html = <<<'HTML'
         
         <div style="background:#F8FAFC; border:1px solid var(--border-color); border-radius:10px; padding:30px; box-shadow:var(--shadow-sm);">
           <div style="color:var(--highlight); font-size:24px; margin-bottom:12px;"><i class="fas fa-warehouse"></i></div>
-          <h4 style="font-size:18px; font-weight:700; color:var(--primary); margin-bottom:10px;">Kantor Pusat & Gudang Palembang</h4>
+          <h4 style="font-size:18px; font-weight:700; color:var(--primary); margin-bottom:10px;">Kantor & Workshop Utama KIM 3 Medan</h4>
           <p style="font-size:14px; color:var(--text-muted); line-height:1.7; margin-bottom:16px;">
-            <strong>Komplek Pergudangan Palembang Star 1 Blok E5</strong><br>
-            Jl. Letjen Harun Sohar / Jl. Tanjung Api-Api, Kebun Bunga, Kec. Sukarami, Kota Palembang, Sumatera Selatan.
+            <strong>Komplek Warehouse KIM III No. 3A, Medan</strong><br>
+            Jl. Pulau Bunaken Komplek Warehouse KIM III No. 3A, Mabar, Kec. Medan Labuhan, Kota Medan, Sumatera Utara 20242.
           </p>
           <div style="font-size:13px; color:#0F766E; font-weight:600;">
             <i class="fas fa-check-circle"></i> Terdaftar Resmi di Kementerian Perdagangan RI
@@ -1298,7 +1298,7 @@ $html = <<<'HTML'
           </div>
           <div>
             <strong style="color:#0F766E; font-size:13px; display:block;">REGION SUMBAGSEL:</strong>
-            <span style="font-size:13px; color:var(--text-muted);">Palembang (Sumsel), Lampung, Jambi, Bengkulu, dan Bangka Belitung.</span>
+            <span style="font-size:13px; color:var(--text-muted);">Kawasan Industri Medan (KIM I, II, III), Belawan, Deli Serdang, dan sekitarnya.</span>
           </div>
         </div>
 
@@ -1315,7 +1315,7 @@ $html = <<<'HTML'
         
         <!-- Kolom 1: Profil -->
         <div class="footer-col">
-          <h4>PT LOTUS PRADIPTA MULIA</h4>
+          <h4>MASTER TRUCK</h4>
           <p>
             Distributor nasional resmi pelumas, aki kendaraan, ban, dan suku cadang otomotif terkemuka sejak tahun 2000.
           </p>
@@ -1350,17 +1350,17 @@ $html = <<<'HTML'
         <div class="footer-col">
           <h4>Hub Logistik</h4>
           <p style="font-size:13px; line-height:1.6;">
-            Komp. Pergudangan Palembang Star 1 Blok E5, Jl. Letjen Harun Sohar, Palembang, Sumatera Selatan.
+            Jl. Pulau Bunaken Komplek Warehouse KIM III No. 3A, Mabar, Kec. Medan Labuhan, Kota Medan, Sumatera Utara 20242.
           </p>
           <p style="font-size:13px; color:#FDE68A;">
-            <i class="fas fa-phone-alt"></i> (0711) 571-0888
+            <i class="fas fa-phone-alt"></i> (061) 8882-9999
           </p>
         </div>
 
       </div>
 
       <div class="footer-bottom">
-        &copy; 2026 PT Lotus Pradipta Mulia. Seluruh Hak Cipta Dilindungi Undang-Undang. Terdaftar Resmi di Kemendag RI.
+        &copy; 2026 MASTER TRUCK. Seluruh Hak Cipta Dilindungi Undang-Undang. Terdaftar Resmi di Kemendag RI.
       </div>
 
     </div>
