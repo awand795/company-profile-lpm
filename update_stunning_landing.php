@@ -983,7 +983,7 @@ $html = <<<'HTML'
                 <span class="dot yellow"></span>
                 <span class="dot green"></span>
               </div>
-              <span class="mockup-title">fleet.lotuspradipta.co.id</span>
+              <span class="mockup-title">fleet.mastertruck.id</span>
             </div>
             <div>
               <div class="mockup-card">

@@ -1223,7 +1223,7 @@ $html = <<<'HTML'
         <div class="fleet-card-preview">
           <div class="fleet-card-head">
             <span style="font-weight: 700; color: #FFFFFF;"><i class="fas fa-car-side"></i> LIVE MONITORING ARMADA</span>
-            <span>portal.lotuspradipta.co.id</span>
+            <span>portal.mastertruck.id</span>
           </div>
           <div>
             <div class="unit-row">

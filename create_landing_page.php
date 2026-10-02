@@ -240,7 +240,7 @@ $page_content = <<<'HTML'
             <span style="width: 10px; height: 10px; border-radius: 50%; background: #F59E0B; display: inline-block;"></span>
             <span style="width: 10px; height: 10px; border-radius: 50%; background: #10B981; display: inline-block;"></span>
           </div>
-          <span style="font-family: monospace; font-size: 11px; color: #64748B;">portal.lotuspradipta.co.id/fleet</span>
+          <span style="font-family: monospace; font-size: 11px; color: #64748B;">portal.mastertruck.id/fleet</span>
         </div>
         <div style="font-size: 13px; color: #94A3B8; line-height: 1.6;">
           <div style="background: #1E293B; border-radius: 6px; padding: 12px; margin-bottom: 10px; border-left: 3px solid #2DD4BF;">
