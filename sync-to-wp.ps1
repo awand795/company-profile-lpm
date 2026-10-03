@@ -6,6 +6,9 @@
     Menyalin:
       wp-integration/mastertruck/       -> <theme>/mastertruck/
       wp-integration/template-mastertruck.php -> <theme>/template-mastertruck.php
+      wp-integration/template-bizniz.php     -> <theme>/template-bizniz.php
+      wp-content/uploads/               -> /var/www/html/wp-content/uploads/   (media)
+      wp-content/plugins/mt-topbar/     -> /var/www/html/wp-content/plugins/mt-topbar/
 
     Isi wp-integration/mastertruck/ WAJIB identik dengan assets/.
     Aset gambar (images/) ikut disalin agar template bisa mencarinya via
@@ -101,7 +104,7 @@ $themePath = "/var/www/html/wp-content/themes/$Theme"
 docker exec $Container mkdir -p "$themePath/mastertruck"
 if ($LASTEXITCODE -ne 0) { throw "Gagal membuat $themePath/mastertruck" }
 
-$stage = Join-Path $env:TEMP 'mt-stage'
+$stage = Join-Path ([System.IO.Path]::GetTempPath()) 'mt-stage'
 if (Test-Path $stage) {
     Remove-Item -Path $stage -Recurse -Force
 }
@@ -124,6 +127,34 @@ Write-Host "OK  mastertruck/ (style.css, main.js$(if (-not $SkipImages) { ', ima
 docker cp (Join-Path $src 'template-mastertruck.php') "$Container`:$themePath/template-mastertruck.php"
 if ($LASTEXITCODE -ne 0) { throw "docker cp template-mastertruck.php gagal" }
 Write-Host "OK  template-mastertruck.php" -ForegroundColor Green
+
+# --- Salin template Bizniz (opsional, bila file-nya ada) ---------------------
+$bizniz = Join-Path $src 'template-bizniz.php'
+if (Test-Path $bizniz) {
+    docker cp $bizniz "$Container`:$themePath/template-bizniz.php"
+    if ($LASTEXITCODE -ne 0) { throw "docker cp template-bizniz.php gagal" }
+    Write-Host "OK  template-bizniz.php" -ForegroundColor Green
+}
+docker exec $Container chown -R www-data:www-data "$themePath/template-mastertruck.php" "$themePath/template-bizniz.php" 2>$null | Out-Null
+
+# --- Media wp-content/uploads (opsional) ------------------------------------
+$uploads = Join-Path $root 'wp-content/uploads'
+if (Test-Path $uploads) {
+    docker cp "$uploads/." "$Container`:/var/www/html/wp-content/uploads/"
+    if ($LASTEXITCODE -ne 0) { throw "docker cp uploads gagal" }
+    docker exec $Container chown -R www-data:www-data /var/www/html/wp-content/uploads 2>$null | Out-Null
+    $n = (Get-ChildItem -Path $uploads -Recurse -File | Measure-Object).Count
+    Write-Host "OK  wp-content/uploads/ ($n file)" -ForegroundColor Green
+}
+
+# --- Plugin topbar korporat (opsional) --------------------------------------
+$topbar = Join-Path $root 'wp-content/plugins/mt-topbar'
+if (Test-Path $topbar) {
+    docker cp "$topbar/." "$Container`:/var/www/html/wp-content/plugins/mt-topbar/"
+    if ($LASTEXITCODE -ne 0) { throw "docker cp mt-topbar gagal" }
+    docker exec $Container chown -R www-data:www-data /var/www/html/wp-content/plugins/mt-topbar 2>$null | Out-Null
+    Write-Host "OK  plugins/mt-topbar/" -ForegroundColor Green
+}
 
 # --- Bersihkan staging -------------------------------------------------------
 Remove-Item -Path $stage -Recurse -Force -ErrorAction SilentlyContinue

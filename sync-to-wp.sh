@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Mirror dari sync-to-wp.ps1 untuk Linux/macOS.
-# Menyalin wp-integration/* ke folder theme WordPress aktif di container.
+# Menyalin wp-integration/* ke folder theme WordPress aktif di container,
+# plus media wp-content/uploads/ dan plugin mt-topbar (bila folder-nya ada).
 #
 #   ./sync-to-wp.sh
 #   ./sync-to-wp.sh -c lotus-wp-app -t astra
@@ -39,7 +40,27 @@ docker cp "$SRC/mastertruck/." "$CONTAINER:$THEME_PATH/mastertruck/"
 echo "OK  mastertruck/"
 docker cp "$SRC/template-mastertruck.php" "$CONTAINER:$THEME_PATH/template-mastertruck.php"
 echo "OK  template-mastertruck.php"
-docker exec "$CONTAINER" chown -R www-data:www-data "$THEME_PATH/mastertruck" "$THEME_PATH/template-mastertruck.php"
+if [[ -f "$SRC/template-bizniz.php" ]]; then
+  docker cp "$SRC/template-bizniz.php" "$CONTAINER:$THEME_PATH/template-bizniz.php"
+  echo "OK  template-bizniz.php"
+fi
+docker exec "$CONTAINER" chown -R www-data:www-data \
+  "$THEME_PATH/mastertruck" "$THEME_PATH/template-mastertruck.php" "$THEME_PATH/template-bizniz.php" 2>/dev/null || true
+
+# Media (slide hero, logo merek, avatar) — opsional bila folder belum ada.
+if [[ -d "$ROOT/wp-content/uploads" ]]; then
+  docker cp "$ROOT/wp-content/uploads/." "$CONTAINER:/var/www/html/wp-content/uploads/"
+  docker exec "$CONTAINER" chown -R www-data:www-data /var/www/html/wp-content/uploads
+  echo "OK  wp-content/uploads/ ($(find "$ROOT/wp-content/uploads" -type f | wc -l | tr -d ' ') file)"
+fi
+
+# Plugin topbar korporat (diaktifkan setup.sh).
+if [[ -d "$ROOT/wp-content/plugins/mt-topbar" ]]; then
+  docker cp "$ROOT/wp-content/plugins/mt-topbar/." "$CONTAINER:/var/www/html/wp-content/plugins/mt-topbar/"
+  docker exec "$CONTAINER" chown -R www-data:www-data /var/www/html/wp-content/plugins/mt-topbar
+  echo "OK  plugins/mt-topbar/"
+fi
+
 echo ""
 echo "Sinkronisasi selesai. Theme: $THEME"
 echo "Template: Page Editor -> Page Template -> 'Master Truck Landing'"
