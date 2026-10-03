@@ -6,8 +6,21 @@ Landing page **MASTER TRUCK** — Bengkel spesialis perawatan truk niaga & alat 
 
 Menggunakan tema resmi **[CarServ](https://themewagon.github.io/carserv/)** oleh **HTML Codex & ThemeWagon**:
 - **Warna Utama**: Merah CarServ (`#D81324`) & Biru Navy Gelap (`#0B2154`)
-- **Font**: Barlow (600/700) & Ubuntu (400/500)
+- **Font**: **Barlow** (400/500/600/700/800) untuk seluruh situs — dimuat satu request dari Google Fonts + preconnect
 - **Komponen**: Header Carousel interaktif, Topbar kontak & link fleet, Tabbed Services, Fakta counter angka, Form Booking Servis via WhatsApp, Tim Teknisi, dan Testimonial Carousel (OwlCarousel).
+
+## ✏️ Titik Edit Konten (WordPress)
+
+| Ingin mengubah | Caranya |
+| --- | --- |
+| **Warna brand** (navy, merah, emas, dsb.) | Elementor → **Site Settings → Global Colors** (10 warna). Semua halaman memakai `var(--e-global-color-*)`, jadi cukup diubah sekali. |
+| **Font situs** | Elementor → **Site Settings → Global Typography** (Barlow 400–800). |
+| **Teks topbar** (telepon, WA, email, jam, link Web Fleet) | **Appearance → Topbar Master Truck** — tanpa menyentuh kode. |
+| **Frasa ter-highlight** (stabilo emas di judul) | Edit judul di Elementor, bungkus frasanya: `<span class="mt-hl">Fr...</span>` |
+| **Kartu statistik melayang** | Section dengan class CSS `mt-stats` (beranda) → ubah angka lewat widget Counter, tampilan lewat blok `.mt-stats` di **Appearance → Customize → Additional CSS** (custom CSS post `wp-custom-css`). |
+| **Halaman/halaman layanan** | Edit biasa lewat Elementor (semua 11 halaman memakai builder). |
+
+> Custom CSS tersimpan di tabel `wp_posts` (`post_type=custom_css`), bagian blok `MT FASE 4` berisi token radius/shadow, tombol pill, kartu statistik, highlight, dan polish mobile.
 
 ## 📁 Struktur Berkas
 
@@ -32,7 +45,7 @@ Menggunakan tema resmi **[CarServ](https://themewagon.github.io/carserv/)** oleh
 ├── setup.sh / setup.ps1                 # Bootstrap WordPress dari nol (Linux / Windows)
 ├── sync-to-wp.sh / sync-to-wp.ps1       # Sinkronisasi template, aset & media ke container
 ├── docker-compose.yml                   # Stack WordPress + MariaDB (localhost:8080)
-└── database_dump.sql                    # Backup database WordPress (Fase 1–3, UTF-8)
+└── database_dump.sql                    # Backup database WordPress (Fase 1–4, UTF-8)
 ```
 
 ## 🖼️ Panduan Mengganti Foto Bawaan Tema
