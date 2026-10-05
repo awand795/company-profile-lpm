@@ -10,3 +10,6 @@ desktop.ini
 # Screenshot preview (artefak mockup)
 mockup_*.png
 wp_*.png
+
+# Temporary backups
+backup-*.sql
