@@ -86,12 +86,15 @@ function carserv_scripts() {
         $version
     );
 
+    $css_file   = get_template_directory() . '/assets/css/mastertruck.css';
+    $mt_version = file_exists( $css_file ) ? filemtime( $css_file ) : $version;
+
     // 6. Master Truck Single Source of Truth Design System (Overrides)
     wp_enqueue_style(
         'carserv-mastertruck',
         $theme_uri . '/assets/css/mastertruck.css',
         array( 'carserv-style' ),
-        $version
+        $mt_version
     );
 
     // Scripts
@@ -180,3 +183,32 @@ add_filter( 'wp_resource_hints', function( $urls, $relation_type ) {
     }
     return $urls;
 }, 10, 2 );
+
+/**
+ * Global Master Truck Contact Data
+ * Digunakan secara konsisten di Topbar, Hotline Booking, Footer, dan WhatsApp
+ */
+function mt_get_contact_data() {
+    return array(
+        'company_name'   => 'PT Master Truck Indonesia',
+        'address'        => 'KIM III Medan — Sumatera Utara',
+        'address_full'   => 'Jl. Pulau Nias Selatan No. 8, Kawasan Industri Medan III (KIM III), Saentis, Percut Sei Tuan, Deli Serdang, Sumatera Utara 20371',
+        'phone'          => '061-8882-9999',
+        'phone_raw'      => '06188829999',
+        'wa'             => '0812-3456-7890',
+        'wa_raw'         => '6281234567890',
+        'email'          => 'info@mastertruck.co.id',
+        // TODO: konfirmasi jam resmi (sementara pakai versi footer: Sen-Jum 08.00-17.00, Sab 08.00-15.00)
+        'hours_short'    => 'Sen – Jum: 08.00 – 17.00 WIB, Sab: 08.00 – 15.00 WIB',
+        'hours_weekday'  => '08.00 – 17.00 WIB',
+        'hours_saturday' => '08.00 – 15.00 WIB',
+        'social'         => array(
+            'facebook'  => '#',
+            'instagram' => '#',
+            'whatsapp'  => 'https://wa.me/6281234567890',
+        ),
+        'web_fleet_login'    => 'http://localhost:3000/#login',
+        'web_fleet_register' => 'http://localhost:3000/#register',
+    );
+}
+

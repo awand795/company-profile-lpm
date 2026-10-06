@@ -5,14 +5,19 @@
  * Single Source of Truth Theme Architecture - Polish Round 2
  */
 get_header();
-$theme_uri = get_template_directory_uri();
+$theme_uri  = get_template_directory_uri();
+$mt_contact = mt_get_contact_data();
 ?>
 
     <!-- ============================================================== -->
     <!-- 1. HERO CAROUSEL ENTERPRISE SHOWCASE                           -->
     <!-- ============================================================== -->
     <div class="container-fluid p-0 mb-0">
-        <div id="header-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="7000">
+        <div id="header-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-pause="hover" data-bs-interval="7000">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            </div>
             <div class="carousel-inner">
                 
                 <!-- Slide 1: Solusi Perawatan Armada -->
@@ -207,7 +212,7 @@ $theme_uri = get_template_directory_uri();
                 <!-- Left: Workshop Image with Floating Card -->
                 <div class="col-lg-6">
                     <div class="about-img-box">
-                        <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/about.jpg" alt="Fasilitas Bengkel Master Truck KIM III Medan">
+                        <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/about.jpg" alt="Fasilitas Bengkel Master Truck KIM III Medan" width="600" height="480" loading="lazy">
                         <div class="about-exp-float-card">
                             <div class="icon-tint-wrap icon-tint-blue" style="width: 44px; height: 44px; font-size: 18px;">
                                 <i class="fa fa-calendar-alt"></i>
@@ -265,7 +270,7 @@ $theme_uri = get_template_directory_uri();
                         <a href="#contact" class="btn btn-primary py-3 px-4">
                             <i class="fa fa-phone-alt me-2"></i>Hubungi Kami
                         </a>
-                        <a href="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20ingin%20konsultasi%20perawatan%20armada" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary py-3 px-4">
+                        <a href="https://wa.me/<?php echo esc_attr( $mt_contact['wa_raw'] ); ?>?text=Halo%20Master%20Truck,%20saya%20ingin%20konsultasi%20perawatan%20armada" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary py-3 px-4">
                             <i class="fab fa-whatsapp me-2"></i>Konsultasi WhatsApp
                         </a>
                     </div>
@@ -404,7 +409,7 @@ $theme_uri = get_template_directory_uri();
                             <div class="service-panel-card">
                                 <div class="row g-4 align-items-center">
                                     <div class="col-md-6">
-                                        <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/service-1.jpg" alt="Teknisi Master Truck Diagnosa Kelistrikan & Mesin Truk Niaga">
+                                        <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/service-1.jpg" alt="Teknisi Master Truck Diagnosa Kelistrikan & Mesin Truk Niaga" width="540" height="405" loading="lazy">
                                     </div>
                                     <div class="col-md-6">
                                         <span class="badge-section-pill mb-2">DIAGNOSTIK ELEKTRONIK</span>
@@ -415,7 +420,7 @@ $theme_uri = get_template_directory_uri();
                                             <li class="mb-2 small"><i class="fa fa-check-circle check-teal me-2"></i>Uji Kelistrikan 24V, Alternator, Starter &amp; Baterai</li>
                                             <li class="mb-2 small"><i class="fa fa-check-circle check-teal me-2"></i>Laporan Diagnosa Digital &amp; Rekomendasi Solusi</li>
                                         </ul>
-                                        <a href="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20layanan%20Diagnosa%20Komputer" target="_blank" rel="noopener noreferrer" class="btn btn-primary py-2 px-3">
+                                        <a href="https://wa.me/<?php echo esc_attr( $mt_contact['wa_raw'] ); ?>?text=Halo%20Master%20Truck,%20saya%20butuh%20layanan%20Diagnosa%20Komputer" target="_blank" rel="noopener noreferrer" class="btn btn-primary py-2 px-3">
                                             Konsultasi Teknisi <i class="fa fa-arrow-right ms-1"></i>
                                         </a>
                                     </div>
@@ -428,7 +433,7 @@ $theme_uri = get_template_directory_uri();
                             <div class="service-panel-card">
                                 <div class="row g-4 align-items-center">
                                     <div class="col-md-6">
-                                        <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/service-2.jpg" alt="Overhaul Mesin Diesel Heavy Duty Truk Master Truck">
+                                        <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/service-2.jpg" alt="Overhaul Mesin Diesel Heavy Duty Truk Master Truck" width="540" height="405" loading="lazy">
                                     </div>
                                     <div class="col-md-6">
                                         <span class="badge-section-pill mb-2">REKAYASA MESIN BERAT</span>
@@ -439,7 +444,7 @@ $theme_uri = get_template_directory_uri();
                                             <li class="mb-2 small"><i class="fa fa-check-circle check-teal me-2"></i>Kalibrasi Injektor Common Rail Presisi Tinggi</li>
                                             <li class="mb-2 small"><i class="fa fa-check-circle check-teal me-2"></i>Penggantian Piston, Ring, Metal Jalan &amp; Duduk OEM</li>
                                         </ul>
-                                        <a href="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20layanan%20Overhaul%20Mesin" target="_blank" rel="noopener noreferrer" class="btn btn-primary py-2 px-3">
+                                        <a href="https://wa.me/<?php echo esc_attr( $mt_contact['wa_raw'] ); ?>?text=Halo%20Master%20Truck,%20saya%20butuh%20layanan%20Overhaul%20Mesin" target="_blank" rel="noopener noreferrer" class="btn btn-primary py-2 px-3">
                                             Konsultasi Teknisi <i class="fa fa-arrow-right ms-1"></i>
                                         </a>
                                     </div>
@@ -452,7 +457,7 @@ $theme_uri = get_template_directory_uri();
                             <div class="service-panel-card">
                                 <div class="row g-4 align-items-center">
                                     <div class="col-md-6">
-                                        <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/service-3.jpg" alt="Ban Komersial Dunlop & Sistem Rem Angin Master Truck">
+                                        <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/service-3.jpg" alt="Ban Komersial Dunlop & Sistem Rem Angin Master Truck" width="540" height="405" loading="lazy">
                                     </div>
                                     <div class="col-md-6">
                                         <span class="badge-section-pill mb-2">CHASSIS &amp; KESELAMATAN</span>
@@ -463,7 +468,7 @@ $theme_uri = get_template_directory_uri();
                                             <li class="mb-2 small"><i class="fa fa-check-circle check-teal me-2"></i>Servis Air Brake Chamber, Kompresor &amp; Katup Rem Angin</li>
                                             <li class="mb-2 small"><i class="fa fa-check-circle check-teal me-2"></i>Penggantian Tromol, Kampas Rem &amp; Suspensi Per Daun</li>
                                         </ul>
-                                        <a href="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20layanan%20Ban%20dan%20Rem%20Angin" target="_blank" rel="noopener noreferrer" class="btn btn-primary py-2 px-3">
+                                        <a href="https://wa.me/<?php echo esc_attr( $mt_contact['wa_raw'] ); ?>?text=Halo%20Master%20Truck,%20saya%20butuh%20layanan%20Ban%20dan%20Rem%20Angin" target="_blank" rel="noopener noreferrer" class="btn btn-primary py-2 px-3">
                                             Konsultasi Teknisi <i class="fa fa-arrow-right ms-1"></i>
                                         </a>
                                     </div>
@@ -476,7 +481,7 @@ $theme_uri = get_template_directory_uri();
                             <div class="service-panel-card">
                                 <div class="row g-4 align-items-center">
                                     <div class="col-md-6">
-                                        <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/service-4.jpg" alt="Layanan Pelumas Resmi Pertamina & Mobil Delvac Master Truck">
+                                        <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/service-4.jpg" alt="Layanan Pelumas Resmi Pertamina & Mobil Delvac Master Truck" width="540" height="405" loading="lazy">
                                     </div>
                                     <div class="col-md-6">
                                         <span class="badge-section-pill mb-2">PELUMAS &amp; CAIRAN KHUSUS</span>
@@ -487,7 +492,7 @@ $theme_uri = get_template_directory_uri();
                                             <li class="mb-2 small"><i class="fa fa-check-circle check-teal me-2"></i>Flushing Sistem &amp; Penggantian Filter Solar / Oli OEM</li>
                                             <li class="mb-2 small"><i class="fa fa-check-circle check-teal me-2"></i>Tersedia Kemasan Drum &amp; Pail dengan Harga Grosir Distributor</li>
                                         </ul>
-                                        <a href="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20pasokan%20Oli%20dan%20Pelumas" target="_blank" rel="noopener noreferrer" class="btn btn-primary py-2 px-3">
+                                        <a href="https://wa.me/<?php echo esc_attr( $mt_contact['wa_raw'] ); ?>?text=Halo%20Master%20Truck,%20saya%20butuh%20pasokan%20Oli%20dan%20Pelumas" target="_blank" rel="noopener noreferrer" class="btn btn-primary py-2 px-3">
                                             Konsultasi Teknisi <i class="fa fa-arrow-right ms-1"></i>
                                         </a>
                                     </div>
@@ -522,69 +527,69 @@ $theme_uri = get_template_directory_uri();
             </div>
             
             <div class="row g-4">
-                <div class="col-lg-2 col-md-4 col-6">
+                <div class="col-xl-2 col-md-4 col-6">
                     <div class="principal-brand-card">
                         <div class="icon-tint-wrap icon-tint-blue">
                             <i class="fa fa-oil-can"></i>
                         </div>
                         <h6 class="fw-bold mb-1 text-dark">Pertamina</h6>
                         <small class="text-muted d-block mb-2">Lubricants</small>
-                        <span class="badge bg-light text-primary border small" style="font-size: 10px;">Distributor Resmi</span>
+                        <span class="badge brand-card-badge">Distributor Resmi</span>
                     </div>
                 </div>
 
-                <div class="col-lg-2 col-md-4 col-6">
+                <div class="col-xl-2 col-md-4 col-6">
                     <div class="principal-brand-card">
                         <div class="icon-tint-wrap icon-tint-teal">
                             <i class="fa fa-gas-pump"></i>
                         </div>
                         <h6 class="fw-bold mb-1 text-dark">Mobil</h6>
                         <small class="text-muted d-block mb-2">Delvac &amp; HD</small>
-                        <span class="badge bg-light text-primary border small" style="font-size: 10px;">Distributor Resmi</span>
+                        <span class="badge brand-card-badge">Distributor Resmi</span>
                     </div>
                 </div>
 
-                <div class="col-lg-2 col-md-4 col-6">
+                <div class="col-xl-2 col-md-4 col-6">
                     <div class="principal-brand-card">
                         <div class="icon-tint-wrap icon-tint-amber">
                             <i class="fa fa-life-ring"></i>
                         </div>
                         <h6 class="fw-bold mb-1 text-dark">Dunlop</h6>
                         <small class="text-muted d-block mb-2">Commercial Tires</small>
-                        <span class="badge bg-light text-primary border small" style="font-size: 10px;">Ban Truk Niaga</span>
+                        <span class="badge brand-card-badge">Ban Truk Niaga</span>
                     </div>
                 </div>
 
-                <div class="col-lg-2 col-md-4 col-6">
+                <div class="col-xl-2 col-md-4 col-6">
                     <div class="principal-brand-card">
                         <div class="icon-tint-wrap icon-tint-lavender">
                             <i class="fa fa-car-battery"></i>
                         </div>
                         <h6 class="fw-bold mb-1 text-dark">GS Astra</h6>
                         <small class="text-muted d-block mb-2">Heavy Duty Battery</small>
-                        <span class="badge bg-light text-primary border small" style="font-size: 10px;">Aki Komersial 24V</span>
+                        <span class="badge brand-card-badge">Aki Komersial 24V</span>
                     </div>
                 </div>
 
-                <div class="col-lg-2 col-md-4 col-6">
+                <div class="col-xl-2 col-md-4 col-6">
                     <div class="principal-brand-card">
                         <div class="icon-tint-wrap icon-tint-blue">
                             <i class="fa fa-bolt"></i>
                         </div>
                         <h6 class="fw-bold mb-1 text-dark">Incoe</h6>
                         <small class="text-muted d-block mb-2">Commercial Battery</small>
-                        <span class="badge bg-light text-primary border small" style="font-size: 10px;">Aki Beban Berat</span>
+                        <span class="badge brand-card-badge">Aki Beban Berat</span>
                     </div>
                 </div>
 
-                <div class="col-lg-2 col-md-4 col-6">
+                <div class="col-xl-2 col-md-4 col-6">
                     <div class="principal-brand-card">
                         <div class="icon-tint-wrap icon-tint-teal">
                             <i class="fa fa-filter"></i>
                         </div>
                         <h6 class="fw-bold mb-1 text-dark">Filter OEM</h6>
                         <small class="text-muted d-block mb-2">Sakura &amp; Fleetguard</small>
-                        <span class="badge bg-light text-primary border small" style="font-size: 10px;">Oli, Solar, Udara</span>
+                        <span class="badge brand-card-badge">Oli, Solar, Udara</span>
                     </div>
                 </div>
             </div>
@@ -614,7 +619,7 @@ $theme_uri = get_template_directory_uri();
                 <div class="col-lg-3 col-md-6">
                     <div class="distribution-card">
                         <div class="d-flex align-items-center mb-3">
-                            <div class="icon-tint-wrap icon-tint-blue me-3" style="width: 44px; height: 44px; font-size: 17px;">
+                            <div class="icon-tint-wrap icon-tint-blue dist-icon-box me-3">
                                 <i class="fa fa-map-pin"></i>
                             </div>
                             <div>
@@ -630,7 +635,7 @@ $theme_uri = get_template_directory_uri();
                 <div class="col-lg-3 col-md-6">
                     <div class="distribution-card">
                         <div class="d-flex align-items-center mb-3">
-                            <div class="icon-tint-wrap icon-tint-teal me-3" style="width: 44px; height: 44px; font-size: 17px;">
+                            <div class="icon-tint-wrap icon-tint-teal dist-icon-box me-3">
                                 <i class="fa fa-map-pin"></i>
                             </div>
                             <div>
@@ -646,7 +651,7 @@ $theme_uri = get_template_directory_uri();
                 <div class="col-lg-3 col-md-6">
                     <div class="distribution-card">
                         <div class="d-flex align-items-center mb-3">
-                            <div class="icon-tint-wrap icon-tint-amber me-3" style="width: 44px; height: 44px; font-size: 17px;">
+                            <div class="icon-tint-wrap icon-tint-amber dist-icon-box me-3">
                                 <i class="fa fa-map-pin"></i>
                             </div>
                             <div>
@@ -662,7 +667,7 @@ $theme_uri = get_template_directory_uri();
                 <div class="col-lg-3 col-md-6">
                     <div class="distribution-card">
                         <div class="d-flex align-items-center mb-3">
-                            <div class="icon-tint-wrap icon-tint-lavender me-3" style="width: 44px; height: 44px; font-size: 17px;">
+                            <div class="icon-tint-wrap icon-tint-lavender dist-icon-box me-3">
                                 <i class="fa fa-map-pin"></i>
                             </div>
                             <div>
@@ -683,7 +688,7 @@ $theme_uri = get_template_directory_uri();
     <!-- ============================================================== -->
     <!-- 8. BOOKING & EMERGENCY SECTION (#EEF4FF TINT BACKGROUND)       -->
     <!-- ============================================================== -->
-    <div id="booking" class="booking-section-wrapper">
+    <div id="booking" class="booking-section-wrapper sec-booking">
         <div class="container">
             <div class="row g-5 align-items-center">
                 
@@ -704,8 +709,15 @@ $theme_uri = get_template_directory_uri();
                                 <i class="fa fa-phone-alt"></i>
                             </div>
                             <div>
-                                <div class="fw-bold text-dark">Hotline Derek Darurat:</div>
-                                <span class="text-primary fw-bold fs-5">061-8882-9999 / 0812-3456-7890</span>
+                                <div class="fw-bold text-dark mb-1">Hotline Derek Darurat:</div>
+                                <div>
+                                    <a href="tel:<?php echo esc_attr( $mt_contact['phone_raw'] ); ?>" class="text-decoration-none text-primary fw-bold fs-5 d-block">
+                                        <i class="fa fa-phone-alt me-2 fs-6"></i><?php echo esc_html( $mt_contact['phone'] ); ?>
+                                    </a>
+                                    <a href="https://wa.me/<?php echo esc_attr( $mt_contact['wa_raw'] ); ?>?text=Halo%20Master%20Truck,%20saya%20butuh%20derek%20darurat" target="_blank" rel="noopener noreferrer" class="text-decoration-none fw-bold fs-5 d-block" style="color: #128C7E;">
+                                        <i class="fab fa-whatsapp me-2 fs-6"></i><?php echo esc_html( $mt_contact['wa'] ); ?>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="d-flex align-items-center p-3 bg-white rounded-3 border" style="border-color: var(--border) !important;">
@@ -718,6 +730,9 @@ $theme_uri = get_template_directory_uri();
                             </div>
                         </div>
                     </div>
+                    <a href="tel:<?php echo esc_attr( $mt_contact['phone_raw'] ); ?>" class="btn btn-danger w-100 py-3 mb-2 fw-bold fs-6">
+                        <i class="fa fa-phone-alt me-2"></i>Panggil Derek Darurat 24 Jam
+                    </a>
                 </div>
 
                 <!-- Right: Clean White Booking Form -->
@@ -726,7 +741,7 @@ $theme_uri = get_template_directory_uri();
                         <h4 class="fw-bold mb-2 text-dark">Jadwalkan Servis Armada</h4>
                         <p class="text-muted small mb-4">Konsultasikan kebutuhan perbaikan armada Anda, tim teknisi kami akan segera mengonfirmasi estimasi jadwal.</p>
                         
-                        <form onsubmit="event.preventDefault(); window.open('https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20ingin%20jadwalkan%20servis:%0ANama:%20' + encodeURIComponent(document.getElementById('bk_name').value) + '%0ALayanan:%20' + encodeURIComponent(document.getElementById('bk_service').value) + '%0ATanggal:%20' + encodeURIComponent(document.getElementById('bk_date').value) + '%0ANoPol/Keterangan:%20' + encodeURIComponent(document.getElementById('bk_notes').value), '_blank');">
+                        <form onsubmit="event.preventDefault(); window.open('https://wa.me/<?php echo esc_attr( $mt_contact['wa_raw'] ); ?>?text=Halo%20Master%20Truck,%20saya%20ingin%20jadwalkan%20servis:%0ANama:%20' + encodeURIComponent(document.getElementById('bk_name').value) + '%0ALayanan:%20' + encodeURIComponent(document.getElementById('bk_service').value) + '%0ATanggal:%20' + encodeURIComponent(document.getElementById('bk_date').value) + '%0ANoPol/Keterangan:%20' + encodeURIComponent(document.getElementById('bk_notes').value), '_blank');">
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <label class="form-label small fw-bold text-dark">Nama / Perusahaan</label>
@@ -794,7 +809,7 @@ $theme_uri = get_template_directory_uri();
                 <div class="col-lg-3 col-md-6">
                     <div class="team-enterprise-card">
                         <div class="team-photo-wrap">
-                            <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/team-1.jpg" alt="Hendra Wijaya">
+                            <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/team-1.jpg" alt="Hendra Wijaya" width="400" height="500" loading="lazy">
                         </div>
                         <div class="p-4 text-center">
                             <h5 class="fw-bold mb-1 text-dark">Hendra Wijaya</h5>
@@ -807,7 +822,7 @@ $theme_uri = get_template_directory_uri();
                 <div class="col-lg-3 col-md-6">
                     <div class="team-enterprise-card">
                         <div class="team-photo-wrap">
-                            <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/team-2.jpg" alt="Bambang Suryadi">
+                            <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/team-2.jpg" alt="Bambang Suryadi" width="400" height="500" loading="lazy">
                         </div>
                         <div class="p-4 text-center">
                             <h5 class="fw-bold mb-1 text-dark">Bambang Suryadi</h5>
@@ -820,7 +835,7 @@ $theme_uri = get_template_directory_uri();
                 <div class="col-lg-3 col-md-6">
                     <div class="team-enterprise-card">
                         <div class="team-photo-wrap">
-                            <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/team-3.jpg" alt="Rudi Santoso">
+                            <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/team-3.jpg" alt="Rudi Santoso" width="400" height="500" loading="lazy">
                         </div>
                         <div class="p-4 text-center">
                             <h5 class="fw-bold mb-1 text-dark">Rudi Santoso</h5>
@@ -833,7 +848,7 @@ $theme_uri = get_template_directory_uri();
                 <div class="col-lg-3 col-md-6">
                     <div class="team-enterprise-card">
                         <div class="team-photo-wrap">
-                            <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/team-4.jpg" alt="Agus Pratama">
+                            <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/team-4.jpg" alt="Agus Pratama" width="400" height="500" loading="lazy">
                         </div>
                         <div class="p-4 text-center">
                             <h5 class="fw-bold mb-1 text-dark">Agus Pratama</h5>
@@ -871,7 +886,7 @@ $theme_uri = get_template_directory_uri();
                 <div class="testimonial-enterprise-card text-center">
                     <i class="fa fa-quote-right testimonial-quote-icon"></i>
                     <div>
-                        <img class="testimonial-avatar" src="<?php echo esc_url( $theme_uri ); ?>/assets/img/testimonial-1.jpg" alt="Gunawan Siregar">
+                        <img class="testimonial-avatar" src="<?php echo esc_url( $theme_uri ); ?>/assets/img/testimonial-1.jpg" alt="Gunawan Siregar" width="68" height="68" loading="lazy">
                         <div class="text-warning mb-2 small">
                             <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
                         </div>
@@ -886,7 +901,7 @@ $theme_uri = get_template_directory_uri();
                 <div class="testimonial-enterprise-card text-center">
                     <i class="fa fa-quote-right testimonial-quote-icon"></i>
                     <div>
-                        <img class="testimonial-avatar" src="<?php echo esc_url( $theme_uri ); ?>/assets/img/testimonial-2.jpg" alt="Budi Wicaksono">
+                        <img class="testimonial-avatar" src="<?php echo esc_url( $theme_uri ); ?>/assets/img/testimonial-2.jpg" alt="Budi Wicaksono" width="68" height="68" loading="lazy">
                         <div class="text-warning mb-2 small">
                             <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
                         </div>
@@ -901,7 +916,7 @@ $theme_uri = get_template_directory_uri();
                 <div class="testimonial-enterprise-card text-center">
                     <i class="fa fa-quote-right testimonial-quote-icon"></i>
                     <div>
-                        <img class="testimonial-avatar" src="<?php echo esc_url( $theme_uri ); ?>/assets/img/testimonial-3.jpg" alt="Ahmad Faisal">
+                        <img class="testimonial-avatar" src="<?php echo esc_url( $theme_uri ); ?>/assets/img/testimonial-3.jpg" alt="Ahmad Faisal" width="68" height="68" loading="lazy">
                         <div class="text-warning mb-2 small">
                             <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
                         </div>
@@ -916,7 +931,7 @@ $theme_uri = get_template_directory_uri();
                 <div class="testimonial-enterprise-card text-center">
                     <i class="fa fa-quote-right testimonial-quote-icon"></i>
                     <div>
-                        <img class="testimonial-avatar" src="<?php echo esc_url( $theme_uri ); ?>/assets/img/testimonial-4.jpg" alt="Dedi Kurniawan">
+                        <img class="testimonial-avatar" src="<?php echo esc_url( $theme_uri ); ?>/assets/img/testimonial-4.jpg" alt="Dedi Kurniawan" width="68" height="68" loading="lazy">
                         <div class="text-warning mb-2 small">
                             <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
                         </div>

@@ -16,9 +16,13 @@
     new WOW().init();
 
 
-    // Sticky Navbar: bayangan muncul setelah scroll
+    // Sticky Navbar
     $(window).scroll(function () {
-        $('.sticky-top').toggleClass('sticky-scrolled', $(this).scrollTop() > 45);
+        if ($(this).scrollTop() > 35) {
+            $('.sticky-top').addClass('sticky-scrolled');
+        } else {
+            $('.sticky-top').removeClass('sticky-scrolled');
+        }
     });
     
     
@@ -52,7 +56,7 @@
     
     // Back to top button
     $(window).scroll(function () {
-        if ($(this).scrollTop() > 300) {
+        if ($(this).scrollTop() > 400) {
             $('.back-to-top').fadeIn('slow');
         } else {
             $('.back-to-top').fadeOut('slow');
@@ -101,6 +105,39 @@
             }
         }
     });
-    
+
+    // Section Active Scrollspy via IntersectionObserver
+    $(document).ready(function () {
+        const sections = document.querySelectorAll('#header-carousel, #about, #service, #principals, #distribution, #contact');
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+        if ('IntersectionObserver' in window && sections.length > 0 && navLinks.length > 0) {
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        if (id) {
+                            navLinks.forEach(function (link) {
+                                if (link.getAttribute('href') === '#' + id) {
+                                    link.classList.add('active');
+                                } else {
+                                    link.classList.remove('active');
+                                }
+                            });
+                        }
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: '-20% 0px -65% 0px',
+                threshold: 0
+            });
+
+            sections.forEach(function (section) {
+                observer.observe(section);
+            });
+        }
+    });
+
 })(jQuery);
 
