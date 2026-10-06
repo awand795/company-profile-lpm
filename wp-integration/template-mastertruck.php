@@ -185,11 +185,16 @@ function mt_landing_dequeue_late() {
                         <div class="container">
                             <div class="row align-items-center justify-content-center justify-content-lg-start">
                                 <div class="col-10 col-lg-7 text-center text-lg-start">
-                                    <span class="hero-brand-pill animated slideInDown"><span class="live-dot"></span>Bengkel Spesialis Truk Niaga &amp; Alat Berat</span>
-                                    <h1 class="hero-title animated slideInDown">Solusi Terpadu Perawatan <span class="hero-brand-highlight">Armada</span> di KIM III Medan</h1>
+                                    <span class="hero-brand-pill animated slideInDown"><span class="live-dot"></span>PT Master Truck Indonesia &bull; KIM III Medan</span>
+                                    <h1 class="hero-title animated slideInDown">Master Truck: Bengkel &amp; <span class="hero-brand-highlight">Distributor Resmi</span> Truk Niaga KIM III Medan</h1>
                                     <p class="hero-lead d-none d-md-block animated slideInDown">
-                                        Overhaul mesin diesel, rem angin, scanner diagnostik &amp; inspeksi 30 titik dengan laporan digital real-time ke portal Web Fleet Anda.
+                                        15 tahun merawat truk niaga &amp; alat berat, sekaligus distributor nasional resmi pelumas Pertamina, Mobil, ban Dunlop, dan aki GS Astra &mdash; dipercaya 120+ perusahaan armada.
                                     </p>
+                                    <div class="hero-stats d-none d-md-flex animated slideInDown">
+                                        <div><strong>15</strong><span>Tahun Pengalaman</span></div>
+                                        <div><strong>120+</strong><span>Mitra Armada</span></div>
+                                        <div><strong>2.500</strong><span>Unit / Tahun</span></div>
+                                    </div>
                                     <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-2 animated slideInDown">
                                         <a href="#booking" class="btn-hero-primary">Jadwalkan Servis<i class="fa fa-arrow-right ms-2"></i></a>
                                         <a href="http://localhost:3000/#login" target="_blank" rel="noopener noreferrer" class="btn-hero-secondary"><i class="fa fa-desktop me-2"></i>Portal Web Fleet</a>
@@ -198,15 +203,15 @@ function mt_landing_dequeue_late() {
                                 <div class="col-lg-5 d-none d-lg-flex animated zoomIn justify-content-center">
                                     <div class="hero-truck-showcase">
                                         <div class="hero-truck-frame">
-                                            <span class="hero-badge-floating-top"><i class="fa fa-shield-alt text-primary me-1"></i>Distributor Resmi OEM</span>
+                                            <span class="hero-badge-floating-top"><i class="fa fa-shield-alt text-primary me-1"></i>Terpercaya 120+ Mitra</span>
                                             <div class="hero-truck-img-wrapper">
                                                 <img class="hero-truck-img" src="<?php echo esc_url( $mt_base ); ?>/img/carousel-1.png?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Armada Truk Master Truck">
                                             </div>
                                             <div class="hero-card-floating-bottom d-flex align-items-center gap-3">
-                                                <div class="icon-tint-wrap icon-tint-blue"><i class="fa fa-clipboard-check"></i></div>
+                                                <div class="icon-tint-wrap icon-tint-blue"><i class="fa fa-building"></i></div>
                                                 <div>
-                                                    <div class="hero-card-title">Inspeksi 30 Titik</div>
-                                                    <div class="hero-card-sub">Laporan digital real-time ke Web Fleet</div>
+                                                    <div class="hero-card-title">PT Master Truck Indonesia</div>
+                                                    <div class="hero-card-sub">KIM III Medan &mdash; inspeksi 30 titik bergaransi</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -224,11 +229,16 @@ function mt_landing_dequeue_late() {
                         <div class="container">
                             <div class="row align-items-center justify-content-center justify-content-lg-start">
                                 <div class="col-10 col-lg-7 text-center text-lg-start">
-                                    <span class="hero-brand-pill animated slideInDown"><span class="live-dot"></span>Distributor Nasional Resmi OEM</span>
+                                    <span class="hero-brand-pill animated slideInDown"><span class="live-dot"></span>PT Master Truck Indonesia &bull; Distributor Nasional Resmi</span>
                                     <h1 class="hero-title animated slideInDown">Pelumas Pertamina, Mobil, Ban <span class="hero-brand-highlight">Dunlop</span> &amp; Aki GS Astra</h1>
                                     <p class="hero-lead d-none d-md-block animated slideInDown">
-                                        Jaminan 100% suku cadang original langsung dari prinsipal pabrikan dengan tarif distributor resmi bagi mitra armada terdaftar.
+                                        Jaminan 100% suku cadang original langsung dari prinsipal pabrikan dengan tarif distributor resmi bagi mitra armada terdaftar &mdash; oleh PT Master Truck Indonesia.
                                     </p>
+                                    <div class="hero-stats d-none d-md-flex animated slideInDown">
+                                        <div><strong>15</strong><span>Tahun Pengalaman</span></div>
+                                        <div><strong>120+</strong><span>Mitra Armada</span></div>
+                                        <div><strong>2.500</strong><span>Unit / Tahun</span></div>
+                                    </div>
                                     <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-2 animated slideInDown">
                                         <a href="#principals" class="btn-hero-primary">Lihat Produk OEM<i class="fa fa-arrow-right ms-2"></i></a>
                                         <a href="http://localhost:3000/#register" target="_blank" rel="noopener noreferrer" class="btn-hero-secondary"><i class="fa fa-user-plus me-2"></i>Daftar Mitra Baru</a>
