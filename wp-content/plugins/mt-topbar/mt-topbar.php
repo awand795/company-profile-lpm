@@ -37,7 +37,10 @@ add_action( 'wp_enqueue_scripts', function () {
 } );
 
 /* ------------------------------------------------------- topbar di frontend */
-add_action( 'astra_header_before', function () {
+function mt_render_topbar_html() {
+	static $rendered = false;
+	if ( $rendered ) { return; }
+	$rendered = true;
 	$phone    = mt_topbar_opt( 'phone' );
 	$wa       = mt_topbar_opt( 'wa' );
 	$email    = mt_topbar_opt( 'email' );
@@ -62,7 +65,9 @@ add_action( 'astra_header_before', function () {
 		</div>
 	</div>
 	<?php
-} );
+}
+add_action( 'astra_header_before', 'mt_render_topbar_html' );
+add_action( 'neve_before_header_wrapper_hook', 'mt_render_topbar_html' );
 
 /* ------------------------------------------------------------ halamanaturan */
 add_action( 'admin_menu', function () {
