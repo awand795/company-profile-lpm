@@ -7,6 +7,55 @@
  * Diregenerasi dari index.html — jangan edit manual, ubah index.html lalu regenerasi.
  */
 $mt_base = get_stylesheet_directory_uri() . '/mastertruck';
+$mt_path = get_stylesheet_directory() . '/mastertruck';
+$mt_ver = @filemtime( $mt_path . '/css/mastertruck.css' );
+if ( ! $mt_ver ) { $mt_ver = '1.0'; }
+
+/* Bersihkan aset tema/plugin yg tak dipakai template statis ini.
+   Mencegah CSS lama (Astra/custom/Elementor) menimpa revamp + mempercepat load. */
+add_action( 'wp_enqueue_scripts', 'mt_landing_dequeue', 9999 );
+add_action( 'wp_print_styles', 'mt_landing_dequeue_late', 9999 );
+function mt_landing_dequeue() {
+    /* Satu-satunya jQuery: bawaan WP (lokal, cepat). CDN ganda sudah dicabut. */
+    wp_enqueue_script( 'jquery' );
+    wp_dequeue_style( 'astra-theme-css' );
+    wp_dequeue_style( 'astra-google-fonts' );
+    wp_dequeue_style( 'global-styles' );
+    wp_dequeue_style( 'elementor-frontend' );
+    wp_dequeue_style( 'wp-emoji-styles' );
+    wp_dequeue_style( 'dashicons' );
+    wp_dequeue_script( 'astra-theme-js' );
+    wp_dequeue_script( 'elementor-frontend' );
+    wp_dequeue_script( 'elementor-webpack-runtime' );
+    wp_dequeue_script( 'jquery-numerator' );
+    wp_dequeue_script( 'starter-templates-zip-preview' );
+    remove_action( 'wp_head', 'wp_custom_css_cb', 101 );
+    remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+    remove_action( 'wp_print_styles', 'print_emoji_styles' );
+    add_filter( 'wp_resource_hints', 'mt_landing_strip_font_hints', 9999, 2 );
+}
+/* Elementor mendaftarkan stylesheet-nya belakangan (CSS post + widget +
+   Google Fonts pilihannya), jadi sapu ulang tepat sebelum styles dicetak. */
+/* Cabut preconnect/dns-prefetch Google Fonts yatim (stylesheet-nya sudah di-dequeue). */
+function mt_landing_strip_font_hints( $urls, $relation_type ) {
+    foreach ( $urls as $key => $item ) {
+        $href = is_array( $item ) ? $item['href'] : $item;
+        if ( false !== strpos( $href, 'fonts.g' ) ) { unset( $urls[ $key ] ); }
+    }
+    return $urls;
+}
+function mt_landing_dequeue_late() {
+    global $wp_styles;
+    if ( ! ( $wp_styles instanceof WP_Styles ) ) { return; }
+    foreach ( $wp_styles->queue as $handle ) {
+        if ( 0 === strpos( $handle, 'elementor' )
+            || 0 === strpos( $handle, 'e-animation' )
+            || 0 === strpos( $handle, 'widget-' )
+            || 0 === strpos( $handle, 'base-' ) ) {
+            wp_dequeue_style( $handle );
+        }
+    }
+}
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -18,29 +67,26 @@ $mt_base = get_stylesheet_directory_uri() . '/mastertruck';
     <meta content="Master Truck adalah bengkel spesialis perawatan truk niaga &amp; alat berat di KIM III Medan: overhaul, rem angin, engine diagnostics, serta distributor resmi pelumas Pertamina, Mobil, ban Dunlop, dan aki Incoe/GS Astra. Terintegrasi portal Web Fleet." name="description">
     <meta content="bengkel truk medan, distributor pelumas pertamina medan, ban dunlop truk, overhaul mesin diesel, rem angin truk, web fleet kim 3" name="keywords">
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Fonts lokal (self-hosted, anti-gantung bila CDN Google tak terjangkau) -->
+    <link href="<?php echo esc_url( $mt_base ); ?>/css/fonts.css?ver=<?php echo esc_attr( $mt_ver ); ?>?ver=<?php echo esc_attr( $mt_ver ); ?>" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="<?php echo esc_url( $mt_base ); ?>/lib/animate/animate.min.css" rel="stylesheet">
-    <link href="<?php echo esc_url( $mt_base ); ?>/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="<?php echo esc_url( $mt_base ); ?>/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="<?php echo esc_url( $mt_base ); ?>/lib/animate/animate.min.css?ver=<?php echo esc_attr( $mt_ver ); ?>" rel="stylesheet">
+    <link href="<?php echo esc_url( $mt_base ); ?>/lib/owlcarousel/assets/owl.carousel.min.css?ver=<?php echo esc_attr( $mt_ver ); ?>" rel="stylesheet">
+    <link href="<?php echo esc_url( $mt_base ); ?>/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css?ver=<?php echo esc_attr( $mt_ver ); ?>" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="<?php echo esc_url( $mt_base ); ?>/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo esc_url( $mt_base ); ?>/css/bootstrap.min.css?ver=<?php echo esc_attr( $mt_ver ); ?>" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="<?php echo esc_url( $mt_base ); ?>/css/style.css" rel="stylesheet">
+    <link href="<?php echo esc_url( $mt_base ); ?>/css/style.css?ver=<?php echo esc_attr( $mt_ver ); ?>" rel="stylesheet">
 
     <!-- Master Truck Enterprise Light Theme (aktif: menimpa token merah/gelap lama) -->
-    <link href="<?php echo esc_url( $mt_base ); ?>/css/mastertruck.css" rel="stylesheet">
+    <link href="<?php echo esc_url( $mt_base ); ?>/css/mastertruck.css?ver=<?php echo esc_attr( $mt_ver ); ?>" rel="stylesheet">
 
     <style>
         /* Fallback ringan bila mastertruck.css gagal load: pastikan tetap light */
@@ -58,6 +104,7 @@ $mt_base = get_stylesheet_directory_uri() . '/mastertruck';
         </div>
     </div>
     <!-- Spinner End -->
+    <script>window.addEventListener("load",function(){var s=document.getElementById("spinner");if(s){s.classList.remove("show");}setTimeout(function(){var x=document.getElementById("spinner");if(x&&x.classList.contains("show")){x.style.display="none";}},4000);});</script>
 
 
     <!-- Topbar Start -->
@@ -157,7 +204,7 @@ $mt_base = get_stylesheet_directory_uri() . '/mastertruck';
             <div class="carousel-inner">
                 <!-- Slide 1 -->
                 <div class="carousel-item active">
-                    <img class="w-100" src="<?php echo esc_url( $mt_base ); ?>/img/carousel-bg-1.jpg" alt="Bengkel Master Truck KIM III Medan">
+                    <img class="w-100" src="<?php echo esc_url( $mt_base ); ?>/img/carousel-bg-1.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Bengkel Master Truck KIM III Medan">
                     <div class="carousel-caption d-flex align-items-center">
                         <div class="container">
                             <div class="row align-items-center justify-content-center justify-content-lg-start">
@@ -177,7 +224,7 @@ $mt_base = get_stylesheet_directory_uri() . '/mastertruck';
                                         <div class="hero-truck-frame">
                                             <span class="hero-badge-floating-top"><i class="fa fa-shield-alt text-primary me-1"></i>Distributor Resmi OEM</span>
                                             <div class="hero-truck-img-wrapper">
-                                                <img class="hero-truck-img" src="<?php echo esc_url( $mt_base ); ?>/img/carousel-1.png" alt="Armada Truk Master Truck">
+                                                <img class="hero-truck-img" src="<?php echo esc_url( $mt_base ); ?>/img/carousel-1.png?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Armada Truk Master Truck">
                                             </div>
                                             <div class="hero-card-floating-bottom d-flex align-items-center gap-3">
                                                 <div class="icon-tint-wrap icon-tint-blue"><i class="fa fa-clipboard-check"></i></div>
@@ -196,7 +243,7 @@ $mt_base = get_stylesheet_directory_uri() . '/mastertruck';
 
                 <!-- Slide 2 -->
                 <div class="carousel-item">
-                    <img class="w-100" src="<?php echo esc_url( $mt_base ); ?>/img/carousel-bg-2.jpg" alt="Distributor Resmi Sparepart Master Truck">
+                    <img class="w-100" src="<?php echo esc_url( $mt_base ); ?>/img/carousel-bg-2.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Distributor Resmi Sparepart Master Truck">
                     <div class="carousel-caption d-flex align-items-center">
                         <div class="container">
                             <div class="row align-items-center justify-content-center justify-content-lg-start">
@@ -216,7 +263,7 @@ $mt_base = get_stylesheet_directory_uri() . '/mastertruck';
                                         <div class="hero-truck-frame">
                                             <span class="hero-badge-floating-top"><i class="fa fa-check-circle text-primary me-1"></i>100% Original</span>
                                             <div class="hero-truck-img-wrapper">
-                                                <img class="hero-truck-img" src="<?php echo esc_url( $mt_base ); ?>/img/carousel-2.png" alt="Distributor Sparepart Master Truck">
+                                                <img class="hero-truck-img" src="<?php echo esc_url( $mt_base ); ?>/img/carousel-2.png?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Distributor Sparepart Master Truck">
                                             </div>
                                             <div class="hero-card-floating-bottom d-flex align-items-center gap-3">
                                                 <div class="icon-tint-wrap icon-tint-teal"><i class="fa fa-handshake"></i></div>
@@ -295,7 +342,7 @@ $mt_base = get_stylesheet_directory_uri() . '/mastertruck';
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="about-img-box">
-                        <img src="<?php echo esc_url( $mt_base ); ?>/img/about.jpg" alt="Fasilitas Bengkel Master Truck">
+                        <img src="<?php echo esc_url( $mt_base ); ?>/img/about.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Fasilitas Bengkel Master Truck">
                         <div class="about-exp-float-card">
                             <div class="icon-tint-wrap icon-tint-blue"><i class="fa fa-award"></i></div>
                             <div>
@@ -437,7 +484,7 @@ $mt_base = get_stylesheet_directory_uri() . '/mastertruck';
                             <div class="service-panel-card">
                             <div class="row g-4 align-items-center">
                                 <div class="col-md-6">
-                                        <img src="<?php echo esc_url( $mt_base ); ?>/img/service-1.jpg" alt="Diagnostic Test Truk">
+                                        <img src="<?php echo esc_url( $mt_base ); ?>/img/service-1.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Diagnostic Test Truk">
                                 </div>
                                 <div class="col-md-6">
                                     <h3 class="mb-3">Scanner Komputerisasi &amp; Diagnosa Mesin Diesel</h3>
@@ -456,7 +503,7 @@ $mt_base = get_stylesheet_directory_uri() . '/mastertruck';
                             <div class="service-panel-card">
                             <div class="row g-4 align-items-center">
                                 <div class="col-md-6">
-                                        <img src="<?php echo esc_url( $mt_base ); ?>/img/service-2.jpg" alt="Overhaul Mesin Truk">
+                                        <img src="<?php echo esc_url( $mt_base ); ?>/img/service-2.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Overhaul Mesin Truk">
                                 </div>
                                 <div class="col-md-6">
                                     <h3 class="mb-3">Overhaul Mesin Diesel &amp; Transmisi Heavy Duty</h3>
@@ -475,7 +522,7 @@ $mt_base = get_stylesheet_directory_uri() . '/mastertruck';
                             <div class="service-panel-card">
                             <div class="row g-4 align-items-center">
                                 <div class="col-md-6">
-                                        <img src="<?php echo esc_url( $mt_base ); ?>/img/service-3.jpg" alt="Ban Truk dan Rem Angin">
+                                        <img src="<?php echo esc_url( $mt_base ); ?>/img/service-3.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Ban Truk dan Rem Angin">
                                 </div>
                                 <div class="col-md-6">
                                     <h3 class="mb-3">Ban Komersial Dunlop &amp; Sistem Rem Angin</h3>
@@ -494,7 +541,7 @@ $mt_base = get_stylesheet_directory_uri() . '/mastertruck';
                             <div class="service-panel-card">
                             <div class="row g-4 align-items-center">
                                 <div class="col-md-6">
-                                        <img src="<?php echo esc_url( $mt_base ); ?>/img/service-4.jpg" alt="Ganti Oli Truk">
+                                        <img src="<?php echo esc_url( $mt_base ); ?>/img/service-4.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Ganti Oli Truk">
                                 </div>
                                 <div class="col-md-6">
                                     <h3 class="mb-3">Ganti Oli &amp; Pelumas Resmi Pertamina / Mobil</h3>
@@ -663,7 +710,7 @@ $mt_base = get_stylesheet_directory_uri() . '/mastertruck';
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-enterprise-card">
                         <div class="team-photo-wrap">
-                            <img src="<?php echo esc_url( $mt_base ); ?>/img/team-1.jpg" alt="Hendra Wijaya">
+                            <img src="<?php echo esc_url( $mt_base ); ?>/img/team-1.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Hendra Wijaya">
                         </div>
                         <div class="text-center p-4">
                             <span class="team-badge-role">Workshop Head</span>
@@ -675,7 +722,7 @@ $mt_base = get_stylesheet_directory_uri() . '/mastertruck';
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
                     <div class="team-enterprise-card">
                         <div class="team-photo-wrap">
-                            <img src="<?php echo esc_url( $mt_base ); ?>/img/team-2.jpg" alt="Bambang Suryadi">
+                            <img src="<?php echo esc_url( $mt_base ); ?>/img/team-2.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Bambang Suryadi">
                         </div>
                         <div class="text-center p-4">
                             <span class="team-badge-role">Diagnostic</span>
@@ -687,7 +734,7 @@ $mt_base = get_stylesheet_directory_uri() . '/mastertruck';
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="team-enterprise-card">
                         <div class="team-photo-wrap">
-                            <img src="<?php echo esc_url( $mt_base ); ?>/img/team-3.jpg" alt="Rudi Santoso">
+                            <img src="<?php echo esc_url( $mt_base ); ?>/img/team-3.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Rudi Santoso">
                         </div>
                         <div class="text-center p-4">
                             <span class="team-badge-role">Overhaul</span>
@@ -699,7 +746,7 @@ $mt_base = get_stylesheet_directory_uri() . '/mastertruck';
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="team-enterprise-card">
                         <div class="team-photo-wrap">
-                            <img src="<?php echo esc_url( $mt_base ); ?>/img/team-4.jpg" alt="Agus Pratama">
+                            <img src="<?php echo esc_url( $mt_base ); ?>/img/team-4.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Agus Pratama">
                         </div>
                         <div class="text-center p-4">
                             <span class="team-badge-role">Chassis</span>
@@ -726,7 +773,7 @@ $mt_base = get_stylesheet_directory_uri() . '/mastertruck';
                 <div class="testimonial-item text-center">
                     <div class="testimonial-enterprise-card">
                         <i class="fa fa-quote-right testimonial-quote-icon"></i>
-                        <img class="testimonial-avatar" src="<?php echo esc_url( $mt_base ); ?>/img/testimonial-1.jpg" alt="Gunawan Siregar">
+                        <img class="testimonial-avatar" src="<?php echo esc_url( $mt_base ); ?>/img/testimonial-1.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Gunawan Siregar">
                         <h5 class="mb-0">Gunawan Siregar</h5>
                         <p class="text-muted small">Fleet Manager — PT Samudera Logistik</p>
                         <div class="mb-2" style="color: #D97706;">★★★★★</div>
@@ -736,7 +783,7 @@ $mt_base = get_stylesheet_directory_uri() . '/mastertruck';
                 <div class="testimonial-item text-center">
                     <div class="testimonial-enterprise-card">
                         <i class="fa fa-quote-right testimonial-quote-icon"></i>
-                        <img class="testimonial-avatar" src="<?php echo esc_url( $mt_base ); ?>/img/testimonial-2.jpg" alt="Budi Wicaksono">
+                        <img class="testimonial-avatar" src="<?php echo esc_url( $mt_base ); ?>/img/testimonial-2.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Budi Wicaksono">
                         <h5 class="mb-0">Budi Wicaksono</h5>
                         <p class="text-muted small">Direktur — CV Maju Bersama</p>
                         <div class="mb-2" style="color: #D97706;">★★★★★</div>
@@ -746,7 +793,7 @@ $mt_base = get_stylesheet_directory_uri() . '/mastertruck';
                 <div class="testimonial-item text-center">
                     <div class="testimonial-enterprise-card">
                         <i class="fa fa-quote-right testimonial-quote-icon"></i>
-                        <img class="testimonial-avatar" src="<?php echo esc_url( $mt_base ); ?>/img/testimonial-3.jpg" alt="Ahmad Faisal">
+                        <img class="testimonial-avatar" src="<?php echo esc_url( $mt_base ); ?>/img/testimonial-3.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Ahmad Faisal">
                         <h5 class="mb-0">Ahmad Faisal</h5>
                         <p class="text-muted small">Supervisor — PT Deli Sawit Makmur</p>
                         <div class="mb-2" style="color: #D97706;">★★★★★</div>
@@ -756,7 +803,7 @@ $mt_base = get_stylesheet_directory_uri() . '/mastertruck';
                 <div class="testimonial-item text-center">
                     <div class="testimonial-enterprise-card">
                         <i class="fa fa-quote-right testimonial-quote-icon"></i>
-                        <img class="testimonial-avatar" src="<?php echo esc_url( $mt_base ); ?>/img/testimonial-4.jpg" alt="Dedi Kurniawan">
+                        <img class="testimonial-avatar" src="<?php echo esc_url( $mt_base ); ?>/img/testimonial-4.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Dedi Kurniawan">
                         <h5 class="mb-0">Dedi Kurniawan</h5>
                         <p class="text-muted small">Koordinator — Belawan Port Logistics</p>
                         <div class="mb-2" style="color: #D97706;">★★★★★</div>
@@ -908,19 +955,18 @@ $mt_base = get_stylesheet_directory_uri() . '/mastertruck';
 
 
     <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="<?php echo esc_url( $mt_base ); ?>/lib/wow/wow.min.js"></script>
-    <script src="<?php echo esc_url( $mt_base ); ?>/lib/easing/easing.min.js"></script>
-    <script src="<?php echo esc_url( $mt_base ); ?>/lib/waypoints/waypoints.min.js"></script>
-    <script src="<?php echo esc_url( $mt_base ); ?>/lib/counterup/counterup.min.js"></script>
-    <script src="<?php echo esc_url( $mt_base ); ?>/lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="<?php echo esc_url( $mt_base ); ?>/lib/tempusdominus/js/moment.min.js"></script>
-    <script src="<?php echo esc_url( $mt_base ); ?>/lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="<?php echo esc_url( $mt_base ); ?>/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="<?php echo esc_url( $mt_base ); ?>/lib/wow/wow.min.js?ver=<?php echo esc_attr( $mt_ver ); ?>"></script>
+    <script src="<?php echo esc_url( $mt_base ); ?>/lib/easing/easing.min.js?ver=<?php echo esc_attr( $mt_ver ); ?>"></script>
+    <script src="<?php echo esc_url( $mt_base ); ?>/lib/waypoints/waypoints.min.js?ver=<?php echo esc_attr( $mt_ver ); ?>"></script>
+    <script src="<?php echo esc_url( $mt_base ); ?>/lib/counterup/counterup.min.js?ver=<?php echo esc_attr( $mt_ver ); ?>"></script>
+    <script src="<?php echo esc_url( $mt_base ); ?>/lib/owlcarousel/owl.carousel.min.js?ver=<?php echo esc_attr( $mt_ver ); ?>"></script>
+    <script src="<?php echo esc_url( $mt_base ); ?>/lib/tempusdominus/js/moment.min.js?ver=<?php echo esc_attr( $mt_ver ); ?>"></script>
+    <script src="<?php echo esc_url( $mt_base ); ?>/lib/tempusdominus/js/moment-timezone.min.js?ver=<?php echo esc_attr( $mt_ver ); ?>"></script>
+    <script src="<?php echo esc_url( $mt_base ); ?>/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js?ver=<?php echo esc_attr( $mt_ver ); ?>"></script>
 
     <!-- Template Javascript -->
-    <script src="<?php echo esc_url( $mt_base ); ?>/js/main.js"></script>
+    <script src="<?php echo esc_url( $mt_base ); ?>/js/main.js?ver=<?php echo esc_attr( $mt_ver ); ?>"></script>
     <?php wp_footer(); ?>
 </body>
 
