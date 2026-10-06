@@ -1959,7 +1959,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 .service-panel-card { border-top: 4px solid var(--primary); }
 
 /* 6. Prinsipal: band ivory full-bleed + aksen amber */
-.sec-principals { position: relative; }
+.sec-principals { position: relative; overflow: hidden; }
 .sec-principals::before {
     content: '';
     position: absolute;
@@ -1967,11 +1967,23 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     bottom: 0;
     left: -100vw;
     right: -100vw;
-    background-color: var(--primary-tint);
-    border-top: 1px solid var(--hairline);
-    border-bottom: 1px solid var(--hairline);
+    background-color: #D9E8FD;
+    border-top: 1px solid #C9DCFA;
+    border-bottom: 1px solid #C9DCFA;
     z-index: 0;
     pointer-events: none;
+}
+.sec-principals::after {
+    content: '';
+    position: absolute;
+    top: -160px;
+    right: -120px;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.12) 0%, rgba(37, 99, 235, 0) 68%);
+    pointer-events: none;
+    z-index: 0;
 }
 .sec-principals > * { position: relative; z-index: 1; }
 .sec-principals .badge-section-pill {
