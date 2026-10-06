@@ -27,9 +27,9 @@ Dokumen ini mencatat atribusi dan lisensi aset gambar yang digunakan pada websit
 
 ### 2. Fasilitas & Layanan Bengkel
 * **`assets/img/about.jpg`**
-  - Deskripsi: Truk niaga berbaris di fasilitas pit workshop heavy-duty KIM III.
+  - Deskripsi: Teknisi ahli melakukan pemeliharaan armada truk niaga tugas berat berfasilitas pit modern dengan pencahayaan netral.
   - Penggunaan: Section Tentang Kami (`#about`).
-  - Status Lisensi: Bebas royalti komersial.
+  - Status Lisensi: Bebas royalti komersial (Wikimedia Commons / US Public Domain / Free Commercial License).
 * **`assets/img/service-1.jpg`**
   - Deskripsi: Teknisi melakukan pengujian diagnostik ECU dan sensor kelistrikan 24V truk.
   - Penggunaan: Tab Layanan 1 (Diagnostic Test & Sensor ECU).

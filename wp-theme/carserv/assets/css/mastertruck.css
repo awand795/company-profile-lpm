@@ -1,45 +1,50 @@
 /* ==============================================================
-   MASTER TRUCK ENTERPRISE DESIGN SYSTEM - POLISH ROUND 2
+   MASTER TRUCK ENTERPRISE DESIGN SYSTEM - POLISH ROUND 3
    Modern, Clean, White-Dominant Corporate Theme
-   Soft Palette: Blue (#5B8DEF), Teal (#4DB6AC), Amber (#F4C26B), Lavender (#9A8CF2)
+   Harmonious Soft Palette:
+     - Dominant Soft Blue (#5B8DEF, Ink: #2F5DB8, Tint: #EAF1FE)
+     - Accent Soft Teal (#4DB6AC, Ink: #2C8C82, Tint: #E0F4F1)
+     - Star Amber (#F4C26B)
    PT Master Truck Indonesia - KIM III Medan
-   Single Source of Truth Design Tokens
    ============================================================== */
 
 :root {
-    /* Brand Color Tokens */
+    /* Primary Soft Blue (dominant) */
     --primary: #5B8DEF;
+    --primary-ink: #2F5DB8;
     --primary-hover: #4A7BD8;
-    --primary-tint: #E8F0FE;
+    --primary-tint: #EAF1FE;
+    --primary-border-tint: rgba(91, 141, 239, 0.22);
     --primary-rgb: 91, 141, 239;
 
+    /* Accent Soft Teal (secondary accent for checkmarks, alternating icons) */
+    --accent-teal: #4DB6AC;
+    --accent-teal-ink: #2C8C82;
+    --accent-teal-hover: #3EA69C;
+    --accent-teal-tint: #E0F4F1;
+    --accent-teal-border-tint: rgba(77, 182, 172, 0.25);
+    --accent-teal-rgb: 77, 182, 172;
+
+    /* Secondary alias for backward compatibility */
     --secondary: #4DB6AC;
     --secondary-hover: #3EA69C;
     --secondary-tint: #E0F4F1;
-    --secondary-rgb: 77, 182, 172;
 
-    --accent: #F4C26B;
-    --accent-hover: #D99B26;
-    --accent-tint: #FFF6E0;
-    --accent-rgb: 244, 194, 107;
+    /* Amber (strictly for review stars & subtle status) */
+    --accent-amber: #F4C26B;
+    --accent-amber-tint: #FFF8E7;
 
-    --lavender: #9A8CF2;
-    --lavender-hover: #8978E8;
-    --lavender-tint: #F0EEFF;
-    --lavender-rgb: 154, 140, 242;
-
-    /* Semantic Neutrals */
-    --dark: #1F2A37;
-    --heading: #1F2A37;
-    --body: #5B6573;
-    --text-muted: #6B7280;
-    --border: #E5E9F0;
+    /* Semantic Neutrals (Enterprise contrast) */
+    --heading: #1B2536;
+    --body: #556070;
+    --text-muted: #6B7686;
+    --border: #E6EAF2;
     --border-light: #F0F3F8;
 
     /* Backgrounds */
     --bg-white: #FFFFFF;
-    --bg-light: #F6F8FB;
-    --booking-bg: #EEF4FF;
+    --bg-soft: #F7F9FC;
+    --bg-booking: #EEF4FF;
 
     /* Hero Tuning */
     --hero-bg-opacity: 0.32;
@@ -55,10 +60,10 @@
     --radius-img: 16px;
 
     /* Shadows */
-    --shadow-sm: 0 2px 8px rgba(31, 42, 55, 0.04);
-    --shadow-card: 0 6px 24px rgba(31, 42, 55, 0.06);
-    --shadow-card-hover: 0 10px 28px rgba(31, 42, 55, 0.09);
-    --shadow-header: 0 4px 20px rgba(31, 42, 55, 0.05);
+    --shadow-sm: 0 2px 8px rgba(27, 37, 54, 0.04);
+    --shadow-card: 0 6px 24px rgba(27, 37, 54, 0.06);
+    --shadow-card-hover: 0 10px 28px rgba(27, 37, 54, 0.09);
+    --shadow-header: 0 4px 20px rgba(27, 37, 54, 0.06);
 
     /* Typography */
     --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -69,16 +74,16 @@
     --bs-primary-rgb: 91, 141, 239;
     --bs-secondary: #4DB6AC;
     --bs-secondary-rgb: 77, 182, 172;
-    --bs-dark: #1F2A37;
-    --bs-dark-rgb: 31, 42, 55;
-    --bs-light: #F6F8FB;
-    --bs-light-rgb: 246, 248, 251;
-    --bs-body-color: #5B6573;
+    --bs-dark: #1B2536;
+    --bs-dark-rgb: 27, 37, 54;
+    --bs-light: #F7F9FC;
+    --bs-light-rgb: 247, 249, 252;
+    --bs-body-color: #556070;
     --bs-body-bg: #FFFFFF;
 }
 
 /* ==============================================================
-   BASE & TYPOGRAPHY
+   BASE & RESET
    ============================================================== */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -91,6 +96,7 @@ body {
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -108,7 +114,7 @@ p {
 }
 
 a {
-    color: var(--primary);
+    color: var(--primary-ink);
     text-decoration: none;
     transition: color 0.2s ease;
 }
@@ -119,7 +125,7 @@ a:hover {
 
 ::selection {
     background-color: var(--primary-tint);
-    color: var(--primary-hover);
+    color: var(--primary-ink);
 }
 
 /* Scrollbar Clean */
@@ -161,10 +167,11 @@ a:hover {
     }
 }
 
-/* Zero Red & Primary Neutralization */
+/* Zero Red Policy & Primary Neutralization */
 .text-danger, .text-red, .text-primary,
-span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-primary, h1.text-primary, h2.text-primary, h3.text-primary, h4.text-primary, h5.text-primary, h6.text-primary {
-    color: var(--primary) !important;
+span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-primary,
+h1.text-primary, h2.text-primary, h3.text-primary, h4.text-primary, h5.text-primary, h6.text-primary {
+    color: var(--primary-ink) !important;
 }
 
 .bg-danger, .bg-red, .bg-primary {
@@ -173,7 +180,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 
 .bg-danger-subtle, .bg-primary-subtle {
     background-color: var(--primary-tint) !important;
-    color: var(--primary) !important;
+    color: var(--primary-ink) !important;
 }
 
 .border-danger, .border-primary {
@@ -194,8 +201,78 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     border-color: var(--primary-hover) !important;
 }
 
+/* Star rating amber */
+.text-rating-stars,
+.text-rating-stars i,
+.text-amber-gold,
+.text-warning {
+    color: var(--accent-amber) !important;
+}
+
 /* ==============================================================
-   UNIVERSAL SOFT TINT ICONS (Circled / Squircles)
+   FULL-BLEED SECTION SYSTEM (.mt-section)
+   Eliminates the "floating gray box" bug at any viewport width
+   ============================================================== */
+.mt-section {
+    width: 100%;
+    padding: 96px 0;
+    position: relative;
+    clear: both;
+}
+
+@media (max-width: 991.98px) {
+    .mt-section {
+        padding: 72px 0;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .mt-section {
+        padding: 64px 0;
+    }
+}
+
+.mt-section--white {
+    background-color: var(--bg-white);
+}
+
+.mt-section--soft {
+    background-color: var(--bg-soft);
+}
+
+.mt-section--booking {
+    background-color: var(--bg-booking);
+}
+
+.mt-section--border-top {
+    border-top: 1px solid var(--border);
+}
+
+/* Universal Section Pill / Eyebrow */
+.badge-section-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--primary-tint);
+    color: var(--primary-ink);
+    border: 1px solid var(--primary-border-tint);
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 0.85rem;
+}
+
+.badge-section-pill i {
+    font-size: 12px;
+}
+
+/* ==============================================================
+   UNIVERSAL SOFT TINT ICONS (Squircles)
+   2 Color rule: Blue or Teal. No lavender, no amber icons.
    ============================================================== */
 .icon-tint-wrap {
     width: 50px;
@@ -211,42 +288,22 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 
 .icon-tint-blue {
     background-color: var(--primary-tint);
-    color: var(--primary);
+    color: var(--primary-ink);
 }
+
 .icon-tint-teal {
-    background-color: var(--secondary-tint);
-    color: var(--secondary);
+    background-color: var(--accent-teal-tint);
+    color: var(--accent-teal-ink);
 }
+
+/* Legacy fallback classes mapped to Blue / Teal */
 .icon-tint-amber {
-    background-color: var(--accent-tint);
-    color: var(--accent-hover);
+    background-color: var(--accent-teal-tint);
+    color: var(--accent-teal-ink);
 }
 .icon-tint-lavender {
-    background-color: var(--lavender-tint);
-    color: var(--lavender);
-}
-
-/* Section Spacing & Eyebrow Badges */
-.section-padding {
-    padding-top: 88px;
-    padding-bottom: 88px;
-}
-
-.badge-section-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
     background-color: var(--primary-tint);
-    color: var(--primary-hover);
-    border: 1px solid rgba(91, 141, 239, 0.2);
-    font-family: var(--font-heading);
-    font-size: 11.5px;
-    font-weight: 700;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    padding: 6px 16px;
-    border-radius: var(--radius-pill);
-    margin-bottom: 0.85rem;
+    color: var(--primary-ink);
 }
 
 /* ==============================================================
@@ -284,63 +341,95 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 }
 
 .btn-secondary {
-    background-color: var(--secondary) !important;
-    border: 1px solid var(--secondary) !important;
+    background-color: var(--accent-teal) !important;
+    border: 1px solid var(--accent-teal) !important;
     color: #FFFFFF !important;
     box-shadow: 0 4px 14px rgba(77, 182, 172, 0.24) !important;
 }
 
 .btn-secondary:hover, .btn-secondary:focus {
-    background-color: var(--secondary-hover) !important;
-    border-color: var(--secondary-hover) !important;
+    background-color: var(--accent-teal-hover) !important;
+    border-color: var(--accent-teal-hover) !important;
     color: #FFFFFF !important;
     transform: translateY(-2px);
 }
 
 .btn-outline-primary {
-    color: var(--primary) !important;
+    color: var(--primary-ink) !important;
     border: 1.5px solid var(--primary) !important;
     background-color: transparent !important;
 }
 
 .btn-outline-primary:hover {
     background-color: var(--primary-tint) !important;
-    color: var(--primary-hover) !important;
+    color: var(--primary-ink) !important;
     border-color: var(--primary-hover) !important;
     transform: translateY(-2px);
 }
 
 /* ==============================================================
-   1. TOPBAR & NAVBAR (Pixel-Perfect Polish)
+   1. TOPBAR & NAVBAR
    ============================================================== */
 .top-bar-custom {
-    height: 38px;
-    background-color: var(--bg-light) !important;
+    min-height: 40px;
+    background-color: var(--bg-soft) !important;
     color: var(--body) !important;
-    font-size: 12.5px !important;
+    font-size: 13px !important;
     border-bottom: 1px solid var(--border) !important;
     display: flex;
     align-items: center;
 }
 
-.top-bar-custom small {
-    color: var(--body) !important;
+.topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 40px;
+    flex-wrap: nowrap;
+}
+
+.topbar-left,
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    white-space: nowrap;
+}
+
+.topbar-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--body);
+    font-size: 13px;
     font-weight: 500;
 }
 
-.top-bar-custom .text-primary {
-    color: var(--primary) !important;
+.topbar-item i {
+    color: var(--primary-ink);
+    font-size: 13px;
 }
 
-.top-bar-custom a {
-    color: var(--body) !important;
+.topbar-sep {
+    display: inline-block;
+    width: 1px;
+    height: 14px;
+    background-color: var(--border);
 }
 
-.top-bar-custom a:hover {
-    color: var(--primary) !important;
+.topbar-phone-link {
+    color: var(--heading);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
 }
 
-.top-social-btn {
+.topbar-phone-link:hover {
+    color: var(--primary-ink);
+}
+
+.topbar-social-link {
     width: 26px;
     height: 26px;
     display: inline-flex;
@@ -349,14 +438,15 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     border-radius: var(--radius-sm);
     background: var(--bg-white);
     border: 1px solid var(--border);
-    color: var(--body) !important;
+    color: var(--body);
     font-size: 11px;
     transition: all 0.2s ease;
+    text-decoration: none;
 }
 
-.top-social-btn:hover {
+.topbar-social-link:hover {
     background: var(--primary-tint);
-    color: var(--primary) !important;
+    color: var(--primary-ink);
     border-color: var(--primary);
 }
 
@@ -367,7 +457,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     border-bottom: 1px solid var(--border) !important;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
-    transition: all 0.25s ease;
+    transition: box-shadow 0.25s ease;
 }
 
 .navbar.sticky-top,
@@ -418,12 +508,12 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 }
 
 .navbar-brand-title span {
-    color: var(--primary);
+    color: var(--primary-ink);
 }
 
 .navbar-brand-sub {
     font-family: var(--font-body);
-    font-size: 9.5px;
+    font-size: 10px;
     font-weight: 600;
     letter-spacing: 0.4px;
     color: var(--text-muted);
@@ -453,12 +543,12 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     }
 
     .navbar .navbar-nav .nav-link:hover {
-        color: var(--primary-hover) !important;
+        color: var(--primary-ink) !important;
         background-color: var(--primary-tint);
     }
 
     .navbar .navbar-nav .nav-link.active {
-        color: var(--primary-hover) !important;
+        color: var(--primary-ink) !important;
         background-color: var(--primary-tint);
     }
 
@@ -492,7 +582,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 }
 
 .btn-nav-login:hover {
-    color: var(--primary) !important;
+    color: var(--primary-ink) !important;
     border-color: var(--primary) !important;
     background: var(--primary-tint) !important;
 }
@@ -548,12 +638,12 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     .navbar .navbar-nav .nav-link.active,
     .navbar .navbar-nav .nav-link:hover {
         background-color: var(--primary-tint);
-        color: var(--primary-hover) !important;
+        color: var(--primary-ink) !important;
     }
 }
 
 /* ==============================================================
-   2. HERO CAROUSEL (Light, Visible Blurred Warehouse, Soft Truck)
+   2. HERO CAROUSEL
    ============================================================== */
 #header-carousel {
     position: relative;
@@ -566,7 +656,6 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     position: relative;
 }
 
-/* Background image visible but softly blurred */
 #header-carousel .carousel-item img.w-100 {
     min-height: 600px;
     height: 100%;
@@ -576,7 +665,6 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     transform: scale(1.04);
 }
 
-/* High contrast soft white gradient overlay */
 .carousel-caption {
     position: absolute;
     inset: 0;
@@ -593,12 +681,12 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     align-items: center;
     gap: 8px;
     background: var(--primary-tint);
-    border: 1px solid rgba(91, 141, 239, 0.25);
-    color: var(--primary-hover);
+    border: 1px solid var(--primary-border-tint);
+    color: var(--primary-ink);
     font-family: var(--font-heading);
-    font-size: 11.5px;
+    font-size: 12px;
     font-weight: 700;
-    letter-spacing: 0.8px;
+    letter-spacing: 0.6px;
     text-transform: uppercase;
     padding: 6px 16px;
     border-radius: var(--radius-pill);
@@ -609,9 +697,9 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 .hero-brand-pill .live-dot {
     width: 8px;
     height: 8px;
-    background: var(--secondary);
+    background: var(--accent-teal);
     border-radius: 50%;
-    box-shadow: 0 0 8px var(--secondary);
+    box-shadow: 0 0 8px var(--accent-teal);
     display: inline-block;
 }
 
@@ -626,11 +714,11 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 }
 
 .hero-brand-highlight {
-    color: var(--primary) !important;
+    color: var(--primary-ink) !important;
     background: none !important;
     -webkit-background-clip: unset !important;
     background-clip: unset !important;
-    -webkit-text-fill-color: var(--primary) !important;
+    -webkit-text-fill-color: var(--primary-ink) !important;
     text-shadow: none !important;
     font-weight: 800;
 }
@@ -684,7 +772,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 }
 .btn-hero-secondary:hover {
     background: var(--primary-tint) !important;
-    color: var(--primary-hover) !important;
+    color: var(--primary-ink) !important;
     border-color: var(--primary) !important;
     transform: translateY(-2px);
 }
@@ -701,7 +789,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     background: #FFFFFF;
     border-radius: var(--radius-card-lg);
     border: 1px solid var(--border);
-    box-shadow: 0 12px 36px rgba(31, 42, 55, 0.08);
+    box-shadow: 0 12px 36px rgba(27, 37, 54, 0.08);
     padding: 16px;
 }
 
@@ -716,7 +804,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(91, 141, 239, 0.10) 0%, rgba(246, 248, 251, 0.06) 100%);
+    background: linear-gradient(180deg, rgba(91, 141, 239, 0.08) 0%, rgba(246, 248, 251, 0.04) 100%);
     pointer-events: none;
 }
 
@@ -724,7 +812,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: saturate(0.92) contrast(1.02);
+    filter: saturate(0.95) contrast(1.02);
     display: block;
     transition: transform 0.4s ease;
 }
@@ -767,7 +855,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 }
 
 .hero-card-sub {
-    font-size: 11.5px;
+    font-size: 12px;
     color: var(--text-muted);
 }
 
@@ -786,7 +874,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     border-radius: 50%;
     background: #FFFFFF;
     border: 1px solid var(--border);
-    color: var(--primary);
+    color: var(--primary-ink);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -798,12 +886,84 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 .btn-carousel-circle:hover {
     background: var(--primary-tint);
     border-color: var(--primary);
-    color: var(--primary-hover);
+    color: var(--primary-ink);
     transform: translateY(-1px);
 }
 
 /* ==============================================================
-   3. KEUNGGULAN (4 CARDS DENGAN LINGKARAN TINT ROTASI)
+   3. STATS / FACTS (SINGLE WIDE OVERLAPPING WHITE CARD)
+   ============================================================== */
+.stats-overlap-wrapper {
+    position: relative;
+    z-index: 10;
+    margin-top: -48px;
+    margin-bottom: 0;
+}
+
+.stats-card-single {
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card-lg);
+    box-shadow: 0 12px 36px rgba(27, 37, 54, 0.08);
+    padding: 36px 24px;
+}
+
+.stats-col {
+    position: relative;
+    text-align: center;
+    padding: 12px 16px;
+}
+
+@media (min-width: 768px) {
+    .stats-col:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 15%;
+        height: 70%;
+        width: 1px;
+        background-color: var(--border);
+    }
+}
+
+.stat-icon-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow-sm);
+}
+
+.stat-val {
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--heading);
+    margin-bottom: 6px;
+}
+
+.stat-lbl {
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--body);
+    margin-bottom: 2px;
+}
+
+.stat-sub {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* ==============================================================
+   4. KEUNGGULAN (4 CARDS DENGAN TINT BLUE & TEAL)
    ============================================================== */
 .feature-card {
     background: var(--bg-white);
@@ -826,33 +986,43 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     font-weight: 700;
     margin-top: 16px;
     margin-bottom: 8px;
+    color: var(--heading);
 }
 
 .feature-card p {
     font-size: 13.5px;
     line-height: 1.6;
     color: var(--body);
+    margin-bottom: 0;
 }
 
 /* ==============================================================
-   4. TENTANG KAMI (01-02-03 NUMBERED TINT PILLS)
+   5. TENTANG KAMI (ABOUT SECTION)
    ============================================================== */
+.about-image-wrapper,
 .about-img-box {
     position: relative;
     border-radius: var(--radius-card-lg);
     overflow: hidden;
     border: 1px solid var(--border);
     box-shadow: var(--shadow-card);
+    height: 100%;
+    min-height: 520px;
+    background-color: var(--bg-white);
 }
 
+.about-main-img,
 .about-img-box img {
     border-radius: var(--radius-card-lg);
     object-fit: cover;
-    width: 100%;
-    height: 480px;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100%;
+    min-height: 520px;
     display: block;
 }
 
+.about-floating-card,
 .about-exp-float-card {
     position: absolute;
     bottom: 24px;
@@ -865,6 +1035,34 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     display: flex;
     align-items: center;
     gap: 14px;
+    z-index: 2;
+}
+
+.about-card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: var(--primary-tint);
+    color: var(--primary-ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.about-card-title {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--heading);
+    line-height: 1.1;
+}
+
+.about-card-sub {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--text-muted);
 }
 
 .about-point-card {
@@ -885,10 +1083,13 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     transform: translateY(-2px);
 }
 
+.about-point-num,
 .about-num-badge {
     width: 42px;
     height: 42px;
     border-radius: 12px;
+    background-color: var(--primary-tint);
+    color: var(--primary-ink);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -898,144 +1099,160 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     flex-shrink: 0;
 }
 
-/* ==============================================================
-   5. ANGKA / FAKTA (4 KARTU SOFT BACKGROUND TINT BERBEDA)
-   ============================================================== */
-.fact-section-light {
-    background-color: var(--bg-white);
-    padding-top: 56px;
-    padding-bottom: 56px;
+.about-point-card:nth-child(2) .about-point-num {
+    background-color: var(--accent-teal-tint);
+    color: var(--accent-teal-ink);
 }
 
-.stat-card-soft {
-    border-radius: var(--radius-card);
-    padding: 28px 20px;
-    text-align: center;
-    transition: all 0.25s ease;
-    border: 1px solid transparent;
-}
-
-.stat-card-blue {
-    background-color: var(--primary-tint);
-    border-color: rgba(91, 141, 239, 0.22);
-}
-.stat-card-blue .stat-val { color: var(--primary-hover); }
-.stat-card-blue .stat-icon-circle { background: #FFFFFF; color: var(--primary); }
-
-.stat-card-teal {
-    background-color: var(--secondary-tint);
-    border-color: rgba(77, 182, 172, 0.25);
-}
-.stat-card-teal .stat-val { color: var(--secondary-hover); }
-.stat-card-teal .stat-icon-circle { background: #FFFFFF; color: var(--secondary); }
-
-.stat-card-amber {
-    background-color: var(--accent-tint);
-    border-color: rgba(244, 194, 107, 0.35);
-}
-.stat-card-amber .stat-val { color: var(--accent-hover); }
-.stat-card-amber .stat-icon-circle { background: #FFFFFF; color: var(--accent-hover); }
-
-.stat-card-lavender {
-    background-color: var(--lavender-tint);
-    border-color: rgba(154, 140, 242, 0.25);
-}
-.stat-card-lavender .stat-val { color: var(--lavender-hover); }
-.stat-card-lavender .stat-icon-circle { background: #FFFFFF; color: var(--lavender); }
-
-.stat-card-soft:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-card-hover);
-}
-
-.stat-icon-circle {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    margin-bottom: 14px;
-    box-shadow: var(--shadow-sm);
-}
-
-.stat-val {
+.about-point-title {
     font-family: var(--font-heading);
-    font-size: 2.4rem;
-    font-weight: 800;
-    line-height: 1;
-    margin-bottom: 6px;
-}
-
-.stat-lbl {
-    font-family: var(--font-heading);
-    font-size: 12.5px;
+    font-size: 15px;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: var(--dark);
-    margin-bottom: 2px;
+    color: var(--heading);
+    margin-bottom: 4px;
 }
 
-.stat-sub {
-    font-size: 11.5px;
-    color: var(--text-muted);
+.about-point-desc {
+    font-size: 13.5px;
+    color: var(--body);
+    line-height: 1.55;
+    margin-bottom: 0;
 }
 
 /* ==============================================================
    6. LAYANAN BENGKEL (TABS & PANELS)
    ============================================================== */
+.service-tabs-nav .service-tab-item,
 .service-nav-pills .service-pill-btn {
-    background: var(--bg-white);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-card);
-    padding: 16px 18px;
-    margin-bottom: 12px;
-    width: 100%;
-    text-align: left;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    transition: all 0.2s ease;
-    box-shadow: var(--shadow-sm);
+    background: #FFFFFF !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-card) !important;
+    padding: 16px 20px !important;
+    margin-bottom: 0 !important;
+    width: 100% !important;
+    text-align: left !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    transition: all 0.2s ease !important;
+    box-shadow: var(--shadow-sm) !important;
+    color: var(--heading) !important;
 }
 
+.service-tabs-nav .service-tab-item:hover,
 .service-nav-pills .service-pill-btn:hover {
-    border-color: var(--primary);
-    background-color: #F8FAFD;
+    border-color: var(--primary) !important;
+    background-color: var(--bg-soft) !important;
+    transform: translateY(-2px);
 }
 
+.service-tabs-nav .service-tab-item.active,
 .service-nav-pills .service-pill-btn.active {
     background-color: var(--primary-tint) !important;
     border-color: var(--primary) !important;
-    box-shadow: var(--shadow-card);
+    box-shadow: var(--shadow-card) !important;
+    color: var(--heading) !important;
 }
 
+.service-tab-icon {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 14px !important;
+    background-color: var(--primary-tint) !important;
+    color: var(--primary-ink) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 19px !important;
+    flex-shrink: 0 !important;
+    transition: all 0.2s ease !important;
+}
+
+.service-tab-item.active .service-tab-icon,
 .service-nav-pills .service-pill-btn.active .icon-tint-wrap {
-    background: #FFFFFF;
-    color: var(--primary);
-    box-shadow: var(--shadow-sm);
+    background-color: #FFFFFF !important;
+    color: var(--primary-ink) !important;
+    box-shadow: var(--shadow-sm) !important;
 }
 
+.service-tab-title {
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--heading) !important;
+    line-height: 1.25;
+}
+
+.service-tab-sub {
+    font-size: 12px;
+    color: var(--text-muted) !important;
+    margin-top: 2px;
+}
+
+.service-detail-card,
 .service-panel-card {
-    background: #FFFFFF;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-card);
-    padding: 32px;
-    box-shadow: var(--shadow-card);
+    background: #FFFFFF !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-card-lg) !important;
+    padding: 32px !important;
+    box-shadow: var(--shadow-card) !important;
 }
 
+.service-img-wrapper img,
 .service-panel-card img {
-    border-radius: var(--radius-card);
-    object-fit: cover;
-    width: 100%;
-    height: 270px;
-    border: 1px solid var(--border);
+    border-radius: var(--radius-card) !important;
+    object-fit: cover !important;
+    width: 100% !important;
+    height: 270px !important;
+    border: 1px solid var(--border) !important;
 }
 
-.check-teal {
-    color: var(--secondary) !important;
+.service-detail-title {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--heading);
+    line-height: 1.3;
+}
+
+.service-detail-desc {
+    font-size: 14px;
+    color: var(--body);
+    line-height: 1.6;
+}
+
+.service-checklist {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.service-checklist li {
+    font-size: 13.5px;
+    color: var(--body);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.service-checklist li i {
+    color: var(--accent-teal) !important;
+}
+
+.badge-tag-pill {
+    display: inline-block;
+    background: var(--primary-tint);
+    color: var(--primary-ink);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+}
+
+.check-teal,
+.text-accent-teal {
+    color: var(--accent-teal) !important;
 }
 
 /* ==============================================================
@@ -1082,14 +1299,8 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 }
 
 /* ==============================================================
-   9. BOOKING & EMERGENCY SECTION (#EEF4FF TINT BACKGROUND)
+   9. BOOKING & EMERGENCY SECTION
    ============================================================== */
-.booking-section-wrapper {
-    background-color: var(--booking-bg) !important;
-    padding-top: 80px;
-    padding-bottom: 80px;
-}
-
 .booking-form-box {
     background: #FFFFFF;
     border: 1px solid var(--border);
@@ -1106,7 +1317,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     padding: 10px 16px;
     font-size: 14px;
     color: var(--heading);
-    background-color: var(--bg-light);
+    background-color: var(--bg-soft);
     transition: all 0.2s ease;
 }
 
@@ -1173,8 +1384,8 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 .team-badge-role {
     display: inline-block;
     background: var(--primary-tint);
-    color: var(--primary-hover);
-    font-size: 11.5px;
+    color: var(--primary-ink);
+    font-size: 12px;
     font-weight: 700;
     padding: 3px 12px;
     border-radius: var(--radius-pill);
@@ -1182,10 +1393,21 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 }
 
 /* ==============================================================
-   11. TESTIMONI (QUOTE ICON TINT & RING AVATAR)
+   11. TESTIMONI (INITIALS AVATARS & EQUAL-HEIGHT CAROUSEL)
    ============================================================== */
+.owl-carousel .owl-stage {
+    display: flex !important;
+}
+
+.owl-carousel .owl-item {
+    display: flex !important;
+    flex: 1 0 auto;
+    height: auto;
+}
+
 .testimonial-enterprise-card {
     position: relative;
+    width: 100%;
     background: #FFFFFF;
     border: 1px solid var(--border);
     border-radius: var(--radius-card);
@@ -1195,6 +1417,12 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: all 0.25s ease;
+}
+
+.testimonial-enterprise-card:hover {
+    border-color: rgba(91, 141, 239, 0.35);
+    box-shadow: var(--shadow-card-hover);
 }
 
 .testimonial-quote-icon {
@@ -1206,17 +1434,22 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     pointer-events: none;
 }
 
-.testimonial-avatar,
-.testimonial-enterprise-card .testimonial-avatar,
-.owl-carousel .owl-item .testimonial-avatar {
-    width: 68px !important;
-    height: 68px !important;
-    border-radius: 50% !important;
-    object-fit: cover !important;
-    border: 3px solid var(--primary-tint) !important;
-    box-shadow: var(--shadow-sm);
-    margin: 0 auto 12px auto !important;
-    display: inline-block !important;
+.testimonial-avatar-initial {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: var(--primary-tint);
+    color: var(--primary-ink);
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px auto;
+    border: 2px solid rgba(91, 141, 239, 0.2);
+    box-shadow: 0 2px 8px rgba(27, 37, 54, 0.05);
 }
 
 /* Owl Carousel Soft Dots */
@@ -1235,10 +1468,10 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 }
 
 /* ==============================================================
-   12. FOOTER (CLEAN LIGHT & BACK TO TOP)
+   12. FOOTER & BACK TO TOP
    ============================================================== */
 .footer-clean {
-    background-color: var(--bg-light) !important;
+    background-color: var(--bg-soft) !important;
     border-top: 1px solid var(--border) !important;
     color: var(--body) !important;
     padding-top: 64px;
@@ -1259,7 +1492,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     transition: all 0.2s ease;
 }
 .footer-clean .btn-link:hover {
-    color: var(--primary) !important;
+    color: var(--primary-ink) !important;
     padding-left: 5px;
 }
 
@@ -1276,7 +1509,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     font-weight: 600;
 }
 .footer-clean .copyright a:hover {
-    color: var(--primary);
+    color: var(--primary-ink);
 }
 
 /* Circular Soft Blue Back to Top */

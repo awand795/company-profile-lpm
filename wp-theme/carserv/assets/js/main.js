@@ -18,10 +18,10 @@
 
     // Sticky Navbar
     $(window).scroll(function () {
-        if ($(this).scrollTop() > 45) {
-            $('.sticky-top').addClass('shadow');
+        if ($(this).scrollTop() > 35) {
+            $('.sticky-top').addClass('sticky-scrolled');
         } else {
-            $('.sticky-top').removeClass('shadow');
+            $('.sticky-top').removeClass('sticky-scrolled');
         }
     });
     

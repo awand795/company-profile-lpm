@@ -20,7 +20,13 @@ add_action( 'after_setup_theme', 'carserv_setup' );
  */
 function carserv_scripts() {
     $theme_uri = get_template_directory_uri();
-    $version   = '1.2.0';
+    $theme_dir = get_template_directory();
+
+    // Cache-busting dynamically via file modification timestamps
+    $style_ver       = file_exists( $theme_dir . '/assets/css/style.css' ) ? filemtime( $theme_dir . '/assets/css/style.css' ) : '1.3.0';
+    $mastertruck_ver = file_exists( $theme_dir . '/assets/css/mastertruck.css' ) ? filemtime( $theme_dir . '/assets/css/mastertruck.css' ) : '1.3.0';
+    $bootstrap_ver   = file_exists( $theme_dir . '/assets/css/bootstrap.min.css' ) ? filemtime( $theme_dir . '/assets/css/bootstrap.min.css' ) : '1.3.0';
+    $main_js_ver     = file_exists( $theme_dir . '/assets/js/main.js' ) ? filemtime( $theme_dir . '/assets/js/main.js' ) : '1.3.0';
 
     // 1. Google Fonts: Plus Jakarta Sans (headings) + Inter (body)
     wp_enqueue_style(
@@ -49,19 +55,19 @@ function carserv_scripts() {
         'carserv-animate',
         $theme_uri . '/assets/lib/animate/animate.min.css',
         array(),
-        $version
+        '1.0.0'
     );
     wp_enqueue_style(
         'carserv-owlcarousel',
         $theme_uri . '/assets/lib/owlcarousel/assets/owl.carousel.min.css',
         array(),
-        $version
+        '2.3.4'
     );
     wp_enqueue_style(
         'carserv-tempusdominus',
         $theme_uri . '/assets/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css',
         array(),
-        $version
+        '5.39.0'
     );
 
     // 4. Customized Bootstrap
@@ -69,7 +75,7 @@ function carserv_scripts() {
         'carserv-bootstrap',
         $theme_uri . '/assets/css/bootstrap.min.css',
         array(),
-        $version
+        $bootstrap_ver
     );
 
     // 5. Template Base Stylesheet
@@ -77,7 +83,7 @@ function carserv_scripts() {
         'carserv-style',
         $theme_uri . '/assets/css/style.css',
         array( 'carserv-bootstrap' ),
-        $version
+        $style_ver
     );
 
     // 6. Master Truck Single Source of Truth Design System (Overrides)
@@ -85,7 +91,7 @@ function carserv_scripts() {
         'carserv-mastertruck',
         $theme_uri . '/assets/css/mastertruck.css',
         array( 'carserv-style' ),
-        $version
+        $mastertruck_ver
     );
 
     // Scripts
@@ -157,11 +163,22 @@ function carserv_scripts() {
         'carserv-main',
         $theme_uri . '/assets/js/main.js',
         array( 'jquery', 'carserv-bootstrap-bundle' ),
-        $version,
+        $main_js_ver,
         true
     );
 }
 add_action( 'wp_enqueue_scripts', 'carserv_scripts' );
+
+// Cleanly dequeue Elementor frontend assets on front page to prevent unused script execution
+add_action( 'wp_enqueue_scripts', function() {
+    if ( is_front_page() ) {
+        wp_dequeue_script( 'elementor-frontend' );
+        wp_dequeue_script( 'elementor-frontend-modules' );
+        wp_dequeue_style( 'elementor-frontend' );
+        wp_dequeue_style( 'elementor-post-4' );
+        wp_dequeue_style( 'elementor-post-59' );
+    }
+}, 999 );
 
 // Preconnect hints for Google Fonts
 add_filter( 'wp_resource_hints', function( $urls, $relation_type ) {
