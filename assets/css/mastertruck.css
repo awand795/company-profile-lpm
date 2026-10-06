@@ -762,10 +762,17 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 }
 
 #header-carousel .carousel-item {
-    height: clamp(480px, 60vh, 560px);
-    min-height: clamp(480px, 60vh, 560px);
+    height: auto;
+    min-height: max(620px, calc(100svh - 112px));
     position: relative;
     overflow: hidden;
+}
+
+/* Fallback bila svh tak didukung */
+@supports not (height: 100svh) {
+    #header-carousel .carousel-item {
+        min-height: 640px;
+    }
 }
 
 /* Background image visible but softly blurred (absolute agar tinggi terikat section) */
@@ -810,7 +817,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     inset: 0;
     background: linear-gradient(90deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.62) 46%, rgba(255, 255, 255, 0.18) 100%) !important;
     z-index: 2;
-    padding: 16px 0 !important;
+    padding: 24px 0 60px !important;
     display: flex !important;
     align-items: center !important;
     text-align: left;
