@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: MT Topbar Navy
- * Description: Topbar korporat MASTER TRUCK (kontak + link Web Fleet), pengaturan konten di Appearance > Topbar Master Truck, plus optimasi muat font Google. Update-safe.
- * Version: 1.1.0
+ * Plugin Name: MT Topbar Clean
+ * Description: Topbar korporat MASTER TRUCK (kontak + link Login/Daftar), pengaturan konten di Appearance > Topbar Master Truck. Update-safe.
+ * Version: 1.2.0
  */
 defined( 'ABSPATH' ) || exit;
 
@@ -14,7 +14,7 @@ function mt_topbar_defaults() {
 		'hours'          => 'Senin–Sabtu 08.00–17.00',
 		'fleet_login'    => 'http://localhost:3000/#login',
 		'fleet_register' => 'http://localhost:3000/#register',
-		'reg_label'      => 'Daftar Mitra',
+		'reg_label'      => 'Daftar',
 	);
 }
 
@@ -28,12 +28,6 @@ function mt_topbar_opt( $key ) {
 /* ------------------------------------------------------------------ enqueue */
 add_action( 'wp_enqueue_scripts', function () {
 	wp_enqueue_style( 'dashicons' );
-	wp_enqueue_style(
-		'mt-fontawesome',
-		'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css',
-		array(),
-		'5.15.4'
-	);
 } );
 
 /* ------------------------------------------------------- topbar di frontend */
@@ -58,7 +52,7 @@ function mt_render_topbar_html() {
 				<span class="mt-tb-item mt-tb-hours"><span class="dashicons dashicons-clock"></span> <?php echo esc_html( $hours ); ?></span>
 			</div>
 			<div class="mt-topbar-right">
-				<a href="<?php echo esc_url( $login ); ?>" target="_blank" rel="noopener">Login Web Fleet</a>
+				<a href="<?php echo esc_url( $login ); ?>" target="_blank" rel="noopener">Login</a>
 				<span class="mt-tb-sep">|</span>
 				<a href="<?php echo esc_url( $register ); ?>" target="_blank" rel="noopener" class="mt-tb-reg"><?php echo esc_html( $reg_lbl ); ?></a>
 			</div>
@@ -90,8 +84,8 @@ add_action( 'admin_init', function () {
 		'wa'             => array( 'Nomor WhatsApp', 'text' ),
 		'email'          => array( 'Email', 'text' ),
 		'hours'          => array( 'Jam operasional', 'text' ),
-		'fleet_login'    => array( 'URL tombol "Login Web Fleet"', 'url' ),
-		'fleet_register' => array( 'URL tombol "Daftar Mitra"', 'url' ),
+		'fleet_login'    => array( 'URL tombol "Login"', 'url' ),
+		'fleet_register' => array( 'URL tombol "Daftar"', 'url' ),
 		'reg_label'      => array( 'Label tombol kanan', 'text' ),
 	);
 
@@ -143,14 +137,6 @@ function mt_topbar_settings_page() {
 	</div>
 	<?php
 }
-
-/* ------------------------------------------- optimasi: muat font jadi 1 req */
-add_filter( 'style_loader_src', function ( $src ) {
-	if ( is_string( $src ) && false !== strpos( $src, 'fonts.googleapis.com' ) && false !== stripos( $src, 'family=Barlow' ) ) {
-		return 'https://fonts.googleapis.com/css?family=Barlow:wght@400;500;600;700;800&display=swap';
-	}
-	return $src;
-}, 999 );
 
 add_filter( 'wp_resource_hints', function ( $urls, $relation_type ) {
 	if ( 'preconnect' === $relation_type ) {

@@ -244,12 +244,6 @@ a:hover {
     transition: all 0.2s ease;
 }
 
-.top-social-btn:hover {
-    background: var(--primary-tint);
-    color: var(--primary) !important;
-    border-color: var(--primary);
-}
-
 /* ==============================================================
    NAVBAR COMPONENT
    ============================================================== */
@@ -259,6 +253,14 @@ a:hover {
     box-shadow: var(--shadow-sm) !important;
     padding-top: 0.75rem !important;
     padding-bottom: 0.75rem !important;
+}
+
+.navbar.sticky-top,
+.navbar-light.sticky-top {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1030 !important;
 }
 
 .navbar-brand-logo {
@@ -382,7 +384,18 @@ a:hover {
     background-color: var(--bg-light);
 }
 
+#header-carousel .carousel-item {
+    min-height: 620px;
+    position: relative;
+}
+
+#header-carousel .carousel-item img.w-100 {
+    min-height: 620px;
+    object-fit: cover;
+}
+
 .carousel-caption {
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -390,7 +403,9 @@ a:hover {
     /* Soft light overlay with high readability */
     background: linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.90) 45%, rgba(246, 248, 251, 0.65) 100%) !important;
     z-index: 2;
-    padding: 0;
+    padding: 40px 0 !important;
+    display: flex !important;
+    align-items: center !important;
     text-align: left;
 }
 
@@ -426,10 +441,11 @@ a:hover {
     font-family: var(--font-heading);
     font-size: 2.85rem !important;
     font-weight: 800 !important;
-    line-height: 1.2 !important;
+    line-height: 1.25 !important;
     color: var(--heading) !important;
     letter-spacing: -0.03em !important;
     text-shadow: none !important;
+    margin-bottom: 1.25rem !important;
 }
 
 @media (max-width: 991px) {

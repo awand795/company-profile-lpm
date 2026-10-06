@@ -1,6 +1,6 @@
 <?php
 /**
- * CarServ Theme Functions
+ * CarServ Theme Functions - Master Truck Enterprise Revamp
  */
 
 function carserv_setup() {
@@ -14,3 +14,163 @@ function carserv_setup() {
     ) );
 }
 add_action( 'after_setup_theme', 'carserv_setup' );
+
+/**
+ * Enqueue scripts and styles
+ */
+function carserv_scripts() {
+    $theme_uri = get_template_directory_uri();
+    $version   = '1.2.0';
+
+    // 1. Google Fonts: Plus Jakarta Sans (headings) + Inter (body)
+    wp_enqueue_style(
+        'carserv-google-fonts',
+        'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap',
+        array(),
+        null
+    );
+
+    // 2. Icon Fonts
+    wp_enqueue_style(
+        'carserv-fontawesome',
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css',
+        array(),
+        '5.15.4'
+    );
+    wp_enqueue_style(
+        'carserv-bootstrap-icons',
+        'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css',
+        array(),
+        '1.4.1'
+    );
+
+    // 3. Vendor Libraries
+    wp_enqueue_style(
+        'carserv-animate',
+        $theme_uri . '/assets/lib/animate/animate.min.css',
+        array(),
+        $version
+    );
+    wp_enqueue_style(
+        'carserv-owlcarousel',
+        $theme_uri . '/assets/lib/owlcarousel/assets/owl.carousel.min.css',
+        array(),
+        $version
+    );
+    wp_enqueue_style(
+        'carserv-tempusdominus',
+        $theme_uri . '/assets/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css',
+        array(),
+        $version
+    );
+
+    // 4. Customized Bootstrap
+    wp_enqueue_style(
+        'carserv-bootstrap',
+        $theme_uri . '/assets/css/bootstrap.min.css',
+        array(),
+        $version
+    );
+
+    // 5. Template Base Stylesheet
+    wp_enqueue_style(
+        'carserv-style',
+        $theme_uri . '/assets/css/style.css',
+        array( 'carserv-bootstrap' ),
+        $version
+    );
+
+    // 6. Master Truck Single Source of Truth Design System (Overrides)
+    wp_enqueue_style(
+        'carserv-mastertruck',
+        $theme_uri . '/assets/css/mastertruck.css',
+        array( 'carserv-style' ),
+        $version
+    );
+
+    // Scripts
+    wp_enqueue_script( 'jquery' );
+    wp_enqueue_script(
+        'carserv-bootstrap-bundle',
+        'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js',
+        array( 'jquery' ),
+        '5.0.0',
+        true
+    );
+    wp_enqueue_script(
+        'carserv-wow',
+        $theme_uri . '/assets/lib/wow/wow.min.js',
+        array( 'jquery' ),
+        $version,
+        true
+    );
+    wp_enqueue_script(
+        'carserv-easing',
+        $theme_uri . '/assets/lib/easing/easing.min.js',
+        array( 'jquery' ),
+        $version,
+        true
+    );
+    wp_enqueue_script(
+        'carserv-waypoints',
+        $theme_uri . '/assets/lib/waypoints/waypoints.min.js',
+        array( 'jquery' ),
+        $version,
+        true
+    );
+    wp_enqueue_script(
+        'carserv-counterup',
+        $theme_uri . '/assets/lib/counterup/counterup.min.js',
+        array( 'jquery' ),
+        $version,
+        true
+    );
+    wp_enqueue_script(
+        'carserv-owlcarousel-js',
+        $theme_uri . '/assets/lib/owlcarousel/owl.carousel.min.js',
+        array( 'jquery' ),
+        $version,
+        true
+    );
+    wp_enqueue_script(
+        'carserv-moment',
+        $theme_uri . '/assets/lib/tempusdominus/js/moment.min.js',
+        array( 'jquery' ),
+        $version,
+        true
+    );
+    wp_enqueue_script(
+        'carserv-moment-tz',
+        $theme_uri . '/assets/lib/tempusdominus/js/moment-timezone.min.js',
+        array( 'carserv-moment' ),
+        $version,
+        true
+    );
+    wp_enqueue_script(
+        'carserv-tempusdominus-js',
+        $theme_uri . '/assets/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js',
+        array( 'jquery', 'carserv-moment' ),
+        $version,
+        true
+    );
+    wp_enqueue_script(
+        'carserv-main',
+        $theme_uri . '/assets/js/main.js',
+        array( 'jquery', 'carserv-bootstrap-bundle' ),
+        $version,
+        true
+    );
+}
+add_action( 'wp_enqueue_scripts', 'carserv_scripts' );
+
+// Preconnect hints for Google Fonts
+add_filter( 'wp_resource_hints', function( $urls, $relation_type ) {
+    if ( 'preconnect' === $relation_type ) {
+        $urls[] = 'https://fonts.googleapis.com';
+        $urls[] = array(
+            'href'        => 'https://fonts.gstatic.com',
+            'crossorigin' => 'anonymous',
+        );
+    }
+    return $urls;
+}, 10, 2 );
