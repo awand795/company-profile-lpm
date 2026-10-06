@@ -70,9 +70,8 @@ function mt_landing_dequeue_late() {
     <!-- Fonts lokal (self-hosted, anti-gantung bila CDN Google tak terjangkau) -->
     <link href="<?php echo esc_url( $mt_base ); ?>/css/fonts.css?ver=<?php echo esc_attr( $mt_ver ); ?>" rel="stylesheet">
 
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Ikon Font Awesome (self-hosted, anti-gantung CDN) -->
+    <link href="<?php echo esc_url( $mt_base ); ?>/vendor/fontawesome/css/all.min.css?ver=<?php echo esc_attr( $mt_ver ); ?>" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
     <link href="<?php echo esc_url( $mt_base ); ?>/lib/animate/animate.min.css?ver=<?php echo esc_attr( $mt_ver ); ?>" rel="stylesheet">
@@ -273,6 +272,16 @@ function mt_landing_dequeue_late() {
         </div>
     </div>
     <!-- Carousel End -->
+
+
+    <!-- Brand Marquee Start -->
+    <div class="brand-marquee" aria-label="Merek yang kami jual">
+        <div class="brand-marquee-track">
+            <span>Pertamina</span><i>•</i><span>Mobil</span><i>•</i><span>Dunlop</span><i>•</i><span>GS Astra</span><i>•</i><span>Incoe</span><i>•</i><span>Sakura</span><i>•</i><span class="brand-marquee-accent">100% Asli</span><i>•</i>
+            <span>Pertamina</span><i>•</i><span>Mobil</span><i>•</i><span>Dunlop</span><i>•</i><span>GS Astra</span><i>•</i><span>Incoe</span><i>•</i><span>Sakura</span><i>•</i><span class="brand-marquee-accent">100% Asli</span><i>•</i>
+        </div>
+    </div>
+    <!-- Brand Marquee End -->
 
 
     <!-- Service Features Start -->
@@ -484,6 +493,7 @@ function mt_landing_dequeue_late() {
             <div class="row g-3">
                 <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="principal-wall-card">
+                        <span class="brand-initial icon-tint-blue">P</span>
                         <strong>Pertamina</strong>
                         <small>Oli</small>
                         <span class="brand-card-badge">Asli</span>
@@ -491,6 +501,7 @@ function mt_landing_dequeue_late() {
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.15s">
                     <div class="principal-wall-card">
+                        <span class="brand-initial icon-tint-teal">M</span>
                         <strong>Mobil</strong>
                         <small>Oli</small>
                         <span class="brand-card-badge">Asli</span>
@@ -498,6 +509,7 @@ function mt_landing_dequeue_late() {
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.2s">
                     <div class="principal-wall-card">
+                        <span class="brand-initial icon-tint-amber">D</span>
                         <strong>Dunlop</strong>
                         <small>Ban Truk</small>
                         <span class="brand-card-badge">Asli</span>
@@ -505,6 +517,7 @@ function mt_landing_dequeue_late() {
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.25s">
                     <div class="principal-wall-card">
+                        <span class="brand-initial icon-tint-lavender">G</span>
                         <strong>GS Astra</strong>
                         <small>Aki Truk</small>
                         <span class="brand-card-badge">Asli</span>
@@ -512,6 +525,7 @@ function mt_landing_dequeue_late() {
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="principal-wall-card">
+                        <span class="brand-initial icon-tint-blue">I</span>
                         <strong>Incoe</strong>
                         <small>Aki Truk</small>
                         <span class="brand-card-badge">Asli</span>
@@ -519,6 +533,7 @@ function mt_landing_dequeue_late() {
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.35s">
                     <div class="principal-wall-card">
+                        <span class="brand-initial icon-tint-teal">S</span>
                         <strong>Sakura</strong>
                         <small>Filter</small>
                         <span class="brand-card-badge">Asli</span>
@@ -850,7 +865,7 @@ function mt_landing_dequeue_late() {
     <a href="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20bantuan%20armada" target="_blank" rel="noopener noreferrer" class="floating-wa-btn" aria-label="Chat WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-primary back-to-top" aria-label="Kembali ke atas"><i class="bi bi-arrow-up"></i></a>
+    <a href="#" class="btn btn-primary back-to-top" aria-label="Kembali ke atas"><i class="fa fa-arrow-up"></i></a>
 
 
     <!-- JavaScript Libraries -->

@@ -58,7 +58,7 @@ def build() -> str:
 
     # Cache-busting semua URL aset template.
     body, n = re.subn(
-        re.escape(mt) + r"/(css|js|lib|img|fonts)/([^\"]+)\"",
+        re.escape(mt) + r"/(css|js|lib|img|fonts|vendor)/([^\"]+)\"",
         mt + r"/\1/\2?ver=" + ver + '"', body)
 
     # Pengaman spinner tanpa dependensi.

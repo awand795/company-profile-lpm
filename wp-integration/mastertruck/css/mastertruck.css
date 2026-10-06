@@ -296,17 +296,17 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 }
 
 .btn-primary {
-    background-color: var(--primary) !important;
-    border: 1px solid var(--primary) !important;
+    background: linear-gradient(135deg, #2F6BF0 0%, var(--primary-hover) 100%) !important;
+    border: 1px solid var(--primary-hover) !important;
     color: #FFFFFF !important;
-    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.24) !important;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.28) !important;
 }
 
 .btn-primary:hover, .btn-primary:focus {
-    background-color: var(--primary-hover) !important;
-    border-color: var(--primary-hover) !important;
+    background: linear-gradient(135deg, var(--primary-hover) 0%, #1E40AF 100%) !important;
+    border-color: #1E40AF !important;
     color: #FFFFFF !important;
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.32) !important;
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.36) !important;
     transform: translateY(-2px);
 }
 
@@ -854,11 +854,11 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 }
 
 .hero-brand-highlight {
-    color: var(--primary) !important;
-    background: none !important;
-    -webkit-background-clip: unset !important;
-    background-clip: unset !important;
-    -webkit-text-fill-color: var(--primary) !important;
+    background: linear-gradient(120deg, var(--primary) 20%, var(--primary-hover) 60%, #0D9488 110%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important;
     text-shadow: none !important;
     font-weight: 800;
 }
@@ -1692,7 +1692,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     --hairline: #E7ECF3;
     --hairline-soft: #F1F5F9;
     --grid-line: rgba(15, 23, 42, 0.045);
-    --warm: #FDFAF5;
+    --warm: #FAEFE0;
 
     /* Token lama dipertahankan agar tidak ada referensi kosong */
     --sky: #7C3AED;
@@ -2328,6 +2328,63 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 }
 .team-slim h5 {
     font-size: 15.5px;
+}
+
+/* Prinsipal: chip inisial merek */
+.brand-initial {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+/* Marquee merek berjalan di bawah hero */
+.brand-marquee {
+    background: linear-gradient(90deg, #0F2A5C 0%, #1D4ED8 60%, #0D9488 130%);
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 12px 0;
+}
+.brand-marquee-track {
+    display: inline-flex;
+    align-items: center;
+    gap: 26px;
+    padding-right: 26px;
+    animation: brand-marquee-scroll 28s linear infinite;
+}
+.brand-marquee:hover .brand-marquee-track {
+    animation-play-state: paused;
+}
+.brand-marquee-track span {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.92);
+}
+.brand-marquee-track i {
+    font-style: normal;
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 12px;
+}
+.brand-marquee-track .brand-marquee-accent {
+    color: #FCD34D;
+}
+@keyframes brand-marquee-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .brand-marquee-track {
+        animation: none;
+    }
 }
 
 /* FAQ: item terbuka biru lembut (timpa sisa merah bootstrap lama) */
