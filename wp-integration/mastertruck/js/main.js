@@ -68,11 +68,26 @@
     });
 
 
-    // Facts counter
-    $('[data-toggle="counter-up"]').counterUp({
-        delay: 10,
-        time: 2000
-    });
+    // Facts counter: hanya sekali, tak mengulang saat scroll bolak-balik
+    var countersDone = false;
+    function maybeCountUp() {
+        if (countersDone) {
+            return;
+        }
+        var $nums = $('[data-toggle="counter-up"]');
+        if (!$nums.length || !$nums.first().offset()) {
+            return;
+        }
+        if ($(window).scrollTop() + $(window).height() > $nums.first().offset().top + 40) {
+            countersDone = true;
+            $nums.counterUp({
+                delay: 10,
+                time: 2000
+            });
+        }
+    }
+    $(window).on('scroll load', maybeCountUp);
+    maybeCountUp();
 
 
     // Date and time picker

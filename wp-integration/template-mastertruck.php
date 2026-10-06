@@ -546,7 +546,7 @@ function mt_landing_dequeue_late() {
 
 
     <!-- Booking & Emergency Start -->
-    <div id="booking" class="container-fluid booking-section-wrapper wow fadeInUp" data-wow-delay="0.1s">
+    <div id="booking" class="container-fluid booking-section-wrapper">
         <div class="container">
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-6 py-5">
@@ -678,7 +678,7 @@ function mt_landing_dequeue_late() {
 
 
     <!-- Testimonial Start -->
-    <div id="testimonial" class="container-xxl py-5 sec-testimonial wow fadeInUp" data-wow-delay="0.1s">
+    <div id="testimonial" class="container-xxl py-5 sec-testimonial">
         <div class="container">
             <div class="text-center mb-5">
                 <span class="badge-section-pill">Kata Pelanggan</span>
