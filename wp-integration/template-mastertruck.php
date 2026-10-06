@@ -784,9 +784,9 @@ function mt_landing_dequeue_late() {
 
 
     <!-- Footer Start -->
-    <div id="contact" class="container-fluid footer footer-clean pt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
+    <div id="contact" class="container-fluid footer footer-clean pt-4 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-4">
+            <div class="row g-4">
                 <div class="col-lg-3 col-md-6">
                     <div class="d-flex align-items-center gap-2 mb-3">
                         <div class="navbar-brand-icon" style="width:38px; height:38px; font-size:16px;"><i class="fa fa-truck"></i></div>
