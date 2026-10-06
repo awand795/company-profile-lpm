@@ -607,8 +607,10 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 
     .navbar .navbar-nav .nav-link {
         font-family: var(--font-heading);
-        font-size: 13.5px;
+        font-size: 15px;
         font-weight: 600;
+        letter-spacing: normal;
+        text-transform: none;
         color: var(--heading) !important;
         padding: 8px 14px !important;
         border-radius: var(--radius-pill);
@@ -739,8 +741,10 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     }
     .navbar .navbar-nav .nav-link {
         font-family: var(--font-heading);
-        font-size: 14px;
+        font-size: 15px;
         font-weight: 600;
+        letter-spacing: normal;
+        text-transform: none;
         color: var(--heading) !important;
         padding: 10px 14px !important;
         border-radius: var(--radius-btn);
@@ -1587,7 +1591,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     background-color: var(--bg-light) !important;
     border-top: 1px solid var(--border) !important;
     color: var(--body) !important;
-    padding-top: 40px;
+    padding-top: 28px;
 }
 
 .footer-heading,
@@ -2472,9 +2476,19 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
+/* Rapatkan jarak FAQ ke footer */
+#faq {
+    padding-bottom: 24px !important;
+}
+
 /* ==============================================================
    16. HEADER TINT BIRU KALEM — topbar tint + garis gradien navbar
    ============================================================== */
+/* Matikan tombol scroll-to-top bawaan Astra (bocor tanpa CSS-nya);
+   pakai tombol .back-to-top milik template. */
+#ast-scroll-top {
+    display: none !important;
+}
 .top-bar-custom,
 .mt-topbar {
     background-color: var(--primary-tint) !important;
