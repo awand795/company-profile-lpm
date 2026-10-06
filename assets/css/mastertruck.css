@@ -48,9 +48,9 @@
     --bg-light: #F8FAFC;
     --booking-bg: #EFF6FF;
 
-    /* Hero Tuning (Gambar latar lebih terlihat, teks tetap kontras) */
-    --hero-bg-opacity: 0.5;
-    --hero-bg-blur: 1.5px;
+    /* Hero Tuning (gambar latar samar terlihat, teks tetap kontras) */
+    --hero-bg-opacity: 0.68;
+    --hero-bg-blur: 0.8px;
 
     /* Component Geometry Tokens */
     --radius-sm: 8px;
@@ -808,7 +808,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 .carousel-caption {
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.78) 46%, rgba(255, 255, 255, 0.18) 100%) !important;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.62) 46%, rgba(255, 255, 255, 0.18) 100%) !important;
     z-index: 2;
     padding: 16px 0 !important;
     display: flex !important;
@@ -1788,10 +1788,10 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     .mt-topbar { display: none !important; }
 }
 
-/* HERO: dasar slate terang, foto tetap terlihat di sisi kanan */
+/* HERO: dasar slate terang, foto samar terlihat, teks tetap kontras */
 #header-carousel { background-color: #F1F5F9; }
 .carousel-caption {
-    background: linear-gradient(100deg, rgba(255, 255, 255, 0.97) 0%, rgba(248, 250, 252, 0.88) 48%, rgba(255, 255, 255, 0.20) 100%) !important;
+    background: linear-gradient(100deg, rgba(255, 255, 255, 0.88) 0%, rgba(248, 250, 252, 0.62) 48%, rgba(255, 255, 255, 0.20) 100%) !important;
 }
 
 /* 2. Fitur: putih, kartu bergaris aksen di atas */
