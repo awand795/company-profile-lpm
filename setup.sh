@@ -117,9 +117,20 @@ ok "WP-CLI siap"
 # --- 4. Import database ------------------------------------------------------
 if [[ $DO_IMPORT -eq 1 ]]; then
   step "Import database_dump.sql"
-  docker cp database_dump.sql "$DB:/tmp/restore.sql"
+  RESTORE_SRC="database_dump.sql"
+  # Dump hasil ekspor Windows sering UTF-16 (BOM FFFE) yang ditolak klien
+  # mariadb ("ASCII '\0' appeared..."). Konversi dulu ke UTF-8 bila perlu.
+  if file database_dump.sql | grep -qi 'UTF-16'; then
+    command -v iconv >/dev/null 2>&1 || fail "Dump UTF-16 butuh 'iconv' untuk konversi."
+    iconv -f UTF-16 -t UTF-8 database_dump.sql -o /tmp/mt_restore_utf8.sql \
+      || fail "Konversi UTF-16 -> UTF-8 gagal."
+    RESTORE_SRC="/tmp/mt_restore_utf8.sql"
+    ok "dump UTF-16 dikonversi ke UTF-8"
+  fi
+  docker cp "$RESTORE_SRC" "$DB:/tmp/restore.sql"
   docker exec -e "MYSQL_PWD=$DB_PASS" "$DB" sh -c "mariadb -u'$DB_USER' '$DB_NAME' < /tmp/restore.sql && rm -f /tmp/restore.sql" \
     || fail "Import dump gagal."
+  [[ "$RESTORE_SRC" == /tmp/mt_restore_utf8.sql ]] && rm -f /tmp/mt_restore_utf8.sql
   ok "database_dump.sql diimport"
 else
   step "Lewati import database (--skip-import)"
