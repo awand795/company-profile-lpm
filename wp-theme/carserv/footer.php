@@ -33,11 +33,11 @@ $theme_uri = get_template_directory_uri();
                 <div class="col-lg-2 col-md-6">
                     <h4 class="mb-3">Navigasi</h4>
                     <a class="btn-link" href="#header-carousel">Beranda</a>
-                    <a class="btn-link" href="#about">Profil Perusahaan</a>
-                    <a class="btn-link" href="#service">Layanan Bengkel</a>
-                    <a class="btn-link" href="#principals">Produk Resmi</a>
-                    <a class="btn-link" href="#distribution">Wilayah Layanan</a>
-                    <a class="btn-link" href="#booking">Jadwalkan Servis</a>
+                    <a class="btn-link" href="#about">Profil</a>
+                    <a class="btn-link" href="#service">Layanan</a>
+                    <a class="btn-link" href="#principals">Produk</a>
+                    <a class="btn-link" href="#distribution">Distribusi</a>
+                    <a class="btn-link" href="#contact">Kontak</a>
                 </div>
 
                 <div class="col-lg-3 col-md-6">

@@ -14,6 +14,7 @@ $theme_uri = get_template_directory_uri();
     <meta content="Master Truck adalah bengkel spesialis perawatan truk niaga &amp; alat berat di KIM III Medan: overhaul mesin, rem angin, engine diagnostics, serta distributor resmi pelumas Pertamina, Mobil, ban Dunlop, dan aki Incoe/GS Astra." name="description">
     <meta content="bengkel truk medan, distributor pelumas pertamina medan, ban dunlop truk, overhaul mesin diesel, rem angin truk, kim 3 medan" name="keywords">
 
+    <script>window.elementorFrontendConfig = window.elementorFrontendConfig || { environmentMode: { edit: false, wpPreview: false }, isEditMode: () => false, is_rtl: false, breakpoints: { xs: 0, sm: 480, md: 768, lg: 1025, xl: 1440, xxl: 1600 }, responsive: { breakpoints: { mobile: { label: "Mobile", value: 767, default_value: 767, direction: "max", is_enabled: true }, tablet: { label: "Tablet", value: 1024, default_value: 1024, direction: "max", is_enabled: true } } }, version: '4.3.3', urls: { assets: 'http://localhost:8080/wp-content/plugins/elementor/assets/' }, settings: { page: [] }, kit: [], experimentalFeatures: {} };</script>
     <?php wp_head(); ?>
 </head>
 
@@ -64,19 +65,19 @@ $theme_uri = get_template_directory_uri();
             </div>
             <div class="navbar-brand-text">
                 <span class="navbar-brand-title">MASTER <span>TRUCK</span></span>
-                <span class="navbar-brand-sub"><i class="fa fa-shield-alt text-primary me-1"></i>PUSAT REKAYASA &amp; OEM KIM III</span>
+                <span class="navbar-brand-sub">Bengkel &amp; Distributor OEM</span>
             </div>
         </a>
-        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0 align-items-center">
                 <a href="#header-carousel" class="nav-item nav-link active">Beranda</a>
-                <a href="#about" class="nav-item nav-link">Profil &amp; Sejarah</a>
+                <a href="#about" class="nav-item nav-link">Profil</a>
                 <a href="#service" class="nav-item nav-link">Layanan</a>
-                <a href="#principals" class="nav-item nav-link">Produk Resmi</a>
-                <a href="#distribution" class="nav-item nav-link">Wilayah Distribusi</a>
+                <a href="#principals" class="nav-item nav-link">Produk</a>
+                <a href="#distribution" class="nav-item nav-link">Distribusi</a>
                 <a href="#contact" class="nav-item nav-link">Kontak</a>
             </div>
             <div class="d-flex align-items-center ms-lg-3 my-2 my-lg-0 gap-2">

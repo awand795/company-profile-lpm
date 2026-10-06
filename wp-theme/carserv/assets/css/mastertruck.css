@@ -1,12 +1,13 @@
 /* ==============================================================
-   MASTER TRUCK ENTERPRISE DESIGN SYSTEM
+   MASTER TRUCK ENTERPRISE DESIGN SYSTEM - POLISH ROUND 2
    Modern, Clean, White-Dominant Corporate Theme
-   Palette: Soft Blue (#5B8DEF), Soft Teal (#4DB6AC), Warm Amber (#F4C26B)
+   Soft Palette: Blue (#5B8DEF), Teal (#4DB6AC), Amber (#F4C26B), Lavender (#9A8CF2)
    PT Master Truck Indonesia - KIM III Medan
+   Single Source of Truth Design Tokens
    ============================================================== */
 
 :root {
-    /* Brand Design Tokens */
+    /* Brand Color Tokens */
     --primary: #5B8DEF;
     --primary-hover: #4A7BD8;
     --primary-tint: #E8F0FE;
@@ -18,9 +19,16 @@
     --secondary-rgb: 77, 182, 172;
 
     --accent: #F4C26B;
+    --accent-hover: #D99B26;
     --accent-tint: #FFF6E0;
     --accent-rgb: 244, 194, 107;
 
+    --lavender: #9A8CF2;
+    --lavender-hover: #8978E8;
+    --lavender-tint: #F0EEFF;
+    --lavender-rgb: 154, 140, 242;
+
+    /* Semantic Neutrals */
     --dark: #1F2A37;
     --heading: #1F2A37;
     --body: #5B6573;
@@ -28,19 +36,31 @@
     --border: #E5E9F0;
     --border-light: #F0F3F8;
 
+    /* Backgrounds */
     --bg-white: #FFFFFF;
     --bg-light: #F6F8FB;
-    --bg-surface: #FFFFFF;
+    --booking-bg: #EEF4FF;
 
-    --shadow-sm: 0 2px 8px rgba(31, 42, 55, 0.04);
-    --shadow-md: 0 6px 24px rgba(31, 42, 55, 0.06);
-    --shadow-lg: 0 12px 36px rgba(31, 42, 55, 0.08);
+    /* Hero Tuning */
+    --hero-bg-opacity: 0.32;
+    --hero-bg-blur: 3px;
 
+    /* Component Geometry Tokens */
     --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 16px;
-    --radius-full: 9999px;
+    --radius-btn: 12px;
+    --radius-input: 12px;
+    --radius-card: 16px;
+    --radius-card-lg: 20px;
+    --radius-pill: 999px;
+    --radius-img: 16px;
 
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(31, 42, 55, 0.04);
+    --shadow-card: 0 6px 24px rgba(31, 42, 55, 0.06);
+    --shadow-card-hover: 0 10px 28px rgba(31, 42, 55, 0.09);
+    --shadow-header: 0 4px 20px rgba(31, 42, 55, 0.05);
+
+    /* Typography */
     --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
@@ -57,7 +77,13 @@
     --bs-body-bg: #FFFFFF;
 }
 
-/* Base & Typography */
+/* ==============================================================
+   BASE & TYPOGRAPHY
+   ============================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
     font-family: var(--font-body);
     color: var(--body);
@@ -73,6 +99,7 @@ h1, h2, h3, h4, h5, h6,
     color: var(--heading);
     font-weight: 700;
     letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
 }
 
 p {
@@ -90,6 +117,26 @@ a:hover {
     color: var(--primary-hover);
 }
 
+::selection {
+    background-color: var(--primary-tint);
+    color: var(--primary-hover);
+}
+
+/* Scrollbar Clean */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #F1F4F9;
+}
+::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
 /* Spinner Safety: Never lock screen */
 #spinner {
     transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -100,25 +147,41 @@ a:hover {
     visibility: hidden !important;
 }
 
-/* WOW.js Progressive Enhancement: Elements always visible if script fails */
+/* WOW.js Fallback */
 .wow {
     visibility: visible !important;
 }
 
-/* Zero Red Neutralization */
-.text-danger,
-.text-red {
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Zero Red & Primary Neutralization */
+.text-danger, .text-red, .text-primary,
+span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-primary, h1.text-primary, h2.text-primary, h3.text-primary, h4.text-primary, h5.text-primary, h6.text-primary {
     color: var(--primary) !important;
 }
 
-.bg-danger,
-.bg-red {
+.bg-danger, .bg-red, .bg-primary {
+    background-color: var(--primary) !important;
+}
+
+.bg-danger-subtle, .bg-primary-subtle {
     background-color: var(--primary-tint) !important;
     color: var(--primary) !important;
 }
 
-.border-danger {
+.border-danger, .border-primary {
     border-color: var(--border) !important;
+}
+
+.spinner-border.text-primary {
+    color: var(--primary) !important;
 }
 
 .btn-danger {
@@ -131,86 +194,133 @@ a:hover {
     border-color: var(--primary-hover) !important;
 }
 
-/* Bootstrap Button Normalization */
+/* ==============================================================
+   UNIVERSAL SOFT TINT ICONS (Circled / Squircles)
+   ============================================================== */
+.icon-tint-wrap {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+    transition: all 0.25s ease;
+}
+
+.icon-tint-blue {
+    background-color: var(--primary-tint);
+    color: var(--primary);
+}
+.icon-tint-teal {
+    background-color: var(--secondary-tint);
+    color: var(--secondary);
+}
+.icon-tint-amber {
+    background-color: var(--accent-tint);
+    color: var(--accent-hover);
+}
+.icon-tint-lavender {
+    background-color: var(--lavender-tint);
+    color: var(--lavender);
+}
+
+/* Section Spacing & Eyebrow Badges */
+.section-padding {
+    padding-top: 88px;
+    padding-bottom: 88px;
+}
+
+.badge-section-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--primary-tint);
+    color: var(--primary-hover);
+    border: 1px solid rgba(91, 141, 239, 0.2);
+    font-family: var(--font-heading);
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 0.85rem;
+}
+
+/* ==============================================================
+   BUTTONS (Unified Soft System)
+   ============================================================== */
 .btn {
     font-family: var(--font-heading);
     font-weight: 600;
-    border-radius: var(--radius-md);
-    padding: 0.65rem 1.4rem;
+    border-radius: var(--radius-btn);
+    padding: 10px 22px;
     font-size: 0.95rem;
-    transition: all 0.25s ease;
+    line-height: 1.4;
+    transition: all 0.2s ease;
     text-transform: none;
     letter-spacing: normal;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 .btn-primary {
     background-color: var(--primary) !important;
-    border-color: var(--primary) !important;
+    border: 1px solid var(--primary) !important;
     color: #FFFFFF !important;
-    box-shadow: 0 4px 14px rgba(91, 141, 239, 0.25) !important;
+    box-shadow: 0 4px 14px rgba(91, 141, 239, 0.24) !important;
 }
 
-.btn-primary:hover,
-.btn-primary:focus {
+.btn-primary:hover, .btn-primary:focus {
     background-color: var(--primary-hover) !important;
     border-color: var(--primary-hover) !important;
     color: #FFFFFF !important;
-    box-shadow: 0 6px 20px rgba(91, 141, 239, 0.35) !important;
-    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(91, 141, 239, 0.32) !important;
+    transform: translateY(-2px);
 }
 
 .btn-secondary {
     background-color: var(--secondary) !important;
-    border-color: var(--secondary) !important;
+    border: 1px solid var(--secondary) !important;
     color: #FFFFFF !important;
-    box-shadow: 0 4px 14px rgba(77, 182, 172, 0.25) !important;
+    box-shadow: 0 4px 14px rgba(77, 182, 172, 0.24) !important;
 }
 
-.btn-secondary:hover,
-.btn-secondary:focus {
+.btn-secondary:hover, .btn-secondary:focus {
     background-color: var(--secondary-hover) !important;
     border-color: var(--secondary-hover) !important;
     color: #FFFFFF !important;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
 }
 
 .btn-outline-primary {
     color: var(--primary) !important;
     border: 1.5px solid var(--primary) !important;
-    background: transparent !important;
+    background-color: transparent !important;
 }
 
 .btn-outline-primary:hover {
-    background-color: var(--primary) !important;
-    color: #FFFFFF !important;
-    box-shadow: 0 4px 14px rgba(91, 141, 239, 0.25) !important;
-}
-
-.text-primary {
-    color: var(--primary) !important;
-}
-
-.bg-primary {
-    background-color: var(--primary) !important;
-}
-
-.text-secondary {
-    color: var(--secondary) !important;
-}
-
-.bg-secondary {
-    background-color: var(--secondary) !important;
+    background-color: var(--primary-tint) !important;
+    color: var(--primary-hover) !important;
+    border-color: var(--primary-hover) !important;
+    transform: translateY(-2px);
 }
 
 /* ==============================================================
-   TOPBAR COMPONENT (Clean, Light, Professional)
+   1. TOPBAR & NAVBAR (Pixel-Perfect Polish)
    ============================================================== */
 .top-bar-custom {
+    height: 38px;
     background-color: var(--bg-light) !important;
     color: var(--body) !important;
-    font-size: 13px !important;
+    font-size: 12.5px !important;
     border-bottom: 1px solid var(--border) !important;
-    padding: 2px 0 !important;
+    display: flex;
+    align-items: center;
 }
 
 .top-bar-custom small {
@@ -231,8 +341,8 @@ a:hover {
 }
 
 .top-social-btn {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -240,19 +350,24 @@ a:hover {
     background: var(--bg-white);
     border: 1px solid var(--border);
     color: var(--body) !important;
-    font-size: 12px;
+    font-size: 11px;
     transition: all 0.2s ease;
 }
 
-/* ==============================================================
-   NAVBAR COMPONENT
-   ============================================================== */
+.top-social-btn:hover {
+    background: var(--primary-tint);
+    color: var(--primary) !important;
+    border-color: var(--primary);
+}
+
+/* Sticky Navbar */
 .navbar {
+    height: 72px;
     background-color: var(--bg-white) !important;
     border-bottom: 1px solid var(--border) !important;
-    box-shadow: var(--shadow-sm) !important;
-    padding-top: 0.75rem !important;
-    padding-bottom: 0.75rem !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    transition: all 0.25s ease;
 }
 
 .navbar.sticky-top,
@@ -263,34 +378,43 @@ a:hover {
     z-index: 1030 !important;
 }
 
+.navbar.sticky-scrolled {
+    box-shadow: var(--shadow-header) !important;
+}
+
 .navbar-brand-logo {
     display: inline-flex;
     align-items: center;
     text-decoration: none;
     gap: 12px;
+    height: 72px;
 }
 
 .navbar-brand-icon {
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
-    border-radius: var(--radius-md);
+    border-radius: 12px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     color: #FFFFFF;
-    font-size: 19px;
-    box-shadow: 0 4px 12px rgba(91, 141, 239, 0.28);
+    font-size: 18px;
+    box-shadow: 0 4px 12px rgba(91, 141, 239, 0.25);
+}
+
+.navbar-brand-text {
+    display: flex;
+    flex-direction: column;
 }
 
 .navbar-brand-title {
     font-family: var(--font-heading);
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 800;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
     color: var(--heading);
-    line-height: 1;
-    display: block;
+    line-height: 1.1;
 }
 
 .navbar-brand-title span {
@@ -300,44 +424,65 @@ a:hover {
 .navbar-brand-sub {
     font-family: var(--font-body);
     font-size: 9.5px;
-    font-weight: 700;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-top: 3px;
-    display: flex;
-    align-items: center;
-}
-
-.navbar .navbar-nav .nav-link {
-    font-family: var(--font-heading);
-    font-size: 14px;
     font-weight: 600;
-    color: var(--heading) !important;
-    padding: 10px 14px !important;
-    border-radius: var(--radius-sm);
-    transition: all 0.2s ease;
+    letter-spacing: 0.4px;
+    color: var(--text-muted);
+    margin-top: 2px;
+    white-space: nowrap;
 }
 
-.navbar .navbar-nav .nav-link:hover,
-.navbar .navbar-nav .nav-link.active {
-    color: var(--primary) !important;
-    background-color: var(--primary-tint);
+/* Desktop Navbar Items: Strictly 1 Line (992px - 1920px) */
+@media (min-width: 992px) {
+    .navbar .navbar-nav {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 4px;
+        white-space: nowrap !important;
+    }
+
+    .navbar .navbar-nav .nav-link {
+        font-family: var(--font-heading);
+        font-size: 13.5px;
+        font-weight: 600;
+        color: var(--heading) !important;
+        padding: 8px 14px !important;
+        border-radius: var(--radius-pill);
+        transition: all 0.2s ease;
+        white-space: nowrap !important;
+    }
+
+    .navbar .navbar-nav .nav-link:hover {
+        color: var(--primary-hover) !important;
+        background-color: var(--primary-tint);
+    }
+
+    .navbar .navbar-nav .nav-link.active {
+        color: var(--primary-hover) !important;
+        background-color: var(--primary-tint);
+    }
+
+    .navbar .navbar-nav .nav-link::before,
+    .navbar .navbar-nav .nav-link::after,
+    .navbar .nav-link::before,
+    .navbar .nav-link::after {
+        display: none !important;
+        content: none !important;
+        width: 0 !important;
+        height: 0 !important;
+    }
 }
 
-.navbar .navbar-nav .nav-link::after {
-    display: none !important;
-}
-
-/* Compact Login & Register Buttons (De-emphasized Fleet) */
+/* Compact Login & Register Buttons (38px height match) */
 .btn-nav-login {
+    height: 38px;
     font-family: var(--font-heading);
     font-size: 13px !important;
     font-weight: 600 !important;
-    padding: 7px 16px !important;
-    border-radius: var(--radius-md) !important;
+    padding: 0 16px !important;
+    border-radius: var(--radius-btn) !important;
     color: var(--heading) !important;
-    background: var(--bg-light) !important;
+    background: var(--bg-white) !important;
     border: 1px solid var(--border) !important;
     transition: all 0.2s ease !important;
     text-decoration: none !important;
@@ -353,11 +498,12 @@ a:hover {
 }
 
 .btn-nav-register {
+    height: 38px;
     font-family: var(--font-heading);
     font-size: 13px !important;
     font-weight: 600 !important;
-    padding: 7px 16px !important;
-    border-radius: var(--radius-md) !important;
+    padding: 0 16px !important;
+    border-radius: var(--radius-btn) !important;
     color: #FFFFFF !important;
     background: var(--primary) !important;
     border: 1px solid var(--primary) !important;
@@ -376,34 +522,67 @@ a:hover {
     transform: translateY(-1px);
 }
 
+/* Mobile Dropdown Styling (<992px) */
+@media (max-width: 991.98px) {
+    .navbar {
+        height: auto !important;
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+    }
+    .navbar-collapse {
+        background: var(--bg-white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-card);
+        padding: 16px;
+        margin-top: 12px;
+        box-shadow: var(--shadow-card);
+    }
+    .navbar .navbar-nav .nav-link {
+        font-family: var(--font-heading);
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--heading) !important;
+        padding: 10px 14px !important;
+        border-radius: var(--radius-btn);
+    }
+    .navbar .navbar-nav .nav-link.active,
+    .navbar .navbar-nav .nav-link:hover {
+        background-color: var(--primary-tint);
+        color: var(--primary-hover) !important;
+    }
+}
+
 /* ==============================================================
-   HERO CAROUSEL SECTION (Light, Premium, White Dominant)
+   2. HERO CAROUSEL (Light, Visible Blurred Warehouse, Soft Truck)
    ============================================================== */
 #header-carousel {
     position: relative;
-    background-color: var(--bg-light);
+    background-color: #F8FAFD;
+    overflow: hidden;
 }
 
 #header-carousel .carousel-item {
-    min-height: 620px;
+    min-height: 600px;
     position: relative;
 }
 
+/* Background image visible but softly blurred */
 #header-carousel .carousel-item img.w-100 {
-    min-height: 620px;
+    min-height: 600px;
+    height: 100%;
     object-fit: cover;
+    opacity: var(--hero-bg-opacity);
+    filter: blur(var(--hero-bg-blur));
+    transform: scale(1.04);
 }
 
+/* High contrast soft white gradient overlay */
 .carousel-caption {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    /* Soft light overlay with high readability */
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.90) 45%, rgba(246, 248, 251, 0.65) 100%) !important;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.78) 46%, rgba(255, 255, 255, 0.18) 100%) !important;
     z-index: 2;
-    padding: 40px 0 !important;
+    padding: 30px 0 !important;
     display: flex !important;
     align-items: center !important;
     text-align: left;
@@ -412,19 +591,19 @@ a:hover {
 .hero-brand-pill {
     display: inline-flex;
     align-items: center;
-    background: var(--primary-tint) !important;
-    border: 1px solid rgba(91, 141, 239, 0.25) !important;
-    color: var(--primary) !important;
+    gap: 8px;
+    background: var(--primary-tint);
+    border: 1px solid rgba(91, 141, 239, 0.25);
+    color: var(--primary-hover);
     font-family: var(--font-heading);
-    font-size: 12px !important;
-    font-weight: 700 !important;
-    letter-spacing: 1px !important;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
     text-transform: uppercase;
-    padding: 6px 16px !important;
-    border-radius: var(--radius-full) !important;
-    margin-bottom: 1.25rem !important;
-    box-shadow: var(--shadow-sm) !important;
-    backdrop-filter: none !important;
+    padding: 6px 16px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 1.25rem;
+    box-shadow: var(--shadow-sm);
 }
 
 .hero-brand-pill .live-dot {
@@ -432,158 +611,151 @@ a:hover {
     height: 8px;
     background: var(--secondary);
     border-radius: 50%;
-    margin-right: 8px;
     box-shadow: 0 0 8px var(--secondary);
     display: inline-block;
 }
 
 .hero-title {
     font-family: var(--font-heading);
-    font-size: 2.85rem !important;
-    font-weight: 800 !important;
-    line-height: 1.25 !important;
-    color: var(--heading) !important;
-    letter-spacing: -0.03em !important;
-    text-shadow: none !important;
-    margin-bottom: 1.25rem !important;
-}
-
-@media (max-width: 991px) {
-    .hero-title {
-        font-size: 2rem !important;
-    }
-    .carousel-caption {
-        background: rgba(255, 255, 255, 0.94) !important;
-    }
+    font-size: clamp(2rem, 3.1vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.24;
+    color: var(--heading);
+    letter-spacing: -0.025em;
+    margin-bottom: 1.25rem;
 }
 
 .hero-brand-highlight {
     color: var(--primary) !important;
     background: none !important;
     -webkit-background-clip: unset !important;
-    -webkit-text-fill-color: initial !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: var(--primary) !important;
     text-shadow: none !important;
-    font-weight: 800 !important;
+    font-weight: 800;
 }
 
 .hero-lead {
     font-family: var(--font-body);
-    font-size: 1.08rem !important;
-    line-height: 1.7 !important;
-    color: var(--body) !important;
-    opacity: 1 !important;
-    max-width: 620px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--body);
+    max-width: 600px;
+    margin-bottom: 1.75rem;
 }
 
+/* Two CTA buttons: equal height 48px */
 .btn-hero-primary {
+    height: 48px;
     background: var(--primary) !important;
     color: #FFFFFF !important;
     font-family: var(--font-heading);
-    font-weight: 700 !important;
-    font-size: 15px !important;
-    padding: 13px 28px !important;
-    border-radius: var(--radius-md) !important;
-    border: none !important;
-    box-shadow: 0 4px 18px rgba(91, 141, 239, 0.35) !important;
-    transition: all 0.25s ease !important;
-    text-transform: none !important;
+    font-weight: 700;
+    font-size: 14.5px;
+    padding: 0 26px;
+    border-radius: var(--radius-btn);
+    border: none;
+    box-shadow: 0 4px 16px rgba(91, 141, 239, 0.32);
+    transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
 }
-
 .btn-hero-primary:hover {
     background: var(--primary-hover) !important;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(91, 141, 239, 0.45) !important;
     color: #FFFFFF !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 22px rgba(91, 141, 239, 0.42);
 }
 
 .btn-hero-secondary {
+    height: 48px;
     background: var(--bg-white) !important;
     color: var(--heading) !important;
     border: 1.5px solid var(--border) !important;
     font-family: var(--font-heading);
-    font-weight: 700 !important;
-    font-size: 15px !important;
-    padding: 13px 26px !important;
-    border-radius: var(--radius-md) !important;
-    box-shadow: var(--shadow-sm) !important;
-    transition: all 0.25s ease !important;
-    text-transform: none !important;
+    font-weight: 700;
+    font-size: 14.5px;
+    padding: 0 24px;
+    border-radius: var(--radius-btn);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
 }
-
 .btn-hero-secondary:hover {
     background: var(--primary-tint) !important;
-    color: var(--primary) !important;
+    color: var(--primary-hover) !important;
     border-color: var(--primary) !important;
     transform: translateY(-2px);
 }
 
+/* Right Side Showcase Card */
 .hero-truck-showcase {
     position: relative;
-    padding: 20px;
+    width: 100%;
+    max-width: 480px;
 }
 
 .hero-truck-frame {
     position: relative;
-    background: linear-gradient(180deg, #FFFFFF 0%, #F6F8FB 100%);
-    border-radius: var(--radius-lg);
+    background: #FFFFFF;
+    border-radius: var(--radius-card-lg);
     border: 1px solid var(--border);
-    box-shadow: var(--shadow-lg);
-    padding: 24px;
+    box-shadow: 0 12px 36px rgba(31, 42, 55, 0.08);
+    padding: 16px;
+}
+
+.hero-truck-img-wrapper {
+    position: relative;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    height: 310px;
+}
+
+.hero-truck-img-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(91, 141, 239, 0.10) 0%, rgba(246, 248, 251, 0.06) 100%);
+    pointer-events: none;
 }
 
 .hero-truck-img {
-    filter: drop-shadow(0 15px 30px rgba(31, 42, 55, 0.15));
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.92) contrast(1.02);
+    display: block;
     transition: transform 0.4s ease;
 }
-.hero-truck-img:hover {
-    transform: translateY(-4px);
+.hero-truck-frame:hover .hero-truck-img {
+    transform: scale(1.02);
 }
 
 .hero-badge-floating-top {
     position: absolute;
-    top: -14px;
-    right: 20px;
-    background: var(--bg-white);
+    top: -12px;
+    right: 24px;
+    background: #FFFFFF;
     border: 1px solid var(--border);
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-pill);
     padding: 6px 16px;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-card);
     font-size: 12px;
     font-weight: 700;
     color: var(--heading);
     display: inline-flex;
     align-items: center;
+    gap: 6px;
 }
 
 .hero-card-floating-bottom {
-    position: absolute;
-    bottom: -18px;
-    left: 20px;
-    background: var(--bg-white);
+    margin-top: 12px;
+    background: #FFFFFF;
     border: 1px solid var(--border);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-btn);
     padding: 12px 18px;
-    box-shadow: var(--shadow-md);
-}
-
-.hero-card-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: var(--radius-sm);
-    background: var(--primary-tint) !important;
-    color: var(--primary) !important;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-}
-
-.hero-card-icon i {
-    color: var(--primary) !important;
+    box-shadow: var(--shadow-sm);
 }
 
 .hero-card-title {
@@ -599,277 +771,503 @@ a:hover {
     color: var(--text-muted);
 }
 
-/* ==============================================================
-   PILL BADGE / SECTION HEADERS
-   ============================================================== */
-.badge-section-pill {
-    display: inline-flex;
+/* Carousel Soft Circular Nav Controls */
+.hero-carousel-controls {
+    display: flex;
     align-items: center;
-    background-color: var(--primary-tint) !important;
-    color: var(--primary) !important;
-    border: 1px solid rgba(91, 141, 239, 0.25) !important;
-    font-family: var(--font-heading);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 6px 16px;
-    border-radius: var(--radius-full);
-    margin-bottom: 0.75rem;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 12px;
 }
 
-.badge-section-pill i {
-    color: var(--primary) !important;
-}
-
-/* ==============================================================
-   FEATURE / KEUNGGULAN CARDS
-   ============================================================== */
-.feature-card,
-.service-item,
-.team-enterprise-card,
-.testimonial-enterprise-card,
-.distribution-card {
-    background: var(--bg-white) !important;
-    border: 1px solid var(--border) !important;
-    border-radius: var(--radius-lg) !important;
-    box-shadow: var(--shadow-sm) !important;
-    transition: all 0.3s ease !important;
-    overflow: hidden;
-}
-
-.feature-card:hover,
-.service-item:hover,
-.team-enterprise-card:hover,
-.distribution-card:hover {
-    border-color: rgba(91, 141, 239, 0.4) !important;
-    box-shadow: var(--shadow-md) !important;
-    transform: translateY(-4px);
-}
-
-.feature-card .icon-box,
-.service-icon-box {
-    width: 60px;
-    height: 60px;
-    border-radius: var(--radius-md);
-    background: var(--primary-tint) !important;
-    color: var(--primary) !important;
+.btn-carousel-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    color: var(--primary);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
-    margin-bottom: 1.25rem;
-    transition: all 0.3s ease;
+    font-size: 13px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s ease;
+    cursor: pointer;
 }
-
-.feature-card:hover .icon-box,
-.service-item:hover .service-icon-box {
-    background: var(--primary) !important;
-    color: #FFFFFF !important;
-}
-
-.feature-card:hover .icon-box i,
-.service-item:hover .service-icon-box i {
-    color: #FFFFFF !important;
+.btn-carousel-circle:hover {
+    background: var(--primary-tint);
+    border-color: var(--primary);
+    color: var(--primary-hover);
+    transform: translateY(-1px);
 }
 
 /* ==============================================================
-   FACTS & COUNTERS (Replaced Dark Background with Light Tint)
+   3. KEUNGGULAN (4 CARDS DENGAN LINGKARAN TINT ROTASI)
    ============================================================== */
-.fact-section-light {
-    background-color: var(--bg-light) !important;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-}
-
-.fact-item {
+.feature-card {
     background: var(--bg-white);
     border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    padding: 1.75rem 1.25rem;
-    box-shadow: var(--shadow-sm);
-    text-align: center;
-    transition: all 0.3s ease;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    padding: 28px 24px;
+    height: 100%;
+    transition: all 0.25s ease;
 }
 
-.fact-item:hover {
-    border-color: var(--primary);
-    box-shadow: var(--shadow-md);
+.feature-card:hover {
+    border-color: rgba(91, 141, 239, 0.35);
+    box-shadow: var(--shadow-card-hover);
     transform: translateY(-3px);
 }
 
-.fact-item .fact-icon {
-    width: 52px;
-    height: 52px;
-    border-radius: var(--radius-md);
-    background: var(--primary-tint);
-    color: var(--primary);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    margin-bottom: 1rem;
+.feature-card h5 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 16px;
+    margin-bottom: 8px;
 }
 
-.fact-number {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--heading) !important;
-    line-height: 1;
-    margin-bottom: 0.35rem;
-}
-
-.fact-label {
-    font-family: var(--font-body);
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+.feature-card p {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--body);
 }
 
 /* ==============================================================
-   SERVICE TABS
+   4. TENTANG KAMI (01-02-03 NUMBERED TINT PILLS)
    ============================================================== */
-.nav-pills .nav-link {
-    font-family: var(--font-heading);
-    font-weight: 600;
-    color: var(--heading);
-    background: var(--bg-white);
+.about-img-box {
+    position: relative;
+    border-radius: var(--radius-card-lg);
+    overflow: hidden;
     border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    padding: 0.85rem 1.4rem;
+    box-shadow: var(--shadow-card);
+}
+
+.about-img-box img {
+    border-radius: var(--radius-card-lg);
+    object-fit: cover;
+    width: 100%;
+    height: 480px;
+    display: block;
+}
+
+.about-exp-float-card {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    padding: 14px 20px;
+    box-shadow: var(--shadow-card-hover);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.about-point-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    padding: 16px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    box-shadow: var(--shadow-sm);
     transition: all 0.2s ease;
 }
 
-.nav-pills .nav-link:hover {
-    background: var(--bg-light);
-    border-color: var(--primary);
-    color: var(--primary);
-}
-
-.nav-pills .nav-link.active {
-    background: var(--primary) !important;
-    color: #FFFFFF !important;
-    border-color: var(--primary) !important;
-    box-shadow: 0 4px 14px rgba(91, 141, 239, 0.3);
-}
-
-/* ==============================================================
-   PRINCIPALS / OEM BRANDS
-   ============================================================== */
-.principal-brand-card {
-    background: var(--bg-white);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    padding: 1.5rem 1rem;
-    text-align: center;
-    transition: all 0.25s ease;
-    box-shadow: var(--shadow-sm);
-}
-
-.principal-brand-card:hover {
-    border-color: var(--primary);
-    box-shadow: var(--shadow-md);
+.about-point-card:hover {
+    border-color: rgba(91, 141, 239, 0.3);
+    box-shadow: var(--shadow-card);
     transform: translateY(-2px);
 }
 
-/* ==============================================================
-   BOOKING / APPOINTMENT SECTION
-   ============================================================== */
-.booking-section-clean {
-    background: var(--bg-white);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
-    padding: 2.5rem;
+.about-num-badge {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 15px;
+    flex-shrink: 0;
 }
 
-.booking-form .form-control,
-.booking-form .form-select {
+/* ==============================================================
+   5. ANGKA / FAKTA (4 KARTU SOFT BACKGROUND TINT BERBEDA)
+   ============================================================== */
+.fact-section-light {
+    background-color: var(--bg-white);
+    padding-top: 56px;
+    padding-bottom: 56px;
+}
+
+.stat-card-soft {
+    border-radius: var(--radius-card);
+    padding: 28px 20px;
+    text-align: center;
+    transition: all 0.25s ease;
+    border: 1px solid transparent;
+}
+
+.stat-card-blue {
+    background-color: var(--primary-tint);
+    border-color: rgba(91, 141, 239, 0.22);
+}
+.stat-card-blue .stat-val { color: var(--primary-hover); }
+.stat-card-blue .stat-icon-circle { background: #FFFFFF; color: var(--primary); }
+
+.stat-card-teal {
+    background-color: var(--secondary-tint);
+    border-color: rgba(77, 182, 172, 0.25);
+}
+.stat-card-teal .stat-val { color: var(--secondary-hover); }
+.stat-card-teal .stat-icon-circle { background: #FFFFFF; color: var(--secondary); }
+
+.stat-card-amber {
+    background-color: var(--accent-tint);
+    border-color: rgba(244, 194, 107, 0.35);
+}
+.stat-card-amber .stat-val { color: var(--accent-hover); }
+.stat-card-amber .stat-icon-circle { background: #FFFFFF; color: var(--accent-hover); }
+
+.stat-card-lavender {
+    background-color: var(--lavender-tint);
+    border-color: rgba(154, 140, 242, 0.25);
+}
+.stat-card-lavender .stat-val { color: var(--lavender-hover); }
+.stat-card-lavender .stat-icon-circle { background: #FFFFFF; color: var(--lavender); }
+
+.stat-card-soft:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-card-hover);
+}
+
+.stat-icon-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow-sm);
+}
+
+.stat-val {
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.stat-lbl {
+    font-family: var(--font-heading);
+    font-size: 12.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--dark);
+    margin-bottom: 2px;
+}
+
+.stat-sub {
+    font-size: 11.5px;
+    color: var(--text-muted);
+}
+
+/* ==============================================================
+   6. LAYANAN BENGKEL (TABS & PANELS)
+   ============================================================== */
+.service-nav-pills .service-pill-btn {
+    background: var(--bg-white);
     border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    padding: 0.75rem 1rem;
+    border-radius: var(--radius-card);
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.service-nav-pills .service-pill-btn:hover {
+    border-color: var(--primary);
+    background-color: #F8FAFD;
+}
+
+.service-nav-pills .service-pill-btn.active {
+    background-color: var(--primary-tint) !important;
+    border-color: var(--primary) !important;
+    box-shadow: var(--shadow-card);
+}
+
+.service-nav-pills .service-pill-btn.active .icon-tint-wrap {
+    background: #FFFFFF;
+    color: var(--primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.service-panel-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    padding: 32px;
+    box-shadow: var(--shadow-card);
+}
+
+.service-panel-card img {
+    border-radius: var(--radius-card);
+    object-fit: cover;
+    width: 100%;
+    height: 270px;
+    border: 1px solid var(--border);
+}
+
+.check-teal {
+    color: var(--secondary) !important;
+}
+
+/* ==============================================================
+   7. PRINSIPAL / OEM BRANDS
+   ============================================================== */
+.principal-brand-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    padding: 24px 16px;
+    text-align: center;
+    box-shadow: var(--shadow-card);
+    height: 100%;
+    transition: all 0.25s ease;
+}
+
+.principal-brand-card:hover {
+    border-color: rgba(91, 141, 239, 0.35);
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-3px);
+}
+
+.principal-brand-card .icon-tint-wrap {
+    margin: 0 auto 14px;
+}
+
+/* ==============================================================
+   8. WILAYAH DISTRIBUSI
+   ============================================================== */
+.distribution-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    padding: 24px;
+    box-shadow: var(--shadow-card);
+    height: 100%;
+    transition: all 0.25s ease;
+}
+
+.distribution-card:hover {
+    border-color: rgba(91, 141, 239, 0.35);
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-3px);
+}
+
+/* ==============================================================
+   9. BOOKING & EMERGENCY SECTION (#EEF4FF TINT BACKGROUND)
+   ============================================================== */
+.booking-section-wrapper {
+    background-color: var(--booking-bg) !important;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.booking-form-box {
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    padding: 32px;
+    box-shadow: var(--shadow-card-hover);
+}
+
+.booking-form-box .form-control,
+.booking-form-box .form-select {
+    height: 48px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-input);
+    padding: 10px 16px;
     font-size: 14px;
     color: var(--heading);
     background-color: var(--bg-light);
     transition: all 0.2s ease;
 }
 
-.booking-form .form-control:focus,
-.booking-form .form-select:focus {
+.booking-form-box textarea.form-control {
+    height: auto;
+}
+
+.booking-form-box .form-control:focus,
+.booking-form-box .form-select:focus {
     border-color: var(--primary);
-    background-color: var(--bg-white);
-    box-shadow: 0 0 0 3px rgba(91, 141, 239, 0.15);
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(91, 141, 239, 0.18);
+}
+
+.btn-booking-wa {
+    height: 48px;
+    background-color: var(--primary) !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    border-radius: var(--radius-btn);
+    font-weight: 700;
+    box-shadow: 0 4px 16px rgba(91, 141, 239, 0.3);
+    transition: all 0.2s ease;
+}
+.btn-booking-wa:hover {
+    background-color: var(--primary-hover) !important;
+    box-shadow: 0 6px 22px rgba(91, 141, 239, 0.4);
+    transform: translateY(-1px);
 }
 
 /* ==============================================================
-   FOOTER (Clean Light Enterprise Design)
+   10. TIM TEKNISI
+   ============================================================== */
+.team-enterprise-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: all 0.25s ease;
+    height: 100%;
+}
+
+.team-enterprise-card:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-3px);
+}
+
+.team-photo-wrap {
+    height: 270px;
+    overflow: hidden;
+}
+
+.team-photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+.team-enterprise-card:hover .team-photo-wrap img {
+    transform: scale(1.03);
+}
+
+.team-badge-role {
+    display: inline-block;
+    background: var(--primary-tint);
+    color: var(--primary-hover);
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 8px;
+}
+
+/* ==============================================================
+   11. TESTIMONI (QUOTE ICON TINT & RING AVATAR)
+   ============================================================== */
+.testimonial-enterprise-card {
+    position: relative;
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    padding: 32px 24px;
+    box-shadow: var(--shadow-card);
+    min-height: 290px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.testimonial-quote-icon {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    font-size: 32px;
+    color: var(--primary-tint);
+    pointer-events: none;
+}
+
+.testimonial-avatar,
+.testimonial-enterprise-card .testimonial-avatar,
+.owl-carousel .owl-item .testimonial-avatar {
+    width: 68px !important;
+    height: 68px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    border: 3px solid var(--primary-tint) !important;
+    box-shadow: var(--shadow-sm);
+    margin: 0 auto 12px auto !important;
+    display: inline-block !important;
+}
+
+/* Owl Carousel Soft Dots */
+.owl-theme .owl-dots .owl-dot span {
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50% !important;
+    background: #E5E9F0 !important;
+    margin: 5px 6px !important;
+    transition: all 0.25s ease !important;
+}
+
+.owl-theme .owl-dots .owl-dot.active span {
+    background: var(--primary) !important;
+    transform: scale(1.3);
+}
+
+/* ==============================================================
+   12. FOOTER (CLEAN LIGHT & BACK TO TOP)
    ============================================================== */
 .footer-clean {
     background-color: var(--bg-light) !important;
     border-top: 1px solid var(--border) !important;
     color: var(--body) !important;
-    padding-top: 4rem;
+    padding-top: 64px;
 }
 
 .footer-clean h4 {
-    font-family: var(--font-heading);
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 700;
     color: var(--heading) !important;
-    margin-bottom: 1.5rem;
-}
-
-.footer-clean p,
-.footer-clean small {
-    color: var(--body) !important;
-    font-size: 14px;
-}
-
-.footer-clean .text-primary {
-    color: var(--primary) !important;
+    margin-bottom: 20px;
 }
 
 .footer-clean .btn-link {
     color: var(--body) !important;
     font-size: 14px;
-    padding: 0.35rem 0;
-    text-decoration: none;
+    padding: 4px 0;
     display: block;
     transition: all 0.2s ease;
 }
-
 .footer-clean .btn-link:hover {
     color: var(--primary) !important;
-    padding-left: 6px;
-}
-
-.footer-clean .btn-social {
-    width: 36px;
-    height: 36px;
-    border-radius: var(--radius-sm);
-    background: var(--bg-white);
-    border: 1px solid var(--border);
-    color: var(--body) !important;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-}
-
-.footer-clean .btn-social:hover {
-    background: var(--primary-tint);
-    color: var(--primary) !important;
-    border-color: var(--primary);
+    padding-left: 5px;
 }
 
 .footer-clean .copyright {
     border-top: 1px solid var(--border);
-    padding: 1.5rem 0;
-    margin-top: 3rem;
-    font-size: 13.5px;
+    padding: 20px 0;
+    margin-top: 48px;
+    font-size: 13px;
     color: var(--text-muted);
 }
 
@@ -877,41 +1275,25 @@ a:hover {
     color: var(--heading);
     font-weight: 600;
 }
-
 .footer-clean .copyright a:hover {
     color: var(--primary);
 }
 
-.footer-clean .footer-menu a {
-    color: var(--text-muted);
-    font-size: 13px;
-    margin-left: 15px;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.footer-clean .footer-menu a:hover {
-    color: var(--primary);
-}
-
-/* ==============================================================
-   BACK TO TOP BUTTON
-   ============================================================== */
+/* Circular Soft Blue Back to Top */
 .back-to-top {
     position: fixed;
     display: none;
-    right: 30px;
-    bottom: 30px;
+    right: 28px;
+    bottom: 28px;
     z-index: 99;
     width: 44px;
     height: 44px;
-    border-radius: var(--radius-md) !important;
+    border-radius: 50% !important;
     background: var(--primary) !important;
     color: #FFFFFF !important;
     border: none !important;
     box-shadow: 0 4px 14px rgba(91, 141, 239, 0.35) !important;
 }
-
 .back-to-top:hover {
     background: var(--primary-hover) !important;
     transform: translateY(-2px);

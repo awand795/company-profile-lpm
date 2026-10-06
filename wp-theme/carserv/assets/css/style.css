@@ -1,9 +1,9 @@
 /********** Template CSS **********/
 :root {
-    --primary: #D81324;
-    --secondary: #0B2154;
-    --light: #F2F2F2;
-    --dark: #111111;
+    --primary: #5B8DEF;
+    --secondary: #1F2A37;
+    --light: #F8FAFC;
+    --dark: #1F2A37;
 }
 
 .fw-medium {
@@ -225,19 +225,14 @@
 }
 
 .navbar .navbar-nav .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #D81324;
-    transition: width 0.25s ease;
+    display: none;
+    content: none;
 }
 
 .navbar .navbar-nav .nav-link:hover::after,
 .navbar .navbar-nav .nav-link.active::after {
-    width: 100%;
+    display: none;
+    content: none;
 }
 
 .navbar .btn-header-cta {
@@ -704,43 +699,36 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-brand-highlight {
-    color: #FFFFFF;
-    background: linear-gradient(135deg, #FF4B55 0%, #D81324 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: none;
-    font-weight: 950;
-    position: relative;
+    color: var(--primary);
+    font-weight: 800;
     display: inline-block;
 }
 
 .hero-lead {
     font-size: 1.15rem;
     line-height: 1.65;
-    color: #E2E8F0;
+    color: #4B5563;
     opacity: 0.95;
     max-width: 620px;
 }
 
 .btn-hero-primary {
-    background: linear-gradient(135deg, #E61E2F 0%, #D81324 100%) !important;
+    background: #5B8DEF !important;
     color: #FFFFFF !important;
     font-weight: 700 !important;
     font-size: 15px !important;
-    padding: 14px 32px !important;
-    border-radius: 50px !important;
+    padding: 13px 28px !important;
+    border-radius: 12px !important;
     border: none !important;
-    box-shadow: 0 8px 24px rgba(216, 19, 36, 0.4) !important;
-    transition: all 0.3s ease !important;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    box-shadow: 0 4px 14px rgba(91, 141, 239, 0.28) !important;
+    transition: all 0.2s ease !important;
     display: inline-flex;
     align-items: center;
 }
 .btn-hero-primary:hover {
-    background: linear-gradient(135deg, #D81324 0%, #B90F1E 100%) !important;
+    background: #4A7BD8 !important;
     transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(216, 19, 36, 0.55) !important;
+    box-shadow: 0 8px 20px rgba(91, 141, 239, 0.38) !important;
 }
 
 .btn-hero-secondary {
@@ -971,7 +959,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 38px;
     font-weight: 900;
     line-height: 1;
-    color: #FF4B55;
+    color: var(--primary);
     font-family: 'Barlow', sans-serif;
 }
 .about-exp-title {
