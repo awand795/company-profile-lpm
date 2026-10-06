@@ -1704,6 +1704,9 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     --hairline-soft: #F1F5F9;
     --grid-line: rgba(15, 23, 42, 0.045);
     --warm: #FAEFE0;
+    /* Biru band bersama prinsipal + testimoni (satu sumber, anti-drift) */
+    --band-blue: #D9E8FD;
+    --band-blue-line: #C9DCFA;
 
     /* Token lama dipertahankan agar tidak ada referensi kosong */
     --sky: #7C3AED;
@@ -1971,9 +1974,9 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     bottom: 0;
     left: -100vw;
     right: -100vw;
-    background-color: #D9E8FD;
-    border-top: 1px solid #C9DCFA;
-    border-bottom: 1px solid #C9DCFA;
+    background-color: var(--band-blue);
+    border-top: 1px solid var(--band-blue-line);
+    border-bottom: 1px solid var(--band-blue-line);
     z-index: 0;
     pointer-events: none;
 }
@@ -2073,9 +2076,9 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     bottom: 0;
     left: -100vw;
     right: -100vw;
-    background-color: var(--surface-soft);
-    border-top: 1px solid var(--hairline);
-    border-bottom: 1px solid var(--hairline);
+    background-color: var(--band-blue);
+    border-top: 1px solid var(--band-blue-line);
+    border-bottom: 1px solid var(--band-blue-line);
     z-index: 0;
     pointer-events: none;
 }
