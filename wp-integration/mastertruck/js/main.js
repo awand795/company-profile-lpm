@@ -54,12 +54,12 @@
     });
     
     
-    // Back to top button
+    // Back to top button (class-based agar ikon tetap di tengah)
     $(window).scroll(function () {
         if ($(this).scrollTop() > 400) {
-            $('.back-to-top').fadeIn('slow');
+            $('.back-to-top').addClass('show');
         } else {
-            $('.back-to-top').fadeOut('slow');
+            $('.back-to-top').removeClass('show');
         }
     });
     $('.back-to-top').click(function () {

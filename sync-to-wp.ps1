@@ -100,6 +100,17 @@ if (-not $Theme) {
 Write-Host "Theme aktif : $Theme" -ForegroundColor Cyan
 $themePath = "/var/www/html/wp-content/themes/$Theme"
 
+# Regenerasi template dari index.html bila python ada (single source of truth).
+$pyCmd = Get-Command python -ErrorAction SilentlyContinue
+if (-not $pyCmd) { $pyCmd = Get-Command python3 -ErrorAction SilentlyContinue }
+if (-not $pyCmd) { $pyCmd = Get-Command py -ErrorAction SilentlyContinue }
+if ($pyCmd) {
+    & $pyCmd.Source (Join-Path $root 'tools/build-template.py')
+    if ($LASTEXITCODE -ne 0) { Write-Warning "Regen template gagal, pakai file ter-commit." }
+} else {
+    Write-Warning "python tak ada, template tidak diregenerasi."
+}
+
 # --- Salin mastertruck/ (style.css, main.js, images/) ------------------------
 docker exec $Container mkdir -p "$themePath/mastertruck"
 if ($LASTEXITCODE -ne 0) { throw "Gagal membuat $themePath/mastertruck" }
@@ -203,6 +214,9 @@ if ($LASTEXITCODE -eq 0) {
     }
     docker exec $Container wp rewrite flush --allow-root --path=/var/www/html 2>$null | Out-Null
 }
+
+# Verifikasi paritas repo <-> deploy (non-fatal, hanya peringatan).
+& (Join-Path $root 'tools/verify-parity.ps1') -Container $Container
 
 # --- Bersihkan staging -------------------------------------------------------
 Remove-Item -Path $stage -Recurse -Force -ErrorAction SilentlyContinue

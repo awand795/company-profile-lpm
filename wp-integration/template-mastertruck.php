@@ -68,7 +68,7 @@ function mt_landing_dequeue_late() {
     <meta content="bengkel truk medan, distributor pelumas pertamina medan, ban dunlop truk, overhaul mesin diesel, rem angin truk, web fleet kim 3" name="keywords">
 
     <!-- Fonts lokal (self-hosted, anti-gantung bila CDN Google tak terjangkau) -->
-    <link href="<?php echo esc_url( $mt_base ); ?>/css/fonts.css?ver=<?php echo esc_attr( $mt_ver ); ?>?ver=<?php echo esc_attr( $mt_ver ); ?>" rel="stylesheet">
+    <link href="<?php echo esc_url( $mt_base ); ?>/css/fonts.css?ver=<?php echo esc_attr( $mt_ver ); ?>" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -146,7 +146,7 @@ function mt_landing_dequeue_late() {
             </div>
             <div class="navbar-brand-text">
                 <span class="navbar-brand-title">MASTER <span>TRUCK</span></span>
-                <span class="navbar-brand-sub">Bengkel Truk &amp; OEM KIM III</span>
+                <span class="navbar-brand-sub">Bengkel Truk KIM III Medan</span>
             </div>
         </a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -155,11 +155,9 @@ function mt_landing_dequeue_late() {
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
                 <a href="#header-carousel" class="nav-item nav-link active">Beranda</a>
-                <a href="#about" class="nav-item nav-link">Tentang Kami</a>
+                <a href="#about" class="nav-item nav-link">Tentang</a>
                 <a href="#service" class="nav-item nav-link">Layanan</a>
-                <a href="#principals" class="nav-item nav-link">Prinsipal OEM</a>
-                <a href="#team" class="nav-item nav-link">Teknisi</a>
-                <a href="#testimonial" class="nav-item nav-link">Testimoni</a>
+                <a href="#testimonial" class="nav-item nav-link">Mitra</a>
                 <a href="#faq" class="nav-item nav-link">FAQ</a>
                 <a href="#contact" class="nav-item nav-link">Kontak</a>
             </div>
@@ -860,7 +858,7 @@ function mt_landing_dequeue_late() {
                 <div class="col-lg-3 col-md-6">
                     <div class="d-flex align-items-center gap-2 mb-3">
                         <div class="navbar-brand-icon" style="width:38px; height:38px; font-size:16px;"><i class="fa fa-truck"></i></div>
-                        <div><div class="fw-bold" style="color: var(--navy);">MASTER <span style="color: var(--primary);">TRUCK</span></div><small class="text-muted">Bengkel Truk &amp; OEM KIM III</small></div>
+                        <div><div class="fw-bold" style="color: var(--navy);">MASTER <span style="color: var(--primary);">TRUCK</span></div><small class="text-muted">Bengkel Truk KIM III Medan</small></div>
                     </div>
                     <h4 class="footer-heading">Kontak &amp; Alamat</h4>
                     <p class="mb-2"><i class="fa fa-map-marker-alt me-2 text-primary"></i>KIM III, Medan — Sumatera Utara</p>

@@ -35,6 +35,13 @@ fi
 
 echo "Theme aktif : $THEME"
 THEME_PATH="/var/www/html/wp-content/themes/$THEME"
+
+# Regenerasi template dari index.html bila python3 ada (single source of truth).
+if command -v python3 >/dev/null 2>&1; then
+  python3 "$ROOT/tools/build-template.py" || echo "WARN  regen template gagal, pakai file ter-commit" >&2
+else
+  echo "WARN  python3 tak ada, template tidak diregenerasi" >&2
+fi
 docker exec "$CONTAINER" mkdir -p "$THEME_PATH/mastertruck"
 docker cp "$SRC/mastertruck/." "$CONTAINER:$THEME_PATH/mastertruck/"
 echo "OK  mastertruck/"
@@ -77,6 +84,9 @@ if docker exec "$CONTAINER" test -f "$THEME_PATH/template-mastertruck.php" 2>/de
   fi
   docker exec "$CONTAINER" wp rewrite flush --allow-root --path=/var/www/html >/dev/null 2>&1 || true
 fi
+
+# Verifikasi paritas repo <-> deploy (non-fatal, hanya peringatan).
+bash "$ROOT/tools/verify-parity.sh" || true
 
 echo ""
 echo "Sinkronisasi selesai. Theme: $THEME"
