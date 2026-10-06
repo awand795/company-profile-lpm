@@ -1967,7 +1967,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     bottom: 0;
     left: -100vw;
     right: -100vw;
-    background-color: var(--warm);
+    background-color: var(--primary-tint);
     border-top: 1px solid var(--hairline);
     border-bottom: 1px solid var(--hairline);
     z-index: 0;
@@ -2057,7 +2057,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     bottom: 0;
     left: -100vw;
     right: -100vw;
-    background-color: var(--warm);
+    background-color: var(--surface-soft);
     border-top: 1px solid var(--hairline);
     border-bottom: 1px solid var(--hairline);
     z-index: 0;
