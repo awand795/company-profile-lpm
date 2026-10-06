@@ -1620,27 +1620,113 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 }
 
 /* ==============================================================
-   13. COLOR RHYTHM PASS - tetap white theme, tidak monoton putih
-   Ritme: Hero (biru lembut) > Fitur (putih) > Profil (biru muda)
-   > Statistik (putih + 4 kartu warna) > Layanan (putih) > Prinsipal (krem)
-   > Distribusi (biru muda + titik) > Booking (pastel biru-teal-krem)
-   > Tim (putih) > Testimoni (krem) > Footer (abu terang + garis warna)
+   13. ENTERPRISE LIGHT PASS - terang menyeluruh, aksen terkontrol
+   Prinsip: 90% netral terang (putih / slate) + 10% aksen warna.
+   Ritme: Hero (slate lembut) > Fitur (putih) > Profil (putih+glow)
+   > Statistik (slate + 4 kartu warna) > Layanan (putih)
+   > Prinsipal (ivory) > Distribusi (putih + grid halus)
+   > Booking (slate + glow) > Tim (putih) > Testimoni (ivory)
+   > Footer (slate terang + garis aksen)
    ============================================================== */
 :root {
-    --sky: #0284C7;
-    --cream: #FFF8EB;
-    --sky-wash: #EAF3FF;
-    --grad-brand: linear-gradient(135deg, #0F2A5C 0%, #1D4ED8 58%, #2563EB 100%);
+    /* Aksen terkontrol (kontras AA di atas putih) */
+    --acc-blue: #2563EB;
+    --acc-blue-dark: #1D4ED8;
+    --acc-blue-tint: #EFF6FF;
+    --acc-teal: #0D9488;
+    --acc-teal-dark: #0F766E;
+    --acc-teal-tint: #F0FDFA;
+    --acc-amber: #D97706;
+    --acc-amber-dark: #B45309;
+    --acc-amber-tint: #FFFBEB;
+    --acc-violet: #7C3AED;
+    --acc-violet-dark: #6D28D9;
+    --acc-violet-tint: #F5F3FF;
+
+    /* Permukaan terang */
+    --surface: #FFFFFF;
+    --surface-soft: #F8FAFC;
+    --hairline: #E7ECF3;
+    --hairline-soft: #F1F5F9;
+    --grid-line: rgba(15, 23, 42, 0.045);
+    --warm: #FDFAF5;
+
+    /* Token lama dipertahankan agar tidak ada referensi kosong */
+    --sky: #7C3AED;
+    --cream: #FDFAF5;
+    --sky-wash: #F8FAFC;
+    --grad-brand: linear-gradient(135deg, #2563EB 0%, #1D4ED8 55%, #0D9488 100%);
     --dots-light: radial-gradient(rgba(255, 255, 255, 0.13) 1.3px, transparent 1.5px);
     --dots-blue: radial-gradient(rgba(37, 99, 235, 0.11) 1.3px, transparent 1.5px);
 }
 
-/* Chip ikon: 4 warna terkontrol (biru, teal, amber, sky) */
+/* Chip ikon: 4 warna terkontrol (biru, teal, amber, violet) */
 .icon-tint-blue     { background-color: #DBEAFE; color: #1D4ED8; }
 .icon-tint-teal     { background-color: #CCFBF1; color: #0F766E; }
 .icon-tint-amber    { background-color: #FEF3C7; color: #B45309; }
-.icon-tint-lavender { background-color: #E0F2FE; color: #0369A1; }
+.icon-tint-lavender { background-color: #EDE9FE; color: #6D28D9; }
 .service-nav-pills .service-pill-btn.active .icon-tint-wrap { background-color: #FFFFFF; }
+
+/* ==============================================================
+   TOPBAR: TERANG (light theme penuh, bukan navy gelap)
+   ============================================================== */
+.mt-topbar,
+.top-bar-custom {
+    background-color: #FFFFFF !important;
+    color: var(--body) !important;
+    border-bottom: 1px solid var(--hairline) !important;
+}
+.mt-topbar__item,
+.mt-topbar__item i,
+.top-bar-custom small,
+.top-bar-custom .text-primary {
+    color: var(--body) !important;
+}
+.mt-topbar__item i,
+.top-bar-custom .text-primary {
+    color: var(--acc-blue) !important;
+}
+.mt-topbar__link,
+.mt-topbar__link strong {
+    color: var(--heading) !important;
+}
+.mt-topbar__link i {
+    color: var(--acc-blue) !important;
+}
+.mt-topbar__link:hover,
+.mt-topbar__link:hover strong {
+    color: var(--acc-blue-dark) !important;
+}
+.top-bar-custom a {
+    color: var(--heading) !important;
+}
+.top-bar-custom a:hover {
+    color: var(--acc-blue-dark) !important;
+}
+.mt-topbar__sep {
+    background: var(--hairline) !important;
+}
+.mt-topbar__chip {
+    background: var(--acc-teal-tint) !important;
+    color: var(--acc-teal-dark) !important;
+    border-color: rgba(13, 148, 136, 0.28) !important;
+}
+.mt-topbar__dot {
+    background: #10B981 !important;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15) !important;
+}
+.mt-topbar__soc-btn,
+.top-social-btn {
+    background: var(--surface-soft) !important;
+    border: 1px solid var(--hairline) !important;
+    color: var(--body) !important;
+}
+.mt-topbar__soc-btn:hover,
+.top-social-btn:hover {
+    background: var(--acc-blue) !important;
+    border-color: var(--acc-blue) !important;
+    color: #FFFFFF !important;
+}
 
 /* Garis aksen di bawah judul section */
 .container-xxl .text-center.mb-5 h2::after {
@@ -1650,32 +1736,33 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     height: 4px;
     border-radius: 999px;
     margin: 14px auto 0;
-    background: linear-gradient(90deg, var(--primary), #0D9488);
+    background: linear-gradient(90deg, var(--acc-blue), var(--acc-teal));
 }
 
-/* Topbar kosong di mobile (row-nya d-none, wadahnya tetap 38px) */
+/* Topbar disembunyikan di mobile */
 @media (max-width: 991.98px) {
-    .top-bar-custom { display: none !important; }
+    .top-bar-custom,
+    .mt-topbar { display: none !important; }
 }
 
-/* Hero: wash biru lembut, gambar blur lebih terlihat (terutama di sisi kanan) */
-#header-carousel { background-color: var(--sky-wash); }
+/* HERO: dasar slate terang, foto tetap terlihat di sisi kanan */
+#header-carousel { background-color: #F1F5F9; }
 .carousel-caption {
-    background: linear-gradient(100deg, rgba(255, 255, 255, 0.96) 0%, rgba(240, 247, 255, 0.84) 50%, rgba(191, 219, 254, 0.15) 100%) !important;
+    background: linear-gradient(100deg, rgba(255, 255, 255, 0.97) 0%, rgba(248, 250, 252, 0.88) 48%, rgba(255, 255, 255, 0.20) 100%) !important;
 }
 
-/* 2. Fitur: putih, kartu bergaris warna di atas */
-.sec-features { background-color: var(--bg-white); }
-.sec-features .feature-card { border-top: 4px solid var(--primary); }
-.sec-features .col-lg-3:nth-child(2) .feature-card { border-top-color: #0D9488; }
-.sec-features .col-lg-3:nth-child(3) .feature-card { border-top-color: #F59E0B; }
-.sec-features .col-lg-3:nth-child(4) .feature-card { border-top-color: var(--sky); }
+/* 2. Fitur: putih, kartu bergaris aksen di atas */
+.sec-features { background-color: var(--surface); }
+.sec-features .feature-card { border-top: 4px solid var(--acc-blue); }
+.sec-features .col-lg-3:nth-child(2) .feature-card { border-top-color: var(--acc-teal); }
+.sec-features .col-lg-3:nth-child(3) .feature-card { border-top-color: var(--acc-amber); }
+.sec-features .col-lg-3:nth-child(4) .feature-card { border-top-color: var(--acc-violet); }
 
-/* 3. Profil: putih premium + glow aksen (modern enterprise) */
+/* 3. Profil: putih premium + dua glow aksen (modern enterprise) */
 .sec-about {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(180deg, #FFFFFF 0%, #F6F9FF 100%);
+    background: var(--surface);
 }
 .sec-about::before {
     content: '';
@@ -1685,7 +1772,18 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     width: 560px;
     height: 560px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, rgba(37, 99, 235, 0) 70%);
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.07) 0%, rgba(37, 99, 235, 0) 70%);
+    pointer-events: none;
+}
+.sec-about::after {
+    content: '';
+    position: absolute;
+    bottom: -220px;
+    left: -160px;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(13, 148, 136, 0.06) 0%, rgba(13, 148, 136, 0) 70%);
     pointer-events: none;
 }
 .sec-about .container { position: relative; z-index: 1; }
@@ -1750,23 +1848,27 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 .sec-about .about-point-card h6 { font-size: 15px; letter-spacing: -0.01em; }
 .sec-about .about-point-card p { font-size: 13px; line-height: 1.6; }
 
-/* 4. Statistik: band putih bersih + 4 kartu pastel warna-warni */
+/* 4. Statistik: slate terang + grid halus, kartu putih beraksen */
 .fact-section-light {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(180deg, #FFFFFF 0%, var(--bg-light) 100%);
-    border-top: 1px solid var(--border-light);
-    border-bottom: 1px solid var(--border-light);
+    background-color: var(--surface-soft);
+    background-image:
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 44px 44px;
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
     padding-top: 64px;
     padding-bottom: 64px;
 }
 .fact-section-light .container { position: relative; z-index: 1; }
 
 /* Kartu: putih, pita aksen atas beda warna per kartu */
-.fact-section-light .stat-card-blue     { --stat-accent: #2563EB; }
-.fact-section-light .stat-card-teal     { --stat-accent: #0D9488; }
-.fact-section-light .stat-card-amber    { --stat-accent: #F59E0B; }
-.fact-section-light .stat-card-lavender { --stat-accent: #8B5CF6; }
+.fact-section-light .stat-card-blue     { --stat-accent: var(--acc-blue); }
+.fact-section-light .stat-card-teal     { --stat-accent: var(--acc-teal); }
+.fact-section-light .stat-card-amber    { --stat-accent: var(--acc-amber); }
+.fact-section-light .stat-card-lavender { --stat-accent: var(--acc-violet); }
 .fact-section-light .stat-card-soft {
     background-color: #FFFFFF;
     border: 1px solid var(--border);
@@ -1795,69 +1897,131 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 .fact-section-light .stat-card-amber .stat-val    { color: #B45309 !important; }
 .fact-section-light .stat-card-lavender .stat-val { color: #6D28D9 !important; }
 
-/* 5. Layanan: putih dengan semburat biru di atas, tab aktif solid */
-.sec-services { background: linear-gradient(180deg, #F3F8FF 0, #FFFFFF 240px); }
+/* 5. Layanan: putih dengan semburat lembut, tab aktif gradien biru-teal */
+.sec-services { background: var(--surface); }
 .service-nav-pills .service-pill-btn.active {
-    background: var(--grad-brand) !important;
+    background: linear-gradient(135deg, var(--acc-blue) 0%, #1D4ED8 55%, var(--acc-teal) 100%) !important;
     border-color: transparent !important;
-    box-shadow: 0 8px 22px rgba(37, 99, 235, 0.28);
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.24);
 }
 .service-nav-pills .service-pill-btn.active h6 { color: #FFFFFF !important; }
 .service-nav-pills .service-pill-btn.active small { color: rgba(255, 255, 255, 0.82) !important; }
 .service-panel-card { border-top: 4px solid var(--primary); }
 
-/* 6. Prinsipal: krem hangat (menyeimbangkan dominasi biru) */
-.sec-principals { background-color: var(--cream); }
+/* 6. Prinsipal: band ivory full-bleed + aksen amber */
+.sec-principals { position: relative; }
+.sec-principals::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -100vw;
+    right: -100vw;
+    background-color: var(--warm);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    z-index: 0;
+    pointer-events: none;
+}
+.sec-principals > * { position: relative; z-index: 1; }
 .sec-principals .badge-section-pill {
-    background-color: #FEF3C7;
-    color: #92400E;
-    border-color: rgba(245, 158, 11, 0.40);
+    background-color: var(--acc-amber-tint);
+    color: var(--acc-amber-dark);
+    border-color: rgba(217, 119, 6, 0.28);
 }
-.sec-principals .container-xxl .text-center.mb-5 h2::after,
-.sec-principals .text-center.mb-5 h2::after { background: linear-gradient(90deg, #F59E0B, var(--primary)); }
+.sec-principals .text-center.mb-5 h2::after { background: linear-gradient(90deg, var(--acc-amber), var(--acc-blue)); }
 
-/* 7. Distribusi: biru muda + pola titik */
-.sec-distribution {
-    background-color: var(--sky-wash);
-    background-image: var(--dots-blue);
-    background-size: 24px 24px;
+/* 7. Distribusi: band slate + grid teknis full-bleed */
+.sec-distribution { position: relative; }
+.sec-distribution::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -100vw;
+    right: -100vw;
+    background-color: var(--surface-soft);
+    background-image:
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 44px 44px;
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    z-index: 0;
+    pointer-events: none;
 }
+.sec-distribution > * { position: relative; z-index: 1; }
 
-/* 8. Booking: latar pastel colorful (biru -> teal -> krem), form tetap kartu putih */
+/* 8. Booking: slate terang + dua glow aksen, form tetap kartu putih */
 .booking-section-wrapper {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, #F5F9FF 0%, #F0FDFA 55%, #FFF8EB 100%) !important;
+    background-color: var(--surface-soft) !important;
 }
 .booking-section-wrapper::before {
     content: '';
     position: absolute;
-    inset: 0;
-    background-image: var(--dots-blue);
-    background-size: 24px 24px;
+    top: -170px;
+    right: -120px;
+    width: 560px;
+    height: 560px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.10) 0%, rgba(37, 99, 235, 0) 68%);
+    pointer-events: none;
+}
+.booking-section-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: -190px;
+    left: -140px;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(13, 148, 136, 0.10) 0%, rgba(13, 148, 136, 0) 68%);
     pointer-events: none;
 }
 .booking-section-wrapper .container { position: relative; z-index: 1; }
+
+/* Pill darurat: merah lembut (satu-satunya aksen merah, sesuai konteks) */
+.booking-section-wrapper .row > .col-lg-6:first-child .badge-section-pill {
+    background-color: #FEE2E2;
+    color: #B91C1C;
+    border-color: rgba(220, 38, 38, 0.30);
+}
 .booking-form-box { box-shadow: var(--shadow-card-hover); border: 1px solid var(--border); }
 
 /* 9. Tim: putih, garis warna di bawah kartu, wajah tidak terpotong */
-.sec-team { background-color: var(--bg-white); }
+.sec-team { background-color: var(--surface); }
 .team-photo-wrap img { object-position: center 18%; }
-.team-enterprise-card { border-bottom: 4px solid var(--primary); }
-.sec-team .col-lg-3:nth-child(2) .team-enterprise-card { border-bottom-color: #0D9488; }
-.sec-team .col-lg-3:nth-child(3) .team-enterprise-card { border-bottom-color: #F59E0B; }
-.sec-team .col-lg-3:nth-child(4) .team-enterprise-card { border-bottom-color: var(--sky); }
+.team-enterprise-card { border-bottom: 4px solid var(--acc-blue); }
+.sec-team .col-lg-3:nth-child(2) .team-enterprise-card { border-bottom-color: var(--acc-teal); }
+.sec-team .col-lg-3:nth-child(3) .team-enterprise-card { border-bottom-color: var(--acc-amber); }
+.sec-team .col-lg-3:nth-child(4) .team-enterprise-card { border-bottom-color: var(--acc-violet); }
 
-/* 10. Testimoni: krem hangat, kutip kuning lembut */
-.sec-testimonial { background-color: var(--cream); }
-.sec-testimonial .testimonial-quote-icon { color: #FDE68A; }
-.sec-testimonial .testimonial-enterprise-card { border-top: 4px solid #F59E0B; }
+/* 10. Testimoni: band ivory full-bleed + kutip kuning lembut */
+.sec-testimonial { position: relative; }
+.sec-testimonial::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -100vw;
+    right: -100vw;
+    background-color: var(--warm);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    z-index: 0;
+    pointer-events: none;
+}
+.sec-testimonial > * { position: relative; z-index: 1; }
+.sec-testimonial .testimonial-quote-icon { color: #FCD34D; }
+.sec-testimonial .testimonial-enterprise-card { border-top: 4px solid var(--acc-amber); }
 
 /* 11. Footer: abu terang, garis brand 3 warna di atas */
 .footer-clean {
     position: relative;
-    background-color: #F1F5F9 !important;
-    border-top: 0 !important;
+    background-color: var(--surface-soft) !important;
+    border-top: 1px solid var(--hairline) !important;
 }
 .footer-clean.mt-5 { margin-top: 0 !important; }
 .footer-clean::before {
@@ -1867,7 +2031,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #2563EB 0%, #0D9488 50%, #F59E0B 100%);
+    background: linear-gradient(90deg, var(--acc-blue) 0%, var(--acc-teal) 50%, var(--acc-amber) 100%);
 }
 .footer-clean .btn-social {
     width: 36px;
