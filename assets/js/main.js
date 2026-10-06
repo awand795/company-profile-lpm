@@ -68,8 +68,33 @@
     });
 
 
-    // Facts counter: hanya sekali, tak mengulang saat scroll bolak-balik
+    // Facts counter: hanya sekali, format ribuan id-ID tiap frame,
+    // tak mengulang saat scroll bolak-balik
     var countersDone = false;
+    function fmtID(n) {
+        return Math.round(n).toLocaleString('id-ID');
+    }
+    function animateCount($el, target, dur) {
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            $el.text(fmtID(target));
+            return;
+        }
+        var t0 = null;
+        function step(ts) {
+            if (!t0) {
+                t0 = ts;
+            }
+            var p = Math.min((ts - t0) / dur, 1);
+            var eased = 1 - Math.pow(1 - p, 3);
+            $el.text(fmtID(target * eased));
+            if (p < 1) {
+                requestAnimationFrame(step);
+            } else {
+                $el.text(fmtID(target));
+            }
+        }
+        requestAnimationFrame(step);
+    }
     function maybeCountUp() {
         if (countersDone) {
             return;
@@ -80,9 +105,12 @@
         }
         if ($(window).scrollTop() + $(window).height() > $nums.first().offset().top + 40) {
             countersDone = true;
-            $nums.counterUp({
-                delay: 10,
-                time: 2000
+            $nums.each(function () {
+                var $el = $(this);
+                var target = parseInt($el.text().replace(/[^0-9]/g, ''), 10);
+                if (!isNaN(target)) {
+                    animateCount($el, target, 2000);
+                }
             });
         }
     }

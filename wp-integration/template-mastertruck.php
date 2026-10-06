@@ -62,10 +62,11 @@ function mt_landing_dequeue_late() {
 
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
-    <title>MASTER TRUCK — Bengkel Spesialis Truk Niaga &amp; Distributor Resmi Pelumas &amp; Sparepart | KIM III Medan</title>
+    <title>MASTER TRUCK — Bengkel Truk Terpercaya &amp; Sparepart Asli di Medan | KIM III</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Master Truck adalah bengkel spesialis perawatan truk niaga &amp; alat berat di KIM III Medan: overhaul, rem angin, engine diagnostics, serta distributor resmi pelumas Pertamina, Mobil, ban Dunlop, dan aki Incoe/GS Astra. Terintegrasi portal Web Fleet." name="description">
-    <meta content="bengkel truk medan, distributor pelumas pertamina medan, ban dunlop truk, overhaul mesin diesel, rem angin truk, web fleet kim 3" name="keywords">
+    <meta content="PT Master Truck Indonesia di KIM III Medan: 15 tahun merawat truk sekaligus menjual oli, ban, dan aki asli langsung dari pabriknya. Dipercaya 120+ perusahaan." name="description">
+    <meta content="bengkel truk medan, sparepart truk asli medan, oli pertamina medan, ban dunlop medan, derek truk 24 jam medan" name="keywords">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232563EB'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='34' font-weight='900' fill='%23FFFFFF' text-anchor='middle'%3EMT%3C/text%3E%3C/svg%3E">
 
     <!-- Fonts lokal (self-hosted, anti-gantung bila CDN Google tak terjangkau) -->
     <link href="<?php echo esc_url( $mt_base ); ?>/css/fonts.css?ver=<?php echo esc_attr( $mt_ver ); ?>" rel="stylesheet">
