@@ -81,10 +81,10 @@ $theme_uri = get_template_directory_uri();
                 <a href="#contact" class="nav-item nav-link">Kontak</a>
             </div>
             <div class="d-flex align-items-center ms-lg-3 my-2 my-lg-0 gap-2">
-                <a href="http://localhost:3000/#login" target="_blank" rel="noopener noreferrer" class="btn-nav-login">
+                <a href="<?php echo mt_fleet_url( '#login' ); ?>" target="_blank" rel="noopener noreferrer" class="btn-nav-login">
                     <i class="fa fa-sign-in-alt me-1 text-muted"></i> Login
                 </a>
-                <a href="http://localhost:3000/#register" target="_blank" rel="noopener noreferrer" class="btn-nav-register">
+                <a href="<?php echo mt_fleet_url( '#register' ); ?>" target="_blank" rel="noopener noreferrer" class="btn-nav-register">
                     <i class="fa fa-user-plus me-1"></i> Daftar
                 </a>
             </div>

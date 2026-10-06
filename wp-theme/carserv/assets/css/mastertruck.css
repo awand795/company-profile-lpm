@@ -1290,3 +1290,197 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     background: var(--primary-hover) !important;
     transform: translateY(-2px);
 }
+
+/* ==============================================================
+   13. COLOR RHYTHM PASS - tetap white theme, tidak monoton putih
+   Ritme: Hero (biru lembut) > Fitur (putih) > Profil (biru muda)
+   > Statistik (BAND BIRU) > Layanan (putih) > Prinsipal (krem)
+   > Distribusi (biru muda + titik) > Booking (BAND BIRU)
+   > Tim (putih) > Testimoni (krem) > Footer (abu terang + garis warna)
+   ============================================================== */
+:root {
+    --sky: #0284C7;
+    --cream: #FFF8EB;
+    --sky-wash: #EAF3FF;
+    --grad-brand: linear-gradient(135deg, #0F2A5C 0%, #1D4ED8 58%, #2563EB 100%);
+    --dots-light: radial-gradient(rgba(255, 255, 255, 0.13) 1.3px, transparent 1.5px);
+    --dots-blue: radial-gradient(rgba(37, 99, 235, 0.11) 1.3px, transparent 1.5px);
+}
+
+/* Chip ikon: 4 warna terkontrol (biru, teal, amber, sky) */
+.icon-tint-blue     { background-color: #DBEAFE; color: #1D4ED8; }
+.icon-tint-teal     { background-color: #CCFBF1; color: #0F766E; }
+.icon-tint-amber    { background-color: #FEF3C7; color: #B45309; }
+.icon-tint-lavender { background-color: #E0F2FE; color: #0369A1; }
+.service-nav-pills .service-pill-btn.active .icon-tint-wrap { background-color: #FFFFFF; }
+
+/* Garis aksen di bawah judul section */
+.container-xxl .text-center.mb-5 h2::after {
+    content: '';
+    display: block;
+    width: 56px;
+    height: 4px;
+    border-radius: 999px;
+    margin: 14px auto 0;
+    background: linear-gradient(90deg, var(--primary), #0D9488);
+}
+
+/* Topbar kosong di mobile (row-nya d-none, wadahnya tetap 38px) */
+@media (max-width: 991.98px) {
+    .top-bar-custom { display: none !important; }
+}
+
+/* Hero: wash biru lembut, gambar blur tetap terlihat */
+#header-carousel { background-color: var(--sky-wash); }
+.carousel-caption {
+    background: linear-gradient(100deg, rgba(255, 255, 255, 0.96) 0%, rgba(239, 246, 255, 0.86) 48%, rgba(191, 219, 254, 0.40) 100%) !important;
+}
+
+/* 2. Fitur: putih, kartu bergaris warna di atas */
+.sec-features { background-color: var(--bg-white); }
+.sec-features .feature-card { border-top: 4px solid var(--primary); }
+.sec-features .col-lg-3:nth-child(2) .feature-card { border-top-color: #0D9488; }
+.sec-features .col-lg-3:nth-child(3) .feature-card { border-top-color: #F59E0B; }
+.sec-features .col-lg-3:nth-child(4) .feature-card { border-top-color: var(--sky); }
+
+/* 3. Profil: biru muda */
+.sec-about { background: linear-gradient(180deg, var(--sky-wash) 0%, #F5F9FF 100%); }
+.about-point-card { border-left: 4px solid var(--primary); }
+.about-point-card:nth-child(2) { border-left-color: #0D9488; }
+.about-point-card:nth-child(3) { border-left-color: #F59E0B; }
+
+/* 4. Statistik: BAND BIRU brand (satu-satunya blok pekat selain booking) */
+.fact-section-light {
+    position: relative;
+    overflow: hidden;
+    background: var(--grad-brand);
+    border: 0;
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+.fact-section-light::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: var(--dots-light);
+    background-size: 22px 22px;
+    pointer-events: none;
+}
+.fact-section-light .container { position: relative; z-index: 1; }
+.fact-section-light .stat-card-soft {
+    background-color: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    box-shadow: none;
+}
+.fact-section-light .stat-card-soft:hover {
+    background-color: rgba(255, 255, 255, 0.17);
+    border-color: rgba(255, 255, 255, 0.45);
+    box-shadow: none;
+}
+.fact-section-light .stat-card-soft .stat-val { color: #FFFFFF !important; }
+.fact-section-light .stat-card-soft .stat-lbl { color: #FFFFFF; }
+.fact-section-light .stat-card-soft .stat-sub { color: rgba(255, 255, 255, 0.80); }
+.fact-section-light .stat-card-soft .stat-icon-circle {
+    background: rgba(255, 255, 255, 0.18) !important;
+    color: #FFFFFF !important;
+    box-shadow: none;
+}
+
+/* 5. Layanan: putih dengan semburat biru di atas, tab aktif solid */
+.sec-services { background: linear-gradient(180deg, #F3F8FF 0, #FFFFFF 240px); }
+.service-nav-pills .service-pill-btn.active {
+    background: var(--grad-brand) !important;
+    border-color: transparent !important;
+    box-shadow: 0 8px 22px rgba(37, 99, 235, 0.28);
+}
+.service-nav-pills .service-pill-btn.active h6 { color: #FFFFFF !important; }
+.service-nav-pills .service-pill-btn.active small { color: rgba(255, 255, 255, 0.82) !important; }
+.service-panel-card { border-top: 4px solid var(--primary); }
+
+/* 6. Prinsipal: krem hangat (menyeimbangkan dominasi biru) */
+.sec-principals { background-color: var(--cream); }
+.sec-principals .badge-section-pill {
+    background-color: #FEF3C7;
+    color: #92400E;
+    border-color: rgba(245, 158, 11, 0.40);
+}
+.sec-principals .container-xxl .text-center.mb-5 h2::after,
+.sec-principals .text-center.mb-5 h2::after { background: linear-gradient(90deg, #F59E0B, var(--primary)); }
+
+/* 7. Distribusi: biru muda + pola titik */
+.sec-distribution {
+    background-color: var(--sky-wash);
+    background-image: var(--dots-blue);
+    background-size: 24px 24px;
+}
+
+/* 8. Booking: BAND BIRU, form tetap kartu putih */
+.booking-section-wrapper {
+    position: relative;
+    overflow: hidden;
+    background: var(--grad-brand) !important;
+}
+.booking-section-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: var(--dots-light);
+    background-size: 22px 22px;
+    pointer-events: none;
+}
+.booking-section-wrapper .container { position: relative; z-index: 1; }
+.booking-section-wrapper .row > .col-lg-6:first-child .badge-section-pill {
+    background-color: rgba(255, 255, 255, 0.16);
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.38);
+}
+.booking-section-wrapper .row > .col-lg-6:first-child h2 { color: #FFFFFF !important; }
+.booking-section-wrapper .row > .col-lg-6:first-child > p { color: rgba(255, 255, 255, 0.88) !important; }
+.booking-form-box { box-shadow: 0 24px 56px rgba(15, 42, 92, 0.38); border: 0; }
+
+/* 9. Tim: putih, garis warna di bawah kartu, wajah tidak terpotong */
+.sec-team { background-color: var(--bg-white); }
+.team-photo-wrap img { object-position: center 18%; }
+.team-enterprise-card { border-bottom: 4px solid var(--primary); }
+.sec-team .col-lg-3:nth-child(2) .team-enterprise-card { border-bottom-color: #0D9488; }
+.sec-team .col-lg-3:nth-child(3) .team-enterprise-card { border-bottom-color: #F59E0B; }
+.sec-team .col-lg-3:nth-child(4) .team-enterprise-card { border-bottom-color: var(--sky); }
+
+/* 10. Testimoni: krem hangat, kutip kuning lembut */
+.sec-testimonial { background-color: var(--cream); }
+.sec-testimonial .testimonial-quote-icon { color: #FDE68A; }
+.sec-testimonial .testimonial-enterprise-card { border-top: 4px solid #F59E0B; }
+
+/* 11. Footer: abu terang, garis brand 3 warna di atas */
+.footer-clean {
+    position: relative;
+    background-color: #F1F5F9 !important;
+    border-top: 0 !important;
+}
+.footer-clean.mt-5 { margin-top: 0 !important; }
+.footer-clean::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #2563EB 0%, #0D9488 50%, #F59E0B 100%);
+}
+.footer-clean .btn-social {
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    color: var(--body);
+    transition: all 0.2s ease;
+}
+.footer-clean .btn-social:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #FFFFFF;
+}

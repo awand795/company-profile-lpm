@@ -61,14 +61,14 @@ $theme_uri = get_template_directory_uri();
                         <small class="text-muted">08.00 &ndash; 15.00 WIB</small>
                     </div>
                     <div class="mb-4">
-                        <div class="fw-bold text-primary">Emergency &amp; Derek Derek:</div>
+                        <div class="fw-bold text-primary">Emergency &amp; Derek:</div>
                         <small class="text-muted">Siaga 24 Jam / 7 Hari</small>
                     </div>
                     <div class="d-flex gap-2">
-                        <a href="http://localhost:3000/#login" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm flex-fill">
+                        <a href="<?php echo mt_fleet_url( '#login' ); ?>" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm flex-fill">
                             <i class="fa fa-sign-in-alt me-1"></i> Login
                         </a>
-                        <a href="http://localhost:3000/#register" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm flex-fill">
+                        <a href="<?php echo mt_fleet_url( '#register' ); ?>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm flex-fill">
                             <i class="fa fa-user-plus me-1"></i> Daftar
                         </a>
                     </div>
@@ -86,8 +86,8 @@ $theme_uri = get_template_directory_uri();
                         <div class="footer-menu">
                             <a href="#header-carousel">Beranda</a>
                             <a href="#about">Tentang Kami</a>
-                            <a href="http://localhost:3000/#login">Login</a>
-                            <a href="http://localhost:3000/#register">Daftar</a>
+                            <a href="<?php echo mt_fleet_url( '#login' ); ?>" target="_blank" rel="noopener noreferrer">Login</a>
+                            <a href="<?php echo mt_fleet_url( '#register' ); ?>" target="_blank" rel="noopener noreferrer">Daftar</a>
                         </div>
                     </div>
                 </div>
@@ -97,7 +97,7 @@ $theme_uri = get_template_directory_uri();
     <!-- Footer End -->
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top" aria-label="Kembali ke atas"><i class="bi bi-arrow-up"></i></a>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top" aria-label="Kembali ke atas"><i class="fa fa-arrow-up"></i></a>
 
     <?php wp_footer(); ?>
 </body>

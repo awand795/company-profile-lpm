@@ -16,13 +16,9 @@
     new WOW().init();
 
 
-    // Sticky Navbar
+    // Sticky Navbar: bayangan muncul setelah scroll
     $(window).scroll(function () {
-        if ($(this).scrollTop() > 45) {
-            $('.sticky-top').addClass('shadow');
-        } else {
-            $('.sticky-top').removeClass('shadow');
-        }
+        $('.sticky-top').toggleClass('sticky-scrolled', $(this).scrollTop() > 45);
     });
     
     

@@ -1,0 +1,1300 @@
+/* ==============================================================
+   MASTER TRUCK ENTERPRISE DESIGN SYSTEM - POLISH ROUND 2
+   Modern, Clean, White-Dominant Corporate Theme
+   Soft Palette: Blue (#5B8DEF), Teal (#4DB6AC), Amber (#F4C26B), Lavender (#9A8CF2)
+   PT Master Truck Indonesia - KIM III Medan
+   Single Source of Truth Design Tokens
+   ============================================================== */
+
+:root {
+    /* Brand Color Tokens */
+    --primary: #5B8DEF;
+    --primary-hover: #4A7BD8;
+    --primary-tint: #E8F0FE;
+    --primary-rgb: 91, 141, 239;
+
+    --secondary: #4DB6AC;
+    --secondary-hover: #3EA69C;
+    --secondary-tint: #E0F4F1;
+    --secondary-rgb: 77, 182, 172;
+
+    --accent: #F4C26B;
+    --accent-hover: #D99B26;
+    --accent-tint: #FFF6E0;
+    --accent-rgb: 244, 194, 107;
+
+    --lavender: #9A8CF2;
+    --lavender-hover: #8978E8;
+    --lavender-tint: #F0EEFF;
+    --lavender-rgb: 154, 140, 242;
+
+    /* Semantic Neutrals */
+    --dark: #1F2A37;
+    --heading: #1F2A37;
+    --body: #5B6573;
+    --text-muted: #6B7280;
+    --border: #E5E9F0;
+    --border-light: #F0F3F8;
+
+    /* Backgrounds */
+    --bg-white: #FFFFFF;
+    --bg-light: #F6F8FB;
+    --booking-bg: #EEF4FF;
+
+    /* Hero Tuning */
+    --hero-bg-opacity: 0.32;
+    --hero-bg-blur: 3px;
+
+    /* Component Geometry Tokens */
+    --radius-sm: 8px;
+    --radius-btn: 12px;
+    --radius-input: 12px;
+    --radius-card: 16px;
+    --radius-card-lg: 20px;
+    --radius-pill: 999px;
+    --radius-img: 16px;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(31, 42, 55, 0.04);
+    --shadow-card: 0 6px 24px rgba(31, 42, 55, 0.06);
+    --shadow-card-hover: 0 10px 28px rgba(31, 42, 55, 0.09);
+    --shadow-header: 0 4px 20px rgba(31, 42, 55, 0.05);
+
+    /* Typography */
+    --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    /* Bootstrap Overrides */
+    --bs-primary: #5B8DEF;
+    --bs-primary-rgb: 91, 141, 239;
+    --bs-secondary: #4DB6AC;
+    --bs-secondary-rgb: 77, 182, 172;
+    --bs-dark: #1F2A37;
+    --bs-dark-rgb: 31, 42, 55;
+    --bs-light: #F6F8FB;
+    --bs-light-rgb: 246, 248, 251;
+    --bs-body-color: #5B6573;
+    --bs-body-bg: #FFFFFF;
+}
+
+/* ==============================================================
+   BASE & TYPOGRAPHY
+   ============================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--body);
+    background-color: var(--bg-white);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: var(--font-heading);
+    color: var(--heading);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--body);
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--primary-hover);
+}
+
+::selection {
+    background-color: var(--primary-tint);
+    color: var(--primary-hover);
+}
+
+/* Scrollbar Clean */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #F1F4F9;
+}
+::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* Spinner Safety: Never lock screen */
+#spinner {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+#spinner:not(.show) {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* WOW.js Fallback */
+.wow {
+    visibility: visible !important;
+}
+
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Zero Red & Primary Neutralization */
+.text-danger, .text-red, .text-primary,
+span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-primary, h1.text-primary, h2.text-primary, h3.text-primary, h4.text-primary, h5.text-primary, h6.text-primary {
+    color: var(--primary) !important;
+}
+
+.bg-danger, .bg-red, .bg-primary {
+    background-color: var(--primary) !important;
+}
+
+.bg-danger-subtle, .bg-primary-subtle {
+    background-color: var(--primary-tint) !important;
+    color: var(--primary) !important;
+}
+
+.border-danger, .border-primary {
+    border-color: var(--border) !important;
+}
+
+.spinner-border.text-primary {
+    color: var(--primary) !important;
+}
+
+.btn-danger {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: #FFFFFF !important;
+}
+.btn-danger:hover {
+    background-color: var(--primary-hover) !important;
+    border-color: var(--primary-hover) !important;
+}
+
+/* ==============================================================
+   UNIVERSAL SOFT TINT ICONS (Circled / Squircles)
+   ============================================================== */
+.icon-tint-wrap {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+    transition: all 0.25s ease;
+}
+
+.icon-tint-blue {
+    background-color: var(--primary-tint);
+    color: var(--primary);
+}
+.icon-tint-teal {
+    background-color: var(--secondary-tint);
+    color: var(--secondary);
+}
+.icon-tint-amber {
+    background-color: var(--accent-tint);
+    color: var(--accent-hover);
+}
+.icon-tint-lavender {
+    background-color: var(--lavender-tint);
+    color: var(--lavender);
+}
+
+/* Section Spacing & Eyebrow Badges */
+.section-padding {
+    padding-top: 88px;
+    padding-bottom: 88px;
+}
+
+.badge-section-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--primary-tint);
+    color: var(--primary-hover);
+    border: 1px solid rgba(91, 141, 239, 0.2);
+    font-family: var(--font-heading);
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 0.85rem;
+}
+
+/* ==============================================================
+   BUTTONS (Unified Soft System)
+   ============================================================== */
+.btn {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    border-radius: var(--radius-btn);
+    padding: 10px 22px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+    text-transform: none;
+    letter-spacing: normal;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background-color: var(--primary) !important;
+    border: 1px solid var(--primary) !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 14px rgba(91, 141, 239, 0.24) !important;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: var(--primary-hover) !important;
+    border-color: var(--primary-hover) !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 6px 20px rgba(91, 141, 239, 0.32) !important;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: var(--secondary) !important;
+    border: 1px solid var(--secondary) !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 14px rgba(77, 182, 172, 0.24) !important;
+}
+
+.btn-secondary:hover, .btn-secondary:focus {
+    background-color: var(--secondary-hover) !important;
+    border-color: var(--secondary-hover) !important;
+    color: #FFFFFF !important;
+    transform: translateY(-2px);
+}
+
+.btn-outline-primary {
+    color: var(--primary) !important;
+    border: 1.5px solid var(--primary) !important;
+    background-color: transparent !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-tint) !important;
+    color: var(--primary-hover) !important;
+    border-color: var(--primary-hover) !important;
+    transform: translateY(-2px);
+}
+
+/* ==============================================================
+   1. TOPBAR & NAVBAR (Pixel-Perfect Polish)
+   ============================================================== */
+.top-bar-custom {
+    height: 38px;
+    background-color: var(--bg-light) !important;
+    color: var(--body) !important;
+    font-size: 12.5px !important;
+    border-bottom: 1px solid var(--border) !important;
+    display: flex;
+    align-items: center;
+}
+
+.top-bar-custom small {
+    color: var(--body) !important;
+    font-weight: 500;
+}
+
+.top-bar-custom .text-primary {
+    color: var(--primary) !important;
+}
+
+.top-bar-custom a {
+    color: var(--body) !important;
+}
+
+.top-bar-custom a:hover {
+    color: var(--primary) !important;
+}
+
+.top-social-btn {
+    width: 26px;
+    height: 26px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    background: var(--bg-white);
+    border: 1px solid var(--border);
+    color: var(--body) !important;
+    font-size: 11px;
+    transition: all 0.2s ease;
+}
+
+.top-social-btn:hover {
+    background: var(--primary-tint);
+    color: var(--primary) !important;
+    border-color: var(--primary);
+}
+
+/* Sticky Navbar */
+.navbar {
+    height: 72px;
+    background-color: var(--bg-white) !important;
+    border-bottom: 1px solid var(--border) !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    transition: all 0.25s ease;
+}
+
+.navbar.sticky-top,
+.navbar-light.sticky-top {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1030 !important;
+}
+
+.navbar.sticky-scrolled {
+    box-shadow: var(--shadow-header) !important;
+}
+
+.navbar-brand-logo {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 12px;
+    height: 72px;
+}
+
+.navbar-brand-icon {
+    width: 42px;
+    height: 42px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 18px;
+    box-shadow: 0 4px 12px rgba(91, 141, 239, 0.25);
+}
+
+.navbar-brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar-brand-title {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--heading);
+    line-height: 1.1;
+}
+
+.navbar-brand-title span {
+    color: var(--primary);
+}
+
+.navbar-brand-sub {
+    font-family: var(--font-body);
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    color: var(--text-muted);
+    margin-top: 2px;
+    white-space: nowrap;
+}
+
+/* Desktop Navbar Items: Strictly 1 Line (992px - 1920px) */
+@media (min-width: 992px) {
+    .navbar .navbar-nav {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 4px;
+        white-space: nowrap !important;
+    }
+
+    .navbar .navbar-nav .nav-link {
+        font-family: var(--font-heading);
+        font-size: 13.5px;
+        font-weight: 600;
+        color: var(--heading) !important;
+        padding: 8px 14px !important;
+        border-radius: var(--radius-pill);
+        transition: all 0.2s ease;
+        white-space: nowrap !important;
+    }
+
+    .navbar .navbar-nav .nav-link:hover {
+        color: var(--primary-hover) !important;
+        background-color: var(--primary-tint);
+    }
+
+    .navbar .navbar-nav .nav-link.active {
+        color: var(--primary-hover) !important;
+        background-color: var(--primary-tint);
+    }
+
+    .navbar .navbar-nav .nav-link::before,
+    .navbar .navbar-nav .nav-link::after,
+    .navbar .nav-link::before,
+    .navbar .nav-link::after {
+        display: none !important;
+        content: none !important;
+        width: 0 !important;
+        height: 0 !important;
+    }
+}
+
+/* Compact Login & Register Buttons (38px height match) */
+.btn-nav-login {
+    height: 38px;
+    font-family: var(--font-heading);
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    padding: 0 16px !important;
+    border-radius: var(--radius-btn) !important;
+    color: var(--heading) !important;
+    background: var(--bg-white) !important;
+    border: 1px solid var(--border) !important;
+    transition: all 0.2s ease !important;
+    text-decoration: none !important;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.btn-nav-login:hover {
+    color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    background: var(--primary-tint) !important;
+}
+
+.btn-nav-register {
+    height: 38px;
+    font-family: var(--font-heading);
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    padding: 0 16px !important;
+    border-radius: var(--radius-btn) !important;
+    color: #FFFFFF !important;
+    background: var(--primary) !important;
+    border: 1px solid var(--primary) !important;
+    box-shadow: 0 2px 8px rgba(91, 141, 239, 0.25) !important;
+    transition: all 0.2s ease !important;
+    text-decoration: none !important;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.btn-nav-register:hover {
+    background: var(--primary-hover) !important;
+    border-color: var(--primary-hover) !important;
+    color: #FFFFFF !important;
+    transform: translateY(-1px);
+}
+
+/* Mobile Dropdown Styling (<992px) */
+@media (max-width: 991.98px) {
+    .navbar {
+        height: auto !important;
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+    }
+    .navbar-collapse {
+        background: var(--bg-white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-card);
+        padding: 16px;
+        margin-top: 12px;
+        box-shadow: var(--shadow-card);
+    }
+    .navbar .navbar-nav .nav-link {
+        font-family: var(--font-heading);
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--heading) !important;
+        padding: 10px 14px !important;
+        border-radius: var(--radius-btn);
+    }
+    .navbar .navbar-nav .nav-link.active,
+    .navbar .navbar-nav .nav-link:hover {
+        background-color: var(--primary-tint);
+        color: var(--primary-hover) !important;
+    }
+}
+
+/* ==============================================================
+   2. HERO CAROUSEL (Light, Visible Blurred Warehouse, Soft Truck)
+   ============================================================== */
+#header-carousel {
+    position: relative;
+    background-color: #F8FAFD;
+    overflow: hidden;
+}
+
+#header-carousel .carousel-item {
+    min-height: 600px;
+    position: relative;
+}
+
+/* Background image visible but softly blurred */
+#header-carousel .carousel-item img.w-100 {
+    min-height: 600px;
+    height: 100%;
+    object-fit: cover;
+    opacity: var(--hero-bg-opacity);
+    filter: blur(var(--hero-bg-blur));
+    transform: scale(1.04);
+}
+
+/* High contrast soft white gradient overlay */
+.carousel-caption {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.78) 46%, rgba(255, 255, 255, 0.18) 100%) !important;
+    z-index: 2;
+    padding: 30px 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    text-align: left;
+}
+
+.hero-brand-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--primary-tint);
+    border: 1px solid rgba(91, 141, 239, 0.25);
+    color: var(--primary-hover);
+    font-family: var(--font-heading);
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 1.25rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.hero-brand-pill .live-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--secondary);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--secondary);
+    display: inline-block;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 3.1vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.24;
+    color: var(--heading);
+    letter-spacing: -0.025em;
+    margin-bottom: 1.25rem;
+}
+
+.hero-brand-highlight {
+    color: var(--primary) !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: var(--primary) !important;
+    text-shadow: none !important;
+    font-weight: 800;
+}
+
+.hero-lead {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--body);
+    max-width: 600px;
+    margin-bottom: 1.75rem;
+}
+
+/* Two CTA buttons: equal height 48px */
+.btn-hero-primary {
+    height: 48px;
+    background: var(--primary) !important;
+    color: #FFFFFF !important;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 14.5px;
+    padding: 0 26px;
+    border-radius: var(--radius-btn);
+    border: none;
+    box-shadow: 0 4px 16px rgba(91, 141, 239, 0.32);
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+}
+.btn-hero-primary:hover {
+    background: var(--primary-hover) !important;
+    color: #FFFFFF !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 22px rgba(91, 141, 239, 0.42);
+}
+
+.btn-hero-secondary {
+    height: 48px;
+    background: var(--bg-white) !important;
+    color: var(--heading) !important;
+    border: 1.5px solid var(--border) !important;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 14.5px;
+    padding: 0 24px;
+    border-radius: var(--radius-btn);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+}
+.btn-hero-secondary:hover {
+    background: var(--primary-tint) !important;
+    color: var(--primary-hover) !important;
+    border-color: var(--primary) !important;
+    transform: translateY(-2px);
+}
+
+/* Right Side Showcase Card */
+.hero-truck-showcase {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+}
+
+.hero-truck-frame {
+    position: relative;
+    background: #FFFFFF;
+    border-radius: var(--radius-card-lg);
+    border: 1px solid var(--border);
+    box-shadow: 0 12px 36px rgba(31, 42, 55, 0.08);
+    padding: 16px;
+}
+
+.hero-truck-img-wrapper {
+    position: relative;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    height: 310px;
+}
+
+.hero-truck-img-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(91, 141, 239, 0.10) 0%, rgba(246, 248, 251, 0.06) 100%);
+    pointer-events: none;
+}
+
+.hero-truck-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.92) contrast(1.02);
+    display: block;
+    transition: transform 0.4s ease;
+}
+.hero-truck-frame:hover .hero-truck-img {
+    transform: scale(1.02);
+}
+
+.hero-badge-floating-top {
+    position: absolute;
+    top: -12px;
+    right: 24px;
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+    padding: 6px 16px;
+    box-shadow: var(--shadow-card);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--heading);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.hero-card-floating-bottom {
+    margin-top: 12px;
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-btn);
+    padding: 12px 18px;
+    box-shadow: var(--shadow-sm);
+}
+
+.hero-card-title {
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--heading);
+    line-height: 1.2;
+}
+
+.hero-card-sub {
+    font-size: 11.5px;
+    color: var(--text-muted);
+}
+
+/* Carousel Soft Circular Nav Controls */
+.hero-carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.btn-carousel-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    color: var(--primary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+.btn-carousel-circle:hover {
+    background: var(--primary-tint);
+    border-color: var(--primary);
+    color: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+/* ==============================================================
+   3. KEUNGGULAN (4 CARDS DENGAN LINGKARAN TINT ROTASI)
+   ============================================================== */
+.feature-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    padding: 28px 24px;
+    height: 100%;
+    transition: all 0.25s ease;
+}
+
+.feature-card:hover {
+    border-color: rgba(91, 141, 239, 0.35);
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-3px);
+}
+
+.feature-card h5 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+.feature-card p {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--body);
+}
+
+/* ==============================================================
+   4. TENTANG KAMI (01-02-03 NUMBERED TINT PILLS)
+   ============================================================== */
+.about-img-box {
+    position: relative;
+    border-radius: var(--radius-card-lg);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-card);
+}
+
+.about-img-box img {
+    border-radius: var(--radius-card-lg);
+    object-fit: cover;
+    width: 100%;
+    height: 480px;
+    display: block;
+}
+
+.about-exp-float-card {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    padding: 14px 20px;
+    box-shadow: var(--shadow-card-hover);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.about-point-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    padding: 16px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s ease;
+}
+
+.about-point-card:hover {
+    border-color: rgba(91, 141, 239, 0.3);
+    box-shadow: var(--shadow-card);
+    transform: translateY(-2px);
+}
+
+.about-num-badge {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 15px;
+    flex-shrink: 0;
+}
+
+/* ==============================================================
+   5. ANGKA / FAKTA (4 KARTU SOFT BACKGROUND TINT BERBEDA)
+   ============================================================== */
+.fact-section-light {
+    background-color: var(--bg-white);
+    padding-top: 56px;
+    padding-bottom: 56px;
+}
+
+.stat-card-soft {
+    border-radius: var(--radius-card);
+    padding: 28px 20px;
+    text-align: center;
+    transition: all 0.25s ease;
+    border: 1px solid transparent;
+}
+
+.stat-card-blue {
+    background-color: var(--primary-tint);
+    border-color: rgba(91, 141, 239, 0.22);
+}
+.stat-card-blue .stat-val { color: var(--primary-hover); }
+.stat-card-blue .stat-icon-circle { background: #FFFFFF; color: var(--primary); }
+
+.stat-card-teal {
+    background-color: var(--secondary-tint);
+    border-color: rgba(77, 182, 172, 0.25);
+}
+.stat-card-teal .stat-val { color: var(--secondary-hover); }
+.stat-card-teal .stat-icon-circle { background: #FFFFFF; color: var(--secondary); }
+
+.stat-card-amber {
+    background-color: var(--accent-tint);
+    border-color: rgba(244, 194, 107, 0.35);
+}
+.stat-card-amber .stat-val { color: var(--accent-hover); }
+.stat-card-amber .stat-icon-circle { background: #FFFFFF; color: var(--accent-hover); }
+
+.stat-card-lavender {
+    background-color: var(--lavender-tint);
+    border-color: rgba(154, 140, 242, 0.25);
+}
+.stat-card-lavender .stat-val { color: var(--lavender-hover); }
+.stat-card-lavender .stat-icon-circle { background: #FFFFFF; color: var(--lavender); }
+
+.stat-card-soft:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-card-hover);
+}
+
+.stat-icon-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow-sm);
+}
+
+.stat-val {
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.stat-lbl {
+    font-family: var(--font-heading);
+    font-size: 12.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--dark);
+    margin-bottom: 2px;
+}
+
+.stat-sub {
+    font-size: 11.5px;
+    color: var(--text-muted);
+}
+
+/* ==============================================================
+   6. LAYANAN BENGKEL (TABS & PANELS)
+   ============================================================== */
+.service-nav-pills .service-pill-btn {
+    background: var(--bg-white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.service-nav-pills .service-pill-btn:hover {
+    border-color: var(--primary);
+    background-color: #F8FAFD;
+}
+
+.service-nav-pills .service-pill-btn.active {
+    background-color: var(--primary-tint) !important;
+    border-color: var(--primary) !important;
+    box-shadow: var(--shadow-card);
+}
+
+.service-nav-pills .service-pill-btn.active .icon-tint-wrap {
+    background: #FFFFFF;
+    color: var(--primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.service-panel-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    padding: 32px;
+    box-shadow: var(--shadow-card);
+}
+
+.service-panel-card img {
+    border-radius: var(--radius-card);
+    object-fit: cover;
+    width: 100%;
+    height: 270px;
+    border: 1px solid var(--border);
+}
+
+.check-teal {
+    color: var(--secondary) !important;
+}
+
+/* ==============================================================
+   7. PRINSIPAL / OEM BRANDS
+   ============================================================== */
+.principal-brand-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    padding: 24px 16px;
+    text-align: center;
+    box-shadow: var(--shadow-card);
+    height: 100%;
+    transition: all 0.25s ease;
+}
+
+.principal-brand-card:hover {
+    border-color: rgba(91, 141, 239, 0.35);
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-3px);
+}
+
+.principal-brand-card .icon-tint-wrap {
+    margin: 0 auto 14px;
+}
+
+/* ==============================================================
+   8. WILAYAH DISTRIBUSI
+   ============================================================== */
+.distribution-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    padding: 24px;
+    box-shadow: var(--shadow-card);
+    height: 100%;
+    transition: all 0.25s ease;
+}
+
+.distribution-card:hover {
+    border-color: rgba(91, 141, 239, 0.35);
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-3px);
+}
+
+/* ==============================================================
+   9. BOOKING & EMERGENCY SECTION (#EEF4FF TINT BACKGROUND)
+   ============================================================== */
+.booking-section-wrapper {
+    background-color: var(--booking-bg) !important;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.booking-form-box {
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    padding: 32px;
+    box-shadow: var(--shadow-card-hover);
+}
+
+.booking-form-box .form-control,
+.booking-form-box .form-select {
+    height: 48px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-input);
+    padding: 10px 16px;
+    font-size: 14px;
+    color: var(--heading);
+    background-color: var(--bg-light);
+    transition: all 0.2s ease;
+}
+
+.booking-form-box textarea.form-control {
+    height: auto;
+}
+
+.booking-form-box .form-control:focus,
+.booking-form-box .form-select:focus {
+    border-color: var(--primary);
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(91, 141, 239, 0.18);
+}
+
+.btn-booking-wa {
+    height: 48px;
+    background-color: var(--primary) !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    border-radius: var(--radius-btn);
+    font-weight: 700;
+    box-shadow: 0 4px 16px rgba(91, 141, 239, 0.3);
+    transition: all 0.2s ease;
+}
+.btn-booking-wa:hover {
+    background-color: var(--primary-hover) !important;
+    box-shadow: 0 6px 22px rgba(91, 141, 239, 0.4);
+    transform: translateY(-1px);
+}
+
+/* ==============================================================
+   10. TIM TEKNISI
+   ============================================================== */
+.team-enterprise-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: all 0.25s ease;
+    height: 100%;
+}
+
+.team-enterprise-card:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-3px);
+}
+
+.team-photo-wrap {
+    height: 270px;
+    overflow: hidden;
+}
+
+.team-photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+.team-enterprise-card:hover .team-photo-wrap img {
+    transform: scale(1.03);
+}
+
+.team-badge-role {
+    display: inline-block;
+    background: var(--primary-tint);
+    color: var(--primary-hover);
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 8px;
+}
+
+/* ==============================================================
+   11. TESTIMONI (QUOTE ICON TINT & RING AVATAR)
+   ============================================================== */
+.testimonial-enterprise-card {
+    position: relative;
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    padding: 32px 24px;
+    box-shadow: var(--shadow-card);
+    min-height: 290px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.testimonial-quote-icon {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    font-size: 32px;
+    color: var(--primary-tint);
+    pointer-events: none;
+}
+
+.testimonial-avatar,
+.testimonial-enterprise-card .testimonial-avatar,
+.owl-carousel .owl-item .testimonial-avatar {
+    width: 68px !important;
+    height: 68px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    border: 3px solid var(--primary-tint) !important;
+    box-shadow: var(--shadow-sm);
+    margin: 0 auto 12px auto !important;
+    display: inline-block !important;
+}
+
+/* Owl Carousel Soft Dots */
+.owl-theme .owl-dots .owl-dot span {
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50% !important;
+    background: #E5E9F0 !important;
+    margin: 5px 6px !important;
+    transition: all 0.25s ease !important;
+}
+
+.owl-theme .owl-dots .owl-dot.active span {
+    background: var(--primary) !important;
+    transform: scale(1.3);
+}
+
+/* ==============================================================
+   12. FOOTER (CLEAN LIGHT & BACK TO TOP)
+   ============================================================== */
+.footer-clean {
+    background-color: var(--bg-light) !important;
+    border-top: 1px solid var(--border) !important;
+    color: var(--body) !important;
+    padding-top: 64px;
+}
+
+.footer-clean h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--heading) !important;
+    margin-bottom: 20px;
+}
+
+.footer-clean .btn-link {
+    color: var(--body) !important;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+    transition: all 0.2s ease;
+}
+.footer-clean .btn-link:hover {
+    color: var(--primary) !important;
+    padding-left: 5px;
+}
+
+.footer-clean .copyright {
+    border-top: 1px solid var(--border);
+    padding: 20px 0;
+    margin-top: 48px;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.footer-clean .copyright a {
+    color: var(--heading);
+    font-weight: 600;
+}
+.footer-clean .copyright a:hover {
+    color: var(--primary);
+}
+
+/* Circular Soft Blue Back to Top */
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 28px;
+    bottom: 28px;
+    z-index: 99;
+    width: 44px;
+    height: 44px;
+    border-radius: 50% !important;
+    background: var(--primary) !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    box-shadow: 0 4px 14px rgba(91, 141, 239, 0.35) !important;
+}
+.back-to-top:hover {
+    background: var(--primary-hover) !important;
+    transform: translateY(-2px);
+}

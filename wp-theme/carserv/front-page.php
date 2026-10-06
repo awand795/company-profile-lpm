@@ -152,7 +152,7 @@ $theme_uri = get_template_directory_uri();
     <!-- ============================================================== -->
     <!-- 2. QUICK FEATURE BAR (4 CARDS DENGAN TINT ROTASI)             -->
     <!-- ============================================================== -->
-    <div class="container-xxl py-5" style="background-color: var(--bg-white);">
+    <div class="container-xxl py-5 sec-features">
         <div class="container py-2">
             <div class="row g-4">
                 <div class="col-lg-3 col-md-6">
@@ -200,7 +200,7 @@ $theme_uri = get_template_directory_uri();
     <!-- ============================================================== -->
     <!-- 3. ABOUT US SECTION (PROFIL DENGAN POIN 01-02-03)              -->
     <!-- ============================================================== -->
-    <div id="about" class="container-xxl py-5" style="background-color: var(--bg-light);">
+    <div id="about" class="container-xxl py-5 sec-about">
         <div class="container py-4">
             <div class="row g-5 align-items-center">
                 
@@ -333,7 +333,7 @@ $theme_uri = get_template_directory_uri();
     <!-- ============================================================== -->
     <!-- 5. SERVICES SECTION (LAYANAN BENGKEL DENGAN TAB KARTU SOFT)   -->
     <!-- ============================================================== -->
-    <div id="service" class="container-xxl py-5" style="background-color: var(--bg-light);">
+    <div id="service" class="container-xxl py-5 sec-services">
         <div class="container py-4">
             <div class="text-center mb-5">
                 <span class="badge-section-pill">
@@ -507,7 +507,7 @@ $theme_uri = get_template_directory_uri();
     <!-- ============================================================== -->
     <!-- 6. PRINCIPALS / OEM BRANDS SECTION (SERAGAM & TINT ICONS)     -->
     <!-- ============================================================== -->
-    <div id="principals" class="container-xxl py-5" style="background-color: var(--bg-white);">
+    <div id="principals" class="container-xxl py-5 sec-principals">
         <div class="container py-4">
             <div class="text-center mb-5">
                 <span class="badge-section-pill">
@@ -596,7 +596,7 @@ $theme_uri = get_template_directory_uri();
     <!-- ============================================================== -->
     <!-- 7. WILAYAH DISTRIBUSI & JARINGAN LOGISTIK SUMATERA             -->
     <!-- ============================================================== -->
-    <div id="distribution" class="container-xxl py-5" style="background-color: var(--bg-light);">
+    <div id="distribution" class="container-xxl py-5 sec-distribution">
         <div class="container py-4">
             <div class="text-center mb-5">
                 <span class="badge-section-pill">
@@ -775,7 +775,7 @@ $theme_uri = get_template_directory_uri();
     <!-- ============================================================== -->
     <!-- 9. TEAM SECTION (FOTO RADIUS 16PX & CLEAN BADGE)              -->
     <!-- ============================================================== -->
-    <div id="team" class="container-xxl py-5" style="background-color: var(--bg-white);">
+    <div id="team" class="container-xxl py-5 sec-team">
         <div class="container py-4">
             <div class="text-center mb-5">
                 <span class="badge-section-pill">
@@ -851,7 +851,7 @@ $theme_uri = get_template_directory_uri();
     <!-- ============================================================== -->
     <!-- 10. TESTIMONIALS (TANDA KUTIP TINT & RING AVATAR)              -->
     <!-- ============================================================== -->
-    <div id="testimonial" class="container-xxl py-5" style="background-color: var(--bg-light);">
+    <div id="testimonial" class="container-xxl py-5 sec-testimonial">
         <div class="container py-4">
             <div class="text-center mb-5">
                 <span class="badge-section-pill">

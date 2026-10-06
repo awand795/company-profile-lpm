@@ -16,11 +16,23 @@ function carserv_setup() {
 add_action( 'after_setup_theme', 'carserv_setup' );
 
 /**
+ * URL portal Web Fleet. Ganti saat produksi cukup lewat wp-config.php:
+ *   define( 'MT_FLEET_URL', 'https://fleet.mastertruck.co.id' );
+ */
+if ( ! defined( 'MT_FLEET_URL' ) ) {
+    define( 'MT_FLEET_URL', 'http://localhost:3000' );
+}
+
+function mt_fleet_url( $hash = '' ) {
+    return esc_url( untrailingslashit( MT_FLEET_URL ) . '/' . $hash );
+}
+
+/**
  * Enqueue scripts and styles
  */
 function carserv_scripts() {
     $theme_uri = get_template_directory_uri();
-    $version   = '1.2.0';
+    $version   = '1.3.0';
 
     // 1. Google Fonts: Plus Jakarta Sans (headings) + Inter (body)
     wp_enqueue_style(
@@ -30,18 +42,12 @@ function carserv_scripts() {
         null
     );
 
-    // 2. Icon Fonts
+    // 2. Icon Font (satu saja: Font Awesome)
     wp_enqueue_style(
         'carserv-fontawesome',
         'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css',
         array(),
         '5.15.4'
-    );
-    wp_enqueue_style(
-        'carserv-bootstrap-icons',
-        'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css',
-        array(),
-        '1.4.1'
     );
 
     // 3. Vendor Libraries
