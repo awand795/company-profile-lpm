@@ -1417,7 +1417,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 
 .btn-booking-wa {
     height: 48px;
-    background-color: var(--primary) !important;
+    background: linear-gradient(135deg, #2F6BF0 0%, var(--primary-hover) 100%) !important;
     color: #FFFFFF !important;
     border: none !important;
     border-radius: var(--radius-btn);
@@ -1426,7 +1426,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     transition: all 0.2s ease;
 }
 .btn-booking-wa:hover {
-    background-color: var(--primary-hover) !important;
+    background: linear-gradient(135deg, var(--primary-hover) 0%, #1E40AF 100%) !important;
     box-shadow: 0 6px 22px rgba(37, 99, 235, 0.4);
     transform: translateY(-1px);
 }
@@ -1469,9 +1469,22 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 }
 
 .team-photo-wrap {
+    position: relative;
     aspect-ratio: 4 / 5;
     height: auto;
     overflow: hidden;
+}
+.team-photo-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(37, 99, 235, 0) 55%, rgba(37, 99, 235, 0.28) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+.team-enterprise-card:hover .team-photo-wrap::after {
+    opacity: 1;
 }
 
 .team-photo-wrap img {
@@ -1851,7 +1864,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 .sec-about .about-img-box {
     border-radius: 24px;
     border: 1px solid var(--border);
-    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.10);
+    box-shadow: 0 24px 60px rgba(37, 99, 235, 0.16);
     min-height: 460px;
 }
 .sec-about .about-img-box img {
@@ -2230,9 +2243,13 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     font-family: var(--font-heading);
     font-size: clamp(1.7rem, 3vw, 2.3rem);
     font-weight: 800;
-    color: var(--navy);
     line-height: 1;
     letter-spacing: -0.02em;
+    background: linear-gradient(120deg, var(--primary) 20%, var(--primary-hover) 60%, #0D9488 110%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 /* Span di dalam angka (counter) mewarisi ukuran besar, bukan ukuran label */
 .fact-strip-item strong span {
@@ -2252,6 +2269,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 .service-grid-card {
     background: #FFFFFF;
     border: 1px solid var(--border);
+    border-top: 4px solid var(--primary);
     border-radius: var(--radius-card);
     overflow: hidden;
     box-shadow: var(--shadow-card);
@@ -2260,6 +2278,9 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     flex-direction: column;
     transition: all 0.25s ease;
 }
+.sec-services .row > div:nth-child(2) .service-grid-card { border-top-color: var(--secondary); }
+.sec-services .row > div:nth-child(3) .service-grid-card { border-top-color: var(--acc-amber); }
+.sec-services .row > div:nth-child(4) .service-grid-card { border-top-color: var(--acc-violet); }
 .service-grid-card:hover {
     border-color: rgba(37, 99, 235, 0.35);
     box-shadow: var(--shadow-card-hover);
@@ -2439,6 +2460,12 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     color: var(--primary-hover) !important;
     background-color: var(--primary-tint) !important;
     box-shadow: inset 0 -1px 0 var(--border);
+}
+#faqAccordion .accordion-item {
+    background-color: var(--bg-light);
+}
+#faqAccordion .accordion-item .accordion-button.collapsed {
+    background-color: transparent;
 }
 #faqAccordion .accordion-button:focus {
     border-color: rgba(37, 99, 235, 0.35);
