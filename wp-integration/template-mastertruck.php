@@ -493,50 +493,44 @@ function mt_landing_dequeue_late() {
             <div class="row g-3">
                 <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="principal-wall-card">
-                        <span class="brand-initial icon-tint-blue">P</span>
+                        <div class="principal-logo-stage"><img src="<?php echo esc_url( $mt_base ); ?>/img/brands/pertamina.svg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Logo Pertamina" loading="lazy" onerror="this.closest('.principal-logo-stage').style.display='none'"></div>
                         <strong>Pertamina</strong>
                         <small>Oli</small>
-                        <span class="brand-card-badge">Asli</span>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.15s">
                     <div class="principal-wall-card">
-                        <span class="brand-initial icon-tint-teal">M</span>
+                        <div class="principal-logo-stage"><img src="<?php echo esc_url( $mt_base ); ?>/img/brands/mobil.svg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Logo Mobil" loading="lazy" onerror="this.closest('.principal-logo-stage').style.display='none'"></div>
                         <strong>Mobil</strong>
                         <small>Oli</small>
-                        <span class="brand-card-badge">Asli</span>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.2s">
                     <div class="principal-wall-card">
-                        <span class="brand-initial icon-tint-amber">D</span>
+                        <div class="principal-logo-stage"><img src="<?php echo esc_url( $mt_base ); ?>/img/brands/dunlop.svg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Logo Dunlop" loading="lazy" onerror="this.closest('.principal-logo-stage').style.display='none'"></div>
                         <strong>Dunlop</strong>
                         <small>Ban Truk</small>
-                        <span class="brand-card-badge">Asli</span>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.25s">
                     <div class="principal-wall-card">
-                        <span class="brand-initial icon-tint-lavender">G</span>
+                        <div class="principal-logo-stage principal-logo-mono"><span class="brand-initial icon-tint-lavender">G</span></div>
                         <strong>GS Astra</strong>
                         <small>Aki Truk</small>
-                        <span class="brand-card-badge">Asli</span>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="principal-wall-card">
-                        <span class="brand-initial icon-tint-blue">I</span>
+                        <div class="principal-logo-stage principal-logo-mono"><span class="brand-initial icon-tint-blue">I</span></div>
                         <strong>Incoe</strong>
                         <small>Aki Truk</small>
-                        <span class="brand-card-badge">Asli</span>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.35s">
                     <div class="principal-wall-card">
-                        <span class="brand-initial icon-tint-teal">S</span>
+                        <div class="principal-logo-stage principal-logo-mono"><span class="brand-initial icon-tint-teal">S</span></div>
                         <strong>Sakura</strong>
                         <small>Filter</small>
-                        <span class="brand-card-badge">Asli</span>
                     </div>
                 </div>
             </div>

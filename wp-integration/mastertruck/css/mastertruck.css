@@ -2319,7 +2319,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     background: #FFFFFF;
     border: 1px solid var(--border);
     border-radius: var(--radius-card);
-    padding: 20px 12px 16px;
+    padding: 24px 12px 20px;
     text-align: center;
     height: 100%;
     box-shadow: var(--shadow-sm);
@@ -2343,6 +2343,27 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     font-size: 12px;
     color: var(--text-muted);
     margin: 2px 0 8px;
+}
+
+/* Panggung logo: tinggi seragam, logo contain, monogram fallback */
+.principal-logo-stage {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+.principal-logo-stage img {
+    max-height: 64px;
+    max-width: 100%;
+    width: auto;
+    object-fit: contain;
+}
+.principal-logo-mono .brand-initial {
+    width: 56px;
+    height: 56px;
+    font-size: 24px;
+    margin-bottom: 0;
 }
 
 /* Tim: kartu ramping */
