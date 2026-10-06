@@ -183,6 +183,27 @@ if (Test-Path $topbar) {
     Write-Host "OK  plugins/mt-topbar/" -ForegroundColor Green
 }
 
+# --- Samakan template homepage (ID 59) ke Master Truck Landing ---------------
+# Agar teks selalu dari repo, bukan konten Elementor lama di database.
+# Idempoten & non-fatal: gagal hanya jadi peringatan.
+docker exec $Container test -f "$themePath/template-mastertruck.php" 2>$null | Out-Null
+if ($LASTEXITCODE -eq 0) {
+    $curTpl = (docker exec $Container wp post meta get 59 _wp_page_template --allow-root --path=/var/www/html 2>$null | Select-Object -First 1)
+    if ($curTpl) { $curTpl = $curTpl.Trim() }
+    if ($curTpl -ne 'template-mastertruck.php') {
+        docker exec $Container wp post meta update 59 _wp_page_template template-mastertruck.php --allow-root --path=/var/www/html 2>$null | Out-Null
+        if ($LASTEXITCODE -eq 0) {
+            $was = if ($curTpl) { $curTpl } else { 'none' }
+            Write-Host "OK  homepage(ID 59) -> template-mastertruck.php (was: $was)" -ForegroundColor Green
+        } else {
+            Write-Warning "Gagal menetapkan template homepage (pastikan WP-CLI siap, lalu ulangi)."
+        }
+    } else {
+        Write-Host "OK  homepage(ID 59) sudah template-mastertruck.php" -ForegroundColor Green
+    }
+    docker exec $Container wp rewrite flush --allow-root --path=/var/www/html 2>$null | Out-Null
+}
+
 # --- Bersihkan staging -------------------------------------------------------
 Remove-Item -Path $stage -Recurse -Force -ErrorAction SilentlyContinue
 

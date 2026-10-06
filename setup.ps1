@@ -132,8 +132,22 @@ Write-Ok "WP-CLI siap"
 # --- 4. Import database ------------------------------------------------------
 if (-not $SkipImport) {
     Write-Step "Import database_dump.sql"
-    docker cp 'database_dump.sql' "${DbContainer}:/tmp/restore.sql"
+    # Dump hasil ekspor Windows sering UTF-16 (BOM FF FE) yang ditolak klien
+    # mariadb ("ASCII '\0' appeared..."). Konversi dulu ke UTF-8 bila perlu.
+    $restoreSrc = 'database_dump.sql'
+    $bom = New-Object byte[] 2
+    $fs = [System.IO.File]::OpenRead((Join-Path (Get-Location) 'database_dump.sql'))
+    $n = $fs.Read($bom, 0, 2); $fs.Close()
+    if ($n -eq 2 -and $bom[0] -eq 0xFF -and $bom[1] -eq 0xFE) {
+        $utf8Tmp = Join-Path ([System.IO.Path]::GetTempPath()) 'mt_restore_utf8.sql'
+        $text = [System.IO.File]::ReadAllText((Join-Path (Get-Location) 'database_dump.sql'), [System.Text.Encoding]::Unicode)
+        [System.IO.File]::WriteAllText($utf8Tmp, $text, (New-Object System.Text.UTF8Encoding $false))
+        $restoreSrc = $utf8Tmp
+        Write-Ok "dump UTF-16 dikonversi ke UTF-8"
+    }
+    docker cp $restoreSrc "${DbContainer}:/tmp/restore.sql"
     if ($LASTEXITCODE -ne 0) { Fail "docker cp dump gagal" }
+    if ($restoreSrc -ne 'database_dump.sql') { Remove-Item -Path $restoreSrc -Force -ErrorAction SilentlyContinue }
     docker exec -e "MYSQL_PWD=$DbPass" $DbContainer sh -c "mariadb -u'$DbUser' '$DbName' < /tmp/restore.sql && rm -f /tmp/restore.sql" | Out-Null
     if ($LASTEXITCODE -ne 0) { Fail "Import dump gagal." }
     Write-Ok "database_dump.sql diimport"
@@ -185,7 +199,7 @@ if (Invoke-Wp plugin is-installed mt-topbar) {
 
 # --- 6. Sinkronisasi template & media ---------------------------------------
 Write-Step "Sinkronisasi wp-integration + media"
-& (Join-Path $root 'sync-to-wp.ps1')
+& (Join-Path $root 'sync-to-wp.ps1') -Container $App
 if ($LASTEXITCODE -ne 0) { Fail "sync-to-wp.ps1 gagal." }
 
 # --- 7. Flush permalink + regenerasi CSS Elementor --------------------------
