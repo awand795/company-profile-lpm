@@ -186,14 +186,14 @@ function mt_landing_dequeue_late() {
                             <div class="row align-items-center justify-content-center justify-content-lg-start">
                                 <div class="col-10 col-lg-7 text-center text-lg-start">
                                     <span class="hero-brand-pill animated slideInDown"><span class="live-dot"></span>PT Master Truck Indonesia &bull; KIM III Medan</span>
-                                    <h1 class="hero-title animated slideInDown">Master Truck: Bengkel &amp; <span class="hero-brand-highlight">Distributor Resmi</span> Truk Niaga KIM III Medan</h1>
+                                    <h1 class="hero-title animated slideInDown">Master Truck: Bengkel Truk <span class="hero-brand-highlight">Terpercaya</span> di Medan</h1>
                                     <p class="hero-lead d-none d-md-block animated slideInDown">
-                                        15 tahun merawat truk niaga &amp; alat berat, sekaligus distributor nasional resmi pelumas Pertamina, Mobil, ban Dunlop, dan aki GS Astra &mdash; dipercaya 120+ perusahaan armada.
+                                        Sudah 15 tahun kami merawat truk sekaligus menjual oli, ban, dan aki asli langsung dari pabriknya &mdash; dipercaya 120+ perusahaan.
                                     </p>
                                     <div class="hero-stats d-none d-md-flex animated slideInDown">
-                                        <div><strong>15</strong><span>Tahun Pengalaman</span></div>
-                                        <div><strong>120+</strong><span>Mitra Armada</span></div>
-                                        <div><strong>2.500</strong><span>Unit / Tahun</span></div>
+                                        <div><strong>15</strong><span>Tahun Berpengalaman</span></div>
+                                        <div><strong>120+</strong><span>Perusahaan Pelanggan</span></div>
+                                        <div><strong>2.500</strong><span>Truk per Tahun</span></div>
                                     </div>
                                     <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-2 animated slideInDown">
                                         <a href="#booking" class="btn-hero-primary">Jadwalkan Servis<i class="fa fa-arrow-right ms-2"></i></a>
@@ -211,7 +211,7 @@ function mt_landing_dequeue_late() {
                                                 <div class="icon-tint-wrap icon-tint-blue"><i class="fa fa-building"></i></div>
                                                 <div>
                                                     <div class="hero-card-title">PT Master Truck Indonesia</div>
-                                                    <div class="hero-card-sub">KIM III Medan &mdash; inspeksi 30 titik bergaransi</div>
+                                                    <div class="hero-card-sub">Servis bergaransi, dicek 30 bagian</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -230,14 +230,14 @@ function mt_landing_dequeue_late() {
                             <div class="row align-items-center justify-content-center justify-content-lg-start">
                                 <div class="col-10 col-lg-7 text-center text-lg-start">
                                     <span class="hero-brand-pill animated slideInDown"><span class="live-dot"></span>PT Master Truck Indonesia &bull; Distributor Nasional Resmi</span>
-                                    <h1 class="hero-title animated slideInDown">Master Truck: <span class="hero-brand-highlight">Distributor Resmi</span> Suku Cadang Truk Niaga</h1>
+                                    <h1 class="hero-title animated slideInDown">Master Truck: <span class="hero-brand-highlight">Sparepart Truk Asli</span> dari Pabrik</h1>
                                     <p class="hero-lead d-none d-md-block animated slideInDown">
-                                        Pelumas Pertamina, Mobil, ban Dunlop &amp; aki GS Astra &mdash; jaminan 100% original langsung dari prinsipal pabrikan dengan tarif distributor resmi bagi mitra armada terdaftar.
+                                        Oli Pertamina, oli Mobil, ban Dunlop &amp; aki GS Astra &mdash; dijamin asli dari pabriknya, dengan harga khusus untuk pelanggan perusahaan.
                                     </p>
                                     <div class="hero-stats d-none d-md-flex animated slideInDown">
-                                        <div><strong>15</strong><span>Tahun Pengalaman</span></div>
-                                        <div><strong>120+</strong><span>Mitra Armada</span></div>
-                                        <div><strong>2.500</strong><span>Unit / Tahun</span></div>
+                                        <div><strong>15</strong><span>Tahun Berpengalaman</span></div>
+                                        <div><strong>120+</strong><span>Perusahaan Pelanggan</span></div>
+                                        <div><strong>2.500</strong><span>Truk per Tahun</span></div>
                                     </div>
                                     <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-2 animated slideInDown">
                                         <a href="#principals" class="btn-hero-primary">Lihat Produk OEM<i class="fa fa-arrow-right ms-2"></i></a>
@@ -255,7 +255,7 @@ function mt_landing_dequeue_late() {
                                                 <div class="icon-tint-wrap icon-tint-teal"><i class="fa fa-handshake"></i></div>
                                                 <div>
                                                     <div class="hero-card-title">Tarif Distributor Mitra</div>
-                                                    <div class="hero-card-sub">Fasilitas TOP + Web Fleet gratis</div>
+                                                    <div class="hero-card-sub">Bisa bayar tempo + gratis pantau servis online</div>
                                                 </div>
                                             </div>
                                         </div>
