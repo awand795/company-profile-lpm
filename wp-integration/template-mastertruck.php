@@ -327,7 +327,7 @@ function mt_landing_dequeue_late() {
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="about-img-box">
-                        <img src="<?php echo esc_url( $mt_base ); ?>/img/about.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Fasilitas Bengkel Master Truck">
+                        <img src="<?php echo esc_url( $mt_base ); ?>/img/service-1.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Montir Master Truck sedang memperbaiki mesin truk">
                         <div class="about-exp-float-card">
                             <div class="icon-tint-wrap icon-tint-blue"><i class="fa fa-award"></i></div>
                             <div>
