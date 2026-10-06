@@ -18,10 +18,10 @@
 
     // Sticky Navbar
     $(window).scroll(function () {
-        if ($(this).scrollTop() > 35) {
-            $('.sticky-top').addClass('sticky-scrolled');
+        if ($(this).scrollTop() > 45) {
+            $('.sticky-top').addClass('shadow');
         } else {
-            $('.sticky-top').removeClass('sticky-scrolled');
+            $('.sticky-top').removeClass('shadow');
         }
     });
     
@@ -56,7 +56,7 @@
     
     // Back to top button
     $(window).scroll(function () {
-        if ($(this).scrollTop() > 400) {
+        if ($(this).scrollTop() > 300) {
             $('.back-to-top').fadeIn('slow');
         } else {
             $('.back-to-top').fadeOut('slow');

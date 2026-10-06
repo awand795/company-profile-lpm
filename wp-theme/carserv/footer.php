@@ -1,92 +1,94 @@
 <?php
 /**
  * Footer Template - CarServ Master Truck Enterprise
- * "Industrial-Clean White" Theme
  */
-$theme_uri     = get_template_directory_uri();
-$web_fleet_url = 'http://localhost:3000';
+$theme_uri = get_template_directory_uri();
 ?>
-    <!-- Footer Start (Industrial-Clean White) -->
-    <footer id="contact" class="footer-clean mt-section--border-top">
-        <div class="container pb-5">
+    <!-- Footer Start (Clean Light Enterprise Design) -->
+    <footer id="contact" class="footer-clean pt-5 mt-5">
+        <div class="container py-4">
             <div class="row g-4 g-lg-5">
                 <div class="col-lg-4 col-md-6">
-                    <h4 class="footer-heading">PT MASTER TRUCK INDONESIA</h4>
-                    <p class="mb-4">Pusat bengkel rekayasa spesialis armada truk niaga &amp; alat berat, serta distributor resmi pelumas industri, ban komersial, dan suku cadang OEM di Sumatera Utara.</p>
-                    
-                    <div class="footer-contact-item">
-                        <i class="bi bi-geo-alt-fill"></i>
+                    <h4 class="mb-3">PT MASTER TRUCK INDONESIA</h4>
+                    <p class="mb-3">Pusat bengkel rekayasa spesialis armada truk niaga &amp; alat berat, serta distributor resmi pelumas industri, ban komersial, dan suku cadang OEM di Sumatera Utara.</p>
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fa fa-map-marker-alt text-primary me-3"></i>
                         <span>KIM III No. 3A, Mabar, Medan Labuhan, Kota Medan 20242</span>
                     </div>
-                    <div class="footer-contact-item">
-                        <i class="bi bi-telephone-fill"></i>
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fa fa-phone-alt text-primary me-3"></i>
                         <span>(061) 8882-9999 / 0812-3456-7890</span>
                     </div>
-                    <div class="footer-contact-item">
-                        <i class="bi bi-envelope-fill"></i>
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fa fa-envelope text-primary me-3"></i>
                         <span>info@mastertruck.co.id</span>
+                    </div>
+                    <div class="d-flex gap-2 pt-1">
+                        <a class="btn-social" href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn-social" href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a class="btn-social" href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
 
                 <div class="col-lg-2 col-md-6">
-                    <h4 class="footer-heading">Navigasi</h4>
-                    <ul class="footer-links">
-                        <li><a href="#hero">Beranda</a></li>
-                        <li><a href="#about">Profil Perusahaan</a></li>
-                        <li><a href="#service">Layanan Bengkel</a></li>
-                        <li><a href="#principals">Prinsipal OEM</a></li>
-                        <li><a href="#distribution">Jaringan Distribusi</a></li>
-                        <li><a href="#booking">Jadwal Servis</a></li>
-                    </ul>
+                    <h4 class="mb-3">Navigasi</h4>
+                    <a class="btn-link" href="#header-carousel">Beranda</a>
+                    <a class="btn-link" href="#about">Profil</a>
+                    <a class="btn-link" href="#service">Layanan</a>
+                    <a class="btn-link" href="#principals">Produk</a>
+                    <a class="btn-link" href="#distribution">Distribusi</a>
+                    <a class="btn-link" href="#contact">Kontak</a>
                 </div>
 
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="footer-heading">Layanan Unggulan</h4>
-                    <ul class="footer-links">
-                        <li><a href="#service">Overhaul Mesin Diesel Common Rail</a></li>
-                        <li><a href="#service">Sistem Rem Angin &amp; Pneumatik</a></li>
-                        <li><a href="#service">Diagnostik Komputer ECU 24V</a></li>
-                        <li><a href="#service">Distributor Pelumas Pertamina &amp; Mobil</a></li>
-                        <li><a href="#service">Ban Komersial Dunlop &amp; Spooring</a></li>
-                        <li><a href="#booking">Derek Evakuasi Truk Heavy-Duty 24 Jam</a></li>
-                    </ul>
+                    <h4 class="mb-3">Layanan Bengkel</h4>
+                    <a class="btn-link" href="#service">Overhaul Mesin Diesel</a>
+                    <a class="btn-link" href="#service">Sistem Rem Angin &amp; Pneumatik</a>
+                    <a class="btn-link" href="#service">Scanner Diagnostik ECU</a>
+                    <a class="btn-link" href="#service">Penggantian Pelumas Resmi</a>
+                    <a class="btn-link" href="#service">Spooring &amp; Ban Komersial</a>
+                    <a class="btn-link" href="#service">Layanan Derek 24 Jam Siaga</a>
                 </div>
 
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="footer-heading">Operasional &amp; Web Fleet</h4>
-                    <div class="mb-3">
+                    <h4 class="mb-3">Jam Operasional</h4>
+                    <div class="mb-2">
                         <div class="fw-bold text-dark">Senin &ndash; Jumat:</div>
-                        <span class="text-muted">08.00 &ndash; 17.00 WIB</span>
+                        <small class="text-muted">08.00 &ndash; 17.00 WIB</small>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-2">
                         <div class="fw-bold text-dark">Sabtu:</div>
-                        <span class="text-muted">08.00 &ndash; 15.00 WIB</span>
+                        <small class="text-muted">08.00 &ndash; 15.00 WIB</small>
                     </div>
                     <div class="mb-4">
-                        <div class="fw-bold text-brand-primary">Derek Evakuasi Darurat:</div>
-                        <span class="badge bg-danger text-white fw-semibold px-2 py-1">Siaga 24 Jam Penuh</span>
+                        <div class="fw-bold text-primary">Emergency &amp; Derek Derek:</div>
+                        <small class="text-muted">Siaga 24 Jam / 7 Hari</small>
                     </div>
                     <div class="d-flex gap-2">
-                        <a href="<?php echo esc_url( $web_fleet_url . '/#login' ); ?>" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm flex-fill">
-                            <i class="bi bi-box-arrow-in-right"></i> Login Fleet
+                        <a href="http://localhost:3000/#login" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm flex-fill">
+                            <i class="fa fa-sign-in-alt me-1"></i> Login
                         </a>
-                        <a href="<?php echo esc_url( $web_fleet_url . '/#register' ); ?>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm flex-fill">
-                            <i class="bi bi-person-plus"></i> Daftar
+                        <a href="http://localhost:3000/#register" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm flex-fill">
+                            <i class="fa fa-user-plus me-1"></i> Daftar
                         </a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="copyright-bar">
-            <div class="container">
+        <div class="container">
+            <div class="copyright">
                 <div class="row align-items-center">
-                    <div class="col-md-7 text-center text-md-start mb-2 mb-md-0">
-                        &copy; <?php echo date('Y'); ?> <strong class="text-dark">PT MASTER TRUCK INDONESIA</strong>. Seluruh Hak Cipta Dilindungi. KIM III Medan.
+                    <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                        &copy; 2026 <a href="#">PT MASTER TRUCK INDONESIA</a>. Seluruh Hak Cipta Dilindungi.
                     </div>
-                    <div class="col-md-5 text-center text-md-end">
-                        <a href="#hero" class="text-muted text-decoration-none me-3">Kembali ke Atas</a>
-                        <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="text-muted text-decoration-none">Bantuan Hotline</a>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="#header-carousel">Beranda</a>
+                            <a href="#about">Tentang Kami</a>
+                            <a href="http://localhost:3000/#login">Login</a>
+                            <a href="http://localhost:3000/#register">Daftar</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -94,13 +96,8 @@ $web_fleet_url = 'http://localhost:3000';
     </footer>
     <!-- Footer End -->
 
-    <!-- Floating Buttons (Single WhatsApp + Stacked Back-to-Top) -->
-    <a href="https://wa.me/6281234567890?text=Halo%20Master%20Truck%2C%20saya%20ingin%20konsultasi%20armada" target="_blank" rel="noopener noreferrer" class="floating-wa-btn" aria-label="Hubungi WhatsApp">
-        <i class="bi bi-whatsapp"></i>
-    </a>
-    <a href="#" class="back-to-top" aria-label="Kembali ke atas">
-        <i class="bi bi-arrow-up"></i>
-    </a>
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top" aria-label="Kembali ke atas"><i class="bi bi-arrow-up"></i></a>
 
     <?php wp_footer(); ?>
 </body>

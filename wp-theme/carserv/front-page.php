@@ -1,817 +1,937 @@
 <?php
 /**
- * Front Page Template - Master Truck Enterprise Revamp
- * "Industrial-Clean White" Theme
- * PT Master Truck Indonesia - KIM III Medan
+ * Front Page Template - CarServ Master Truck Enterprise
+ * Standard Enterprise Design - Modern & White Dominant
+ * Single Source of Truth Theme Architecture - Polish Round 2
  */
-
 get_header();
-
-$theme_uri     = get_template_directory_uri();
-$web_fleet_url = 'http://localhost:3000';
+$theme_uri = get_template_directory_uri();
 ?>
 
-<main id="main-content">
-
     <!-- ============================================================== -->
-    <!-- 1. HERO SECTION                                                -->
-    <!-- 2 Kolom, ±600px, Foto truk 4:3 tajam, 3 Poin Kepercayaan       -->
+    <!-- 1. HERO CAROUSEL ENTERPRISE SHOWCASE                           -->
     <!-- ============================================================== -->
-    <section id="hero" class="hero-section">
-        <div class="container">
-            <div class="row g-4 g-lg-5 align-items-center">
-                <!-- Kolom Kiri: Value Proposition & CTA -->
-                <div class="col-lg-6">
-                    <div class="hero-content">
-                        <span class="badge-eyebrow">
-                            <i class="bi bi-shield-check"></i> BENGKEL TRUK SPESIALIS &amp; DISTRIBUTOR OEM
-                        </span>
-                        <h1>
-                            Solusi Terpadu Rekayasa Truk Niaga &amp; Distributor Resmi di Medan
-                        </h1>
-                        <p class="hero-lead">
-                            Membantu pelaku industri transportasi, logistik, dan perkebunan meminimalkan downtime armada melalui standar pemeliharaan teknis profesional, fasilitas bengkel modern, dan jaminan suku cadang asli di KIM III Medan.
-                        </p>
-                        <div class="hero-cta-group">
-                            <a href="#booking" class="btn btn-primary">
-                                <i class="bi bi-calendar-check me-1"></i> Jadwalkan Servis
-                            </a>
-                            <a href="https://wa.me/6281234567890?text=Halo%20Master%20Truck%2C%20saya%20ingin%20konsultasi%20armada" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">
-                                <i class="bi bi-whatsapp me-1"></i> Konsultasi WhatsApp
-                            </a>
+    <div class="container-fluid p-0 mb-0">
+        <div id="header-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="7000">
+            <div class="carousel-inner">
+                
+                <!-- Slide 1: Solusi Perawatan Armada -->
+                <div class="carousel-item active">
+                    <img class="w-100" src="<?php echo esc_url( $theme_uri ); ?>/assets/img/carousel-bg-1.jpg" alt="Bengkel Master Truck KIM III Medan">
+                    <div class="carousel-caption d-flex align-items-center">
+                        <div class="container py-4">
+                            <div class="row align-items-center justify-content-between">
+                                <div class="col-12 col-lg-7 text-center text-lg-start pe-lg-4">
+                                    <div class="hero-brand-pill">
+                                        <span class="live-dot"></span>
+                                        <span>PT MASTER TRUCK INDONESIA &bull; KIM III MEDAN</span>
+                                    </div>
+                                    <h1 class="hero-title">
+                                        Solusi Perawatan &amp; Rekayasa Truk Niaga Bersama <span class="hero-brand-highlight">MASTER TRUCK</span>
+                                    </h1>
+                                    <p class="hero-lead d-none d-md-block">
+                                        Pusat bengkel rekayasa spesialis armada truk niaga, trailer peti kemas, dan alat berat di Kawasan Industri Medan III. Didukung fasilitas pit heavy-duty, scanner diagnostik ECU multi-merek, overhaul diesel bergaransi, dan ketersediaan suku cadang OEM.
+                                    </p>
+                                    <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3">
+                                        <a href="#booking" class="btn btn-hero-primary">
+                                            <i class="fa fa-calendar-check me-2"></i>Jadwalkan Servis
+                                        </a>
+                                        <a href="#service" class="btn btn-hero-secondary">
+                                            <i class="fa fa-cogs me-2"></i>Lihat Layanan Bengkel
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 d-none d-lg-flex justify-content-center">
+                                    <div class="hero-truck-showcase">
+                                        <div class="hero-truck-frame">
+                                            <div class="hero-truck-img-wrapper">
+                                                <img class="hero-truck-img" src="<?php echo esc_url( $theme_uri ); ?>/assets/img/carousel-1.png" alt="Armada Master Truck Kenworth Commercial Heavy Duty">
+                                            </div>
+                                            <div class="hero-badge-floating-top">
+                                                <i class="fa fa-shield-alt text-secondary"></i>
+                                                <span>Fasilitas Bengkel KIM III</span>
+                                            </div>
+                                            <div class="hero-card-floating-bottom d-flex align-items-center justify-content-between">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="icon-tint-wrap icon-tint-blue me-3" style="width: 42px; height: 42px; font-size: 17px;">
+                                                        <i class="fa fa-truck"></i>
+                                                    </div>
+                                                    <div>
+                                                        <!-- TODO: konfirmasi data resmi statistik tahunan unit terlayani -->
+                                                        <div class="hero-card-title">1,500+ Unit Armada</div>
+                                                        <div class="hero-card-sub">Perawatan Berkala / Tahun</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Soft Circular Carousel Controls -->
+                                        <div class="hero-carousel-controls">
+                                            <button class="btn-carousel-circle" type="button" data-bs-target="#header-carousel" data-bs-slide="prev" aria-label="Slide Sebelumnya">
+                                                <i class="fa fa-arrow-left"></i>
+                                            </button>
+                                            <button class="btn-carousel-circle" type="button" data-bs-target="#header-carousel" data-bs-slide="next" aria-label="Slide Berikutnya">
+                                                <i class="fa fa-arrow-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <ul class="hero-trust-list">
-                            <li class="hero-trust-item">
-                                <i class="bi bi-check-circle-fill"></i> Teknisi Bersertifikat
-                            </li>
-                            <li class="hero-trust-item">
-                                <i class="bi bi-check-circle-fill"></i> 100% Produk Asli OEM
-                            </li>
-                            <li class="hero-trust-item">
-                                <i class="bi bi-check-circle-fill"></i> Derek Siaga 24 Jam
-                            </li>
-                        </ul>
                     </div>
                 </div>
 
-                <!-- Kolom Kanan: Foto Truk Tajam 4:3 & 1 Badge Mengambang -->
-                <div class="col-lg-6">
-                    <div class="hero-media-wrap">
-                        <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/carousel-1.png" class="hero-img" alt="Armada Truk Niaga di Bengkel Master Truck KIM III Medan" loading="eager" width="800" height="600">
-                        <div class="hero-floating-badge">
-                            <div class="hero-badge-icon">
-                                <i class="bi bi-award-fill"></i>
-                            </div>
-                            <div>
-                                <div class="hero-badge-val">15+ Tahun</div>
-                                <div class="hero-badge-lbl">Pengalaman Rekayasa KIM III</div>
+                <!-- Slide 2: Distributor Resmi Sparepart & Pelumas -->
+                <div class="carousel-item">
+                    <img class="w-100" src="<?php echo esc_url( $theme_uri ); ?>/assets/img/carousel-bg-2.jpg" alt="Distributor Sparepart Master Truck">
+                    <div class="carousel-caption d-flex align-items-center">
+                        <div class="container py-4">
+                            <div class="row align-items-center justify-content-between">
+                                <div class="col-12 col-lg-7 text-center text-lg-start pe-lg-4">
+                                    <div class="hero-brand-pill">
+                                        <span class="live-dot" style="background: var(--accent); box-shadow: 0 0 8px var(--accent);"></span>
+                                        <span>DISTRIBUTOR RESMI OEM SUMATERA UTARA</span>
+                                    </div>
+                                    <h1 class="hero-title">
+                                        Pasokan Pelumas Resmi &amp; Suku Cadang Asli <span class="hero-brand-highlight">MASTER TRUCK</span>
+                                    </h1>
+                                    <p class="hero-lead d-none d-md-block">
+                                        Distributor resmi Pertamina Lubricants, Mobil Delvac, Ban Komersial Dunlop, dan Aki Heavy-Duty GS Astra/Incoe. Jaminan 100% keaslian produk langsung dari prinsipal pabrikan dengan kepastian ketersediaan stok untuk armada Anda.
+                                    </p>
+                                    <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3">
+                                        <a href="#principals" class="btn btn-hero-primary">
+                                            <i class="fa fa-cubes me-2"></i>Katalog Produk OEM
+                                        </a>
+                                        <a href="#contact" class="btn btn-hero-secondary">
+                                            <i class="fa fa-phone-alt me-2"></i>Konsultasi Pasokan
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 d-none d-lg-flex justify-content-center">
+                                    <div class="hero-truck-showcase">
+                                        <div class="hero-truck-frame">
+                                            <div class="hero-truck-img-wrapper">
+                                                <img class="hero-truck-img" src="<?php echo esc_url( $theme_uri ); ?>/assets/img/carousel-2.png" alt="Distributor Master Truck Randon Semi Trailer">
+                                            </div>
+                                            <div class="hero-badge-floating-top">
+                                                <i class="fa fa-check-circle text-secondary"></i>
+                                                <span>100% Produk OEM Asli</span>
+                                            </div>
+                                            <div class="hero-card-floating-bottom d-flex align-items-center justify-content-between">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="icon-tint-wrap icon-tint-teal me-3" style="width: 42px; height: 42px; font-size: 17px;">
+                                                        <i class="fa fa-award"></i>
+                                                    </div>
+                                                    <div>
+                                                        <div class="hero-card-title">Distributor Resmi</div>
+                                                        <div class="hero-card-sub">Pertamina &bull; Mobil &bull; Dunlop &bull; GS Astra</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="hero-carousel-controls">
+                                            <button class="btn-carousel-circle" type="button" data-bs-target="#header-carousel" data-bs-slide="prev" aria-label="Slide Sebelumnya">
+                                                <i class="fa fa-arrow-left"></i>
+                                            </button>
+                                            <button class="btn-carousel-circle" type="button" data-bs-target="#header-carousel" data-bs-slide="next" aria-label="Slide Berikutnya">
+                                                <i class="fa fa-arrow-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
-    </section>
-    <!-- Hero End -->
+    </div>
+    <!-- Hero Carousel End -->
 
 
     <!-- ============================================================== -->
-    <!-- 2. STATISTIK SECTION                                           -->
-    <!-- 4 Angka besar warna --navy dengan pemisah garis tipis          -->
+    <!-- 2. QUICK FEATURE BAR (4 CARDS DENGAN TINT ROTASI)             -->
     <!-- ============================================================== -->
-    <section id="stats" class="stats-section">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-num">15+</div>
-                    <div class="stat-label">Tahun Pengalaman</div>
-                    <p class="stat-desc">KIM III Medan &bull; Sejak 2011</p>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-num">28+</div>
-                    <div class="stat-label">Teknisi Bersertifikat</div>
-                    <p class="stat-desc">Diesel, ECU, &amp; Pneumatik</p>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-num">75+</div>
-                    <div class="stat-label">Perusahaan Mitra</div>
-                    <p class="stat-desc">Logistik, Sawit, &amp; Pelabuhan</p>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-num">1,500+</div>
-                    <div class="stat-label">Unit Terlayani / Tahun</div>
-                    <p class="stat-desc">Tronton, Trailer &amp; Dump Truck</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Stats End -->
-
-
-    <!-- ============================================================== -->
-    <!-- 3. KEUNGGULAN SECTION                                          -->
-    <!-- 4 Kartu setara tinggi, ikon kotak tint, teks maks 3 baris      -->
-    <!-- ============================================================== -->
-    <section id="features" class="mt-section mt-section--white">
-        <div class="container">
-            <div class="text-center section-header-wrap">
-                <span class="badge-eyebrow">
-                    <i class="bi bi-award"></i> KEUNGGULAN KAMI
-                </span>
-                <h2 class="section-title">
-                    Standar Layanan Rekayasa Terbaik untuk Armada Niaga Anda
-                </h2>
-                <p class="section-desc">
-                    Komitmen keunggulan teknis, transparansi biaya perbaikan, serta jaminan keaslian suku cadang OEM untuk meminimalkan downtime armada.
-                </p>
-            </div>
-
+    <div class="container-xxl py-5" style="background-color: var(--bg-white);">
+        <div class="container py-2">
             <div class="row g-4">
                 <div class="col-lg-3 col-md-6">
                     <div class="feature-card">
-                        <div class="feature-icon-box">
-                            <i class="bi bi-truck"></i>
+                        <div class="icon-tint-wrap icon-tint-blue">
+                            <i class="fa fa-truck-pickup"></i>
                         </div>
-                        <h3 class="feature-title">Siaga Derek 24 Jam</h3>
-                        <p class="feature-desc">
-                            Unit derek heavy-duty dan tim evakuasi cepat siaga 24 jam di koridor KIM III, Tol Belmera, dan Pelabuhan Belawan.
-                        </p>
+                        <h5>Siaga Derek 24 Jam</h5>
+                        <p class="mb-0">Layanan derek heavy-duty &amp; tim evakuasi cepat siaga 24 jam di koridor logistik KIM III, Tol Medan&ndash;Tebing Tinggi, dan Pelabuhan Belawan.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="feature-card">
-                        <div class="feature-icon-box">
-                            <i class="bi bi-wrench-adjustable"></i>
+                        <div class="icon-tint-wrap icon-tint-teal">
+                            <i class="fa fa-tools"></i>
                         </div>
-                        <h3 class="feature-title">Teknisi Bersertifikat</h3>
-                        <p class="feature-desc">
-                            Mekanik berpengalaman spesialis overhaul diesel common rail, transmisi, kalibrasi bospom, dan perbaikan rem angin.
-                        </p>
+                        <h5>Teknisi Bersertifikat</h5>
+                        <p class="mb-0">Mekanik berpengalaman spesialis overhaul diesel common rail, transmisi alat berat, kalibrasi bospom, dan perbaikan rem angin pneumatik.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="feature-card">
-                        <div class="feature-icon-box">
-                            <i class="bi bi-shield-check"></i>
+                        <div class="icon-tint-wrap icon-tint-amber">
+                            <i class="fa fa-shield-alt"></i>
                         </div>
-                        <h3 class="feature-title">100% Produk Asli OEM</h3>
-                        <p class="feature-desc">
-                            Distributor resmi pelumas Pertamina &amp; Mobil, ban komersial Dunlop, aki GS Astra/Incoe, dan filter pabrikan.
-                        </p>
+                        <h5>100% Produk Asli OEM</h5>
+                        <p class="mb-0">Distributor resmi pelumas Pertamina Lubricants, Mobil Delvac, ban truk Dunlop, serta aki GS Astra/Incoe dengan sertifikat jaminan pabrik.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="feature-card">
-                        <div class="feature-icon-box">
-                            <i class="bi bi-clipboard-check"></i>
+                        <div class="icon-tint-wrap icon-tint-lavender">
+                            <i class="fa fa-clipboard-check"></i>
                         </div>
-                        <h3 class="feature-title">Inspeksi &amp; Garansi</h3>
-                        <p class="feature-desc">
-                            Prosedur inspeksi 30 titik terstandar pada setiap armada masuk, estimasi transparan, dan jaminan pengerjaan tuntas.
-                        </p>
+                        <h5>Inspeksi &amp; Garansi Servis</h5>
+                        <p class="mb-0">Prosedur pemeriksaan 30 titik menyeluruh pada setiap unit masuk, transparansi estimasi biaya pengerjaan, dan jaminan kualitas hasil kerja.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Features End -->
+    </div>
+    <!-- Quick Feature Bar End -->
 
 
     <!-- ============================================================== -->
-    <!-- 4. TENTANG KAMI SECTION                                        -->
-    <!-- Foto kiri badge sudut, kanan daftar bernomor pemisah garis     -->
+    <!-- 3. ABOUT US SECTION (PROFIL DENGAN POIN 01-02-03)              -->
     <!-- ============================================================== -->
-    <section id="about" class="mt-section mt-section--alt">
-        <div class="container">
-            <div class="row g-4 g-lg-5 align-items-center">
-                <!-- Kolom Gambar Kiri -->
+    <div id="about" class="container-xxl py-5" style="background-color: var(--bg-light);">
+        <div class="container py-4">
+            <div class="row g-5 align-items-center">
+                
+                <!-- Left: Workshop Image with Floating Card -->
                 <div class="col-lg-6">
-                    <div class="about-img-frame">
-                        <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/about.jpg" alt="Fasilitas Bengkel Perawatan Truk Master Truck KIM III Medan" loading="lazy" width="800" height="600">
-                        <div class="about-badge-corner">
-                            <div class="hero-badge-icon">
-                                <i class="bi bi-shield-check"></i>
+                    <div class="about-img-box">
+                        <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/about.jpg" alt="Fasilitas Bengkel Master Truck KIM III Medan">
+                        <div class="about-exp-float-card">
+                            <div class="icon-tint-wrap icon-tint-blue" style="width: 44px; height: 44px; font-size: 18px;">
+                                <i class="fa fa-calendar-alt"></i>
                             </div>
                             <div>
-                                <div class="hero-badge-val">15+ Tahun</div>
-                                <div class="hero-badge-lbl">Pengalaman Rekayasa KIM III</div>
+                                <!-- TODO: konfirmasi data resmi tahun berdiri PT Master Truck Indonesia -->
+                                <div class="fw-bold text-dark fs-5">15+ Tahun</div>
+                                <small class="text-muted d-block">Pengalaman Rekayasa Truk KIM III</small>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Kolom Konten Kanan -->
+                <!-- Right: Content -->
                 <div class="col-lg-6">
-                    <div class="section-header-left">
-                        <span class="badge-eyebrow">
-                            <i class="bi bi-info-circle"></i> TENTANG PERUSAHAAN
-                        </span>
-                        <h2 class="section-title">
-                            Pusat Rekayasa Armada &amp; Distributor Resmi <span class="text-brand-primary">MASTER TRUCK</span>
-                        </h2>
-                        <p class="text-body mb-3">
-                            <strong>PT Master Truck Indonesia</strong> berlokasi strategis di Kawasan Industri Medan III (KIM III), Sumatera Utara. Kami hadir untuk membantu pelaku industri transportasi, logistik, dan perkebunan meminimalkan kerugian akibat downtime armada niaga melalui standar pemeliharaan teknis profesional, fasilitas bengkel modern, dan transparansi proses perbaikan.
-                        </p>
+                    <span class="badge-section-pill">
+                        <i class="fa fa-shield-alt"></i>TENTANG KAMI
+                    </span>
+                    <h2 class="display-6 fw-bold mb-4">
+                        Pusat Rekayasa Armada &amp; Distributor Resmi <span class="text-primary">MASTER TRUCK</span>
+                    </h2>
+                    <p class="text-muted mb-4" style="line-height: 1.7; font-size: 15.5px;">
+                        <strong>PT Master Truck Indonesia</strong> berlokasi strategis di Kawasan Industri Medan III (KIM III), Sumatera Utara. Kami hadir untuk membantu para pelaku usaha transportasi, perkebunan, dan logistik meminimalkan kerugian akibat downtime armada niaga melalui standar pemeliharaan teknis profesional, fasilitas bengkel modern, dan transparansi proses perbaikan.
+                    </p>
+                    <p class="text-muted mb-4" style="line-height: 1.7; font-size: 15.5px;">
+                        Selain fasilitas bengkel tugas berat, Master Truck dipercaya sebagai <strong>distributor resmi</strong> pelumas Pertamina Lubricants &amp; Mobil Delvac, ban truk komersial Dunlop, serta aki heavy-duty Incoe/GS Astra &mdash; memberikan jaminan kepastian harga pabrikan dan orisinalitas produk bagi mitra armada.
+                    </p>
+
+                    <!-- Poin 01, 02, 03 dengan Tint Squircles -->
+                    <div class="d-flex flex-column gap-3 mb-4 pb-2">
+                        <div class="about-point-card">
+                            <div class="about-num-badge icon-tint-blue">01</div>
+                            <div>
+                                <h6 class="fw-bold mb-1 text-dark">Spesialis Heavy-Duty &amp; Truk Niaga Multi-Brand</h6>
+                                <p class="text-muted small mb-0">Menangani Hino 500/700, Mitsubishi Fuso Fighter, Isuzu Giga, Scania, Volvo FH, UD Trucks, dump truck perkebunan hingga trailer peti kemas.</p>
+                            </div>
+                        </div>
+                        <div class="about-point-card">
+                            <div class="about-num-badge icon-tint-teal">02</div>
+                            <div>
+                                <h6 class="fw-bold mb-1 text-dark">Transparansi Estimasi Biaya &amp; Inspeksi Berkala</h6>
+                                <p class="text-muted small mb-0">Setiap pengerjaan diawali dengan estimasi tertulis dan dokumentasi visual suku cadang yang aus, menjamin efisiensi pengeluaran armada Anda.</p>
+                            </div>
+                        </div>
+                        <div class="about-point-card">
+                            <div class="about-num-badge icon-tint-amber">03</div>
+                            <div>
+                                <h6 class="fw-bold mb-1 text-dark">Jaminan 100% Produk OEM Langsung dari Pabrik</h6>
+                                <p class="text-muted small mb-0">Bebas risiko pelumas oplosan maupun onderdil tiruan. Seluruh pasokan suku cadang disuplai langsung dari prinsipal manufaktur terverifikasi.</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Tiga Poin Daftar Bernomor dengan Garis Pemisah -->
-                    <ul class="about-point-list">
-                        <li class="about-point-row">
-                            <div class="about-num">01</div>
-                            <div>
-                                <h4 class="about-point-heading">Spesialis Heavy-Duty &amp; Truk Niaga Multi-Brand</h4>
-                                <p class="about-point-text">Menangani Hino 500/700, Mitsubishi Fuso Fighter, Isuzu Giga, Scania, Volvo FH, UD Trucks, hingga trailer peti kemas.</p>
-                            </div>
-                        </li>
-                        <li class="about-point-row">
-                            <div class="about-num">02</div>
-                            <div>
-                                <h4 class="about-point-heading">Transparansi Estimasi Biaya &amp; Inspeksi Berkala</h4>
-                                <p class="about-point-text">Setiap perbaikan diawali dengan estimasi tertulis dan dokumentasi visual suku cadang yang aus, menjamin efisiensi pengeluaran.</p>
-                            </div>
-                        </li>
-                        <li class="about-point-row">
-                            <div class="about-num">03</div>
-                            <div>
-                                <h4 class="about-point-heading">Jaminan 100% Produk OEM Langsung dari Pabrik</h4>
-                                <p class="about-point-text">Bebas risiko oli palsu dan onderdil tiruan dengan jaminan pasokan resmi prinsipal manufaktur terverifikasi.</p>
-                            </div>
-                        </li>
-                    </ul>
-
-                    <div class="d-flex flex-wrap gap-3 pt-2">
-                        <a href="#contact" class="btn btn-primary">
-                            <i class="bi bi-telephone-fill me-1"></i> Hubungi Kami
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#contact" class="btn btn-primary py-3 px-4">
+                            <i class="fa fa-phone-alt me-2"></i>Hubungi Kami
                         </a>
-                        <a href="https://wa.me/6281234567890?text=Halo%20Master%20Truck%2C%20saya%20ingin%20konsultasi%20armada" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">
-                            <i class="bi bi-whatsapp me-1"></i> Konsultasi WhatsApp
+                        <a href="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20ingin%20konsultasi%20perawatan%20armada" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary py-3 px-4">
+                            <i class="fab fa-whatsapp me-2"></i>Konsultasi WhatsApp
                         </a>
                     </div>
                 </div>
+
             </div>
         </div>
-    </section>
+    </div>
     <!-- About End -->
 
 
     <!-- ============================================================== -->
-    <!-- 5. LAYANAN SECTION (TABS)                                      -->
-    <!-- Kiri: tab list, Kanan: panel detail, Mobile: scrollable chips  -->
+    <!-- 4. STATS COUNTER STRIP (4 KARTU TINT LEMBUT BERBEDA)          -->
     <!-- ============================================================== -->
-    <section id="service" class="mt-section mt-section--white">
+    <div class="fact-section-light">
         <div class="container">
-            <div class="text-center section-header-wrap">
-                <span class="badge-eyebrow">
-                    <i class="bi bi-gear-wide-connected"></i> LAYANAN SPESIALIS BENGKEL
+            <div class="row g-4 text-center">
+                <!-- TODO: konfirmasi data resmi statistik armada PT Master Truck Indonesia -->
+                <div class="col-lg-3 col-sm-6">
+                    <div class="stat-card-soft stat-card-blue">
+                        <div class="stat-icon-circle mx-auto">
+                            <i class="fa fa-history"></i>
+                        </div>
+                        <div class="stat-val">15+</div>
+                        <div class="stat-lbl">Tahun Pengalaman</div>
+                        <div class="stat-sub">KIM III Medan &bull; Sejak 2011</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="stat-card-soft stat-card-teal">
+                        <div class="stat-icon-circle mx-auto">
+                            <i class="fa fa-user-tie"></i>
+                        </div>
+                        <div class="stat-val">28+</div>
+                        <div class="stat-lbl">Teknisi Bersertifikat</div>
+                        <div class="stat-sub">Diesel, ECU, &amp; Pneumatik</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="stat-card-soft stat-card-amber">
+                        <div class="stat-icon-circle mx-auto">
+                            <i class="fa fa-handshake"></i>
+                        </div>
+                        <div class="stat-val">75+</div>
+                        <div class="stat-lbl">Perusahaan Mitra</div>
+                        <div class="stat-sub">Logistik, Perkebunan, Pelabuhan</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="stat-card-soft stat-card-lavender">
+                        <div class="stat-icon-circle mx-auto">
+                            <i class="fa fa-truck-moving"></i>
+                        </div>
+                        <div class="stat-val">1,500+</div>
+                        <div class="stat-lbl">Unit Terlayani / Tahun</div>
+                        <div class="stat-sub">Tronton, Trailer &amp; Dump Truck</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Stats Counter End -->
+
+
+    <!-- ============================================================== -->
+    <!-- 5. SERVICES SECTION (LAYANAN BENGKEL DENGAN TAB KARTU SOFT)   -->
+    <!-- ============================================================== -->
+    <div id="service" class="container-xxl py-5" style="background-color: var(--bg-light);">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <span class="badge-section-pill">
+                    <i class="fa fa-cogs"></i>LAYANAN SPESIALIS BENGKEL
                 </span>
-                <h2 class="section-title">
-                    Solusi Terpadu Rekayasa Truk MASTER TRUCK
+                <h2 class="display-6 fw-bold mb-3">
+                    Solusi Terpadu Rekayasa Truk <span class="text-primary">MASTER TRUCK</span>
                 </h2>
-                <p class="section-desc">
-                    Setiap pengerjaan dilakukan berdasarkan Standar Operasional Prosedur manufaktur ketat dengan inspeksi terstandar dan garansi perbaikan.
+                <p class="text-muted mx-auto" style="max-width: 650px; font-size: 15px;">
+                    Setiap pengerjaan dilakukan berdasarkan Standar Operasional Prosedur (SOP) manufaktur ketat dengan inspeksi terstandar dan garansi perbaikan.
                 </p>
             </div>
 
-            <div class="row g-4 align-items-stretch">
-                <!-- Nav Tabs Kiri -->
+            <div class="row g-4">
+                <!-- Tab Buttons (Soft Cards) -->
                 <div class="col-lg-4">
-                    <div class="nav nav-pills flex-column service-nav-list" role="tablist">
-                        <button class="nav-link service-tab-item active" data-bs-toggle="pill" data-bs-target="#tab-pane-1" type="button" role="tab" aria-selected="true">
-                            <div class="service-tab-icon">
-                                <i class="bi bi-cpu-fill"></i>
+                    <div class="service-nav-pills nav flex-column" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        
+                        <button class="service-pill-btn active" id="tab-1-btn" data-bs-toggle="pill" data-bs-target="#tab-pane-1" type="button" role="tab">
+                            <div class="icon-tint-wrap icon-tint-blue">
+                                <i class="fa fa-laptop-medical"></i>
                             </div>
                             <div>
-                                <div class="service-tab-heading">Diagnostic Test &amp; ECU</div>
-                                <div class="service-tab-sub">Uji scanner komputer &amp; kelistrikan 24V</div>
+                                <h6 class="fw-bold mb-0 text-dark">Diagnostic Test &amp; Sensor ECU</h6>
+                                <small class="text-muted d-block">Uji scanner komputer &amp; kelistrikan 24V</small>
                             </div>
                         </button>
-                        <button class="nav-link service-tab-item" data-bs-toggle="pill" data-bs-target="#tab-pane-2" type="button" role="tab" aria-selected="false">
-                            <div class="service-tab-icon">
-                                <i class="bi bi-gear-fill"></i>
+
+                        <button class="service-pill-btn" id="tab-2-btn" data-bs-toggle="pill" data-bs-target="#tab-pane-2" type="button" role="tab">
+                            <div class="icon-tint-wrap icon-tint-teal">
+                                <i class="fa fa-cogs"></i>
                             </div>
                             <div>
-                                <div class="service-tab-heading">Overhaul Mesin &amp; Transmisi</div>
-                                <div class="service-tab-sub">Rekondisi diesel, bospom &amp; turbocharger</div>
+                                <h6 class="fw-bold mb-0 text-dark">Overhaul Mesin &amp; Transmisi</h6>
+                                <small class="text-muted d-block">Rekondisi diesel, bospom &amp; turbocharger</small>
                             </div>
                         </button>
-                        <button class="nav-link service-tab-item" data-bs-toggle="pill" data-bs-target="#tab-pane-3" type="button" role="tab" aria-selected="false">
-                            <div class="service-tab-icon">
-                                <i class="bi bi-circle-half"></i>
+
+                        <button class="service-pill-btn" id="tab-3-btn" data-bs-toggle="pill" data-bs-target="#tab-pane-3" type="button" role="tab">
+                            <div class="icon-tint-wrap icon-tint-amber">
+                                <i class="fa fa-life-ring"></i>
                             </div>
                             <div>
-                                <div class="service-tab-heading">Ban Dunlop &amp; Rem Angin</div>
-                                <div class="service-tab-sub">Penyediaan ban komersial &amp; chamber rem</div>
+                                <h6 class="fw-bold mb-0 text-dark">Ban Dunlop &amp; Rem Angin</h6>
+                                <small class="text-muted d-block">Penyediaan ban komersial &amp; chamber rem</small>
                             </div>
                         </button>
-                        <button class="nav-link service-tab-item" data-bs-toggle="pill" data-bs-target="#tab-pane-4" type="button" role="tab" aria-selected="false">
-                            <div class="service-tab-icon">
-                                <i class="bi bi-droplet-fill"></i>
+
+                        <button class="service-pill-btn" id="tab-4-btn" data-bs-toggle="pill" data-bs-target="#tab-pane-4" type="button" role="tab">
+                            <div class="icon-tint-wrap icon-tint-lavender">
+                                <i class="fa fa-oil-can"></i>
                             </div>
                             <div>
-                                <div class="service-tab-heading">Ganti Oli &amp; Pelumas Resmi</div>
-                                <div class="service-tab-sub">Distributor Pertamina &amp; Mobil Delvac</div>
+                                <h6 class="fw-bold mb-0 text-dark">Ganti Oli &amp; Pelumas Resmi</h6>
+                                <small class="text-muted d-block">Distributor Pertamina &amp; Mobil Delvac</small>
                             </div>
                         </button>
+
                     </div>
                 </div>
 
-                <!-- Tab Content Kanan -->
+                <!-- Tab Content Panels -->
                 <div class="col-lg-8">
-                    <div class="tab-content h-100">
+                    <div class="tab-content">
                         
-                        <!-- Pane 1 -->
-                        <div class="tab-pane fade show active h-100" id="tab-pane-1" role="tabpanel">
+                        <!-- Panel 1: Diagnostic -->
+                        <div class="tab-pane fade show active" id="tab-pane-1" role="tabpanel">
                             <div class="service-panel-card">
-                                <img class="service-panel-img" src="<?php echo esc_url( $theme_uri ); ?>/assets/img/service-1.jpg" alt="Scanner Komputer Truk Diesel KIM III" loading="lazy">
-                                <span class="badge-eyebrow mb-2">DIAGNOSTIK ELEKTRONIK</span>
-                                <h3 class="mb-3">Scanner Komputerisasi &amp; Diagnosa Mesin Diesel 24V</h3>
-                                <p class="text-body mb-3">
-                                    Pemeriksaan sensor komputerisasi, ECU, dan sistem pembakaran diesel common rail multi-merek untuk mendeteksi akar masalah secara akurat dan presisi.
-                                </p>
-                                <ul class="service-checklist">
-                                    <li><i class="bi bi-check-lg"></i> Scanner Multi-Brand (Hino, Fuso, Isuzu, Scania, Volvo)</li>
-                                    <li><i class="bi bi-check-lg"></i> Uji Kelistrikan 24V, Alternator, Starter &amp; Baterai</li>
-                                    <li><i class="bi bi-check-lg"></i> Laporan Diagnosa Digital &amp; Rekomendasi Solusi</li>
-                                </ul>
-                                <a href="#booking" class="btn btn-primary">
-                                    <i class="bi bi-calendar-check me-1"></i> Konsultasi Teknisi
-                                </a>
+                                <div class="row g-4 align-items-center">
+                                    <div class="col-md-6">
+                                        <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/service-1.jpg" alt="Teknisi Master Truck Diagnosa Kelistrikan & Mesin Truk Niaga">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span class="badge-section-pill mb-2">DIAGNOSTIK ELEKTRONIK</span>
+                                        <h4 class="fw-bold mb-3">Scanner Komputerisasi &amp; Diagnosa Mesin Diesel 24V</h4>
+                                        <p class="text-muted small mb-3">Pemeriksaan sensor komputerisasi, ECU, dan sistem pembakaran diesel common rail multi-merek untuk mendeteksi akar masalah secara akurat dan presisi.</p>
+                                        <ul class="list-unstyled mb-4">
+                                            <li class="mb-2 small"><i class="fa fa-check-circle check-teal me-2"></i>Scanner Multi-Brand (Hino, Fuso, Isuzu, Scania, Volvo)</li>
+                                            <li class="mb-2 small"><i class="fa fa-check-circle check-teal me-2"></i>Uji Kelistrikan 24V, Alternator, Starter &amp; Baterai</li>
+                                            <li class="mb-2 small"><i class="fa fa-check-circle check-teal me-2"></i>Laporan Diagnosa Digital &amp; Rekomendasi Solusi</li>
+                                        </ul>
+                                        <a href="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20layanan%20Diagnosa%20Komputer" target="_blank" rel="noopener noreferrer" class="btn btn-primary py-2 px-3">
+                                            Konsultasi Teknisi <i class="fa fa-arrow-right ms-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Pane 2 -->
-                        <div class="tab-pane fade h-100" id="tab-pane-2" role="tabpanel">
+                        <!-- Panel 2: Engine Overhaul -->
+                        <div class="tab-pane fade" id="tab-pane-2" role="tabpanel">
                             <div class="service-panel-card">
-                                <img class="service-panel-img" src="<?php echo esc_url( $theme_uri ); ?>/assets/img/service-2.jpg" alt="Overhaul Mesin Truk Diesel Medan" loading="lazy">
-                                <span class="badge-eyebrow mb-2">REKONDISI TOTAL</span>
-                                <h3 class="mb-3">Overhaul Mesin Diesel, Transmisi &amp; Bospom</h3>
-                                <p class="text-body mb-3">
-                                    Rekondisi menyeluruh blok silinder, piston, crankshaft, injektor, dan turbocharger menggunakan suku cadang OEM bergaransi resmi.
-                                </p>
-                                <ul class="service-checklist">
-                                    <li><i class="bi bi-check-lg"></i> Kalibrasi Injektor Diesel &amp; Supply Pump Common Rail</li>
-                                    <li><i class="bi bi-check-lg"></i> Rekondisi Gearbox Manual &amp; Otomatis Alat Berat</li>
-                                    <li><i class="bi bi-check-lg"></i> Garansi Pengerjaan &amp; Pengujian Beban Mesin</li>
-                                </ul>
-                                <a href="#booking" class="btn btn-primary">
-                                    <i class="bi bi-calendar-check me-1"></i> Konsultasi Teknisi
-                                </a>
+                                <div class="row g-4 align-items-center">
+                                    <div class="col-md-6">
+                                        <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/service-2.jpg" alt="Overhaul Mesin Diesel Heavy Duty Truk Master Truck">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span class="badge-section-pill mb-2">REKAYASA MESIN BERAT</span>
+                                        <h4 class="fw-bold mb-3">Overhaul Mesin Diesel &amp; Transmisi Heavy-Duty</h4>
+                                        <p class="text-muted small mb-3">Bongkar pasang mesin diesel komersial, kalibrasi bospom &amp; injektor common rail, servis turbocharger, serta rekondisi girboks transmisi tugas berat bergaransi resmi.</p>
+                                        <ul class="list-unstyled mb-4">
+                                            <li class="mb-2 small"><i class="fa fa-check-circle check-teal me-2"></i>Overhaul Blok Silinder &amp; Head Bergaransi Pengerjaan</li>
+                                            <li class="mb-2 small"><i class="fa fa-check-circle check-teal me-2"></i>Kalibrasi Injektor Common Rail Presisi Tinggi</li>
+                                            <li class="mb-2 small"><i class="fa fa-check-circle check-teal me-2"></i>Penggantian Piston, Ring, Metal Jalan &amp; Duduk OEM</li>
+                                        </ul>
+                                        <a href="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20layanan%20Overhaul%20Mesin" target="_blank" rel="noopener noreferrer" class="btn btn-primary py-2 px-3">
+                                            Konsultasi Teknisi <i class="fa fa-arrow-right ms-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Pane 3 -->
-                        <div class="tab-pane fade h-100" id="tab-pane-3" role="tabpanel">
+                        <!-- Panel 3: Tires & Brakes -->
+                        <div class="tab-pane fade" id="tab-pane-3" role="tabpanel">
                             <div class="service-panel-card">
-                                <img class="service-panel-img" src="<?php echo esc_url( $theme_uri ); ?>/assets/img/service-3.jpg" alt="Servis Rem Angin Truk Niaga" loading="lazy">
-                                <span class="badge-eyebrow mb-2">PNEUMATIK &amp; RODA</span>
-                                <h3 class="mb-3">Sistem Rem Angin, Ban Komersial Dunlop &amp; Spooring</h3>
-                                <p class="text-body mb-3">
-                                    Perawatan keselamatan rem angin pneumatik, booster, kompresor udara, serta instalasi ban niaga Dunlop untuk tronton dan trailer muatan berat.
-                                </p>
-                                <ul class="service-checklist">
-                                    <li><i class="bi bi-check-lg"></i> Pemasangan Brake Shoe, Lining &amp; Brake Chamber</li>
-                                    <li><i class="bi bi-check-lg"></i> Ban Truk Komersial Dunlop Radial &amp; Bias Original</li>
-                                    <li><i class="bi bi-check-lg"></i> Spooring, Balancing &amp; Penyelarasan Poros Roda</li>
-                                </ul>
-                                <a href="#booking" class="btn btn-primary">
-                                    <i class="bi bi-calendar-check me-1"></i> Konsultasi Teknisi
-                                </a>
+                                <div class="row g-4 align-items-center">
+                                    <div class="col-md-6">
+                                        <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/service-3.jpg" alt="Ban Komersial Dunlop & Sistem Rem Angin Master Truck">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span class="badge-section-pill mb-2">CHASSIS &amp; KESELAMATAN</span>
+                                        <h4 class="fw-bold mb-3">Ban Komersial Dunlop &amp; Sistem Rem Angin Truk</h4>
+                                        <p class="text-muted small mb-3">Penyediaan dan bongkar-pasang ban Dunlop heavy-duty untuk truk niaga dan trailer, serta rekondisi sistem pengereman angin pneumatik (air brake chamber &amp; booster valve).</p>
+                                        <ul class="list-unstyled mb-4">
+                                            <li class="mb-2 small"><i class="fa fa-check-circle check-teal me-2"></i>Distributor Resmi Ban Dunlop Segala Ukuran Truk Niaga</li>
+                                            <li class="mb-2 small"><i class="fa fa-check-circle check-teal me-2"></i>Servis Air Brake Chamber, Kompresor &amp; Katup Rem Angin</li>
+                                            <li class="mb-2 small"><i class="fa fa-check-circle check-teal me-2"></i>Penggantian Tromol, Kampas Rem &amp; Suspensi Per Daun</li>
+                                        </ul>
+                                        <a href="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20layanan%20Ban%20dan%20Rem%20Angin" target="_blank" rel="noopener noreferrer" class="btn btn-primary py-2 px-3">
+                                            Konsultasi Teknisi <i class="fa fa-arrow-right ms-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Pane 4 -->
-                        <div class="tab-pane fade h-100" id="tab-pane-4" role="tabpanel">
+                        <!-- Panel 4: Oil Changing -->
+                        <div class="tab-pane fade" id="tab-pane-4" role="tabpanel">
                             <div class="service-panel-card">
-                                <img class="service-panel-img" src="<?php echo esc_url( $theme_uri ); ?>/assets/img/service-4.jpg" alt="Penggantian Pelumas Pertamina dan Mobil Delvac" loading="lazy">
-                                <span class="badge-eyebrow mb-2">PELUMAS RESMI</span>
-                                <h3 class="mb-3">Penggantian Oli Mesin, Gardan &amp; Transmisi OEM</h3>
-                                <p class="text-body mb-3">
-                                    Layanan servis berkala penggantian pelumas armada niaga menggunakan produk distributor resmi Pertamina Lubricants &amp; Mobil Delvac dengan kapasitas drum/curah.
-                                </p>
-                                <ul class="service-checklist">
-                                    <li><i class="bi bi-check-lg"></i> Pertamina Meditran SX, SC &amp; Rored HD Series</li>
-                                    <li><i class="bi bi-check-lg"></i> Mobil Delvac Modern &amp; Legend Heavy Duty Fleet</li>
-                                    <li><i class="bi bi-check-lg"></i> Pergantian Filter Oli, Solar &amp; Udara OEM</li>
-                                </ul>
-                                <a href="#booking" class="btn btn-primary">
-                                    <i class="bi bi-calendar-check me-1"></i> Konsultasi Teknisi
-                                </a>
+                                <div class="row g-4 align-items-center">
+                                    <div class="col-md-6">
+                                        <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/service-4.jpg" alt="Layanan Pelumas Resmi Pertamina & Mobil Delvac Master Truck">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span class="badge-section-pill mb-2">PELUMAS &amp; CAIRAN KHUSUS</span>
+                                        <h4 class="fw-bold mb-3">Ganti Oli &amp; Pelumas Resmi Pertamina / Mobil Delvac</h4>
+                                        <p class="text-muted small mb-3">Penggantian pelumas mesin diesel, oli transmisi, gardan, dan fluida hidraulik dengan produk resmi Pertamina Lubricants &amp; Mobil Delvac &mdash; 100% bebas oli tiruan.</p>
+                                        <ul class="list-unstyled mb-4">
+                                            <li class="mb-2 small"><i class="fa fa-check-circle check-teal me-2"></i>Distributor Resmi Pelumas Pertamina Meditran &amp; Mobil Delvac</li>
+                                            <li class="mb-2 small"><i class="fa fa-check-circle check-teal me-2"></i>Flushing Sistem &amp; Penggantian Filter Solar / Oli OEM</li>
+                                            <li class="mb-2 small"><i class="fa fa-check-circle check-teal me-2"></i>Tersedia Kemasan Drum &amp; Pail dengan Harga Grosir Distributor</li>
+                                        </ul>
+                                        <a href="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20pasokan%20Oli%20dan%20Pelumas" target="_blank" rel="noopener noreferrer" class="btn btn-primary py-2 px-3">
+                                            Konsultasi Teknisi <i class="fa fa-arrow-right ms-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                     </div>
                 </div>
             </div>
+
         </div>
-    </section>
-    <!-- Service End -->
+    </div>
+    <!-- Services End -->
 
 
     <!-- ============================================================== -->
-    <!-- 6. PRINSIPAL OEM (LOGO WALL)                                   -->
-    <!-- 6 Sel sama besar, grayscale -> color saat hover                -->
+    <!-- 6. PRINCIPALS / OEM BRANDS SECTION (SERAGAM & TINT ICONS)     -->
     <!-- ============================================================== -->
-    <section id="principals" class="mt-section mt-section--alt">
-        <div class="container">
-            <div class="text-center section-header-wrap">
-                <span class="badge-eyebrow">
-                    <i class="bi bi-patch-check"></i> PRINSIPAL RESMI
+    <div id="principals" class="container-xxl py-5" style="background-color: var(--bg-white);">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <span class="badge-section-pill">
+                    <i class="fa fa-award"></i>DISTRIBUTOR RESMI OEM
                 </span>
-                <h2 class="section-title">
-                    Kemitraan Resmi Pelumas, Ban, Aki &amp; Filter OEM
+                <h2 class="display-6 fw-bold mb-3">
+                    Prinsipal &amp; Produk Original Bergaransi <span class="text-primary">MASTER TRUCK</span>
                 </h2>
-                <p class="section-desc">
-                    Master Truck dipercaya sebagai distributor resmi dan pusat pasokan produk suku cadang manufaktur kelas dunia.
+                <p class="text-muted mx-auto" style="max-width: 600px; font-size: 15px;">
+                    Jaminan kepastian suku cadang dan pelumas 100% original langsung dari produsen terkemuka dunia dengan jaminan kualitas terbaik.
                 </p>
             </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="principal-brand-card">
+                        <div class="icon-tint-wrap icon-tint-blue">
+                            <i class="fa fa-oil-can"></i>
+                        </div>
+                        <h6 class="fw-bold mb-1 text-dark">Pertamina</h6>
+                        <small class="text-muted d-block mb-2">Lubricants</small>
+                        <span class="badge bg-light text-primary border small" style="font-size: 10px;">Distributor Resmi</span>
+                    </div>
+                </div>
 
-            <div class="brand-grid">
-                <div class="brand-cell">
-                    <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/brands/pertamina.svg" alt="Pertamina Lubricants" class="brand-logo-img" width="160" height="48" loading="lazy">
-                    <div class="brand-category">Lubricants Official</div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="principal-brand-card">
+                        <div class="icon-tint-wrap icon-tint-teal">
+                            <i class="fa fa-gas-pump"></i>
+                        </div>
+                        <h6 class="fw-bold mb-1 text-dark">Mobil</h6>
+                        <small class="text-muted d-block mb-2">Delvac &amp; HD</small>
+                        <span class="badge bg-light text-primary border small" style="font-size: 10px;">Distributor Resmi</span>
+                    </div>
                 </div>
-                <div class="brand-cell">
-                    <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/brands/mobil.svg" alt="Mobil Delvac" class="brand-logo-img" width="160" height="48" loading="lazy">
-                    <div class="brand-category">Delvac HD Oil</div>
+
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="principal-brand-card">
+                        <div class="icon-tint-wrap icon-tint-amber">
+                            <i class="fa fa-life-ring"></i>
+                        </div>
+                        <h6 class="fw-bold mb-1 text-dark">Dunlop</h6>
+                        <small class="text-muted d-block mb-2">Commercial Tires</small>
+                        <span class="badge bg-light text-primary border small" style="font-size: 10px;">Ban Truk Niaga</span>
+                    </div>
                 </div>
-                <div class="brand-cell">
-                    <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/brands/dunlop.svg" alt="Dunlop Commercial Tires" class="brand-logo-img" width="160" height="48" loading="lazy">
-                    <div class="brand-category">Commercial Tires</div>
+
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="principal-brand-card">
+                        <div class="icon-tint-wrap icon-tint-lavender">
+                            <i class="fa fa-car-battery"></i>
+                        </div>
+                        <h6 class="fw-bold mb-1 text-dark">GS Astra</h6>
+                        <small class="text-muted d-block mb-2">Heavy Duty Battery</small>
+                        <span class="badge bg-light text-primary border small" style="font-size: 10px;">Aki Komersial 24V</span>
+                    </div>
                 </div>
-                <div class="brand-cell">
-                    <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/brands/gs-astra.svg" alt="GS Astra" class="brand-logo-img" width="160" height="48" loading="lazy">
-                    <div class="brand-category">Commercial Battery</div>
+
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="principal-brand-card">
+                        <div class="icon-tint-wrap icon-tint-blue">
+                            <i class="fa fa-bolt"></i>
+                        </div>
+                        <h6 class="fw-bold mb-1 text-dark">Incoe</h6>
+                        <small class="text-muted d-block mb-2">Commercial Battery</small>
+                        <span class="badge bg-light text-primary border small" style="font-size: 10px;">Aki Beban Berat</span>
+                    </div>
                 </div>
-                <div class="brand-cell">
-                    <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/brands/incoe.svg" alt="Incoe Battery" class="brand-logo-img" width="160" height="48" loading="lazy">
-                    <div class="brand-category">Heavy-Duty Battery</div>
-                </div>
-                <div class="brand-cell">
-                    <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/brands/sakura.svg" alt="Sakura Filter OEM" class="brand-logo-img" width="160" height="48" loading="lazy">
-                    <div class="brand-category">Fleet Filters OEM</div>
+
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="principal-brand-card">
+                        <div class="icon-tint-wrap icon-tint-teal">
+                            <i class="fa fa-filter"></i>
+                        </div>
+                        <h6 class="fw-bold mb-1 text-dark">Filter OEM</h6>
+                        <small class="text-muted d-block mb-2">Sakura &amp; Fleetguard</small>
+                        <span class="badge bg-light text-primary border small" style="font-size: 10px;">Oli, Solar, Udara</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
     <!-- Principals End -->
 
 
     <!-- ============================================================== -->
-    <!-- 7. JARINGAN PASOKAN / DISTRIBUSI                               -->
-    <!-- 4 Kartu lokasi dengan ikon, judul, deskripsi, dan chip tag     -->
+    <!-- 7. WILAYAH DISTRIBUSI & JARINGAN LOGISTIK SUMATERA             -->
     <!-- ============================================================== -->
-    <section id="distribution" class="mt-section mt-section--white">
-        <div class="container">
-            <div class="text-center section-header-wrap">
-                <span class="badge-eyebrow">
-                    <i class="bi bi-geo-alt"></i> CAKUPAN DISTRIBUSI
+    <div id="distribution" class="container-xxl py-5" style="background-color: var(--bg-light);">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <span class="badge-section-pill">
+                    <i class="fa fa-map-marked-alt"></i>JARINGAN LAYANAN
                 </span>
-                <h2 class="section-title">
-                    Jaringan Pasokan Pelumas &amp; Suku Cadang Sumatera Utara
+                <h2 class="display-6 fw-bold mb-3">
+                    Wilayah Jangkauan &amp; Distribusi <span class="text-primary">MASTER TRUCK</span>
                 </h2>
-                <p class="section-desc">
-                    Melayani suplai kontrak pengadaan pelumas industri dan suku cadang OEM ke berbagai sentra logistik, perkebunan, dan pelabuhan di Sumatera.
+                <p class="text-muted mx-auto" style="max-width: 650px; font-size: 15px;">
+                    Berpusat di Depo Kawasan Industri Medan III (KIM III), kami melayani kebutuhan perawatan, suplai suku cadang cepat, dan derek darurat di koridor logistik utama Sumatera Utara.
                 </p>
             </div>
 
             <div class="row g-4">
                 <div class="col-lg-3 col-md-6">
-                    <div class="dist-card">
-                        <div class="dist-icon-box">
-                            <i class="bi bi-geo-alt-fill"></i>
+                    <div class="distribution-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="icon-tint-wrap icon-tint-blue me-3" style="width: 44px; height: 44px; font-size: 17px;">
+                                <i class="fa fa-map-pin"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-0 text-dark">KIM III &amp; Belawan</h6>
+                                <small class="text-primary fw-bold">Hub Bengkel &amp; Pelabuhan</small>
+                            </div>
                         </div>
-                        <h4 class="dist-city">Medan &amp; Belawan</h4>
-                        <div class="dist-hub">Hub Bengkel &amp; Pelabuhan</div>
-                        <p class="dist-desc">
-                            Pengiriman rutin harian ke Kawasan Industri Medan I, II, III dan armada peti kemas terminal Pelabuhan Belawan.
-                        </p>
-                        <span class="dist-tag">Pengiriman Harian</span>
+                        <p class="text-muted small mb-3">Pusat bengkel rekayasa utama, pit servis alat berat, dan dukungan darurat untuk trailer peti kemas pelabuhan.</p>
+                        <span class="badge bg-light text-dark border small"><i class="fa fa-clock text-primary me-1"></i>Siaga Cepat</span>
                     </div>
                 </div>
+
                 <div class="col-lg-3 col-md-6">
-                    <div class="dist-card">
-                        <div class="dist-icon-box">
-                            <i class="bi bi-geo-alt-fill"></i>
+                    <div class="distribution-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="icon-tint-wrap icon-tint-teal me-3" style="width: 44px; height: 44px; font-size: 17px;">
+                                <i class="fa fa-map-pin"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-0 text-dark">Tebing Tinggi &amp; Kisaran</h6>
+                                <small class="text-primary fw-bold">Koridor Industri Sawit</small>
+                            </div>
                         </div>
-                        <h4 class="dist-city">Lubuk Pakam &amp; Deli Serdang</h4>
-                        <div class="dist-hub">Kawasan Pergudangan</div>
-                        <p class="dist-desc">
-                            Pasokan berkala ke sentra pergudangan logistik dan armada distribusi Bandara Kualanamu.
-                        </p>
-                        <span class="dist-tag">Rute Reguler</span>
+                        <p class="text-muted small mb-3">Suplai pelumas Pertamina Meditran drum/pail dan ban Dunlop komersial untuk armada angkutan perkebunan sawit.</p>
+                        <span class="badge bg-light text-dark border small"><i class="fa fa-truck text-primary me-1"></i>Pengiriman Terjadwal</span>
                     </div>
                 </div>
+
                 <div class="col-lg-3 col-md-6">
-                    <div class="dist-card">
-                        <div class="dist-icon-box">
-                            <i class="bi bi-geo-alt-fill"></i>
+                    <div class="distribution-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="icon-tint-wrap icon-tint-amber me-3" style="width: 44px; height: 44px; font-size: 17px;">
+                                <i class="fa fa-map-pin"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-0 text-dark">Rantau Prapat &amp; Labuhanbatu</h6>
+                                <small class="text-primary fw-bold">Armada Angkutan Berat</small>
+                            </div>
                         </div>
-                        <h4 class="dist-city">Binjai &amp; Langkat</h4>
-                        <div class="dist-hub">Koridor Perkebunan</div>
-                        <p class="dist-desc">
-                            Distribusi pelumas curah/drum dan ban niaga ke armada pengangkut kelapa sawit dan logistik lintas Aceh.
-                        </p>
-                        <span class="dist-tag">Armada Sawit</span>
+                        <p class="text-muted small mb-3">Dukungan teknisi panggilan untuk overhaul darurat bospom, transmisi dan penyediaan aki heavy-duty Incoe/GS Astra.</p>
+                        <span class="badge bg-light text-dark border small"><i class="fa fa-wrench text-secondary me-1"></i>Teknisi Siaga Panggilan</span>
                     </div>
                 </div>
+
                 <div class="col-lg-3 col-md-6">
-                    <div class="dist-card">
-                        <div class="dist-icon-box">
-                            <i class="bi bi-geo-alt-fill"></i>
+                    <div class="distribution-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="icon-tint-wrap icon-tint-lavender me-3" style="width: 44px; height: 44px; font-size: 17px;">
+                                <i class="fa fa-map-pin"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-0 text-dark">Banda Aceh &amp; Pekanbaru</h6>
+                                <small class="text-primary fw-bold">Lintas Jalur Sumatera</small>
+                            </div>
                         </div>
-                        <h4 class="dist-city">Tebing Tinggi &amp; Asahan</h4>
-                        <div class="dist-hub">Lintas Jalur Sumatera</div>
-                        <p class="dist-desc">
-                            Layanan pasokan produk OEM dan rujukan derek evakuasi armada darurat di koridor Jalinsum timur.
-                        </p>
-                        <span class="dist-tag">Siaga Evakuasi</span>
+                        <p class="text-muted small mb-3">Jaringan kemitraan penyedia pelumas Mobil Delvac dan ban Dunlop dengan tarif distributor resmi Master Truck.</p>
+                        <span class="badge bg-light text-dark border small"><i class="fa fa-handshake text-primary me-1"></i>Kemitraan Resmi</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
     <!-- Distribution End -->
 
 
     <!-- ============================================================== -->
-    <!-- 8. DEREK 24 JAM & BOOKING FORM                                 -->
-    <!-- Latar --primary-tint (#EFF6FF), kiri hotline, kanan form       -->
+    <!-- 8. BOOKING & EMERGENCY SECTION (#EEF4FF TINT BACKGROUND)       -->
     <!-- ============================================================== -->
-    <section id="booking" class="mt-section mt-section--tint">
+    <div id="booking" class="booking-section-wrapper">
         <div class="container">
-            <div class="row g-4 g-lg-5 align-items-center">
-                <!-- Kolom Kiri: Info Hotline & Derek Darurat -->
+            <div class="row g-5 align-items-center">
+                
+                <!-- Left: Emergency Hotline Info -->
                 <div class="col-lg-6">
-                    <span class="badge-eyebrow">
-                        <i class="bi bi-telephone-inbound-fill"></i> LAYANAN DARURAT 24 JAM
+                    <span class="badge-section-pill">
+                        <i class="fa fa-phone-volume"></i>LAYANAN SIAGA 24 JAM
                     </span>
-                    <h2 class="section-title text-start mb-3">
+                    <h2 class="display-6 fw-bold mb-4 text-dark">
                         Layanan Derek Heavy-Duty &amp; Servis Darurat KIM III
                     </h2>
-                    <p class="text-body mb-4">
+                    <p class="text-muted mb-4" style="line-height: 1.7; font-size: 15.5px;">
                         Armada Anda mengalami kendala di jalur logistik Medan &ndash; Tebing Tinggi, Tol Belmera, Kawasan Industri KIM, atau lintas Sumatera? Unit truk derek heavy-duty Master Truck siaga 24 jam untuk evakuasi cepat ke fasilitas bengkel kami.
                     </p>
-
-                    <div class="emergency-hotline-box">
-                        <div class="text-muted small fw-semibold mb-1">HOTLINE DEREK DARURAT:</div>
-                        <a href="tel:06188829999" class="emergency-phone-num">061-8882-9999</a>
-                        <div class="text-muted small">Hotline WhatsApp: <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="fw-bold text-dark">0812-3456-7890</a></div>
-                    </div>
-
-                    <a href="tel:06188829999" class="btn btn-danger w-100 py-3 mb-3">
-                        <i class="bi bi-telephone-outbound-fill me-2"></i> Panggil Derek Darurat 24 Jam
-                    </a>
-                    <div class="d-flex align-items-center gap-2 text-muted small">
-                        <i class="bi bi-shield-check text-success fs-5"></i>
-                        <span>Siaga 24 Jam Penuh &bull; 7 Hari Seminggu &bull; Evakuasi Heavy-Duty Aman</span>
+                    <div class="d-flex flex-column gap-3 mb-4">
+                        <div class="d-flex align-items-center p-3 bg-white rounded-3 border" style="border-color: var(--border) !important;">
+                            <div class="icon-tint-wrap icon-tint-blue me-3">
+                                <i class="fa fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <div class="fw-bold text-dark">Hotline Derek Darurat:</div>
+                                <span class="text-primary fw-bold fs-5">061-8882-9999 / 0812-3456-7890</span>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center p-3 bg-white rounded-3 border" style="border-color: var(--border) !important;">
+                            <div class="icon-tint-wrap icon-tint-teal me-3">
+                                <i class="fa fa-clock"></i>
+                            </div>
+                            <div>
+                                <div class="fw-bold text-dark">Waktu Operasional Derek:</div>
+                                <span class="text-muted">Siaga 24 Jam Penuh &bull; 7 Hari Seminggu</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Kolom Kanan: Form WhatsApp -->
+                <!-- Right: Clean White Booking Form -->
                 <div class="col-lg-6">
-                    <div class="booking-card">
-                        <h3 class="mb-2">Jadwalkan Servis Armada</h3>
-                        <p class="text-muted small mb-4">
-                            Konsultasikan kebutuhan perbaikan armada Anda, tim teknisi kami akan segera mengonfirmasi estimasi jadwal.
-                        </p>
-                        <form id="bookingForm" onsubmit="handleBookingSubmit(event)">
+                    <div class="booking-form-box">
+                        <h4 class="fw-bold mb-2 text-dark">Jadwalkan Servis Armada</h4>
+                        <p class="text-muted small mb-4">Konsultasikan kebutuhan perbaikan armada Anda, tim teknisi kami akan segera mengonfirmasi estimasi jadwal.</p>
+                        
+                        <form onsubmit="event.preventDefault(); window.open('https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20ingin%20jadwalkan%20servis:%0ANama:%20' + encodeURIComponent(document.getElementById('bk_name').value) + '%0ALayanan:%20' + encodeURIComponent(document.getElementById('bk_service').value) + '%0ATanggal:%20' + encodeURIComponent(document.getElementById('bk_date').value) + '%0ANoPol/Keterangan:%20' + encodeURIComponent(document.getElementById('bk_notes').value), '_blank');">
                             <div class="row g-3">
                                 <div class="col-md-6">
-                                    <label class="booking-form-label" for="bookingName">Nama / Perusahaan</label>
-                                    <input type="text" class="form-control" id="bookingName" placeholder="PT Logistik Sejahtera" required>
+                                    <label class="form-label small fw-bold text-dark">Nama / Perusahaan</label>
+                                    <input type="text" id="bk_name" class="form-control" placeholder="PT Logistik Sejahtera" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="booking-form-label" for="bookingPhone">No. WhatsApp / Telepon</label>
-                                    <input type="tel" class="form-control" id="bookingPhone" placeholder="0812-xxxx-xxxx" required>
+                                    <label class="form-label small fw-bold text-dark">No. WhatsApp / Telepon</label>
+                                    <input type="tel" id="bk_phone" class="form-control" placeholder="0812-xxxx-xxxx" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="booking-form-label" for="bookingService">Jenis Layanan</label>
-                                    <select class="form-select" id="bookingService" required>
-                                        <option value="Servis Berkala & Inspeksi" selected>Servis Berkala &amp; Inspeksi</option>
-                                        <option value="Overhaul Mesin Diesel">Overhaul Mesin Diesel</option>
-                                        <option value="Sistem Rem Angin & Pneumatik">Sistem Rem Angin &amp; Pneumatik</option>
-                                        <option value="Scanner Diagnostik ECU">Scanner Diagnostik ECU</option>
-                                        <option value="Ganti Oli & Filter OEM">Ganti Oli &amp; Filter OEM</option>
-                                        <option value="Spooring, Balancing & Ban">Spooring, Balancing &amp; Ban</option>
-                                        <option value="Derek Siaga 24 Jam">Derek Siaga 24 Jam</option>
+                                    <label class="form-label small fw-bold text-dark">Jenis Layanan</label>
+                                    <select id="bk_service" class="form-select">
+                                        <option value="Servis Berkala & Inspeksi 30 Titik" selected>Servis Berkala &amp; Inspeksi</option>
+                                        <option value="Overhaul & Diagnosa Mesin Diesel">Overhaul Mesin Diesel</option>
+                                        <option value="Rem Angin Pneumatik & Kaki-Kaki">Rem Angin &amp; Kaki-Kaki</option>
+                                        <option value="Ganti Oli & Pelumas Resmi">Ganti Oli Pertamina / Mobil</option>
+                                        <option value="Ban Dunlop Truk Niaga">Ban Komersial Dunlop</option>
+                                        <option value="Kelistrikan & Aki 24V">Kelistrikan &amp; Aki 24V</option>
+                                        <option value="Derek Darurat 24 Jam">Derek Darurat Siaga 24 Jam</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="booking-form-label" for="bookingDate">Estimasi Tanggal</label>
-                                    <input type="date" class="form-control" id="bookingDate">
+                                    <label class="form-label small fw-bold text-dark">Estimasi Tanggal</label>
+                                    <input type="date" id="bk_date" class="form-control">
                                 </div>
                                 <div class="col-12">
-                                    <label class="booking-form-label" for="bookingNote">No. Polisi / Gejala Kerusakan Truk</label>
-                                    <textarea class="form-control" id="bookingNote" rows="2" placeholder="Contoh: BK 8920 XX / Mesin kurang bertenaga & rem angin ngempos"></textarea>
+                                    <label class="form-label small fw-bold text-dark">No. Polisi / Gejala Kerusakan Truk</label>
+                                    <textarea id="bk_notes" class="form-control" placeholder="BK 8920 XX / Mesin brebet & rem angin ngempos" rows="2"></textarea>
                                 </div>
                                 <div class="col-12 pt-2">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">
-                                        <i class="bi bi-whatsapp me-2"></i> Kirim Permintaan Servis via WhatsApp
+                                    <button class="btn btn-booking-wa w-100" type="submit">
+                                        <i class="fab fa-whatsapp me-2 fs-5"></i>Kirim Permintaan Servis via WhatsApp
                                     </button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
+
             </div>
         </div>
-    </section>
+    </div>
     <!-- Booking End -->
 
 
     <!-- ============================================================== -->
-    <!-- 9. TIM TEKNISI SECTION                                         -->
-    <!-- Foto 4/5 aspect ratio, object-position center 20%              -->
+    <!-- 9. TEAM SECTION (FOTO RADIUS 16PX & CLEAN BADGE)              -->
     <!-- ============================================================== -->
-    <section id="team" class="mt-section mt-section--white">
-        <div class="container">
-            <div class="text-center section-header-wrap">
-                <span class="badge-eyebrow">
-                    <i class="bi bi-people"></i> TIM PROFESIONAL
+    <div id="team" class="container-xxl py-5" style="background-color: var(--bg-white);">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <span class="badge-section-pill">
+                    <i class="fa fa-users-cog"></i>TIM TEKNISI &amp; MEKANIK
                 </span>
-                <h2 class="section-title">
-                    Teknisi Berpengalaman &amp; Bersertifikasi Manufaktur
+                <h2 class="display-6 fw-bold mb-3">
+                    Tenaga Ahli Bersertifikasi <span class="text-primary">MASTER TRUCK</span>
                 </h2>
-                <p class="section-desc">
-                    Dipimpin oleh mekanik senior spesialis mesin diesel heavy-duty dengan pengalaman puluhan tahun menangani armada komersial di Sumatera.
+                <p class="text-muted mx-auto" style="max-width: 600px; font-size: 15px;">
+                    Didukung mekanik bersertifikat prinsipal dengan jam terbang tinggi menangani armada niaga di KIM III Medan.
                 </p>
             </div>
 
+            <!-- TODO: konfirmasi foto & data nama tim teknisi resmi PT Master Truck Indonesia -->
             <div class="row g-4">
                 <div class="col-lg-3 col-md-6">
-                    <div class="team-card">
-                        <div class="team-photo-frame">
-                            <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/team-1.jpg" alt="Hendra Wijaya - Kepala Teknisi Mesin & Overhaul" loading="lazy" width="400" height="500">
+                    <div class="team-enterprise-card">
+                        <div class="team-photo-wrap">
+                            <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/team-1.jpg" alt="Hendra Wijaya">
                         </div>
-                        <div class="team-info">
-                            <h3 class="team-name">Hendra Wijaya</h3>
-                            <p class="team-role">Kepala Teknisi Mesin &amp; Overhaul</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="team-card">
-                        <div class="team-photo-frame">
-                            <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/team-2.jpg" alt="Budi Santoso - Spesialis Kelistrikan & Diagnostik ECU" loading="lazy" width="400" height="500">
-                        </div>
-                        <div class="team-info">
-                            <h3 class="team-name">Budi Santoso</h3>
-                            <p class="team-role">Spesialis Kelistrikan &amp; ECU 24V</p>
+                        <div class="p-4 text-center">
+                            <h5 class="fw-bold mb-1 text-dark">Hendra Wijaya</h5>
+                            <span class="team-badge-role">Kepala Bengkel (Workshop Head)</span>
+                            <p class="text-muted small mb-0">15+ tahun memimpin operasional pemeliharaan armada niaga &amp; manajemen pit bengkel di KIM III.</p>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-3 col-md-6">
-                    <div class="team-card">
-                        <div class="team-photo-frame">
-                            <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/team-3.jpg" alt="Ridwan Siregar - Ahli Sistem Rem Angin & Pneumatik" loading="lazy" width="400" height="500">
+                    <div class="team-enterprise-card">
+                        <div class="team-photo-wrap">
+                            <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/team-2.jpg" alt="Bambang Suryadi">
                         </div>
-                        <div class="team-info">
-                            <h3 class="team-name">Ridwan Siregar</h3>
-                            <p class="team-role">Ahli Sistem Rem Angin &amp; Pneumatik</p>
+                        <div class="p-4 text-center">
+                            <h5 class="fw-bold mb-1 text-dark">Bambang Suryadi</h5>
+                            <span class="team-badge-role">Senior Diagnostic Specialist</span>
+                            <p class="text-muted small mb-0">Pakar diagnosa komputerisasi scanner ECU common rail truk modern (Hino, Fuso, Scania, Volvo).</p>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-3 col-md-6">
-                    <div class="team-card">
-                        <div class="team-photo-frame">
-                            <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/team-4.jpg" alt="Dedi Kurniawan - Supervisor Evakuasi & Derek 24 Jam" loading="lazy" width="400" height="500">
+                    <div class="team-enterprise-card">
+                        <div class="team-photo-wrap">
+                            <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/team-3.jpg" alt="Rudi Santoso">
                         </div>
-                        <div class="team-info">
-                            <h3 class="team-name">Dedi Kurniawan</h3>
-                            <p class="team-role">Supervisor Derek Siaga 24 Jam</p>
+                        <div class="p-4 text-center">
+                            <h5 class="fw-bold mb-1 text-dark">Rudi Santoso</h5>
+                            <span class="team-badge-role">Heavy Diesel Overhaul Engineer</span>
+                            <p class="text-muted small mb-0">Spesialis turun mesin total, presisi silinder head, kalibrasi bospom &amp; rekondisi girboks transmisi tugas berat.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-enterprise-card">
+                        <div class="team-photo-wrap">
+                            <img src="<?php echo esc_url( $theme_uri ); ?>/assets/img/team-4.jpg" alt="Agus Pratama">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h5 class="fw-bold mb-1 text-dark">Agus Pratama</h5>
+                            <span class="team-badge-role">Air Brake &amp; Chassis Lead</span>
+                            <p class="text-muted small mb-0">Ahli sistem keselamatan rem angin pneumatik, suspensi per daun, gandar gardan &amp; ban komersial Dunlop.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
     <!-- Team End -->
 
 
     <!-- ============================================================== -->
-    <!-- 10. TESTIMONI SECTION                                          -->
-    <!-- 3 Kartu setara tinggi, bintang --accent, avatar inisial        -->
+    <!-- 10. TESTIMONIALS (TANDA KUTIP TINT & RING AVATAR)              -->
     <!-- ============================================================== -->
-    <section id="testimonial" class="mt-section mt-section--alt">
-        <div class="container">
-            <div class="text-center section-header-wrap">
-                <span class="badge-eyebrow">
-                    <i class="bi bi-chat-quote"></i> TESTIMONI MITRA
+    <div id="testimonial" class="container-xxl py-5" style="background-color: var(--bg-light);">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <span class="badge-section-pill">
+                    <i class="fa fa-comments"></i>TESTIMONI MITRA
                 </span>
-                <h2 class="section-title">
-                    Kepercayaan Para Pengelola Armada Bersama MASTER TRUCK
+                <h2 class="display-6 fw-bold mb-3">
+                    Kepercayaan Para Pengelola Armada Bersama <span class="text-primary">MASTER TRUCK</span>
                 </h2>
-                <p class="section-desc">
+                <p class="text-muted mx-auto" style="max-width: 600px; font-size: 15px;">
                     Pengalaman pengelola armada dan pemilik usaha transportasi yang mempercayakan pemeliharaan truk mereka kepada Master Truck.
                 </p>
             </div>
 
+            <!-- TODO: konfirmasi data resmi testimoni pelanggan PT Master Truck Indonesia -->
             <div class="owl-carousel testimonial-carousel position-relative">
                 
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card">
+                <div class="testimonial-enterprise-card text-center">
+                    <i class="fa fa-quote-right testimonial-quote-icon"></i>
                     <div>
-                        <div class="testimonial-avatar-initial">GS</div>
-                        <div class="text-center star-rating">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
+                        <img class="testimonial-avatar" src="<?php echo esc_url( $theme_uri ); ?>/assets/img/testimonial-1.jpg" alt="Gunawan Siregar">
+                        <div class="text-warning mb-2 small">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
                         </div>
-                        <div class="text-center testimonial-author">Gunawan Siregar</div>
-                        <div class="text-center testimonial-role">Fleet Manager &mdash; PT Samudera Logistik KIM</div>
+                        <h5 class="fw-bold mb-1 text-dark">Gunawan Siregar</h5>
+                        <small class="text-primary fw-bold d-block mb-3">Fleet Manager &mdash; PT Samudera Logistik KIM</small>
                     </div>
-                    <p class="testimonial-text">
-                        &ldquo;Sejak bermitra dengan Master Truck, downtime 30 unit trailer kami berkurang signifikan. Penanganan cepat, estimasi biaya jelas di awal, dan pengerjaan tepat waktu sangat membantu target pengiriman kami.&rdquo;
+                    <p class="text-muted small mb-0" style="line-height: 1.65;">
+                        "Sejak bermitra dengan Master Truck, downtime 30 unit trailer kami berkurang signifikan. Penanganan cepat, estimasi biaya jelas di awal, dan pengerjaan tepat waktu sangat membantu target pengiriman kami."
                     </p>
                 </div>
 
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card">
+                <div class="testimonial-enterprise-card text-center">
+                    <i class="fa fa-quote-right testimonial-quote-icon"></i>
                     <div>
-                        <div class="testimonial-avatar-initial">BW</div>
-                        <div class="text-center star-rating">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
+                        <img class="testimonial-avatar" src="<?php echo esc_url( $theme_uri ); ?>/assets/img/testimonial-2.jpg" alt="Budi Wicaksono">
+                        <div class="text-warning mb-2 small">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
                         </div>
-                        <div class="text-center testimonial-author">Budi Wicaksono</div>
-                        <div class="text-center testimonial-role">Direktur Operasional &mdash; CV Maju Bersama Angkutan</div>
+                        <h5 class="fw-bold mb-1 text-dark">Budi Wicaksono</h5>
+                        <small class="text-primary fw-bold d-block mb-3">Direktur Operasional &mdash; CV Maju Bersama Angkutan</small>
                     </div>
-                    <p class="testimonial-text">
-                        &ldquo;Kepastian pasokan oli Pertamina Meditran dan ban Dunlop resmi dengan tarif distributor sangat menghemat anggaran perawatan armada kami. Layanan profesional, transparan, dan terpercaya.&rdquo;
+                    <p class="text-muted small mb-0" style="line-height: 1.65;">
+                        "Kepastian pasokan oli Pertamina Meditran dan ban Dunlop resmi dengan tarif distributor sangat menghemat anggaran perawatan armada kami. Layanan profesional, transparan, dan terpercaya."
                     </p>
                 </div>
 
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card">
+                <div class="testimonial-enterprise-card text-center">
+                    <i class="fa fa-quote-right testimonial-quote-icon"></i>
                     <div>
-                        <div class="testimonial-avatar-initial">AF</div>
-                        <div class="text-center star-rating">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
+                        <img class="testimonial-avatar" src="<?php echo esc_url( $theme_uri ); ?>/assets/img/testimonial-3.jpg" alt="Ahmad Faisal">
+                        <div class="text-warning mb-2 small">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
                         </div>
-                        <div class="text-center testimonial-author">Ahmad Faisal</div>
-                        <div class="text-center testimonial-role">Supervisor Transportasi &mdash; PT Deli Sawit Makmur</div>
+                        <h5 class="fw-bold mb-1 text-dark">Ahmad Faisal</h5>
+                        <small class="text-primary fw-bold d-block mb-3">Supervisor Transportasi &mdash; PT Deli Sawit Makmur</small>
                     </div>
-                    <p class="testimonial-text">
-                        &ldquo;Layanan derek siaga 24 jam Master Truck sangat menolong ketika dump truck pengangkut kami mengalami kendala rem angin di jalur Tebing Tinggi. Respons mekanik sangat sigap dan langsung beres.&rdquo;
+                    <p class="text-muted small mb-0" style="line-height: 1.65;">
+                        "Layanan derek siaga 24 jam Master Truck sangat menolong ketika dump truck pengangkut kami mengalami kendala rem angin di jalur Tebing Tinggi. Respons mekanik sangat sigap dan langsung beres."
                     </p>
                 </div>
 
-                <!-- Testimonial 4 -->
-                <div class="testimonial-card">
+                <div class="testimonial-enterprise-card text-center">
+                    <i class="fa fa-quote-right testimonial-quote-icon"></i>
                     <div>
-                        <div class="testimonial-avatar-initial">DK</div>
-                        <div class="text-center star-rating">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
+                        <img class="testimonial-avatar" src="<?php echo esc_url( $theme_uri ); ?>/assets/img/testimonial-4.jpg" alt="Dedi Kurniawan">
+                        <div class="text-warning mb-2 small">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
                         </div>
-                        <div class="text-center testimonial-author">Dedi Kurniawan</div>
-                        <div class="text-center testimonial-role">Koordinator Armada &mdash; PT Belawan Port Logistics</div>
+                        <h5 class="fw-bold mb-1 text-dark">Dedi Kurniawan</h5>
+                        <small class="text-primary fw-bold d-block mb-3">Koordinator Armada &mdash; PT Belawan Port Logistics</small>
                     </div>
-                    <p class="testimonial-text">
-                        &ldquo;Inspeksi kendaraan sangat mendalam dan teknisi menjelaskan kondisi riil komponen sebelum dilakukan pergantian. Master Truck adalah mitra bengkel armada paling tepercaya di KIM III!&rdquo;
+                    <p class="text-muted small mb-0" style="line-height: 1.65;">
+                        "Inspeksi kendaraan sangat mendalam dan teknisi menjelaskan kondisi riil komponen sebelum dilakukan pergantian. Master Truck adalah mitra bengkel armada paling tepercaya di KIM III!"
                     </p>
                 </div>
 
             </div>
         </div>
-    </section>
+    </div>
     <!-- Testimonial End -->
-
-</main>
-
-<!-- WhatsApp Booking Handler Script -->
-<script>
-function handleBookingSubmit(e) {
-    e.preventDefault();
-    var name = document.getElementById('bookingName').value || '';
-    var phone = document.getElementById('bookingPhone').value || '';
-    var service = document.getElementById('bookingService').value || '';
-    var date = document.getElementById('bookingDate').value || 'Segera';
-    var note = document.getElementById('bookingNote').value || '-';
-
-    var msg = "Halo Master Truck KIM III Medan, saya ingin booking servis:\n" +
-              "- Nama / Perusahaan: " + name + "\n" +
-              "- No Kontak: " + phone + "\n" +
-              "- Jenis Layanan: " + service + "\n" +
-              "- Estimasi Tanggal: " + date + "\n" +
-              "- Keterangan Truk: " + note;
-
-    var waUrl = "https://wa.me/6281234567890?text=" + encodeURIComponent(msg);
-    window.open(waUrl, '_blank');
-}
-</script>
 
 <?php
 get_footer();

@@ -114,8 +114,8 @@
 }
 
 .top-fleet-btn.btn-fleet-reg {
-    background: #5B8DEF;
-    border: 1px solid #5B8DEF;
+    background: #D81324;
+    border: 1px solid #D81324;
     color: #FFFFFF !important;
 }
 
@@ -138,7 +138,7 @@
 }
 
 .top-social-btn:hover {
-    background: #5B8DEF;
+    background: #D81324;
     color: #FFFFFF;
 }
 
@@ -165,7 +165,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: #5B8DEF;
+    color: #D81324;
     font-size: 20px;
     box-shadow: 0 4px 10px rgba(11, 33, 84, 0.2);
 }
@@ -185,7 +185,7 @@
 }
 
 .navbar-brand-title span {
-    color: #5B8DEF;
+    color: #D81324;
 }
 
 .navbar-brand-sub {
@@ -221,7 +221,7 @@
 
 .navbar .navbar-nav .nav-link:hover,
 .navbar .navbar-nav .nav-link.active {
-    color: #5B8DEF;
+    color: #D81324;
 }
 
 .navbar .navbar-nav .nav-link::after {
@@ -236,7 +236,7 @@
 }
 
 .navbar .btn-header-cta {
-    background: #5B8DEF;
+    background: #D81324;
     color: #FFFFFF !important;
     font-size: 13.5px;
     font-weight: 700;
@@ -287,7 +287,7 @@
 
     .navbar .nav-item .dropdown-menu a:hover {
         background-color: #F8FAFC;
-        color: #5B8DEF;
+        color: #D81324;
     }
 
     .navbar .nav-item:hover .dropdown-menu {
@@ -565,7 +565,7 @@
    ========================================================================== */
 
 :root {
-    --primary: #5B8DEF;
+    --primary: #D81324;
     --primary-hover: #b50f1d;
     --primary-light: #FEE2E2;
     --secondary: #0B2154;
@@ -625,7 +625,7 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: #5B8DEF;
+    color: #D81324;
     font-size: 22px;
     box-shadow: 0 6px 14px rgba(11, 33, 84, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.15);
@@ -639,7 +639,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Barlow', sans-serif;
 }
 .navbar-brand-title span {
-    color: #5B8DEF;
+    color: #D81324;
 }
 .navbar-brand-sub {
     font-size: 9.5px;
@@ -811,7 +811,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 42px;
     height: 42px;
     border-radius: 10px;
-    background: #5B8DEF;
+    background: #D81324;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -848,8 +848,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
-    background: #5B8DEF;
-    border-color: #5B8DEF;
+    background: #D81324;
+    border-color: #D81324;
     opacity: 1;
     transform: translateY(-50%) scale(1.08);
 }
@@ -887,8 +887,8 @@ h1, h2, h3, h4, h5, h6 {
     width: 54px;
     height: 54px;
     border-radius: 14px;
-    background: #EAF1FE;
-    color: #5B8DEF;
+    background: #FEF2F2;
+    color: #D81324;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -897,7 +897,7 @@ h1, h2, h3, h4, h5, h6 {
     transition: all 0.3s ease;
 }
 .feature-enterprise-card:hover .feature-card-icon-wrap {
-    background: #5B8DEF;
+    background: #D81324;
     color: #FFFFFF;
     transform: scale(1.05);
 }
@@ -920,9 +920,9 @@ h1, h2, h3, h4, h5, h6 {
 .badge-section-pill {
     display: inline-flex;
     align-items: center;
-    background: #EAF1FE;
+    background: #FEF2F2;
     border: 1px solid #FEE2E2;
-    color: #5B8DEF;
+    color: #D81324;
     font-size: 12px;
     font-weight: 800;
     letter-spacing: 1.2px;
@@ -992,8 +992,8 @@ h1, h2, h3, h4, h5, h6 {
     width: 44px;
     height: 44px;
     border-radius: 10px;
-    background: #EAF1FE;
-    color: #5B8DEF;
+    background: #FEF2F2;
+    color: #D81324;
     font-weight: 900;
     font-size: 16px;
     display: inline-flex;
@@ -1060,8 +1060,8 @@ h1, h2, h3, h4, h5, h6 {
     width: 48px;
     height: 48px;
     border-radius: 12px;
-    background: #EAF1FE;
-    color: #5B8DEF;
+    background: #FEF2F2;
+    color: #D81324;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1070,7 +1070,7 @@ h1, h2, h3, h4, h5, h6 {
     flex-shrink: 0;
 }
 .service-tab-btn.active .service-tab-icon {
-    background: #5B8DEF;
+    background: #D81324;
     color: #FFFFFF;
 }
 
@@ -1107,7 +1107,7 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
 }
 .brand-enterprise-card:hover {
-    border-color: #5B8DEF;
+    border-color: #D81324;
     transform: translateY(-5px);
     box-shadow: 0 12px 28px rgba(216, 19, 36, 0.12);
 }
@@ -1125,8 +1125,8 @@ h1, h2, h3, h4, h5, h6 {
     transition: all 0.3s ease;
 }
 .brand-enterprise-card:hover .brand-icon-box {
-    background: #EAF1FE;
-    color: #5B8DEF;
+    background: #FEF2F2;
+    color: #D81324;
 }
 
 /* Distribution Network Cards */
@@ -1154,8 +1154,8 @@ h1, h2, h3, h4, h5, h6 {
     width: 36px;
     height: 36px;
     border-radius: 10px;
-    background: #EAF1FE;
-    color: #5B8DEF;
+    background: #FEF2F2;
+    color: #D81324;
     display: inline-flex;
     align-items: center;
     justify-content: center;
