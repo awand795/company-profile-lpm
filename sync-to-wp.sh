@@ -61,6 +61,23 @@ if [[ -d "$ROOT/wp-content/plugins/mt-topbar" ]]; then
   echo "OK  plugins/mt-topbar/"
 fi
 
+# Samakan template homepage (ID 59) ke Master Truck Landing agar teks
+# selalu dari repo, bukan konten Elementor lama di database.
+# Idempoten & non-fatal: gagal hanya jadi peringatan.
+if docker exec "$CONTAINER" test -f "$THEME_PATH/template-mastertruck.php" 2>/dev/null; then
+  CUR_TPL="$(docker exec "$CONTAINER" wp post meta get 59 _wp_page_template --allow-root --path=/var/www/html 2>/dev/null || true)"
+  if [[ "$CUR_TPL" != "template-mastertruck.php" ]]; then
+    if docker exec "$CONTAINER" wp post meta update 59 _wp_page_template template-mastertruck.php --allow-root --path=/var/www/html >/dev/null 2>&1; then
+      echo "OK  homepage(ID 59) -> template-mastertruck.php (was: ${CUR_TPL:-none})"
+    else
+      echo "WARN  gagal menetapkan template homepage (pastikan WP-CLI siap, lalu ulangi)"
+    fi
+  else
+    echo "OK  homepage(ID 59) sudah template-mastertruck.php"
+  fi
+  docker exec "$CONTAINER" wp rewrite flush --allow-root --path=/var/www/html >/dev/null 2>&1 || true
+fi
+
 echo ""
 echo "Sinkronisasi selesai. Theme: $THEME"
 echo "Template: Page Editor -> Page Template -> 'Master Truck Landing'"
