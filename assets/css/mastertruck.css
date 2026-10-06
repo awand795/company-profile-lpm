@@ -2050,3 +2050,49 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     border-color: var(--primary);
     color: #FFFFFF;
 }
+
+/* ==============================================================
+   14. HEADER ANTI-HANCUR — topbar & navbar selalu muat 1 baris
+   (fix luapan topbar 38px + tombol navbar terpotong di 1440px)
+   ============================================================== */
+.top-bar-custom {
+    display: block !important;
+    height: auto !important;
+    min-height: 38px;
+}
+.top-bar-custom > .row {
+    flex-wrap: nowrap;
+    margin-left: 0;
+    margin-right: 0;
+}
+.top-bar-custom > .row > [class*="col-"] {
+    min-width: 0;
+}
+.top-bar-custom small {
+    white-space: nowrap;
+}
+
+@media (min-width: 992px) {
+    .navbar .navbar-collapse {
+        min-width: 0;
+        flex-shrink: 1;
+    }
+    .navbar .navbar-nav {
+        flex-shrink: 1;
+        min-width: 0;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1399.98px) {
+    .navbar .navbar-nav .nav-link {
+        padding: 8px 10px !important;
+    }
+    .navbar-brand-logo {
+        gap: 8px !important;
+    }
+    .btn-nav-login,
+    .btn-nav-register {
+        padding: 0 12px !important;
+        font-size: 12.5px !important;
+    }
+}

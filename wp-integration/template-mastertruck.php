@@ -110,7 +110,7 @@ function mt_landing_dequeue_late() {
     <!-- Topbar Start -->
     <div class="container-fluid top-bar-custom p-0">
         <div class="row gx-0 d-none d-lg-flex align-items-center">
-            <div class="col-lg-7 px-5 text-start">
+            <div class="col-lg-7 px-4 text-start">
                 <div class="h-100 d-inline-flex align-items-center py-2 me-3">
                     <small class="fa fa-map-marker-alt text-primary me-2"></small>
                     <small>KIM III Medan &mdash; Sumatera Utara</small>
@@ -122,22 +122,14 @@ function mt_landing_dequeue_late() {
                     <span class="mt-topbar__chip"><span class="mt-topbar__dot"></span>Bengkel Buka</span>
                 </div>
             </div>
-            <div class="col-lg-5 px-5 text-end">
-                <div class="h-100 d-inline-flex align-items-center py-2 me-3">
+            <div class="col-lg-5 px-4 text-end d-flex justify-content-end align-items-center gap-3">
+                <div class="h-100 d-inline-flex align-items-center py-2">
                     <small class="fa fa-phone-alt text-primary me-2"></small>
                     <small><a href="tel:06188881234" class="text-decoration-none fw-bold">061-8888-1234</a></small>
                 </div>
-                <div class="h-100 d-inline-flex align-items-center me-3">
-                    <a href="http://localhost:3000/#login" target="_blank" rel="noopener noreferrer" class="top-fleet-btn btn-fleet-login">
-                        <i class="fa fa-sign-in-alt me-1"></i> Login Fleet
-                    </a>
-                    <a href="http://localhost:3000/#register" target="_blank" rel="noopener noreferrer" class="top-fleet-btn btn-fleet-reg">
-                        <i class="fa fa-user-plus me-1"></i> Daftar Mitra
-                    </a>
-                </div>
-                <div class="h-100 d-inline-flex align-items-center">
-                    <a class="top-social-btn me-1" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a class="top-social-btn me-1" href="#"><i class="fab fa-instagram"></i></a>
+                <div class="h-100 d-inline-flex align-items-center gap-1">
+                    <a class="top-social-btn" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="top-social-btn" href="#"><i class="fab fa-instagram"></i></a>
                     <a class="top-social-btn" href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
@@ -147,7 +139,7 @@ function mt_landing_dequeue_late() {
 
 
     <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm sticky-top px-4 px-lg-5">
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm sticky-top px-3 px-lg-4">
         <a href="#header-carousel" class="navbar-brand-logo">
             <div class="navbar-brand-icon">
                 <i class="fa fa-truck"></i>
@@ -166,20 +158,6 @@ function mt_landing_dequeue_late() {
                 <a href="#about" class="nav-item nav-link">Tentang Kami</a>
                 <a href="#service" class="nav-item nav-link">Layanan</a>
                 <a href="#principals" class="nav-item nav-link">Prinsipal OEM</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Portal Fleet</a>
-                    <div class="dropdown-menu fade-up m-0">
-                        <a href="http://localhost:3000/#login" target="_blank" rel="noopener noreferrer" class="dropdown-item">
-                            <i class="fa fa-sign-in-alt me-2 text-primary"></i>Login Web Fleet
-                        </a>
-                        <a href="http://localhost:3000/#register" target="_blank" rel="noopener noreferrer" class="dropdown-item">
-                            <i class="fa fa-user-plus me-2 text-primary"></i>Registrasi Mitra Baru
-                        </a>
-                        <a href="#booking" class="dropdown-item">
-                            <i class="fa fa-info-circle me-2 text-primary"></i>Info Kemitraan Fleet
-                        </a>
-                    </div>
-                </div>
                 <a href="#team" class="nav-item nav-link">Teknisi</a>
                 <a href="#testimonial" class="nav-item nav-link">Testimoni</a>
                 <a href="#faq" class="nav-item nav-link">FAQ</a>
@@ -187,10 +165,10 @@ function mt_landing_dequeue_late() {
             </div>
             <div class="ms-3 d-none d-lg-inline-flex align-items-center gap-2">
                 <a href="http://localhost:3000/#login" target="_blank" rel="noopener noreferrer" class="btn-nav-login">
-                    <i class="fa fa-sign-in-alt me-2"></i>Masuk
+                    <i class="fa fa-sign-in-alt me-2"></i>Login Fleet
                 </a>
                 <a href="http://localhost:3000/#register" target="_blank" rel="noopener noreferrer" class="btn-nav-register">
-                    <i class="fa fa-user-plus me-2"></i>Daftar Mitra
+                    <i class="fa fa-user-plus me-2"></i>Daftar Fleet
                 </a>
             </div>
         </div>
