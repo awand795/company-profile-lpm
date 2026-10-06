@@ -36,10 +36,39 @@ $theme_uri = get_template_directory_uri();
 
     <style>
         /* Perbaikan Menu Header: 1 Baris Penuh, Rapi, Tanpa Teks Terpotong/Turun */
+        .navbar-brand-icon {
+            width: 46px !important;
+            height: 46px !important;
+            background: linear-gradient(135deg, #0B2154 0%, #17377D 100%) !important;
+            border-radius: 12px !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            color: #FFFFFF !important;
+            font-size: 20px !important;
+            box-shadow: 0 4px 12px rgba(11, 33, 84, 0.25) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        }
+        .navbar-brand-title {
+            font-size: 24px !important;
+            font-weight: 900 !important;
+            letter-spacing: -0.5px !important;
+            color: #0B2154 !important;
+            line-height: 1 !important;
+            font-family: 'Barlow', sans-serif !important;
+        }
+        .navbar-brand-title span {
+            color: #D81324 !important;
+        }
         .navbar-brand-sub {
             white-space: nowrap !important;
-            font-size: 9px !important;
-            letter-spacing: 1.2px !important;
+            font-size: 9.5px !important;
+            font-weight: 800 !important;
+            letter-spacing: 1.3px !important;
+            color: #475569 !important;
+            margin-top: 3px !important;
+            display: flex !important;
+            align-items: center !important;
         }
         .navbar .navbar-nav {
             flex-wrap: nowrap !important;
@@ -141,11 +170,11 @@ $theme_uri = get_template_directory_uri();
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm sticky-top px-3 px-xl-4">
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="navbar-brand-logo">
             <div class="navbar-brand-icon">
-                <i class="fa fa-truck"></i>
+                <i class="fa fa-truck text-white"></i>
             </div>
             <div class="navbar-brand-text">
                 <span class="navbar-brand-title">MASTER <span>TRUCK</span></span>
-                <span class="navbar-brand-sub">Bengkel Truk &amp; OEM KIM III</span>
+                <span class="navbar-brand-sub"><i class="fa fa-shield-alt text-danger me-1"></i>PUSAT REKAYASA &amp; OEM KIM III</span>
             </div>
         </a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
