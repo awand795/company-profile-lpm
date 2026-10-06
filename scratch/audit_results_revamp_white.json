@@ -1,0 +1,12 @@
+{
+  "console_errors": [],
+  "red_violations": [],
+  "emergency_danger_cta_present": true,
+  "horizontal_overflow_390": false,
+  "tabs_interactive": true,
+  "headings_hierarchy": {
+    "h1": 1,
+    "h2": 8,
+    "h3": 13
+  }
+}

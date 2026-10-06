@@ -123,6 +123,32 @@ docker cp "$stage/." "$Container`:$themePath/mastertruck/"
 if ($LASTEXITCODE -ne 0) { throw "docker cp mastertruck/ gagal" }
 Write-Host "OK  mastertruck/ (style.css, main.js$(if (-not $SkipImages) { ', images/' }))" -ForegroundColor Green
 
+# --- Salin assets/css/mastertruck.css sebagai single source of truth ---
+$mtCssSrc = Join-Path $root 'assets/css/mastertruck.css'
+if (Test-Path $mtCssSrc) {
+    # Sync ke wp-theme/carserv di repo
+    $carservCss = Join-Path $root 'wp-theme/carserv/assets/css/mastertruck.css'
+    Copy-Item -Path $mtCssSrc -Destination $carservCss -Force
+    
+    # Sync ke wp-integration/mastertruck/style.css
+    $intCss = Join-Path $root 'wp-integration/mastertruck/style.css'
+    Copy-Item -Path $mtCssSrc -Destination $intCss -Force
+    
+    # Sync ke theme di container
+    docker exec $Container mkdir -p "$themePath/assets/css" 2>$null | Out-Null
+    docker cp $mtCssSrc "$Container`:$themePath/assets/css/mastertruck.css"
+    Write-Host "OK  assets/css/mastertruck.css -> container & repo" -ForegroundColor Green
+}
+
+# Bila theme aktif adalah carserv, sinkronkan juga template files dari repo wp-theme/carserv
+if ($Theme -eq 'carserv') {
+    $carservSrc = Join-Path $root 'wp-theme/carserv'
+    if (Test-Path $carservSrc) {
+        docker cp "$carservSrc/." "$Container`:$themePath/"
+        Write-Host "OK  wp-theme/carserv -> container $themePath" -ForegroundColor Green
+    }
+}
+
 # --- Salin template -----------------------------------------------------------
 docker cp (Join-Path $src 'template-mastertruck.php') "$Container`:$themePath/template-mastertruck.php"
 if ($LASTEXITCODE -ne 0) { throw "docker cp template-mastertruck.php gagal" }
@@ -135,7 +161,8 @@ if (Test-Path $bizniz) {
     if ($LASTEXITCODE -ne 0) { throw "docker cp template-bizniz.php gagal" }
     Write-Host "OK  template-bizniz.php" -ForegroundColor Green
 }
-docker exec $Container chown -R www-data:www-data "$themePath/template-mastertruck.php" "$themePath/template-bizniz.php" 2>$null | Out-Null
+docker exec $Container chown -R www-data:www-data "$themePath" 2>$null | Out-Null
+docker exec $Container wp cache flush --allow-root 2>$null | Out-Null
 
 # --- Media wp-content/uploads (opsional) ------------------------------------
 $uploads = Join-Path $root 'wp-content/uploads'

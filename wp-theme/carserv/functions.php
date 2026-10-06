@@ -36,18 +36,12 @@ function carserv_scripts() {
         null
     );
 
-    // 2. Icon Fonts
-    wp_enqueue_style(
-        'carserv-fontawesome',
-        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css',
-        array(),
-        '5.15.4'
-    );
+    // 2. Icon Font: Bootstrap Icons (Single Icon Library)
     wp_enqueue_style(
         'carserv-bootstrap-icons',
-        'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css',
+        'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css',
         array(),
-        '1.4.1'
+        '1.11.3'
     );
 
     // 3. Vendor Libraries
@@ -177,6 +171,9 @@ add_action( 'wp_enqueue_scripts', function() {
         wp_dequeue_style( 'elementor-frontend' );
         wp_dequeue_style( 'elementor-post-4' );
         wp_dequeue_style( 'elementor-post-59' );
+        wp_dequeue_style( 'elementor-gf-barlow' );
+        wp_dequeue_style( 'base-desktop' );
+        wp_dequeue_style( 'base-mobile' );
     }
 }, 999 );
 
