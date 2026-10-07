@@ -278,42 +278,44 @@ function mt_landing_dequeue_late() {
 
 
     <!-- Service Features Start -->
-    <div class="container-xxl py-5 sec-features">
+    <div class="container-xxl py-4 sec-features">
         <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="feature-strip">
-                        <div class="icon-tint-wrap icon-tint-blue"><i class="fa fa-clipboard-check"></i></div>
-                        <div>
-                            <h5>Cek Menyeluruh</h5>
-                            <p>Truk dicek 30 bagian, ada foto buktinya, bergaransi resmi.</p>
+            <div class="features-panel wow fadeInUp" data-wow-delay="0.1s">
+                <div class="row g-0">
+                    <div class="col-lg-3 col-md-6 feature-col">
+                        <div class="feature-strip">
+                            <div class="icon-tint-wrap icon-tint-blue"><i class="fa fa-clipboard-check"></i></div>
+                            <div>
+                                <h5>Cek Menyeluruh</h5>
+                                <p>Truk dicek 30 bagian, ada foto buktinya, bergaransi resmi.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="feature-strip">
-                        <div class="icon-tint-wrap icon-tint-teal"><i class="fa fa-users-cog"></i></div>
-                        <div>
-                            <h5>Teknisi Ahli</h5>
-                            <p>Montir khusus truk berpengalaman belasan tahun.</p>
+                    <div class="col-lg-3 col-md-6 feature-col">
+                        <div class="feature-strip">
+                            <div class="icon-tint-wrap icon-tint-teal"><i class="fa fa-users-cog"></i></div>
+                            <div>
+                                <h5>Teknisi Ahli</h5>
+                                <p>Montir khusus truk berpengalaman belasan tahun.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="feature-strip">
-                        <div class="icon-tint-wrap icon-tint-amber"><i class="fa fa-shield-alt"></i></div>
-                        <div>
-                            <h5>Barang Asli</h5>
-                            <p>Oli, ban, dan aki langsung dari pabriknya. Dijamin asli.</p>
+                    <div class="col-lg-3 col-md-6 feature-col">
+                        <div class="feature-strip">
+                            <div class="icon-tint-wrap icon-tint-amber"><i class="fa fa-shield-alt"></i></div>
+                            <div>
+                                <h5>Barang Asli</h5>
+                                <p>Oli, ban, dan aki langsung dari pabriknya. Dijamin asli.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
-                    <div class="feature-strip">
-                        <div class="icon-tint-wrap icon-tint-lavender"><i class="fa fa-satellite-dish"></i></div>
-                        <div>
-                            <h5>Pantau Online</h5>
-                            <p>Lihat progress servis dan tagihan dari HP kapan saja.</p>
+                    <div class="col-lg-3 col-md-6 feature-col">
+                        <div class="feature-strip">
+                            <div class="icon-tint-wrap icon-tint-blue"><i class="fa fa-satellite-dish"></i></div>
+                            <div>
+                                <h5>Pantau Online</h5>
+                                <p>Lihat progress servis dan tagihan dari HP kapan saja.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -329,11 +331,11 @@ function mt_landing_dequeue_late() {
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="about-img-box">
-                        <img src="<?php echo esc_url( $mt_base ); ?>/img/service-1.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Montir Master Truck sedang memperbaiki mesin truk">
+                        <img src="<?php echo esc_url( $mt_base ); ?>/img/service-1.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Montir sedang memperbaiki mesin truk di bengkel PT Master Truck Indonesia" loading="lazy">
                         <div class="about-exp-float-card">
                             <div class="icon-tint-wrap icon-tint-blue"><i class="fa fa-award"></i></div>
                             <div>
-                                <div class="fw-bold fs-4 mb-0" style="color: var(--navy); line-height:1;">15 Tahun</div>
+                                <div class="fw-bold fs-4 mb-0 text-navy">15 Tahun</div>
                                 <small class="text-muted">Pengalaman</small>
                             </div>
                         </div>
@@ -341,7 +343,7 @@ function mt_landing_dequeue_late() {
                 </div>
                 <div class="col-lg-6">
                     <span class="badge-section-pill">Tentang Kami</span>
-                    <h2 class="mb-3"><span style="color: var(--primary);">Master Truck</span>, Bengkel Truk Kepercayaan Anda di Medan</h2>
+                    <h2 class="mb-3"><span class="text-primary">Master Truck</span>, Bengkel Truk Kepercayaan Anda di Medan</h2>
                     <p class="mb-3">
                         <strong>PT Master Truck Indonesia</strong> ada di Kawasan Industri Medan III (KIM III). Kami merawat segala jenis truk dan mesin besar, sekaligus toko resmi oli Pertamina, oli Mobil, ban Dunlop, dan aki Incoe/GS Astra.
                     </p>
@@ -349,9 +351,9 @@ function mt_landing_dequeue_late() {
                         Semua pengerjaan tercatat dan bisa dipantau online — ada foto buktinya sebelum Anda bayar.
                     </p>
                     <ul class="about-check-list mb-4">
-                        <li><i class="fa fa-check-circle"></i>Segala jenis truk: tronton, trailer, dump truck, mesin besar</li>
-                        <li><i class="fa fa-check-circle"></i>Progress servis terpantau dari HP, lengkap dengan foto</li>
-                        <li><i class="fa fa-check-circle"></i>Barang 100% asli dari pabrik, bisa bayar tempo</li>
+                        <li><span class="check-icon-circle"><i class="fa fa-check"></i></span><span>Segala jenis truk: tronton, trailer, dump truck, mesin besar</span></li>
+                        <li><span class="check-icon-circle"><i class="fa fa-check"></i></span><span>Progress servis terpantau dari HP, lengkap dengan foto</span></li>
+                        <li><span class="check-icon-circle"><i class="fa fa-check"></i></span><span>Barang 100% asli dari pabrik, bisa bayar tempo</span></li>
                     </ul>
                     <div class="d-flex flex-wrap gap-2">
                         <a href="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20ingin%20konsultasi%20layanan%20armada" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
@@ -372,26 +374,38 @@ function mt_landing_dequeue_late() {
             <div class="row g-3 align-items-center">
                 <div class="col-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
                     <div class="fact-strip-item">
-                        <strong><span data-toggle="counter-up">15</span></strong>
-                        <span>Tahun Berpengalaman</span>
+                        <div class="fact-icon-badge"><i class="fa fa-calendar-alt"></i></div>
+                        <div>
+                            <strong><span data-toggle="counter-up">15</span></strong>
+                            <span>Tahun Berpengalaman</span>
+                        </div>
                     </div>
                 </div>
                 <div class="col-6 col-lg-3 wow fadeIn" data-wow-delay="0.2s">
                     <div class="fact-strip-item">
-                        <strong><span data-toggle="counter-up">45</span></strong>
-                        <span>Teknisi Ahli</span>
+                        <div class="fact-icon-badge"><i class="fa fa-user-cog"></i></div>
+                        <div>
+                            <strong><span data-toggle="counter-up">45</span></strong>
+                            <span>Teknisi Ahli</span>
+                        </div>
                     </div>
                 </div>
                 <div class="col-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
                     <div class="fact-strip-item">
-                        <strong><span data-toggle="counter-up">120</span>+</strong>
-                        <span>Perusahaan Pelanggan</span>
+                        <div class="fact-icon-badge"><i class="fa fa-building"></i></div>
+                        <div>
+                            <strong><span data-toggle="counter-up">120</span>+</strong>
+                            <span>Perusahaan Pelanggan</span>
+                        </div>
                     </div>
                 </div>
                 <div class="col-6 col-lg-3 wow fadeIn" data-wow-delay="0.4s">
                     <div class="fact-strip-item">
-                        <strong><span data-toggle="counter-up">2500</span></strong>
-                        <span>Truk per Tahun</span>
+                        <div class="fact-icon-badge"><i class="fa fa-truck-moving"></i></div>
+                        <div>
+                            <strong><span data-toggle="counter-up">2500</span></strong>
+                            <span>Truk per Tahun</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -411,9 +425,11 @@ function mt_landing_dequeue_late() {
             <div class="row g-4">
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-grid-card">
-                        <div class="service-grid-img"><img src="<?php echo esc_url( $mt_base ); ?>/img/service-1.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Cek mesin truk pakai komputer"></div>
+                        <div class="service-grid-img">
+                            <img src="<?php echo esc_url( $mt_base ); ?>/img/service-1.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Cek mesin truk pakai komputer" loading="lazy">
+                            <div class="service-chip-badge icon-tint-blue"><i class="fa fa-laptop-code"></i></div>
+                        </div>
                         <div class="service-grid-body">
-                            <div class="icon-tint-wrap icon-tint-blue"><i class="fa fa-laptop-code"></i></div>
                             <h5>Cek Mesin Komputer</h5>
                             <ul>
                                 <li>Mesin dicek pakai komputer</li>
@@ -426,9 +442,11 @@ function mt_landing_dequeue_late() {
                 </div>
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
                     <div class="service-grid-card">
-                        <div class="service-grid-img"><img src="<?php echo esc_url( $mt_base ); ?>/img/service-2.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Servis besar mesin truk"></div>
+                        <div class="service-grid-img">
+                            <img src="<?php echo esc_url( $mt_base ); ?>/img/service-2.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Servis besar mesin truk" loading="lazy">
+                            <div class="service-chip-badge icon-tint-teal"><i class="fa fa-cogs"></i></div>
+                        </div>
                         <div class="service-grid-body">
-                            <div class="icon-tint-wrap icon-tint-teal"><i class="fa fa-cogs"></i></div>
                             <h5>Servis Mesin Besar</h5>
                             <ul>
                                 <li>Turun mesin, bergaransi</li>
@@ -441,9 +459,11 @@ function mt_landing_dequeue_late() {
                 </div>
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-grid-card">
-                        <div class="service-grid-img"><img src="<?php echo esc_url( $mt_base ); ?>/img/service-3.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Ban truk dan rem angin"></div>
+                        <div class="service-grid-img">
+                            <img src="<?php echo esc_url( $mt_base ); ?>/img/service-3.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Ban truk dan rem angin" loading="lazy">
+                            <div class="service-chip-badge icon-tint-amber"><i class="fa fa-life-ring"></i></div>
+                        </div>
                         <div class="service-grid-body">
-                            <div class="icon-tint-wrap icon-tint-amber"><i class="fa fa-life-ring"></i></div>
                             <h5>Ban &amp; Rem Angin</h5>
                             <ul>
                                 <li>Ban Dunlop segala ukuran</li>
@@ -456,9 +476,11 @@ function mt_landing_dequeue_late() {
                 </div>
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="service-grid-card">
-                        <div class="service-grid-img"><img src="<?php echo esc_url( $mt_base ); ?>/img/service-4.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Ganti oli truk"></div>
+                        <div class="service-grid-img">
+                            <img src="<?php echo esc_url( $mt_base ); ?>/img/service-4.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Ganti oli truk" loading="lazy">
+                            <div class="service-chip-badge icon-tint-blue"><i class="fa fa-oil-can"></i></div>
+                        </div>
                         <div class="service-grid-body">
-                            <div class="icon-tint-wrap icon-tint-lavender"><i class="fa fa-oil-can"></i></div>
                             <h5>Ganti Oli</h5>
                             <ul>
                                 <li>Oli Pertamina &amp; Mobil asli</li>
@@ -538,7 +560,7 @@ function mt_landing_dequeue_late() {
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-6 py-5">
                     <div class="py-4">
-                        <span class="badge-section-pill"><i class="fa fa-siren-on me-1"></i>Derek Siaga 24 Jam</span>
+                        <span class="badge-section-pill badge-emergency-pill"><i class="fa fa-phone-volume me-1"></i>Derek Siaga 24 Jam</span>
                         <h2 class="mb-3">Truk Mogok? Kami Jemput Kapan Saja</h2>
                         <p class="mb-3">
                             Mogok di Medan, Belawan, Tebing Tinggi, atau lintas Sumatera? Mobil derek kami siap menjemput dan membawa truk Anda ke bengkel.
@@ -546,7 +568,7 @@ function mt_landing_dequeue_late() {
                         <p class="mb-4">
                             Daftar jadi pelanggan perusahaan: <strong>bisa bayar tempo</strong>, <strong>harga khusus</strong>, dan <strong>gratis pantau servis online</strong>.
                         </p>
-                        <div class="d-flex flex-wrap gap-2">
+                        <div class="d-flex flex-wrap gap-2 mb-4">
                             <a href="tel:081234567890" class="btn btn-emergency">
                                 <i class="fa fa-phone-alt me-2"></i>0812-3456-7890
                             </a>
@@ -554,10 +576,19 @@ function mt_landing_dequeue_late() {
                                 <i class="fa fa-user-plus me-2"></i>Daftar Fleet
                             </a>
                         </div>
-                        <div class="d-flex gap-4 mt-4">
-                            <div><div class="fw-bold fs-5 mb-0" style="color: var(--navy);">&lt; 60 mnt</div><small class="text-muted">Datang area KIM — Belawan</small></div>
-                            <div><div class="fw-bold fs-5 mb-0" style="color: var(--navy);">24 jam</div><small class="text-muted">Siaga telepon derek</small></div>
-                            <div><div class="fw-bold fs-5 mb-0" style="color: var(--navy);">Tempo</div><small class="text-muted">Bisa bayar belakangan</small></div>
+                        <div class="booking-chips-grid">
+                            <div class="booking-chip-card">
+                                <div class="booking-chip-val">&lt; 60 mnt</div>
+                                <div class="booking-chip-lbl">Datang area KIM — Belawan</div>
+                            </div>
+                            <div class="booking-chip-card">
+                                <div class="booking-chip-val">24 jam</div>
+                                <div class="booking-chip-lbl">Siaga telepon derek</div>
+                            </div>
+                            <div class="booking-chip-card">
+                                <div class="booking-chip-val">Tempo</div>
+                                <div class="booking-chip-lbl">Bisa bayar belakangan</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -565,7 +596,7 @@ function mt_landing_dequeue_late() {
                     <div class="booking-form-box wow zoomIn" data-wow-delay="0.2s">
                         <h3 class="text-center mb-1">Booking Servis Truk</h3>
                         <p class="text-center text-muted mb-4">Isi form — langsung terkirim ke WhatsApp bengkel.</p>
-                        <form onsubmit="event.preventDefault(); window.open('https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20ingin%20jadwalkan%20servis:%0ANama:%20' + encodeURIComponent(document.getElementById('bk_name').value) + '%0ALayanan:%20' + encodeURIComponent(document.getElementById('bk_service').value) + '%0ATanggal:%20' + encodeURIComponent(document.getElementById('bk_date').value) + '%0ANoPol/Keterangan:%20' + encodeURIComponent(document.getElementById('bk_notes').value), '_blank');">
+                        <form onsubmit="event.preventDefault(); window.open('https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20ingin%20jadwalkan%20servis:%0ANama:%20' + encodeURIComponent(document.getElementById('bk_name').value) + '%0ANo%20WA:%20' + encodeURIComponent(document.getElementById('bk_phone').value) + '%0ALayanan:%20' + encodeURIComponent(document.getElementById('bk_service').value) + '%0ATanggal:%20' + encodeURIComponent(document.getElementById('bk_date').value) + '%0ANoPol/Keterangan:%20' + encodeURIComponent(document.getElementById('bk_notes').value), '_blank');">
                             <div class="row g-3">
                                 <div class="col-12 col-sm-6">
                                     <input type="text" id="bk_name" class="form-control" placeholder="Nama / Perusahaan" required>
@@ -617,7 +648,7 @@ function mt_landing_dequeue_late() {
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-enterprise-card team-slim">
                         <div class="team-photo-wrap">
-                            <img src="<?php echo esc_url( $mt_base ); ?>/img/team-1.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Hendra Wijaya">
+                            <img src="<?php echo esc_url( $mt_base ); ?>/img/team-1.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Hendra Wijaya" loading="lazy">
                         </div>
                         <div class="text-center p-3">
                             <h5 class="fw-bold mb-1">Hendra Wijaya</h5>
@@ -628,7 +659,7 @@ function mt_landing_dequeue_late() {
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
                     <div class="team-enterprise-card team-slim">
                         <div class="team-photo-wrap">
-                            <img src="<?php echo esc_url( $mt_base ); ?>/img/team-2.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Bambang Suryadi">
+                            <img src="<?php echo esc_url( $mt_base ); ?>/img/team-2.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Bambang Suryadi" loading="lazy">
                         </div>
                         <div class="text-center p-3">
                             <h5 class="fw-bold mb-1">Bambang Suryadi</h5>
@@ -639,7 +670,7 @@ function mt_landing_dequeue_late() {
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="team-enterprise-card team-slim">
                         <div class="team-photo-wrap">
-                            <img src="<?php echo esc_url( $mt_base ); ?>/img/team-3.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Rudi Santoso">
+                            <img src="<?php echo esc_url( $mt_base ); ?>/img/team-3.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Rudi Santoso" loading="lazy">
                         </div>
                         <div class="text-center p-3">
                             <h5 class="fw-bold mb-1">Rudi Santoso</h5>
@@ -650,7 +681,7 @@ function mt_landing_dequeue_late() {
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="team-enterprise-card team-slim">
                         <div class="team-photo-wrap">
-                            <img src="<?php echo esc_url( $mt_base ); ?>/img/team-4.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Agus Pratama">
+                            <img src="<?php echo esc_url( $mt_base ); ?>/img/team-4.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Agus Pratama" loading="lazy">
                         </div>
                         <div class="text-center p-3">
                             <h5 class="fw-bold mb-1">Agus Pratama</h5>
@@ -670,36 +701,52 @@ function mt_landing_dequeue_late() {
             <div class="text-center mb-5">
                 <span class="badge-section-pill">Kata Pelanggan</span>
                 <h2 class="mb-3">Mereka Puas Servis di Sini</h2>
-                <p class="mx-auto" style="max-width: 620px;"><strong style="color: var(--navy);">4,9 dari 5</strong> — nilai dari 120+ perusahaan pelanggan di Medan &amp; Belawan.</p>
+                <div class="d-inline-flex align-items-center gap-2 testimonial-rating-pill mb-2">
+                    <i class="fa fa-star text-warning"></i>
+                    <strong>4,9 dari 5</strong>
+                    <span class="text-muted">&mdash; nilai dari 120+ perusahaan pelanggan di Medan &amp; Belawan.</span>
+                </div>
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="testimonial-enterprise-card">
                         <i class="fa fa-quote-right testimonial-quote-icon"></i>
-                        <img class="testimonial-avatar" src="<?php echo esc_url( $mt_base ); ?>/img/testimonial-1.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Gunawan Siregar">
-                        <h5 class="mb-0">Gunawan Siregar</h5>
-                        <p class="text-muted small">Pengelola Truk — PT Samudera Logistik</p>
-                        <div class="mb-2" style="color: #D97706;">★★★★★</div>
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <img class="testimonial-avatar" src="<?php echo esc_url( $mt_base ); ?>/img/testimonial-1.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Gunawan Siregar" loading="lazy">
+                            <div>
+                                <h5 class="mb-0">Gunawan Siregar</h5>
+                                <p class="text-muted small mb-0">Pengelola Truk — PT Samudera Logistik</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars mb-3">★★★★★</div>
                         <p class="mb-0">"30 trailer kami jadi jarang rusak. Servisnya bisa dipantau dari HP, gampang kontrolnya."</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
                     <div class="testimonial-enterprise-card">
                         <i class="fa fa-quote-right testimonial-quote-icon"></i>
-                        <img class="testimonial-avatar" src="<?php echo esc_url( $mt_base ); ?>/img/testimonial-2.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Budi Wicaksono">
-                        <h5 class="mb-0">Budi Wicaksono</h5>
-                        <p class="text-muted small">Pemilik — CV Maju Bersama</p>
-                        <div class="mb-2" style="color: #D97706;">★★★★★</div>
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <img class="testimonial-avatar" src="<?php echo esc_url( $mt_base ); ?>/img/testimonial-2.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Budi Wicaksono" loading="lazy">
+                            <div>
+                                <h5 class="mb-0">Budi Wicaksono</h5>
+                                <p class="text-muted small mb-0">Pemilik — CV Maju Bersama</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars mb-3">★★★★★</div>
                         <p class="mb-0">"Oli dan ban asli, harganya miring. Ngirit banyak buat perawatan truk kami."</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="testimonial-enterprise-card">
                         <i class="fa fa-quote-right testimonial-quote-icon"></i>
-                        <img class="testimonial-avatar" src="<?php echo esc_url( $mt_base ); ?>/img/testimonial-3.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Ahmad Faisal">
-                        <h5 class="mb-0">Ahmad Faisal</h5>
-                        <p class="text-muted small">Pengawas — PT Deli Sawit Makmur</p>
-                        <div class="mb-2" style="color: #D97706;">★★★★★</div>
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <img class="testimonial-avatar" src="<?php echo esc_url( $mt_base ); ?>/img/testimonial-3.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Ahmad Faisal" loading="lazy">
+                            <div>
+                                <h5 class="mb-0">Ahmad Faisal</h5>
+                                <p class="text-muted small mb-0">Pengawas — PT Deli Sawit Makmur</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars mb-3">★★★★★</div>
                         <p class="mb-0">"Truk mogok rem blong di Tebing Tinggi, langsung dijemput. Gerak cepat!"</p>
                     </div>
                 </div>
@@ -709,10 +756,10 @@ function mt_landing_dequeue_late() {
     <!-- Testimonial End -->
 
     <!-- FAQ Start -->
-    <div id="faq" class="container-xxl py-5">
+    <div id="faq" class="container-xxl py-5 sec-faq">
         <div class="container">
             <div class="row g-5 align-items-start">
-                <div class="col-lg-4">
+                <div class="col-lg-4 faq-sticky-col">
                     <span class="badge-section-pill">Tanya Jawab</span>
                     <h2 class="mb-3">Sering Ditanyakan</h2>
                     <p class="text-muted mb-4">Masih ragu? Chat kami gratis, tanya-tanya dulu juga boleh.</p>
@@ -720,7 +767,7 @@ function mt_landing_dequeue_late() {
                 </div>
                 <div class="col-lg-8">
                     <div class="accordion" id="faqAccordion">
-                        <div class="accordion-item mb-3" style="border:1px solid var(--border); border-radius:16px; overflow:hidden;">
+                        <div class="accordion-item">
                             <h2 class="accordion-header" id="faqH1">
                                 <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faqC1" aria-expanded="true" aria-controls="faqC1">Bisa bayar belakangan (tempo)?</button>
                             </h2>
@@ -728,7 +775,7 @@ function mt_landing_dequeue_late() {
                                 <div class="accordion-body text-muted">Bisa, untuk perusahaan yang sudah terdaftar. Bayarnya 14–30 hari setelah tagihan keluar. Semua tagihan bisa dilihat online.</div>
                             </div>
                         </div>
-                        <div class="accordion-item mb-3" style="border:1px solid var(--border); border-radius:16px; overflow:hidden;">
+                        <div class="accordion-item">
                             <h2 class="accordion-header" id="faqH2">
                                 <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faqC2" aria-expanded="false" aria-controls="faqC2">Barangnya dijamin asli?</button>
                             </h2>
@@ -736,7 +783,7 @@ function mt_landing_dequeue_late() {
                                 <div class="accordion-body text-muted">Dijamin. Oli, ban, aki, dan filter kami langsung dari pabriknya — ada nota dan garansinya.</div>
                             </div>
                         </div>
-                        <div class="accordion-item mb-3" style="border:1px solid var(--border); border-radius:16px; overflow:hidden;">
+                        <div class="accordion-item">
                             <h2 class="accordion-header" id="faqH3">
                                 <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faqC3" aria-expanded="false" aria-controls="faqC3">Bagaimana cara memantau servis truk saya?</button>
                             </h2>
@@ -744,7 +791,7 @@ function mt_landing_dequeue_late() {
                                 <div class="accordion-body text-muted">Lewat aplikasi Web Fleet: kelihatan truk sedang dikerjakan apa, ada fotonya, biayanya berapa, sampai tagihannya — langsung dari HP.</div>
                             </div>
                         </div>
-                        <div class="accordion-item mb-3" style="border:1px solid var(--border); border-radius:16px; overflow:hidden;">
+                        <div class="accordion-item">
                             <h2 class="accordion-header" id="faqH4">
                                 <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faqC4" aria-expanded="false" aria-controls="faqC4">Kalau mogok di luar kota, dijemput?</button>
                             </h2>
@@ -752,7 +799,7 @@ function mt_landing_dequeue_late() {
                                 <div class="accordion-body text-muted">Dijemput. Kami melayani Medan, Belawan, Tebing Tinggi, sampai lintas Sumatera. Area KIM — Belawan datangnya di bawah 60 menit. Telepon 0812-3456-7890.</div>
                             </div>
                         </div>
-                        <div class="accordion-item mb-3" style="border:1px solid var(--border); border-radius:16px; overflow:hidden;">
+                        <div class="accordion-item">
                             <h2 class="accordion-header" id="faqH5">
                                 <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faqC5" aria-expanded="false" aria-controls="faqC5">Daftar jadi pelanggan bayar berapa?</button>
                             </h2>
@@ -760,7 +807,7 @@ function mt_landing_dequeue_late() {
                                 <div class="accordion-body text-muted">Gratis, tidak dipungut biaya. Cukup daftar dan verifikasi perusahaan, langsung dapat harga khusus.</div>
                             </div>
                         </div>
-                        <div class="accordion-item" style="border:1px solid var(--border); border-radius:16px; overflow:hidden;">
+                        <div class="accordion-item">
                             <h2 class="accordion-header" id="faqH6">
                                 <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faqC6" aria-expanded="false" aria-controls="faqC6">Bengkelnya di mana?</button>
                             </h2>
@@ -782,7 +829,7 @@ function mt_landing_dequeue_late() {
             <div class="row g-4">
                 <div class="col-lg-3 col-md-6">
                     <div class="d-flex align-items-center gap-2 mb-3">
-                        <div class="navbar-brand-icon" style="width:38px; height:38px; font-size:16px;"><i class="fa fa-truck"></i></div>
+                        <div class="navbar-brand-icon footer-brand-icon"><i class="fa fa-truck"></i></div>
                         <div><div class="fw-bold" style="color: var(--navy);">MASTER <span style="color: var(--primary);">TRUCK</span></div><small class="text-muted">Bengkel Truk KIM III Medan</small></div>
                     </div>
                     <h4 class="footer-heading">Kontak &amp; Alamat</h4>
@@ -801,7 +848,7 @@ function mt_landing_dequeue_late() {
                     <h6>Bengkel &amp; Toko Sparepart:</h6>
                     <p class="mb-3">Senin - Sabtu: 08.00 - 17.00 WIB</p>
                     <h6>Layanan Derek &amp; Darurat:</h6>
-                    <p class="mb-0"><span class="badge bg-danger-subtle px-3 py-2"><i class="fa fa-siren-on me-1"></i>24 Jam Nonstop</span></p>
+                    <p class="mb-0"><span class="badge footer-emergency-badge px-3 py-2"><i class="fa fa-phone-volume me-1"></i>24 Jam Nonstop</span></p>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="footer-heading">Layanan Kami</h4>

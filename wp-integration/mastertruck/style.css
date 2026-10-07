@@ -49,7 +49,7 @@
     --booking-bg: #EFF6FF;
 
     /* Hero Tuning (gambar latar samar terlihat, tidak silau, teks tetap kontras) */
-    --hero-bg-opacity: 0.46;
+    --hero-bg-opacity: 0.60;
     --hero-bg-blur: 1.2px;
 
     /* Component Geometry Tokens */
@@ -787,7 +787,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     height: 100%;
     object-fit: cover;
     opacity: var(--hero-bg-opacity);
-    filter: blur(var(--hero-bg-blur)) brightness(0.82) contrast(1.08);
+    filter: blur(var(--hero-bg-blur)) brightness(0.68) contrast(1.10);
     transform: scale(1.04);
 }
 
@@ -815,11 +815,11 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     background-color: var(--primary);
 }
 
-/* High contrast soft white gradient overlay */
+/* Soft overlay merata di seluruh slide (anti-silau, warna tersebar merata) */
 .carousel-caption {
     position: absolute;
     inset: 0;
-    background: linear-gradient(100deg, rgba(255, 255, 255, 0.94) 0%, rgba(248, 250, 252, 0.78) 46%, rgba(241, 245, 249, 0.42) 100%) !important;
+    background: rgba(248, 250, 252, 0.72) !important;
     z-index: 2;
     padding: 24px 0 60px !important;
     display: flex !important;
@@ -862,7 +862,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     color: var(--navy);
     letter-spacing: -0.025em;
     margin-bottom: 1rem;
-    filter: drop-shadow(0 1px 0 #FFFFFF) drop-shadow(0 0 14px rgba(255, 255, 255, 0.9));
+    filter: drop-shadow(0 1px 2px rgba(255, 255, 255, 0.9));
 }
 
 .hero-brand-highlight {
@@ -879,10 +879,11 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     font-family: var(--font-body);
     font-size: 1.05rem;
     line-height: 1.7;
-    color: #1E293B;
+    color: #0F172A;
+    font-weight: 500;
     max-width: 600px;
     margin-bottom: 1.1rem;
-    text-shadow: 0 1px 0 #FFFFFF, 0 0 12px rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
 }
 
 /* Baris mini-statistik profil perusahaan di hero */
@@ -910,15 +911,15 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     color: var(--navy);
     line-height: 1.2;
     letter-spacing: -0.02em;
-    text-shadow: 0 1px 0 #FFFFFF, 0 0 10px rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
 }
 .hero-stats span {
     font-size: 11.5px;
     font-weight: 700;
     letter-spacing: 0.3px;
-    color: #334155;
+    color: #1E293B;
     white-space: nowrap;
-    text-shadow: 0 1px 0 #FFFFFF, 0 0 8px rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
 }
 
 /* Two CTA buttons: equal height 48px */
@@ -1822,7 +1823,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 /* HERO: dasar slate gelap meredam silau, foto tetap terlihat jelas & sejuk di mata */
 #header-carousel { background-color: #1E293B; }
 .carousel-caption {
-    background: linear-gradient(100deg, rgba(255, 255, 255, 0.94) 0%, rgba(248, 250, 252, 0.78) 46%, rgba(241, 245, 249, 0.42) 100%) !important;
+    background: rgba(248, 250, 252, 0.72) !important;
 }
 
 /* 2. Fitur: putih, kartu bergaris aksen di atas */
@@ -2468,3 +2469,857 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     background: linear-gradient(90deg, var(--acc-blue) 0%, var(--acc-teal) 100%);
     pointer-events: none;
 }
+
+/* ==============================================================
+   17. REVAMP BAWAH HERO — SISTEM VISUAL ELEGAN & MODERN (LIGHT)
+   PT Master Truck Indonesia - KIM III Medan
+   ============================================================== */
+
+/* --- TOKENS & UTILITIES TAMBAHAN --- */
+:root {
+    --cream-warm: #FAF8F5;
+    --cream-border: #EAE4DA;
+    --slate-surface: #F8FAFC;
+    --principals-surface: #F1F5F9;
+    --emergency-red: #DC2626;
+    --emergency-red-bg: #FEF2F2;
+    --emergency-red-border: #FECACA;
+}
+
+.text-navy {
+    color: var(--navy) !important;
+}
+
+/* ==============================================================
+   17.1 FITUR / KEUNGGULAN (.sec-features)
+   Satu panel putih terangkat berisi 4 kolom, garis pemisah tipis, hover halus
+   ============================================================== */
+.container-xxl.sec-features {
+    padding-top: 28px !important;
+    padding-bottom: 56px !important;
+}
+
+.sec-features .features-panel {
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card-lg, 20px);
+    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
+    overflow: hidden;
+}
+
+.sec-features .feature-col {
+    padding: 24px 22px;
+    transition: background-color 0.2s ease;
+}
+
+.sec-features .feature-col:hover {
+    background-color: #F8FAFC;
+}
+
+@media (min-width: 992px) {
+    .sec-features .feature-col:not(:last-child) {
+        border-right: 1px solid var(--border);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .sec-features .feature-col:nth-child(odd) {
+        border-right: 1px solid var(--border);
+    }
+    .sec-features .feature-col:nth-child(1),
+    .sec-features .feature-col:nth-child(2) {
+        border-bottom: 1px solid var(--border);
+    }
+}
+
+@media (max-width: 767.98px) {
+    .sec-features .feature-col:not(:last-child) {
+        border-bottom: 1px solid var(--border);
+    }
+}
+
+.sec-features .feature-strip {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 0;
+    height: 100%;
+}
+
+.sec-features .icon-tint-wrap {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    transition: transform 0.2s ease;
+}
+
+.sec-features .feature-col:hover .icon-tint-wrap {
+    transform: scale(1.08);
+}
+
+.sec-features .feature-strip h5 {
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 4px;
+    line-height: 1.35;
+}
+
+.sec-features .feature-strip p {
+    font-size: 13.5px;
+    color: var(--body);
+    line-height: 1.55;
+    margin-bottom: 0;
+}
+
+/* ==============================================================
+   17.2 TENTANG KAMI (.sec-about)
+   2 kolom, foto dengan blok tint offset di belakang, kartu 15 Tahun tetap,
+   checklist rapi dengan ikon centang melingkar
+   ============================================================== */
+.container-xxl.sec-about {
+    padding-top: 72px !important;
+    padding-bottom: 72px !important;
+}
+
+@media (max-width: 767.98px) {
+    .container-xxl.sec-about {
+        padding-top: 48px !important;
+        padding-bottom: 48px !important;
+    }
+}
+
+.sec-about .about-img-box {
+    position: relative;
+    border-radius: 20px;
+    background: transparent;
+    padding: 0;
+}
+
+.sec-about .about-img-box::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: -12px;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+    border-radius: 24px;
+    z-index: 0;
+}
+
+.sec-about .about-img-box img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 12px 36px rgba(15, 23, 42, 0.08);
+}
+
+.sec-about .about-exp-float-card {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    z-index: 2;
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 14px 20px;
+    box-shadow: 0 10px 30px rgba(15, 42, 92, 0.12);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.sec-about .about-check-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 24px;
+}
+
+.sec-about .about-check-list li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 15px;
+    color: var(--body);
+    padding: 10px 0;
+    border-bottom: 1px solid #F1F5F9;
+}
+
+.sec-about .about-check-list li:last-child {
+    border-bottom: none;
+}
+
+.sec-about .check-icon-circle {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    border-radius: 50%;
+    background-color: var(--secondary-tint, #F0FDFA);
+    color: var(--secondary, #0D9488);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+/* ==============================================================
+   17.3 STATISTIK / FACT STRIP (.fact-strip)
+   Band gradien biru muda, angka lebih besar, garis pemisah vertikal tipis
+   ============================================================== */
+.container-fluid.fact-strip {
+    background: linear-gradient(135deg, #EFF6FF 0%, #E2EDFD 50%, #EFF6FF 100%) !important;
+    border-top: 1px solid rgba(37, 99, 235, 0.14) !important;
+    border-bottom: 1px solid rgba(37, 99, 235, 0.14) !important;
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+}
+
+.fact-strip .fact-strip-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    text-align: left;
+    padding: 8px 12px;
+}
+
+@media (min-width: 992px) {
+    .fact-strip .col-lg-3:not(:last-child) .fact-strip-item {
+        border-right: 1px solid rgba(37, 99, 235, 0.18);
+    }
+}
+
+.fact-strip .fact-icon-badge {
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    border-radius: 12px;
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--primary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.fact-strip .fact-strip-item strong {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 3.2vw, 2.65rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--navy);
+    -webkit-text-fill-color: var(--navy);
+    background: none;
+}
+
+.fact-strip .fact-strip-item strong span {
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    line-height: inherit;
+}
+
+.fact-strip .fact-strip-item span {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--body);
+    line-height: 1.35;
+}
+
+/* ==============================================================
+   17.4 LAYANAN BENGKEL (.sec-services)
+   Kartu 4 kolom sama tinggi, chip ikon menumpuk di tepi bawah foto,
+   hover naik halus, tombol Tanya Teknisi konsisten di dasar kartu
+   ============================================================== */
+.container-xxl.sec-services {
+    padding-top: 76px !important;
+    padding-bottom: 76px !important;
+}
+
+@media (max-width: 767.98px) {
+    .container-xxl.sec-services {
+        padding-top: 52px !important;
+        padding-bottom: 52px !important;
+    }
+}
+
+.sec-services .service-grid-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--primary);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.sec-services .row > div:nth-child(2) .service-grid-card { border-top-color: var(--secondary); }
+.sec-services .row > div:nth-child(3) .service-grid-card { border-top-color: var(--accent); }
+.sec-services .row > div:nth-child(4) .service-grid-card { border-top-color: var(--primary); }
+
+.sec-services .service-grid-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(15, 42, 92, 0.1);
+    border-color: rgba(37, 99, 235, 0.3);
+}
+
+.sec-services .service-grid-img {
+    position: relative;
+    height: 175px;
+    overflow: hidden;
+}
+
+.sec-services .service-grid-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.sec-services .service-grid-card:hover .service-grid-img img {
+    transform: scale(1.05);
+}
+
+.sec-services .service-chip-badge {
+    position: absolute;
+    bottom: 12px;
+    left: 18px;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+    z-index: 2;
+}
+
+.sec-services .service-grid-body {
+    padding: 24px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 10px;
+}
+
+.sec-services .service-grid-body h5 {
+    font-family: var(--font-heading);
+    font-size: 16.5px;
+    font-weight: 700;
+    color: var(--heading);
+    margin: 0;
+}
+
+.sec-services .service-grid-body ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 4px 0 12px;
+}
+
+.sec-services .service-grid-body ul li {
+    position: relative;
+    font-size: 13.5px;
+    color: var(--body);
+    padding-left: 20px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+}
+
+.sec-services .service-grid-body ul li::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: 11px;
+    color: var(--secondary);
+}
+
+.sec-services .service-grid-body .btn {
+    margin-top: auto;
+    border-radius: 12px;
+    font-weight: 600;
+    padding: 9px 16px;
+    font-size: 14px;
+}
+
+/* ==============================================================
+   17.5 PRINSIPAL / BRAND TRUST (.sec-principals)
+   Background biru muda pucat, panggung logo seragam, logo tampil
+   terang dan berwarna penuh, proporsional untuk 6 logo
+   ============================================================== */
+.container-xxl.sec-principals {
+    background-color: var(--principals-surface) !important;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding-top: 76px !important;
+    padding-bottom: 76px !important;
+}
+
+@media (max-width: 767.98px) {
+    .container-xxl.sec-principals {
+        padding-top: 52px !important;
+        padding-bottom: 52px !important;
+    }
+}
+
+.sec-principals .principal-wall-card {
+    background: #FFFFFF !important;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 22px 14px 18px;
+    text-align: center;
+    height: 100%;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.sec-principals .principal-wall-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(15, 42, 92, 0.08);
+    border-color: rgba(37, 99, 235, 0.3);
+}
+
+.sec-principals .principal-logo-stage {
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    padding: 0 8px;
+    background: transparent;
+}
+
+.sec-principals .principal-logo-stage img {
+    max-height: 48px;
+    max-width: 88%;
+    width: auto;
+    object-fit: contain;
+    filter: none !important;
+    opacity: 1 !important;
+    mix-blend-mode: normal !important;
+    transition: transform 0.2s ease;
+}
+
+.sec-principals .principal-wall-card:hover .principal-logo-stage img {
+    transform: scale(1.04);
+}
+
+.sec-principals .principal-logo-stage img[src*="incoe"] {
+    max-height: 40px;
+    max-width: 82%;
+}
+
+.sec-principals .principal-wall-card strong {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+}
+
+.sec-principals .principal-wall-card small {
+    display: block;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+/* ==============================================================
+   17.6 BOOKING & EMERGENCY (#booking)
+   Blok darurat kiri lebih menonjol (aksen merah lembut), chip SLA,
+   kartu form terangkat dengan fokus input yang tegas
+   ============================================================== */
+.container-fluid.booking-section-wrapper {
+    background-color: #F0F6FE !important;
+    background-image: radial-gradient(circle at 15% 30%, rgba(37, 99, 235, 0.06) 0%, transparent 60%);
+    border-bottom: 1px solid var(--border);
+    padding-top: 72px !important;
+    padding-bottom: 72px !important;
+}
+
+@media (max-width: 767.98px) {
+    .container-fluid.booking-section-wrapper {
+        padding-top: 48px !important;
+        padding-bottom: 48px !important;
+    }
+}
+
+.badge-emergency-pill {
+    background-color: var(--emergency-red-bg) !important;
+    color: var(--emergency-red) !important;
+    border: 1px solid var(--emergency-red-border) !important;
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.btn-emergency {
+    background-color: var(--emergency-red) !important;
+    border-color: var(--emergency-red) !important;
+    color: #FFFFFF !important;
+    font-weight: 700;
+    border-radius: 12px;
+    padding: 12px 22px;
+    font-size: 14.5px;
+    box-shadow: 0 4px 14px rgba(220, 38, 38, 0.25);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-emergency:hover {
+    background-color: #B91C1C !important;
+    border-color: #B91C1C !important;
+    color: #FFFFFF !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(220, 38, 38, 0.35);
+}
+
+.booking-chips-grid {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+.booking-chip-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(37, 99, 235, 0.16);
+    border-radius: 14px;
+    padding: 12px 14px;
+    flex: 1;
+    min-width: 120px;
+    box-shadow: 0 2px 8px rgba(15, 42, 92, 0.04);
+}
+
+.booking-chip-val {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.2;
+}
+
+.booking-chip-lbl {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    line-height: 1.35;
+    margin-top: 3px;
+}
+
+.booking-form-box {
+    background: #FFFFFF !important;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 36px 32px;
+    box-shadow: 0 12px 36px rgba(15, 42, 92, 0.08);
+}
+
+@media (max-width: 575.98px) {
+    .booking-form-box {
+        padding: 24px 20px;
+    }
+}
+
+.booking-form-box .form-control,
+.booking-form-box .form-select {
+    border: 1px solid #CBD5E1;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 14px;
+    color: var(--heading);
+    background-color: #FFFFFF;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.booking-form-box .form-control:focus,
+.booking-form-box .form-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.14);
+}
+
+.btn-booking-wa {
+    background-color: #25D366 !important;
+    border: none !important;
+    color: #FFFFFF !important;
+    font-weight: 700;
+    border-radius: 12px;
+    padding: 14px 20px;
+    font-size: 15px;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-booking-wa:hover {
+    background-color: #1EBE5B !important;
+    color: #FFFFFF !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+}
+
+/* ==============================================================
+   17.7 TIM (.sec-team)
+   Kartu ramping, foto 1:1 persegi konsisten, nama dan peran jelas
+   ============================================================== */
+.container-xxl.sec-team {
+    padding-top: 76px !important;
+    padding-bottom: 76px !important;
+}
+
+@media (max-width: 767.98px) {
+    .container-xxl.sec-team {
+        padding-top: 52px !important;
+        padding-bottom: 52px !important;
+    }
+}
+
+.sec-team .team-enterprise-card.team-slim {
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sec-team .team-enterprise-card.team-slim:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(15, 42, 92, 0.08);
+}
+
+.sec-team .team-photo-wrap {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    overflow: hidden;
+    background: #F1F5F9;
+}
+
+.sec-team .team-photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.sec-team .team-enterprise-card:hover .team-photo-wrap img {
+    transform: scale(1.05);
+}
+
+.sec-team .team-enterprise-card h5 {
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--heading);
+}
+
+/* ==============================================================
+   17.8 TESTIMONI (.sec-testimonial)
+   Band krem hangat, 3 kartu statis, tanda kutip watermark besar tint,
+   bintang amber, avatar dengan ring, pill ringkasan 4,9 dari 5
+   ============================================================== */
+.container-xxl.sec-testimonial {
+    background-color: var(--cream-warm) !important;
+    border-top: 1px solid var(--cream-border);
+    border-bottom: 1px solid var(--cream-border);
+    padding-top: 76px !important;
+    padding-bottom: 76px !important;
+}
+
+@media (max-width: 767.98px) {
+    .container-xxl.sec-testimonial {
+        padding-top: 52px !important;
+        padding-bottom: 52px !important;
+    }
+}
+
+.testimonial-rating-pill {
+    background: #FFFFFF;
+    border: 1px solid var(--cream-border);
+    border-radius: var(--radius-pill);
+    padding: 6px 18px;
+    font-size: 13.5px;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+}
+
+.sec-testimonial .testimonial-enterprise-card {
+    background: #FFFFFF;
+    border: 1px solid var(--cream-border);
+    border-top: 4px solid var(--accent);
+    border-radius: 20px;
+    padding: 30px 24px;
+    position: relative;
+    height: 100%;
+    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sec-testimonial .testimonial-enterprise-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 26px rgba(15, 42, 92, 0.07);
+}
+
+.sec-testimonial .testimonial-quote-icon {
+    position: absolute;
+    top: 20px;
+    right: 22px;
+    font-size: 34px;
+    color: #FDE68A !important;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.sec-testimonial .testimonial-avatar {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #EFF6FF;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+}
+
+.testimonial-stars {
+    color: #F59E0B !important;
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+.sec-testimonial .testimonial-enterprise-card p {
+    font-size: 14px;
+    color: var(--body);
+    line-height: 1.6;
+}
+
+/* ==============================================================
+   17.9 FAQ (.sec-faq)
+   Kolom kiri sticky di desktop, accordion sebagai kartu terpisah bersih,
+   item terbuka biru lembut, transisi halus
+   ============================================================== */
+.container-xxl.sec-faq {
+    padding-top: 76px !important;
+    padding-bottom: 76px !important;
+}
+
+@media (max-width: 767.98px) {
+    .container-xxl.sec-faq {
+        padding-top: 52px !important;
+        padding-bottom: 52px !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .sec-faq .faq-sticky-col {
+        position: sticky;
+        top: 108px;
+    }
+}
+
+.sec-faq #faqAccordion .accordion-item {
+    background: #FFFFFF;
+    border: 1px solid var(--border) !important;
+    border-radius: 16px !important;
+    margin-bottom: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.02);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sec-faq #faqAccordion .accordion-item:hover {
+    border-color: rgba(37, 99, 235, 0.3) !important;
+    box-shadow: 0 4px 14px rgba(15, 42, 92, 0.05);
+}
+
+.sec-faq #faqAccordion .accordion-button {
+    font-family: var(--font-heading);
+    font-size: 15.5px;
+    font-weight: 600;
+    color: var(--heading);
+    padding: 18px 20px;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sec-faq #faqAccordion .accordion-button:not(.collapsed) {
+    color: var(--primary) !important;
+    background-color: #EFF6FF !important;
+    border-bottom: 1px solid rgba(37, 99, 235, 0.14);
+}
+
+.sec-faq #faqAccordion .accordion-body {
+    padding: 18px 20px 22px;
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--body);
+    background-color: #FAFCFF;
+}
+
+/* ==============================================================
+   17.10 FOOTER (.footer-clean)
+   Slate terang berkelas, hierarki rapi, badge darurat konsisten
+   ============================================================== */
+.footer-clean {
+    background-color: #F8FAFC !important;
+    border-top: 1px solid #E2E8F0 !important;
+}
+
+.footer-emergency-badge {
+    background-color: var(--emergency-red-bg) !important;
+    color: var(--emergency-red) !important;
+    border: 1px solid var(--emergency-red-border);
+    font-weight: 700;
+    border-radius: 8px;
+}
+
+.footer-brand-icon {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: var(--primary);
+    color: #FFFFFF;
+}
+
+/* ==============================================================
+   17.11 ACCESSIBILITY & REDUCED MOTION
+   ============================================================== */
+@media (prefers-reduced-motion: reduce) {
+    .sec-features .icon-tint-wrap,
+    .sec-services .service-grid-card,
+    .sec-services .service-grid-img img,
+    .sec-principals .principal-wall-card,
+    .sec-principals .principal-logo-stage img,
+    .btn-emergency,
+    .btn-booking-wa,
+    .sec-team .team-enterprise-card,
+    .sec-team .team-photo-wrap img,
+    .sec-testimonial .testimonial-enterprise-card {
+        transition: none !important;
+        transform: none !important;
+    }
+}
+

@@ -13,6 +13,7 @@ wp_*.png
 
 # Temporary backups
 backup-*.sql
+_backup_revamp_bawah_20261007/
 
 # Scratch and review directories
 scratch/
