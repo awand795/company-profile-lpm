@@ -680,12 +680,12 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     height: 38px;
     font-family: var(--font-heading);
     font-size: 13px !important;
-    font-weight: 600 !important;
+    font-weight: 700 !important;
     padding: 0 16px !important;
     border-radius: var(--radius-btn) !important;
-    color: var(--heading) !important;
-    background: var(--bg-white) !important;
-    border: 1px solid var(--border) !important;
+    color: #1D4ED8 !important;
+    background: #EFF6FF !important;
+    border: 1.5px solid #BFDBFE !important;
     transition: all 0.2s ease !important;
     text-decoration: none !important;
     display: inline-flex;
@@ -693,10 +693,14 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     white-space: nowrap;
 }
 
+.btn-nav-login i {
+    color: #2563EB !important;
+}
+
 .btn-nav-login:hover {
-    color: var(--primary) !important;
-    border-color: var(--primary) !important;
-    background: var(--primary-tint) !important;
+    color: #1E40AF !important;
+    border-color: #93C5FD !important;
+    background: #DBEAFE !important;
 }
 
 .btn-nav-register {
@@ -761,7 +765,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
    ============================================================== */
 #header-carousel {
     position: relative;
-    background-color: #1E293B;
+    background-color: #0F172A;
     overflow: hidden;
 }
 
@@ -779,16 +783,22 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     }
 }
 
-/* Background image visible but softly blurred & anti-glare (tidak silau) */
+/* Background image: Slide 1 & Slide 2 tuning seimbang anti-silau */
 #header-carousel .carousel-item > img.w-100 {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: var(--hero-bg-opacity);
-    filter: blur(var(--hero-bg-blur)) brightness(0.68) contrast(1.10);
+    opacity: 0.52;
+    filter: blur(1.5px) brightness(0.64) contrast(1.12);
     transform: scale(1.04);
+}
+
+/* Khusus Slide 2 (Gudang) di-darken lebih dalam agar tidak silau */
+#header-carousel .carousel-item:nth-child(2) > img.w-100 {
+    opacity: 0.46;
+    filter: blur(1.5px) brightness(0.42) contrast(1.22);
 }
 
 #header-carousel .carousel-indicators {
@@ -819,7 +829,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 .carousel-caption {
     position: absolute;
     inset: 0;
-    background: rgba(248, 250, 252, 0.72) !important;
+    background: rgba(248, 250, 252, 0.74) !important;
     z-index: 2;
     padding: 24px 0 60px !important;
     display: flex !important;
@@ -842,7 +852,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     padding: 6px 16px;
     border-radius: var(--radius-pill);
     margin-bottom: 0.9rem;
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 2px 8px rgba(15, 42, 92, 0.05);
 }
 
 .hero-brand-pill .live-dot {
@@ -859,10 +869,10 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     font-size: clamp(2rem, 3.1vw, 2.75rem);
     font-weight: 800;
     line-height: 1.24;
-    color: var(--navy);
+    color: #0A1B3B;
     letter-spacing: -0.025em;
     margin-bottom: 1rem;
-    filter: drop-shadow(0 1px 2px rgba(255, 255, 255, 0.9));
+    filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.95));
 }
 
 .hero-brand-highlight {
@@ -878,15 +888,15 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 .hero-lead {
     font-family: var(--font-body);
     font-size: 1.05rem;
-    line-height: 1.7;
+    line-height: 1.72;
     color: #0F172A;
-    font-weight: 500;
+    font-weight: 600;
     max-width: 600px;
     margin-bottom: 1.1rem;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.95);
 }
 
-/* Baris mini-statistik profil perusahaan di hero */
+/* Baris mini-statistik profil perusahaan di hero: terbuka, tanpa chip kartu */
 .hero-stats {
     display: flex;
     align-items: stretch;
@@ -897,8 +907,8 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 .hero-stats > div {
     display: flex;
     flex-direction: column;
-    padding: 0 20px;
-    border-left: 1px solid var(--border);
+    padding: 0 24px;
+    border-left: 1.5px solid rgba(15, 42, 92, 0.16);
 }
 .hero-stats > div:first-child {
     padding-left: 0;
@@ -906,20 +916,20 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 }
 .hero-stats strong {
     font-family: var(--font-heading);
-    font-size: 1.35rem;
+    font-size: 1.45rem;
     font-weight: 800;
-    color: var(--navy);
-    line-height: 1.2;
+    color: #0A1B3B;
+    line-height: 1.15;
     letter-spacing: -0.02em;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.9);
 }
 .hero-stats span {
-    font-size: 11.5px;
+    font-size: 12px;
     font-weight: 700;
-    letter-spacing: 0.3px;
-    color: #1E293B;
+    letter-spacing: 0.2px;
+    color: #334155;
     white-space: nowrap;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.9);
 }
 
 /* Two CTA buttons: equal height 48px */
@@ -947,22 +957,22 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 
 .btn-hero-secondary {
     height: 48px;
-    background: var(--bg-white) !important;
-    color: var(--heading) !important;
-    border: 1.5px solid var(--border) !important;
+    background: #FFFFFF !important;
+    color: #0F2A5C !important;
+    border: 1.5px solid #CBD5E1 !important;
     font-family: var(--font-heading);
     font-weight: 700;
     font-size: 14.5px;
     padding: 0 24px;
     border-radius: var(--radius-btn);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 2px 8px rgba(15, 42, 92, 0.05);
     transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
 }
 .btn-hero-secondary:hover {
-    background: var(--primary-tint) !important;
-    color: var(--primary-hover) !important;
+    background: #EFF6FF !important;
+    color: #1D4ED8 !important;
     border-color: var(--primary) !important;
     transform: translateY(-2px);
 }
@@ -1821,9 +1831,9 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 }
 
 /* HERO: dasar slate gelap meredam silau, foto tetap terlihat jelas & sejuk di mata */
-#header-carousel { background-color: #1E293B; }
+#header-carousel { background-color: #0F172A; }
 .carousel-caption {
-    background: rgba(248, 250, 252, 0.72) !important;
+    background: rgba(248, 250, 252, 0.74) !important;
 }
 
 /* 2. Fitur: putih, kartu bergaris aksen di atas */
