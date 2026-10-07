@@ -68,26 +68,21 @@ if [[ -d "$ROOT/wp-content/plugins/mt-topbar" ]]; then
   echo "OK  plugins/mt-topbar/"
 fi
 
-# Samakan template homepage (ID 59) ke Master Truck Landing agar teks
-# selalu dari repo, bukan konten Elementor lama di database.
-# Idempoten & non-fatal: gagal hanya jadi peringatan.
-if docker exec "$CONTAINER" test -f "$THEME_PATH/template-mastertruck.php" 2>/dev/null; then
-  CUR_TPL="$(docker exec "$CONTAINER" wp post meta get 59 _wp_page_template --allow-root --path=/var/www/html 2>/dev/null || true)"
-  if [[ "$CUR_TPL" != "template-mastertruck.php" ]]; then
-    if docker exec "$CONTAINER" wp post meta update 59 _wp_page_template template-mastertruck.php --allow-root --path=/var/www/html >/dev/null 2>&1; then
-      echo "OK  homepage(ID 59) -> template-mastertruck.php (was: ${CUR_TPL:-none})"
-    else
-      echo "WARN  gagal menetapkan template homepage (pastikan WP-CLI siap, lalu ulangi)"
-    fi
-  else
-    echo "OK  homepage(ID 59) sudah template-mastertruck.php"
-  fi
-  docker exec "$CONTAINER" wp rewrite flush --allow-root --path=/var/www/html >/dev/null 2>&1 || true
+# Homepage ID 59 sekarang FULL ELEMENTOR (migrasi 2026-10-07).
+# JANGAN paksa kembali ke template-mastertruck.php — itu menonaktifkan Elementor.
+# Pastikan homepage pakai template default + Elementor builder.
+CUR_TPL="$(docker exec "$CONTAINER" wp post meta get 59 _wp_page_template --allow-root --path=/var/www/html 2>/dev/null || true)"
+if [[ "$CUR_TPL" == "template-mastertruck.php" ]]; then
+  docker exec "$CONTAINER" wp post meta delete 59 _wp_page_template --allow-root --path=/var/www/html >/dev/null 2>&1 || true
+  echo "OK  homepage(ID 59) dilepas dari template-mastertruck.php -> Elementor (was: template-mastertruck.php)"
+else
+  echo "OK  homepage(ID 59) Elementor (template: ${CUR_TPL:-default})"
 fi
+docker exec "$CONTAINER" wp rewrite flush --allow-root --path=/var/www/html >/dev/null 2>&1 || true
 
 # Verifikasi paritas repo <-> deploy (non-fatal, hanya peringatan).
 bash "$ROOT/tools/verify-parity.sh" || true
 
 echo ""
 echo "Sinkronisasi selesai. Theme: $THEME"
-echo "Template: Page Editor -> Page Template -> 'Master Truck Landing'"
+echo "Homepage ID 59: Elementor full (Edit with Elementor)"

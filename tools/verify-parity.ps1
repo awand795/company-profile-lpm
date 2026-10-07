@@ -46,28 +46,30 @@ if ($pyCmd) {
     Warn-Msg "python tak ada, lewati cek regen template"
 }
 
-# 3. Homepage tersaji = revamp
+# 3. Homepage tersaji = Elementor full (migrasi 2026-10-07)
 try {
     $htmlContent = (Invoke-WebRequest -Uri "$Url/" -TimeoutSec 20 -UseBasicParsing).Content
     $miss = 0
-    foreach ($m in @('sec-features', 'faqAccordion', 'Login Fleet', 'mastertruck/css/mastertruck.css')) {
+    foreach ($m in @('header-carousel', 'hero-brand-pill', 'about-check-list', 'fact-strip', 'service-grid-card', 'principal-wall-card', 'booking-form-box', 'bk_name', 'team-enterprise-card', 'testimonial-enterprise-card', 'faqAccordion', 'footer-clean', 'floating-wa-btn', 'mt-mastertruck', 'elementor')) {
         if ($htmlContent -notmatch [regex]::Escape($m)) { Warn-Msg "marker hilang di homepage: $m"; $miss = 1 }
     }
-    foreach ($m in @('bg-dark', 'brand-badge-card', 'fonts.googleapis')) {
+    foreach ($m in @('bg-dark', 'brand-badge-card', 'template-mastertruck')) {
         if ($htmlContent -match [regex]::Escape($m)) { Warn-Msg "sisa lama di homepage: $m"; $miss = 1 }
     }
-    if ($miss -eq 0) { Ok-Msg "homepage tersaji = revamp" }
+    if ($miss -eq 0) { Ok-Msg "homepage tersaji = Elementor full" }
 } catch {
     Warn-Msg "tidak bisa mengunduh $Url/ (container mati?)"
 }
 
-# 4. Meta template homepage
+# 4. Homepage FULL ELEMENTOR (migrasi 2026-10-07)
 $running = docker ps --filter "name=^/$Container$" --format '{{.Names}}' 2>$null
 if ($running) {
     $tpl = (docker exec $Container wp post meta get 59 _wp_page_template --allow-root --path=/var/www/html 2>$null | Select-Object -First 1)
     if ($tpl) { $tpl = $tpl.Trim() }
-    if ($tpl -eq 'template-mastertruck.php') { Ok-Msg "homepage(ID 59) -> template-mastertruck.php" }
-    else { Warn-Msg "template homepage = '$tpl' (jalankan .\sync-to-wp.ps1)" }
+    $mode = (docker exec $Container wp post meta get 59 _elementor_edit_mode --allow-root --path=/var/www/html 2>$null | Select-Object -First 1)
+    if ($mode) { $mode = $mode.Trim() }
+    if (($mode -eq 'builder') -and ($tpl -ne 'template-mastertruck.php')) { Ok-Msg "homepage(ID 59) Elementor full (template: $tpl)" }
+    else { Warn-Msg "homepage bukan Elementor full (tpl='$tpl' mode='$mode')" }
 } else {
     Warn-Msg "container $Container tidak jalan, lewati cek meta template"
 }

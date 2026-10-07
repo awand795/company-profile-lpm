@@ -14,7 +14,10 @@ wp_*.png
 # Temporary backups
 backup-*.sql
 _backup_revamp_bawah_20261007/
+_backup_revamp_light_20261006/
+assets/css/legacy-backup/
 
 # Scratch and review directories
 scratch/
 playwright_review/
+

@@ -180,7 +180,7 @@ if (Invoke-Wp theme is-installed astra) {
 Invoke-Wp theme activate astra | Out-Null
 if (Invoke-Wp theme is-active astra) { Write-Ok "theme astra aktif" }
 
-foreach ($p in @('elementor','astra-sites')) {
+foreach ($p in @('elementor','astra-sites','header-footer-elementor')) {
     if (Invoke-Wp plugin is-installed $p) {
         Write-Ok "plugin $p sudah terpasang"
     } else {

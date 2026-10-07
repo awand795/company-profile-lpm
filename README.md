@@ -9,17 +9,23 @@ Menggunakan tema resmi **[CarServ](https://themewagon.github.io/carserv/)** oleh
 - **Font**: **Barlow** (400/500/600/700/800) untuk seluruh situs — dimuat satu request dari Google Fonts + preconnect
 - **Komponen**: Header Carousel interaktif, Topbar kontak & link fleet, Tabbed Services, Fakta counter angka, Form Booking Servis via WhatsApp, Tim Teknisi, dan Testimonial Carousel (OwlCarousel).
 
-## ✏️ Titik Edit Konten (WordPress)
+## ✏️ Titik Edit Konten (WordPress — Full Elementor, update 2026-10-07)
+
+> Beranda (ID 59) sekarang **full Elementor**. Template PHP lama
+> (`template-mastertruck.php`) sudah dipensiunkan — tidak lagi dipakai,
+> `sync-to-wp` tidak akan memaksa balik.
 
 | Ingin mengubah | Caranya |
 | --- | --- |
-| **Teks & Konten Landing Page (Beranda)** | **Pages → Beranda** (atau tombol **✏️ Edit Teks Beranda** di Admin Bar atas) → ubah teks pada tab *Editor Konten Landing Page* (Hero, Tentang Kami, Fakta, Layanan, Derek, Footer) lalu klik **Update/Perbarui**. |
-| **Warna brand** (navy, merah, emas, dsb.) | Elementor → **Site Settings → Global Colors** (10 warna). Semua halaman memakai `var(--e-global-color-*)`, jadi cukup diubah sekali. |
+| **Semua teks & layout Beranda (1:1 `index.html` Light)** | **Pages → Beranda → Edit with Elementor** → klik teks/gambar/tombol → **Update**. 20 section persis `template-mastertruck.php`: Topbar, Navbar, Hero Slide 1, Hero Slide 2 (+dots slider), Features, About, Counter, Layanan header + 4 kartu, Principals header + 6 merek, Booking + form WA (`bk_name`/`bk_phone`/`bk_service`/`bk_date`/`bk_notes`), Team header + 4, Testimonial header + 3, FAQ (Accordion), Footer + copyright + WA floating. Page pakai **Elementor Canvas** (header/footer ikut di page). Ikon FontAwesome asli, heading H1/H2 semantik, anchor `#about/#service/#booking/#faq/#contact` aktif. |
+| **Regenerasi Beranda dari PHP** | `python3 tools/build-beranda-elementor.py` → `elementor-exports/beranda-elementor-php11.json` (sumber: `wp-integration/template-mastertruck.php`, Light `assets/css/mastertruck.css` + `assets/css/elementor-bridge.css`). |
+| **Custom CSS lama (dark/red)** | Dipensiunkan 2026-10-07 (backup `assets/css/legacy-backup/`). Jangan dipakai lagi — styling kini di `mastertruck.css` + `elementor-bridge.css`. |
+| **Ganti foto** (hero, layanan, team, testimoni) | Klik Image widget → **Choose Image → Replace** (Media Library sudah berisi `service-*`, `team-*`, `testimonial-*`, `mt-carousel-*`). |
+| **Warna brand** | Elementor → **Site Settings → Global Colors**: Primary `#2563EB`, Secondary `#0D9488`, Navy `#0F2A5C`, Accent `#F59E0B`. |
 | **Font situs** | Elementor → **Site Settings → Global Typography** (Barlow 400–800). |
-| **Teks topbar** (telepon, WA, email, jam, link Web Fleet) | **Appearance → Topbar Master Truck** — tanpa menyentuh kode. |
-| **Frasa ter-highlight** (stabilo emas di judul) | Edit judul di Elementor, bungkus frasanya: `<span class="mt-hl">Fr...</span>` |
-| **Kartu statistik melayang** | Section dengan class CSS `mt-stats` (beranda) → ubah angka lewat widget Counter, tampilan lewat blok `.mt-stats` di **Appearance → Customize → Additional CSS** (custom CSS post `wp-custom-css`). |
-| **Halaman/halaman layanan** | Edit biasa lewat Elementor (semua 11 halaman memakai builder). |
+| **Header/Footer** | Plugin **Header Footer Elementor** aktif — buat/edit via **Appearance → Header Footer Builder**; Topbar lama (`Appearance → Topbar Master Truck`) tetap sebagai cadangan. |
+| **Form Booking WA** | Section `booking-section-wrapper` → widget **HTML** (nomor tujuan `6281234567890` bisa diedit langsung di kode form). |
+| **Backup Elementor Beranda** | `elementor-exports/beranda-elementor.json` (di-repo, 15 section). Restore via Elementor → Tools → Import, atau `database_dump.sql` fresh sudah berisi versi Elementor. |
 
 > Custom CSS tersimpan di tabel `wp_posts` (`post_type=custom_css`), bagian blok `MT FASE 4` berisi token radius/shadow, tombol pill, kartu statistik, highlight, dan polish mobile.
 

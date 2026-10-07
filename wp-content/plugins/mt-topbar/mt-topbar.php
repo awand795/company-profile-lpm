@@ -30,12 +30,36 @@ function mt_topbar_opt( $key ) {
 /* ------------------------------------------------------------------ enqueue */
 add_action( 'wp_enqueue_scripts', function () {
 	wp_enqueue_style( 'dashicons' );
-} );
+	/* Master Truck Light 1:1 dari template PHP — single source assets/css/.
+	   Dimirror ke astra/mastertruck/ oleh sync-to-wp. */
+	$base_rel = '/wp-content/themes/astra/mastertruck';
+	$base_path = ABSPATH . ltrim( $base_rel, '/' );
+	$ver = function ( $rel ) use ( $base_path ) {
+		$p = $base_path . $rel;
+		return file_exists( $p ) ? (string) filemtime( $p ) : '1.0';
+	};
+	$site = get_site_url( null, $base_rel );
+	wp_enqueue_style( 'mt-bootstrap', $site . '/css/bootstrap.min.css', array(), $ver( '/css/bootstrap.min.css' ) );
+	wp_enqueue_style( 'mt-fonts', $site . '/css/fonts.css', array(), $ver( '/css/fonts.css' ) );
+	wp_enqueue_style( 'mt-fontawesome', $site . '/vendor/fontawesome/css/all.min.css', array(), $ver( '/vendor/fontawesome/css/all.min.css' ) );
+	wp_enqueue_style( 'mt-animate', $site . '/lib/animate/animate.min.css', array(), $ver( '/lib/animate/animate.min.css' ) );
+	wp_enqueue_style( 'mt-style', $site . '/css/style.css', array( 'mt-bootstrap' ), $ver( '/css/style.css' ) );
+	wp_enqueue_style( 'mt-mastertruck', $site . '/css/mastertruck.css', array( 'elementor-frontend', 'mt-style' ), $ver( '/css/mastertruck.css' ) );
+	wp_enqueue_style( 'mt-bridge', $site . '/css/elementor-bridge.css', array( 'mt-mastertruck' ), $ver( '/css/elementor-bridge.css' ) );
+	/* JS libs persis template PHP (carousel, counter, wow, main.js). */
+	wp_enqueue_script( 'mt-bootstrap-bundle', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js', array( 'jquery' ), '5.0.0', true );
+	foreach ( array( '/lib/wow/wow.min.js' => 'mt-wow', '/lib/easing/easing.min.js' => 'mt-easing', '/lib/waypoints/waypoints.min.js' => 'mt-waypoints', '/lib/counterup/counterup.min.js' => 'mt-counterup', '/js/main.js' => 'mt-main' ) as $rel => $h ) {
+		wp_enqueue_script( $h, $site . $rel, array( 'jquery' ), $ver( $rel ), true );
+	}
+}, 20 );
 
 /* ------------------------------------------------------- topbar di frontend */
 function mt_render_topbar_html() {
 	static $rendered = false;
 	if ( $rendered ) { return; }
+	/* Beranda Elementor (ID 59) sudah memuat topbar+navbar sendiri di dalam page —
+	   jangan render ganda. */
+	if ( function_exists( 'is_page' ) && is_page( 59 ) ) { return; }
 	$rendered = true;
 	$phone    = mt_topbar_opt( 'phone' );
 	$wa       = mt_topbar_opt( 'wa' );

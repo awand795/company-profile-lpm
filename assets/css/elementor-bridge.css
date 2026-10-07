@@ -1,0 +1,1216 @@
+/* ==============================================================
+   MASTER TRUCK — Elementor Bridge (1:1 Light Parity & Visual Editing)
+   Dimuat TERAKHIR setelah mastertruck.css (lihat mt-topbar.php).
+   Scope ketat: body.elementor-page-59 agar halaman lain tak terpengaruh.
+   ============================================================== */
+
+/* 1. Batas container seperti Bootstrap (.container-xxl 1320px) */
+body.elementor-page-59 .elementor-top-section:not(.container-fluid) > .elementor-container {
+    max-width: 1320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+body.elementor-page-59 .mt-hero-slide > .elementor-container,
+body.elementor-page-59 .footer-enterprise > .elementor-container {
+    max-width: 1320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 2. Topbar & Navbar: brand kiri, menu & auth kanan dengan margin/padding seimbang */
+body.elementor-page-59 .top-bar-custom.elementor-section,
+body.elementor-page-59 .navbar.elementor-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: clamp(20px, 3vw, 40px) !important;
+    padding-right: clamp(20px, 3vw, 40px) !important;
+}
+body.elementor-page-59 .top-bar-custom.elementor-section > .elementor-container,
+body.elementor-page-59 .navbar.elementor-section > .elementor-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+}
+body.elementor-page-59 .navbar.elementor-section .elementor-column,
+body.elementor-page-59 .navbar.elementor-section .elementor-widget-wrap,
+body.elementor-page-59 .navbar.elementor-section .elementor-widget-html,
+body.elementor-page-59 .navbar.elementor-section .elementor-widget-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+body.elementor-page-59 .top-bar-custom.elementor-section .elementor-column,
+body.elementor-page-59 .top-bar-custom.elementor-section .elementor-widget-wrap,
+body.elementor-page-59 .top-bar-custom.elementor-section .elementor-widget-html,
+body.elementor-page-59 .top-bar-custom.elementor-section .elementor-widget-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+body.elementor-page-59 .navbar .navbar-brand-logo {
+    display: inline-flex !important;
+    align-items: center !important;
+    margin-right: auto !important;
+}
+body.elementor-page-59 .navbar #navbarCollapse {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    flex-grow: 1 !important;
+    margin-left: auto !important;
+}
+body.elementor-page-59 .navbar .navbar-nav {
+    margin-left: auto !important;
+    display: flex !important;
+    align-items: center !important;
+}
+@media (max-width: 991.98px) {
+    body.elementor-page-59 .navbar .collapse.navbar-collapse {
+        flex-basis: 100%;
+        margin-top: 12px;
+        background: #FFFFFF;
+        border-radius: 12px;
+        padding: 14px 18px;
+        box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+        border: 1px solid var(--border);
+    }
+    body.elementor-page-59 .navbar .navbar-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+}
+
+/* 3. Hero Section: Kontras Tinggi, Gradient Overlay Bersih */
+body.elementor-page-59 .mt-hero-slide {
+    position: relative;
+    overflow: hidden;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    padding: 50px 0 60px 0 !important;
+    min-height: 600px !important;
+    display: flex;
+    align-items: center;
+}
+body.elementor-page-59 .mt-hero-slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(248, 250, 252, 0.96) 0%, rgba(248, 250, 252, 0.90) 48%, rgba(248, 250, 252, 0.38) 100%) !important;
+    z-index: 1;
+    pointer-events: none;
+}
+body.elementor-page-59 .mt-hero-slide > .elementor-container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Reset widget container agar tidak membuat double bubble / border ganda */
+body.elementor-page-59 .elementor-widget-heading.badge-section-pill,
+body.elementor-page-59 .elementor-widget-heading.hero-brand-pill {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 0 0.85rem 0 !important;
+    display: flex !important;
+    width: auto !important;
+}
+body.elementor-page-59 .text-center.elementor-widget-heading.badge-section-pill,
+body.elementor-page-59 .text-center .elementor-widget-heading.badge-section-pill,
+body.elementor-page-59 .elementor-align-center.badge-section-pill,
+body.elementor-page-59 .badge-section-pill {
+    justify-content: center !important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+body.elementor-page-59 .hero-left-col .badge-section-pill,
+body.elementor-page-59 .hero-left-col .hero-brand-pill,
+body.elementor-page-59 .about-right-col .badge-section-pill,
+body.elementor-page-59 .booking-left-banner .badge-section-pill,
+body.elementor-page-59 .sec-faq .badge-section-pill {
+    justify-content: flex-start !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+}
+
+/* Single Pill Styling Bersih (Sesuai index.html) */
+body.elementor-page-59 .elementor-widget-heading.badge-section-pill .elementor-heading-title,
+body.elementor-page-59 .elementor-widget-heading.hero-brand-pill .elementor-heading-title {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: fit-content !important;
+    background: #EFF6FF !important;
+    color: var(--primary) !important;
+    border: 1px solid rgba(37, 99, 235, 0.2) !important;
+    border-radius: 50px !important;
+    padding: 6px 16px !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    margin-bottom: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-shadow: none !important;
+}
+body.elementor-page-59 .hero-left-col .elementor-heading-title,
+body.elementor-page-59 .about-right-col .elementor-heading-title,
+body.elementor-page-59 .booking-left-banner .elementor-heading-title,
+body.elementor-page-59 .sec-faq .elementor-heading-title {
+    margin-left: 0 !important;
+}
+body.elementor-page-59 .hero-left-col {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    text-align: left !important;
+}
+body.elementor-page-59 .hero-left-col > .elementor-widget-wrap {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    text-align: left !important;
+    width: 100% !important;
+}
+
+/* Garis Aksen 1:1 di Bawah Judul Section */
+body.elementor-page-59 .sec-services h2::after,
+body.elementor-page-59 .sec-principals h2::after,
+body.elementor-page-59 .sec-team h2::after,
+body.elementor-page-59 .sec-testimonial h2::after {
+    content: '' !important;
+    display: block !important;
+    width: 56px !important;
+    height: 4px !important;
+    border-radius: 999px !important;
+    margin: 14px auto 0 !important;
+    background: linear-gradient(90deg, var(--acc-blue, #2563EB), var(--acc-teal, #0D9488)) !important;
+}
+body.elementor-page-59 .sec-principals h2::after {
+    background: linear-gradient(90deg, #F59E0B, #2563EB) !important;
+}
+body.elementor-page-59 .hero-brand-pill .live-dot {
+    width: 8px;
+    height: 8px;
+    background: #10B981;
+    border-radius: 50%;
+    margin-right: 8px;
+    display: inline-block;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+body.elementor-page-59 .hero-title .elementor-heading-title {
+    color: #0A1B3B !important;
+    font-weight: 800 !important;
+    font-size: clamp(2rem, 3.1vw, 2.75rem) !important;
+    line-height: 1.24 !important;
+    letter-spacing: -0.025em !important;
+    margin-bottom: 1rem !important;
+}
+body.elementor-page-59 .hero-title .hero-brand-highlight {
+    color: var(--primary);
+}
+body.elementor-page-59 .hero-lead {
+    font-size: 1.05rem !important;
+    color: #475569 !important;
+    line-height: 1.65 !important;
+    margin-bottom: 1.5rem !important;
+    max-width: 620px;
+}
+
+/* Hero Stats — Presisi 1:1 index.html */
+body.elementor-page-59 .hero-stats-inner {
+    margin-bottom: 1.35rem !important;
+    max-width: 520px !important;
+    width: auto !important;
+}
+body.elementor-page-59 .hero-stats-inner > .elementor-container {
+    display: flex !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    width: auto !important;
+    max-width: 520px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+body.elementor-page-59 .hero-stats-inner .elementor-column {
+    padding: 0 24px !important;
+    border-left: 1.5px solid rgba(15, 42, 92, 0.16) !important;
+    width: auto !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+}
+body.elementor-page-59 .hero-stats-inner .elementor-column:first-child {
+    padding-left: 0 !important;
+    border-left: none !important;
+}
+body.elementor-page-59 .hero-stats-inner .elementor-widget-wrap {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+body.elementor-page-59 .hero-counter-item .elementor-counter {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+}
+body.elementor-page-59 .hero-counter-item .elementor-counter-number-wrapper {
+    order: 1 !important;
+    font-size: 1.45rem !important;
+    font-weight: 800 !important;
+    font-family: var(--font-heading) !important;
+    color: #0A1B3B !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.02em !important;
+    display: inline-flex !important;
+    align-items: baseline !important;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.9) !important;
+}
+body.elementor-page-59 .hero-counter-item .elementor-counter-title {
+    order: 2 !important;
+    font-size: 12px !important;
+    color: #334155 !important;
+    font-weight: 700 !important;
+    text-transform: none !important;
+    letter-spacing: 0.2px !important;
+    white-space: nowrap !important;
+    margin-top: 2px !important;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Hero CTA Buttons */
+body.elementor-page-59 .hero-btns-inner {
+    margin-top: 22px !important;
+    margin-bottom: 0 !important;
+    width: auto !important;
+}
+body.elementor-page-59 .hero-btns-inner > .elementor-container {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+body.elementor-page-59 .hero-btns-inner .elementor-column {
+    width: auto !important;
+    flex: 0 0 auto !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+body.elementor-page-59 .hero-btns-inner .elementor-widget-wrap {
+    padding: 0 !important;
+    margin: 0 !important;
+    display: inline-flex !important;
+}
+body.elementor-page-59 .hero-btns-inner .elementor-widget {
+    width: auto !important;
+    margin: 0 !important;
+}
+body.elementor-page-59 .hero-btns-inner .elementor-button {
+    height: 48px !important;
+    padding: 0 24px !important;
+    font-weight: 700 !important;
+    font-size: 14.5px !important;
+    font-family: var(--font-heading) !important;
+    border-radius: var(--radius-btn) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s ease !important;
+    white-space: nowrap !important;
+}
+/* Reset widget wrappers for buttons to prevent double border/bubble */
+body.elementor-page-59 .btn-hero-primary,
+body.elementor-page-59 .btn-hero-secondary {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    display: inline-flex !important;
+}
+body.elementor-page-59 .btn-hero-primary .elementor-button {
+    background: var(--primary) !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.32) !important;
+}
+body.elementor-page-59 .btn-hero-primary .elementor-button:hover {
+    background: var(--primary-hover) !important;
+    color: #FFFFFF !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 22px rgba(37, 99, 235, 0.42) !important;
+}
+body.elementor-page-59 .btn-hero-primary .elementor-button .elementor-button-content-wrapper {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+body.elementor-page-59 .btn-hero-primary .elementor-button svg,
+body.elementor-page-59 .btn-hero-primary .elementor-button .elementor-button-icon svg {
+    fill: #FFFFFF !important;
+    color: #FFFFFF !important;
+    width: 14px !important;
+    height: 14px !important;
+    display: inline-block !important;
+}
+body.elementor-page-59 .btn-hero-primary .elementor-button .elementor-button-icon {
+    order: 2 !important;
+    margin-left: 8px !important;
+    margin-right: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+body.elementor-page-59 .btn-hero-primary .elementor-button .elementor-button-text {
+    order: 1 !important;
+}
+
+body.elementor-page-59 .btn-hero-secondary .elementor-button {
+    background: #FFFFFF !important;
+    color: #0F2A5C !important;
+    border: 1.5px solid #CBD5E1 !important;
+    box-shadow: 0 2px 8px rgba(15, 42, 92, 0.05) !important;
+}
+body.elementor-page-59 .btn-hero-secondary .elementor-button:hover {
+    background: #EFF6FF !important;
+    color: #1D4ED8 !important;
+    border-color: var(--primary) !important;
+    transform: translateY(-2px) !important;
+}
+body.elementor-page-59 .btn-hero-secondary .elementor-button .elementor-button-content-wrapper {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+body.elementor-page-59 .btn-hero-secondary .elementor-button svg,
+body.elementor-page-59 .btn-hero-secondary .elementor-button .elementor-button-icon svg {
+    fill: #0F2A5C !important;
+    color: #0F2A5C !important;
+    width: 15px !important;
+    height: 15px !important;
+    display: inline-block !important;
+}
+body.elementor-page-59 .btn-hero-secondary .elementor-button:hover svg,
+body.elementor-page-59 .btn-hero-secondary .elementor-button:hover .elementor-button-icon svg {
+    fill: #1D4ED8 !important;
+    color: #1D4ED8 !important;
+}
+body.elementor-page-59 .btn-hero-secondary .elementor-button .elementor-button-icon {
+    order: 1 !important;
+    margin-right: 8px !important;
+    margin-left: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+body.elementor-page-59 .btn-hero-secondary .elementor-button .elementor-button-text {
+    order: 2 !important;
+}
+
+@media (max-width: 767px) {
+    body.elementor-page-59 .hero-btns-inner > .elementor-container {
+        justify-content: center !important;
+        width: 100% !important;
+    }
+}
+
+/* About Section: Gambar, Kartu Pengalaman Melayang, & Tombol CTA */
+body.elementor-page-59 .about-img-box {
+    position: relative !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    box-shadow: 0 12px 36px rgba(15, 23, 42, 0.08) !important;
+    border: 1px solid var(--border) !important;
+}
+body.elementor-page-59 .about-img-box img {
+    border-radius: 20px !important;
+    object-fit: cover !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 480px !important;
+    display: block !important;
+}
+body.elementor-page-59 .about-exp-float-card {
+    position: absolute !important;
+    bottom: 24px !important;
+    left: 20px !important;
+    right: 24px !important;
+    width: auto !important;
+    background: #FFFFFF !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 16px !important;
+    padding: 14px 20px !important;
+    box-shadow: 0 10px 30px rgba(15, 42, 92, 0.12) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+    z-index: 2 !important;
+}
+body.elementor-page-59 .about-btns-inner {
+    margin-top: 20px !important;
+    margin-bottom: 0 !important;
+    width: auto !important;
+}
+body.elementor-page-59 .about-btns-inner > .elementor-container {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+body.elementor-page-59 .about-btns-inner .elementor-column {
+    width: auto !important;
+    flex: 0 0 auto !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+body.elementor-page-59 .about-btns-inner .elementor-widget-wrap {
+    padding: 0 !important;
+    margin: 0 !important;
+    display: inline-flex !important;
+}
+body.elementor-page-59 .about-btns-inner .elementor-widget {
+    width: auto !important;
+    margin: 0 !important;
+}
+body.elementor-page-59 .btn-about-primary,
+body.elementor-page-59 .btn-about-secondary {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+}
+body.elementor-page-59 .btn-about-primary .elementor-button {
+    background: var(--primary) !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    border-radius: 10px !important;
+    padding: 12px 24px !important;
+    font-weight: 700 !important;
+    height: 48px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s ease !important;
+}
+body.elementor-page-59 .btn-about-primary .elementor-button:hover {
+    background: #1D4ED8 !important;
+    transform: translateY(-2px) !important;
+}
+body.elementor-page-59 .btn-about-primary .elementor-button svg,
+body.elementor-page-59 .btn-about-primary .elementor-button .elementor-button-icon svg {
+    fill: #FFFFFF !important;
+    color: #FFFFFF !important;
+    width: 14px !important;
+    height: 14px !important;
+    display: inline-block !important;
+    margin-left: 8px !important;
+}
+body.elementor-page-59 .btn-about-secondary .elementor-button {
+    background: #FFFFFF !important;
+    color: var(--primary) !important;
+    border: 1.5px solid var(--primary) !important;
+    border-radius: 10px !important;
+    padding: 12px 24px !important;
+    font-weight: 700 !important;
+    height: 48px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s ease !important;
+}
+body.elementor-page-59 .btn-about-secondary .elementor-button:hover {
+    background: var(--primary) !important;
+    color: #FFFFFF !important;
+    transform: translateY(-2px) !important;
+}
+body.elementor-page-59 .btn-booking-call .elementor-button {
+    background: #DC2626 !important;
+    color: #FFFFFF !important;
+    border-radius: 10px !important;
+    padding: 12px 20px !important;
+    font-weight: 700 !important;
+}
+body.elementor-page-59 .btn-booking-call .elementor-button:hover {
+    background: #B91C1C !important;
+}
+body.elementor-page-59 .btn-booking-reg .elementor-button {
+    background: #FFFFFF !important;
+    color: var(--primary) !important;
+    border: 1.5px solid var(--primary) !important;
+    border-radius: 10px !important;
+    padding: 12px 20px !important;
+    font-weight: 700 !important;
+}
+body.elementor-page-59 .btn-booking-reg .elementor-button:hover {
+    background: var(--primary) !important;
+    color: #FFFFFF !important;
+}
+body.elementor-page-59 .btn-faq-whatsapp .elementor-button {
+    background: #25D366 !important;
+    color: #FFFFFF !important;
+    border-radius: 10px !important;
+    padding: 12px 24px !important;
+    font-weight: 700 !important;
+}
+body.elementor-page-59 .btn-faq-whatsapp .elementor-button:hover {
+    background: #1EBE5D !important;
+}
+
+/* Hero Right Showcase Frame */
+body.elementor-page-59 .hero-truck-showcase {
+    max-width: 480px;
+    margin-left: auto;
+}
+body.elementor-page-59 .hero-truck-frame {
+    background: #FFFFFF;
+    border-radius: 24px;
+    padding: 16px;
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    position: relative;
+}
+body.elementor-page-59 .hero-truck-img-wrapper {
+    border-radius: 16px;
+    overflow: hidden;
+    height: 280px;
+}
+body.elementor-page-59 .hero-truck-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 4. Features Panel (4 Icon Box Widgets Native) */
+body.elementor-page-59 .sec-features > .elementor-container {
+    background: #FFFFFF !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 20px !important;
+    padding: 20px 16px !important;
+    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05) !important;
+    display: flex !important;
+    align-items: center !important;
+}
+body.elementor-page-59 .sec-features .elementor-top-column {
+    padding: 12px 18px !important;
+    transition: background-color 0.2s ease;
+}
+@media (min-width: 992px) {
+    body.elementor-page-59 .sec-features .elementor-top-column:not(:last-child) {
+        border-right: 1px solid var(--border) !important;
+    }
+}
+body.elementor-page-59 .sec-features .elementor-widget-icon-box .elementor-icon-box-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+}
+body.elementor-page-59 .sec-features .elementor-widget-icon-box .elementor-icon-box-icon {
+    margin-bottom: 0 !important;
+    margin-right: 0 !important;
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    border-radius: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 20px !important;
+}
+body.elementor-page-59 .sec-features .feature-col-1 .elementor-icon-box-icon { background: #EFF6FF !important; color: #2563EB !important; }
+body.elementor-page-59 .sec-features .feature-col-2 .elementor-icon-box-icon { background: #F0FDF4 !important; color: #059669 !important; }
+body.elementor-page-59 .sec-features .feature-col-3 .elementor-icon-box-icon { background: #FEF3C7 !important; color: #D97706 !important; }
+body.elementor-page-59 .sec-features .feature-col-4 .elementor-icon-box-icon { background: #EFF6FF !important; color: #2563EB !important; }
+
+body.elementor-page-59 .sec-features .elementor-widget-icon-box .elementor-icon-box-title {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    color: var(--heading) !important;
+    margin-bottom: 3px !important;
+}
+body.elementor-page-59 .sec-features .elementor-widget-icon-box .elementor-icon-box-description {
+    font-size: 12.5px !important;
+    color: var(--text-muted) !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+}
+
+/* 5. Facts / Counter Strip (4 Native Counter Widgets + Icons 1:1) */
+body.elementor-page-59 .fact-strip {
+    background: linear-gradient(135deg, #EFF6FF 0%, #E2EDFD 50%, #EFF6FF 100%) !important;
+    border-top: 1px solid rgba(37, 99, 235, 0.14) !important;
+    border-bottom: 1px solid rgba(37, 99, 235, 0.14) !important;
+    padding-top: 36px !important;
+    padding-bottom: 36px !important;
+}
+body.elementor-page-59 .fact-strip > .elementor-container {
+    display: flex !important;
+    align-items: center !important;
+}
+body.elementor-page-59 .fact-strip .fact-col {
+    padding: 10px 16px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+@media (min-width: 992px) {
+    body.elementor-page-59 .fact-strip .fact-col:not(:last-child) {
+        border-right: 1px solid rgba(37, 99, 235, 0.18) !important;
+    }
+}
+@media (max-width: 767px) {
+    body.elementor-page-59 .fact-strip > .elementor-container {
+        flex-wrap: wrap !important;
+    }
+    body.elementor-page-59 .fact-strip .fact-col {
+        flex: 1 1 50% !important;
+        max-width: 50% !important;
+        padding: 14px 10px !important;
+        justify-content: center !important;
+    }
+}
+body.elementor-page-59 .fact-strip .fact-col .elementor-widget-wrap {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    width: auto !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+body.elementor-page-59 .fact-strip .fact-col .elementor-widget-counter {
+    width: auto !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+}
+body.elementor-page-59 .fact-strip .fact-col .elementor-counter {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    text-align: left !important;
+}
+/* Ikon badge bulat/persegi tinted sebelum counter */
+body.elementor-page-59 .fact-strip .fact-col::before {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    border-radius: 12px !important;
+    background: rgba(37, 99, 235, 0.12) !important;
+    color: var(--primary) !important;
+    font-family: "Font Awesome 5 Free" !important;
+    font-weight: 900 !important;
+    font-size: 20px !important;
+    margin-right: 14px !important;
+    flex-shrink: 0 !important;
+}
+body.elementor-page-59 .fact-strip .fact-col:nth-child(1)::before { content: "\f073"; } /* fa-calendar-alt */
+body.elementor-page-59 .fact-strip .fact-col:nth-child(2)::before { content: "\f4fe"; } /* fa-user-cog */
+body.elementor-page-59 .fact-strip .fact-col:nth-child(3)::before { content: "\f1ad"; } /* fa-building */
+body.elementor-page-59 .fact-strip .fact-col:nth-child(4)::before { content: "\f63b"; } /* fa-truck-moving */
+
+body.elementor-page-59 .fact-strip .elementor-widget-counter .elementor-counter-number-wrapper {
+    order: 1 !important;
+    font-size: clamp(2rem, 3.2vw, 2.65rem) !important;
+    font-weight: 800 !important;
+    color: var(--navy) !important;
+    font-family: var(--font-heading) !important;
+    line-height: 1 !important;
+    text-align: left !important;
+    display: inline-flex !important;
+    align-items: baseline !important;
+}
+body.elementor-page-59 .fact-strip .elementor-widget-counter .elementor-counter-title {
+    order: 2 !important;
+    font-size: 13px !important;
+    color: var(--body) !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    margin-top: 4px !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+}
+
+/* Service Card Chip Badges over Image (1:1 Parity) */
+body.elementor-page-59 .service-column-card .elementor-widget-image,
+body.elementor-page-59 .service-grid-card .elementor-widget-image {
+    position: relative !important;
+}
+body.elementor-page-59 .service-column-card .elementor-widget-image::after,
+body.elementor-page-59 .service-grid-card .elementor-widget-image::after {
+    position: absolute !important;
+    bottom: 12px !important;
+    left: 18px !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 12px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-family: "Font Awesome 5 Free" !important;
+    font-weight: 900 !important;
+    font-size: 18px !important;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15) !important;
+    z-index: 2 !important;
+}
+body.elementor-page-59 .service-grid-card:nth-child(1) .elementor-widget-image::after {
+    content: "\f5fc"; /* fa-laptop-code */
+    background: #EFF6FF !important;
+    color: #2563EB !important;
+}
+body.elementor-page-59 .service-grid-card:nth-child(2) .elementor-widget-image::after {
+    content: "\f085"; /* fa-cogs */
+    background: #F0FDF4 !important;
+    color: #059669 !important;
+}
+body.elementor-page-59 .service-grid-card:nth-child(3) .elementor-widget-image::after {
+    content: "\f1cd"; /* fa-life-ring */
+    background: #FEF3C7 !important;
+    color: #D97706 !important;
+}
+body.elementor-page-59 .service-grid-card:nth-child(4) .elementor-widget-image::after {
+    content: "\f613"; /* fa-oil-can */
+    background: #EFF6FF !important;
+    color: #2563EB !important;
+}
+
+/* 6. Layanan: 4 Kartu Rapi (Native Image, Heading, List, Button) */
+body.elementor-page-59 .sec-services-cards > .elementor-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 24px !important;
+    align-items: stretch !important;
+}
+body.elementor-page-59 .service-column-card,
+body.elementor-page-59 .service-grid-card {
+    flex: 1 1 calc(25% - 24px) !important;
+    max-width: calc(25% - 24px) !important;
+    width: calc(25% - 24px) !important;
+    background: #FFFFFF !important;
+    border: 1px solid var(--border) !important;
+    border-top: 4px solid var(--primary) !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+body.elementor-page-59 .service-column-card:nth-child(2),
+body.elementor-page-59 .service-grid-card:nth-child(2) { border-top-color: var(--secondary) !important; }
+body.elementor-page-59 .service-column-card:nth-child(3),
+body.elementor-page-59 .service-grid-card:nth-child(3) { border-top-color: var(--accent) !important; }
+body.elementor-page-59 .service-column-card:nth-child(4),
+body.elementor-page-59 .service-grid-card:nth-child(4) { border-top-color: var(--primary) !important; }
+
+body.elementor-page-59 .service-column-card:hover,
+body.elementor-page-59 .service-grid-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 12px 30px rgba(15, 42, 92, 0.1) !important;
+    border-color: rgba(37, 99, 235, 0.3) !important;
+}
+body.elementor-page-59 .service-column-card .elementor-widget-wrap,
+body.elementor-page-59 .service-grid-card .elementor-widget-wrap {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    padding: 0 !important;
+}
+body.elementor-page-59 .service-column-card .elementor-widget-image,
+body.elementor-page-59 .service-grid-card .elementor-widget-image {
+    margin-bottom: 0 !important;
+    height: 175px !important;
+    overflow: hidden !important;
+}
+body.elementor-page-59 .service-column-card .elementor-widget-image img,
+body.elementor-page-59 .service-grid-card .elementor-widget-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: transform 0.35s ease !important;
+    display: block !important;
+}
+body.elementor-page-59 .service-column-card:hover .elementor-widget-image img,
+body.elementor-page-59 .service-grid-card:hover .elementor-widget-image img {
+    transform: scale(1.05) !important;
+}
+body.elementor-page-59 .service-column-card .elementor-widget-heading,
+body.elementor-page-59 .service-grid-card .elementor-widget-heading {
+    padding: 20px 20px 8px 20px !important;
+    margin-bottom: 0 !important;
+}
+body.elementor-page-59 .service-column-card .elementor-widget-heading .elementor-heading-title,
+body.elementor-page-59 .service-grid-card .elementor-widget-heading .elementor-heading-title {
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    color: var(--heading) !important;
+    margin: 0 !important;
+}
+body.elementor-page-59 .service-column-card .elementor-widget-text-editor,
+body.elementor-page-59 .service-grid-card .elementor-widget-text-editor {
+    padding: 0 20px !important;
+    flex-grow: 1 !important;
+    margin-bottom: 16px !important;
+}
+body.elementor-page-59 .service-column-card .elementor-widget-text-editor ul,
+body.elementor-page-59 .service-grid-card .elementor-widget-text-editor ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    font-size: 13px !important;
+    color: var(--text-muted) !important;
+}
+body.elementor-page-59 .service-column-card .elementor-widget-text-editor li,
+body.elementor-page-59 .service-grid-card .elementor-widget-text-editor li {
+    position: relative !important;
+    padding-left: 18px !important;
+    line-height: 1.4 !important;
+}
+body.elementor-page-59 .service-column-card .elementor-widget-text-editor li::before,
+body.elementor-page-59 .service-grid-card .elementor-widget-text-editor li::before {
+    content: '✓' !important;
+    position: absolute !important;
+    left: 0 !important;
+    color: var(--primary) !important;
+    font-weight: 700 !important;
+}
+body.elementor-page-59 .service-column-card .elementor-widget-button,
+body.elementor-page-59 .service-grid-card .elementor-widget-button {
+    padding: 0 20px 20px 20px !important;
+    margin-top: auto !important;
+}
+body.elementor-page-59 .service-column-card .btn-service-action .elementor-button,
+body.elementor-page-59 .service-grid-card .btn-service-action .elementor-button {
+    width: 100% !important;
+    background: transparent !important;
+    border: 1.5px solid var(--primary) !important;
+    color: var(--primary) !important;
+    font-weight: 600 !important;
+    border-radius: 10px !important;
+    padding: 10px 16px !important;
+    font-size: 0.9rem !important;
+    transition: all 0.2s ease !important;
+}
+body.elementor-page-59 .service-column-card .btn-service-action .elementor-button:hover,
+body.elementor-page-59 .service-grid-card .btn-service-action .elementor-button:hover {
+    background: var(--primary) !important;
+    color: #FFFFFF !important;
+}
+
+@media (max-width: 991px) {
+    body.elementor-page-59 .service-column-card,
+    body.elementor-page-59 .service-grid-card {
+        flex: 1 1 calc(50% - 24px) !important;
+        max-width: calc(50% - 24px) !important;
+    }
+}
+@media (max-width: 575px) {
+    body.elementor-page-59 .service-column-card,
+    body.elementor-page-59 .service-grid-card {
+        flex: 1 1 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+/* 7. Principals 6 Kolom Presisi Dalam Background Biru Utuh */
+body.elementor-page-59 #principals,
+body.elementor-page-59 .sec-principals {
+    background-color: var(--principals-surface) !important;
+    border-top: 1px solid var(--border) !important;
+    border-bottom: 1px solid var(--border) !important;
+    padding-top: 64px !important;
+    padding-bottom: 64px !important;
+}
+body.elementor-page-59 .sec-principals-wall {
+    background: transparent !important;
+    margin-top: 32px !important;
+    padding: 0 !important;
+}
+body.elementor-page-59 .sec-principals-wall > .elementor-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 16px !important;
+    justify-content: center !important;
+}
+body.elementor-page-59 .principal-wall-col,
+body.elementor-page-59 .principal-wall-card {
+    flex: 1 1 calc(16.666% - 16px) !important;
+    max-width: calc(16.666% - 16px) !important;
+    width: calc(16.666% - 16px) !important;
+    background: #FFFFFF !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 18px !important;
+    padding: 22px 14px 18px !important;
+    text-align: center !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+body.elementor-page-59 .principal-wall-col:hover,
+body.elementor-page-59 .principal-wall-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 24px rgba(15, 42, 92, 0.08) !important;
+    border-color: rgba(37, 99, 235, 0.3) !important;
+}
+body.elementor-page-59 .principal-wall-col .elementor-widget-image,
+body.elementor-page-59 .principal-wall-card .elementor-widget-image {
+    height: 52px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 10px !important;
+}
+body.elementor-page-59 .principal-wall-col .elementor-widget-image img,
+body.elementor-page-59 .principal-wall-card .elementor-widget-image img {
+    max-height: 44px !important;
+    max-width: 100px !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    margin: 0 auto !important;
+}
+body.elementor-page-59 .principal-wall-col .elementor-widget-heading .elementor-heading-title,
+body.elementor-page-59 .principal-wall-card .elementor-widget-heading .elementor-heading-title {
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    color: var(--navy) !important;
+    margin: 0 0 2px 0 !important;
+}
+body.elementor-page-59 .principal-wall-col .elementor-widget-text-editor p,
+body.elementor-page-59 .principal-wall-card .elementor-widget-text-editor p {
+    font-size: 12.5px !important;
+    color: var(--text-muted) !important;
+    font-weight: 500 !important;
+    margin: 0 !important;
+}
+@media (max-width: 991px) {
+    body.elementor-page-59 .principal-wall-col,
+    body.elementor-page-59 .principal-wall-card {
+        flex: 1 1 calc(33.333% - 16px) !important;
+        max-width: calc(33.333% - 16px) !important;
+    }
+}
+@media (max-width: 575px) {
+    body.elementor-page-59 .principal-wall-col,
+    body.elementor-page-59 .principal-wall-card {
+        flex: 1 1 calc(50% - 16px) !important;
+        max-width: calc(50% - 16px) !important;
+    }
+}
+
+/* 8. Team: 4 Kartu Montir Rapi 1:1 */
+body.elementor-page-59 .sec-team-cards > .elementor-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 24px !important;
+    align-items: stretch !important;
+}
+body.elementor-page-59 .team-column-card,
+body.elementor-page-59 .team-enterprise-card {
+    flex: 1 1 calc(25% - 24px) !important;
+    max-width: calc(25% - 24px) !important;
+    width: calc(25% - 24px) !important;
+    background: #FFFFFF !important;
+    border: 1px solid var(--border) !important;
+    border-bottom: 4px solid var(--primary, #2563EB) !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    text-align: center !important;
+}
+body.elementor-page-59 .sec-team-cards .elementor-column:nth-child(2) {
+    border-bottom-color: #0D9488 !important;
+}
+body.elementor-page-59 .sec-team-cards .elementor-column:nth-child(3) {
+    border-bottom-color: #F59E0B !important;
+}
+body.elementor-page-59 .sec-team-cards .elementor-column:nth-child(4) {
+    border-bottom-color: #7C3AED !important;
+}
+body.elementor-page-59 .team-column-card:hover,
+body.elementor-page-59 .team-enterprise-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 10px 24px rgba(15, 42, 92, 0.08) !important;
+}
+body.elementor-page-59 .team-column-card .elementor-widget-image,
+body.elementor-page-59 .team-enterprise-card .elementor-widget-image {
+    height: 240px !important;
+    aspect-ratio: auto !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    background: #F1F5F9 !important;
+    margin-bottom: 0 !important;
+}
+body.elementor-page-59 .team-column-card .elementor-widget-image img,
+body.elementor-page-59 .team-enterprise-card .elementor-widget-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: top center !important;
+    transition: transform 0.3s ease !important;
+    display: block !important;
+}
+body.elementor-page-59 .team-column-card:hover .elementor-widget-image img,
+body.elementor-page-59 .team-enterprise-card:hover .elementor-widget-image img {
+    transform: scale(1.05) !important;
+}
+body.elementor-page-59 .team-column-card .elementor-widget-heading,
+body.elementor-page-59 .team-enterprise-card .elementor-widget-heading {
+    padding: 16px 14px 2px 14px !important;
+    margin-bottom: 0 !important;
+}
+body.elementor-page-59 .team-column-card .elementor-widget-heading .elementor-heading-title,
+body.elementor-page-59 .team-enterprise-card .elementor-widget-heading .elementor-heading-title {
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    color: var(--heading) !important;
+    margin: 0 !important;
+}
+body.elementor-page-59 .team-column-card .elementor-widget-text-editor,
+body.elementor-page-59 .team-enterprise-card .elementor-widget-text-editor {
+    padding: 0 14px 16px 14px !important;
+}
+body.elementor-page-59 .team-column-card .elementor-widget-text-editor p,
+body.elementor-page-59 .team-enterprise-card .elementor-widget-text-editor p {
+    font-size: 0.85rem !important;
+    color: var(--text-muted) !important;
+    margin: 0 !important;
+}
+@media (max-width: 991px) {
+    body.elementor-page-59 .team-column-card,
+    body.elementor-page-59 .team-enterprise-card {
+        flex: 1 1 calc(50% - 24px) !important;
+        max-width: calc(50% - 24px) !important;
+    }
+}
+@media (max-width: 575px) {
+    body.elementor-page-59 .team-column-card,
+    body.elementor-page-59 .team-enterprise-card {
+        flex: 1 1 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+/* 9. Testimoni: 3 Kartu Presisi */
+body.elementor-page-59 .sec-testimonial-cards > .elementor-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 24px !important;
+    align-items: stretch !important;
+}
+body.elementor-page-59 .testimonial-column-card,
+body.elementor-page-59 .testimonial-enterprise-card {
+    flex: 1 1 calc(33.333% - 24px) !important;
+    max-width: calc(33.333% - 24px) !important;
+    width: calc(33.333% - 24px) !important;
+    background: #FFFFFF !important;
+    border: 1px solid var(--border) !important;
+    border-top: 4px solid var(--accent) !important;
+    border-radius: 18px !important;
+    padding: 28px 24px !important;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04) !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+body.elementor-page-59 .testimonial-avatar-wrap {
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+    margin-bottom: 14px !important;
+}
+body.elementor-page-59 .testimonial-avatar-wrap img {
+    width: 56px !important;
+    height: 56px !important;
+    min-width: 56px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    border: 2px solid var(--primary-tint) !important;
+}
+body.elementor-page-59 .testimonial-stars-line {
+    color: #F59E0B !important;
+    font-size: 16px !important;
+    letter-spacing: 2px !important;
+    margin-bottom: 12px !important;
+}
+body.elementor-page-59 .testimonial-quote-text {
+    font-size: 0.92rem !important;
+    line-height: 1.6 !important;
+    color: #334155 !important;
+    margin: 0 !important;
+}
+@media (max-width: 991px) {
+    body.elementor-page-59 .testimonial-column-card {
+        flex: 1 1 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+/* 10. Accordion Elementor */
+body.elementor-page-59 .faqAccordion .elementor-accordion-item {
+    border: 1px solid var(--border) !important;
+    border-radius: 12px !important;
+    margin-bottom: 12px !important;
+    overflow: hidden !important;
+    background: #FFFFFF !important;
+}
+body.elementor-page-59 .faqAccordion .elementor-tab-title {
+    padding: 16px 20px !important;
+    font-weight: 600 !important;
+    color: var(--heading) !important;
+}
+body.elementor-page-59 .faqAccordion .elementor-tab-content {
+    border-top: 1px solid var(--border-light) !important;
+    color: var(--body) !important;
+    padding: 14px 20px 18px !important;
+}
+
+/* 11. Footer Menu Links Spacing */
+body.elementor-page-59 .footer-menu-links {
+    display: flex;
+    gap: 18px;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+}
+body.elementor-page-59 .footer-menu-links a {
+    color: rgba(15, 23, 42, 0.65);
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+body.elementor-page-59 .footer-menu-links a:hover {
+    color: var(--primary);
+}

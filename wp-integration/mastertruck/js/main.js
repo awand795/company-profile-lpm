@@ -119,35 +119,39 @@
 
 
     // Date and time picker
-    $('.date').datetimepicker({
-        format: 'L'
-    });
-    $('.time').datetimepicker({
-        format: 'LT'
-    });
+    if ($.fn.datetimepicker) {
+        $('.date').datetimepicker({
+            format: 'L'
+        });
+        $('.time').datetimepicker({
+            format: 'LT'
+        });
+    }
 
 
     // Testimonials carousel
-    $(".testimonial-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1000,
-        center: true,
-        margin: 25,
-        dots: true,
-        loop: true,
-        nav : false,
-        responsive: {
-            0:{
-                items:1
-            },
-            768:{
-                items:2
-            },
-            992:{
-                items:3
+    if ($.fn.owlCarousel && $('.testimonial-carousel').length) {
+        $(".testimonial-carousel").owlCarousel({
+            autoplay: true,
+            smartSpeed: 1000,
+            center: true,
+            margin: 25,
+            dots: true,
+            loop: true,
+            nav : false,
+            responsive: {
+                0:{
+                    items:1
+                },
+                768:{
+                    items:2
+                },
+                992:{
+                    items:3
+                }
             }
-        }
-    });
+        });
+    }
 
     // Section Active Scrollspy via IntersectionObserver
     $(document).ready(function () {

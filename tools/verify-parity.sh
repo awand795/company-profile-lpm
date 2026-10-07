@@ -49,28 +49,29 @@ else
   warn "python3 tak ada, lewati cek regen template"
 fi
 
-# 3. Homepage tersaji = revamp
+# 3. Homepage tersaji = Elementor full (migrasi 2026-10-07)
 home="$(curl -s --max-time 20 "$URL/" || true)"
 if [[ -z "$home" ]]; then
   warn "tidak bisa mengunduh $URL/ (container mati?)"
 else
   miss=0
-  for m in 'sec-features' 'faqAccordion' 'Login Fleet' 'mastertruck/css/mastertruck.css'; do
+  for m in 'header-carousel' 'hero-brand-pill' 'about-check-list' 'fact-strip' 'service-grid-card' 'principal-wall-card' 'booking-form-box' 'bk_name' 'team-enterprise-card' 'testimonial-enterprise-card' 'faqAccordion' 'footer-clean' 'floating-wa-btn' 'mt-mastertruck' 'elementor'; do
     grep -q "$m" <<<"$home" || { warn "marker hilang di homepage: $m"; miss=1; }
   done
-  for m in 'bg-dark' 'brand-badge-card' 'fonts.googleapis'; do
+  for m in 'bg-dark' 'brand-badge-card' 'template-mastertruck'; do
     grep -q "$m" <<<"$home" && { warn "sisa lama di homepage: $m"; miss=1; }
   done
-  [[ $miss -eq 0 ]] && ok "homepage tersaji = revamp"
+  [[ $miss -eq 0 ]] && ok "homepage tersaji = Elementor full"
 fi
 
-# 4. Meta template homepage
+# 4. Homepage FULL ELEMENTOR (migrasi 2026-10-07)
 if docker ps --filter "name=^/${APP}$" --format '{{.Names}}' 2>/dev/null | grep -q .; then
   tpl="$(docker exec "$APP" wp post meta get 59 _wp_page_template --allow-root --path=/var/www/html 2>/dev/null || true)"
-  if [[ "$tpl" == "template-mastertruck.php" ]]; then
-    ok "homepage(ID 59) -> template-mastertruck.php"
+  mode="$(docker exec "$APP" wp post meta get 59 _elementor_edit_mode --allow-root --path=/var/www/html 2>/dev/null || true)"
+  if [[ "$mode" == "builder" && "$tpl" != "template-mastertruck.php" ]]; then
+    ok "homepage(ID 59) Elementor full (template: ${tpl:-default})"
   else
-    warn "template homepage = '${tpl:-?}' (jalankan ./sync-to-wp.sh)"
+    warn "homepage bukan Elementor full (tpl='${tpl:-?}' mode='${mode:-?}')"
   fi
 else
   warn "container $APP tidak jalan, lewati cek meta template"

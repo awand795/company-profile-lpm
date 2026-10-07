@@ -159,7 +159,7 @@ fi
 $WP theme activate astra >/dev/null 2>&1 || true
 $WP theme is-active astra >/dev/null 2>&1 && ok "theme astra aktif" || true
 
-for p in elementor astra-sites; do
+for p in elementor astra-sites header-footer-elementor; do
   if $WP plugin is-installed "$p" >/dev/null 2>&1; then
     ok "plugin $p sudah terpasang"
   else
