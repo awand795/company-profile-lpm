@@ -2416,48 +2416,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     margin-bottom: 10px;
 }
 
-/* Marquee merek berjalan di bawah hero */
-.brand-marquee {
-    background: linear-gradient(90deg, #0F2A5C 0%, #1D4ED8 60%, #0D9488 130%);
-    overflow: hidden;
-    white-space: nowrap;
-    padding: 12px 0;
-}
-.brand-marquee-track {
-    display: inline-flex;
-    align-items: center;
-    gap: 26px;
-    padding-right: 26px;
-    animation: brand-marquee-scroll 28s linear infinite;
-}
-.brand-marquee:hover .brand-marquee-track {
-    animation-play-state: paused;
-}
-.brand-marquee-track span {
-    font-family: var(--font-heading);
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.92);
-}
-.brand-marquee-track i {
-    font-style: normal;
-    color: rgba(255, 255, 255, 0.35);
-    font-size: 12px;
-}
-.brand-marquee-track .brand-marquee-accent {
-    color: #FCD34D;
-}
-@keyframes brand-marquee-scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-}
-@media (prefers-reduced-motion: reduce) {
-    .brand-marquee-track {
-        animation: none;
-    }
-}
+
 
 /* FAQ: item terbuka biru lembut (timpa sisa merah bootstrap lama) */
 #faqAccordion .accordion-button:not(.collapsed) {

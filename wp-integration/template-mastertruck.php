@@ -274,14 +274,7 @@ function mt_landing_dequeue_late() {
     <!-- Carousel End -->
 
 
-    <!-- Brand Marquee Start -->
-    <div class="brand-marquee" aria-label="Merek yang kami jual">
-        <div class="brand-marquee-track">
-            <span>Pertamina</span><i>•</i><span>Mobil</span><i>•</i><span>Dunlop</span><i>•</i><span>GS Astra</span><i>•</i><span>Incoe</span><i>•</i><span>Sakura</span><i>•</i><span class="brand-marquee-accent">100% Asli</span><i>•</i>
-            <span>Pertamina</span><i>•</i><span>Mobil</span><i>•</i><span>Dunlop</span><i>•</i><span>GS Astra</span><i>•</i><span>Incoe</span><i>•</i><span>Sakura</span><i>•</i><span class="brand-marquee-accent">100% Asli</span><i>•</i>
-        </div>
-    </div>
-    <!-- Brand Marquee End -->
+
 
 
     <!-- Service Features Start -->
