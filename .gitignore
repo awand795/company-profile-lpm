@@ -13,3 +13,7 @@ wp_*.png
 
 # Temporary backups
 backup-*.sql
+
+# Scratch and review directories
+scratch/
+playwright_review/

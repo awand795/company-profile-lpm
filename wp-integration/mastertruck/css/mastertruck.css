@@ -48,9 +48,9 @@
     --bg-light: #F8FAFC;
     --booking-bg: #EFF6FF;
 
-    /* Hero Tuning (gambar latar samar terlihat, teks tetap kontras) */
-    --hero-bg-opacity: 0.68;
-    --hero-bg-blur: 0.8px;
+    /* Hero Tuning (gambar latar samar terlihat, tidak silau, teks tetap kontras) */
+    --hero-bg-opacity: 0.46;
+    --hero-bg-blur: 1.2px;
 
     /* Component Geometry Tokens */
     --radius-sm: 8px;
@@ -761,7 +761,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
    ============================================================== */
 #header-carousel {
     position: relative;
-    background-color: #F8FAFD;
+    background-color: #1E293B;
     overflow: hidden;
 }
 
@@ -779,7 +779,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     }
 }
 
-/* Background image visible but softly blurred (absolute agar tinggi terikat section) */
+/* Background image visible but softly blurred & anti-glare (tidak silau) */
 #header-carousel .carousel-item > img.w-100 {
     position: absolute;
     inset: 0;
@@ -787,7 +787,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     height: 100%;
     object-fit: cover;
     opacity: var(--hero-bg-opacity);
-    filter: blur(var(--hero-bg-blur));
+    filter: blur(var(--hero-bg-blur)) brightness(0.82) contrast(1.08);
     transform: scale(1.04);
 }
 
@@ -819,7 +819,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 .carousel-caption {
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.62) 46%, rgba(255, 255, 255, 0.18) 100%) !important;
+    background: linear-gradient(100deg, rgba(255, 255, 255, 0.94) 0%, rgba(248, 250, 252, 0.78) 46%, rgba(241, 245, 249, 0.42) 100%) !important;
     z-index: 2;
     padding: 24px 0 60px !important;
     display: flex !important;
@@ -1819,10 +1819,10 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     .mt-topbar { display: none !important; }
 }
 
-/* HERO: dasar slate terang, foto samar terlihat, teks tetap kontras */
-#header-carousel { background-color: #F1F5F9; }
+/* HERO: dasar slate gelap meredam silau, foto tetap terlihat jelas & sejuk di mata */
+#header-carousel { background-color: #1E293B; }
 .carousel-caption {
-    background: linear-gradient(100deg, rgba(255, 255, 255, 0.88) 0%, rgba(248, 250, 252, 0.62) 48%, rgba(255, 255, 255, 0.20) 100%) !important;
+    background: linear-gradient(100deg, rgba(255, 255, 255, 0.94) 0%, rgba(248, 250, 252, 0.78) 46%, rgba(241, 245, 249, 0.42) 100%) !important;
 }
 
 /* 2. Fitur: putih, kartu bergaris aksen di atas */

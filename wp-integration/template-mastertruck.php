@@ -514,21 +514,21 @@ function mt_landing_dequeue_late() {
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.25s">
                     <div class="principal-wall-card">
-                        <div class="principal-logo-stage principal-logo-mono"><span class="brand-initial icon-tint-lavender">G</span></div>
+                        <div class="principal-logo-stage"><img src="<?php echo esc_url( $mt_base ); ?>/img/brands/gs-astra.svg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Logo GS Astra" loading="lazy" onerror="this.closest('.principal-logo-stage').style.display='none'"></div>
                         <strong>GS Astra</strong>
                         <small>Aki Truk</small>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="principal-wall-card">
-                        <div class="principal-logo-stage principal-logo-mono"><span class="brand-initial icon-tint-blue">I</span></div>
+                        <div class="principal-logo-stage"><img src="<?php echo esc_url( $mt_base ); ?>/img/brands/incoe.svg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Logo Incoe" loading="lazy" onerror="this.closest('.principal-logo-stage').style.display='none'"></div>
                         <strong>Incoe</strong>
                         <small>Aki Truk</small>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 wow fadeInUp" data-wow-delay="0.35s">
                     <div class="principal-wall-card">
-                        <div class="principal-logo-stage principal-logo-mono"><span class="brand-initial icon-tint-teal">S</span></div>
+                        <div class="principal-logo-stage"><img src="<?php echo esc_url( $mt_base ); ?>/img/brands/sakura.svg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Logo Sakura" loading="lazy" onerror="this.closest('.principal-logo-stage').style.display='none'"></div>
                         <strong>Sakura</strong>
                         <small>Filter</small>
                     </div>

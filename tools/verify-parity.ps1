@@ -48,13 +48,13 @@ if ($pyCmd) {
 
 # 3. Homepage tersaji = revamp
 try {
-    $home = (Invoke-WebRequest -Uri "$Url/" -TimeoutSec 20 -UseBasicParsing).Content
+    $htmlContent = (Invoke-WebRequest -Uri "$Url/" -TimeoutSec 20 -UseBasicParsing).Content
     $miss = 0
     foreach ($m in @('sec-features', 'faqAccordion', 'Login Fleet', 'mastertruck/css/mastertruck.css')) {
-        if ($home -notmatch [regex]::Escape($m)) { Warn-Msg "marker hilang di homepage: $m"; $miss = 1 }
+        if ($htmlContent -notmatch [regex]::Escape($m)) { Warn-Msg "marker hilang di homepage: $m"; $miss = 1 }
     }
     foreach ($m in @('bg-dark', 'brand-badge-card', 'fonts.googleapis')) {
-        if ($home -match [regex]::Escape($m)) { Warn-Msg "sisa lama di homepage: $m"; $miss = 1 }
+        if ($htmlContent -match [regex]::Escape($m)) { Warn-Msg "sisa lama di homepage: $m"; $miss = 1 }
     }
     if ($miss -eq 0) { Ok-Msg "homepage tersaji = revamp" }
 } catch {
