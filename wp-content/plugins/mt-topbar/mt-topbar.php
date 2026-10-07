@@ -6,6 +6,8 @@
  */
 defined( 'ABSPATH' ) || exit;
 
+require_once __DIR__ . '/mt-landing-fields.php';
+
 function mt_topbar_defaults() {
 	return array(
 		'phone'          => '(061) 8882-9999',

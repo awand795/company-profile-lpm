@@ -56,6 +56,23 @@ function mt_landing_dequeue_late() {
         }
     }
 }
+
+if ( ! function_exists( 'mt_get_content' ) ) {
+    function mt_get_content( $key, $default = '' ) {
+        $post_id = get_the_ID() ?: (int) get_option( 'page_on_front' );
+        if ( $post_id ) {
+            $val = get_post_meta( $post_id, '_mt_' . $key, true );
+            if ( '' !== $val && false !== $val && null !== $val ) {
+                return $val;
+            }
+        }
+        $opts = get_option( 'mt_landing_options', array() );
+        if ( is_array( $opts ) && isset( $opts[ $key ] ) && '' !== $opts[ $key ] ) {
+            return $opts[ $key ];
+        }
+        return $default;
+    }
+}
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -113,18 +130,18 @@ function mt_landing_dequeue_late() {
             <div class="col-lg-7 px-4 text-start">
                 <div class="h-100 d-inline-flex align-items-center py-2 me-3">
                     <small class="fa fa-map-marker-alt text-primary me-2"></small>
-                    <small>KIM III Medan &mdash; Sumatera Utara</small>
+                    <small><?php echo esc_html( mt_get_content( 'foot_address', 'KIM III Medan — Sumatera Utara' ) ); ?></small>
                 </div>
                 <span class="mt-topbar__sep d-none d-xl-inline-block"></span>
                 <div class="h-100 d-inline-flex align-items-center py-2 ms-3">
                     <small class="far fa-clock text-primary me-2"></small>
-                    <small>Senin &ndash; Sabtu : 08.00 &ndash; 17.00 WIB</small>
+                    <small><?php echo esc_html( mt_get_content( 'foot_hours_bengkel', 'Senin – Sabtu : 08.00 – 17.00 WIB' ) ); ?></small>
                 </div>
             </div>
             <div class="col-lg-5 px-4 text-end d-flex justify-content-end align-items-center gap-3">
                 <div class="h-100 d-inline-flex align-items-center py-2">
                     <small class="fa fa-phone-alt text-primary me-2"></small>
-                    <small><a href="tel:06188881234" class="text-decoration-none fw-bold">061-8888-1234</a></small>
+                    <small><a href="<?php echo esc_attr( 'tel:' . preg_replace( '/[^0-9+]/', '', mt_get_content( 'foot_phone', '061-8888-1234' ) ) ); ?>" class="text-decoration-none fw-bold"><?php echo esc_html( mt_get_content( 'foot_phone', '061-8888-1234' ) ); ?></a></small>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center gap-1">
                     <a class="top-social-btn" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -184,10 +201,10 @@ function mt_landing_dequeue_late() {
                         <div class="container">
                             <div class="row align-items-center justify-content-center justify-content-lg-start">
                                 <div class="col-10 col-lg-7 text-center text-lg-start">
-                                    <span class="hero-brand-pill animated slideInDown"><span class="live-dot"></span>PT Master Truck Indonesia &bull; KIM III Medan</span>
-                                    <h1 class="hero-title animated slideInDown">Master Truck: Bengkel Truk <span class="hero-brand-highlight">Terpercaya</span> di Medan</h1>
+                                    <span class="hero-brand-pill animated slideInDown"><span class="live-dot"></span><?php echo esc_html( mt_get_content( 'hero_s1_pill', 'PT Master Truck Indonesia • KIM III Medan' ) ); ?></span>
+                                    <h1 class="hero-title animated slideInDown"><?php echo wp_kses_post( mt_get_content( 'hero_s1_title', 'Master Truck: Bengkel Truk <span class="hero-brand-highlight">Terpercaya</span> di Medan' ) ); ?></h1>
                                     <p class="hero-lead d-none d-md-block animated slideInDown">
-                                        Sudah 15 tahun kami merawat truk sekaligus menjual oli, ban, dan aki asli langsung dari pabriknya &mdash; dipercaya 120+ perusahaan.
+                                        <?php echo esc_html( mt_get_content( 'hero_s1_lead', 'Sudah 15 tahun kami merawat truk sekaligus menjual oli, ban, dan aki asli langsung dari pabriknya — dipercaya 120+ perusahaan.' ) ); ?>
                                     </p>
                                     <div class="hero-stats d-none d-md-flex animated slideInDown">
                                         <div><strong>15</strong><span>Tahun Berpengalaman</span></div>
@@ -195,8 +212,8 @@ function mt_landing_dequeue_late() {
                                         <div><strong>2.500</strong><span>Truk per Tahun</span></div>
                                     </div>
                                     <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-2 animated slideInDown">
-                                        <a href="#booking" class="btn-hero-primary">Jadwalkan Servis<i class="fa fa-arrow-right ms-2"></i></a>
-                                        <a href="http://localhost:3000/#login" target="_blank" rel="noopener noreferrer" class="btn-hero-secondary"><i class="fa fa-desktop me-2"></i>Portal Web Fleet</a>
+                                        <a href="<?php echo esc_attr( mt_get_content( 'hero_s1_btn1_url', '#booking' ) ); ?>" class="btn-hero-primary"><?php echo esc_html( mt_get_content( 'hero_s1_btn1_text', 'Jadwalkan Servis' ) ); ?><i class="fa fa-arrow-right ms-2"></i></a>
+                                        <a href="<?php echo esc_url( mt_get_content( 'hero_s1_btn2_url', 'http://localhost:3000/#login' ) ); ?>" target="_blank" rel="noopener noreferrer" class="btn-hero-secondary"><i class="fa fa-desktop me-2"></i><?php echo esc_html( mt_get_content( 'hero_s1_btn2_text', 'Portal Web Fleet' ) ); ?></a>
                                     </div>
                                 </div>
                                 <div class="col-lg-5 d-none d-lg-flex animated zoomIn justify-content-center">
@@ -228,10 +245,10 @@ function mt_landing_dequeue_late() {
                         <div class="container">
                             <div class="row align-items-center justify-content-center justify-content-lg-start">
                                 <div class="col-10 col-lg-7 text-center text-lg-start">
-                                    <span class="hero-brand-pill animated slideInDown"><span class="live-dot"></span>PT Master Truck Indonesia &bull; Distributor Nasional Resmi</span>
-                                    <h1 class="hero-title animated slideInDown">Master Truck: <span class="hero-brand-highlight">Sparepart Truk Asli</span> dari Pabrik</h1>
+                                    <span class="hero-brand-pill animated slideInDown"><span class="live-dot"></span><?php echo esc_html( mt_get_content( 'hero_s2_pill', 'PT Master Truck Indonesia • Distributor Nasional Resmi' ) ); ?></span>
+                                    <h1 class="hero-title animated slideInDown"><?php echo wp_kses_post( mt_get_content( 'hero_s2_title', 'Master Truck: <span class="hero-brand-highlight">Sparepart Truk Asli</span> dari Pabrik' ) ); ?></h1>
                                     <p class="hero-lead d-none d-md-block animated slideInDown">
-                                        Oli Pertamina, oli Mobil, ban Dunlop &amp; aki GS Astra &mdash; dijamin asli dari pabriknya, dengan harga khusus untuk pelanggan perusahaan.
+                                        <?php echo esc_html( mt_get_content( 'hero_s2_lead', 'Oli Pertamina, oli Mobil, ban Dunlop & aki GS Astra — dijamin asli dari pabriknya, dengan harga khusus untuk pelanggan perusahaan.' ) ); ?>
                                     </p>
                                     <div class="hero-stats d-none d-md-flex animated slideInDown">
                                         <div><strong>15</strong><span>Tahun Berpengalaman</span></div>
@@ -239,8 +256,8 @@ function mt_landing_dequeue_late() {
                                         <div><strong>2.500</strong><span>Truk per Tahun</span></div>
                                     </div>
                                     <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-2 animated slideInDown">
-                                        <a href="#principals" class="btn-hero-primary">Lihat Produk OEM<i class="fa fa-arrow-right ms-2"></i></a>
-                                        <a href="http://localhost:3000/#register" target="_blank" rel="noopener noreferrer" class="btn-hero-secondary"><i class="fa fa-user-plus me-2"></i>Daftar Fleet</a>
+                                        <a href="<?php echo esc_attr( mt_get_content( 'hero_s2_btn1_url', '#principals' ) ); ?>" class="btn-hero-primary"><?php echo esc_html( mt_get_content( 'hero_s2_btn1_text', 'Lihat Produk OEM' ) ); ?><i class="fa fa-arrow-right ms-2"></i></a>
+                                        <a href="<?php echo esc_url( mt_get_content( 'hero_s2_btn2_url', 'http://localhost:3000/#register' ) ); ?>" target="_blank" rel="noopener noreferrer" class="btn-hero-secondary"><i class="fa fa-user-plus me-2"></i><?php echo esc_html( mt_get_content( 'hero_s2_btn2_text', 'Daftar Fleet' ) ); ?></a>
                                     </div>
                                 </div>
                                 <div class="col-lg-5 d-none d-lg-flex animated zoomIn justify-content-center">
@@ -286,8 +303,8 @@ function mt_landing_dequeue_late() {
                         <div class="feature-strip">
                             <div class="icon-tint-wrap icon-tint-blue"><i class="fa fa-clipboard-check"></i></div>
                             <div>
-                                <h5>Cek Menyeluruh</h5>
-                                <p>Truk dicek 30 bagian, ada foto buktinya, bergaransi resmi.</p>
+                                <h5><?php echo esc_html( mt_get_content( 'feat_1_title', 'Cek Menyeluruh' ) ); ?></h5>
+                                <p><?php echo esc_html( mt_get_content( 'feat_1_desc', 'Truk dicek 30 bagian, ada foto buktinya, bergaransi resmi.' ) ); ?></p>
                             </div>
                         </div>
                     </div>
@@ -295,8 +312,8 @@ function mt_landing_dequeue_late() {
                         <div class="feature-strip">
                             <div class="icon-tint-wrap icon-tint-teal"><i class="fa fa-users-cog"></i></div>
                             <div>
-                                <h5>Teknisi Ahli</h5>
-                                <p>Montir khusus truk berpengalaman belasan tahun.</p>
+                                <h5><?php echo esc_html( mt_get_content( 'feat_2_title', 'Teknisi Ahli' ) ); ?></h5>
+                                <p><?php echo esc_html( mt_get_content( 'feat_2_desc', 'Montir khusus truk berpengalaman belasan tahun.' ) ); ?></p>
                             </div>
                         </div>
                     </div>
@@ -304,8 +321,8 @@ function mt_landing_dequeue_late() {
                         <div class="feature-strip">
                             <div class="icon-tint-wrap icon-tint-amber"><i class="fa fa-shield-alt"></i></div>
                             <div>
-                                <h5>Barang Asli</h5>
-                                <p>Oli, ban, dan aki langsung dari pabriknya. Dijamin asli.</p>
+                                <h5><?php echo esc_html( mt_get_content( 'feat_3_title', 'Barang Asli' ) ); ?></h5>
+                                <p><?php echo esc_html( mt_get_content( 'feat_3_desc', 'Oli, ban, dan aki langsung dari pabriknya. Dijamin asli.' ) ); ?></p>
                             </div>
                         </div>
                     </div>
@@ -313,8 +330,8 @@ function mt_landing_dequeue_late() {
                         <div class="feature-strip">
                             <div class="icon-tint-wrap icon-tint-blue"><i class="fa fa-satellite-dish"></i></div>
                             <div>
-                                <h5>Pantau Online</h5>
-                                <p>Lihat progress servis dan tagihan dari HP kapan saja.</p>
+                                <h5><?php echo esc_html( mt_get_content( 'feat_4_title', 'Pantau Online' ) ); ?></h5>
+                                <p><?php echo esc_html( mt_get_content( 'feat_4_desc', 'Lihat progress servis dan tagihan dari HP kapan saja.' ) ); ?></p>
                             </div>
                         </div>
                     </div>
@@ -335,29 +352,29 @@ function mt_landing_dequeue_late() {
                         <div class="about-exp-float-card">
                             <div class="icon-tint-wrap icon-tint-blue"><i class="fa fa-award"></i></div>
                             <div>
-                                <div class="fw-bold fs-4 mb-0 text-navy">15 Tahun</div>
-                                <small class="text-muted">Pengalaman</small>
+                                <div class="fw-bold fs-4 mb-0 text-navy"><?php echo esc_html( mt_get_content( 'about_exp_years', '15 Tahun' ) ); ?></div>
+                                <small class="text-muted"><?php echo esc_html( mt_get_content( 'about_exp_label', 'Pengalaman' ) ); ?></small>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <span class="badge-section-pill">Tentang Kami</span>
-                    <h2 class="mb-3"><span class="text-primary">Master Truck</span>, Bengkel Truk Kepercayaan Anda di Medan</h2>
+                    <span class="badge-section-pill"><?php echo esc_html( mt_get_content( 'about_pill', 'Tentang Kami' ) ); ?></span>
+                    <h2 class="mb-3"><?php echo wp_kses_post( mt_get_content( 'about_title', '<span class="text-primary">Master Truck</span>, Bengkel Truk Kepercayaan Anda di Medan' ) ); ?></h2>
                     <p class="mb-3">
-                        <strong>PT Master Truck Indonesia</strong> ada di Kawasan Industri Medan III (KIM III). Kami merawat segala jenis truk dan mesin besar, sekaligus toko resmi oli Pertamina, oli Mobil, ban Dunlop, dan aki Incoe/GS Astra.
+                        <?php echo wp_kses_post( mt_get_content( 'about_desc1', '<strong>PT Master Truck Indonesia</strong> ada di Kawasan Industri Medan III (KIM III). Kami merawat segala jenis truk dan mesin besar, sekaligus toko resmi oli Pertamina, oli Mobil, ban Dunlop, dan aki Incoe/GS Astra.' ) ); ?>
                     </p>
                     <p class="mb-4">
-                        Semua pengerjaan tercatat dan bisa dipantau online — ada foto buktinya sebelum Anda bayar.
+                        <?php echo esc_html( mt_get_content( 'about_desc2', 'Semua pengerjaan tercatat dan bisa dipantau online — ada foto buktinya sebelum Anda bayar.' ) ); ?>
                     </p>
                     <ul class="about-check-list mb-4">
-                        <li><span class="check-icon-circle"><i class="fa fa-check"></i></span><span>Segala jenis truk: tronton, trailer, dump truck, mesin besar</span></li>
-                        <li><span class="check-icon-circle"><i class="fa fa-check"></i></span><span>Progress servis terpantau dari HP, lengkap dengan foto</span></li>
-                        <li><span class="check-icon-circle"><i class="fa fa-check"></i></span><span>Barang 100% asli dari pabrik, bisa bayar tempo</span></li>
+                        <li><span class="check-icon-circle"><i class="fa fa-check"></i></span><span><?php echo esc_html( mt_get_content( 'about_point1', 'Segala jenis truk: tronton, trailer, dump truck, mesin besar' ) ); ?></span></li>
+                        <li><span class="check-icon-circle"><i class="fa fa-check"></i></span><span><?php echo esc_html( mt_get_content( 'about_point2', 'Progress servis terpantau dari HP, lengkap dengan foto' ) ); ?></span></li>
+                        <li><span class="check-icon-circle"><i class="fa fa-check"></i></span><span><?php echo esc_html( mt_get_content( 'about_point3', 'Barang 100% asli dari pabrik, bisa bayar tempo' ) ); ?></span></li>
                     </ul>
                     <div class="d-flex flex-wrap gap-2">
-                        <a href="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20ingin%20konsultasi%20layanan%20armada" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                            Hubungi Kami<i class="fa fa-arrow-right ms-2"></i>
+                        <a href="<?php echo esc_url( mt_get_content( 'about_btn1_url', 'https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20ingin%20konsultasi%20layanan%20armada' ) ); ?>" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                            <?php echo esc_html( mt_get_content( 'about_btn1_text', 'Hubungi Kami' ) ); ?><i class="fa fa-arrow-right ms-2"></i>
                         </a>
                         <a href="#service" class="btn btn-outline-primary">Lihat Layanan</a>
                     </div>
@@ -376,8 +393,8 @@ function mt_landing_dequeue_late() {
                     <div class="fact-strip-item">
                         <div class="fact-icon-badge"><i class="fa fa-calendar-alt"></i></div>
                         <div>
-                            <strong><span data-toggle="counter-up">15</span></strong>
-                            <span>Tahun Berpengalaman</span>
+                            <strong><span data-toggle="counter-up"><?php echo esc_html( mt_get_content( 'fact_1_num', '15' ) ); ?></span></strong>
+                            <span><?php echo esc_html( mt_get_content( 'fact_1_lbl', 'Tahun Berpengalaman' ) ); ?></span>
                         </div>
                     </div>
                 </div>
@@ -385,8 +402,8 @@ function mt_landing_dequeue_late() {
                     <div class="fact-strip-item">
                         <div class="fact-icon-badge"><i class="fa fa-user-cog"></i></div>
                         <div>
-                            <strong><span data-toggle="counter-up">45</span></strong>
-                            <span>Teknisi Ahli</span>
+                            <strong><span data-toggle="counter-up"><?php echo esc_html( mt_get_content( 'fact_2_num', '45' ) ); ?></span></strong>
+                            <span><?php echo esc_html( mt_get_content( 'fact_2_lbl', 'Teknisi Ahli' ) ); ?></span>
                         </div>
                     </div>
                 </div>
@@ -394,8 +411,8 @@ function mt_landing_dequeue_late() {
                     <div class="fact-strip-item">
                         <div class="fact-icon-badge"><i class="fa fa-building"></i></div>
                         <div>
-                            <strong><span data-toggle="counter-up">120</span>+</strong>
-                            <span>Perusahaan Pelanggan</span>
+                            <strong><span data-toggle="counter-up"><?php echo esc_html( mt_get_content( 'fact_3_num', '120' ) ); ?></span>+</strong>
+                            <span><?php echo esc_html( mt_get_content( 'fact_3_lbl', 'Perusahaan Pelanggan' ) ); ?></span>
                         </div>
                     </div>
                 </div>
@@ -403,8 +420,8 @@ function mt_landing_dequeue_late() {
                     <div class="fact-strip-item">
                         <div class="fact-icon-badge"><i class="fa fa-truck-moving"></i></div>
                         <div>
-                            <strong><span data-toggle="counter-up">2500</span></strong>
-                            <span>Truk per Tahun</span>
+                            <strong><span data-toggle="counter-up"><?php echo esc_html( mt_get_content( 'fact_4_num', '2500' ) ); ?></span></strong>
+                            <span><?php echo esc_html( mt_get_content( 'fact_4_lbl', 'Truk per Tahun' ) ); ?></span>
                         </div>
                     </div>
                 </div>
@@ -430,11 +447,11 @@ function mt_landing_dequeue_late() {
                             <div class="service-chip-badge icon-tint-blue"><i class="fa fa-laptop-code"></i></div>
                         </div>
                         <div class="service-grid-body">
-                            <h5>Cek Mesin Komputer</h5>
+                            <h5><?php echo esc_html( mt_get_content( 'svc_1_title', 'Cek Mesin Komputer' ) ); ?></h5>
                             <ul>
-                                <li>Mesin dicek pakai komputer</li>
-                                <li>Kelistrikan &amp; aki 24 volt</li>
-                                <li>Hasilnya dikirim ke HP Anda</li>
+                                <li><?php echo esc_html( mt_get_content( 'svc_1_item1', 'Mesin dicek pakai komputer' ) ); ?></li>
+                                <li><?php echo esc_html( mt_get_content( 'svc_1_item2', 'Kelistrikan & aki 24 volt' ) ); ?></li>
+                                <li><?php echo esc_html( mt_get_content( 'svc_1_item3', 'Hasilnya dikirim ke HP Anda' ) ); ?></li>
                             </ul>
                             <a href="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20cek%20mesin%20komputer" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary w-100">Tanya Teknisi</a>
                         </div>
@@ -447,11 +464,11 @@ function mt_landing_dequeue_late() {
                             <div class="service-chip-badge icon-tint-teal"><i class="fa fa-cogs"></i></div>
                         </div>
                         <div class="service-grid-body">
-                            <h5>Servis Mesin Besar</h5>
+                            <h5><?php echo esc_html( mt_get_content( 'svc_2_title', 'Servis Mesin Besar' ) ); ?></h5>
                             <ul>
-                                <li>Turun mesin, bergaransi</li>
-                                <li>Stel injektor biar irit</li>
-                                <li>Sparepart asli pabrik</li>
+                                <li><?php echo esc_html( mt_get_content( 'svc_2_item1', 'Turun mesin, bergaransi' ) ); ?></li>
+                                <li><?php echo esc_html( mt_get_content( 'svc_2_item2', 'Stel injektor biar irit' ) ); ?></li>
+                                <li><?php echo esc_html( mt_get_content( 'svc_2_item3', 'Sparepart asli pabrik' ) ); ?></li>
                             </ul>
                             <a href="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20servis%20mesin%20besar" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary w-100">Tanya Teknisi</a>
                         </div>
@@ -464,11 +481,11 @@ function mt_landing_dequeue_late() {
                             <div class="service-chip-badge icon-tint-amber"><i class="fa fa-life-ring"></i></div>
                         </div>
                         <div class="service-grid-body">
-                            <h5>Ban &amp; Rem Angin</h5>
+                            <h5><?php echo esc_html( mt_get_content( 'svc_3_title', 'Ban & Rem Angin' ) ); ?></h5>
                             <ul>
-                                <li>Ban Dunlop segala ukuran</li>
-                                <li>Servis rem angin + kampas</li>
-                                <li>Cek kaki-kaki &amp; per daun</li>
+                                <li><?php echo esc_html( mt_get_content( 'svc_3_item1', 'Ban Dunlop segala ukuran' ) ); ?></li>
+                                <li><?php echo esc_html( mt_get_content( 'svc_3_item2', 'Servis rem angin + kampas' ) ); ?></li>
+                                <li><?php echo esc_html( mt_get_content( 'svc_3_item3', 'Cek kaki-kaki & per daun' ) ); ?></li>
                             </ul>
                             <a href="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20ban%20dan%20rem%20angin" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary w-100">Tanya Teknisi</a>
                         </div>
@@ -481,11 +498,11 @@ function mt_landing_dequeue_late() {
                             <div class="service-chip-badge icon-tint-blue"><i class="fa fa-oil-can"></i></div>
                         </div>
                         <div class="service-grid-body">
-                            <h5>Ganti Oli</h5>
+                            <h5><?php echo esc_html( mt_get_content( 'svc_4_title', 'Ganti Oli' ) ); ?></h5>
                             <ul>
-                                <li>Oli Pertamina &amp; Mobil asli</li>
-                                <li>Ganti filter sekalian</li>
-                                <li>Bisa beli drum / pail</li>
+                                <li><?php echo esc_html( mt_get_content( 'svc_4_item1', 'Oli Pertamina & Mobil asli' ) ); ?></li>
+                                <li><?php echo esc_html( mt_get_content( 'svc_4_item2', 'Ganti filter sekalian' ) ); ?></li>
+                                <li><?php echo esc_html( mt_get_content( 'svc_4_item3', 'Bisa beli drum / pail' ) ); ?></li>
                             </ul>
                             <a href="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20ganti%20oli" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary w-100">Tanya Teknisi</a>
                         </div>
@@ -560,17 +577,17 @@ function mt_landing_dequeue_late() {
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-6 py-5">
                     <div class="py-4">
-                        <span class="badge-section-pill badge-emergency-pill"><i class="fa fa-phone-volume me-1"></i>Derek Siaga 24 Jam</span>
-                        <h2 class="mb-3">Truk Mogok? Kami Jemput Kapan Saja</h2>
+                        <span class="badge-section-pill badge-emergency-pill"><i class="fa fa-phone-volume me-1"></i><?php echo esc_html( mt_get_content( 'book_pill', 'Derek Siaga 24 Jam' ) ); ?></span>
+                        <h2 class="mb-3"><?php echo esc_html( mt_get_content( 'book_title', 'Truk Mogok? Kami Jemput Kapan Saja' ) ); ?></h2>
                         <p class="mb-3">
-                            Mogok di Medan, Belawan, Tebing Tinggi, atau lintas Sumatera? Mobil derek kami siap menjemput dan membawa truk Anda ke bengkel.
+                            <?php echo esc_html( mt_get_content( 'book_desc1', 'Mogok di Medan, Belawan, Tebing Tinggi, atau lintas Sumatera? Mobil derek kami siap menjemput dan membawa truk Anda ke bengkel.' ) ); ?>
                         </p>
                         <p class="mb-4">
-                            Daftar jadi pelanggan perusahaan: <strong>bisa bayar tempo</strong>, <strong>harga khusus</strong>, dan <strong>gratis pantau servis online</strong>.
+                            <?php echo wp_kses_post( mt_get_content( 'book_desc2', 'Daftar jadi pelanggan perusahaan: <strong>bisa bayar tempo</strong>, <strong>harga khusus</strong>, dan <strong>gratis pantau servis online</strong>.' ) ); ?>
                         </p>
                         <div class="d-flex flex-wrap gap-2 mb-4">
-                            <a href="tel:081234567890" class="btn btn-emergency">
-                                <i class="fa fa-phone-alt me-2"></i>0812-3456-7890
+                            <a href="<?php echo esc_attr( 'tel:' . preg_replace( '/[^0-9+]/', '', mt_get_content( 'book_phone', '0812-3456-7890' ) ) ); ?>" class="btn btn-emergency">
+                                <i class="fa fa-phone-alt me-2"></i><?php echo esc_html( mt_get_content( 'book_phone', '0812-3456-7890' ) ); ?>
                             </a>
                             <a href="http://localhost:3000/#register" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">
                                 <i class="fa fa-user-plus me-2"></i>Daftar Fleet
@@ -596,7 +613,7 @@ function mt_landing_dequeue_late() {
                     <div class="booking-form-box wow zoomIn" data-wow-delay="0.2s">
                         <h3 class="text-center mb-1">Booking Servis Truk</h3>
                         <p class="text-center text-muted mb-4">Isi form — langsung terkirim ke WhatsApp bengkel.</p>
-                        <form onsubmit="event.preventDefault(); window.open('https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20ingin%20jadwalkan%20servis:%0ANama:%20' + encodeURIComponent(document.getElementById('bk_name').value) + '%0ANo%20WA:%20' + encodeURIComponent(document.getElementById('bk_phone').value) + '%0ALayanan:%20' + encodeURIComponent(document.getElementById('bk_service').value) + '%0ATanggal:%20' + encodeURIComponent(document.getElementById('bk_date').value) + '%0ANoPol/Keterangan:%20' + encodeURIComponent(document.getElementById('bk_notes').value), '_blank');">
+                        <form onsubmit="event.preventDefault(); window.open('https://wa.me/<?php echo esc_attr( preg_replace( '/[^0-9]/', '', mt_get_content( 'book_wa', '6281234567890' ) ) ); ?>?text=Halo%20Master%20Truck,%20saya%20ingin%20jadwalkan%20servis:%0ANama:%20' + encodeURIComponent(document.getElementById('bk_name').value) + '%0ANo%20WA:%20' + encodeURIComponent(document.getElementById('bk_phone').value) + '%0ALayanan:%20' + encodeURIComponent(document.getElementById('bk_service').value) + '%0ATanggal:%20' + encodeURIComponent(document.getElementById('bk_date').value) + '%0ANoPol/Keterangan:%20' + encodeURIComponent(document.getElementById('bk_notes').value), '_blank');">
                             <div class="row g-3">
                                 <div class="col-12 col-sm-6">
                                     <input type="text" id="bk_name" class="form-control" placeholder="Nama / Perusahaan" required>
@@ -833,9 +850,9 @@ function mt_landing_dequeue_late() {
                         <div><div class="fw-bold" style="color: var(--navy);">MASTER <span style="color: var(--primary);">TRUCK</span></div><small class="text-muted">Bengkel Truk KIM III Medan</small></div>
                     </div>
                     <h4 class="footer-heading">Kontak &amp; Alamat</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-2 text-primary"></i>KIM III, Medan — Sumatera Utara</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-2 text-primary"></i>061-8888-1234 / 0812-3456-7890</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-2 text-primary"></i>cs@mastertruk.co.id</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-2 text-primary"></i><?php echo esc_html( mt_get_content( 'foot_address', 'KIM III, Medan — Sumatera Utara' ) ); ?></p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-2 text-primary"></i><?php echo esc_html( mt_get_content( 'foot_phone', '061-8888-1234 / 0812-3456-7890' ) ); ?></p>
+                    <p class="mb-2"><i class="fa fa-envelope me-2 text-primary"></i><?php echo esc_html( mt_get_content( 'foot_email', 'cs@mastertruk.co.id' ) ); ?></p>
                     <div class="d-flex pt-2 gap-2">
                         <a class="btn btn-social" href="#"><i class="fab fa-facebook-f"></i></a>
                         <a class="btn btn-social" href="#"><i class="fab fa-instagram"></i></a>
@@ -846,9 +863,9 @@ function mt_landing_dequeue_late() {
                 <div class="col-lg-3 col-md-6">
                     <h4 class="footer-heading">Jam Buka</h4>
                     <h6>Bengkel &amp; Toko Sparepart:</h6>
-                    <p class="mb-3">Senin - Sabtu: 08.00 - 17.00 WIB</p>
+                    <p class="mb-3"><?php echo esc_html( mt_get_content( 'foot_hours_bengkel', 'Senin - Sabtu: 08.00 - 17.00 WIB' ) ); ?></p>
                     <h6>Layanan Derek &amp; Darurat:</h6>
-                    <p class="mb-0"><span class="badge footer-emergency-badge px-3 py-2"><i class="fa fa-phone-volume me-1"></i>24 Jam Nonstop</span></p>
+                    <p class="mb-0"><span class="badge footer-emergency-badge px-3 py-2"><i class="fa fa-phone-volume me-1"></i><?php echo esc_html( mt_get_content( 'foot_hours_derek', '24 Jam Nonstop' ) ); ?></span></p>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="footer-heading">Layanan Kami</h4>
@@ -876,7 +893,7 @@ function mt_landing_dequeue_late() {
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#header-carousel">MASTER TRUCK</a>, Seluruh Hak Cipta Dilindungi. Terdaftar di Kementerian Perdagangan RI.
+                        <?php echo wp_kses_post( mt_get_content( 'foot_copyright', '&copy; <a class="border-bottom" href="#header-carousel">MASTER TRUCK</a>, Seluruh Hak Cipta Dilindungi. Terdaftar di Kementerian Perdagangan RI.' ) ); ?>
                         <br>
                         Theme based on <a class="border-bottom" href="https://themewagon.github.io/carserv/" target="_blank" rel="noopener">CarServ</a> by <a class="border-bottom" href="https://htmlcodex.com" target="_blank" rel="noopener">HTML Codex</a> &amp; <a class="border-bottom" href="https://themewagon.com" target="_blank" rel="noopener">ThemeWagon</a>.
                     </div>

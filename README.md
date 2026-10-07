@@ -13,6 +13,7 @@ Menggunakan tema resmi **[CarServ](https://themewagon.github.io/carserv/)** oleh
 
 | Ingin mengubah | Caranya |
 | --- | --- |
+| **Teks & Konten Landing Page (Beranda)** | **Pages → Beranda** (atau tombol **✏️ Edit Teks Beranda** di Admin Bar atas) → ubah teks pada tab *Editor Konten Landing Page* (Hero, Tentang Kami, Fakta, Layanan, Derek, Footer) lalu klik **Update/Perbarui**. |
 | **Warna brand** (navy, merah, emas, dsb.) | Elementor → **Site Settings → Global Colors** (10 warna). Semua halaman memakai `var(--e-global-color-*)`, jadi cukup diubah sekali. |
 | **Font situs** | Elementor → **Site Settings → Global Typography** (Barlow 400–800). |
 | **Teks topbar** (telepon, WA, email, jam, link Web Fleet) | **Appearance → Topbar Master Truck** — tanpa menyentuh kode. |
