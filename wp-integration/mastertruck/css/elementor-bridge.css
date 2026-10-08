@@ -1302,3 +1302,216 @@ body.elementor-page-59 .sec-team .team-enterprise-card .team-photo-wrap img {
     object-position: top center !important;
     display: block !important;
 }
+
+/* 13. Native header/footer FIX (tetap editable): samakan output
+   Elementor Button/IconBox dengan CSS asli mastertruck.css.
+   Class custom menempel di WRAPPER Elementor, jadi selektor
+   menarget .<cls> .elementor-button / .elementor-icon-box-*. */
+
+/* --- Topbar: tinggi 38px, sosmed lingkaran 28px --- */
+body.elementor-page-59 .top-bar-custom {
+    min-height: 38px !important;
+}
+body.elementor-page-59 .top-bar-custom .elementor-container {
+    align-items: center !important;
+}
+body.elementor-page-59 .topbar-social-inner > .elementor-container,
+body.elementor-page-59 .topbar-social-inner .elementor-container {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 6px !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+}
+body.elementor-page-59 .top-social-btn.elementor-widget-button {
+    width: auto !important;
+    margin: 0 !important;
+}
+body.elementor-page-59 .top-social-btn .elementor-button {
+    width: 28px !important;
+    height: 28px !important;
+    min-height: 28px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    color: #FFFFFF !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 11.5px !important;
+}
+body.elementor-page-59 .top-social-btn .elementor-button:hover {
+    background: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: #FFFFFF !important;
+}
+body.elementor-page-59 .top-social-btn .elementor-button-text { display: none !important; }
+body.elementor-page-59 .top-social-btn .elementor-button-icon { margin: 0 !important; }
+
+/* --- Navbar: 1 baris 72px (brand | menu | CTA) --- */
+body.elementor-page-59 .navbar > .elementor-container {
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+}
+body.elementor-page-59 .navbar-brand-widget .elementor-icon-box-wrapper {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    text-align: left !important;
+}
+body.elementor-page-59 .navbar-brand-widget .elementor-icon-box-icon .elementor-icon {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 12px !important;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%) !important;
+    color: #FFFFFF !important;
+    font-size: 18px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: none !important;
+}
+body.elementor-page-59 .navbar-brand-widget .elementor-icon-box-title {
+    font-size: 20px !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+    color: var(--navy) !important;
+    line-height: 1.1 !important;
+    margin: 0 !important;
+}
+body.elementor-page-59 .navbar-brand-widget .elementor-icon-box-description {
+    font-size: 9.5px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.4px !important;
+    color: var(--text-muted) !important;
+    margin: 2px 0 0 0 !important;
+}
+body.elementor-page-59 .navbar-links-inner > .elementor-container {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 4px !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+}
+body.elementor-page-59 .nav-menu-link.elementor-widget-button { width: auto !important; margin: 0 !important; }
+body.elementor-page-59 .nav-menu-link .elementor-button {
+    background: transparent !important;
+    color: var(--heading) !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    padding: 8px 14px !important;
+    border-radius: var(--radius-pill) !important;
+    border: none !important;
+    box-shadow: none !important;
+    white-space: nowrap !important;
+}
+body.elementor-page-59 .nav-menu-link .elementor-button:hover,
+body.elementor-page-59 .nav-menu-link.nav-link-active .elementor-button {
+    color: var(--primary-hover) !important;
+    background-color: var(--primary-tint) !important;
+}
+body.elementor-page-59 .navbar-cta-inner > .elementor-container {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    flex-wrap: nowrap !important;
+}
+body.elementor-page-59 .btn-nav-login .elementor-button {
+    height: 38px !important;
+    min-height: 38px !important;
+    padding: 0 16px !important;
+    border-radius: var(--radius-btn) !important;
+    color: #1D4ED8 !important;
+    background: #EFF6FF !important;
+    border: 1.5px solid #BFDBFE !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+}
+body.elementor-page-59 .btn-nav-register .elementor-button {
+    height: 38px !important;
+    min-height: 38px !important;
+    padding: 0 16px !important;
+    border-radius: var(--radius-btn) !important;
+    color: #FFFFFF !important;
+    background: var(--primary) !important;
+    border: 1px solid var(--primary) !important;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+}
+
+/* --- Footer social: lingkaran kecil --- */
+body.elementor-page-59 .footer-social-inner > .elementor-container {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+}
+body.elementor-page-59 .btn-footer-social .elementor-button {
+    width: 36px !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+body.elementor-page-59 .btn-footer-social .elementor-button-text { display: none !important; }
+body.elementor-page-59 .btn-footer-social .elementor-button-icon { margin: 0 !important; }
+
+/* --- WA floating: wrapper yang di-fixed, bukan tombol dalam flow --- */
+body.elementor-page-59 .mt-wa-float-section,
+body.elementor-page-59 .mt-wa-float-section > .elementor-container,
+body.elementor-page-59 .mt-wa-float-section .elementor-column,
+body.elementor-page-59 .mt-wa-float-section .elementor-widget-wrap {
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: 0 !important;
+    background: transparent !important;
+    border: none !important;
+}
+body.elementor-page-59 .floating-wa-btn.elementor-widget-button {
+    position: fixed !important;
+    bottom: 24px !important;
+    right: 28px !important;
+    z-index: 1020 !important;
+    width: 50px !important;
+    height: 50px !important;
+    margin: 0 !important;
+}
+body.elementor-page-59 .floating-wa-btn .elementor-button {
+    width: 50px !important;
+    height: 50px !important;
+    min-height: 50px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    background-color: #128C7E !important;
+    color: #FFFFFF !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 24px !important;
+    border: none !important;
+    box-shadow: 0 4px 16px rgba(18, 140, 126, 0.4) !important;
+}
+body.elementor-page-59 .floating-wa-btn .elementor-button:hover {
+    background-color: #0E6B60 !important;
+    transform: translateY(-2px) scale(1.04) !important;
+}
+body.elementor-page-59 .floating-wa-btn .elementor-button-text { display: none !important; }
+body.elementor-page-59 .floating-wa-btn .elementor-button-icon { margin: 0 !important; }
+
+@media (max-width: 991.98px) {
+    body.elementor-page-59 .navbar > .elementor-container { flex-wrap: wrap !important; }
+    body.elementor-page-59 .navbar-links-inner > .elementor-container { flex-wrap: wrap !important; }
+}

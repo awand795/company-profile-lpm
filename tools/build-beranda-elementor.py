@@ -166,7 +166,8 @@ def W_button(text, link="#", icon_val="", icon_pos="after", align="left", cls=""
         "align": align
     }
     if icon_val:
-        st["selected_icon"] = {"value": icon_val, "library": "fa-solid" if "fa-" in icon_val else "fa-brands"}
+        lib = "fa-brands" if icon_val.startswith("fab ") or icon_val.startswith("fa-brands") else "fa-solid"
+        st["selected_icon"] = {"value": icon_val, "library": lib}
         st["icon_align"] = icon_pos
     if cls:
         st["_css_classes"] = cls
@@ -235,9 +236,9 @@ sections.append(make_section(
         (40, "topbar-right-col", [
             W_text('<p><a href="tel:06188881234" class="text-decoration-none fw-bold">061-8888-1234</a></p>', align="right", cls="topbar-phone"),
             make_inner_section([
-                (33, "", [W_button("FB", link="#", cls="top-social-fb")]),
-                (33, "", [W_button("IG", link="#", cls="top-social-ig")]),
-                (34, "", [W_button("WA", link="https://wa.me/6281234567890", cls="top-social-wa", is_ext=True)]),
+                (33, "", [W_button("", link="#", icon_val="fab fa-facebook-f", icon_pos="before", align="center", cls="top-social-btn top-social-fb")]),
+                (33, "", [W_button("", link="#", icon_val="fab fa-instagram", icon_pos="before", align="center", cls="top-social-btn top-social-ig")]),
+                (34, "", [W_button("", link="https://wa.me/6281234567890", icon_val="fab fa-whatsapp", icon_pos="before", align="center", cls="top-social-btn top-social-wa", is_ext=True)]),
             ], css_classes="topbar-social-inner"),
         ]),
     ],
@@ -254,7 +255,16 @@ sections.append(make_section(
             W_icon_box("fas fa-truck", "MASTER TRUCK", "Bengkel Truk KIM III Medan", tag="h5", pos="left", cls="navbar-brand-widget"),
         ]),
         (70, "navbar-menu-col", [
-            W_text('<p><a href="#header-carousel">Beranda</a> | <a href="#about">Tentang</a> | <a href="#service">Layanan</a> | <a href="#principals">Merek OEM</a> | <a href="#team">Montir</a> | <a href="#testimonial">Mitra</a> | <a href="#faq">FAQ</a> | <a href="#contact">Kontak</a></p>', align="right", cls="navbar-links"),
+            make_inner_section([
+                (12, "", [W_button("Beranda", link="#header-carousel", align="center", cls="nav-menu-link nav-link-active")]),
+                (12, "", [W_button("Tentang", link="#about", align="center", cls="nav-menu-link")]),
+                (13, "", [W_button("Layanan", link="#service", align="center", cls="nav-menu-link")]),
+                (13, "", [W_button("Merek OEM", link="#principals", align="center", cls="nav-menu-link")]),
+                (12, "", [W_button("Montir", link="#team", align="center", cls="nav-menu-link")]),
+                (12, "", [W_button("Mitra", link="#testimonial", align="center", cls="nav-menu-link")]),
+                (12, "", [W_button("FAQ", link="#faq", align="center", cls="nav-menu-link")]),
+                (14, "", [W_button("Kontak", link="#contact", align="center", cls="nav-menu-link")]),
+            ], css_classes="navbar-links-inner"),
             make_inner_section([
                 (50, "", [W_button("Login Fleet", link="http://localhost:3000/#login", icon_val="fas fa-sign-in-alt", icon_pos="before", cls="btn-nav-login", is_ext=True)]),
                 (50, "", [W_button("Daftar Fleet", link="http://localhost:3000/#register", icon_val="fas fa-user-plus", icon_pos="before", cls="btn-nav-register", is_ext=True)]),
@@ -607,10 +617,10 @@ sections.append(make_section(
             W_heading("Kontak & Alamat", tag="h6", align="left", cls="footer-heading mb-2"),
             W_text("<p>KIM III, Medan — Sumatera Utara</p><p>061-8888-1234 / 0812-3456-7890</p><p>cs@mastertruk.co.id</p>", align="left", cls="text-muted small mb-3"),
             make_inner_section([
-                (25, "", [W_button("FB", link="#", cls="btn-footer-social")]),
-                (25, "", [W_button("IG", link="#", cls="btn-footer-social")]),
-                (25, "", [W_button("YT", link="#", cls="btn-footer-social")]),
-                (25, "", [W_button("WA", link="https://wa.me/6281234567890", cls="btn-footer-social", is_ext=True)]),
+                (25, "", [W_button("", link="#", icon_val="fab fa-facebook-f", icon_pos="before", align="center", cls="btn-footer-social")]),
+                (25, "", [W_button("", link="#", icon_val="fab fa-instagram", icon_pos="before", align="center", cls="btn-footer-social")]),
+                (25, "", [W_button("", link="#", icon_val="fab fa-youtube", icon_pos="before", align="center", cls="btn-footer-social")]),
+                (25, "", [W_button("", link="https://wa.me/6281234567890", icon_val="fab fa-whatsapp", icon_pos="before", align="center", cls="btn-footer-social", is_ext=True)]),
             ], css_classes="footer-social-inner"),
         ]),
         (25, "footer-hours-col", [
@@ -635,9 +645,17 @@ sections.append(make_section(
 sections.append(make_section(
     cols=[(100, "", [
         W_text("<p>© MASTER TRUCK, Seluruh Hak Cipta Dilindungi. Terdaftar di Kementerian Perdagangan RI.</p><p><a href=\"#header-carousel\">Beranda</a> | <a href=\"#about\">Tentang</a> | <a href=\"#service\">Layanan</a> | <a href=\"#faq\">FAQ</a> | <a href=\"http://localhost:3000/#login\">Web Fleet</a></p>", align="center", cls="small text-muted px-4"),
-        W_button("Chat WhatsApp", link="https://wa.me/6281234567890", icon_val="fab fa-whatsapp", icon_pos="before", cls="floating-wa-btn", is_ext=True),
     ])],
-    css_classes="border-top py-3 text-center small text-muted px-4"
+    css_classes="border-top py-3 text-center small text-muted px-4 footer-copyright"
+))
+
+# WA floating dipisah section sendiri agar position:fixed tidak mewarisi layout kolom copyright.
+# Tetap widget Button Elementor (editable: link/teks/ikon bisa diganti user).
+sections.append(make_section(
+    cols=[(100, "", [
+        W_button("", link="https://wa.me/6281234567890", icon_val="fab fa-whatsapp", icon_pos="before", align="center", cls="floating-wa-btn", is_ext=True),
+    ])],
+    css_classes="mt-wa-float-section p-0"
 ))
 
 # Simpan ke JSON file

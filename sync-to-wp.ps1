@@ -151,6 +151,18 @@ if (Test-Path $mtCssSrc) {
     Write-Host "OK  assets/css/mastertruck.css -> container & repo" -ForegroundColor Green
 }
 
+# --- Salin assets/css/elementor-bridge.css (single source, fix header/WA native) ---
+$bridgeSrc = Join-Path $root 'assets/css/elementor-bridge.css'
+if (Test-Path $bridgeSrc) {
+    $bridgeCarserv = Join-Path $root 'wp-theme/carserv/assets/css/elementor-bridge.css'
+    if (Test-Path (Split-Path $bridgeCarserv -Parent)) { Copy-Item -Path $bridgeSrc -Destination $bridgeCarserv -Force }
+    $bridgeInt = Join-Path $root 'wp-integration/mastertruck/css/elementor-bridge.css'
+    if (Test-Path (Split-Path $bridgeInt -Parent)) { Copy-Item -Path $bridgeSrc -Destination $bridgeInt -Force }
+    docker exec $Container mkdir -p "$themePath/assets/css" 2>$null | Out-Null
+    docker cp $bridgeSrc "$Container`:$themePath/assets/css/elementor-bridge.css"
+    Write-Host "OK  assets/css/elementor-bridge.css -> container & repo" -ForegroundColor Green
+}
+
 # Bila theme aktif adalah carserv, sinkronkan juga template files dari repo wp-theme/carserv
 if ($Theme -eq 'carserv') {
     $carservSrc = Join-Path $root 'wp-theme/carserv'
