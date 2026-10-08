@@ -111,6 +111,17 @@ if ($pyCmd) {
     Write-Warning "python tak ada, template tidak diregenerasi."
 }
 
+# PENTING: update mirror CSS dulu SEBELUM stage dibangun, supaya docker cp
+# mastertruck/ ke container membawa bridge versi terbaru (path yang di-enqueue
+# mt-topbar.php: .../themes/astra/mastertruck/css/elementor-bridge.css).
+$bridgeSrcEarly = Join-Path $root 'assets/css/elementor-bridge.css'
+if (Test-Path $bridgeSrcEarly) {
+    $bridgeIntEarly = Join-Path $root 'wp-integration/mastertruck/css/elementor-bridge.css'
+    if (Test-Path (Split-Path $bridgeIntEarly -Parent)) { Copy-Item -Path $bridgeSrcEarly -Destination $bridgeIntEarly -Force }
+    $bridgeCarservEarly = Join-Path $root 'wp-theme/carserv/assets/css/elementor-bridge.css'
+    if (Test-Path (Split-Path $bridgeCarservEarly -Parent)) { Copy-Item -Path $bridgeSrcEarly -Destination $bridgeCarservEarly -Force }
+}
+
 # --- Salin mastertruck/ (style.css, main.js, images/) ------------------------
 docker exec $Container mkdir -p "$themePath/mastertruck"
 if ($LASTEXITCODE -ne 0) { throw "Gagal membuat $themePath/mastertruck" }
@@ -160,6 +171,9 @@ if (Test-Path $bridgeSrc) {
     if (Test-Path (Split-Path $bridgeInt -Parent)) { Copy-Item -Path $bridgeSrc -Destination $bridgeInt -Force }
     docker exec $Container mkdir -p "$themePath/assets/css" 2>$null | Out-Null
     docker cp $bridgeSrc "$Container`:$themePath/assets/css/elementor-bridge.css"
+    # Path yang di-enqueue mt-topbar.php (single source of truth untuk browser):
+    docker exec $Container mkdir -p "$themePath/mastertruck/css" 2>$null | Out-Null
+    docker cp $bridgeSrc "$Container`:$themePath/mastertruck/css/elementor-bridge.css"
     Write-Host "OK  assets/css/elementor-bridge.css -> container & repo" -ForegroundColor Green
 }
 

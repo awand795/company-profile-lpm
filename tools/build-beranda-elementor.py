@@ -256,14 +256,12 @@ sections.append(make_section(
         ]),
         (70, "navbar-menu-col", [
             make_inner_section([
-                (12, "", [W_button("Beranda", link="#header-carousel", align="center", cls="nav-menu-link nav-link-active")]),
-                (12, "", [W_button("Tentang", link="#about", align="center", cls="nav-menu-link")]),
-                (13, "", [W_button("Layanan", link="#service", align="center", cls="nav-menu-link")]),
-                (13, "", [W_button("Merek OEM", link="#principals", align="center", cls="nav-menu-link")]),
-                (12, "", [W_button("Montir", link="#team", align="center", cls="nav-menu-link")]),
-                (12, "", [W_button("Mitra", link="#testimonial", align="center", cls="nav-menu-link")]),
-                (12, "", [W_button("FAQ", link="#faq", align="center", cls="nav-menu-link")]),
-                (14, "", [W_button("Kontak", link="#contact", align="center", cls="nav-menu-link")]),
+                (17, "", [W_button("Beranda", link="#header-carousel", align="center", cls="nav-menu-link nav-link-active")]),
+                (17, "", [W_button("Tentang", link="#about", align="center", cls="nav-menu-link")]),
+                (17, "", [W_button("Layanan", link="#service", align="center", cls="nav-menu-link")]),
+                (16, "", [W_button("Mitra", link="#testimonial", align="center", cls="nav-menu-link")]),
+                (16, "", [W_button("FAQ", link="#faq", align="center", cls="nav-menu-link")]),
+                (17, "", [W_button("Kontak", link="#contact", align="center", cls="nav-menu-link")]),
             ], css_classes="navbar-links-inner"),
             make_inner_section([
                 (50, "", [W_button("Login Fleet", link="http://localhost:3000/#login", icon_val="fas fa-sign-in-alt", icon_pos="before", cls="btn-nav-login", is_ext=True)]),

@@ -37,6 +37,49 @@ body.elementor-page-59 .top-bar-custom .elementor-widget-wrap {
 body.elementor-page-59 .top-bar-custom .elementor-widget {
     margin-bottom: 0 !important;
 }
+/* Alamat + jam sebaris (1 baris 38px seperti :8080), bukan menumpuk vertikal */
+body.elementor-page-59 .topbar-left-col .elementor-widget-wrap {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 24px !important;
+}
+body.elementor-page-59 .topbar-left-col .elementor-widget-icon-box {
+    width: auto !important;
+    margin-bottom: 0 !important;
+}
+body.elementor-page-59 .topbar-left-col .elementor-icon-box-wrapper {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    text-align: left !important;
+}
+body.elementor-page-59 .topbar-left-col .elementor-icon-box-icon { margin: 0 !important; }
+body.elementor-page-59 .topbar-left-col .elementor-icon-box-title,
+body.elementor-page-59 .topbar-left-col .elementor-icon-box-description {
+    color: rgba(255, 255, 255, 0.88) !important;
+    font-size: 12.5px !important;
+    font-weight: 500 !important;
+    margin: 0 !important;
+}
+body.elementor-page-59 .topbar-left-col .elementor-icon-box-icon .elementor-icon,
+body.elementor-page-59 .topbar-left-col .elementor-icon-box-icon i,
+body.elementor-page-59 .topbar-left-col .elementor-icon-box-icon svg {
+    color: #93C5FD !important;
+    fill: #93C5FD !important;
+    font-size: 12.5px !important;
+    width: auto !important;
+    height: auto !important;
+    background: none !important;
+    border: none !important;
+}
+body.elementor-page-59 .topbar-right-col .elementor-widget-wrap {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 12px !important;
+}
 /* Warna Background & Padding Presisi 1:1 Port 8080 */
 body.elementor-page-59 .sec-services {
     background-color: #FFFFFF !important;
