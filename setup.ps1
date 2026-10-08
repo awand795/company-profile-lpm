@@ -93,7 +93,7 @@ if (-not $dbReady) { Fail "MariaDB tidak siap setelah 120 detik." }
 Write-Ok "MariaDB siap"
 
 # --- 2. Salin berkas statis --------------------------------------------------
-Write-Step "Salin .htaccess + wp-content/uploads + plugins/mt-topbar"
+Write-Step "Salin .htaccess + wp-content/uploads + plugins/mt-topbar + mt-booking"
 if (Test-Path '.htaccess') {
     docker cp '.htaccess' "${App}:/var/www/html/.htaccess"
     if ($LASTEXITCODE -ne 0) { Fail "docker cp .htaccess gagal" }
@@ -110,7 +110,12 @@ if (Test-Path 'wp-content/plugins/mt-topbar') {
     if ($LASTEXITCODE -ne 0) { Fail "docker cp mt-topbar gagal" }
     Write-Ok "plugins/mt-topbar/"
 }
-docker exec $App chown -R www-data:www-data /var/www/html/.htaccess /var/www/html/wp-content/uploads /var/www/html/wp-content/plugins/mt-topbar | Out-Null
+if (Test-Path 'wp-content/plugins/mt-booking') {
+    docker cp 'wp-content/plugins/mt-booking/.' "${App}:/var/www/html/wp-content/plugins/mt-booking/"
+    if ($LASTEXITCODE -ne 0) { Fail "docker cp mt-booking gagal" }
+    Write-Ok "plugins/mt-booking/"
+}
+docker exec $App chown -R www-data:www-data /var/www/html/.htaccess /var/www/html/wp-content/uploads /var/www/html/wp-content/plugins/mt-topbar /var/www/html/wp-content/plugins/mt-booking | Out-Null
 
 function Invoke-Wp {
     param([Parameter(ValueFromRemainingArguments = $true)]$CmdArgs)
@@ -195,6 +200,10 @@ if (Invoke-Wp plugin is-installed mt-topbar) {
     Write-Ok "plugin mt-topbar aktif"
 } else {
     Fail "plugin mt-topbar tidak ditemukan di container (salinan gagal?)"
+}
+if (Test-Path 'wp-content/plugins/mt-booking') {
+    Invoke-Wp plugin activate mt-booking | Out-Null
+    Write-Ok "plugin mt-booking aktif"
 }
 
 # --- 6. Sinkronisasi template & media ---------------------------------------

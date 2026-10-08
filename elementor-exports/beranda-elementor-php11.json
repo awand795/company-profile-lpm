@@ -1,6 +1,6 @@
 [
   {
-    "id": "d81e4021",
+    "id": "5aede906",
     "elType": "section",
     "settings": {
       "layout": "full_width",
@@ -8,28 +8,162 @@
     },
     "elements": [
       {
-        "id": "3d43d919",
+        "id": "478ff531",
         "elType": "column",
         "settings": {
-          "_column_size": 100,
-          "css_classes": "p-0"
+          "_column_size": 60,
+          "css_classes": "topbar-left-col"
         },
         "elements": [
           {
-            "id": "49571eab",
+            "id": "e5be23f4",
             "elType": "widget",
-            "widgetType": "html",
+            "widgetType": "icon-box",
             "settings": {
-              "html": "<div class=\"row gx-0 d-none d-lg-flex align-items-center\">\n    <div class=\"col-lg-7 px-4 text-start\">\n        <div class=\"h-100 d-inline-flex align-items-center py-2 me-3\">\n            <small class=\"fa fa-map-marker-alt text-primary me-2\"></small>\n            <small>KIM III Medan &mdash; Sumatera Utara</small>\n        </div>\n        <div class=\"h-100 d-inline-flex align-items-center py-2 ms-3\">\n            <small class=\"far fa-clock text-primary me-2\"></small>\n            <small>Senin &ndash; Sabtu : 08.00 &ndash; 17.00 WIB</small>\n        </div>\n    </div>\n    <div class=\"col-lg-5 px-4 text-end d-flex justify-content-end align-items-center gap-3\">\n        <div class=\"h-100 d-inline-flex align-items-center py-2\">\n            <small class=\"fa fa-phone-alt text-primary me-2\"></small>\n            <small><a href=\"tel:06188881234\" class=\"text-decoration-none fw-bold\">061-8888-1234</a></small>\n        </div>\n        <div class=\"h-100 d-inline-flex align-items-center gap-1\">\n            <a class=\"top-social-btn\" href=\"#\" aria-label=\"Facebook\"><i class=\"fab fa-facebook-f\"></i></a>\n            <a class=\"top-social-btn\" href=\"#\" aria-label=\"Instagram\"><i class=\"fab fa-instagram\"></i></a>\n            <a class=\"top-social-btn\" href=\"https://wa.me/6281234567890\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"WhatsApp\"><i class=\"fab fa-whatsapp\"></i></a>\n        </div>\n    </div>\n</div>"
+              "selected_icon": {
+                "value": "fas fa-map-marker-alt",
+                "library": "fa-solid"
+              },
+              "title_text": "KIM III Medan — Sumatera Utara",
+              "description_text": "",
+              "title_size": "p",
+              "position": "left",
+              "_css_classes": "topbar-addr"
             },
             "elements": []
+          },
+          {
+            "id": "2f4d454d",
+            "elType": "widget",
+            "widgetType": "icon-box",
+            "settings": {
+              "selected_icon": {
+                "value": "far fa-clock",
+                "library": "fa-solid"
+              },
+              "title_text": "Senin – Sabtu : 08.00 – 17.00 WIB",
+              "description_text": "",
+              "title_size": "p",
+              "position": "left",
+              "_css_classes": "topbar-hours"
+            },
+            "elements": []
+          }
+        ]
+      },
+      {
+        "id": "23db8537",
+        "elType": "column",
+        "settings": {
+          "_column_size": 40,
+          "css_classes": "topbar-right-col"
+        },
+        "elements": [
+          {
+            "id": "8eeaff28",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+              "editor": "<p><a href=\"tel:06188881234\" class=\"text-decoration-none fw-bold\">061-8888-1234</a></p>",
+              "align": "right",
+              "_css_classes": "topbar-phone"
+            },
+            "elements": []
+          },
+          {
+            "id": "48819d48",
+            "elType": "section",
+            "isInner": true,
+            "settings": {
+              "css_classes": "topbar-social-inner"
+            },
+            "elements": [
+              {
+                "id": "9c4467aa",
+                "elType": "column",
+                "isInner": true,
+                "settings": {
+                  "_column_size": 33
+                },
+                "elements": [
+                  {
+                    "id": "9470da1b",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "FB",
+                      "link": {
+                        "url": "#",
+                        "is_external": "",
+                        "nofollow": ""
+                      },
+                      "align": "left",
+                      "_css_classes": "top-social-fb"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "02e52e2d",
+                "elType": "column",
+                "isInner": true,
+                "settings": {
+                  "_column_size": 33
+                },
+                "elements": [
+                  {
+                    "id": "01b2dacb",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "IG",
+                      "link": {
+                        "url": "#",
+                        "is_external": "",
+                        "nofollow": ""
+                      },
+                      "align": "left",
+                      "_css_classes": "top-social-ig"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "d3c4f890",
+                "elType": "column",
+                "isInner": true,
+                "settings": {
+                  "_column_size": 34
+                },
+                "elements": [
+                  {
+                    "id": "0246aa48",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "WA",
+                      "link": {
+                        "url": "https://wa.me/6281234567890",
+                        "is_external": "on",
+                        "nofollow": ""
+                      },
+                      "align": "left",
+                      "_css_classes": "top-social-wa"
+                    },
+                    "elements": []
+                  }
+                ]
+              }
+            ]
           }
         ]
       }
     ]
   },
   {
-    "id": "d3bb47a8",
+    "id": "a8e276cc",
     "elType": "section",
     "settings": {
       "layout": "full_width",
@@ -37,28 +171,129 @@
     },
     "elements": [
       {
-        "id": "e8707558",
+        "id": "e4853730",
         "elType": "column",
         "settings": {
-          "_column_size": 100,
-          "css_classes": "p-0"
+          "_column_size": 30,
+          "css_classes": "navbar-brand-col"
         },
         "elements": [
           {
-            "id": "8a6ca0c1",
+            "id": "9c963431",
             "elType": "widget",
-            "widgetType": "html",
+            "widgetType": "icon-box",
             "settings": {
-              "html": "<div class=\"d-flex align-items-center justify-content-between w-100 flex-wrap\">\n    <a href=\"#header-carousel\" class=\"navbar-brand-logo\">\n        <div class=\"navbar-brand-icon\"><i class=\"fa fa-truck\"></i></div>\n        <div class=\"navbar-brand-text\">\n            <span class=\"navbar-brand-title\">MASTER <span>TRUCK</span></span>\n            <span class=\"navbar-brand-sub\">Bengkel Truk KIM III Medan</span>\n        </div>\n    </a>\n    <button type=\"button\" class=\"navbar-toggler d-lg-none\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarCollapse\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse d-lg-flex align-items-center justify-content-end flex-grow-1\" id=\"navbarCollapse\">\n        <div class=\"navbar-nav ms-auto py-0\">\n            <a href=\"#header-carousel\" class=\"nav-item nav-link active\">Beranda</a>\n            <a href=\"#about\" class=\"nav-item nav-link\">Tentang</a>\n            <a href=\"#service\" class=\"nav-item nav-link\">Layanan</a>\n            <a href=\"#principals\" class=\"nav-item nav-link\">Merek OEM</a>\n            <a href=\"#team\" class=\"nav-item nav-link\">Montir</a>\n            <a href=\"#testimonial\" class=\"nav-item nav-link\">Mitra</a>\n            <a href=\"#faq\" class=\"nav-item nav-link\">FAQ</a>\n            <a href=\"#contact\" class=\"nav-item nav-link\">Kontak</a>\n        </div>\n        <div class=\"ms-3 d-inline-flex align-items-center gap-2 mt-3 mt-lg-0\">\n            <a href=\"http://localhost:3000/#login\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-nav-login\"><i class=\"fa fa-sign-in-alt me-2\"></i>Login Fleet</a>\n            <a href=\"http://localhost:3000/#register\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-nav-register\"><i class=\"fa fa-user-plus me-2\"></i>Daftar Fleet</a>\n        </div>\n    </div>\n</div>"
+              "selected_icon": {
+                "value": "fas fa-truck",
+                "library": "fa-solid"
+              },
+              "title_text": "MASTER TRUCK",
+              "description_text": "Bengkel Truk KIM III Medan",
+              "title_size": "h5",
+              "position": "left",
+              "_css_classes": "navbar-brand-widget"
             },
             "elements": []
+          }
+        ]
+      },
+      {
+        "id": "ad48b06e",
+        "elType": "column",
+        "settings": {
+          "_column_size": 70,
+          "css_classes": "navbar-menu-col"
+        },
+        "elements": [
+          {
+            "id": "de4dab7a",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+              "editor": "<p><a href=\"#header-carousel\">Beranda</a> | <a href=\"#about\">Tentang</a> | <a href=\"#service\">Layanan</a> | <a href=\"#principals\">Merek OEM</a> | <a href=\"#team\">Montir</a> | <a href=\"#testimonial\">Mitra</a> | <a href=\"#faq\">FAQ</a> | <a href=\"#contact\">Kontak</a></p>",
+              "align": "right",
+              "_css_classes": "navbar-links"
+            },
+            "elements": []
+          },
+          {
+            "id": "9caef018",
+            "elType": "section",
+            "isInner": true,
+            "settings": {
+              "css_classes": "navbar-cta-inner"
+            },
+            "elements": [
+              {
+                "id": "89dd0d33",
+                "elType": "column",
+                "isInner": true,
+                "settings": {
+                  "_column_size": 50
+                },
+                "elements": [
+                  {
+                    "id": "fd3cb25b",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "Login Fleet",
+                      "link": {
+                        "url": "http://localhost:3000/#login",
+                        "is_external": "on",
+                        "nofollow": ""
+                      },
+                      "align": "left",
+                      "selected_icon": {
+                        "value": "fas fa-sign-in-alt",
+                        "library": "fa-solid"
+                      },
+                      "icon_align": "before",
+                      "_css_classes": "btn-nav-login"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "cdf88686",
+                "elType": "column",
+                "isInner": true,
+                "settings": {
+                  "_column_size": 50
+                },
+                "elements": [
+                  {
+                    "id": "3d79be54",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "Daftar Fleet",
+                      "link": {
+                        "url": "http://localhost:3000/#register",
+                        "is_external": "on",
+                        "nofollow": ""
+                      },
+                      "align": "left",
+                      "selected_icon": {
+                        "value": "fas fa-user-plus",
+                        "library": "fa-solid"
+                      },
+                      "icon_align": "before",
+                      "_css_classes": "btn-nav-register"
+                    },
+                    "elements": []
+                  }
+                ]
+              }
+            ]
           }
         ]
       }
     ]
   },
   {
-    "id": "f016d0b1",
+    "id": "290ef4b3",
     "elType": "section",
     "settings": {
       "layout": "full_width",
@@ -75,7 +310,7 @@
     },
     "elements": [
       {
-        "id": "015bb4c3",
+        "id": "d1b3ddf7",
         "elType": "column",
         "settings": {
           "_column_size": 60,
@@ -83,7 +318,7 @@
         },
         "elements": [
           {
-            "id": "756af78b",
+            "id": "7b120b4d",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -95,7 +330,7 @@
             "elements": []
           },
           {
-            "id": "c59cd6a9",
+            "id": "625d01f9",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -107,7 +342,7 @@
             "elements": []
           },
           {
-            "id": "2afc11df",
+            "id": "a6acf0dd",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -118,7 +353,7 @@
             "elements": []
           },
           {
-            "id": "de093df7",
+            "id": "dba544a2",
             "elType": "section",
             "isInner": true,
             "settings": {
@@ -126,7 +361,7 @@
             },
             "elements": [
               {
-                "id": "b831821e",
+                "id": "d89cd2ad",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -134,7 +369,7 @@
                 },
                 "elements": [
                   {
-                    "id": "c29143a9",
+                    "id": "4bcae377",
                     "elType": "widget",
                     "widgetType": "counter",
                     "settings": {
@@ -150,7 +385,7 @@
                 ]
               },
               {
-                "id": "3e8a9466",
+                "id": "426535aa",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -158,7 +393,7 @@
                 },
                 "elements": [
                   {
-                    "id": "5ebec2ea",
+                    "id": "08202920",
                     "elType": "widget",
                     "widgetType": "counter",
                     "settings": {
@@ -174,7 +409,7 @@
                 ]
               },
               {
-                "id": "188d4398",
+                "id": "1e343b6f",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -182,7 +417,7 @@
                 },
                 "elements": [
                   {
-                    "id": "44d58875",
+                    "id": "98d719a4",
                     "elType": "widget",
                     "widgetType": "counter",
                     "settings": {
@@ -202,7 +437,7 @@
             ]
           },
           {
-            "id": "ec880386",
+            "id": "970e2d13",
             "elType": "section",
             "isInner": true,
             "settings": {
@@ -210,7 +445,7 @@
             },
             "elements": [
               {
-                "id": "014ef06d",
+                "id": "6250ff39",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -218,7 +453,7 @@
                 },
                 "elements": [
                   {
-                    "id": "d9f26276",
+                    "id": "60f6650d",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -241,7 +476,7 @@
                 ]
               },
               {
-                "id": "aa3f834e",
+                "id": "de23c42e",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -249,7 +484,7 @@
                 },
                 "elements": [
                   {
-                    "id": "1e79fe41",
+                    "id": "17a0f2f3",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -276,7 +511,7 @@
         ]
       },
       {
-        "id": "dcadce9c",
+        "id": "bef232a7",
         "elType": "column",
         "settings": {
           "_column_size": 40,
@@ -284,11 +519,46 @@
         },
         "elements": [
           {
-            "id": "4a113849",
+            "id": "9aa413e3",
             "elType": "widget",
-            "widgetType": "html",
+            "widgetType": "heading",
             "settings": {
-              "html": "<div class=\"hero-truck-showcase\">\n    <div class=\"hero-truck-frame\">\n        <span class=\"hero-badge-floating-top\"><i class=\"fa fa-shield-alt text-primary me-1\"></i>Terpercaya 120+ Mitra</span>\n        <div class=\"hero-truck-img-wrapper\">\n            <img class=\"hero-truck-img\" src=\"http://localhost:5000/wp-content/uploads/2026/10/carousel-1.png\" alt=\"Armada Truk Master Truck\" loading=\"eager\" />\n        </div>\n        <div class=\"hero-card-floating-bottom d-flex align-items-center gap-3\">\n            <div class=\"icon-tint-wrap icon-tint-blue\"><i class=\"fa fa-building\"></i></div>\n            <div>\n                <div class=\"hero-card-title\">PT Master Truck Indonesia</div>\n                <div class=\"hero-card-sub\">Servis bergaransi, dicek 30 bagian</div>\n            </div>\n        </div>\n    </div>\n</div>"
+              "title": "Terpercaya 120+ Mitra",
+              "header_size": "p",
+              "align": "center",
+              "_css_classes": "hero-badge-floating-top"
+            },
+            "elements": []
+          },
+          {
+            "id": "1cbedd2f",
+            "elType": "widget",
+            "widgetType": "image",
+            "settings": {
+              "image": {
+                "url": "http://localhost:5000/wp-content/uploads/2026/10/carousel-1.png",
+                "id": 180
+              },
+              "image_size": "full",
+              "align": "center",
+              "_css_classes": "hero-truck-img"
+            },
+            "elements": []
+          },
+          {
+            "id": "ead3fbb1",
+            "elType": "widget",
+            "widgetType": "icon-box",
+            "settings": {
+              "selected_icon": {
+                "value": "fas fa-building",
+                "library": "fa-solid"
+              },
+              "title_text": "PT Master Truck Indonesia",
+              "description_text": "Servis bergaransi, dicek 30 bagian",
+              "title_size": "h5",
+              "position": "left",
+              "_css_classes": "hero-card-floating-bottom"
             },
             "elements": []
           }
@@ -297,7 +567,7 @@
     ]
   },
   {
-    "id": "a6887d72",
+    "id": "84a59d49",
     "elType": "section",
     "settings": {
       "layout": "full_width",
@@ -314,7 +584,7 @@
     },
     "elements": [
       {
-        "id": "fb6bc492",
+        "id": "a07fb457",
         "elType": "column",
         "settings": {
           "_column_size": 60,
@@ -322,7 +592,7 @@
         },
         "elements": [
           {
-            "id": "ffdceb33",
+            "id": "ac5495d9",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -334,7 +604,7 @@
             "elements": []
           },
           {
-            "id": "faaaaf68",
+            "id": "324f9fbc",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -346,7 +616,7 @@
             "elements": []
           },
           {
-            "id": "f0dda8c8",
+            "id": "3c72a314",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -357,7 +627,7 @@
             "elements": []
           },
           {
-            "id": "ffb4ce91",
+            "id": "0fec654f",
             "elType": "section",
             "isInner": true,
             "settings": {
@@ -365,7 +635,7 @@
             },
             "elements": [
               {
-                "id": "43572469",
+                "id": "10fd28db",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -373,7 +643,7 @@
                 },
                 "elements": [
                   {
-                    "id": "6f1e7020",
+                    "id": "95d46ea2",
                     "elType": "widget",
                     "widgetType": "counter",
                     "settings": {
@@ -389,7 +659,7 @@
                 ]
               },
               {
-                "id": "2e065591",
+                "id": "1720fbda",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -397,7 +667,7 @@
                 },
                 "elements": [
                   {
-                    "id": "91a79879",
+                    "id": "f55f1943",
                     "elType": "widget",
                     "widgetType": "counter",
                     "settings": {
@@ -413,7 +683,7 @@
                 ]
               },
               {
-                "id": "73433e97",
+                "id": "3ccd9146",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -421,7 +691,7 @@
                 },
                 "elements": [
                   {
-                    "id": "4aa88578",
+                    "id": "2bf0a33a",
                     "elType": "widget",
                     "widgetType": "counter",
                     "settings": {
@@ -441,7 +711,7 @@
             ]
           },
           {
-            "id": "8419c82e",
+            "id": "c2ca1115",
             "elType": "section",
             "isInner": true,
             "settings": {
@@ -449,7 +719,7 @@
             },
             "elements": [
               {
-                "id": "c43d69e7",
+                "id": "b287ed3a",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -457,7 +727,7 @@
                 },
                 "elements": [
                   {
-                    "id": "dd4d3ca2",
+                    "id": "4e6b245b",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -480,7 +750,7 @@
                 ]
               },
               {
-                "id": "e0713c4b",
+                "id": "040fe0b9",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -488,7 +758,7 @@
                 },
                 "elements": [
                   {
-                    "id": "249ebeca",
+                    "id": "12eab888",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -515,7 +785,7 @@
         ]
       },
       {
-        "id": "5c32241c",
+        "id": "18710766",
         "elType": "column",
         "settings": {
           "_column_size": 40,
@@ -523,11 +793,46 @@
         },
         "elements": [
           {
-            "id": "e77769d2",
+            "id": "7b3c9f1e",
             "elType": "widget",
-            "widgetType": "html",
+            "widgetType": "heading",
             "settings": {
-              "html": "<div class=\"hero-truck-showcase\">\n    <div class=\"hero-truck-frame\">\n        <span class=\"hero-badge-floating-top\"><i class=\"fa fa-check-circle text-primary me-1\"></i>100% Original</span>\n        <div class=\"hero-truck-img-wrapper\">\n            <img class=\"hero-truck-img\" src=\"http://localhost:5000/wp-content/uploads/2026/10/carousel-2.png\" alt=\"Distributor Sparepart Master Truck\" loading=\"eager\" />\n        </div>\n        <div class=\"hero-card-floating-bottom d-flex align-items-center gap-3\">\n            <div class=\"icon-tint-wrap icon-tint-teal\"><i class=\"fa fa-handshake\"></i></div>\n            <div>\n                <div class=\"hero-card-title\">Tarif Distributor Mitra</div>\n                <div class=\"hero-card-sub\">Bisa bayar tempo + gratis pantau servis online</div>\n            </div>\n        </div>\n    </div>\n</div>"
+              "title": "100% Original",
+              "header_size": "p",
+              "align": "center",
+              "_css_classes": "hero-badge-floating-top"
+            },
+            "elements": []
+          },
+          {
+            "id": "16e14f76",
+            "elType": "widget",
+            "widgetType": "image",
+            "settings": {
+              "image": {
+                "url": "http://localhost:5000/wp-content/uploads/2026/10/carousel-2.png",
+                "id": 181
+              },
+              "image_size": "full",
+              "align": "center",
+              "_css_classes": "hero-truck-img"
+            },
+            "elements": []
+          },
+          {
+            "id": "afa93eda",
+            "elType": "widget",
+            "widgetType": "icon-box",
+            "settings": {
+              "selected_icon": {
+                "value": "fas fa-handshake",
+                "library": "fa-solid"
+              },
+              "title_text": "Tarif Distributor Mitra",
+              "description_text": "Bisa bayar tempo + gratis pantau servis online",
+              "title_size": "h5",
+              "position": "left",
+              "_css_classes": "hero-card-floating-bottom"
             },
             "elements": []
           }
@@ -536,7 +841,7 @@
     ]
   },
   {
-    "id": "5bd0e471",
+    "id": "1286b756",
     "elType": "section",
     "settings": {
       "layout": "full_width",
@@ -544,7 +849,7 @@
     },
     "elements": [
       {
-        "id": "29f7346d",
+        "id": "daa3df3e",
         "elType": "column",
         "settings": {
           "_column_size": 25,
@@ -552,7 +857,7 @@
         },
         "elements": [
           {
-            "id": "a4063713",
+            "id": "c736432a",
             "elType": "widget",
             "widgetType": "icon-box",
             "settings": {
@@ -571,7 +876,7 @@
         ]
       },
       {
-        "id": "160413b8",
+        "id": "2e89cc33",
         "elType": "column",
         "settings": {
           "_column_size": 25,
@@ -579,7 +884,7 @@
         },
         "elements": [
           {
-            "id": "d512a35b",
+            "id": "47630199",
             "elType": "widget",
             "widgetType": "icon-box",
             "settings": {
@@ -598,7 +903,7 @@
         ]
       },
       {
-        "id": "3a4e362e",
+        "id": "111b9bb7",
         "elType": "column",
         "settings": {
           "_column_size": 25,
@@ -606,7 +911,7 @@
         },
         "elements": [
           {
-            "id": "48c84afa",
+            "id": "a96bd1c1",
             "elType": "widget",
             "widgetType": "icon-box",
             "settings": {
@@ -625,7 +930,7 @@
         ]
       },
       {
-        "id": "cf4c9bf7",
+        "id": "c2aa8f49",
         "elType": "column",
         "settings": {
           "_column_size": 25,
@@ -633,7 +938,7 @@
         },
         "elements": [
           {
-            "id": "afb1f6db",
+            "id": "07455eab",
             "elType": "widget",
             "widgetType": "icon-box",
             "settings": {
@@ -654,7 +959,7 @@
     ]
   },
   {
-    "id": "044af07c",
+    "id": "1e3b02b2",
     "elType": "section",
     "settings": {
       "layout": "full_width",
@@ -663,7 +968,7 @@
     },
     "elements": [
       {
-        "id": "dfa3732f",
+        "id": "98007b96",
         "elType": "column",
         "settings": {
           "_column_size": 50,
@@ -671,18 +976,41 @@
         },
         "elements": [
           {
-            "id": "a25daeff",
+            "id": "e9ea2ab2",
             "elType": "widget",
-            "widgetType": "html",
+            "widgetType": "image",
             "settings": {
-              "html": "<div class=\"about-img-box position-relative\">\n    <img src=\"http://localhost:5000/wp-content/uploads/2026/10/service-1.jpg\" alt=\"Montir sedang memperbaiki mesin truk di bengkel PT Master Truck Indonesia\" class=\"w-100 rounded-3\" loading=\"lazy\" style=\"border-radius:20px;\" />\n    <div class=\"about-exp-float-card\">\n        <div class=\"icon-tint-wrap icon-tint-blue\"><i class=\"fa fa-award\"></i></div>\n        <div>\n            <div class=\"fw-bold fs-4 mb-0 text-navy\">15 Tahun</div>\n            <small class=\"text-muted\">Pengalaman</small>\n        </div>\n    </div>\n</div>"
+              "image": {
+                "url": "http://localhost:5000/wp-content/uploads/2026/10/about.jpg",
+                "id": 126
+              },
+              "image_size": "full",
+              "align": "center",
+              "_css_classes": "about-img-box"
+            },
+            "elements": []
+          },
+          {
+            "id": "74aaaa78",
+            "elType": "widget",
+            "widgetType": "icon-box",
+            "settings": {
+              "selected_icon": {
+                "value": "fas fa-award",
+                "library": "fa-solid"
+              },
+              "title_text": "15 Tahun",
+              "description_text": "Pengalaman",
+              "title_size": "h5",
+              "position": "left",
+              "_css_classes": "about-exp-float-card"
             },
             "elements": []
           }
         ]
       },
       {
-        "id": "da3a7251",
+        "id": "b9759749",
         "elType": "column",
         "settings": {
           "_column_size": 50,
@@ -690,7 +1018,7 @@
         },
         "elements": [
           {
-            "id": "6e1f940d",
+            "id": "2fe5eca4",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -702,7 +1030,7 @@
             "elements": []
           },
           {
-            "id": "a48e4e63",
+            "id": "777cd334",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -713,7 +1041,7 @@
             "elements": []
           },
           {
-            "id": "554ca153",
+            "id": "10da74c7",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -723,7 +1051,7 @@
             "elements": []
           },
           {
-            "id": "cac414d0",
+            "id": "079c7b89",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -733,7 +1061,7 @@
             "elements": []
           },
           {
-            "id": "b8a75cb1",
+            "id": "37bfebd7",
             "elType": "section",
             "isInner": true,
             "settings": {
@@ -741,7 +1069,7 @@
             },
             "elements": [
               {
-                "id": "02a4bc13",
+                "id": "d088d3ab",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -749,7 +1077,7 @@
                 },
                 "elements": [
                   {
-                    "id": "8ad47be1",
+                    "id": "33c433a6",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -772,7 +1100,7 @@
                 ]
               },
               {
-                "id": "947380ae",
+                "id": "378186db",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -780,7 +1108,7 @@
                 },
                 "elements": [
                   {
-                    "id": "bc5e0e7d",
+                    "id": "541549ae",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -804,7 +1132,7 @@
     ]
   },
   {
-    "id": "2946a616",
+    "id": "e3edcab6",
     "elType": "section",
     "settings": {
       "layout": "full_width",
@@ -812,7 +1140,7 @@
     },
     "elements": [
       {
-        "id": "2714694f",
+        "id": "a0dfe685",
         "elType": "column",
         "settings": {
           "_column_size": 25,
@@ -820,7 +1148,7 @@
         },
         "elements": [
           {
-            "id": "296ffe0e",
+            "id": "e7368628",
             "elType": "widget",
             "widgetType": "counter",
             "settings": {
@@ -836,7 +1164,7 @@
         ]
       },
       {
-        "id": "403cb2b1",
+        "id": "ea8e8c95",
         "elType": "column",
         "settings": {
           "_column_size": 25,
@@ -844,7 +1172,7 @@
         },
         "elements": [
           {
-            "id": "92b9c82d",
+            "id": "2906d20d",
             "elType": "widget",
             "widgetType": "counter",
             "settings": {
@@ -860,7 +1188,7 @@
         ]
       },
       {
-        "id": "6c98877c",
+        "id": "d28275da",
         "elType": "column",
         "settings": {
           "_column_size": 25,
@@ -868,7 +1196,7 @@
         },
         "elements": [
           {
-            "id": "eae7c33f",
+            "id": "a8303fe3",
             "elType": "widget",
             "widgetType": "counter",
             "settings": {
@@ -884,7 +1212,7 @@
         ]
       },
       {
-        "id": "8eaddedf",
+        "id": "946a854c",
         "elType": "column",
         "settings": {
           "_column_size": 25,
@@ -892,7 +1220,7 @@
         },
         "elements": [
           {
-            "id": "f5ab191f",
+            "id": "c71a37a1",
             "elType": "widget",
             "widgetType": "counter",
             "settings": {
@@ -910,7 +1238,7 @@
     ]
   },
   {
-    "id": "4dfeeb33",
+    "id": "e384a133",
     "elType": "section",
     "settings": {
       "layout": "full_width",
@@ -919,7 +1247,7 @@
     },
     "elements": [
       {
-        "id": "9a4db0d9",
+        "id": "2c41a47a",
         "elType": "column",
         "settings": {
           "_column_size": 100,
@@ -927,7 +1255,7 @@
         },
         "elements": [
           {
-            "id": "234e2138",
+            "id": "3fe3651b",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -939,7 +1267,7 @@
             "elements": []
           },
           {
-            "id": "2a48ee45",
+            "id": "8dc43550",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -950,7 +1278,7 @@
             "elements": []
           },
           {
-            "id": "b8e663c9",
+            "id": "111b2e91",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -961,7 +1289,7 @@
             "elements": []
           },
           {
-            "id": "53d15b9e",
+            "id": "f7e2492d",
             "elType": "section",
             "isInner": true,
             "settings": {
@@ -969,7 +1297,7 @@
             },
             "elements": [
               {
-                "id": "7652fb36",
+                "id": "174a7148",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -978,7 +1306,7 @@
                 },
                 "elements": [
                   {
-                    "id": "33cd7b37",
+                    "id": "6466418a",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
@@ -992,7 +1320,7 @@
                     "elements": []
                   },
                   {
-                    "id": "37e68b92",
+                    "id": "4439feeb",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -1003,7 +1331,7 @@
                     "elements": []
                   },
                   {
-                    "id": "7d67ea00",
+                    "id": "2c83a198",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -1013,7 +1341,7 @@
                     "elements": []
                   },
                   {
-                    "id": "602a5cd2",
+                    "id": "a5e316d1",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -1031,7 +1359,7 @@
                 ]
               },
               {
-                "id": "6d58998f",
+                "id": "d95ab473",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -1040,7 +1368,7 @@
                 },
                 "elements": [
                   {
-                    "id": "c29bf9b5",
+                    "id": "141bbab8",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
@@ -1054,7 +1382,7 @@
                     "elements": []
                   },
                   {
-                    "id": "94bec274",
+                    "id": "9ffc83fc",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -1065,7 +1393,7 @@
                     "elements": []
                   },
                   {
-                    "id": "a0b40bd3",
+                    "id": "2a8bbdee",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -1075,7 +1403,7 @@
                     "elements": []
                   },
                   {
-                    "id": "1e2a5e1b",
+                    "id": "7b36b5c5",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -1093,7 +1421,7 @@
                 ]
               },
               {
-                "id": "2bbbec14",
+                "id": "d3bc481e",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -1102,7 +1430,7 @@
                 },
                 "elements": [
                   {
-                    "id": "19a9a068",
+                    "id": "31508fd2",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
@@ -1116,7 +1444,7 @@
                     "elements": []
                   },
                   {
-                    "id": "fe04b337",
+                    "id": "0edc0458",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -1127,7 +1455,7 @@
                     "elements": []
                   },
                   {
-                    "id": "1c79b3c6",
+                    "id": "ee5e7265",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -1137,7 +1465,7 @@
                     "elements": []
                   },
                   {
-                    "id": "7f3be76f",
+                    "id": "7e069728",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -1155,7 +1483,7 @@
                 ]
               },
               {
-                "id": "a86a0079",
+                "id": "b266606c",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -1164,7 +1492,7 @@
                 },
                 "elements": [
                   {
-                    "id": "8a14fbd2",
+                    "id": "996a2f41",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
@@ -1178,7 +1506,7 @@
                     "elements": []
                   },
                   {
-                    "id": "0e07870e",
+                    "id": "7f1f61c4",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -1189,7 +1517,7 @@
                     "elements": []
                   },
                   {
-                    "id": "92847872",
+                    "id": "68eb67ba",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -1199,7 +1527,7 @@
                     "elements": []
                   },
                   {
-                    "id": "1259541e",
+                    "id": "2307adc3",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -1223,7 +1551,7 @@
     ]
   },
   {
-    "id": "1b5454b8",
+    "id": "d6546253",
     "elType": "section",
     "settings": {
       "layout": "full_width",
@@ -1232,7 +1560,7 @@
     },
     "elements": [
       {
-        "id": "7cfe69dd",
+        "id": "74f224e9",
         "elType": "column",
         "settings": {
           "_column_size": 100,
@@ -1240,7 +1568,7 @@
         },
         "elements": [
           {
-            "id": "9ba74063",
+            "id": "a7a7f49d",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -1252,7 +1580,7 @@
             "elements": []
           },
           {
-            "id": "1355fb37",
+            "id": "735951ab",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -1263,7 +1591,7 @@
             "elements": []
           },
           {
-            "id": "9fbdf249",
+            "id": "be8344cd",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -1274,7 +1602,7 @@
             "elements": []
           },
           {
-            "id": "c4bb136c",
+            "id": "b4660edc",
             "elType": "section",
             "isInner": true,
             "settings": {
@@ -1282,7 +1610,7 @@
             },
             "elements": [
               {
-                "id": "b7096d7f",
+                "id": "cbded99c",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -1291,13 +1619,13 @@
                 },
                 "elements": [
                   {
-                    "id": "a3c70a6a",
+                    "id": "ccd35cc7",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
                       "image": {
-                        "url": "http://localhost:5000/wp-content/uploads/2026/10/brands/pertamina.svg",
-                        "id": 127
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/pertamina.png",
+                        "id": 75
                       },
                       "image_size": "full",
                       "align": "center"
@@ -1305,7 +1633,7 @@
                     "elements": []
                   },
                   {
-                    "id": "0539385d",
+                    "id": "4a139f35",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -1316,7 +1644,7 @@
                     "elements": []
                   },
                   {
-                    "id": "c22c88f8",
+                    "id": "09c82135",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -1328,7 +1656,7 @@
                 ]
               },
               {
-                "id": "eba5fcd6",
+                "id": "1bbd7d9d",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -1337,13 +1665,13 @@
                 },
                 "elements": [
                   {
-                    "id": "43d75568",
+                    "id": "9439c994",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
                       "image": {
-                        "url": "http://localhost:5000/wp-content/uploads/2026/10/brands/mobil.svg",
-                        "id": 128
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/mobil.png",
+                        "id": 77
                       },
                       "image_size": "full",
                       "align": "center"
@@ -1351,7 +1679,7 @@
                     "elements": []
                   },
                   {
-                    "id": "c82e0225",
+                    "id": "d0b94991",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -1362,7 +1690,7 @@
                     "elements": []
                   },
                   {
-                    "id": "09c3ad9d",
+                    "id": "ca40f7a5",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -1374,7 +1702,7 @@
                 ]
               },
               {
-                "id": "3b90fd19",
+                "id": "cc2b4817",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -1383,13 +1711,13 @@
                 },
                 "elements": [
                   {
-                    "id": "ec88a329",
+                    "id": "94394031",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
                       "image": {
-                        "url": "http://localhost:5000/wp-content/uploads/2026/10/brands/dunlop.svg",
-                        "id": 129
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/dunlop.png",
+                        "id": 76
                       },
                       "image_size": "full",
                       "align": "center"
@@ -1397,7 +1725,7 @@
                     "elements": []
                   },
                   {
-                    "id": "e9468d49",
+                    "id": "dcdff4cc",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -1408,7 +1736,7 @@
                     "elements": []
                   },
                   {
-                    "id": "fc87f14a",
+                    "id": "37feeb33",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -1420,7 +1748,7 @@
                 ]
               },
               {
-                "id": "757f4ff0",
+                "id": "1f862b6f",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -1429,13 +1757,13 @@
                 },
                 "elements": [
                   {
-                    "id": "f23ca1be",
+                    "id": "0b6a0a9c",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
                       "image": {
-                        "url": "http://localhost:5000/wp-content/uploads/2026/10/brands/gs-astra.svg",
-                        "id": 130
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/gs-astra.png",
+                        "id": 194
                       },
                       "image_size": "full",
                       "align": "center"
@@ -1443,7 +1771,7 @@
                     "elements": []
                   },
                   {
-                    "id": "ca67cfd1",
+                    "id": "86b75e13",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -1454,7 +1782,7 @@
                     "elements": []
                   },
                   {
-                    "id": "365a09d4",
+                    "id": "84c429c8",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -1466,7 +1794,7 @@
                 ]
               },
               {
-                "id": "135da9de",
+                "id": "17be55f7",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -1475,13 +1803,13 @@
                 },
                 "elements": [
                   {
-                    "id": "0659a893",
+                    "id": "8affe948",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
                       "image": {
-                        "url": "http://localhost:5000/wp-content/uploads/2026/10/brands/incoe.svg",
-                        "id": 131
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/incoe.png",
+                        "id": 195
                       },
                       "image_size": "full",
                       "align": "center"
@@ -1489,7 +1817,7 @@
                     "elements": []
                   },
                   {
-                    "id": "c8b1c809",
+                    "id": "1eee30d5",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -1500,7 +1828,7 @@
                     "elements": []
                   },
                   {
-                    "id": "659becc7",
+                    "id": "ed6adad9",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -1512,7 +1840,7 @@
                 ]
               },
               {
-                "id": "692a6beb",
+                "id": "57c3d684",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -1521,13 +1849,13 @@
                 },
                 "elements": [
                   {
-                    "id": "46a3ccf0",
+                    "id": "74076780",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
                       "image": {
-                        "url": "http://localhost:5000/wp-content/uploads/2026/10/brands/sakura.svg",
-                        "id": 132
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/sakura.png",
+                        "id": 196
                       },
                       "image_size": "full",
                       "align": "center"
@@ -1535,7 +1863,7 @@
                     "elements": []
                   },
                   {
-                    "id": "601a7e39",
+                    "id": "2477b046",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -1546,7 +1874,7 @@
                     "elements": []
                   },
                   {
-                    "id": "d27922e1",
+                    "id": "de59283a",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -1564,7 +1892,7 @@
     ]
   },
   {
-    "id": "42a135da",
+    "id": "6ee86cb6",
     "elType": "section",
     "settings": {
       "layout": "full_width",
@@ -1573,7 +1901,7 @@
     },
     "elements": [
       {
-        "id": "a2790c99",
+        "id": "ad0e2751",
         "elType": "column",
         "settings": {
           "_column_size": 50,
@@ -1581,7 +1909,7 @@
         },
         "elements": [
           {
-            "id": "a89c9e46",
+            "id": "61d4ec6d",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -1593,7 +1921,7 @@
             "elements": []
           },
           {
-            "id": "434ae13f",
+            "id": "6b0c098d",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -1605,7 +1933,7 @@
             "elements": []
           },
           {
-            "id": "d8f5a717",
+            "id": "f12bdbb8",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -1615,7 +1943,7 @@
             "elements": []
           },
           {
-            "id": "ea6b16bf",
+            "id": "c2f562f7",
             "elType": "section",
             "isInner": true,
             "settings": {
@@ -1623,7 +1951,7 @@
             },
             "elements": [
               {
-                "id": "ea2eff74",
+                "id": "0235a20f",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -1631,7 +1959,7 @@
                 },
                 "elements": [
                   {
-                    "id": "f24b5d4d",
+                    "id": "c29b9d43",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -1654,7 +1982,7 @@
                 ]
               },
               {
-                "id": "19d3a8f3",
+                "id": "8871825a",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -1662,7 +1990,7 @@
                 },
                 "elements": [
                   {
-                    "id": "ac5d01a0",
+                    "id": "0e81dd72",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -1687,7 +2015,7 @@
             ]
           },
           {
-            "id": "d44542e2",
+            "id": "f44e767b",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -1699,7 +2027,7 @@
         ]
       },
       {
-        "id": "fb184e6c",
+        "id": "739c3d73",
         "elType": "column",
         "settings": {
           "_column_size": 50,
@@ -1707,11 +2035,12 @@
         },
         "elements": [
           {
-            "id": "2c7780b0",
+            "id": "ce74d556",
             "elType": "widget",
-            "widgetType": "html",
+            "widgetType": "shortcode",
             "settings": {
-              "html": "<div class=\"booking-form-box\">\n    <h3 class=\"text-center mb-1\">Booking Servis Truk</h3>\n    <p class=\"text-center text-muted mb-4\">Isi form &mdash; langsung terkirim ke WhatsApp bengkel.</p>\n    <form onsubmit=\"event.preventDefault();window.open('https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20ingin%20jadwalkan%20servis:%0ANama:%20'+encodeURIComponent(document.getElementById('bk_name').value)+'%0ANo%20WA:%20'+encodeURIComponent(document.getElementById('bk_phone').value)+'%0ALayanan:%20'+encodeURIComponent(document.getElementById('bk_service').value)+'%0ATanggal:%20'+encodeURIComponent(document.getElementById('bk_date').value)+'%0ANoPol/Keterangan:%20'+encodeURIComponent(document.getElementById('bk_notes').value),'_blank');\">\n        <div class=\"row g-3\">\n            <div class=\"col-12 col-sm-6\"><input type=\"text\" id=\"bk_name\" class=\"form-control\" placeholder=\"Nama / Perusahaan\" required /></div>\n            <div class=\"col-12 col-sm-6\"><input type=\"tel\" id=\"bk_phone\" class=\"form-control\" placeholder=\"No. WhatsApp\" required /></div>\n            <div class=\"col-12 col-sm-6\">\n                <select id=\"bk_service\" class=\"form-select\">\n                    <option selected>Servis Rutin &amp; Cek 30 Bagian</option>\n                    <option>Servis Mesin Besar</option>\n                    <option>Rem Angin &amp; Kaki-Kaki</option>\n                    <option>Ganti Oli</option>\n                    <option>Ban Dunlop</option>\n                    <option>Aki &amp; Kelistrikan</option>\n                    <option>Derek Darurat 24 Jam</option>\n                </select>\n            </div>\n            <div class=\"col-12 col-sm-6\"><input type=\"date\" id=\"bk_date\" class=\"form-control\" required /></div>\n            <div class=\"col-12\"><textarea id=\"bk_notes\" class=\"form-control\" rows=\"3\" placeholder=\"Nomor Polisi / Gejala Kerusakan\"></textarea></div>\n            <div class=\"col-12\"><button type=\"submit\" class=\"btn btn-primary w-100 py-3\"><i class=\"fab fa-whatsapp me-2\"></i>Kirim Permintaan Servis</button></div>\n        </div>\n    </form>\n</div>"
+              "shortcode": "[mt_booking_form]",
+              "_css_classes": "booking-form-shortcode"
             },
             "elements": []
           }
@@ -1720,7 +2049,7 @@
     ]
   },
   {
-    "id": "e540cbff",
+    "id": "9c06b622",
     "elType": "section",
     "settings": {
       "layout": "full_width",
@@ -1729,7 +2058,7 @@
     },
     "elements": [
       {
-        "id": "c9f99aa2",
+        "id": "0fe1f70e",
         "elType": "column",
         "settings": {
           "_column_size": 100,
@@ -1737,7 +2066,7 @@
         },
         "elements": [
           {
-            "id": "231ae947",
+            "id": "127cf4cd",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -1749,7 +2078,7 @@
             "elements": []
           },
           {
-            "id": "172994ef",
+            "id": "4ac77d99",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -1760,7 +2089,7 @@
             "elements": []
           },
           {
-            "id": "356552fc",
+            "id": "43aca362",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -1771,7 +2100,7 @@
             "elements": []
           },
           {
-            "id": "06265232",
+            "id": "f65cff36",
             "elType": "section",
             "isInner": true,
             "settings": {
@@ -1779,7 +2108,7 @@
             },
             "elements": [
               {
-                "id": "14984edc",
+                "id": "b73f1ba0",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -1788,7 +2117,7 @@
                 },
                 "elements": [
                   {
-                    "id": "3ed4cf81",
+                    "id": "7b7ac3d0",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
@@ -1802,7 +2131,7 @@
                     "elements": []
                   },
                   {
-                    "id": "f223ca9a",
+                    "id": "2919a5a5",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -1813,7 +2142,7 @@
                     "elements": []
                   },
                   {
-                    "id": "530916f4",
+                    "id": "b74356f7",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -1825,7 +2154,7 @@
                 ]
               },
               {
-                "id": "a227e6cb",
+                "id": "3aed783a",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -1834,7 +2163,7 @@
                 },
                 "elements": [
                   {
-                    "id": "5d70d7f6",
+                    "id": "22576e41",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
@@ -1848,7 +2177,7 @@
                     "elements": []
                   },
                   {
-                    "id": "b916d8a8",
+                    "id": "bbea33ea",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -1859,7 +2188,7 @@
                     "elements": []
                   },
                   {
-                    "id": "1c574960",
+                    "id": "f6434110",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -1871,7 +2200,7 @@
                 ]
               },
               {
-                "id": "49d9903c",
+                "id": "3bfcd282",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -1880,7 +2209,7 @@
                 },
                 "elements": [
                   {
-                    "id": "702cda37",
+                    "id": "37757ecf",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
@@ -1894,7 +2223,7 @@
                     "elements": []
                   },
                   {
-                    "id": "7101d789",
+                    "id": "f064a805",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -1905,7 +2234,7 @@
                     "elements": []
                   },
                   {
-                    "id": "92253494",
+                    "id": "8bcdc110",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -1917,7 +2246,7 @@
                 ]
               },
               {
-                "id": "4a830dcf",
+                "id": "f40f2790",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -1926,7 +2255,7 @@
                 },
                 "elements": [
                   {
-                    "id": "9c73ffe8",
+                    "id": "bdee173e",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
@@ -1940,7 +2269,7 @@
                     "elements": []
                   },
                   {
-                    "id": "cab27d86",
+                    "id": "2a6033c6",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -1951,7 +2280,7 @@
                     "elements": []
                   },
                   {
-                    "id": "56d20e2d",
+                    "id": "8a59d1a7",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -1969,7 +2298,7 @@
     ]
   },
   {
-    "id": "3a309357",
+    "id": "1b97ba45",
     "elType": "section",
     "settings": {
       "layout": "full_width",
@@ -1978,7 +2307,7 @@
     },
     "elements": [
       {
-        "id": "95dfa27a",
+        "id": "0043e236",
         "elType": "column",
         "settings": {
           "_column_size": 100,
@@ -1986,7 +2315,7 @@
         },
         "elements": [
           {
-            "id": "04333705",
+            "id": "584752c8",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -1998,7 +2327,7 @@
             "elements": []
           },
           {
-            "id": "e7a573fc",
+            "id": "ae00c1ec",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -2009,7 +2338,7 @@
             "elements": []
           },
           {
-            "id": "17e937b9",
+            "id": "2c7405d0",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -2020,7 +2349,7 @@
             "elements": []
           },
           {
-            "id": "77bb7bed",
+            "id": "89c8c9be",
             "elType": "section",
             "isInner": true,
             "settings": {
@@ -2028,7 +2357,7 @@
             },
             "elements": [
               {
-                "id": "59bc026c",
+                "id": "b3447131",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -2037,18 +2366,69 @@
                 },
                 "elements": [
                   {
-                    "id": "a89458ce",
+                    "id": "44f27c3d",
                     "elType": "widget",
-                    "widgetType": "html",
+                    "widgetType": "image",
                     "settings": {
-                      "html": "<div class=\"testimonial-avatar-wrap\">\n        <img src=\"http://localhost:5000/wp-content/uploads/2026/10/testimonial-1.jpg\" alt=\"Gunawan Siregar\" loading=\"lazy\" />\n        <div>\n            <h5 class=\"mb-0 fw-bold\">Gunawan Siregar</h5>\n            <small class=\"text-muted\">Pengelola Truk — PT Samudera Logistik</small>\n        </div>\n    </div>\n    <div class=\"testimonial-stars-line\">★★★★★</div>\n    <p class=\"testimonial-quote-text\">&ldquo;30 trailer kami jadi jarang rusak. Servisnya bisa dipantau dari HP, gampang kontrolnya.&rdquo;</p>"
+                      "image": {
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/testimonial-1.jpg",
+                        "id": 122
+                      },
+                      "image_size": "full",
+                      "align": "center",
+                      "_css_classes": "testimonial-avatar"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "267b4c0e",
+                    "elType": "widget",
+                    "widgetType": "heading",
+                    "settings": {
+                      "title": "Gunawan Siregar",
+                      "header_size": "h5",
+                      "align": "left",
+                      "_css_classes": "mb-0 fw-bold"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "5d15cf76",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<p>Pengelola Truk — PT Samudera Logistik</p>",
+                      "align": "left",
+                      "_css_classes": "text-muted small mb-0"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "7ebc4289",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<p>★★★★★</p>",
+                      "align": "left",
+                      "_css_classes": "testimonial-stars mb-3"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "dd42b476",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<p>&ldquo;30 trailer kami jadi jarang rusak. Servisnya bisa dipantau dari HP, gampang kontrolnya.&rdquo;</p>",
+                      "align": "left",
+                      "_css_classes": "mb-0"
                     },
                     "elements": []
                   }
                 ]
               },
               {
-                "id": "8f115d9a",
+                "id": "c1a42a30",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -2057,18 +2437,69 @@
                 },
                 "elements": [
                   {
-                    "id": "a6fb5de6",
+                    "id": "9692d835",
                     "elType": "widget",
-                    "widgetType": "html",
+                    "widgetType": "image",
                     "settings": {
-                      "html": "<div class=\"testimonial-avatar-wrap\">\n        <img src=\"http://localhost:5000/wp-content/uploads/2026/10/testimonial-2.jpg\" alt=\"Budi Wicaksono\" loading=\"lazy\" />\n        <div>\n            <h5 class=\"mb-0 fw-bold\">Budi Wicaksono</h5>\n            <small class=\"text-muted\">Pemilik — CV Maju Bersama</small>\n        </div>\n    </div>\n    <div class=\"testimonial-stars-line\">★★★★★</div>\n    <p class=\"testimonial-quote-text\">&ldquo;Oli dan ban asli, harganya miring. Ngirit banyak buat perawatan truk kami.&rdquo;</p>"
+                      "image": {
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/testimonial-2.jpg",
+                        "id": 123
+                      },
+                      "image_size": "full",
+                      "align": "center",
+                      "_css_classes": "testimonial-avatar"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "184caf1d",
+                    "elType": "widget",
+                    "widgetType": "heading",
+                    "settings": {
+                      "title": "Budi Wicaksono",
+                      "header_size": "h5",
+                      "align": "left",
+                      "_css_classes": "mb-0 fw-bold"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "a4a85826",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<p>Pemilik — CV Maju Bersama</p>",
+                      "align": "left",
+                      "_css_classes": "text-muted small mb-0"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "346520c7",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<p>★★★★★</p>",
+                      "align": "left",
+                      "_css_classes": "testimonial-stars mb-3"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "ca558d66",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<p>&ldquo;Oli dan ban asli, harganya miring. Ngirit banyak buat perawatan truk kami.&rdquo;</p>",
+                      "align": "left",
+                      "_css_classes": "mb-0"
                     },
                     "elements": []
                   }
                 ]
               },
               {
-                "id": "ea4919b6",
+                "id": "b0cef64e",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -2077,11 +2508,62 @@
                 },
                 "elements": [
                   {
-                    "id": "33a1b950",
+                    "id": "5d3741b0",
                     "elType": "widget",
-                    "widgetType": "html",
+                    "widgetType": "image",
                     "settings": {
-                      "html": "<div class=\"testimonial-avatar-wrap\">\n        <img src=\"http://localhost:5000/wp-content/uploads/2026/10/testimonial-3.jpg\" alt=\"Ahmad Faisal\" loading=\"lazy\" />\n        <div>\n            <h5 class=\"mb-0 fw-bold\">Ahmad Faisal</h5>\n            <small class=\"text-muted\">Pengawas — PT Deli Sawit Makmur</small>\n        </div>\n    </div>\n    <div class=\"testimonial-stars-line\">★★★★★</div>\n    <p class=\"testimonial-quote-text\">&ldquo;Truk mogok rem blong di Tebing Tinggi, langsung dijemput. Gerak cepat!&rdquo;</p>"
+                      "image": {
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/testimonial-3.jpg",
+                        "id": 124
+                      },
+                      "image_size": "full",
+                      "align": "center",
+                      "_css_classes": "testimonial-avatar"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "c0321aba",
+                    "elType": "widget",
+                    "widgetType": "heading",
+                    "settings": {
+                      "title": "Ahmad Faisal",
+                      "header_size": "h5",
+                      "align": "left",
+                      "_css_classes": "mb-0 fw-bold"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "291c3a58",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<p>Pengawas — PT Deli Sawit Makmur</p>",
+                      "align": "left",
+                      "_css_classes": "text-muted small mb-0"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "85a9c84d",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<p>★★★★★</p>",
+                      "align": "left",
+                      "_css_classes": "testimonial-stars mb-3"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "007c1a77",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<p>&ldquo;Truk mogok rem blong di Tebing Tinggi, langsung dijemput. Gerak cepat!&rdquo;</p>",
+                      "align": "left",
+                      "_css_classes": "mb-0"
                     },
                     "elements": []
                   }
@@ -2094,7 +2576,7 @@
     ]
   },
   {
-    "id": "53316430",
+    "id": "e3b26ec1",
     "elType": "section",
     "settings": {
       "layout": "full_width",
@@ -2103,7 +2585,7 @@
     },
     "elements": [
       {
-        "id": "c5846466",
+        "id": "f483f1a2",
         "elType": "column",
         "settings": {
           "_column_size": 38,
@@ -2111,7 +2593,7 @@
         },
         "elements": [
           {
-            "id": "70356a23",
+            "id": "bcafa33b",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -2123,7 +2605,7 @@
             "elements": []
           },
           {
-            "id": "86af0744",
+            "id": "22192d7e",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -2134,7 +2616,7 @@
             "elements": []
           },
           {
-            "id": "8d76cc31",
+            "id": "24404375",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -2144,7 +2626,7 @@
             "elements": []
           },
           {
-            "id": "54c880b6",
+            "id": "138f0cbc",
             "elType": "widget",
             "widgetType": "button",
             "settings": {
@@ -2167,7 +2649,7 @@
         ]
       },
       {
-        "id": "3f17db92",
+        "id": "3ee1cf66",
         "elType": "column",
         "settings": {
           "_column_size": 62,
@@ -2175,7 +2657,7 @@
         },
         "elements": [
           {
-            "id": "dcc23942",
+            "id": "2586adc3",
             "elType": "widget",
             "widgetType": "accordion",
             "settings": {
@@ -2220,7 +2702,7 @@
     ]
   },
   {
-    "id": "f5d21bd0",
+    "id": "959c10bc",
     "elType": "section",
     "settings": {
       "layout": "full_width",
@@ -2229,18 +2711,366 @@
     },
     "elements": [
       {
-        "id": "ee0bb366",
+        "id": "b19c0235",
+        "elType": "column",
+        "settings": {
+          "_column_size": 25,
+          "css_classes": "footer-brand-col"
+        },
+        "elements": [
+          {
+            "id": "5e022370",
+            "elType": "widget",
+            "widgetType": "icon-box",
+            "settings": {
+              "selected_icon": {
+                "value": "fas fa-truck",
+                "library": "fa-solid"
+              },
+              "title_text": "MASTER TRUCK",
+              "description_text": "Bengkel Truk KIM III Medan",
+              "title_size": "h5",
+              "position": "left",
+              "_css_classes": "footer-brand"
+            },
+            "elements": []
+          },
+          {
+            "id": "41d6019b",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+              "editor": "<p>Bengkel Truk KIM III Medan — Perawatan armada & toko sparepart asli langsung dari pabrik.</p>",
+              "align": "left",
+              "_css_classes": "text-muted small mb-4"
+            },
+            "elements": []
+          },
+          {
+            "id": "5c876178",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+              "title": "Kontak & Alamat",
+              "header_size": "h6",
+              "align": "left",
+              "_css_classes": "footer-heading mb-2"
+            },
+            "elements": []
+          },
+          {
+            "id": "3a991e92",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+              "editor": "<p>KIM III, Medan — Sumatera Utara</p><p>061-8888-1234 / 0812-3456-7890</p><p>cs@mastertruk.co.id</p>",
+              "align": "left",
+              "_css_classes": "text-muted small mb-3"
+            },
+            "elements": []
+          },
+          {
+            "id": "a2b1f062",
+            "elType": "section",
+            "isInner": true,
+            "settings": {
+              "css_classes": "footer-social-inner"
+            },
+            "elements": [
+              {
+                "id": "650ba2f8",
+                "elType": "column",
+                "isInner": true,
+                "settings": {
+                  "_column_size": 25
+                },
+                "elements": [
+                  {
+                    "id": "09d3c021",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "FB",
+                      "link": {
+                        "url": "#",
+                        "is_external": "",
+                        "nofollow": ""
+                      },
+                      "align": "left",
+                      "_css_classes": "btn-footer-social"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "9c4f3ab0",
+                "elType": "column",
+                "isInner": true,
+                "settings": {
+                  "_column_size": 25
+                },
+                "elements": [
+                  {
+                    "id": "c88982a1",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "IG",
+                      "link": {
+                        "url": "#",
+                        "is_external": "",
+                        "nofollow": ""
+                      },
+                      "align": "left",
+                      "_css_classes": "btn-footer-social"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "8c9c1df7",
+                "elType": "column",
+                "isInner": true,
+                "settings": {
+                  "_column_size": 25
+                },
+                "elements": [
+                  {
+                    "id": "87760483",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "YT",
+                      "link": {
+                        "url": "#",
+                        "is_external": "",
+                        "nofollow": ""
+                      },
+                      "align": "left",
+                      "_css_classes": "btn-footer-social"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "ae6f7eb2",
+                "elType": "column",
+                "isInner": true,
+                "settings": {
+                  "_column_size": 25
+                },
+                "elements": [
+                  {
+                    "id": "552e1344",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "WA",
+                      "link": {
+                        "url": "https://wa.me/6281234567890",
+                        "is_external": "on",
+                        "nofollow": ""
+                      },
+                      "align": "left",
+                      "_css_classes": "btn-footer-social"
+                    },
+                    "elements": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "62af76a1",
+        "elType": "column",
+        "settings": {
+          "_column_size": 25,
+          "css_classes": "footer-hours-col"
+        },
+        "elements": [
+          {
+            "id": "be95415a",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+              "title": "Jam Buka",
+              "header_size": "h5",
+              "align": "left",
+              "_css_classes": "footer-heading mb-3"
+            },
+            "elements": []
+          },
+          {
+            "id": "98e49706",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+              "editor": "<p><strong>Bengkel & Toko Sparepart:</strong></p><p>Senin – Sabtu: 08.00 – 17.00 WIB</p><p><strong>Layanan Derek & Darurat:</strong></p><p>24 Jam Nonstop</p>",
+              "align": "left"
+            },
+            "elements": []
+          }
+        ]
+      },
+      {
+        "id": "d95c5892",
+        "elType": "column",
+        "settings": {
+          "_column_size": 25,
+          "css_classes": "footer-services-col"
+        },
+        "elements": [
+          {
+            "id": "bbde7f75",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+              "title": "Layanan Kami",
+              "header_size": "h5",
+              "align": "left",
+              "_css_classes": "footer-heading mb-3"
+            },
+            "elements": []
+          },
+          {
+            "id": "bd95c9ff",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+              "editor": "<p><a href=\"#service\">Servis Mesin Besar</a></p><p><a href=\"#service\">Rem Angin & Kaki-Kaki</a></p><p><a href=\"#service\">Ban Dunlop</a></p><p><a href=\"#service\">Oli Pertamina & Mobil</a></p><p><a href=\"#booking\">Derek Truk 24 Jam</a></p>",
+              "align": "left",
+              "_css_classes": "footer-links-list"
+            },
+            "elements": []
+          }
+        ]
+      },
+      {
+        "id": "172877b8",
+        "elType": "column",
+        "settings": {
+          "_column_size": 25,
+          "css_classes": "footer-fleet-col"
+        },
+        "elements": [
+          {
+            "id": "ad97194d",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+              "title": "Pantau Servis Online",
+              "header_size": "h5",
+              "align": "left",
+              "_css_classes": "footer-heading mb-3"
+            },
+            "elements": []
+          },
+          {
+            "id": "6068de57",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+              "editor": "<p>Lihat progress servis truk Anda dari HP, kapan saja.</p>",
+              "align": "left",
+              "_css_classes": "text-muted small mb-3"
+            },
+            "elements": []
+          },
+          {
+            "id": "846c1302",
+            "elType": "widget",
+            "widgetType": "button",
+            "settings": {
+              "text": "Login Fleet",
+              "link": {
+                "url": "http://localhost:3000/#login",
+                "is_external": "on",
+                "nofollow": ""
+              },
+              "align": "left",
+              "selected_icon": {
+                "value": "fas fa-sign-in-alt",
+                "library": "fa-solid"
+              },
+              "icon_align": "before",
+              "_css_classes": "btn-footer-login"
+            },
+            "elements": []
+          },
+          {
+            "id": "a65d74cb",
+            "elType": "widget",
+            "widgetType": "button",
+            "settings": {
+              "text": "Daftar Fleet",
+              "link": {
+                "url": "http://localhost:3000/#register",
+                "is_external": "on",
+                "nofollow": ""
+              },
+              "align": "left",
+              "selected_icon": {
+                "value": "fas fa-user-plus",
+                "library": "fa-solid"
+              },
+              "icon_align": "before",
+              "_css_classes": "btn-footer-register"
+            },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dab5d662",
+    "elType": "section",
+    "settings": {
+      "layout": "full_width",
+      "css_classes": "border-top py-3 text-center small text-muted px-4"
+    },
+    "elements": [
+      {
+        "id": "a72cf99a",
         "elType": "column",
         "settings": {
           "_column_size": 100
         },
         "elements": [
           {
-            "id": "037456ea",
+            "id": "b1410bad",
             "elType": "widget",
-            "widgetType": "html",
+            "widgetType": "text-editor",
             "settings": {
-              "html": "<div class=\"container py-5\">\n    <div class=\"row g-5\">\n        <div class=\"col-lg-3 col-md-6\">\n            <div class=\"footer-brand mb-3\">\n                <i class=\"fa fa-truck text-primary me-2 fs-4\"></i>\n                <span class=\"fs-4 fw-bold\">MASTER <span class=\"text-primary\">TRUCK</span></span>\n            </div>\n            <p class=\"text-muted small mb-4\">Bengkel Truk KIM III Medan &bull; Perawatan armada &amp; toko sparepart asli langsung dari pabrik.</p>\n            <h6 class=\"footer-heading mb-2\">Kontak &amp; Alamat</h6>\n            <p class=\"text-muted small mb-1\"><i class=\"fa fa-map-marker-alt text-primary me-2\"></i>KIM III, Medan &mdash; Sumatera Utara</p>\n            <p class=\"text-muted small mb-1\"><i class=\"fa fa-phone-alt text-primary me-2\"></i>061-8888-1234 / 0812-3456-7890</p>\n            <p class=\"text-muted small mb-3\"><i class=\"fa fa-envelope text-primary me-2\"></i>cs@mastertruk.co.id</p>\n            <div class=\"d-flex gap-2\">\n                <a class=\"btn-footer-social\" href=\"#\" aria-label=\"Facebook\"><i class=\"fab fa-facebook-f\"></i></a>\n                <a class=\"btn-footer-social\" href=\"#\" aria-label=\"Instagram\"><i class=\"fab fa-instagram\"></i></a>\n                <a class=\"btn-footer-social\" href=\"#\" aria-label=\"YouTube\"><i class=\"fab fa-youtube\"></i></a>\n                <a class=\"btn-footer-social\" href=\"https://wa.me/6281234567890\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"WhatsApp\"><i class=\"fab fa-whatsapp\"></i></a>\n            </div>\n        </div>\n        <div class=\"col-lg-3 col-md-6\">\n            <h5 class=\"footer-heading mb-3\">Jam Buka</h5>\n            <p class=\"fw-bold mb-1\">Bengkel &amp; Toko Sparepart:</p>\n            <p class=\"text-muted small mb-3\">Senin &ndash; Sabtu: 08.00 &ndash; 17.00 WIB</p>\n            <p class=\"fw-bold mb-1\">Layanan Derek &amp; Darurat:</p>\n            <span class=\"badge bg-danger-subtle text-danger border border-danger-subtle px-2 py-1\"><i class=\"fa fa-phone-alt me-1\"></i>24 Jam Nonstop</span>\n        </div>\n        <div class=\"col-lg-3 col-md-6\">\n            <h5 class=\"footer-heading mb-3\">Layanan Kami</h5>\n            <ul class=\"footer-links-list list-unstyled small\">\n                <li><a href=\"#service\"><i class=\"fa fa-chevron-right me-2 text-primary\"></i>Servis Mesin Besar</a></li>\n                <li><a href=\"#service\"><i class=\"fa fa-chevron-right me-2 text-primary\"></i>Rem Angin &amp; Kaki-Kaki</a></li>\n                <li><a href=\"#service\"><i class=\"fa fa-chevron-right me-2 text-primary\"></i>Ban Dunlop</a></li>\n                <li><a href=\"#service\"><i class=\"fa fa-chevron-right me-2 text-primary\"></i>Oli Pertamina &amp; Mobil</a></li>\n                <li><a href=\"#booking\"><i class=\"fa fa-chevron-right me-2 text-primary\"></i>Derek Truk 24 Jam</a></li>\n            </ul>\n        </div>\n        <div class=\"col-lg-3 col-md-6\">\n            <h5 class=\"footer-heading mb-3\">Pantau Servis Online</h5>\n            <p class=\"text-muted small mb-3\">Lihat progress servis truk Anda dari HP, kapan saja.</p>\n            <div class=\"d-grid gap-2\">\n                <a href=\"http://localhost:3000/#login\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn btn-primary\"><i class=\"fa fa-sign-in-alt me-2\"></i>Login Fleet</a>\n                <a href=\"http://localhost:3000/#register\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn btn-outline-primary\"><i class=\"fa fa-user-plus me-2\"></i>Daftar Fleet</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"container-fluid border-top py-3 text-center text-md-start small text-muted px-4\">\n    <div class=\"container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2\">\n        <div>&copy; <strong>MASTER TRUCK</strong>, Seluruh Hak Cipta Dilindungi. Terdaftar di Kementerian Perdagangan RI.</div>\n        <div class=\"footer-menu-links d-flex gap-3\">\n            <a href=\"#header-carousel\" class=\"text-muted text-decoration-none\">Beranda</a>\n            <a href=\"#about\" class=\"text-muted text-decoration-none\">Tentang</a>\n            <a href=\"#service\" class=\"text-muted text-decoration-none\">Layanan</a>\n            <a href=\"#faq\" class=\"text-muted text-decoration-none\">FAQ</a>\n            <a href=\"http://localhost:3000/#login\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-muted text-decoration-none\">Web Fleet</a>\n        </div>\n    </div>\n</div>\n<a href=\"https://wa.me/6281234567890\" class=\"floating-wa-btn\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"WhatsApp Kami\"><i class=\"fab fa-whatsapp\"></i></a>"
+              "editor": "<p>© MASTER TRUCK, Seluruh Hak Cipta Dilindungi. Terdaftar di Kementerian Perdagangan RI.</p><p><a href=\"#header-carousel\">Beranda</a> | <a href=\"#about\">Tentang</a> | <a href=\"#service\">Layanan</a> | <a href=\"#faq\">FAQ</a> | <a href=\"http://localhost:3000/#login\">Web Fleet</a></p>",
+              "align": "center",
+              "_css_classes": "small text-muted px-4"
+            },
+            "elements": []
+          },
+          {
+            "id": "0905fa5e",
+            "elType": "widget",
+            "widgetType": "button",
+            "settings": {
+              "text": "Chat WhatsApp",
+              "link": {
+                "url": "https://wa.me/6281234567890",
+                "is_external": "on",
+                "nofollow": ""
+              },
+              "align": "left",
+              "selected_icon": {
+                "value": "fab fa-whatsapp",
+                "library": "fa-solid"
+              },
+              "icon_align": "before",
+              "_css_classes": "floating-wa-btn"
             },
             "elements": []
           }

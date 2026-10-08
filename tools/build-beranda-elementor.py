@@ -25,8 +25,10 @@ args, _ = parser.parse_known_args()
 SITE_URL = args.url.rstrip("/")
 CONTAINER = args.container
 BASE = f"{SITE_URL}/wp-content/uploads/2026/10"
-BRANDS_BASE = f"{BASE}/brands"
 
+# NOTE: brand PNG (bukan SVG) agar lolos mime WP + bisa di-Replace di Elementor.
+# ID disesuaikan hasil wp media import di lpm-wp-app (port 5000):
+# pertamina=75, dunlop=76, mobil=77, gs-astra=194, incoe=195, sakura=196.
 IMG = {
     "bg1": (f"{BASE}/carousel-bg-1.jpg", 136),
     "bg2": (f"{BASE}/carousel-bg-2.jpg", 137),
@@ -44,12 +46,12 @@ IMG = {
     "testi2": (f"{BASE}/testimonial-2.jpg", 123),
     "testi3": (f"{BASE}/testimonial-3.jpg", 124),
     "about": (f"{BASE}/about.jpg", 126),
-    "pertamina": (f"{BRANDS_BASE}/pertamina.svg", 127),
-    "mobil": (f"{BRANDS_BASE}/mobil.svg", 128),
-    "dunlop": (f"{BRANDS_BASE}/dunlop.svg", 129),
-    "gsastra": (f"{BRANDS_BASE}/gs-astra.svg", 130),
-    "incoe": (f"{BRANDS_BASE}/incoe.svg", 131),
-    "sakura": (f"{BRANDS_BASE}/sakura.svg", 132),
+    "pertamina": (f"{BASE}/pertamina.png", 75),
+    "mobil": (f"{BASE}/mobil.png", 77),
+    "dunlop": (f"{BASE}/dunlop.png", 76),
+    "gsastra": (f"{BASE}/gs-astra.png", 194),
+    "incoe": (f"{BASE}/incoe.png", 195),
+    "sakura": (f"{BASE}/sakura.png", 196),
 }
 
 def get_img_url(key):
@@ -213,98 +215,59 @@ def W_accordion(items, cls=""):
 def W_html(code):
     return {"id": nid(), "elType": "widget", "widgetType": "html", "settings": {"html": code}, "elements": []}
 
+def W_shortcode(code, cls=""):
+    st = {"shortcode": code}
+    if cls:
+        st["_css_classes"] = cls
+    return {"id": nid(), "elType": "widget", "widgetType": "shortcode", "settings": st, "elements": []}
+
 sections = []
 
 # ==============================================================================
-# 0. TOPBAR
+# 0. TOPBAR — 100% native (tanpa HTML) agar teks bisa diklik di Elementor
 # ==============================================================================
-TOPBAR_HTML = f"""<div class="row gx-0 d-none d-lg-flex align-items-center">
-    <div class="col-lg-7 px-4 text-start">
-        <div class="h-100 d-inline-flex align-items-center py-2 me-3">
-            <small class="fa fa-map-marker-alt text-primary me-2"></small>
-            <small>KIM III Medan &mdash; Sumatera Utara</small>
-        </div>
-        <div class="h-100 d-inline-flex align-items-center py-2 ms-3">
-            <small class="far fa-clock text-primary me-2"></small>
-            <small>Senin &ndash; Sabtu : 08.00 &ndash; 17.00 WIB</small>
-        </div>
-    </div>
-    <div class="col-lg-5 px-4 text-end d-flex justify-content-end align-items-center gap-3">
-        <div class="h-100 d-inline-flex align-items-center py-2">
-            <small class="fa fa-phone-alt text-primary me-2"></small>
-            <small><a href="tel:06188881234" class="text-decoration-none fw-bold">061-8888-1234</a></small>
-        </div>
-        <div class="h-100 d-inline-flex align-items-center gap-1">
-            <a class="top-social-btn" href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a class="top-social-btn" href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a class="top-social-btn" href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        </div>
-    </div>
-</div>"""
-
 sections.append(make_section(
-    cols=[(100, "p-0", [W_html(TOPBAR_HTML)])],
+    cols=[
+        (60, "topbar-left-col", [
+            W_icon_box("fas fa-map-marker-alt", "KIM III Medan — Sumatera Utara", "", tag="p", pos="left", cls="topbar-addr"),
+            W_icon_box("far fa-clock", "Senin – Sabtu : 08.00 – 17.00 WIB", "", tag="p", pos="left", cls="topbar-hours"),
+        ]),
+        (40, "topbar-right-col", [
+            W_text('<p><a href="tel:06188881234" class="text-decoration-none fw-bold">061-8888-1234</a></p>', align="right", cls="topbar-phone"),
+            make_inner_section([
+                (33, "", [W_button("FB", link="#", cls="top-social-fb")]),
+                (33, "", [W_button("IG", link="#", cls="top-social-ig")]),
+                (34, "", [W_button("WA", link="https://wa.me/6281234567890", cls="top-social-wa", is_ext=True)]),
+            ], css_classes="topbar-social-inner"),
+        ]),
+    ],
     css_classes="container-fluid top-bar-custom p-0",
     layout="full_width"
 ))
 
 # ==============================================================================
-# 1. NAVBAR
+# 1. NAVBAR — 100% native (brand + menu + 2 tombol Fleet)
 # ==============================================================================
-NAVBAR_HTML = f"""<div class="d-flex align-items-center justify-content-between w-100 flex-wrap">
-    <a href="#header-carousel" class="navbar-brand-logo">
-        <div class="navbar-brand-icon"><i class="fa fa-truck"></i></div>
-        <div class="navbar-brand-text">
-            <span class="navbar-brand-title">MASTER <span>TRUCK</span></span>
-            <span class="navbar-brand-sub">Bengkel Truk KIM III Medan</span>
-        </div>
-    </a>
-    <button type="button" class="navbar-toggler d-lg-none" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse d-lg-flex align-items-center justify-content-end flex-grow-1" id="navbarCollapse">
-        <div class="navbar-nav ms-auto py-0">
-            <a href="#header-carousel" class="nav-item nav-link active">Beranda</a>
-            <a href="#about" class="nav-item nav-link">Tentang</a>
-            <a href="#service" class="nav-item nav-link">Layanan</a>
-            <a href="#principals" class="nav-item nav-link">Merek OEM</a>
-            <a href="#team" class="nav-item nav-link">Montir</a>
-            <a href="#testimonial" class="nav-item nav-link">Mitra</a>
-            <a href="#faq" class="nav-item nav-link">FAQ</a>
-            <a href="#contact" class="nav-item nav-link">Kontak</a>
-        </div>
-        <div class="ms-3 d-inline-flex align-items-center gap-2 mt-3 mt-lg-0">
-            <a href="http://localhost:3000/#login" target="_blank" rel="noopener noreferrer" class="btn-nav-login"><i class="fa fa-sign-in-alt me-2"></i>Login Fleet</a>
-            <a href="http://localhost:3000/#register" target="_blank" rel="noopener noreferrer" class="btn-nav-register"><i class="fa fa-user-plus me-2"></i>Daftar Fleet</a>
-        </div>
-    </div>
-</div>"""
-
 sections.append(make_section(
-    cols=[(100, "p-0", [W_html(NAVBAR_HTML)])],
+    cols=[
+        (30, "navbar-brand-col", [
+            W_icon_box("fas fa-truck", "MASTER TRUCK", "Bengkel Truk KIM III Medan", tag="h5", pos="left", cls="navbar-brand-widget"),
+        ]),
+        (70, "navbar-menu-col", [
+            W_text('<p><a href="#header-carousel">Beranda</a> | <a href="#about">Tentang</a> | <a href="#service">Layanan</a> | <a href="#principals">Merek OEM</a> | <a href="#team">Montir</a> | <a href="#testimonial">Mitra</a> | <a href="#faq">FAQ</a> | <a href="#contact">Kontak</a></p>', align="right", cls="navbar-links"),
+            make_inner_section([
+                (50, "", [W_button("Login Fleet", link="http://localhost:3000/#login", icon_val="fas fa-sign-in-alt", icon_pos="before", cls="btn-nav-login", is_ext=True)]),
+                (50, "", [W_button("Daftar Fleet", link="http://localhost:3000/#register", icon_val="fas fa-user-plus", icon_pos="before", cls="btn-nav-register", is_ext=True)]),
+            ], css_classes="navbar-cta-inner"),
+        ]),
+    ],
     css_classes="navbar navbar-expand-lg bg-white navbar-light shadow-sm sticky-top px-3 px-lg-4",
     layout="full_width"
 ))
 
 # ==============================================================================
-# 2. HERO SLIDE 1 (Servis Armada) — 100% Native Widgets
+# 2. HERO SLIDE 1 (Servis Armada) — 100% Native Widgets (gambar bisa di-Replace)
 # ==============================================================================
-HERO_CARD_RIGHT_1 = f"""<div class="hero-truck-showcase">
-    <div class="hero-truck-frame">
-        <span class="hero-badge-floating-top"><i class="fa fa-shield-alt text-primary me-1"></i>Terpercaya 120+ Mitra</span>
-        <div class="hero-truck-img-wrapper">
-            <img class="hero-truck-img" src="{get_img_url('truck1')}" alt="Armada Truk Master Truck" loading="eager" />
-        </div>
-        <div class="hero-card-floating-bottom d-flex align-items-center gap-3">
-            <div class="icon-tint-wrap icon-tint-blue"><i class="fa fa-building"></i></div>
-            <div>
-                <div class="hero-card-title">PT Master Truck Indonesia</div>
-                <div class="hero-card-sub">Servis bergaransi, dicek 30 bagian</div>
-            </div>
-        </div>
-    </div>
-</div>"""
-
 sections.append(make_section(
     css_id="header-carousel",
     css_classes="container-fluid p-0 mb-4 mt-hero-slide mt-hero-slide-item mt-hero-slide-1 active",
@@ -325,31 +288,16 @@ sections.append(make_section(
             ], css_classes="hero-btns-inner mt-3"),
         ]),
         (40, "hero-right-col px-3", [
-            W_html(HERO_CARD_RIGHT_1)
+            W_heading("Terpercaya 120+ Mitra", tag="p", align="center", cls="hero-badge-floating-top"),
+            W_image(IMG["truck1"], alt="Armada Truk Master Truck", cls="hero-truck-img"),
+            W_icon_box("fas fa-building", "PT Master Truck Indonesia", "Servis bergaransi, dicek 30 bagian", tag="h5", pos="left", cls="hero-card-floating-bottom"),
         ]),
     ]
 ))
 
 # ==============================================================================
 # 2B. HERO SLIDE 2 (Distributor Sparepart OEM) — 100% Native Widgets
-# Tombol: 'Lihat Produk OEM' & 'Daftar Fleet' — Widget Button Elementor Asli!
 # ==============================================================================
-HERO_CARD_RIGHT_2 = f"""<div class="hero-truck-showcase">
-    <div class="hero-truck-frame">
-        <span class="hero-badge-floating-top"><i class="fa fa-check-circle text-primary me-1"></i>100% Original</span>
-        <div class="hero-truck-img-wrapper">
-            <img class="hero-truck-img" src="{get_img_url('truck2')}" alt="Distributor Sparepart Master Truck" loading="eager" />
-        </div>
-        <div class="hero-card-floating-bottom d-flex align-items-center gap-3">
-            <div class="icon-tint-wrap icon-tint-teal"><i class="fa fa-handshake"></i></div>
-            <div>
-                <div class="hero-card-title">Tarif Distributor Mitra</div>
-                <div class="hero-card-sub">Bisa bayar tempo + gratis pantau servis online</div>
-            </div>
-        </div>
-    </div>
-</div>"""
-
 sections.append(make_section(
     css_id="header-slide-2",
     css_classes="container-fluid p-0 mb-4 mt-hero-slide mt-hero-slide-item mt-hero-slide-2",
@@ -370,7 +318,9 @@ sections.append(make_section(
             ], css_classes="hero-btns-inner mt-3"),
         ]),
         (40, "hero-right-col px-3", [
-            W_html(HERO_CARD_RIGHT_2)
+            W_heading("100% Original", tag="p", align="center", cls="hero-badge-floating-top"),
+            W_image(IMG["truck2"], alt="Distributor Sparepart Master Truck", cls="hero-truck-img"),
+            W_icon_box("fas fa-handshake", "Tarif Distributor Mitra", "Bisa bayar tempo + gratis pantau servis online", tag="h5", pos="left", cls="hero-card-floating-bottom"),
         ]),
     ]
 ))
@@ -397,25 +347,15 @@ sections.append(make_section(
 ))
 
 # ==============================================================================
-# 4. ABOUT SECTION (Native Image, Headings, Text, Buttons)
+# 4. ABOUT SECTION — 100% native (foto bisa di-Replace)
 # ==============================================================================
-ABOUT_IMG_HTML = f"""<div class="about-img-box position-relative">
-    <img src="{get_img_url('svc1')}" alt="Montir sedang memperbaiki mesin truk di bengkel PT Master Truck Indonesia" class="w-100 rounded-3" loading="lazy" style="border-radius:20px;" />
-    <div class="about-exp-float-card">
-        <div class="icon-tint-wrap icon-tint-blue"><i class="fa fa-award"></i></div>
-        <div>
-            <div class="fw-bold fs-4 mb-0 text-navy">15 Tahun</div>
-            <small class="text-muted">Pengalaman</small>
-        </div>
-    </div>
-</div>"""
-
 sections.append(make_section(
     css_id="about",
     css_classes="container-xxl py-5 sec-about",
     cols=[
         (50, "about-left-col pe-lg-4", [
-            W_html(ABOUT_IMG_HTML)
+            W_image(IMG["about"], alt="Montir sedang memperbaiki mesin truk di bengkel PT Master Truck Indonesia", cls="about-img-box"),
+            W_icon_box("fas fa-award", "15 Tahun", "Pengalaman", tag="h5", pos="left", cls="about-exp-float-card"),
         ]),
         (50, "about-right-col ps-lg-4", [
             W_heading("Tentang Kami", tag="p", align="left", cls="badge-section-pill"),
@@ -536,33 +476,8 @@ sections.append(make_section(
 ))
 
 # ==============================================================================
-# 8. BOOKING & DEREK 24 JAM
+# 8. BOOKING & DEREK 24 JAM — form via shortcode [mt_booking_form] (plugin mt-booking)
 # ==============================================================================
-BOOKING_FORM_HTML = """<div class="booking-form-box">
-    <h3 class="text-center mb-1">Booking Servis Truk</h3>
-    <p class="text-center text-muted mb-4">Isi form &mdash; langsung terkirim ke WhatsApp bengkel.</p>
-    <form onsubmit="event.preventDefault();window.open('https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20ingin%20jadwalkan%20servis:%0ANama:%20'+encodeURIComponent(document.getElementById('bk_name').value)+'%0ANo%20WA:%20'+encodeURIComponent(document.getElementById('bk_phone').value)+'%0ALayanan:%20'+encodeURIComponent(document.getElementById('bk_service').value)+'%0ATanggal:%20'+encodeURIComponent(document.getElementById('bk_date').value)+'%0ANoPol/Keterangan:%20'+encodeURIComponent(document.getElementById('bk_notes').value),'_blank');">
-        <div class="row g-3">
-            <div class="col-12 col-sm-6"><input type="text" id="bk_name" class="form-control" placeholder="Nama / Perusahaan" required /></div>
-            <div class="col-12 col-sm-6"><input type="tel" id="bk_phone" class="form-control" placeholder="No. WhatsApp" required /></div>
-            <div class="col-12 col-sm-6">
-                <select id="bk_service" class="form-select">
-                    <option selected>Servis Rutin &amp; Cek 30 Bagian</option>
-                    <option>Servis Mesin Besar</option>
-                    <option>Rem Angin &amp; Kaki-Kaki</option>
-                    <option>Ganti Oli</option>
-                    <option>Ban Dunlop</option>
-                    <option>Aki &amp; Kelistrikan</option>
-                    <option>Derek Darurat 24 Jam</option>
-                </select>
-            </div>
-            <div class="col-12 col-sm-6"><input type="date" id="bk_date" class="form-control" required /></div>
-            <div class="col-12"><textarea id="bk_notes" class="form-control" rows="3" placeholder="Nomor Polisi / Gejala Kerusakan"></textarea></div>
-            <div class="col-12"><button type="submit" class="btn btn-primary w-100 py-3"><i class="fab fa-whatsapp me-2"></i>Kirim Permintaan Servis</button></div>
-        </div>
-    </form>
-</div>"""
-
 sections.append(make_section(
     css_id="booking",
     css_classes="container-fluid py-5 px-0 booking-section-wrapper",
@@ -582,7 +497,7 @@ sections.append(make_section(
             </div>""", align="left"),
         ]),
         (50, "p-4 p-lg-5", [
-            W_html(BOOKING_FORM_HTML)
+            W_shortcode("[mt_booking_form]", cls="booking-form-shortcode")
         ]),
     ]
 ))
@@ -625,18 +540,16 @@ sections.append(make_section(
 ))
 
 # ==============================================================================
-# 10. TESTIMONIALS (Satu Section Utuh: Header + 3 Kartu, Background #FAF8F5)
+# 10. TESTIMONIALS — 100% native (avatar bisa di-Replace)
 # ==============================================================================
-def testi_card_html(img_key, name, role, quote):
-    return f"""<div class="testimonial-avatar-wrap">
-        <img src="{get_img_url(img_key)}" alt="{name}" loading="lazy" />
-        <div>
-            <h5 class="mb-0 fw-bold">{name}</h5>
-            <small class="text-muted">{role}</small>
-        </div>
-    </div>
-    <div class="testimonial-stars-line">★★★★★</div>
-    <p class="testimonial-quote-text">&ldquo;{quote}&rdquo;</p>"""
+def testi_card_widgets(img_key, name, role, quote):
+    return [
+        W_image(IMG[img_key], alt=name, cls="testimonial-avatar"),
+        W_heading(name, tag="h5", align="left", cls="mb-0 fw-bold"),
+        W_text(f"<p>{role}</p>", align="left", cls="text-muted small mb-0"),
+        W_text("<p>★★★★★</p>", align="left", cls="testimonial-stars mb-3"),
+        W_text(f"<p>&ldquo;{quote}&rdquo;</p>", align="left", cls="mb-0"),
+    ]
 
 sections.append(make_section(
     css_id="testimonial",
@@ -647,15 +560,9 @@ sections.append(make_section(
             W_heading("Mereka Puas Servis di Sini", tag="h2", align="center"),
             W_text('<i class="fa fa-star text-warning"></i> <strong>4,9 dari 5</strong> &mdash; nilai dari 120+ perusahaan pelanggan di Medan &amp; Belawan.', align="center", cls="mb-4"),
             make_inner_section([
-                (33, "testimonial-enterprise-card", [
-                    W_html(testi_card_html("testi1", "Gunawan Siregar", "Pengelola Truk — PT Samudera Logistik", "30 trailer kami jadi jarang rusak. Servisnya bisa dipantau dari HP, gampang kontrolnya."))
-                ]),
-                (33, "testimonial-enterprise-card", [
-                    W_html(testi_card_html("testi2", "Budi Wicaksono", "Pemilik — CV Maju Bersama", "Oli dan ban asli, harganya miring. Ngirit banyak buat perawatan truk kami."))
-                ]),
-                (33, "testimonial-enterprise-card", [
-                    W_html(testi_card_html("testi3", "Ahmad Faisal", "Pengawas — PT Deli Sawit Makmur", "Truk mogok rem blong di Tebing Tinggi, langsung dijemput. Gerak cepat!"))
-                ]),
+                (33, "testimonial-enterprise-card", testi_card_widgets("testi1", "Gunawan Siregar", "Pengelola Truk — PT Samudera Logistik", "30 trailer kami jadi jarang rusak. Servisnya bisa dipantau dari HP, gampang kontrolnya.")),
+                (33, "testimonial-enterprise-card", testi_card_widgets("testi2", "Budi Wicaksono", "Pemilik — CV Maju Bersama", "Oli dan ban asli, harganya miring. Ngirit banyak buat perawatan truk kami.")),
+                (33, "testimonial-enterprise-card", testi_card_widgets("testi3", "Ahmad Faisal", "Pengawas — PT Deli Sawit Makmur", "Truk mogok rem blong di Tebing Tinggi, langsung dijemput. Gerak cepat!")),
             ], css_classes="sec-testimonial-cards w-100 mt-4")
         ])
     ]
@@ -690,72 +597,47 @@ sections.append(make_section(
 ))
 
 # ==============================================================================
-# 12. FOOTER SECTION
+# 12. FOOTER SECTION — 100% native (tanpa HTML)
 # ==============================================================================
-FOOTER_HTML = f"""<div class="container py-5">
-    <div class="row g-5">
-        <div class="col-lg-3 col-md-6">
-            <div class="footer-brand mb-3">
-                <i class="fa fa-truck text-primary me-2 fs-4"></i>
-                <span class="fs-4 fw-bold">MASTER <span class="text-primary">TRUCK</span></span>
-            </div>
-            <p class="text-muted small mb-4">Bengkel Truk KIM III Medan &bull; Perawatan armada &amp; toko sparepart asli langsung dari pabrik.</p>
-            <h6 class="footer-heading mb-2">Kontak &amp; Alamat</h6>
-            <p class="text-muted small mb-1"><i class="fa fa-map-marker-alt text-primary me-2"></i>KIM III, Medan &mdash; Sumatera Utara</p>
-            <p class="text-muted small mb-1"><i class="fa fa-phone-alt text-primary me-2"></i>061-8888-1234 / 0812-3456-7890</p>
-            <p class="text-muted small mb-3"><i class="fa fa-envelope text-primary me-2"></i>cs@mastertruk.co.id</p>
-            <div class="d-flex gap-2">
-                <a class="btn-footer-social" href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn-footer-social" href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a class="btn-footer-social" href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                <a class="btn-footer-social" href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <h5 class="footer-heading mb-3">Jam Buka</h5>
-            <p class="fw-bold mb-1">Bengkel &amp; Toko Sparepart:</p>
-            <p class="text-muted small mb-3">Senin &ndash; Sabtu: 08.00 &ndash; 17.00 WIB</p>
-            <p class="fw-bold mb-1">Layanan Derek &amp; Darurat:</p>
-            <span class="badge bg-danger-subtle text-danger border border-danger-subtle px-2 py-1"><i class="fa fa-phone-alt me-1"></i>24 Jam Nonstop</span>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <h5 class="footer-heading mb-3">Layanan Kami</h5>
-            <ul class="footer-links-list list-unstyled small">
-                <li><a href="#service"><i class="fa fa-chevron-right me-2 text-primary"></i>Servis Mesin Besar</a></li>
-                <li><a href="#service"><i class="fa fa-chevron-right me-2 text-primary"></i>Rem Angin &amp; Kaki-Kaki</a></li>
-                <li><a href="#service"><i class="fa fa-chevron-right me-2 text-primary"></i>Ban Dunlop</a></li>
-                <li><a href="#service"><i class="fa fa-chevron-right me-2 text-primary"></i>Oli Pertamina &amp; Mobil</a></li>
-                <li><a href="#booking"><i class="fa fa-chevron-right me-2 text-primary"></i>Derek Truk 24 Jam</a></li>
-            </ul>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <h5 class="footer-heading mb-3">Pantau Servis Online</h5>
-            <p class="text-muted small mb-3">Lihat progress servis truk Anda dari HP, kapan saja.</p>
-            <div class="d-grid gap-2">
-                <a href="http://localhost:3000/#login" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="fa fa-sign-in-alt me-2"></i>Login Fleet</a>
-                <a href="http://localhost:3000/#register" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary"><i class="fa fa-user-plus me-2"></i>Daftar Fleet</a>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container-fluid border-top py-3 text-center text-md-start small text-muted px-4">
-    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
-        <div>&copy; <strong>MASTER TRUCK</strong>, Seluruh Hak Cipta Dilindungi. Terdaftar di Kementerian Perdagangan RI.</div>
-        <div class="footer-menu-links d-flex gap-3">
-            <a href="#header-carousel" class="text-muted text-decoration-none">Beranda</a>
-            <a href="#about" class="text-muted text-decoration-none">Tentang</a>
-            <a href="#service" class="text-muted text-decoration-none">Layanan</a>
-            <a href="#faq" class="text-muted text-decoration-none">FAQ</a>
-            <a href="http://localhost:3000/#login" target="_blank" rel="noopener noreferrer" class="text-muted text-decoration-none">Web Fleet</a>
-        </div>
-    </div>
-</div>
-<a href="https://wa.me/6281234567890" class="floating-wa-btn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Kami"><i class="fab fa-whatsapp"></i></a>"""
-
 sections.append(make_section(
-    cols=[(100, "", [W_html(FOOTER_HTML)])],
+    cols=[
+        (25, "footer-brand-col", [
+            W_icon_box("fas fa-truck", "MASTER TRUCK", "Bengkel Truk KIM III Medan", tag="h5", pos="left", cls="footer-brand"),
+            W_text("<p>Bengkel Truk KIM III Medan — Perawatan armada & toko sparepart asli langsung dari pabrik.</p>", align="left", cls="text-muted small mb-4"),
+            W_heading("Kontak & Alamat", tag="h6", align="left", cls="footer-heading mb-2"),
+            W_text("<p>KIM III, Medan — Sumatera Utara</p><p>061-8888-1234 / 0812-3456-7890</p><p>cs@mastertruk.co.id</p>", align="left", cls="text-muted small mb-3"),
+            make_inner_section([
+                (25, "", [W_button("FB", link="#", cls="btn-footer-social")]),
+                (25, "", [W_button("IG", link="#", cls="btn-footer-social")]),
+                (25, "", [W_button("YT", link="#", cls="btn-footer-social")]),
+                (25, "", [W_button("WA", link="https://wa.me/6281234567890", cls="btn-footer-social", is_ext=True)]),
+            ], css_classes="footer-social-inner"),
+        ]),
+        (25, "footer-hours-col", [
+            W_heading("Jam Buka", tag="h5", align="left", cls="footer-heading mb-3"),
+            W_text("<p><strong>Bengkel & Toko Sparepart:</strong></p><p>Senin – Sabtu: 08.00 – 17.00 WIB</p><p><strong>Layanan Derek & Darurat:</strong></p><p>24 Jam Nonstop</p>", align="left"),
+        ]),
+        (25, "footer-services-col", [
+            W_heading("Layanan Kami", tag="h5", align="left", cls="footer-heading mb-3"),
+            W_text('<p><a href="#service">Servis Mesin Besar</a></p><p><a href="#service">Rem Angin & Kaki-Kaki</a></p><p><a href="#service">Ban Dunlop</a></p><p><a href="#service">Oli Pertamina & Mobil</a></p><p><a href="#booking">Derek Truk 24 Jam</a></p>', align="left", cls="footer-links-list"),
+        ]),
+        (25, "footer-fleet-col", [
+            W_heading("Pantau Servis Online", tag="h5", align="left", cls="footer-heading mb-3"),
+            W_text("<p>Lihat progress servis truk Anda dari HP, kapan saja.</p>", align="left", cls="text-muted small mb-3"),
+            W_button("Login Fleet", link="http://localhost:3000/#login", icon_val="fas fa-sign-in-alt", icon_pos="before", cls="btn-footer-login", is_ext=True),
+            W_button("Daftar Fleet", link="http://localhost:3000/#register", icon_val="fas fa-user-plus", icon_pos="before", cls="btn-footer-register", is_ext=True),
+        ]),
+    ],
     css_id="contact",
     css_classes="footer-clean bg-white border-top mt-5 p-0"
+))
+
+sections.append(make_section(
+    cols=[(100, "", [
+        W_text("<p>© MASTER TRUCK, Seluruh Hak Cipta Dilindungi. Terdaftar di Kementerian Perdagangan RI.</p><p><a href=\"#header-carousel\">Beranda</a> | <a href=\"#about\">Tentang</a> | <a href=\"#service\">Layanan</a> | <a href=\"#faq\">FAQ</a> | <a href=\"http://localhost:3000/#login\">Web Fleet</a></p>", align="center", cls="small text-muted px-4"),
+        W_button("Chat WhatsApp", link="https://wa.me/6281234567890", icon_val="fab fa-whatsapp", icon_pos="before", cls="floating-wa-btn", is_ext=True),
+    ])],
+    css_classes="border-top py-3 text-center small text-muted px-4"
 ))
 
 # Simpan ke JSON file

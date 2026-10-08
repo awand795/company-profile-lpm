@@ -194,6 +194,18 @@ if (Test-Path $topbar) {
     Write-Host "OK  plugins/mt-topbar/" -ForegroundColor Green
 }
 
+# --- Plugin booking form shortcode [mt_booking_form] -------------------------
+$booking = Join-Path $root 'wp-content/plugins/mt-booking'
+if (Test-Path $booking) {
+    docker cp "$booking/." "$Container`:/var/www/html/wp-content/plugins/mt-booking/"
+    if ($LASTEXITCODE -ne 0) { throw "docker cp mt-booking gagal" }
+    docker exec $Container chown -R www-data:www-data /var/www/html/wp-content/plugins/mt-booking 2>$null | Out-Null
+    $prevEA = $ErrorActionPreference; $ErrorActionPreference = 'Continue'
+    docker exec $Container wp plugin activate mt-booking --allow-root --path=/var/www/html 2>&1 | Out-Null
+    $ErrorActionPreference = $prevEA
+    Write-Host "OK  plugins/mt-booking/ (shortcode [mt_booking_form])" -ForegroundColor Green
+}
+
 # --- Homepage ID 59 sekarang FULL ELEMENTOR (migrasi 2026-10-07) -----------
 # JANGAN paksa kembali ke template-mastertruck.php — itu menonaktifkan Elementor.
 $curTpl = (docker exec $Container wp post meta get 59 _wp_page_template --allow-root --path=/var/www/html 2>$null | Select-Object -First 1)
