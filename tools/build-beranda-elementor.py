@@ -294,7 +294,7 @@ sections.append(make_section(
             ], css_classes="hero-btns-inner mt-3"),
         ]),
         (40, "hero-right-col px-3", [
-            W_heading("Terpercaya 120+ Mitra", tag="p", align="center", cls="hero-badge-floating-top"),
+            W_icon_box("fas fa-shield-alt", "Terpercaya 120+ Mitra", "", tag="p", pos="left", cls="hero-badge-floating-top"),
             W_image(IMG["truck1"], alt="Armada Truk Master Truck", cls="hero-truck-img"),
             W_icon_box("fas fa-building", "PT Master Truck Indonesia", "Servis bergaransi, dicek 30 bagian", tag="h5", pos="left", cls="hero-card-floating-bottom"),
         ]),
@@ -324,7 +324,7 @@ sections.append(make_section(
             ], css_classes="hero-btns-inner mt-3"),
         ]),
         (40, "hero-right-col px-3", [
-            W_heading("100% Original", tag="p", align="center", cls="hero-badge-floating-top"),
+            W_icon_box("fas fa-check-circle", "100% Original", "", tag="p", pos="left", cls="hero-badge-floating-top"),
             W_image(IMG["truck2"], alt="Distributor Sparepart Master Truck", cls="hero-truck-img"),
             W_icon_box("fas fa-handshake", "Tarif Distributor Mitra", "Bisa bayar tempo + gratis pantau servis online", tag="h5", pos="left", cls="hero-card-floating-bottom"),
         ]),
@@ -611,7 +611,7 @@ sections.append(make_section(
             W_icon_box("fas fa-truck", "MASTER TRUCK", "Bengkel Truk KIM III Medan", tag="h5", pos="left", cls="footer-brand"),
             W_text("<p>Bengkel Truk KIM III Medan — Perawatan armada & toko sparepart asli langsung dari pabrik.</p>", align="left", cls="text-muted small mb-4"),
             W_heading("Kontak & Alamat", tag="h6", align="left", cls="footer-heading mb-2"),
-            W_text("<p>KIM III, Medan — Sumatera Utara</p><p>061-8888-1234 / 0812-3456-7890</p><p>cs@mastertruk.co.id</p>", align="left", cls="text-muted small mb-3"),
+            W_text("<p>KIM III, Medan — Sumatera Utara</p><p>061-8888-1234 / 0812-3456-7890</p><p>cs@mastertruk.co.id</p>", align="left", cls="footer-contact-list text-muted small mb-3"),
             make_inner_section([
                 (25, "", [W_button("", link="#", icon_val="fab fa-facebook-f", icon_pos="before", align="center", cls="btn-footer-social")]),
                 (25, "", [W_button("", link="#", icon_val="fab fa-instagram", icon_pos="before", align="center", cls="btn-footer-social")]),
@@ -621,7 +621,7 @@ sections.append(make_section(
         ]),
         (25, "footer-hours-col", [
             W_heading("Jam Buka", tag="h5", align="left", cls="footer-heading mb-3"),
-            W_text("<p><strong>Bengkel & Toko Sparepart:</strong></p><p>Senin – Sabtu: 08.00 – 17.00 WIB</p><p><strong>Layanan Derek & Darurat:</strong></p><p>24 Jam Nonstop</p>", align="left"),
+            W_text("<p><strong>Bengkel & Toko Sparepart:</strong></p><p>Senin – Sabtu: 08.00 – 17.00 WIB</p><p><strong>Layanan Derek & Darurat:</strong></p><p>24 Jam Nonstop</p>", align="left", cls="footer-hours-text"),
         ]),
         (25, "footer-services-col", [
             W_heading("Layanan Kami", tag="h5", align="left", cls="footer-heading mb-3"),
@@ -639,10 +639,15 @@ sections.append(make_section(
 ))
 
 sections.append(make_section(
-    cols=[(100, "", [
-        W_text("<p>© MASTER TRUCK, Seluruh Hak Cipta Dilindungi. Terdaftar di Kementerian Perdagangan RI.</p><p><a href=\"#header-carousel\">Beranda</a> | <a href=\"#about\">Tentang</a> | <a href=\"#service\">Layanan</a> | <a href=\"#faq\">FAQ</a> | <a href=\"http://localhost:3000/#login\">Web Fleet</a></p>", align="center", cls="small text-muted px-4"),
-    ])],
-    css_classes="border-top py-3 text-center small text-muted px-4 footer-copyright"
+    cols=[
+        (65, "footer-copy-col", [
+            W_text("<p>© MASTER TRUCK, Seluruh Hak Cipta Dilindungi. Terdaftar di Kementerian Perdagangan RI.</p><p>Theme based on CarServ by HTML Codex & ThemeWagon.</p>", align="left", cls="small text-muted px-4"),
+        ]),
+        (35, "footer-menu-col", [
+            W_text('<p><a href="#header-carousel">Beranda</a> | <a href="#about">Tentang</a> | <a href="#service">Layanan</a> | <a href="#faq">FAQ</a> | <a href="http://localhost:3000/#login">Web Fleet</a></p>', align="right", cls="footer-menu-links small px-4"),
+        ]),
+    ],
+    css_classes="border-top py-3 small text-muted px-4 footer-copyright"
 ))
 
 # WA floating dipisah section sendiri agar position:fixed tidak mewarisi layout kolom copyright.

@@ -750,14 +750,68 @@ body.elementor-page-59 .hero-card-floating-bottom.elementor-widget-icon-box {
     box-shadow: none !important;
     padding: 0 !important;
 }
-/* Badge native: jadikan pil statis menumpuk tepi atas foto (bukan absolute liar) */
+/* Badge native icon-box: pil menumpuk tepi atas foto (seperti :8080) */
 body.elementor-page-59 .hero-right-col .hero-badge-floating-top {
     position: relative !important;
-    top: auto !important;
-    right: auto !important;
     z-index: 3 !important;
     margin: 0 24px -18px auto !important;
     width: fit-content !important;
+    background: #FFFFFF !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-pill) !important;
+    padding: 6px 16px !important;
+    box-shadow: var(--shadow-card) !important;
+}
+body.elementor-page-59 .hero-right-col .hero-badge-floating-top .elementor-icon-box-wrapper {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+body.elementor-page-59 .hero-right-col .hero-badge-floating-top .elementor-icon-box-icon {
+    margin: 0 !important;
+}
+body.elementor-page-59 .hero-right-col .hero-badge-floating-top .elementor-icon-box-icon i,
+body.elementor-page-59 .hero-right-col .hero-badge-floating-top .elementor-icon-box-icon svg {
+    color: var(--primary) !important;
+    fill: var(--primary) !important;
+    width: 13px !important;
+    height: 13px !important;
+}
+body.elementor-page-59 .hero-right-col .hero-badge-floating-top .elementor-icon-box-title {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    color: var(--heading) !important;
+    margin: 0 !important;
+}
+body.elementor-page-59 .hero-right-col .hero-badge-floating-top .elementor-icon-box-description {
+    display: none !important;
+}
+/* Ikon kartu bawah: kotak tint terang + glyph biru (seperti :8080) */
+body.elementor-page-59 .hero-card-floating-bottom .elementor-icon-box-icon .elementor-icon {
+    background: #EFF6FF !important;
+    border-radius: 12px !important;
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: none !important;
+}
+body.elementor-page-59 .hero-card-floating-bottom .elementor-icon-box-icon i,
+body.elementor-page-59 .hero-card-floating-bottom .elementor-icon-box-icon svg {
+    color: var(--primary) !important;
+    fill: var(--primary) !important;
+    width: 22px !important;
+    height: 22px !important;
+    font-size: 22px !important;
+}
+/* Kartu masuk ke dalam bingkai putih */
+body.elementor-page-59 .hero-right-col .hero-truck-img {
+    padding-bottom: 150px !important;
+}
+body.elementor-page-59 .hero-card-floating-bottom.elementor-widget-icon-box {
+    margin: -134px 40px 0 40px !important;
 }
 
 /* 4. Features Panel (4 Icon Box Widgets Native) */
@@ -1701,6 +1755,61 @@ body.elementor-page-59 .about-exp-float-card .elementor-icon-box-description {
 }
 
 /* 15. Footer samakan referensi (index.html / :8080) */
+body.elementor-page-59 .footer-contact-list p {
+    position: relative !important;
+    padding-left: 26px !important;
+}
+body.elementor-page-59 .footer-contact-list p::before {
+    font-family: "Font Awesome 5 Free" !important;
+    font-weight: 900 !important;
+    color: var(--acc-blue) !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 1px !important;
+    font-size: 13px !important;
+}
+body.elementor-page-59 .footer-contact-list p:nth-of-type(1)::before { content: "\f3c5" !important; }
+body.elementor-page-59 .footer-contact-list p:nth-of-type(2)::before { content: "\f879" !important; }
+body.elementor-page-59 .footer-contact-list p:nth-of-type(3)::before { content: "\f0e0" !important; }
+body.elementor-page-59 .footer-hours-text p:last-child {
+    display: inline-block !important;
+    background: #FEF2F2 !important;
+    color: #DC2626 !important;
+    border: 1px solid #FECACA !important;
+    border-radius: 8px !important;
+    padding: 6px 12px !important;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+}
+body.elementor-page-59 .footer-hours-text p:last-child::before {
+    font-family: "Font Awesome 5 Free" !important;
+    font-weight: 900 !important;
+    content: "\f095" !important;
+    margin-right: 6px !important;
+}
+body.elementor-page-59 .footer-links-list p::before {
+    content: "›" !important;
+    color: var(--text-muted) !important;
+    font-weight: 700 !important;
+    margin-right: 8px !important;
+}
+body.elementor-page-59 .footer-copy-col p {
+    margin-bottom: 2px !important;
+}
+body.elementor-page-59 .footer-menu-col .elementor-widget-wrap {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    height: 100% !important;
+}
+body.elementor-page-59 .footer-menu-links a {
+    color: var(--heading) !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+}
+body.elementor-page-59 .footer-menu-links a:hover {
+    color: var(--primary) !important;
+}
 body.elementor-page-59 .footer-clean .elementor-heading-title {
     color: var(--heading) !important;
     font-size: 16px !important;
