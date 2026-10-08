@@ -1392,6 +1392,24 @@ body.elementor-page-59 .top-social-btn .elementor-button:hover {
 }
 body.elementor-page-59 .top-social-btn .elementor-button-text { display: none !important; }
 body.elementor-page-59 .top-social-btn .elementor-button-icon { margin: 0 !important; }
+body.elementor-page-59 .top-social-btn .elementor-button-icon,
+body.elementor-page-59 .top-social-btn .elementor-button-icon i,
+body.elementor-page-59 .top-social-btn .elementor-button-icon svg {
+    color: var(--heading) !important;
+    fill: var(--heading) !important;
+    font-size: 12px !important;
+    width: 12px !important;
+    height: 12px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+body.elementor-page-59 .top-social-btn .elementor-button:hover .elementor-button-icon,
+body.elementor-page-59 .top-social-btn .elementor-button:hover .elementor-button-icon i,
+body.elementor-page-59 .top-social-btn .elementor-button:hover .elementor-button-icon svg {
+    color: #FFFFFF !important;
+    fill: #FFFFFF !important;
+}
 
 /* --- Navbar: 1 baris 72px (brand | menu | CTA) --- */
 body.elementor-page-59 .navbar > .elementor-container {
@@ -1456,6 +1474,10 @@ body.elementor-page-59 .btn-nav-login.elementor-widget-button,
 body.elementor-page-59 .btn-nav-register.elementor-widget-button {
     width: auto !important;
     display: inline-flex !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
 }
 body.elementor-page-59 .nav-menu-link.elementor-widget-button { width: auto !important; margin: 0 !important; }
 body.elementor-page-59 .nav-menu-link .elementor-button {
@@ -1578,4 +1600,119 @@ body.elementor-page-59 .floating-wa-btn .elementor-button-icon { margin: 0 !impo
 @media (max-width: 991.98px) {
     body.elementor-page-59 .navbar > .elementor-container { flex-wrap: wrap !important; }
     body.elementor-page-59 .navbar-links-inner > .elementor-container { flex-wrap: wrap !important; }
+}
+
+/* 14. Kartu mengambang (hero bawah-gambar + about) — overlap tepi foto */
+body.elementor-page-59 .hero-card-floating-bottom.elementor-widget-icon-box,
+body.elementor-page-59 .about-exp-float-card.elementor-widget-icon-box {
+    position: relative !important;
+    z-index: 3 !important;
+    margin: -56px 24px 0 24px !important;
+}
+body.elementor-page-59 .hero-card-floating-bottom .elementor-icon-box-wrapper,
+body.elementor-page-59 .about-exp-float-card .elementor-icon-box-wrapper {
+    background: #FFFFFF !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12) !important;
+    padding: 16px 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    text-align: left !important;
+}
+body.elementor-page-59 .hero-card-floating-bottom .elementor-icon-box-title,
+body.elementor-page-59 .about-exp-float-card .elementor-icon-box-title {
+    color: var(--heading) !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+}
+body.elementor-page-59 .hero-card-floating-bottom .elementor-icon-box-description,
+body.elementor-page-59 .about-exp-float-card .elementor-icon-box-description {
+    color: var(--text-muted) !important;
+    margin: 2px 0 0 0 !important;
+}
+
+/* 15. Footer samakan referensi (index.html / :8080) */
+body.elementor-page-59 .footer-clean .elementor-heading-title {
+    color: var(--heading) !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+}
+body.elementor-page-59 .footer-brand .elementor-icon-box-title {
+    color: var(--heading) !important;
+    font-weight: 800 !important;
+}
+body.elementor-page-59 .footer-links-list a {
+    color: var(--body) !important;
+    text-decoration: none !important;
+}
+body.elementor-page-59 .footer-links-list a:hover {
+    color: var(--primary) !important;
+}
+body.elementor-page-59 .btn-footer-social .elementor-button {
+    width: 36px !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    padding: 0 !important;
+    border-radius: 10px !important;
+    background: #FFFFFF !important;
+    border: 1px solid var(--border) !important;
+    color: var(--body) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 14px !important;
+}
+body.elementor-page-59 .btn-footer-social .elementor-button:hover {
+    background: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: #FFFFFF !important;
+}
+body.elementor-page-59 .btn-footer-social .elementor-button-icon,
+body.elementor-page-59 .btn-footer-social .elementor-button-icon i,
+body.elementor-page-59 .btn-footer-social .elementor-button-icon svg {
+    color: inherit !important;
+    fill: currentColor !important;
+    margin: 0 !important;
+}
+body.elementor-page-59 .btn-footer-login.elementor-widget-button,
+body.elementor-page-59 .btn-footer-register.elementor-widget-button {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    display: block !important;
+}
+body.elementor-page-59 .btn-footer-login .elementor-button {
+    background: var(--primary) !important;
+    color: #FFFFFF !important;
+    border: 1px solid var(--primary) !important;
+    border-radius: var(--radius-btn) !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    font-weight: 700 !important;
+}
+body.elementor-page-59 .btn-footer-login .elementor-button:hover {
+    background: var(--primary-hover) !important;
+}
+body.elementor-page-59 .btn-footer-register .elementor-button {
+    background: transparent !important;
+    color: var(--primary) !important;
+    border: 1.5px solid var(--primary) !important;
+    border-radius: var(--radius-btn) !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    font-weight: 700 !important;
+}
+body.elementor-page-59 .btn-footer-register .elementor-button:hover {
+    background: var(--primary-tint) !important;
 }
