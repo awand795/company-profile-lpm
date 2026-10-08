@@ -57,16 +57,16 @@ body.elementor-page-59 .topbar-left-col .elementor-icon-box-wrapper {
 body.elementor-page-59 .topbar-left-col .elementor-icon-box-icon { margin: 0 !important; }
 body.elementor-page-59 .topbar-left-col .elementor-icon-box-title,
 body.elementor-page-59 .topbar-left-col .elementor-icon-box-description {
-    color: rgba(255, 255, 255, 0.88) !important;
-    font-size: 12.5px !important;
+    color: var(--body) !important;
+    font-size: 13px !important;
     font-weight: 500 !important;
     margin: 0 !important;
 }
 body.elementor-page-59 .topbar-left-col .elementor-icon-box-icon .elementor-icon,
 body.elementor-page-59 .topbar-left-col .elementor-icon-box-icon i,
 body.elementor-page-59 .topbar-left-col .elementor-icon-box-icon svg {
-    color: #93C5FD !important;
-    fill: #93C5FD !important;
+    color: var(--acc-blue) !important;
+    fill: var(--acc-blue) !important;
     font-size: 12.5px !important;
     width: auto !important;
     height: auto !important;
@@ -1351,9 +1351,10 @@ body.elementor-page-59 .sec-team .team-enterprise-card .team-photo-wrap img {
    Class custom menempel di WRAPPER Elementor, jadi selektor
    menarget .<cls> .elementor-button / .elementor-icon-box-*. */
 
-/* --- Topbar: tinggi 38px, sosmed lingkaran 28px --- */
+/* --- Topbar TERANG (samakan :8080 / mastertruck.css TOPBAR:TERANG) --- */
 body.elementor-page-59 .top-bar-custom {
     min-height: 38px !important;
+    background-color: #FFFFFF !important;
 }
 body.elementor-page-59 .top-bar-custom .elementor-container {
     align-items: center !important;
@@ -1371,22 +1372,22 @@ body.elementor-page-59 .top-social-btn.elementor-widget-button {
     margin: 0 !important;
 }
 body.elementor-page-59 .top-social-btn .elementor-button {
-    width: 28px !important;
-    height: 28px !important;
-    min-height: 28px !important;
+    width: 30px !important;
+    height: 30px !important;
+    min-height: 30px !important;
     padding: 0 !important;
     border-radius: 50% !important;
-    background: rgba(255, 255, 255, 0.12) !important;
-    border: 1px solid rgba(255, 255, 255, 0.18) !important;
-    color: #FFFFFF !important;
+    background: var(--surface-soft) !important;
+    border: 1px solid var(--hairline) !important;
+    color: var(--body) !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    font-size: 11.5px !important;
+    font-size: 12px !important;
 }
 body.elementor-page-59 .top-social-btn .elementor-button:hover {
-    background: var(--primary) !important;
-    border-color: var(--primary) !important;
+    background: var(--acc-blue) !important;
+    border-color: var(--acc-blue) !important;
     color: #FFFFFF !important;
 }
 body.elementor-page-59 .top-social-btn .elementor-button-text { display: none !important; }
@@ -1438,6 +1439,24 @@ body.elementor-page-59 .navbar-links-inner > .elementor-container {
     align-items: center !important;
     justify-content: flex-end !important;
 }
+/* Satu baris: menu + CTA (pengganti links-inner/cta-inner yang menumpuk) */
+body.elementor-page-59 .navbar-right-inner > .elementor-container {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 4px !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+}
+body.elementor-page-59 .navbar-right-inner .elementor-widget-button {
+    width: auto !important;
+    margin: 0 !important;
+}
+body.elementor-page-59 .btn-nav-login.elementor-widget-button,
+body.elementor-page-59 .btn-nav-register.elementor-widget-button {
+    width: auto !important;
+    display: inline-flex !important;
+}
 body.elementor-page-59 .nav-menu-link.elementor-widget-button { width: auto !important; margin: 0 !important; }
 body.elementor-page-59 .nav-menu-link .elementor-button {
     background: transparent !important;
@@ -1466,6 +1485,7 @@ body.elementor-page-59 .navbar-cta-inner > .elementor-container {
 body.elementor-page-59 .btn-nav-login .elementor-button {
     height: 38px !important;
     min-height: 38px !important;
+    width: auto !important;
     padding: 0 16px !important;
     border-radius: var(--radius-btn) !important;
     color: #1D4ED8 !important;
@@ -1480,6 +1500,7 @@ body.elementor-page-59 .btn-nav-login .elementor-button {
 body.elementor-page-59 .btn-nav-register .elementor-button {
     height: 38px !important;
     min-height: 38px !important;
+    width: auto !important;
     padding: 0 16px !important;
     border-radius: var(--radius-btn) !important;
     color: #FFFFFF !important;
