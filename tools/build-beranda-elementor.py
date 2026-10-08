@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
-"""Build ulang Beranda Elementor 100% Native Widgets & Clean Layout.
+"""Build Beranda Elementor 100% Native Widgets & Pixel-Perfect Parity with Port 8080.
 Menjamin:
-1. Setiap teks, heading, gambar, tombol, counter, dan FAQ menggunakan widget asli Elementor
-   sehingga user bisa klik dan edit langsung di panel Elementor tanpa perlu paham coding / HTML!
-2. Layouting bersih, rapi, presisi 1:1 terhadap desain Light index.html.
-3. Otomatis deploy ke Post ID 59 di container lotus-wp-app bila aktif.
+1. SEMUA TEKS, HEADING, TOMBOL, GAMBAR, COUNTER, DAN FAQ menggunakan widget ASLI Elementor
+   sehingga user bisa klik dan edit langsung teks/tombol/link-nya di sidebar Elementor.
+2. Setiap section (Layanan, Montir, Testimoni) dibuat SATU SECTION UTUH (Header + Cards)
+   sehingga warna background (#FAF8F5, #F1F5F9), padding, dan struktur 100% identik dengan port 8080.
+3. KEDUA Slide Hero (Slide 1 & Slide 2 dengan 'Lihat Produk OEM' & 'Daftar Fleet') tersedia.
+4. Presisi 1:1 Light Theme index.html & port 8080.
 """
-import json, secrets, subprocess, sys
+import argparse, json, secrets, subprocess, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -15,15 +17,21 @@ EXPORTS.mkdir(exist_ok=True)
 OUT = EXPORTS / "beranda-elementor-php11.json"
 OUT_BACKUP = EXPORTS / "beranda-elementor.json"
 
-BASE = "http://localhost:8080/wp-content/uploads/2026/10"
-BRANDS_BASE = "http://localhost:8080/wp-content/themes/astra/mastertruck/img/brands"
+parser = argparse.ArgumentParser()
+parser.add_argument("--url", default="http://localhost:5000", help="Base site URL")
+parser.add_argument("--container", default="lpm-wp-app", help="Docker container name")
+args, _ = parser.parse_known_args()
 
-# Format: (url, attachment_id)
+SITE_URL = args.url.rstrip("/")
+CONTAINER = args.container
+BASE = f"{SITE_URL}/wp-content/uploads/2026/10"
+BRANDS_BASE = f"{BASE}/brands"
+
 IMG = {
-    "bg1": (f"{BASE}/mt-carousel-bg-1.jpg", 110),
-    "bg2": (f"{BASE}/mt-carousel-bg-2.jpg", 111),
-    "truck1": (f"{BASE}/mt-carousel-1.png", 112),
-    "truck2": (f"{BASE}/mt-carousel-2.png", 113),
+    "bg1": (f"{BASE}/carousel-bg-1.jpg", 136),
+    "bg2": (f"{BASE}/carousel-bg-2.jpg", 137),
+    "truck1": (f"{BASE}/carousel-1.png", 180),
+    "truck2": (f"{BASE}/carousel-2.png", 181),
     "svc1": (f"{BASE}/service-1.jpg", 114),
     "svc2": (f"{BASE}/service-2.jpg", 115),
     "svc3": (f"{BASE}/service-3.jpg", 116),
@@ -45,17 +53,16 @@ IMG = {
 }
 
 def get_img_url(key):
-    val = IMG[key]
+    val = IMG.get(key, ("", ""))
     return val[0] if isinstance(val, tuple) else val
 
 def get_img_id(key):
-    val = IMG[key]
+    val = IMG.get(key, ("", ""))
     return val[1] if isinstance(val, tuple) else ""
 
 def nid():
     return secrets.token_hex(4)
 
-# Builder helpers
 def make_section(cols, css_id="", css_classes="", bg_url=None, bg_color=None, layout="full_width", extra=None):
     st = {"layout": layout}
     if css_id:
@@ -211,7 +218,7 @@ sections = []
 # ==============================================================================
 # 0. TOPBAR
 # ==============================================================================
-TOPBAR_HTML = """<div class="row gx-0 d-none d-lg-flex align-items-center">
+TOPBAR_HTML = f"""<div class="row gx-0 d-none d-lg-flex align-items-center">
     <div class="col-lg-7 px-4 text-start">
         <div class="h-100 d-inline-flex align-items-center py-2 me-3">
             <small class="fa fa-map-marker-alt text-primary me-2"></small>
@@ -234,6 +241,7 @@ TOPBAR_HTML = """<div class="row gx-0 d-none d-lg-flex align-items-center">
         </div>
     </div>
 </div>"""
+
 sections.append(make_section(
     cols=[(100, "p-0", [W_html(TOPBAR_HTML)])],
     css_classes="container-fluid top-bar-custom p-0",
@@ -243,7 +251,7 @@ sections.append(make_section(
 # ==============================================================================
 # 1. NAVBAR
 # ==============================================================================
-NAVBAR_HTML = """<div class="d-flex align-items-center justify-content-between w-100 flex-wrap">
+NAVBAR_HTML = f"""<div class="d-flex align-items-center justify-content-between w-100 flex-wrap">
     <a href="#header-carousel" class="navbar-brand-logo">
         <div class="navbar-brand-icon"><i class="fa fa-truck"></i></div>
         <div class="navbar-brand-text">
@@ -259,6 +267,8 @@ NAVBAR_HTML = """<div class="d-flex align-items-center justify-content-between w
             <a href="#header-carousel" class="nav-item nav-link active">Beranda</a>
             <a href="#about" class="nav-item nav-link">Tentang</a>
             <a href="#service" class="nav-item nav-link">Layanan</a>
+            <a href="#principals" class="nav-item nav-link">Merek OEM</a>
+            <a href="#team" class="nav-item nav-link">Montir</a>
             <a href="#testimonial" class="nav-item nav-link">Mitra</a>
             <a href="#faq" class="nav-item nav-link">FAQ</a>
             <a href="#contact" class="nav-item nav-link">Kontak</a>
@@ -269,6 +279,7 @@ NAVBAR_HTML = """<div class="d-flex align-items-center justify-content-between w
         </div>
     </div>
 </div>"""
+
 sections.append(make_section(
     cols=[(100, "p-0", [W_html(NAVBAR_HTML)])],
     css_classes="navbar navbar-expand-lg bg-white navbar-light shadow-sm sticky-top px-3 px-lg-4",
@@ -276,9 +287,9 @@ sections.append(make_section(
 ))
 
 # ==============================================================================
-# 2. HERO SECTION (100% Native Widgets, High-Contrast Light Overlay)
+# 2. HERO SLIDE 1 (Servis Armada) — 100% Native Widgets
 # ==============================================================================
-HERO_CARD_RIGHT = f"""<div class="hero-truck-showcase">
+HERO_CARD_RIGHT_1 = f"""<div class="hero-truck-showcase">
     <div class="hero-truck-frame">
         <span class="hero-badge-floating-top"><i class="fa fa-shield-alt text-primary me-1"></i>Terpercaya 120+ Mitra</span>
         <div class="hero-truck-img-wrapper">
@@ -296,7 +307,7 @@ HERO_CARD_RIGHT = f"""<div class="hero-truck-showcase">
 
 sections.append(make_section(
     css_id="header-carousel",
-    css_classes="container-fluid p-0 mb-4 mt-hero-slide",
+    css_classes="container-fluid p-0 mb-4 mt-hero-slide mt-hero-slide-item mt-hero-slide-1 active",
     bg_url=get_img_url("bg1"),
     cols=[
         (60, "hero-left-col px-4 px-lg-5", [
@@ -314,7 +325,52 @@ sections.append(make_section(
             ], css_classes="hero-btns-inner mt-3"),
         ]),
         (40, "hero-right-col px-3", [
-            W_html(HERO_CARD_RIGHT)
+            W_html(HERO_CARD_RIGHT_1)
+        ]),
+    ]
+))
+
+# ==============================================================================
+# 2B. HERO SLIDE 2 (Distributor Sparepart OEM) — 100% Native Widgets
+# Tombol: 'Lihat Produk OEM' & 'Daftar Fleet' — Widget Button Elementor Asli!
+# ==============================================================================
+HERO_CARD_RIGHT_2 = f"""<div class="hero-truck-showcase">
+    <div class="hero-truck-frame">
+        <span class="hero-badge-floating-top"><i class="fa fa-check-circle text-primary me-1"></i>100% Original</span>
+        <div class="hero-truck-img-wrapper">
+            <img class="hero-truck-img" src="{get_img_url('truck2')}" alt="Distributor Sparepart Master Truck" loading="eager" />
+        </div>
+        <div class="hero-card-floating-bottom d-flex align-items-center gap-3">
+            <div class="icon-tint-wrap icon-tint-teal"><i class="fa fa-handshake"></i></div>
+            <div>
+                <div class="hero-card-title">Tarif Distributor Mitra</div>
+                <div class="hero-card-sub">Bisa bayar tempo + gratis pantau servis online</div>
+            </div>
+        </div>
+    </div>
+</div>"""
+
+sections.append(make_section(
+    css_id="header-slide-2",
+    css_classes="container-fluid p-0 mb-4 mt-hero-slide mt-hero-slide-item mt-hero-slide-2",
+    bg_url=get_img_url("bg2"),
+    cols=[
+        (60, "hero-left-col px-4 px-lg-5", [
+            W_heading('<span class="live-dot"></span>PT Master Truck Indonesia &bull; Distributor Nasional Resmi', tag="p", align="left", cls="hero-brand-pill"),
+            W_heading('Master Truck: <span class="hero-brand-highlight">Sparepart Truk Asli</span> dari Pabrik', tag="h1", align="left", cls="hero-title"),
+            W_text('Oli Pertamina, oli Mobil, ban Dunlop &amp; aki GS Astra &mdash; dijamin asli dari pabriknya, dengan harga khusus untuk pelanggan perusahaan.', align="left", cls="hero-lead"),
+            make_inner_section([
+                (33, "", [W_counter(15, "Tahun Berpengalaman", cls="hero-counter-item")]),
+                (33, "", [W_counter(120, "Perusahaan Pelanggan", suffix="+", cls="hero-counter-item")]),
+                (34, "", [W_counter(2500, "Truk per Tahun", cls="hero-counter-item", delimiter=".")]),
+            ], css_classes="hero-stats-inner d-none d-md-flex"),
+            make_inner_section([
+                (50, "", [W_button("Lihat Produk OEM", link="#principals", icon_val="fas fa-arrow-right", icon_pos="after", cls="btn-hero-primary")]),
+                (50, "", [W_button("Daftar Fleet", link="http://localhost:3000/#register", icon_val="fas fa-user-plus", icon_pos="before", cls="btn-hero-secondary", is_ext=True)]),
+            ], css_classes="hero-btns-inner mt-3"),
+        ]),
+        (40, "hero-right-col px-3", [
+            W_html(HERO_CARD_RIGHT_2)
         ]),
     ]
 ))
@@ -392,59 +448,55 @@ sections.append(make_section(
 ))
 
 # ==============================================================================
-# 6. SERVICES (Apa Saja yang Bisa Kami Kerjakan?)
+# 6. SERVICES (Satu Section Utuh: Header + 4 Kartu)
 # ==============================================================================
 sections.append(make_section(
     css_id="service",
     css_classes="container-xxl py-5 sec-services",
     cols=[
-        (100, "text-center", [
+        (100, "text-center mb-4", [
             W_heading("Layanan Bengkel", tag="p", align="center", cls="badge-section-pill"),
             W_heading("Apa Saja yang Bisa Kami Kerjakan?", tag="h2", align="center"),
             W_text("Empat layanan utama untuk truk Anda &mdash; semua bergaransi dan dilaporkan dengan foto.", align="center", cls="text-muted mb-4"),
+            make_inner_section([
+                (25, "service-grid-card", [
+                    W_image(IMG["svc1"], alt="Cek Mesin Komputer"),
+                    W_heading("Cek Mesin Komputer", tag="h5", align="left"),
+                    W_text("<ul><li>Mesin dicek pakai komputer</li><li>Kelistrikan &amp; aki 24 volt</li><li>Hasilnya dikirim ke HP Anda</li></ul>", align="left"),
+                    W_button("Tanya Teknisi", link="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20cek%20mesin%20komputer", align="center", cls="btn-service-action", is_ext=True),
+                ]),
+                (25, "service-grid-card", [
+                    W_image(IMG["svc2"], alt="Servis Mesin Besar"),
+                    W_heading("Servis Mesin Besar", tag="h5", align="left"),
+                    W_text("<ul><li>Turun mesin, bergaransi</li><li>Stel injektor biar irit</li><li>Sparepart asli pabrik</li></ul>", align="left"),
+                    W_button("Tanya Teknisi", link="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20servis%20mesin%20besar", align="center", cls="btn-service-action", is_ext=True),
+                ]),
+                (25, "service-grid-card", [
+                    W_image(IMG["svc3"], alt="Ban & Rem Angin"),
+                    W_heading("Ban & Rem Angin", tag="h5", align="left"),
+                    W_text("<ul><li>Ban Dunlop segala ukuran</li><li>Servis rem angin + kampas</li><li>Cek kaki-kaki &amp; per daun</li></ul>", align="left"),
+                    W_button("Tanya Teknisi", link="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20ban%20dan%20rem%20angin", align="center", cls="btn-service-action", is_ext=True),
+                ]),
+                (25, "service-grid-card", [
+                    W_image(IMG["svc4"], alt="Ganti Oli"),
+                    W_heading("Ganti Oli", tag="h5", align="left"),
+                    W_text("<ul><li>Oli Pertamina &amp; Mobil asli</li><li>Ganti filter sekalian</li><li>Bisa beli drum / pail</li></ul>", align="left"),
+                    W_button("Tanya Teknisi", link="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20ganti%20oli", align="center", cls="btn-service-action", is_ext=True),
+                ]),
+            ], css_classes="sec-services-cards w-100 mt-4")
         ])
     ]
 ))
 
-sections.append(make_section(
-    css_classes="container-xxl sec-services-cards pb-5",
-    cols=[
-        (25, "service-grid-card", [
-            W_image(IMG["svc1"], alt="Cek Mesin Komputer"),
-            W_heading("Cek Mesin Komputer", tag="h5", align="left"),
-            W_text("<ul><li>Mesin dicek pakai komputer</li><li>Kelistrikan &amp; aki 24 volt</li><li>Hasilnya dikirim ke HP Anda</li></ul>", align="left"),
-            W_button("Tanya Teknisi", link="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20cek%20mesin%20komputer", align="center", cls="btn-service-action", is_ext=True),
-        ]),
-        (25, "service-grid-card", [
-            W_image(IMG["svc2"], alt="Servis Mesin Besar"),
-            W_heading("Servis Mesin Besar", tag="h5", align="left"),
-            W_text("<ul><li>Turun mesin, bergaransi</li><li>Stel injektor biar irit</li><li>Sparepart asli pabrik</li></ul>", align="left"),
-            W_button("Tanya Teknisi", link="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20servis%20mesin%20besar", align="center", cls="btn-service-action", is_ext=True),
-        ]),
-        (25, "service-grid-card", [
-            W_image(IMG["svc3"], alt="Ban & Rem Angin"),
-            W_heading("Ban & Rem Angin", tag="h5", align="left"),
-            W_text("<ul><li>Ban Dunlop segala ukuran</li><li>Servis rem angin + kampas</li><li>Cek kaki-kaki &amp; per daun</li></ul>", align="left"),
-            W_button("Tanya Teknisi", link="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20ban%20dan%20rem%20angin", align="center", cls="btn-service-action", is_ext=True),
-        ]),
-        (25, "service-grid-card", [
-            W_image(IMG["svc4"], alt="Ganti Oli"),
-            W_heading("Ganti Oli", tag="h5", align="left"),
-            W_text("<ul><li>Oli Pertamina &amp; Mobil asli</li><li>Ganti filter sekalian</li><li>Bisa beli drum / pail</li></ul>", align="left"),
-            W_button("Tanya Teknisi", link="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20ganti%20oli", align="center", cls="btn-service-action", is_ext=True),
-        ]),
-    ]
-))
-
 # ==============================================================================
-# 7. PRINCIPALS (Merek yang Dijual - 6 Equal Columns, Satu Section Utuh)
+# 7. PRINCIPALS (Merek OEM — Satu Section Utuh)
 # ==============================================================================
 sections.append(make_section(
     css_id="principals",
     css_classes="container-xxl py-5 sec-principals",
     cols=[
-        (100, "text-center", [
-            W_heading("Barang Dijamin Asli", tag="p", align="center", cls="badge-section-pill"),
+        (100, "text-center mb-4", [
+            W_heading("Barang Dijamin Asli", tag="p", align="center", cls="badge-section-pill badge-pill-amber"),
             W_heading("Kami Jual Merek-Merek Ini", tag="h2", align="center"),
             W_text("Langsung dari pabriknya &mdash; asli 100% dengan harga khusus untuk pelanggan perusahaan.", align="center", cls="text-muted mb-4"),
             make_inner_section([
@@ -478,7 +530,7 @@ sections.append(make_section(
                     W_heading("Sakura", tag="h6", align="center"),
                     W_text("<p>Filter</p>", align="center")
                 ]),
-            ], css_classes="sec-principals-wall w-100")
+            ], css_classes="sec-principals-wall w-100 mt-4")
         ])
     ]
 ))
@@ -513,7 +565,7 @@ BOOKING_FORM_HTML = """<div class="booking-form-box">
 
 sections.append(make_section(
     css_id="booking",
-    css_classes="container-fluid my-5 px-0 booking-section-wrapper",
+    css_classes="container-fluid py-5 px-0 booking-section-wrapper",
     cols=[
         (50, "booking-left-banner p-4 p-lg-5", [
             W_heading("Derek Siaga 24 Jam", tag="p", align="left", cls="badge-section-pill"),
@@ -536,61 +588,45 @@ sections.append(make_section(
 ))
 
 # ==============================================================================
-# 9. TEAM (Montir Kami - 4 Native Cards)
+# 9. TEAM (Satu Section Utuh: Header + 4 Kartu)
 # ==============================================================================
 sections.append(make_section(
     css_id="team",
     css_classes="container-xxl py-5 sec-team",
     cols=[
-        (100, "text-center", [
+        (100, "text-center mb-4", [
             W_heading("Montir Kami", tag="p", align="center", cls="badge-section-pill"),
             W_heading("Dikerjakan Ahlinya, Bukan Asal-Asalan", tag="h2", align="center"),
             W_text("Setiap truk dipegang montir yang memang bidangnya.", align="center", cls="text-muted mb-4"),
+            make_inner_section([
+                (25, "team-enterprise-card", [
+                    W_image(IMG["team1"], alt="Hendra Wijaya"),
+                    W_heading("Hendra Wijaya", tag="h5", align="center"),
+                    W_text("<p>Kepala Bengkel</p>", align="center"),
+                ]),
+                (25, "team-enterprise-card", [
+                    W_image(IMG["team2"], alt="Bambang Suryadi"),
+                    W_heading("Bambang Suryadi", tag="h5", align="center"),
+                    W_text("<p>Ahli Mesin &amp; Komputer</p>", align="center"),
+                ]),
+                (25, "team-enterprise-card", [
+                    W_image(IMG["team3"], alt="Rudi Santoso"),
+                    W_heading("Rudi Santoso", tag="h5", align="center"),
+                    W_text("<p>Ahli Turun Mesin</p>", align="center"),
+                ]),
+                (25, "team-enterprise-card", [
+                    W_image(IMG["team4"], alt="Agus Pratama"),
+                    W_heading("Agus Pratama", tag="h5", align="center"),
+                    W_text("<p>Ahli Rem &amp; Kaki-Kaki</p>", align="center"),
+                ]),
+            ], css_classes="sec-team-cards w-100 mt-4")
         ])
     ]
 ))
 
-sections.append(make_section(
-    css_classes="container-xxl sec-team-cards pb-5",
-    cols=[
-        (25, "team-enterprise-card", [
-            W_image(IMG["team1"], alt="Hendra Wijaya"),
-            W_heading("Hendra Wijaya", tag="h5", align="center"),
-            W_text("<p>Kepala Bengkel</p>", align="center"),
-        ]),
-        (25, "team-enterprise-card", [
-            W_image(IMG["team2"], alt="Bambang Suryadi"),
-            W_heading("Bambang Suryadi", tag="h5", align="center"),
-            W_text("<p>Ahli Mesin &amp; Komputer</p>", align="center"),
-        ]),
-        (25, "team-enterprise-card", [
-            W_image(IMG["team3"], alt="Rudi Santoso"),
-            W_heading("Rudi Santoso", tag="h5", align="center"),
-            W_text("<p>Ahli Turun Mesin</p>", align="center"),
-        ]),
-        (25, "team-enterprise-card", [
-            W_image(IMG["team4"], alt="Agus Pratama"),
-            W_heading("Agus Pratama", tag="h5", align="center"),
-            W_text("<p>Ahli Rem &amp; Kaki-Kaki</p>", align="center"),
-        ]),
-    ]
-))
-
 # ==============================================================================
-# 10. TESTIMONIALS (Kata Pelanggan - 3 Equal Cards)
+# 10. TESTIMONIALS (Satu Section Utuh: Header + 3 Kartu, Background #FAF8F5)
 # ==============================================================================
-sections.append(make_section(
-    css_id="testimonial",
-    css_classes="container-xxl py-5 sec-testimonial",
-    cols=[
-        (100, "text-center", [
-            W_heading("Kata Pelanggan", tag="p", align="center", cls="badge-section-pill"),
-            W_heading("Mereka Puas Servis di Sini", tag="h2", align="center"),
-            W_text('<i class="fa fa-star text-warning"></i> <strong>4,9 dari 5</strong> &mdash; nilai dari 120+ perusahaan pelanggan di Medan &amp; Belawan.', align="center", cls="mb-4"),
-        ])
-    ]
-))
-
 def testi_card_html(img_key, name, role, quote):
     return f"""<div class="testimonial-avatar-wrap">
         <img src="{get_img_url(img_key)}" alt="{name}" loading="lazy" />
@@ -603,22 +639,30 @@ def testi_card_html(img_key, name, role, quote):
     <p class="testimonial-quote-text">&ldquo;{quote}&rdquo;</p>"""
 
 sections.append(make_section(
-    css_classes="container-xxl sec-testimonial-cards pb-5",
+    css_id="testimonial",
+    css_classes="container-xxl py-5 sec-testimonial",
     cols=[
-        (33, "testimonial-enterprise-card", [
-            W_html(testi_card_html("testi1", "Gunawan Siregar", "Pengelola Truk — PT Samudera Logistik", "30 trailer kami jadi jarang rusak. Servisnya bisa dipantau dari HP, gampang kontrolnya."))
-        ]),
-        (33, "testimonial-enterprise-card", [
-            W_html(testi_card_html("testi2", "Budi Wicaksono", "Pemilik — CV Maju Bersama", "Oli dan ban asli, harganya miring. Ngirit banyak buat perawatan truk kami."))
-        ]),
-        (33, "testimonial-enterprise-card", [
-            W_html(testi_card_html("testi3", "Ahmad Faisal", "Pengawas — PT Deli Sawit Makmur", "Truk mogok rem blong di Tebing Tinggi, langsung dijemput. Gerak cepat!"))
-        ]),
+        (100, "text-center mb-4", [
+            W_heading("Kata Pelanggan", tag="p", align="center", cls="badge-section-pill"),
+            W_heading("Mereka Puas Servis di Sini", tag="h2", align="center"),
+            W_text('<i class="fa fa-star text-warning"></i> <strong>4,9 dari 5</strong> &mdash; nilai dari 120+ perusahaan pelanggan di Medan &amp; Belawan.', align="center", cls="mb-4"),
+            make_inner_section([
+                (33, "testimonial-enterprise-card", [
+                    W_html(testi_card_html("testi1", "Gunawan Siregar", "Pengelola Truk — PT Samudera Logistik", "30 trailer kami jadi jarang rusak. Servisnya bisa dipantau dari HP, gampang kontrolnya."))
+                ]),
+                (33, "testimonial-enterprise-card", [
+                    W_html(testi_card_html("testi2", "Budi Wicaksono", "Pemilik — CV Maju Bersama", "Oli dan ban asli, harganya miring. Ngirit banyak buat perawatan truk kami."))
+                ]),
+                (33, "testimonial-enterprise-card", [
+                    W_html(testi_card_html("testi3", "Ahmad Faisal", "Pengawas — PT Deli Sawit Makmur", "Truk mogok rem blong di Tebing Tinggi, langsung dijemput. Gerak cepat!"))
+                ]),
+            ], css_classes="sec-testimonial-cards w-100 mt-4")
+        ])
     ]
 ))
 
 # ==============================================================================
-# 11. FAQ (Sering Ditanyakan - Native Accordion Widget)
+# 11. FAQ (Satu Section Utuh: Tanya Jawab + Accordion Native)
 # ==============================================================================
 FAQ_ITEMS = [
     ("Bisa bayar tempo untuk perusahaan?", "Bisa, untuk perusahaan yang sudah terdaftar. Bayarnya 14–30 hari setelah tagihan keluar. Semua tagihan bisa dilihat online."),
@@ -648,7 +692,7 @@ sections.append(make_section(
 # ==============================================================================
 # 12. FOOTER SECTION
 # ==============================================================================
-FOOTER_HTML = """<div class="container py-5">
+FOOTER_HTML = f"""<div class="container py-5">
     <div class="row g-5">
         <div class="col-lg-3 col-md-6">
             <div class="footer-brand mb-3">
@@ -722,24 +766,21 @@ print(f"Berhasil generate {len(sections)} sections ke {OUT} ({len(payload)} byte
 
 # Otomatis deploy ke WordPress container jika running
 try:
-    check = subprocess.run(["docker", "ps", "--filter", "name=lotus-wp-app", "--format", "{{.Names}}"], capture_output=True, text=True)
-    if "lotus-wp-app" in check.stdout:
-        print("Deploying langsung ke WordPress (Post ID 59)...")
-        # Copy JSON file into container
-        subprocess.run(["docker", "cp", str(OUT), "lotus-wp-app:/tmp/beranda-clean.json"], check=True)
-        # Import via wp eval
+    check = subprocess.run(["docker", "ps", "--filter", f"name={CONTAINER}", "--format", "{{.Names}}"], capture_output=True, text=True)
+    if CONTAINER in check.stdout:
+        print(f"Deploying langsung ke WordPress (Post ID 59) di {CONTAINER}...")
+        subprocess.run(["docker", "cp", str(OUT), f"{CONTAINER}:/tmp/beranda-clean.json"], check=True)
         eval_php = """
         $json = file_get_contents('/tmp/beranda-clean.json');
-        if (!$json) { echo "Gagal baca json\n"; exit(1); }
-        // Elementor stores json escaped in post meta
+        if (!$json) { echo "Gagal baca json\\n"; exit(1); }
         update_post_meta(59, '_elementor_data', wp_slash($json));
         update_post_meta(59, '_elementor_edit_mode', 'builder');
         update_post_meta(59, '_wp_page_template', 'elementor_canvas');
         delete_post_meta(59, '_elementor_css');
-        echo "Post 59 updated successfully.\n";
+        echo "Post 59 updated successfully.\\n";
         """
-        subprocess.run(["docker", "exec", "lotus-wp-app", "wp", "--allow-root", "--path=/var/www/html", "eval", eval_php], check=True)
-        subprocess.run(["docker", "exec", "lotus-wp-app", "wp", "--allow-root", "--path=/var/www/html", "elementor", "flush-css"], check=True)
+        subprocess.run(["docker", "exec", CONTAINER, "wp", "--allow-root", "--path=/var/www/html", "eval", eval_php], check=True)
+        subprocess.run(["docker", "exec", CONTAINER, "wp", "--allow-root", "--path=/var/www/html", "elementor", "flush-css"], check=True)
         print("Deploy ke WordPress Post ID 59 selesai & Elementor CSS flushed!")
 except Exception as e:
     print(f"Catatan: deploy otomatis ke WordPress dilewati ({e})")

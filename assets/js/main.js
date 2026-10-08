@@ -186,5 +186,49 @@
         }
     });
 
+    // Hero 2-Slide Transition di Frontend (Elementor Native Sections)
+    $(document).ready(function () {
+        const $slides = $('.mt-hero-slide-item');
+        if ($slides.length > 1 && !$('body').hasClass('elementor-editor-active')) {
+            let current = 0;
+            $slides.slice(1).addClass('slide-hidden');
+
+            function showSlide(index) {
+                current = index;
+                $slides.addClass('slide-hidden');
+                $slides.eq(current).removeClass('slide-hidden');
+                $('.hero-slider-nav').each(function () {
+                    $(this).find('.hero-slider-dot').removeClass('active').eq(current).addClass('active');
+                });
+            }
+
+            $slides.each(function () {
+                const $nav = $('<div class="hero-slider-nav"></div>');
+                $slides.each(function (i) {
+                    const $btn = $('<button type="button" class="hero-slider-dot' + (i === 0 ? ' active' : '') + '" aria-label="Slide ' + (i + 1) + '"></button>');
+                    $btn.on('click', function (e) {
+                        e.stopPropagation();
+                        showSlide(i);
+                    });
+                    $nav.append($btn);
+                });
+                $(this).append($nav);
+            });
+
+            let timer = setInterval(function () {
+                showSlide((current + 1) % $slides.length);
+            }, 6000);
+
+            $slides.hover(
+                function () { clearInterval(timer); },
+                function () {
+                    timer = setInterval(function () {
+                        showSlide((current + 1) % $slides.length);
+                    }, 6000);
+                }
+            );
+        }
+    });
+
 })(jQuery);
 

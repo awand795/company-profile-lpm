@@ -15,7 +15,7 @@
     get_stylesheet_directory().
 
 .PARAMETER Container
-    Nama container WordPress. Default: lotus-wp-app
+    Nama container WordPress. Default: lpm-wp-app
 
 .PARAMETER Theme
     Slug theme aktif. Bila kosong, skrip mendeteksinya otomatis lewat
@@ -23,11 +23,11 @@
 
 .EXAMPLE
     .\sync-to-wp.ps1
-    .\sync-to-wp.ps1 -Container lotus-wp-app -Theme twentytwentyfour
+    .\sync-to-wp.ps1 -Container lpm-wp-app -Theme twentytwentyfour
 #>
 [CmdletBinding()]
 param(
-    [string]$Container = 'lotus-wp-app',
+    [string]$Container = 'lpm-wp-app',
     [string]$Theme = '',
     [switch]$SkipImages
 )

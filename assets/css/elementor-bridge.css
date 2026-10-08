@@ -4,54 +4,68 @@
    Scope ketat: body.elementor-page-59 agar halaman lain tak terpengaruh.
    ============================================================== */
 
-/* 1. Batas container seperti Bootstrap (.container-xxl 1320px) */
-body.elementor-page-59 .elementor-top-section:not(.container-fluid) > .elementor-container {
-    max-width: 1320px;
-    margin-left: auto;
-    margin-right: auto;
-}
-body.elementor-page-59 .mt-hero-slide > .elementor-container,
-body.elementor-page-59 .footer-enterprise > .elementor-container {
-    max-width: 1320px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* 2. Topbar & Navbar: brand kiri, menu & auth kanan dengan margin/padding seimbang */
-body.elementor-page-59 .top-bar-custom.elementor-section,
-body.elementor-page-59 .navbar.elementor-section {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding-left: clamp(20px, 3vw, 40px) !important;
-    padding-right: clamp(20px, 3vw, 40px) !important;
-}
-body.elementor-page-59 .top-bar-custom.elementor-section > .elementor-container,
-body.elementor-page-59 .navbar.elementor-section > .elementor-container {
+/* 1. Full-Width Backgrounds with Centered 1320px Content (Identik 1:1 Port 8080) */
+body.elementor-page-59,
+body.elementor-page-59 .elementor-section.elementor-top-section {
     width: 100% !important;
     max-width: 100% !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
-    margin: 0 !important;
-    display: flex !important;
-    align-items: center !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
-body.elementor-page-59 .navbar.elementor-section .elementor-column,
-body.elementor-page-59 .navbar.elementor-section .elementor-widget-wrap,
-body.elementor-page-59 .navbar.elementor-section .elementor-widget-html,
-body.elementor-page-59 .navbar.elementor-section .elementor-widget-container {
+/* Container untuk konten terpusat presisi 1320px seperti Bootstrap .container-xxl */
+body.elementor-page-59 .elementor-section.elementor-top-section > .elementor-container {
+    max-width: 1320px !important;
     width: 100% !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+/* Pengecualian: Topbar dan Navbar membentang penuh dengan padding lateral standar */
+body.elementor-page-59 .top-bar-custom > .elementor-container,
+body.elementor-page-59 .navbar > .elementor-container {
     max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+body.elementor-page-59 .top-bar-custom .elementor-widget-wrap {
     padding: 0 !important;
     margin: 0 !important;
 }
-body.elementor-page-59 .top-bar-custom.elementor-section .elementor-column,
-body.elementor-page-59 .top-bar-custom.elementor-section .elementor-widget-wrap,
-body.elementor-page-59 .top-bar-custom.elementor-section .elementor-widget-html,
-body.elementor-page-59 .top-bar-custom.elementor-section .elementor-widget-container {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
+body.elementor-page-59 .top-bar-custom .elementor-widget {
+    margin-bottom: 0 !important;
+}
+/* Warna Background & Padding Presisi 1:1 Port 8080 */
+body.elementor-page-59 .sec-services {
+    background-color: #FFFFFF !important;
+    padding: 76px 0 !important;
+}
+body.elementor-page-59 .sec-principals {
+    background-color: #F1F5F9 !important;
+    padding: 76px 0 !important;
+}
+body.elementor-page-59 .booking-section-wrapper {
+    background: radial-gradient(circle at 15% 30%, rgba(37, 99, 235, 0.06) 0%, rgba(0, 0, 0, 0) 60%), #F0F6FE !important;
+    padding: 72px 0 !important;
+}
+body.elementor-page-59 .sec-team {
+    background-color: #FFFFFF !important;
+    padding: 76px 0 !important;
+}
+body.elementor-page-59 .sec-testimonial {
+    background-color: #FAF8F5 !important;
+    padding: 76px 0 !important;
+}
+body.elementor-page-59 .sec-faq {
+    background-color: transparent !important;
+    padding: 76px 0 24px 0 !important;
+}
+body.elementor-page-59 .footer-clean {
+    background-color: #F8FAFC !important;
+    border-top: 1px solid var(--border) !important;
+    padding: 24px 0 0 0 !important;
 }
 body.elementor-page-59 .navbar .navbar-brand-logo {
     display: inline-flex !important;
@@ -94,8 +108,8 @@ body.elementor-page-59 .mt-hero-slide {
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
-    padding: 50px 0 60px 0 !important;
-    min-height: 600px !important;
+    padding: 24px 0 60px 0 !important;
+    min-height: max(620px, calc(100vh - 112px)) !important;
     display: flex;
     align-items: center;
 }
@@ -110,6 +124,46 @@ body.elementor-page-59 .mt-hero-slide::before {
 body.elementor-page-59 .mt-hero-slide > .elementor-container {
     position: relative;
     z-index: 2;
+}
+
+/* Transisi Slider Hero di Frontend */
+body.elementor-page-59:not(.elementor-editor-active) .mt-hero-slide-item {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+body.elementor-page-59:not(.elementor-editor-active) .mt-hero-slide-item.slide-hidden {
+    display: none !important;
+}
+body.elementor-page-59 .hero-slider-nav {
+    position: absolute !important;
+    bottom: 24px !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 10px !important;
+    z-index: 10 !important;
+    pointer-events: auto !important;
+}
+body.elementor-page-59 .hero-slider-nav .hero-slider-dot {
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50% !important;
+    border: none !important;
+    background: var(--primary, #2563EB) !important;
+    opacity: 0.35 !important;
+    cursor: pointer !important;
+    transition: all 0.25s ease !important;
+    padding: 0 !important;
+}
+body.elementor-page-59 .hero-slider-nav .hero-slider-dot.active {
+    width: 26px !important;
+    height: 10px !important;
+    border-radius: 6px !important;
+    background: var(--primary, #2563EB) !important;
+    opacity: 1 !important;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.35) !important;
 }
 
 /* Reset widget container agar tidak membuat double bubble / border ganda */
@@ -1213,4 +1267,38 @@ body.elementor-page-59 .footer-menu-links a {
 }
 body.elementor-page-59 .footer-menu-links a:hover {
     color: var(--primary);
+}
+
+/* 12. Bootstrap Column Containment Reset (Preserve 1:1 Grid Layout) */
+body.elementor-page-59 [class*="col-"] > .service-grid-card,
+body.elementor-page-59 [class*="col-"] > .principal-wall-card,
+body.elementor-page-59 [class*="col-"] > .team-enterprise-card,
+body.elementor-page-59 [class*="col-"] > .testimonial-enterprise-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 1 1 auto !important;
+}
+
+body.elementor-page-59 .sec-principals .principal-wall-card .principal-logo-stage img {
+    max-height: 48px !important;
+    max-width: 100px !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 auto !important;
+}
+
+body.elementor-page-59 .sec-team .team-enterprise-card .team-photo-wrap {
+    height: 250px !important;
+    width: 100% !important;
+    overflow: hidden !important;
+}
+
+body.elementor-page-59 .sec-team .team-enterprise-card .team-photo-wrap img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: top center !important;
+    display: block !important;
 }

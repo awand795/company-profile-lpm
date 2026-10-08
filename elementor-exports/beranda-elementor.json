@@ -1,6 +1,6 @@
 [
   {
-    "id": "3dda933c",
+    "id": "d81e4021",
     "elType": "section",
     "settings": {
       "layout": "full_width",
@@ -8,7 +8,7 @@
     },
     "elements": [
       {
-        "id": "8e55610f",
+        "id": "3d43d919",
         "elType": "column",
         "settings": {
           "_column_size": 100,
@@ -16,7 +16,7 @@
         },
         "elements": [
           {
-            "id": "dd95d842",
+            "id": "49571eab",
             "elType": "widget",
             "widgetType": "html",
             "settings": {
@@ -29,7 +29,7 @@
     ]
   },
   {
-    "id": "20a19a25",
+    "id": "d3bb47a8",
     "elType": "section",
     "settings": {
       "layout": "full_width",
@@ -37,7 +37,7 @@
     },
     "elements": [
       {
-        "id": "3f135be7",
+        "id": "e8707558",
         "elType": "column",
         "settings": {
           "_column_size": 100,
@@ -45,11 +45,11 @@
         },
         "elements": [
           {
-            "id": "26e03b8a",
+            "id": "8a6ca0c1",
             "elType": "widget",
             "widgetType": "html",
             "settings": {
-              "html": "<div class=\"d-flex align-items-center justify-content-between w-100 flex-wrap\">\n    <a href=\"#header-carousel\" class=\"navbar-brand-logo\">\n        <div class=\"navbar-brand-icon\"><i class=\"fa fa-truck\"></i></div>\n        <div class=\"navbar-brand-text\">\n            <span class=\"navbar-brand-title\">MASTER <span>TRUCK</span></span>\n            <span class=\"navbar-brand-sub\">Bengkel Truk KIM III Medan</span>\n        </div>\n    </a>\n    <button type=\"button\" class=\"navbar-toggler d-lg-none\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarCollapse\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse d-lg-flex align-items-center justify-content-end flex-grow-1\" id=\"navbarCollapse\">\n        <div class=\"navbar-nav ms-auto py-0\">\n            <a href=\"#header-carousel\" class=\"nav-item nav-link active\">Beranda</a>\n            <a href=\"#about\" class=\"nav-item nav-link\">Tentang</a>\n            <a href=\"#service\" class=\"nav-item nav-link\">Layanan</a>\n            <a href=\"#testimonial\" class=\"nav-item nav-link\">Mitra</a>\n            <a href=\"#faq\" class=\"nav-item nav-link\">FAQ</a>\n            <a href=\"#contact\" class=\"nav-item nav-link\">Kontak</a>\n        </div>\n        <div class=\"ms-3 d-inline-flex align-items-center gap-2 mt-3 mt-lg-0\">\n            <a href=\"http://localhost:3000/#login\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-nav-login\"><i class=\"fa fa-sign-in-alt me-2\"></i>Login Fleet</a>\n            <a href=\"http://localhost:3000/#register\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-nav-register\"><i class=\"fa fa-user-plus me-2\"></i>Daftar Fleet</a>\n        </div>\n    </div>\n</div>"
+              "html": "<div class=\"d-flex align-items-center justify-content-between w-100 flex-wrap\">\n    <a href=\"#header-carousel\" class=\"navbar-brand-logo\">\n        <div class=\"navbar-brand-icon\"><i class=\"fa fa-truck\"></i></div>\n        <div class=\"navbar-brand-text\">\n            <span class=\"navbar-brand-title\">MASTER <span>TRUCK</span></span>\n            <span class=\"navbar-brand-sub\">Bengkel Truk KIM III Medan</span>\n        </div>\n    </a>\n    <button type=\"button\" class=\"navbar-toggler d-lg-none\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarCollapse\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse d-lg-flex align-items-center justify-content-end flex-grow-1\" id=\"navbarCollapse\">\n        <div class=\"navbar-nav ms-auto py-0\">\n            <a href=\"#header-carousel\" class=\"nav-item nav-link active\">Beranda</a>\n            <a href=\"#about\" class=\"nav-item nav-link\">Tentang</a>\n            <a href=\"#service\" class=\"nav-item nav-link\">Layanan</a>\n            <a href=\"#principals\" class=\"nav-item nav-link\">Merek OEM</a>\n            <a href=\"#team\" class=\"nav-item nav-link\">Montir</a>\n            <a href=\"#testimonial\" class=\"nav-item nav-link\">Mitra</a>\n            <a href=\"#faq\" class=\"nav-item nav-link\">FAQ</a>\n            <a href=\"#contact\" class=\"nav-item nav-link\">Kontak</a>\n        </div>\n        <div class=\"ms-3 d-inline-flex align-items-center gap-2 mt-3 mt-lg-0\">\n            <a href=\"http://localhost:3000/#login\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-nav-login\"><i class=\"fa fa-sign-in-alt me-2\"></i>Login Fleet</a>\n            <a href=\"http://localhost:3000/#register\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-nav-register\"><i class=\"fa fa-user-plus me-2\"></i>Daftar Fleet</a>\n        </div>\n    </div>\n</div>"
             },
             "elements": []
           }
@@ -58,16 +58,16 @@
     ]
   },
   {
-    "id": "b262fc6e",
+    "id": "f016d0b1",
     "elType": "section",
     "settings": {
       "layout": "full_width",
       "_element_id": "header-carousel",
-      "css_classes": "container-fluid p-0 mb-4 mt-hero-slide",
+      "css_classes": "container-fluid p-0 mb-4 mt-hero-slide mt-hero-slide-item mt-hero-slide-1 active",
       "background_background": "classic",
       "background_image": {
         "id": "",
-        "url": "http://localhost:8080/wp-content/uploads/2026/10/mt-carousel-bg-1.jpg"
+        "url": "http://localhost:5000/wp-content/uploads/2026/10/carousel-bg-1.jpg"
       },
       "background_position": "center center",
       "background_size": "cover",
@@ -75,7 +75,7 @@
     },
     "elements": [
       {
-        "id": "0e507c22",
+        "id": "015bb4c3",
         "elType": "column",
         "settings": {
           "_column_size": 60,
@@ -83,7 +83,7 @@
         },
         "elements": [
           {
-            "id": "6d073d7b",
+            "id": "756af78b",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -95,7 +95,7 @@
             "elements": []
           },
           {
-            "id": "175a9f70",
+            "id": "c59cd6a9",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -107,7 +107,7 @@
             "elements": []
           },
           {
-            "id": "17bb651e",
+            "id": "2afc11df",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -118,7 +118,7 @@
             "elements": []
           },
           {
-            "id": "fddf92af",
+            "id": "de093df7",
             "elType": "section",
             "isInner": true,
             "settings": {
@@ -126,7 +126,7 @@
             },
             "elements": [
               {
-                "id": "3d1d3a7c",
+                "id": "b831821e",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -134,7 +134,7 @@
                 },
                 "elements": [
                   {
-                    "id": "93a0dc65",
+                    "id": "c29143a9",
                     "elType": "widget",
                     "widgetType": "counter",
                     "settings": {
@@ -150,7 +150,7 @@
                 ]
               },
               {
-                "id": "b1ab0936",
+                "id": "3e8a9466",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -158,7 +158,7 @@
                 },
                 "elements": [
                   {
-                    "id": "a055d6a6",
+                    "id": "5ebec2ea",
                     "elType": "widget",
                     "widgetType": "counter",
                     "settings": {
@@ -174,7 +174,7 @@
                 ]
               },
               {
-                "id": "7831be8f",
+                "id": "188d4398",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -182,7 +182,7 @@
                 },
                 "elements": [
                   {
-                    "id": "80f79bc3",
+                    "id": "44d58875",
                     "elType": "widget",
                     "widgetType": "counter",
                     "settings": {
@@ -202,7 +202,7 @@
             ]
           },
           {
-            "id": "3b811b42",
+            "id": "ec880386",
             "elType": "section",
             "isInner": true,
             "settings": {
@@ -210,7 +210,7 @@
             },
             "elements": [
               {
-                "id": "7013bf59",
+                "id": "014ef06d",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -218,7 +218,7 @@
                 },
                 "elements": [
                   {
-                    "id": "30473488",
+                    "id": "d9f26276",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -241,7 +241,7 @@
                 ]
               },
               {
-                "id": "6a1ab68c",
+                "id": "aa3f834e",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -249,7 +249,7 @@
                 },
                 "elements": [
                   {
-                    "id": "f926f312",
+                    "id": "1e79fe41",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -276,7 +276,7 @@
         ]
       },
       {
-        "id": "0f6941aa",
+        "id": "dcadce9c",
         "elType": "column",
         "settings": {
           "_column_size": 40,
@@ -284,11 +284,11 @@
         },
         "elements": [
           {
-            "id": "c1cc350a",
+            "id": "4a113849",
             "elType": "widget",
             "widgetType": "html",
             "settings": {
-              "html": "<div class=\"hero-truck-showcase\">\n    <div class=\"hero-truck-frame\">\n        <span class=\"hero-badge-floating-top\"><i class=\"fa fa-shield-alt text-primary me-1\"></i>Terpercaya 120+ Mitra</span>\n        <div class=\"hero-truck-img-wrapper\">\n            <img class=\"hero-truck-img\" src=\"http://localhost:8080/wp-content/uploads/2026/10/mt-carousel-1.png\" alt=\"Armada Truk Master Truck\" loading=\"eager\" />\n        </div>\n        <div class=\"hero-card-floating-bottom d-flex align-items-center gap-3\">\n            <div class=\"icon-tint-wrap icon-tint-blue\"><i class=\"fa fa-building\"></i></div>\n            <div>\n                <div class=\"hero-card-title\">PT Master Truck Indonesia</div>\n                <div class=\"hero-card-sub\">Servis bergaransi, dicek 30 bagian</div>\n            </div>\n        </div>\n    </div>\n</div>"
+              "html": "<div class=\"hero-truck-showcase\">\n    <div class=\"hero-truck-frame\">\n        <span class=\"hero-badge-floating-top\"><i class=\"fa fa-shield-alt text-primary me-1\"></i>Terpercaya 120+ Mitra</span>\n        <div class=\"hero-truck-img-wrapper\">\n            <img class=\"hero-truck-img\" src=\"http://localhost:5000/wp-content/uploads/2026/10/carousel-1.png\" alt=\"Armada Truk Master Truck\" loading=\"eager\" />\n        </div>\n        <div class=\"hero-card-floating-bottom d-flex align-items-center gap-3\">\n            <div class=\"icon-tint-wrap icon-tint-blue\"><i class=\"fa fa-building\"></i></div>\n            <div>\n                <div class=\"hero-card-title\">PT Master Truck Indonesia</div>\n                <div class=\"hero-card-sub\">Servis bergaransi, dicek 30 bagian</div>\n            </div>\n        </div>\n    </div>\n</div>"
             },
             "elements": []
           }
@@ -297,7 +297,246 @@
     ]
   },
   {
-    "id": "90104280",
+    "id": "a6887d72",
+    "elType": "section",
+    "settings": {
+      "layout": "full_width",
+      "_element_id": "header-slide-2",
+      "css_classes": "container-fluid p-0 mb-4 mt-hero-slide mt-hero-slide-item mt-hero-slide-2",
+      "background_background": "classic",
+      "background_image": {
+        "id": "",
+        "url": "http://localhost:5000/wp-content/uploads/2026/10/carousel-bg-2.jpg"
+      },
+      "background_position": "center center",
+      "background_size": "cover",
+      "background_repeat": "no-repeat"
+    },
+    "elements": [
+      {
+        "id": "fb6bc492",
+        "elType": "column",
+        "settings": {
+          "_column_size": 60,
+          "css_classes": "hero-left-col px-4 px-lg-5"
+        },
+        "elements": [
+          {
+            "id": "ffdceb33",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+              "title": "<span class=\"live-dot\"></span>PT Master Truck Indonesia &bull; Distributor Nasional Resmi",
+              "header_size": "p",
+              "align": "left",
+              "_css_classes": "hero-brand-pill"
+            },
+            "elements": []
+          },
+          {
+            "id": "faaaaf68",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+              "title": "Master Truck: <span class=\"hero-brand-highlight\">Sparepart Truk Asli</span> dari Pabrik",
+              "header_size": "h1",
+              "align": "left",
+              "_css_classes": "hero-title"
+            },
+            "elements": []
+          },
+          {
+            "id": "f0dda8c8",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+              "editor": "Oli Pertamina, oli Mobil, ban Dunlop &amp; aki GS Astra &mdash; dijamin asli dari pabriknya, dengan harga khusus untuk pelanggan perusahaan.",
+              "align": "left",
+              "_css_classes": "hero-lead"
+            },
+            "elements": []
+          },
+          {
+            "id": "ffb4ce91",
+            "elType": "section",
+            "isInner": true,
+            "settings": {
+              "css_classes": "hero-stats-inner d-none d-md-flex"
+            },
+            "elements": [
+              {
+                "id": "43572469",
+                "elType": "column",
+                "isInner": true,
+                "settings": {
+                  "_column_size": 33
+                },
+                "elements": [
+                  {
+                    "id": "6f1e7020",
+                    "elType": "widget",
+                    "widgetType": "counter",
+                    "settings": {
+                      "starting_number": 0,
+                      "ending_number": 15,
+                      "prefix": "",
+                      "suffix": "",
+                      "title": "Tahun Berpengalaman",
+                      "_css_classes": "hero-counter-item"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "2e065591",
+                "elType": "column",
+                "isInner": true,
+                "settings": {
+                  "_column_size": 33
+                },
+                "elements": [
+                  {
+                    "id": "91a79879",
+                    "elType": "widget",
+                    "widgetType": "counter",
+                    "settings": {
+                      "starting_number": 0,
+                      "ending_number": 120,
+                      "prefix": "",
+                      "suffix": "+",
+                      "title": "Perusahaan Pelanggan",
+                      "_css_classes": "hero-counter-item"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "73433e97",
+                "elType": "column",
+                "isInner": true,
+                "settings": {
+                  "_column_size": 34
+                },
+                "elements": [
+                  {
+                    "id": "4aa88578",
+                    "elType": "widget",
+                    "widgetType": "counter",
+                    "settings": {
+                      "starting_number": 0,
+                      "ending_number": 2500,
+                      "prefix": "",
+                      "suffix": "",
+                      "title": "Truk per Tahun",
+                      "thousand_separator": "yes",
+                      "thousand_separator_char": ".",
+                      "_css_classes": "hero-counter-item"
+                    },
+                    "elements": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "8419c82e",
+            "elType": "section",
+            "isInner": true,
+            "settings": {
+              "css_classes": "hero-btns-inner mt-3"
+            },
+            "elements": [
+              {
+                "id": "c43d69e7",
+                "elType": "column",
+                "isInner": true,
+                "settings": {
+                  "_column_size": 50
+                },
+                "elements": [
+                  {
+                    "id": "dd4d3ca2",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "Lihat Produk OEM",
+                      "link": {
+                        "url": "#principals",
+                        "is_external": "",
+                        "nofollow": ""
+                      },
+                      "align": "left",
+                      "selected_icon": {
+                        "value": "fas fa-arrow-right",
+                        "library": "fa-solid"
+                      },
+                      "icon_align": "after",
+                      "_css_classes": "btn-hero-primary"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "e0713c4b",
+                "elType": "column",
+                "isInner": true,
+                "settings": {
+                  "_column_size": 50
+                },
+                "elements": [
+                  {
+                    "id": "249ebeca",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "Daftar Fleet",
+                      "link": {
+                        "url": "http://localhost:3000/#register",
+                        "is_external": "on",
+                        "nofollow": ""
+                      },
+                      "align": "left",
+                      "selected_icon": {
+                        "value": "fas fa-user-plus",
+                        "library": "fa-solid"
+                      },
+                      "icon_align": "before",
+                      "_css_classes": "btn-hero-secondary"
+                    },
+                    "elements": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "5c32241c",
+        "elType": "column",
+        "settings": {
+          "_column_size": 40,
+          "css_classes": "hero-right-col px-3"
+        },
+        "elements": [
+          {
+            "id": "e77769d2",
+            "elType": "widget",
+            "widgetType": "html",
+            "settings": {
+              "html": "<div class=\"hero-truck-showcase\">\n    <div class=\"hero-truck-frame\">\n        <span class=\"hero-badge-floating-top\"><i class=\"fa fa-check-circle text-primary me-1\"></i>100% Original</span>\n        <div class=\"hero-truck-img-wrapper\">\n            <img class=\"hero-truck-img\" src=\"http://localhost:5000/wp-content/uploads/2026/10/carousel-2.png\" alt=\"Distributor Sparepart Master Truck\" loading=\"eager\" />\n        </div>\n        <div class=\"hero-card-floating-bottom d-flex align-items-center gap-3\">\n            <div class=\"icon-tint-wrap icon-tint-teal\"><i class=\"fa fa-handshake\"></i></div>\n            <div>\n                <div class=\"hero-card-title\">Tarif Distributor Mitra</div>\n                <div class=\"hero-card-sub\">Bisa bayar tempo + gratis pantau servis online</div>\n            </div>\n        </div>\n    </div>\n</div>"
+            },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5bd0e471",
     "elType": "section",
     "settings": {
       "layout": "full_width",
@@ -305,7 +544,7 @@
     },
     "elements": [
       {
-        "id": "d9f947a2",
+        "id": "29f7346d",
         "elType": "column",
         "settings": {
           "_column_size": 25,
@@ -313,7 +552,7 @@
         },
         "elements": [
           {
-            "id": "377c647a",
+            "id": "a4063713",
             "elType": "widget",
             "widgetType": "icon-box",
             "settings": {
@@ -332,7 +571,7 @@
         ]
       },
       {
-        "id": "e4a03b53",
+        "id": "160413b8",
         "elType": "column",
         "settings": {
           "_column_size": 25,
@@ -340,7 +579,7 @@
         },
         "elements": [
           {
-            "id": "887098d3",
+            "id": "d512a35b",
             "elType": "widget",
             "widgetType": "icon-box",
             "settings": {
@@ -359,7 +598,7 @@
         ]
       },
       {
-        "id": "d397574e",
+        "id": "3a4e362e",
         "elType": "column",
         "settings": {
           "_column_size": 25,
@@ -367,7 +606,7 @@
         },
         "elements": [
           {
-            "id": "6008867e",
+            "id": "48c84afa",
             "elType": "widget",
             "widgetType": "icon-box",
             "settings": {
@@ -386,7 +625,7 @@
         ]
       },
       {
-        "id": "a66818b8",
+        "id": "cf4c9bf7",
         "elType": "column",
         "settings": {
           "_column_size": 25,
@@ -394,7 +633,7 @@
         },
         "elements": [
           {
-            "id": "1e1c86fe",
+            "id": "afb1f6db",
             "elType": "widget",
             "widgetType": "icon-box",
             "settings": {
@@ -415,7 +654,7 @@
     ]
   },
   {
-    "id": "3c76ed74",
+    "id": "044af07c",
     "elType": "section",
     "settings": {
       "layout": "full_width",
@@ -424,7 +663,7 @@
     },
     "elements": [
       {
-        "id": "35295bf6",
+        "id": "dfa3732f",
         "elType": "column",
         "settings": {
           "_column_size": 50,
@@ -432,18 +671,18 @@
         },
         "elements": [
           {
-            "id": "171b5452",
+            "id": "a25daeff",
             "elType": "widget",
             "widgetType": "html",
             "settings": {
-              "html": "<div class=\"about-img-box position-relative\">\n    <img src=\"http://localhost:8080/wp-content/uploads/2026/10/service-1.jpg\" alt=\"Montir sedang memperbaiki mesin truk di bengkel PT Master Truck Indonesia\" class=\"w-100 rounded-3\" loading=\"lazy\" style=\"border-radius:20px;\" />\n    <div class=\"about-exp-float-card\">\n        <div class=\"icon-tint-wrap icon-tint-blue\"><i class=\"fa fa-award\"></i></div>\n        <div>\n            <div class=\"fw-bold fs-4 mb-0 text-navy\">15 Tahun</div>\n            <small class=\"text-muted\">Pengalaman</small>\n        </div>\n    </div>\n</div>"
+              "html": "<div class=\"about-img-box position-relative\">\n    <img src=\"http://localhost:5000/wp-content/uploads/2026/10/service-1.jpg\" alt=\"Montir sedang memperbaiki mesin truk di bengkel PT Master Truck Indonesia\" class=\"w-100 rounded-3\" loading=\"lazy\" style=\"border-radius:20px;\" />\n    <div class=\"about-exp-float-card\">\n        <div class=\"icon-tint-wrap icon-tint-blue\"><i class=\"fa fa-award\"></i></div>\n        <div>\n            <div class=\"fw-bold fs-4 mb-0 text-navy\">15 Tahun</div>\n            <small class=\"text-muted\">Pengalaman</small>\n        </div>\n    </div>\n</div>"
             },
             "elements": []
           }
         ]
       },
       {
-        "id": "c7d3673d",
+        "id": "da3a7251",
         "elType": "column",
         "settings": {
           "_column_size": 50,
@@ -451,7 +690,7 @@
         },
         "elements": [
           {
-            "id": "a700fc4e",
+            "id": "6e1f940d",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -463,7 +702,7 @@
             "elements": []
           },
           {
-            "id": "ed6f89b8",
+            "id": "a48e4e63",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -474,7 +713,7 @@
             "elements": []
           },
           {
-            "id": "4165d7a8",
+            "id": "554ca153",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -484,7 +723,7 @@
             "elements": []
           },
           {
-            "id": "a083df07",
+            "id": "cac414d0",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -494,7 +733,7 @@
             "elements": []
           },
           {
-            "id": "b8125a54",
+            "id": "b8a75cb1",
             "elType": "section",
             "isInner": true,
             "settings": {
@@ -502,7 +741,7 @@
             },
             "elements": [
               {
-                "id": "86892896",
+                "id": "02a4bc13",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -510,7 +749,7 @@
                 },
                 "elements": [
                   {
-                    "id": "c4e18a36",
+                    "id": "8ad47be1",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -533,7 +772,7 @@
                 ]
               },
               {
-                "id": "2e36846d",
+                "id": "947380ae",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -541,7 +780,7 @@
                 },
                 "elements": [
                   {
-                    "id": "e8529027",
+                    "id": "bc5e0e7d",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -565,7 +804,7 @@
     ]
   },
   {
-    "id": "e508ee4d",
+    "id": "2946a616",
     "elType": "section",
     "settings": {
       "layout": "full_width",
@@ -573,7 +812,7 @@
     },
     "elements": [
       {
-        "id": "39d67dbb",
+        "id": "2714694f",
         "elType": "column",
         "settings": {
           "_column_size": 25,
@@ -581,7 +820,7 @@
         },
         "elements": [
           {
-            "id": "97683d50",
+            "id": "296ffe0e",
             "elType": "widget",
             "widgetType": "counter",
             "settings": {
@@ -597,7 +836,7 @@
         ]
       },
       {
-        "id": "2e9f6d8f",
+        "id": "403cb2b1",
         "elType": "column",
         "settings": {
           "_column_size": 25,
@@ -605,7 +844,7 @@
         },
         "elements": [
           {
-            "id": "f4e8ee64",
+            "id": "92b9c82d",
             "elType": "widget",
             "widgetType": "counter",
             "settings": {
@@ -621,7 +860,7 @@
         ]
       },
       {
-        "id": "64202dfd",
+        "id": "6c98877c",
         "elType": "column",
         "settings": {
           "_column_size": 25,
@@ -629,7 +868,7 @@
         },
         "elements": [
           {
-            "id": "3c8c4f5c",
+            "id": "eae7c33f",
             "elType": "widget",
             "widgetType": "counter",
             "settings": {
@@ -645,7 +884,7 @@
         ]
       },
       {
-        "id": "aa0a327e",
+        "id": "8eaddedf",
         "elType": "column",
         "settings": {
           "_column_size": 25,
@@ -653,7 +892,7 @@
         },
         "elements": [
           {
-            "id": "95f0bd96",
+            "id": "f5ab191f",
             "elType": "widget",
             "widgetType": "counter",
             "settings": {
@@ -671,7 +910,7 @@
     ]
   },
   {
-    "id": "4a502d0a",
+    "id": "4dfeeb33",
     "elType": "section",
     "settings": {
       "layout": "full_width",
@@ -680,15 +919,15 @@
     },
     "elements": [
       {
-        "id": "a1e4b082",
+        "id": "9a4db0d9",
         "elType": "column",
         "settings": {
           "_column_size": 100,
-          "css_classes": "text-center"
+          "css_classes": "text-center mb-4"
         },
         "elements": [
           {
-            "id": "de46cd7e",
+            "id": "234e2138",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -700,7 +939,7 @@
             "elements": []
           },
           {
-            "id": "30ff23f9",
+            "id": "2a48ee45",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -711,7 +950,7 @@
             "elements": []
           },
           {
-            "id": "e33e3c05",
+            "id": "b8e663c9",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -720,267 +959,271 @@
               "_css_classes": "text-muted mb-4"
             },
             "elements": []
+          },
+          {
+            "id": "53d15b9e",
+            "elType": "section",
+            "isInner": true,
+            "settings": {
+              "css_classes": "sec-services-cards w-100 mt-4"
+            },
+            "elements": [
+              {
+                "id": "7652fb36",
+                "elType": "column",
+                "isInner": true,
+                "settings": {
+                  "_column_size": 25,
+                  "css_classes": "service-grid-card"
+                },
+                "elements": [
+                  {
+                    "id": "33cd7b37",
+                    "elType": "widget",
+                    "widgetType": "image",
+                    "settings": {
+                      "image": {
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/service-1.jpg",
+                        "id": 114
+                      },
+                      "image_size": "full",
+                      "align": "center"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "37e68b92",
+                    "elType": "widget",
+                    "widgetType": "heading",
+                    "settings": {
+                      "title": "Cek Mesin Komputer",
+                      "header_size": "h5",
+                      "align": "left"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "7d67ea00",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<ul><li>Mesin dicek pakai komputer</li><li>Kelistrikan &amp; aki 24 volt</li><li>Hasilnya dikirim ke HP Anda</li></ul>",
+                      "align": "left"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "602a5cd2",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "Tanya Teknisi",
+                      "link": {
+                        "url": "https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20cek%20mesin%20komputer",
+                        "is_external": "on",
+                        "nofollow": ""
+                      },
+                      "align": "center",
+                      "_css_classes": "btn-service-action"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "6d58998f",
+                "elType": "column",
+                "isInner": true,
+                "settings": {
+                  "_column_size": 25,
+                  "css_classes": "service-grid-card"
+                },
+                "elements": [
+                  {
+                    "id": "c29bf9b5",
+                    "elType": "widget",
+                    "widgetType": "image",
+                    "settings": {
+                      "image": {
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/service-2.jpg",
+                        "id": 115
+                      },
+                      "image_size": "full",
+                      "align": "center"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "94bec274",
+                    "elType": "widget",
+                    "widgetType": "heading",
+                    "settings": {
+                      "title": "Servis Mesin Besar",
+                      "header_size": "h5",
+                      "align": "left"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "a0b40bd3",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<ul><li>Turun mesin, bergaransi</li><li>Stel injektor biar irit</li><li>Sparepart asli pabrik</li></ul>",
+                      "align": "left"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "1e2a5e1b",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "Tanya Teknisi",
+                      "link": {
+                        "url": "https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20servis%20mesin%20besar",
+                        "is_external": "on",
+                        "nofollow": ""
+                      },
+                      "align": "center",
+                      "_css_classes": "btn-service-action"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "2bbbec14",
+                "elType": "column",
+                "isInner": true,
+                "settings": {
+                  "_column_size": 25,
+                  "css_classes": "service-grid-card"
+                },
+                "elements": [
+                  {
+                    "id": "19a9a068",
+                    "elType": "widget",
+                    "widgetType": "image",
+                    "settings": {
+                      "image": {
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/service-3.jpg",
+                        "id": 116
+                      },
+                      "image_size": "full",
+                      "align": "center"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "fe04b337",
+                    "elType": "widget",
+                    "widgetType": "heading",
+                    "settings": {
+                      "title": "Ban & Rem Angin",
+                      "header_size": "h5",
+                      "align": "left"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "1c79b3c6",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<ul><li>Ban Dunlop segala ukuran</li><li>Servis rem angin + kampas</li><li>Cek kaki-kaki &amp; per daun</li></ul>",
+                      "align": "left"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "7f3be76f",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "Tanya Teknisi",
+                      "link": {
+                        "url": "https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20ban%20dan%20rem%20angin",
+                        "is_external": "on",
+                        "nofollow": ""
+                      },
+                      "align": "center",
+                      "_css_classes": "btn-service-action"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "a86a0079",
+                "elType": "column",
+                "isInner": true,
+                "settings": {
+                  "_column_size": 25,
+                  "css_classes": "service-grid-card"
+                },
+                "elements": [
+                  {
+                    "id": "8a14fbd2",
+                    "elType": "widget",
+                    "widgetType": "image",
+                    "settings": {
+                      "image": {
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/service-4.jpg",
+                        "id": 117
+                      },
+                      "image_size": "full",
+                      "align": "center"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "0e07870e",
+                    "elType": "widget",
+                    "widgetType": "heading",
+                    "settings": {
+                      "title": "Ganti Oli",
+                      "header_size": "h5",
+                      "align": "left"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "92847872",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<ul><li>Oli Pertamina &amp; Mobil asli</li><li>Ganti filter sekalian</li><li>Bisa beli drum / pail</li></ul>",
+                      "align": "left"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "1259541e",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "Tanya Teknisi",
+                      "link": {
+                        "url": "https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20ganti%20oli",
+                        "is_external": "on",
+                        "nofollow": ""
+                      },
+                      "align": "center",
+                      "_css_classes": "btn-service-action"
+                    },
+                    "elements": []
+                  }
+                ]
+              }
+            ]
           }
         ]
       }
     ]
   },
   {
-    "id": "50fef1f6",
-    "elType": "section",
-    "settings": {
-      "layout": "full_width",
-      "css_classes": "container-xxl sec-services-cards pb-5"
-    },
-    "elements": [
-      {
-        "id": "5b51a19f",
-        "elType": "column",
-        "settings": {
-          "_column_size": 25,
-          "css_classes": "service-grid-card"
-        },
-        "elements": [
-          {
-            "id": "24b603d4",
-            "elType": "widget",
-            "widgetType": "image",
-            "settings": {
-              "image": {
-                "url": "http://localhost:8080/wp-content/uploads/2026/10/service-1.jpg",
-                "id": 114
-              },
-              "image_size": "full",
-              "align": "center"
-            },
-            "elements": []
-          },
-          {
-            "id": "f9725ee3",
-            "elType": "widget",
-            "widgetType": "heading",
-            "settings": {
-              "title": "Cek Mesin Komputer",
-              "header_size": "h5",
-              "align": "left"
-            },
-            "elements": []
-          },
-          {
-            "id": "c24d88a3",
-            "elType": "widget",
-            "widgetType": "text-editor",
-            "settings": {
-              "editor": "<ul><li>Mesin dicek pakai komputer</li><li>Kelistrikan &amp; aki 24 volt</li><li>Hasilnya dikirim ke HP Anda</li></ul>",
-              "align": "left"
-            },
-            "elements": []
-          },
-          {
-            "id": "0431a72d",
-            "elType": "widget",
-            "widgetType": "button",
-            "settings": {
-              "text": "Tanya Teknisi",
-              "link": {
-                "url": "https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20cek%20mesin%20komputer",
-                "is_external": "on",
-                "nofollow": ""
-              },
-              "align": "center",
-              "_css_classes": "btn-service-action"
-            },
-            "elements": []
-          }
-        ]
-      },
-      {
-        "id": "3c4d065d",
-        "elType": "column",
-        "settings": {
-          "_column_size": 25,
-          "css_classes": "service-grid-card"
-        },
-        "elements": [
-          {
-            "id": "61e04be0",
-            "elType": "widget",
-            "widgetType": "image",
-            "settings": {
-              "image": {
-                "url": "http://localhost:8080/wp-content/uploads/2026/10/service-2.jpg",
-                "id": 115
-              },
-              "image_size": "full",
-              "align": "center"
-            },
-            "elements": []
-          },
-          {
-            "id": "41e795fd",
-            "elType": "widget",
-            "widgetType": "heading",
-            "settings": {
-              "title": "Servis Mesin Besar",
-              "header_size": "h5",
-              "align": "left"
-            },
-            "elements": []
-          },
-          {
-            "id": "9f12f031",
-            "elType": "widget",
-            "widgetType": "text-editor",
-            "settings": {
-              "editor": "<ul><li>Turun mesin, bergaransi</li><li>Stel injektor biar irit</li><li>Sparepart asli pabrik</li></ul>",
-              "align": "left"
-            },
-            "elements": []
-          },
-          {
-            "id": "a492d703",
-            "elType": "widget",
-            "widgetType": "button",
-            "settings": {
-              "text": "Tanya Teknisi",
-              "link": {
-                "url": "https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20servis%20mesin%20besar",
-                "is_external": "on",
-                "nofollow": ""
-              },
-              "align": "center",
-              "_css_classes": "btn-service-action"
-            },
-            "elements": []
-          }
-        ]
-      },
-      {
-        "id": "e832fbfb",
-        "elType": "column",
-        "settings": {
-          "_column_size": 25,
-          "css_classes": "service-grid-card"
-        },
-        "elements": [
-          {
-            "id": "b7f721c8",
-            "elType": "widget",
-            "widgetType": "image",
-            "settings": {
-              "image": {
-                "url": "http://localhost:8080/wp-content/uploads/2026/10/service-3.jpg",
-                "id": 116
-              },
-              "image_size": "full",
-              "align": "center"
-            },
-            "elements": []
-          },
-          {
-            "id": "a63afa91",
-            "elType": "widget",
-            "widgetType": "heading",
-            "settings": {
-              "title": "Ban & Rem Angin",
-              "header_size": "h5",
-              "align": "left"
-            },
-            "elements": []
-          },
-          {
-            "id": "2090e29c",
-            "elType": "widget",
-            "widgetType": "text-editor",
-            "settings": {
-              "editor": "<ul><li>Ban Dunlop segala ukuran</li><li>Servis rem angin + kampas</li><li>Cek kaki-kaki &amp; per daun</li></ul>",
-              "align": "left"
-            },
-            "elements": []
-          },
-          {
-            "id": "04b1d6db",
-            "elType": "widget",
-            "widgetType": "button",
-            "settings": {
-              "text": "Tanya Teknisi",
-              "link": {
-                "url": "https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20ban%20dan%20rem%20angin",
-                "is_external": "on",
-                "nofollow": ""
-              },
-              "align": "center",
-              "_css_classes": "btn-service-action"
-            },
-            "elements": []
-          }
-        ]
-      },
-      {
-        "id": "c65e813b",
-        "elType": "column",
-        "settings": {
-          "_column_size": 25,
-          "css_classes": "service-grid-card"
-        },
-        "elements": [
-          {
-            "id": "f4a382fe",
-            "elType": "widget",
-            "widgetType": "image",
-            "settings": {
-              "image": {
-                "url": "http://localhost:8080/wp-content/uploads/2026/10/service-4.jpg",
-                "id": 117
-              },
-              "image_size": "full",
-              "align": "center"
-            },
-            "elements": []
-          },
-          {
-            "id": "ff72ba76",
-            "elType": "widget",
-            "widgetType": "heading",
-            "settings": {
-              "title": "Ganti Oli",
-              "header_size": "h5",
-              "align": "left"
-            },
-            "elements": []
-          },
-          {
-            "id": "349e15d3",
-            "elType": "widget",
-            "widgetType": "text-editor",
-            "settings": {
-              "editor": "<ul><li>Oli Pertamina &amp; Mobil asli</li><li>Ganti filter sekalian</li><li>Bisa beli drum / pail</li></ul>",
-              "align": "left"
-            },
-            "elements": []
-          },
-          {
-            "id": "0c1563f2",
-            "elType": "widget",
-            "widgetType": "button",
-            "settings": {
-              "text": "Tanya Teknisi",
-              "link": {
-                "url": "https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20ganti%20oli",
-                "is_external": "on",
-                "nofollow": ""
-              },
-              "align": "center",
-              "_css_classes": "btn-service-action"
-            },
-            "elements": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "04111f38",
+    "id": "1b5454b8",
     "elType": "section",
     "settings": {
       "layout": "full_width",
@@ -989,27 +1232,27 @@
     },
     "elements": [
       {
-        "id": "7109a6bb",
+        "id": "7cfe69dd",
         "elType": "column",
         "settings": {
           "_column_size": 100,
-          "css_classes": "text-center"
+          "css_classes": "text-center mb-4"
         },
         "elements": [
           {
-            "id": "fad90ed8",
+            "id": "9ba74063",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
               "title": "Barang Dijamin Asli",
               "header_size": "p",
               "align": "center",
-              "_css_classes": "badge-section-pill"
+              "_css_classes": "badge-section-pill badge-pill-amber"
             },
             "elements": []
           },
           {
-            "id": "6c9820e8",
+            "id": "1355fb37",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -1020,7 +1263,7 @@
             "elements": []
           },
           {
-            "id": "b3be6260",
+            "id": "9fbdf249",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -1031,15 +1274,15 @@
             "elements": []
           },
           {
-            "id": "989000fa",
+            "id": "c4bb136c",
             "elType": "section",
             "isInner": true,
             "settings": {
-              "css_classes": "sec-principals-wall w-100"
+              "css_classes": "sec-principals-wall w-100 mt-4"
             },
             "elements": [
               {
-                "id": "5ed71fcd",
+                "id": "b7096d7f",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -1048,12 +1291,12 @@
                 },
                 "elements": [
                   {
-                    "id": "f2645473",
+                    "id": "a3c70a6a",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
                       "image": {
-                        "url": "http://localhost:8080/wp-content/themes/astra/mastertruck/img/brands/pertamina.svg",
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/brands/pertamina.svg",
                         "id": 127
                       },
                       "image_size": "full",
@@ -1062,7 +1305,7 @@
                     "elements": []
                   },
                   {
-                    "id": "228fb616",
+                    "id": "0539385d",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -1073,7 +1316,7 @@
                     "elements": []
                   },
                   {
-                    "id": "00647199",
+                    "id": "c22c88f8",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -1085,7 +1328,7 @@
                 ]
               },
               {
-                "id": "68314924",
+                "id": "eba5fcd6",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -1094,12 +1337,12 @@
                 },
                 "elements": [
                   {
-                    "id": "3f2d9406",
+                    "id": "43d75568",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
                       "image": {
-                        "url": "http://localhost:8080/wp-content/themes/astra/mastertruck/img/brands/mobil.svg",
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/brands/mobil.svg",
                         "id": 128
                       },
                       "image_size": "full",
@@ -1108,7 +1351,7 @@
                     "elements": []
                   },
                   {
-                    "id": "a502aa06",
+                    "id": "c82e0225",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -1119,7 +1362,7 @@
                     "elements": []
                   },
                   {
-                    "id": "b67742fb",
+                    "id": "09c3ad9d",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -1131,7 +1374,7 @@
                 ]
               },
               {
-                "id": "e42d8da3",
+                "id": "3b90fd19",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -1140,12 +1383,12 @@
                 },
                 "elements": [
                   {
-                    "id": "21330abc",
+                    "id": "ec88a329",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
                       "image": {
-                        "url": "http://localhost:8080/wp-content/themes/astra/mastertruck/img/brands/dunlop.svg",
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/brands/dunlop.svg",
                         "id": 129
                       },
                       "image_size": "full",
@@ -1154,7 +1397,7 @@
                     "elements": []
                   },
                   {
-                    "id": "717895d3",
+                    "id": "e9468d49",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -1165,7 +1408,7 @@
                     "elements": []
                   },
                   {
-                    "id": "d66cc24b",
+                    "id": "fc87f14a",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -1177,7 +1420,7 @@
                 ]
               },
               {
-                "id": "6692e53c",
+                "id": "757f4ff0",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -1186,12 +1429,12 @@
                 },
                 "elements": [
                   {
-                    "id": "90f9939c",
+                    "id": "f23ca1be",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
                       "image": {
-                        "url": "http://localhost:8080/wp-content/themes/astra/mastertruck/img/brands/gs-astra.svg",
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/brands/gs-astra.svg",
                         "id": 130
                       },
                       "image_size": "full",
@@ -1200,7 +1443,7 @@
                     "elements": []
                   },
                   {
-                    "id": "c988cf26",
+                    "id": "ca67cfd1",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -1211,7 +1454,7 @@
                     "elements": []
                   },
                   {
-                    "id": "3c115171",
+                    "id": "365a09d4",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -1223,7 +1466,7 @@
                 ]
               },
               {
-                "id": "9a689f11",
+                "id": "135da9de",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -1232,12 +1475,12 @@
                 },
                 "elements": [
                   {
-                    "id": "7d336b41",
+                    "id": "0659a893",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
                       "image": {
-                        "url": "http://localhost:8080/wp-content/themes/astra/mastertruck/img/brands/incoe.svg",
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/brands/incoe.svg",
                         "id": 131
                       },
                       "image_size": "full",
@@ -1246,7 +1489,7 @@
                     "elements": []
                   },
                   {
-                    "id": "0cd6f931",
+                    "id": "c8b1c809",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -1257,7 +1500,7 @@
                     "elements": []
                   },
                   {
-                    "id": "ff38c80c",
+                    "id": "659becc7",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -1269,7 +1512,7 @@
                 ]
               },
               {
-                "id": "8075df57",
+                "id": "692a6beb",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -1278,12 +1521,12 @@
                 },
                 "elements": [
                   {
-                    "id": "baa7af9c",
+                    "id": "46a3ccf0",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
                       "image": {
-                        "url": "http://localhost:8080/wp-content/themes/astra/mastertruck/img/brands/sakura.svg",
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/brands/sakura.svg",
                         "id": 132
                       },
                       "image_size": "full",
@@ -1292,7 +1535,7 @@
                     "elements": []
                   },
                   {
-                    "id": "6e1dd83f",
+                    "id": "601a7e39",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -1303,7 +1546,7 @@
                     "elements": []
                   },
                   {
-                    "id": "fb48a65a",
+                    "id": "d27922e1",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -1321,16 +1564,16 @@
     ]
   },
   {
-    "id": "fcd866c7",
+    "id": "42a135da",
     "elType": "section",
     "settings": {
       "layout": "full_width",
       "_element_id": "booking",
-      "css_classes": "container-fluid my-5 px-0 booking-section-wrapper"
+      "css_classes": "container-fluid py-5 px-0 booking-section-wrapper"
     },
     "elements": [
       {
-        "id": "ea36479b",
+        "id": "a2790c99",
         "elType": "column",
         "settings": {
           "_column_size": 50,
@@ -1338,7 +1581,7 @@
         },
         "elements": [
           {
-            "id": "ebed52a3",
+            "id": "a89c9e46",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -1350,7 +1593,7 @@
             "elements": []
           },
           {
-            "id": "734e1a18",
+            "id": "434ae13f",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -1362,7 +1605,7 @@
             "elements": []
           },
           {
-            "id": "6b0fa8d9",
+            "id": "d8f5a717",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -1372,7 +1615,7 @@
             "elements": []
           },
           {
-            "id": "adbeedc1",
+            "id": "ea6b16bf",
             "elType": "section",
             "isInner": true,
             "settings": {
@@ -1380,7 +1623,7 @@
             },
             "elements": [
               {
-                "id": "5121d733",
+                "id": "ea2eff74",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -1388,7 +1631,7 @@
                 },
                 "elements": [
                   {
-                    "id": "800bbb91",
+                    "id": "f24b5d4d",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -1411,7 +1654,7 @@
                 ]
               },
               {
-                "id": "f8de4128",
+                "id": "19d3a8f3",
                 "elType": "column",
                 "isInner": true,
                 "settings": {
@@ -1419,7 +1662,7 @@
                 },
                 "elements": [
                   {
-                    "id": "244e86f2",
+                    "id": "ac5d01a0",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -1444,7 +1687,7 @@
             ]
           },
           {
-            "id": "c1d8e249",
+            "id": "d44542e2",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -1456,7 +1699,7 @@
         ]
       },
       {
-        "id": "1e0b7e36",
+        "id": "fb184e6c",
         "elType": "column",
         "settings": {
           "_column_size": 50,
@@ -1464,7 +1707,7 @@
         },
         "elements": [
           {
-            "id": "019d2109",
+            "id": "2c7780b0",
             "elType": "widget",
             "widgetType": "html",
             "settings": {
@@ -1477,7 +1720,7 @@
     ]
   },
   {
-    "id": "2fa1295e",
+    "id": "e540cbff",
     "elType": "section",
     "settings": {
       "layout": "full_width",
@@ -1486,15 +1729,15 @@
     },
     "elements": [
       {
-        "id": "4f762065",
+        "id": "c9f99aa2",
         "elType": "column",
         "settings": {
           "_column_size": 100,
-          "css_classes": "text-center"
+          "css_classes": "text-center mb-4"
         },
         "elements": [
           {
-            "id": "3fabf96d",
+            "id": "231ae947",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -1506,7 +1749,7 @@
             "elements": []
           },
           {
-            "id": "90d9732e",
+            "id": "172994ef",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -1517,7 +1760,7 @@
             "elements": []
           },
           {
-            "id": "f4668485",
+            "id": "356552fc",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -1526,203 +1769,207 @@
               "_css_classes": "text-muted mb-4"
             },
             "elements": []
+          },
+          {
+            "id": "06265232",
+            "elType": "section",
+            "isInner": true,
+            "settings": {
+              "css_classes": "sec-team-cards w-100 mt-4"
+            },
+            "elements": [
+              {
+                "id": "14984edc",
+                "elType": "column",
+                "isInner": true,
+                "settings": {
+                  "_column_size": 25,
+                  "css_classes": "team-enterprise-card"
+                },
+                "elements": [
+                  {
+                    "id": "3ed4cf81",
+                    "elType": "widget",
+                    "widgetType": "image",
+                    "settings": {
+                      "image": {
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/team-1.jpg",
+                        "id": 118
+                      },
+                      "image_size": "full",
+                      "align": "center"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "f223ca9a",
+                    "elType": "widget",
+                    "widgetType": "heading",
+                    "settings": {
+                      "title": "Hendra Wijaya",
+                      "header_size": "h5",
+                      "align": "center"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "530916f4",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<p>Kepala Bengkel</p>",
+                      "align": "center"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "a227e6cb",
+                "elType": "column",
+                "isInner": true,
+                "settings": {
+                  "_column_size": 25,
+                  "css_classes": "team-enterprise-card"
+                },
+                "elements": [
+                  {
+                    "id": "5d70d7f6",
+                    "elType": "widget",
+                    "widgetType": "image",
+                    "settings": {
+                      "image": {
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/team-2.jpg",
+                        "id": 119
+                      },
+                      "image_size": "full",
+                      "align": "center"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "b916d8a8",
+                    "elType": "widget",
+                    "widgetType": "heading",
+                    "settings": {
+                      "title": "Bambang Suryadi",
+                      "header_size": "h5",
+                      "align": "center"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "1c574960",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<p>Ahli Mesin &amp; Komputer</p>",
+                      "align": "center"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "49d9903c",
+                "elType": "column",
+                "isInner": true,
+                "settings": {
+                  "_column_size": 25,
+                  "css_classes": "team-enterprise-card"
+                },
+                "elements": [
+                  {
+                    "id": "702cda37",
+                    "elType": "widget",
+                    "widgetType": "image",
+                    "settings": {
+                      "image": {
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/team-3.jpg",
+                        "id": 120
+                      },
+                      "image_size": "full",
+                      "align": "center"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "7101d789",
+                    "elType": "widget",
+                    "widgetType": "heading",
+                    "settings": {
+                      "title": "Rudi Santoso",
+                      "header_size": "h5",
+                      "align": "center"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "92253494",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<p>Ahli Turun Mesin</p>",
+                      "align": "center"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "4a830dcf",
+                "elType": "column",
+                "isInner": true,
+                "settings": {
+                  "_column_size": 25,
+                  "css_classes": "team-enterprise-card"
+                },
+                "elements": [
+                  {
+                    "id": "9c73ffe8",
+                    "elType": "widget",
+                    "widgetType": "image",
+                    "settings": {
+                      "image": {
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/team-4.jpg",
+                        "id": 121
+                      },
+                      "image_size": "full",
+                      "align": "center"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "cab27d86",
+                    "elType": "widget",
+                    "widgetType": "heading",
+                    "settings": {
+                      "title": "Agus Pratama",
+                      "header_size": "h5",
+                      "align": "center"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "56d20e2d",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<p>Ahli Rem &amp; Kaki-Kaki</p>",
+                      "align": "center"
+                    },
+                    "elements": []
+                  }
+                ]
+              }
+            ]
           }
         ]
       }
     ]
   },
   {
-    "id": "666cbd7e",
-    "elType": "section",
-    "settings": {
-      "layout": "full_width",
-      "css_classes": "container-xxl sec-team-cards pb-5"
-    },
-    "elements": [
-      {
-        "id": "a03d8c7b",
-        "elType": "column",
-        "settings": {
-          "_column_size": 25,
-          "css_classes": "team-enterprise-card"
-        },
-        "elements": [
-          {
-            "id": "55207b2e",
-            "elType": "widget",
-            "widgetType": "image",
-            "settings": {
-              "image": {
-                "url": "http://localhost:8080/wp-content/uploads/2026/10/team-1.jpg",
-                "id": 118
-              },
-              "image_size": "full",
-              "align": "center"
-            },
-            "elements": []
-          },
-          {
-            "id": "e1f3dbd4",
-            "elType": "widget",
-            "widgetType": "heading",
-            "settings": {
-              "title": "Hendra Wijaya",
-              "header_size": "h5",
-              "align": "center"
-            },
-            "elements": []
-          },
-          {
-            "id": "b895c83a",
-            "elType": "widget",
-            "widgetType": "text-editor",
-            "settings": {
-              "editor": "<p>Kepala Bengkel</p>",
-              "align": "center"
-            },
-            "elements": []
-          }
-        ]
-      },
-      {
-        "id": "151614c1",
-        "elType": "column",
-        "settings": {
-          "_column_size": 25,
-          "css_classes": "team-enterprise-card"
-        },
-        "elements": [
-          {
-            "id": "d4cb44a1",
-            "elType": "widget",
-            "widgetType": "image",
-            "settings": {
-              "image": {
-                "url": "http://localhost:8080/wp-content/uploads/2026/10/team-2.jpg",
-                "id": 119
-              },
-              "image_size": "full",
-              "align": "center"
-            },
-            "elements": []
-          },
-          {
-            "id": "a8fd6cc0",
-            "elType": "widget",
-            "widgetType": "heading",
-            "settings": {
-              "title": "Bambang Suryadi",
-              "header_size": "h5",
-              "align": "center"
-            },
-            "elements": []
-          },
-          {
-            "id": "b67b9172",
-            "elType": "widget",
-            "widgetType": "text-editor",
-            "settings": {
-              "editor": "<p>Ahli Mesin &amp; Komputer</p>",
-              "align": "center"
-            },
-            "elements": []
-          }
-        ]
-      },
-      {
-        "id": "799e30f1",
-        "elType": "column",
-        "settings": {
-          "_column_size": 25,
-          "css_classes": "team-enterprise-card"
-        },
-        "elements": [
-          {
-            "id": "b3311332",
-            "elType": "widget",
-            "widgetType": "image",
-            "settings": {
-              "image": {
-                "url": "http://localhost:8080/wp-content/uploads/2026/10/team-3.jpg",
-                "id": 120
-              },
-              "image_size": "full",
-              "align": "center"
-            },
-            "elements": []
-          },
-          {
-            "id": "3930ae1a",
-            "elType": "widget",
-            "widgetType": "heading",
-            "settings": {
-              "title": "Rudi Santoso",
-              "header_size": "h5",
-              "align": "center"
-            },
-            "elements": []
-          },
-          {
-            "id": "5d057235",
-            "elType": "widget",
-            "widgetType": "text-editor",
-            "settings": {
-              "editor": "<p>Ahli Turun Mesin</p>",
-              "align": "center"
-            },
-            "elements": []
-          }
-        ]
-      },
-      {
-        "id": "95d54e6a",
-        "elType": "column",
-        "settings": {
-          "_column_size": 25,
-          "css_classes": "team-enterprise-card"
-        },
-        "elements": [
-          {
-            "id": "ba2c04fb",
-            "elType": "widget",
-            "widgetType": "image",
-            "settings": {
-              "image": {
-                "url": "http://localhost:8080/wp-content/uploads/2026/10/team-4.jpg",
-                "id": 121
-              },
-              "image_size": "full",
-              "align": "center"
-            },
-            "elements": []
-          },
-          {
-            "id": "0aeeb123",
-            "elType": "widget",
-            "widgetType": "heading",
-            "settings": {
-              "title": "Agus Pratama",
-              "header_size": "h5",
-              "align": "center"
-            },
-            "elements": []
-          },
-          {
-            "id": "6496917f",
-            "elType": "widget",
-            "widgetType": "text-editor",
-            "settings": {
-              "editor": "<p>Ahli Rem &amp; Kaki-Kaki</p>",
-              "align": "center"
-            },
-            "elements": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "35895824",
+    "id": "3a309357",
     "elType": "section",
     "settings": {
       "layout": "full_width",
@@ -1731,15 +1978,15 @@
     },
     "elements": [
       {
-        "id": "0558b600",
+        "id": "95dfa27a",
         "elType": "column",
         "settings": {
           "_column_size": 100,
-          "css_classes": "text-center"
+          "css_classes": "text-center mb-4"
         },
         "elements": [
           {
-            "id": "bd337623",
+            "id": "04333705",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -1751,7 +1998,7 @@
             "elements": []
           },
           {
-            "id": "e3667ae9",
+            "id": "e7a573fc",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -1762,7 +2009,7 @@
             "elements": []
           },
           {
-            "id": "25eaba96",
+            "id": "17e937b9",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -1771,80 +2018,83 @@
               "_css_classes": "mb-4"
             },
             "elements": []
+          },
+          {
+            "id": "77bb7bed",
+            "elType": "section",
+            "isInner": true,
+            "settings": {
+              "css_classes": "sec-testimonial-cards w-100 mt-4"
+            },
+            "elements": [
+              {
+                "id": "59bc026c",
+                "elType": "column",
+                "isInner": true,
+                "settings": {
+                  "_column_size": 33,
+                  "css_classes": "testimonial-enterprise-card"
+                },
+                "elements": [
+                  {
+                    "id": "a89458ce",
+                    "elType": "widget",
+                    "widgetType": "html",
+                    "settings": {
+                      "html": "<div class=\"testimonial-avatar-wrap\">\n        <img src=\"http://localhost:5000/wp-content/uploads/2026/10/testimonial-1.jpg\" alt=\"Gunawan Siregar\" loading=\"lazy\" />\n        <div>\n            <h5 class=\"mb-0 fw-bold\">Gunawan Siregar</h5>\n            <small class=\"text-muted\">Pengelola Truk — PT Samudera Logistik</small>\n        </div>\n    </div>\n    <div class=\"testimonial-stars-line\">★★★★★</div>\n    <p class=\"testimonial-quote-text\">&ldquo;30 trailer kami jadi jarang rusak. Servisnya bisa dipantau dari HP, gampang kontrolnya.&rdquo;</p>"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "8f115d9a",
+                "elType": "column",
+                "isInner": true,
+                "settings": {
+                  "_column_size": 33,
+                  "css_classes": "testimonial-enterprise-card"
+                },
+                "elements": [
+                  {
+                    "id": "a6fb5de6",
+                    "elType": "widget",
+                    "widgetType": "html",
+                    "settings": {
+                      "html": "<div class=\"testimonial-avatar-wrap\">\n        <img src=\"http://localhost:5000/wp-content/uploads/2026/10/testimonial-2.jpg\" alt=\"Budi Wicaksono\" loading=\"lazy\" />\n        <div>\n            <h5 class=\"mb-0 fw-bold\">Budi Wicaksono</h5>\n            <small class=\"text-muted\">Pemilik — CV Maju Bersama</small>\n        </div>\n    </div>\n    <div class=\"testimonial-stars-line\">★★★★★</div>\n    <p class=\"testimonial-quote-text\">&ldquo;Oli dan ban asli, harganya miring. Ngirit banyak buat perawatan truk kami.&rdquo;</p>"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "ea4919b6",
+                "elType": "column",
+                "isInner": true,
+                "settings": {
+                  "_column_size": 33,
+                  "css_classes": "testimonial-enterprise-card"
+                },
+                "elements": [
+                  {
+                    "id": "33a1b950",
+                    "elType": "widget",
+                    "widgetType": "html",
+                    "settings": {
+                      "html": "<div class=\"testimonial-avatar-wrap\">\n        <img src=\"http://localhost:5000/wp-content/uploads/2026/10/testimonial-3.jpg\" alt=\"Ahmad Faisal\" loading=\"lazy\" />\n        <div>\n            <h5 class=\"mb-0 fw-bold\">Ahmad Faisal</h5>\n            <small class=\"text-muted\">Pengawas — PT Deli Sawit Makmur</small>\n        </div>\n    </div>\n    <div class=\"testimonial-stars-line\">★★★★★</div>\n    <p class=\"testimonial-quote-text\">&ldquo;Truk mogok rem blong di Tebing Tinggi, langsung dijemput. Gerak cepat!&rdquo;</p>"
+                    },
+                    "elements": []
+                  }
+                ]
+              }
+            ]
           }
         ]
       }
     ]
   },
   {
-    "id": "c7281dff",
-    "elType": "section",
-    "settings": {
-      "layout": "full_width",
-      "css_classes": "container-xxl sec-testimonial-cards pb-5"
-    },
-    "elements": [
-      {
-        "id": "375bf1ea",
-        "elType": "column",
-        "settings": {
-          "_column_size": 33,
-          "css_classes": "testimonial-enterprise-card"
-        },
-        "elements": [
-          {
-            "id": "b36ad236",
-            "elType": "widget",
-            "widgetType": "html",
-            "settings": {
-              "html": "<div class=\"testimonial-avatar-wrap\">\n        <img src=\"http://localhost:8080/wp-content/uploads/2026/10/testimonial-1.jpg\" alt=\"Gunawan Siregar\" loading=\"lazy\" />\n        <div>\n            <h5 class=\"mb-0 fw-bold\">Gunawan Siregar</h5>\n            <small class=\"text-muted\">Pengelola Truk — PT Samudera Logistik</small>\n        </div>\n    </div>\n    <div class=\"testimonial-stars-line\">★★★★★</div>\n    <p class=\"testimonial-quote-text\">&ldquo;30 trailer kami jadi jarang rusak. Servisnya bisa dipantau dari HP, gampang kontrolnya.&rdquo;</p>"
-            },
-            "elements": []
-          }
-        ]
-      },
-      {
-        "id": "06c98b99",
-        "elType": "column",
-        "settings": {
-          "_column_size": 33,
-          "css_classes": "testimonial-enterprise-card"
-        },
-        "elements": [
-          {
-            "id": "5db01334",
-            "elType": "widget",
-            "widgetType": "html",
-            "settings": {
-              "html": "<div class=\"testimonial-avatar-wrap\">\n        <img src=\"http://localhost:8080/wp-content/uploads/2026/10/testimonial-2.jpg\" alt=\"Budi Wicaksono\" loading=\"lazy\" />\n        <div>\n            <h5 class=\"mb-0 fw-bold\">Budi Wicaksono</h5>\n            <small class=\"text-muted\">Pemilik — CV Maju Bersama</small>\n        </div>\n    </div>\n    <div class=\"testimonial-stars-line\">★★★★★</div>\n    <p class=\"testimonial-quote-text\">&ldquo;Oli dan ban asli, harganya miring. Ngirit banyak buat perawatan truk kami.&rdquo;</p>"
-            },
-            "elements": []
-          }
-        ]
-      },
-      {
-        "id": "997939d0",
-        "elType": "column",
-        "settings": {
-          "_column_size": 33,
-          "css_classes": "testimonial-enterprise-card"
-        },
-        "elements": [
-          {
-            "id": "a6a794c6",
-            "elType": "widget",
-            "widgetType": "html",
-            "settings": {
-              "html": "<div class=\"testimonial-avatar-wrap\">\n        <img src=\"http://localhost:8080/wp-content/uploads/2026/10/testimonial-3.jpg\" alt=\"Ahmad Faisal\" loading=\"lazy\" />\n        <div>\n            <h5 class=\"mb-0 fw-bold\">Ahmad Faisal</h5>\n            <small class=\"text-muted\">Pengawas — PT Deli Sawit Makmur</small>\n        </div>\n    </div>\n    <div class=\"testimonial-stars-line\">★★★★★</div>\n    <p class=\"testimonial-quote-text\">&ldquo;Truk mogok rem blong di Tebing Tinggi, langsung dijemput. Gerak cepat!&rdquo;</p>"
-            },
-            "elements": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "63bca48e",
+    "id": "53316430",
     "elType": "section",
     "settings": {
       "layout": "full_width",
@@ -1853,7 +2103,7 @@
     },
     "elements": [
       {
-        "id": "4c3cd6cb",
+        "id": "c5846466",
         "elType": "column",
         "settings": {
           "_column_size": 38,
@@ -1861,7 +2111,7 @@
         },
         "elements": [
           {
-            "id": "76e18206",
+            "id": "70356a23",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -1873,7 +2123,7 @@
             "elements": []
           },
           {
-            "id": "222903c1",
+            "id": "86af0744",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -1884,7 +2134,7 @@
             "elements": []
           },
           {
-            "id": "215b542c",
+            "id": "8d76cc31",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -1894,7 +2144,7 @@
             "elements": []
           },
           {
-            "id": "66130b5f",
+            "id": "54c880b6",
             "elType": "widget",
             "widgetType": "button",
             "settings": {
@@ -1917,7 +2167,7 @@
         ]
       },
       {
-        "id": "22b907cd",
+        "id": "3f17db92",
         "elType": "column",
         "settings": {
           "_column_size": 62,
@@ -1925,7 +2175,7 @@
         },
         "elements": [
           {
-            "id": "661be802",
+            "id": "dcc23942",
             "elType": "widget",
             "widgetType": "accordion",
             "settings": {
@@ -1970,7 +2220,7 @@
     ]
   },
   {
-    "id": "d4e94858",
+    "id": "f5d21bd0",
     "elType": "section",
     "settings": {
       "layout": "full_width",
@@ -1979,14 +2229,14 @@
     },
     "elements": [
       {
-        "id": "a8cf9d62",
+        "id": "ee0bb366",
         "elType": "column",
         "settings": {
           "_column_size": 100
         },
         "elements": [
           {
-            "id": "227dd7dd",
+            "id": "037456ea",
             "elType": "widget",
             "widgetType": "html",
             "settings": {

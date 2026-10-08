@@ -8,8 +8,8 @@
 [CmdletBinding()]
 param(
     [switch]$Strict,
-    [string]$Url = 'http://localhost:8080',
-    [string]$Container = 'lotus-wp-app'
+    [string]$Url = 'http://localhost:5000',
+    [string]$Container = 'lpm-wp-app'
 )
 
 $root = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)

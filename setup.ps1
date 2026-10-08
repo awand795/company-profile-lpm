@@ -24,7 +24,7 @@
     Lewati import database_dump.sql.
 
 .PARAMETER Url
-    Base URL untuk verifikasi. Default http://localhost:8080
+    Base URL untuk verifikasi. Default http://localhost:5000
 
 .EXAMPLE
     .\setup.ps1
@@ -34,9 +34,9 @@
 param(
     [switch]$Rebuild,
     [switch]$SkipImport,
-    [string]$Url = 'http://localhost:8080',
-    [string]$App = 'lotus-wp-app',
-    [string]$DbContainer = 'lotus-wp-db',
+    [string]$Url = 'http://localhost:5000',
+    [string]$App = 'lpm-wp-app',
+    [string]$DbContainer = 'lpm-wp-db',
     [string]$DbUser = 'wordpress',
     [string]$DbPass = 'lotus_wp_password_2026',
     [string]$DbName = 'wordpress'
@@ -226,4 +226,4 @@ Write-Host "  Site      : $Url/"
 Write-Host "  Dashboard : $Url/wp-admin/"
 Write-Host "  Portal    : http://localhost:3000/  (Web Fleet, repo terpisah)"
 if ($allOk) { Write-Host "  Status    : semua halaman utama 200" -ForegroundColor Green }
-else        { Write-Host "  Status    : ADA yang bukan 200 — cek log: docker logs $App" -ForegroundColor Red; exit 1 }
+else        { Write-Host "  Status    : ADA yang bukan 200 - cek log: docker logs $App" -ForegroundColor Red; exit 1 }
