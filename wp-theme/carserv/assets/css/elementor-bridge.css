@@ -806,12 +806,43 @@ body.elementor-page-59 .hero-card-floating-bottom .elementor-icon-box-icon svg {
     height: 22px !important;
     font-size: 22px !important;
 }
-/* Kartu masuk ke dalam bingkai putih */
+/* Kolom kanan sebagai bingkai putih (kokoh, tanpa hitungan piksel rapuh) */
+body.elementor-page-59 .hero-right-col .elementor-widget-wrap {
+    background: #FFFFFF !important;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
+    border-radius: 24px !important;
+    padding: 16px !important;
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12) !important;
+}
 body.elementor-page-59 .hero-right-col .hero-truck-img {
-    padding-bottom: 150px !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 0 140px 0 !important;
+    margin-bottom: 0 !important;
+}
+/* Kartu di dalam bingkai kolom (margin disamakan dgn aturan §14) */
+body.elementor-page-59 .hero-right-col {
+    position: relative !important;
 }
 body.elementor-page-59 .hero-card-floating-bottom.elementor-widget-icon-box {
-    margin: -134px 40px 0 40px !important;
+    position: absolute !important;
+    bottom: 24px !important;
+    left: 40px !important;
+    right: 40px !important;
+    width: auto !important;
+    margin: 0 !important;
+    z-index: 3 !important;
+}
+@media (max-width: 767.98px) {
+    body.elementor-page-59 .hero-right-col .hero-truck-img {
+        padding-bottom: 170px !important;
+    }
+    body.elementor-page-59 .hero-card-floating-bottom.elementor-widget-icon-box {
+        bottom: 16px !important;
+        left: 24px !important;
+        right: 24px !important;
+    }
 }
 
 /* 4. Features Panel (4 Icon Box Widgets Native) */
@@ -1724,7 +1755,15 @@ body.elementor-page-59 .floating-wa-btn .elementor-button-icon { margin: 0 !impo
 }
 
 /* 14. Kartu mengambang (hero bawah-gambar + about) — overlap tepi foto */
-body.elementor-page-59 .hero-card-floating-bottom.elementor-widget-icon-box,
+body.elementor-page-59 .hero-card-floating-bottom.elementor-widget-icon-box {
+    position: absolute !important;
+    bottom: 24px !important;
+    left: 40px !important;
+    right: 40px !important;
+    width: auto !important;
+    margin: 0 !important;
+    z-index: 3 !important;
+}
 body.elementor-page-59 .about-exp-float-card.elementor-widget-icon-box {
     position: relative !important;
     z-index: 3 !important;
