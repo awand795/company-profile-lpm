@@ -174,7 +174,18 @@ async function scrollThrough(page) {
     // Back-to-top
     const bt = await m.evaluate(() => {
         const b = document.querySelector('.mt-back-top');
-        return b ? { exists: true, visible: b.classList.contains('is-visible') } : { exists: false };
+        if (!b) { return { exists: false }; }
+        const cs = getComputedStyle(b);
+        const r = b.getBoundingClientRect();
+        const vw = window.innerWidth, vh = window.innerHeight;
+        return {
+            exists: true,
+            visible: b.classList.contains('is-visible'),
+            pos: cs.position,
+            inBottomRight: r.right > vw - 140 && r.bottom > vh - 170 && r.top > vh / 2,
+            rect: { x: Math.round(r.x), y: Math.round(r.y), w: Math.round(r.width) },
+            vw, vh,
+        };
     });
     let btOk = bt.exists && bt.visible;
     if (btOk) {
@@ -185,6 +196,9 @@ async function scrollThrough(page) {
         bt.afterClickY = y;
     }
     check('MOBILE: back-to-top muncul & kembali ke atas', btOk, JSON.stringify(bt));
+    check('MOBILE: back-to-top fixed di kanan-bawah (tidak jatuh ke alur konten)',
+        bt.exists && bt.pos === 'fixed' && bt.inBottomRight,
+        JSON.stringify({ pos: bt.pos, rect: bt.rect, vw: bt.vw, vh: bt.vh }));
 
     check('MOBILE: 0 console/page error', mobErrors.length === 0, mobErrors.slice(0, 3).join(' | '));
 
@@ -306,6 +320,69 @@ async function scrollThrough(page) {
         return { slides: slides.length, imgs: imgs.length, first: imgs[0] };
     });
     check('DESKTOP: hero 2 slide utuh', hero.slides === 2 && hero.imgs >= 2, JSON.stringify(hero));
+
+    // Background hero diseragamkan: slide 1 == slide 2 (navy + scrim identik)
+    const heroBg = await d.evaluate(() => {
+        const read = (sel) => {
+            const el = document.querySelector(sel);
+            if (!el) { return null; }
+            return {
+                color: getComputedStyle(el).backgroundColor,
+                before: getComputedStyle(el, '::before').backgroundImage,
+            };
+        };
+        return { s1: read('.mt-hero-slide-1'), s2: read('.mt-hero-slide-2') };
+    });
+    check('DESKTOP: bg slide 1 & slide 2 identik (navy + scrim sama)',
+        heroBg.s1 && heroBg.s2 &&
+        heroBg.s1.color === heroBg.s2.color &&
+        heroBg.s1.color === 'rgb(15, 23, 42)' &&
+        heroBg.s1.before === heroBg.s2.before,
+        JSON.stringify({ c1: heroBg.s1 && heroBg.s1.color, c2: heroBg.s2 && heroBg.s2.color }));
+
+    // ===== Enterprise polish (blok 21) =====
+    const ent = await d.evaluate(() => {
+        const h2 = document.querySelector('.sec-services h2');
+        const cs = h2 ? getComputedStyle(h2) : null;
+        const lead = document.querySelector('.sec-services .elementor-widget-text-editor.text-muted');
+        const aboutAfter = document.querySelector('.sec-about h2')
+            ? getComputedStyle(document.querySelector('.sec-about h2'), '::after') : null;
+        const faqAfter = document.querySelector('.sec-faq h2')
+            ? getComputedStyle(document.querySelector('.sec-faq h2'), '::after') : null;
+        const padOf = (sel) => {
+            const el = document.querySelector(sel);
+            return el ? parseInt(getComputedStyle(el).paddingTop, 10) : -1;
+        };
+        const testiBg = document.querySelector('.sec-testimonial');
+        const lr = lead ? lead.getBoundingClientRect() : null;
+        return {
+            font: cs ? cs.fontFamily : null,
+            color: cs ? cs.color : null,
+            size: cs ? parseFloat(cs.fontSize) : -1,
+            leadW: lr ? Math.round(lr.width) : -1,
+            leadCentered: lr ? Math.abs(lr.left - (window.innerWidth - lr.width) / 2) < 20 : false,
+            accentAbout: aboutAfter ? parseFloat(aboutAfter.width) : 0,
+            accentFaq: faqAfter ? parseFloat(faqAfter.width) : 0,
+            pads: [
+                padOf('.sec-about'), padOf('.sec-services'), padOf('.sec-principals'),
+                padOf('.booking-section-wrapper'), padOf('.sec-team'), padOf('.sec-testimonial'),
+            ],
+            testiBg: testiBg ? getComputedStyle(testiBg).backgroundColor : null,
+        };
+    });
+    check('DESKTOP: judul section = Plus Jakarta Sans + navy + 36px',
+        !!ent.font && ent.font.includes('Plus Jakarta Sans') &&
+        ent.color === 'rgb(15, 42, 92)' && ent.size >= 34 && ent.size <= 37,
+        `${ent.color} ${ent.size}px ${ent.font ? ent.font.split(',')[0] : '?'}`);
+    check('DESKTOP: lead paragraph cap 720px & center',
+        ent.leadW > 0 && ent.leadW <= 720 && ent.leadCentered, `w=${ent.leadW}`);
+    check('DESKTOP: garis aksen h2 ada di about & faq',
+        ent.accentAbout >= 50 && ent.accentFaq >= 50,
+        `about=${ent.accentAbout} faq=${ent.accentFaq}`);
+    check('DESKTOP: padding section seragam 80px',
+        ent.pads.every((p) => p === 80), ent.pads.join(','));
+    check('DESKTOP: testimonial bg slate (bukan cream)',
+        ent.testiBg === 'rgb(248, 250, 252)', ent.testiBg);
 
     // ================= RINGKASAN =================
     await browser.close();

@@ -207,10 +207,13 @@ body.elementor-page-59 .navbar .navbar-nav {
     }
 }
 
-/* 3. Hero Section: Kontras Tinggi, Gradient Overlay Bersih */
+/* 3. Hero Section: Kontras Tinggi, Gradient Overlay Bersih
+   Base navy diseragamkan untuk SEMUA slide (dulu hanya slide 1 punya
+   via #header-carousel di mastertruck.css → slide 2 putih polos). */
 body.elementor-page-59 .mt-hero-slide {
     position: relative;
     overflow: hidden;
+    background-color: #0F172A !important;
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
@@ -226,10 +229,6 @@ body.elementor-page-59 .mt-hero-slide::before {
     background: linear-gradient(90deg, rgba(248, 250, 252, 0.96) 0%, rgba(248, 250, 252, 0.90) 48%, rgba(248, 250, 252, 0.38) 100%) !important;
     z-index: 1;
     pointer-events: none;
-}
-/* Slide 2 (warehouse terang): scrim lebih tipis di kanan agar latar tetap terlihat */
-body.elementor-page-59 .mt-hero-slide-2::before {
-    background: linear-gradient(90deg, rgba(248, 250, 252, 0.94) 0%, rgba(248, 250, 252, 0.86) 48%, rgba(248, 250, 252, 0.22) 100%) !important;
 }
 body.elementor-page-59 .mt-hero-slide > .elementor-container {
     position: relative;
@@ -2974,8 +2973,10 @@ body.elementor-page-59 .navbar .navbar-toggler[aria-expanded="true"] .elementor-
     }
 }
 
-/* 19E. Back-to-top — di atas tombol WA (WA: bottom 24, tinggi 50) */
-body.mt-back-top {
+/* 19E. Back-to-top — di atas tombol WA (WA: bottom 24, tinggi 50)
+   NOTE: class `mt-back-top` ada di <button>, BUKAN di body — selector
+   lama `body.mt-back-top` tidak pernah match (tombol jatuh position:static). */
+.mt-back-top {
     position: fixed !important;
     bottom: 86px !important;
     right: 28px !important;
@@ -2999,12 +3000,12 @@ body.mt-back-top {
     transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, background 0.2s ease !important;
     padding: 0 !important;
 }
-body.mt-back-top.is-visible {
+.mt-back-top.is-visible {
     opacity: 1 !important;
     visibility: visible !important;
     transform: none !important;
 }
-body.mt-back-top:hover {
+.mt-back-top:hover {
     background: var(--primary, #2563EB) !important;
     transform: translateY(-2px) !important;
 }
@@ -3229,4 +3230,101 @@ body.elementor-page-59 .btn-about-secondary .elementor-button {
     body.elementor-page-59 .btn-booking-call .elementor-button::after {
         animation: none !important;
     }
+}
+
+/* ==============================================================
+   21. ENTERPRISE POLISH (light theme) — topbar -> bawah, desktop-first
+   Murni CSS: struktur & konten tetap 100% editable via Elementor
+   (tidak menyentuh _elementor_data / build script).
+   ============================================================== */
+
+/* 21A. Judul section seragam: Plus Jakarta Sans (bukan Barlow dari kit
+   Elementor), navy pekat, skala 36px, tracking enterprise konsisten */
+body.elementor-page-59 .sec-about h2,
+body.elementor-page-59 .sec-services h2,
+body.elementor-page-59 .sec-principals h2,
+body.elementor-page-59 .booking-section-wrapper h2,
+body.elementor-page-59 .sec-team h2,
+body.elementor-page-59 .sec-testimonial h2,
+body.elementor-page-59 .sec-faq h2 {
+    font-family: var(--font-heading) !important;
+    color: var(--navy) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+    line-height: 1.18 !important;
+    font-size: clamp(26px, 3vw, 36px) !important;
+}
+
+/* 21B. Garis aksen di bawah judul — kini ADA DI SEMUA section header
+   (sebelumnya hanya services/principals/team/testimonial) */
+body.elementor-page-59 .sec-about h2::after,
+body.elementor-page-59 .sec-faq h2::after {
+    content: "" !important;
+    display: block !important;
+    width: 56px !important;
+    height: 4px !important;
+    border-radius: 999px !important;
+    margin: 14px 0 0 0 !important;
+    background: linear-gradient(90deg, var(--acc-blue, #2563EB), var(--acc-teal, #0D9488)) !important;
+}
+/* Derek/darurat: aksen merah-amber tetap sesuai konteks (pill merah) */
+body.elementor-page-59 .booking-section-wrapper h2::after {
+    content: "" !important;
+    display: block !important;
+    width: 56px !important;
+    height: 4px !important;
+    border-radius: 999px !important;
+    margin: 14px 0 0 0 !important;
+    background: linear-gradient(90deg, #DC2626, #F59E0B) !important;
+}
+
+/* 21C. Keterbacaan: lead paragraph section header di-cap 720px
+   (sebelumnya full 1276px — baris terlalu panjang untuk desktop) */
+@media (min-width: 992px) {
+    body.elementor-page-59 .sec-services .elementor-widget-text-editor.text-muted,
+    body.elementor-page-59 .sec-principals .elementor-widget-text-editor.text-muted,
+    body.elementor-page-59 .sec-team .elementor-widget-text-editor.text-muted {
+        max-width: 720px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+/* 21D. Ritme vertikal seragam 80px antar-section (dulu 64/72/76 campur);
+   hanya desktop — mobile memakai skala sendiri */
+@media (min-width: 992px) {
+    body.elementor-page-59 .sec-about,
+    body.elementor-page-59 .sec-services,
+    body.elementor-page-59 #principals,
+    body.elementor-page-59 .sec-principals,
+    body.elementor-page-59 .booking-section-wrapper,
+    body.elementor-page-59 .sec-team,
+    body.elementor-page-59 .sec-testimonial {
+        padding-top: 80px !important;
+        padding-bottom: 80px !important;
+    }
+    body.elementor-page-59 .sec-faq {
+        padding-top: 80px !important;
+        padding-bottom: 40px !important;
+    }
+}
+
+/* 21E. Background rhythm satu keluarga (slate-biru, tanpa cream nyeleneh);
+   features panel putih jadi menonjol di atas band slate */
+body.elementor-page-59 .sec-testimonial {
+    background-color: #F8FAFC !important;
+}
+body.elementor-page-59 .sec-features {
+    background-color: #F8FAFC !important;
+}
+
+/* 21F. Kartu servis: border halus enterprise (shadow tetap lembut) */
+body.elementor-page-59 .service-grid-card {
+    border: 1px solid var(--border, #E2E8F0) !important;
+}
+
+/* 21G. Navbar: garis rambut di bawah —pisahkan tegas dari konten,
+   konsisten dengan gaya corporate */
+body.elementor-page-59 .navbar.sticky-top {
+    border-bottom: 1px solid rgba(226, 232, 240, 0.9) !important;
 }
