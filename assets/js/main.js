@@ -154,24 +154,29 @@
     }
 
     // Section Active Scrollspy via IntersectionObserver
+    // Nav Elementor = widget .nav-menu-link (bukan .nav-link bootstrap),
+    // href dibaca dari tombol di dalamnya.
     $(document).ready(function () {
-        const sections = document.querySelectorAll('#header-carousel, #about, #service, #principals, #distribution, #contact');
-        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+        const sections = document.querySelectorAll('#header-carousel, #about, #service, #testimonial, #faq, #contact');
+        const navWidgets = document.querySelectorAll('.navbar-right-inner .nav-menu-link');
 
-        if ('IntersectionObserver' in window && sections.length > 0 && navLinks.length > 0) {
+        function setActive(id) {
+            navWidgets.forEach(function (widget) {
+                const a = widget.querySelector('a');
+                if (a && a.getAttribute('href') === '#' + id) {
+                    widget.classList.add('nav-link-active');
+                } else {
+                    widget.classList.remove('nav-link-active');
+                }
+            });
+        }
+
+        if ('IntersectionObserver' in window && sections.length > 0 && navWidgets.length > 0) {
             const observer = new IntersectionObserver(function (entries) {
                 entries.forEach(function (entry) {
                     if (entry.isIntersecting) {
                         const id = entry.target.getAttribute('id');
-                        if (id) {
-                            navLinks.forEach(function (link) {
-                                if (link.getAttribute('href') === '#' + id) {
-                                    link.classList.add('active');
-                                } else {
-                                    link.classList.remove('active');
-                                }
-                            });
-                        }
+                        if (id) { setActive(id); }
                     }
                 });
             }, {
@@ -184,6 +189,24 @@
                 observer.observe(section);
             });
         }
+    });
+
+    // Navbar mobile: tombol hamburger membuka/tutup panel collapse
+    $(document).ready(function () {
+        const $toggler = $('.navbar .navbar-toggler');
+        const $panel = $('.navbar .navbar-menu-col');
+        if (!$toggler.length || !$panel.length) { return; }
+        function closeNav() {
+            $panel.removeClass('show');
+            $toggler.attr('aria-expanded', 'false');
+        }
+        $toggler.on('click', function (e) {
+            e.preventDefault();
+            const open = $panel.toggleClass('show').hasClass('show');
+            $toggler.attr('aria-expanded', open ? 'true' : 'false');
+        });
+        $panel.on('click', 'a', closeNav);
+        $(document).on('keydown', function (e) { if (e.key === 'Escape') { closeNav(); } });
     });
 
     // Hero 2-Slide Transition di Frontend (Elementor Native Sections)

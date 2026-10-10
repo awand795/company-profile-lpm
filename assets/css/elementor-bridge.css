@@ -178,7 +178,7 @@ body.elementor-page-59 .navbar .navbar-brand-logo {
     align-items: center !important;
     margin-right: auto !important;
 }
-body.elementor-page-59 .navbar #navbarCollapse {
+body.elementor-page-59 .navbar .navbar-menu-col {
     display: flex !important;
     align-items: center !important;
     justify-content: flex-end !important;
@@ -191,7 +191,7 @@ body.elementor-page-59 .navbar .navbar-nav {
     align-items: center !important;
 }
 @media (max-width: 991.98px) {
-    body.elementor-page-59 .navbar .collapse.navbar-collapse {
+    body.elementor-page-59 .navbar-menu-col.collapse.navbar-collapse {
         flex-basis: 100%;
         margin-top: 12px;
         background: #FFFFFF;
@@ -2032,9 +2032,214 @@ body.elementor-page-59 .floating-wa-btn .elementor-button:hover {
 body.elementor-page-59 .floating-wa-btn .elementor-button-text { display: none !important; }
 body.elementor-page-59 .floating-wa-btn .elementor-button-icon { margin: 0 !important; }
 
+/* ==============================================================
+   13B. REVAMP MENU (2026-10-10) — desktop: hamburger mati,
+   hover/active lebih hidup, anchor tidak tertimpa sticky header
+   ============================================================== */
+body.elementor-page-59 .navbar-menu-col.collapse.navbar-collapse {
+    /* Bootstrap .navbar-collapse{flex-basis:100%} merusak lebar kolom 70%.
+       .collapse:not(.show){display:none} juga perlu di-override di desktop
+       (rule bootstrap .navbar-expand-lg .navbar-collapse tidak match karena
+       kedua class ada di elemen yang sama) */
+    flex-basis: auto !important;
+    display: flex !important;
+}
+body.elementor-page-59 .navbar .navbar-toggler {
+    display: none !important;
+}
+body.elementor-page-59 .nav-menu-link .elementor-button {
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease !important;
+}
+body.elementor-page-59 .nav-menu-link:hover .elementor-button {
+    transform: translateY(-1px) !important;
+}
+body.elementor-page-59 .nav-menu-link.nav-link-active .elementor-button {
+    background-color: #DBEAFE !important;
+    color: #1D4ED8 !important;
+    font-weight: 700 !important;
+}
+body.elementor-page-59 .btn-nav-login .elementor-button,
+body.elementor-page-59 .btn-nav-register .elementor-button {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+}
+body.elementor-page-59 .btn-nav-login .elementor-button:hover,
+body.elementor-page-59 .btn-nav-register .elementor-button:hover {
+    transform: translateY(-1px) !important;
+}
+body.elementor-page-59 .btn-nav-register .elementor-button:hover {
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35) !important;
+}
+/* Smooth scroll + offset supaya judul section tidak tertimpa header sticky */
+html {
+    scroll-behavior: smooth;
+}
+#header-carousel, #about, #service, #principals, #booking, #testimonial, #faq, #contact {
+    scroll-margin-top: 118px;
+}
+/* Topbar: paksa baris ikon-teks (ikutin tampilan desktop) */
+body.elementor-page-59 .topbar-left-col .elementor-icon-box-wrapper {
+    flex-direction: row !important;
+}
+
 @media (max-width: 991.98px) {
     body.elementor-page-59 .navbar > .elementor-container { flex-wrap: wrap !important; }
     body.elementor-page-59 .navbar-links-inner > .elementor-container { flex-wrap: wrap !important; }
+
+    /* --- Navbar: kolom penuh, brand + hamburger sebaris --- */
+    body.elementor-page-59 .navbar > .elementor-container > .elementor-column {
+        width: 100% !important;
+    }
+    body.elementor-page-59 .navbar-brand-col .elementor-widget-wrap {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 12px !important;
+        width: 100% !important;
+    }
+    body.elementor-page-59 .navbar-brand-col .navbar-brand-widget {
+        width: auto !important;
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+    }
+    body.elementor-page-59 .navbar .navbar-toggler {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 40px !important;
+        height: 38px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: #FFFFFF !important;
+        border: 1px solid var(--border) !important;
+        border-radius: 12px !important;
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08) !important;
+        flex: 0 0 40px !important;
+        min-width: 40px !important;
+        cursor: pointer !important;
+    }
+    body.elementor-page-59 .navbar .navbar-toggler .elementor-button {
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 0 !important;
+        padding: 0 !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    body.elementor-page-59 .navbar .navbar-toggler .elementor-button-icon {
+        margin: 0 !important;
+    }
+    body.elementor-page-59 .navbar .navbar-toggler .elementor-button-icon svg {
+        width: 20px !important;
+        height: 20px !important;
+        color: var(--navy) !important;
+        fill: var(--navy) !important;
+    }
+
+    /* --- Panel menu: grid 2 kolom, rapi seperti kartu --- */
+    body.elementor-page-59 .navbar-menu-col.collapse.navbar-collapse {
+        flex-basis: 100% !important;
+        margin-top: 12px !important;
+        background: #FFFFFF !important;
+        border-radius: 14px !important;
+        padding: 14px !important;
+        box-shadow: 0 14px 34px rgba(15, 23, 42, 0.12) !important;
+        border: 1px solid var(--border) !important;
+        display: none !important;
+    }
+    body.elementor-page-59 .navbar-menu-col.collapse.navbar-collapse.show {
+        display: flex !important;
+        animation: mtNavIn 0.22s ease;
+    }
+    body.elementor-page-59 .navbar-right-inner > .elementor-container {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+        justify-content: stretch !important;
+    }
+    body.elementor-page-59 .navbar-right-inner .elementor-column {
+        width: auto !important;
+    }
+    body.elementor-page-59 .navbar-right-inner .nav-menu-link.elementor-widget-button {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+    body.elementor-page-59 .navbar-right-inner .nav-menu-link .elementor-button,
+    body.elementor-page-59 .btn-nav-login .elementor-button,
+    body.elementor-page-59 .btn-nav-register .elementor-button {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+    body.elementor-page-59 .btn-nav-login.elementor-widget-button {
+        margin-left: 0 !important;
+    }
+
+    /* --- Topbar mobile: 2 baris compact, bukan 4 baris renggang --- */
+    body.elementor-page-59 .top-bar-custom > .elementor-container > .elementor-column {
+        width: 100% !important;
+    }
+    body.elementor-page-59 .topbar-left-col .elementor-widget-wrap {
+        flex-wrap: wrap !important;
+        gap: 4px 16px !important;
+        padding-top: 6px !important;
+        padding-bottom: 0 !important;
+    }
+    body.elementor-page-59 .topbar-right-col .elementor-widget-wrap {
+        flex-wrap: wrap !important;
+        justify-content: flex-start !important;
+        gap: 8px !important;
+        padding-top: 0 !important;
+        padding-bottom: 4px !important;
+    }
+
+    /* --- Kompak mobile (2026-10-10): navbar ~70px, topbar ~64px ---
+       Brand sebaris via setting Elementor asli `position_mobile`
+       (Icon Position > Mobile = Start) — bukan paksaan CSS. */
+    body.elementor-page-59 .navbar {
+        padding-top: 4px !important;
+        padding-bottom: 4px !important;
+    }
+    body.elementor-page-59 .navbar .elementor-widget-wrap,
+    body.elementor-page-59 .navbar .elementor-element-populated {
+        padding-top: 4px !important;
+        padding-bottom: 4px !important;
+    }
+    body.elementor-page-59 .navbar-brand-col .elementor-widget-wrap { gap: 8px !important; }
+    body.elementor-page-59 .navbar-brand-widget .elementor-icon-box-wrapper { gap: 8px !important; }
+    body.elementor-page-59 .navbar-brand-widget .elementor-icon-box-icon .elementor-icon {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 15px !important;
+        border-radius: 10px !important;
+    }
+    body.elementor-page-59 .navbar-brand-widget .elementor-icon-box-title { font-size: 17px !important; }
+    body.elementor-page-59 .navbar-brand-widget .elementor-icon-box-description {
+        font-size: 8.5px !important;
+        margin-top: 1px !important;
+    }
+    body.elementor-page-59 .topbar-left-col .elementor-widget-wrap { gap: 0 14px !important; padding-top: 2px !important; }
+    body.elementor-page-59 .topbar-left-col .elementor-icon-box-title,
+    body.elementor-page-59 .topbar-left-col .elementor-icon-box-description {
+        font-size: 10.5px !important;
+        line-height: 1.2 !important;
+    }
+    body.elementor-page-59 .topbar-left-col .elementor-icon-box-wrapper,
+    body.elementor-page-59 .topbar-left-col .elementor-icon-box-row {
+        line-height: 1.2 !important;
+    }
+    body.elementor-page-59 .topbar-phone p { line-height: 1.35 !important; }
+    body.elementor-page-59 .topbar-right-col .elementor-widget-wrap { padding-bottom: 2px !important; }
+    body.elementor-page-59 .top-bar-custom,
+    body.elementor-page-59 .top-bar-custom > .elementor-container { min-height: 0 !important; }
+}
+
+@keyframes mtNavIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* 14. Kartu mengambang (hero bawah-gambar + about) — overlap tepi foto */
@@ -2528,4 +2733,35 @@ body.elementor-page-59 .sec-testimonial .testimonial-enterprise-card p {
 }
 body.elementor-page-59 .sec-testimonial .testimonial-enterprise-card .elementor-widget-text-editor.mb-0:not(.small):not(.testimonial-stars) p {
     color: #475569 !important;
+}
+
+/* ==============================================================
+   18. REVAMP SECTION (2026-10-10) — polesan halus, tetap struktur Elementor
+   ============================================================== */
+/* Montir: foto grayscale ringan → penuh saat hover */
+body.elementor-page-59 .sec-team-cards .team-enterprise-card .elementor-widget-image img {
+    filter: grayscale(0.4) contrast(1.03) !important;
+}
+body.elementor-page-59 .sec-team-cards .team-enterprise-card:hover .elementor-widget-image img {
+    filter: grayscale(0) contrast(1) !important;
+}
+
+/* Testimonial: transisi + hover angkat (sekarang statis) */
+body.elementor-page-59 .sec-testimonial-cards .testimonial-enterprise-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+body.elementor-page-59 .sec-testimonial-cards .testimonial-enterprise-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 12px 28px rgba(15, 42, 92, 0.10) !important;
+}
+
+/* Footer: link geser halus saat hover */
+body.elementor-page-59 .footer-links-list a,
+body.elementor-page-59 .footer-menu-links a {
+    transition: color 0.2s ease, transform 0.2s ease !important;
+    display: inline-block !important;
+}
+body.elementor-page-59 .footer-links-list a:hover,
+body.elementor-page-59 .footer-menu-links a:hover {
+    transform: translateX(2px) !important;
 }

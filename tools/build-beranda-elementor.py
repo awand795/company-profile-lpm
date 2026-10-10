@@ -193,7 +193,7 @@ def W_counter(ending, title, prefix="", suffix="", starting=0, cls="", delimiter
         st["_css_classes"] = cls
     return {"id": nid(), "elType": "widget", "widgetType": "counter", "settings": st, "elements": []}
 
-def W_icon_box(icon_val, title, desc, tag="h5", pos="left", cls=""):
+def W_icon_box(icon_val, title, desc, tag="h5", pos="left", cls="", pos_mobile=None):
     st = {
         "selected_icon": {"value": icon_val, "library": "fa-solid"},
         "title_text": title,
@@ -201,6 +201,11 @@ def W_icon_box(icon_val, title, desc, tag="h5", pos="left", cls=""):
         "title_size": tag,
         "position": pos
     }
+    # pos_mobile = kontrol responsive Elementor "Icon Position > Mobile"
+    # (default Elementor: block-start / icon di atas). Kontrol asli widget,
+    # bisa diganti user di panel editor Elementor.
+    if pos_mobile:
+        st["position_mobile"] = pos_mobile
     if cls:
         st["_css_classes"] = cls
     return {"id": nid(), "elType": "widget", "widgetType": "icon-box", "settings": st, "elements": []}
@@ -257,9 +262,10 @@ sections.append(make_section(
 sections.append(make_section(
     cols=[
         (30, "navbar-brand-col", [
-            W_icon_box("fas fa-truck", "MASTER TRUCK", "Bengkel Truk KIM III Medan", tag="h5", pos="left", cls="navbar-brand-widget"),
+            W_icon_box("fas fa-truck", "MASTER TRUCK", "Bengkel Truk KIM III Medan", tag="h5", pos="left", cls="navbar-brand-widget", pos_mobile="inline-start"),
+            W_button("", link="#", icon_val="fas fa-bars", icon_pos="before", align="right", cls="navbar-toggler"),
         ]),
-        (70, "navbar-menu-col", [
+        (70, "navbar-menu-col collapse navbar-collapse", [
             make_inner_section([
                 (9, "", [W_button("Beranda", link="#header-carousel", align="center", cls="nav-menu-link nav-link-active")]),
                 (9, "", [W_button("Tentang", link="#about", align="center", cls="nav-menu-link")]),
