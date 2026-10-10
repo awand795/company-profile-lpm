@@ -1391,7 +1391,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 }
 
 /* ==============================================================
-   9. BOOKING & EMERGENCY SECTION (#EEF4FF TINT BACKGROUND)
+   9. DEREK 24 JAM (#booking) — light polos + 3 kartu fitur
    ============================================================== */
 .booking-section-wrapper {
     background-color: var(--booking-bg) !important;
@@ -1399,51 +1399,71 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     padding-bottom: 80px;
 }
 
-.booking-form-box {
+/* Kartu fitur derek (icon-box Elementor / markup statis) */
+.derek-stat-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
     background: #FFFFFF;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-card);
-    padding: 32px;
-    box-shadow: var(--shadow-card-hover);
+    border: 1px solid rgba(37, 99, 235, 0.14);
+    border-radius: 16px;
+    padding: 18px 20px;
+    box-shadow: 0 2px 10px rgba(15, 42, 92, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.derek-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(15, 42, 92, 0.10);
 }
 
-.booking-form-box .form-control,
-.booking-form-box .form-select {
-    height: 48px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-input);
-    padding: 10px 16px;
-    font-size: 14px;
-    color: var(--heading);
-    background-color: var(--bg-light);
-    transition: all 0.2s ease;
+.derek-stat-icon {
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    color: var(--primary);
+    background: rgba(37, 99, 235, 0.10);
+}
+.derek-stat-teal .derek-stat-icon {
+    color: var(--acc-teal);
+    background: rgba(13, 148, 136, 0.12);
+}
+.derek-stat-amber .derek-stat-icon {
+    color: var(--acc-amber, #D97706);
+    background: rgba(217, 119, 6, 0.12);
 }
 
-.booking-form-box textarea.form-control {
-    height: auto;
-}
-
-.booking-form-box .form-control:focus,
-.booking-form-box .form-select:focus {
-    border-color: var(--primary);
-    background-color: #FFFFFF;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
-}
-
-.btn-booking-wa {
-    height: 48px;
-    background: linear-gradient(135deg, #2F6BF0 0%, var(--primary-hover) 100%) !important;
-    color: #FFFFFF !important;
-    border: none !important;
-    border-radius: var(--radius-btn);
+.derek-stat-title {
+    font-family: var(--font-heading);
+    font-size: 16px;
     font-weight: 700;
-    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
-    transition: all 0.2s ease;
+    color: var(--navy);
+    margin-bottom: 4px;
 }
-.btn-booking-wa:hover {
-    background: linear-gradient(135deg, var(--primary-hover) 0%, #1E40AF 100%) !important;
-    box-shadow: 0 6px 22px rgba(37, 99, 235, 0.4);
-    transform: translateY(-1px);
+
+.derek-stat-desc {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* Dot merah berdenyut di pill darurat */
+.live-dot-red {
+    width: 8px;
+    height: 8px;
+    background: var(--emergency-red, #DC2626);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--emergency-red, #DC2626);
+    display: inline-block;
+    animation: derek-pulse 1.6s ease-in-out infinite;
+}
+@keyframes derek-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.45; transform: scale(0.82); }
 }
 
 /* Emergency red CTA strictly for emergency towing */
@@ -1452,13 +1472,20 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     background-color: #DC2626 !important;
     border-color: #DC2626 !important;
     color: #FFFFFF !important;
-    box-shadow: 0 4px 14px rgba(220, 38, 38, 0.3) !important;
+    font-weight: 700;
+    border-radius: 12px;
+    padding: 12px 22px;
+    font-size: 14.5px;
+    box-shadow: 0 4px 14px rgba(220, 38, 38, 0.25);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 #booking .btn-danger:hover,
 .btn-emergency:hover {
     background-color: #B91C1C !important;
     border-color: #B91C1C !important;
     color: #FFFFFF !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(220, 38, 38, 0.35);
 }
 .badge.bg-danger-subtle {
     background-color: #FEE2E2 !important;
@@ -2049,7 +2076,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 }
 .sec-distribution > * { position: relative; z-index: 1; }
 
-/* 8. Booking: slate terang + dua glow aksen, form tetap kartu putih */
+/* 8. Derek: slate terang + dua glow aksen */
 .booking-section-wrapper {
     position: relative;
     overflow: hidden;
@@ -2080,12 +2107,11 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 .booking-section-wrapper .container { position: relative; z-index: 1; }
 
 /* Pill darurat: merah lembut (satu-satunya aksen merah, sesuai konteks) */
-.booking-section-wrapper .row > .col-lg-6:first-child .badge-section-pill {
+.booking-left-banner .badge-section-pill {
     background-color: #FEE2E2;
     color: #B91C1C;
     border-color: rgba(220, 38, 38, 0.30);
 }
-.booking-form-box { box-shadow: var(--shadow-card-hover); border: 1px solid var(--border); }
 
 /* 9. Tim: putih, garis warna di bawah kartu, wajah tidak terpotong */
 .sec-team { background-color: var(--surface); }
@@ -2954,9 +2980,8 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
 }
 
 /* ==============================================================
-   17.6 BOOKING & EMERGENCY (#booking)
-   Blok darurat kiri lebih menonjol (aksen merah lembut), chip SLA,
-   kartu form terangkat dengan fokus input yang tegas
+   17.6 DEREK 24 JAM (#booking)
+   Band terang + pill darurat berdenyut + 3 kartu fitur kanan
    ============================================================== */
 .container-fluid.booking-section-wrapper {
     background-color: #F0F6FE !important;
@@ -2971,6 +2996,11 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
         padding-top: 48px !important;
         padding-bottom: 48px !important;
     }
+    .booking-left-banner,
+    .booking-right-cards {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
 }
 
 .badge-emergency-pill {
@@ -2983,109 +3013,8 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     border-radius: var(--radius-pill);
     display: inline-flex;
     align-items: center;
+    gap: 8px;
     margin-bottom: 14px;
-}
-
-.btn-emergency {
-    background-color: var(--emergency-red) !important;
-    border-color: var(--emergency-red) !important;
-    color: #FFFFFF !important;
-    font-weight: 700;
-    border-radius: 12px;
-    padding: 12px 22px;
-    font-size: 14.5px;
-    box-shadow: 0 4px 14px rgba(220, 38, 38, 0.25);
-    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.btn-emergency:hover {
-    background-color: #B91C1C !important;
-    border-color: #B91C1C !important;
-    color: #FFFFFF !important;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(220, 38, 38, 0.35);
-}
-
-.booking-chips-grid {
-    display: flex;
-    gap: 12px;
-    margin-top: 24px;
-    flex-wrap: wrap;
-}
-
-.booking-chip-card {
-    background: #FFFFFF;
-    border: 1px solid rgba(37, 99, 235, 0.16);
-    border-radius: 14px;
-    padding: 12px 14px;
-    flex: 1;
-    min-width: 120px;
-    box-shadow: 0 2px 8px rgba(15, 42, 92, 0.04);
-}
-
-.booking-chip-val {
-    font-family: var(--font-heading);
-    font-size: 18px;
-    font-weight: 800;
-    color: var(--navy);
-    line-height: 1.2;
-}
-
-.booking-chip-lbl {
-    font-size: 11.5px;
-    color: var(--text-muted);
-    line-height: 1.35;
-    margin-top: 3px;
-}
-
-.booking-form-box {
-    background: #FFFFFF !important;
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 36px 32px;
-    box-shadow: 0 12px 36px rgba(15, 42, 92, 0.08);
-}
-
-@media (max-width: 575.98px) {
-    .booking-form-box {
-        padding: 24px 20px;
-    }
-}
-
-.booking-form-box .form-control,
-.booking-form-box .form-select {
-    border: 1px solid #CBD5E1;
-    border-radius: 12px;
-    padding: 12px 14px;
-    font-size: 14px;
-    color: var(--heading);
-    background-color: #FFFFFF;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.booking-form-box .form-control:focus,
-.booking-form-box .form-select:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.14);
-}
-
-.btn-booking-wa {
-    background-color: #25D366 !important;
-    border: none !important;
-    color: #FFFFFF !important;
-    font-weight: 700;
-    border-radius: 12px;
-    padding: 14px 20px;
-    font-size: 15px;
-    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
-    transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.btn-booking-wa:hover {
-    background-color: #1EBE5B !important;
-    color: #FFFFFF !important;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
 }
 
 /* ==============================================================
@@ -3324,7 +3253,7 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     .sec-principals .principal-wall-card,
     .sec-principals .principal-logo-stage img,
     .btn-emergency,
-    .btn-booking-wa,
+    .derek-stat-card,
     .sec-team .team-enterprise-card,
     .sec-team .team-photo-wrap img,
     .sec-testimonial .testimonial-enterprise-card {

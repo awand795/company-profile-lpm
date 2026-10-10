@@ -45,7 +45,7 @@ IMG = {
     "testi1": (f"{BASE}/testimonial-1.jpg", 122),
     "testi2": (f"{BASE}/testimonial-2.jpg", 123),
     "testi3": (f"{BASE}/testimonial-3.jpg", 124),
-    "about": (f"{BASE}/about.jpg", 126),
+    "about": (f"{BASE}/about-truck-repair.jpg", 199),
     "pertamina": (f"{BASE}/pertamina.png", 75),
     "mobil": (f"{BASE}/mobil.png", 77),
     "dunlop": (f"{BASE}/dunlop.png", 76),
@@ -65,7 +65,7 @@ def get_img_id(key):
 def nid():
     return secrets.token_hex(4)
 
-def make_section(cols, css_id="", css_classes="", bg_url=None, bg_color=None, layout="full_width", extra=None):
+def make_section(cols, css_id="", css_classes="", bg_url=None, bg_color=None, layout="full_width", extra=None, inline_sizes=None):
     st = {"layout": layout}
     if css_id:
         st["_element_id"] = css_id
@@ -85,10 +85,15 @@ def make_section(cols, css_id="", css_classes="", bg_url=None, bg_color=None, la
         st.update(extra)
     
     col_elements = []
-    for col_size, col_cls, widgets in cols:
+    for i, (col_size, col_cls, widgets) in enumerate(cols):
         col_st = {"_column_size": col_size}
         if col_cls:
             col_st["css_classes"] = col_cls
+        # _inline_size = kontrol "Column Width (%)" Elementor → menghasilkan
+        # rule width eksplisit di post-59.css (kelas elementor-col-* hanya
+        # punya 19 preset di Elementor 4, lebar lain tidak punya CSS).
+        if inline_sizes and i < len(inline_sizes) and inline_sizes[i] is not None:
+            col_st["_inline_size"] = inline_sizes[i]
         col_elements.append({
             "id": nid(),
             "elType": "column",
@@ -482,28 +487,26 @@ sections.append(make_section(
 ))
 
 # ==============================================================================
-# 8. BOOKING & DEREK 24 JAM — form via shortcode [mt_booking_form] (plugin mt-booking)
+# 8. DEREK 24 JAM — CTA darurat 2 kolom (kiri narasi+CTA, kanan 3 kartu fitur)
+#    Semua widget native Elementor (heading/text/button/icon-box) -> editable.
 # ==============================================================================
 sections.append(make_section(
     css_id="booking",
     css_classes="container-fluid py-5 px-0 booking-section-wrapper",
     cols=[
-        (50, "booking-left-banner p-4 p-lg-5", [
-            W_heading("Derek Siaga 24 Jam", tag="p", align="left", cls="badge-section-pill"),
-            W_heading("Truk Mogok? Kami Jemput Kapan Saja", tag="h2", align="left", cls="text-navy"),
-            W_text("<p class='mb-3'>Mogok di Medan, Belawan, Tebing Tinggi, atau lintas Sumatera? Mobil derek kami siap menjemput dan membawa truk Anda ke bengkel.</p><p class='mb-4'>Daftar jadi pelanggan perusahaan: <strong>bisa bayar tempo, harga khusus</strong>, dan <strong>gratis pantau servis online</strong>.</p>", align="left"),
+        (55, "booking-left-banner p-4 p-lg-5", [
+            W_heading('<span class="live-dot live-dot-red"></span>Derek Siaga 24 Jam', tag="p", align="left", cls="badge-section-pill badge-emergency-pill"),
+            W_heading("Truk Mogok? Kami Jemput Kapan Saja", tag="h2", align="left", cls="text-navy derek-title"),
+            W_text("<p class='mb-3'>Mogok di Medan, Belawan, Tebing Tinggi, atau lintas Sumatera? Mobil derek kami siap menjemput dan membawa truk Anda ke bengkel.</p><p class='mb-4'>Daftar jadi pelanggan perusahaan: <strong>bisa bayar tempo, harga khusus</strong>, dan <strong>gratis pantau servis online</strong>.</p>", align="left", cls="derek-desc"),
             make_inner_section([
-                (50, "", [W_button("0812-3456-7890", link="tel:081234567890", icon_val="fas fa-phone-alt", icon_pos="before", cls="btn-booking-call")]),
-                (50, "", [W_button("Daftar Fleet", link="http://localhost:3000/#register", icon_val="fas fa-user-plus", icon_pos="before", cls="btn-booking-reg", is_ext=True)]),
-            ], css_classes="booking-cta-btns mb-4"),
-            W_text("""<div class="d-flex flex-wrap gap-2">
-                <span class="badge bg-light text-dark p-2 border"><i class="fa fa-clock text-primary me-1"></i>&lt; 60 mnt Tanggap</span>
-                <span class="badge bg-light text-dark p-2 border"><i class="fa fa-phone-alt text-primary me-1"></i>24 jam Siaga Nonstop</span>
-                <span class="badge bg-light text-dark p-2 border"><i class="fa fa-file-invoice text-primary me-1"></i>Tempo Bayar 30 Hari</span>
-            </div>""", align="left"),
+                (55, "", [W_button("Telepon Sekarang &mdash; 0812-3456-7890", link="tel:081234567890", icon_val="fas fa-phone-alt", icon_pos="before", cls="btn-booking-call")]),
+                (45, "", [W_button("Daftar Fleet", link="http://localhost:3000/#register", icon_val="fas fa-user-plus", icon_pos="before", cls="btn-booking-reg", is_ext=True)]),
+            ], css_classes="booking-cta-btns"),
         ]),
-        (50, "p-4 p-lg-5", [
-            W_shortcode("[mt_booking_form]", cls="booking-form-shortcode")
+        (45, "booking-right-cards p-4 p-lg-5", [
+            W_icon_box("far fa-clock", "< 60 Menit Tanggap", "Truk kami jemput di area Medan &ndash; Belawan secepatnya setelah Anda telepon.", tag="h5", pos="left", cls="derek-stat-card derek-stat-blue"),
+            W_icon_box("fas fa-phone-alt", "Siaga 24 Jam Nonstop", "Layanan derek darurat termasuk malam hari, akhir pekan, dan hari libur.", tag="h5", pos="left", cls="derek-stat-card derek-stat-teal"),
+            W_icon_box("fas fa-file-invoice", "Tempo Bayar 30 Hari", "Khusus pelanggan perusahaan yang terdaftar di Master Truck.", tag="h5", pos="left", cls="derek-stat-card derek-stat-amber"),
         ]),
     ]
 ))
@@ -590,16 +593,17 @@ sections.append(make_section(
     css_id="faq",
     css_classes="container-xxl py-5 sec-faq",
     cols=[
-        (38, "pe-lg-4", [
+        (33, "pe-lg-4", [
             W_heading("Tanya Jawab", tag="p", align="left", cls="badge-section-pill"),
             W_heading("Sering Ditanyakan", tag="h2", align="left"),
             W_text("<p class='text-muted mb-4'>Masih ragu? Chat kami gratis, tanya-tanya dulu juga boleh.</p>", align="left"),
             W_button("Tanya via WhatsApp", link="https://wa.me/6281234567890", icon_val="fab fa-whatsapp", icon_pos="before", cls="btn-faq-whatsapp", is_ext=True),
         ]),
-        (62, "ps-lg-4", [
+        (66, "ps-lg-4", [
             W_accordion(FAQ_ITEMS, cls="faqAccordion")
         ]),
-    ]
+    ],
+    inline_sizes=[33.33, 66.67],
 ))
 
 # ==============================================================================
@@ -678,10 +682,27 @@ try:
         update_post_meta(59, '_elementor_edit_mode', 'builder');
         update_post_meta(59, '_wp_page_template', 'elementor_canvas');
         delete_post_meta(59, '_elementor_css');
+        // Hapus file CSS hasil-generate Elementor yang basi agar di-regenerate
+        // dari _elementor_data terbaru saat halaman dibuka (mencegah ID section
+        // di CSS tidak sinkron dengan data -> background hero hilang).
+        foreach (glob(WP_CONTENT_DIR . '/uploads/elementor/css/post-59*.css') as $f) { @unlink($f); }
         echo "Post 59 updated successfully.\\n";
         """
         subprocess.run(["docker", "exec", CONTAINER, "wp", "--allow-root", "--path=/var/www/html", "eval", eval_php], check=True)
         subprocess.run(["docker", "exec", CONTAINER, "wp", "--allow-root", "--path=/var/www/html", "elementor", "flush-css"], check=True)
+        # Guard: bila post-59.css kosong 0 byte (flush gagal menulis tapi meta
+        # sudah di-set "valid"), reset meta supaya di-regenerate saat halaman dibuka.
+        guard_php = """
+        $f = WP_CONTENT_DIR . '/uploads/elementor/css/post-59.css';
+        if ( ! file_exists( $f ) || 0 === (int) filesize( $f ) ) {
+            delete_post_meta( 59, '_elementor_css' );
+            @unlink( $f );
+            echo "post-59.css kosong -> meta di-reset (regen saat halaman dibuka)\\n";
+        } else {
+            echo "post-59.css OK (" . filesize( $f ) . " bytes)\\n";
+        }
+        """
+        subprocess.run(["docker", "exec", CONTAINER, "wp", "--allow-root", "--path=/var/www/html", "eval", guard_php], check=True)
         print("Deploy ke WordPress Post ID 59 selesai & Elementor CSS flushed!")
 except Exception as e:
     print(f"Catatan: deploy otomatis ke WordPress dilewati ({e})")

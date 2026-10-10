@@ -55,7 +55,7 @@ if [[ -z "$home" ]]; then
   warn "tidak bisa mengunduh $URL/ (container mati?)"
 else
   miss=0
-  for m in 'header-carousel' 'hero-brand-pill' 'about-check-list' 'fact-strip' 'service-grid-card' 'principal-wall-card' 'booking-form-box' 'bk_name' 'team-enterprise-card' 'testimonial-enterprise-card' 'faqAccordion' 'footer-clean' 'floating-wa-btn' 'mt-mastertruck' 'elementor'; do
+  for m in 'header-carousel' 'hero-brand-pill' 'about-check-list' 'fact-strip' 'service-grid-card' 'principal-wall-card' 'booking-section-wrapper' 'derek-stat-card' 'team-enterprise-card' 'testimonial-enterprise-card' 'faqAccordion' 'footer-clean' 'floating-wa-btn' 'mt-mastertruck' 'elementor'; do
     grep -q "$m" <<<"$home" || { warn "marker hilang di homepage: $m"; miss=1; }
   done
   for m in 'bg-dark' 'brand-badge-card' 'template-mastertruck'; do

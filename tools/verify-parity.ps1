@@ -50,7 +50,7 @@ if ($pyCmd) {
 try {
     $htmlContent = (Invoke-WebRequest -Uri "$Url/" -TimeoutSec 20 -UseBasicParsing).Content
     $miss = 0
-    foreach ($m in @('header-carousel', 'hero-brand-pill', 'top-social-btn', 'nav-menu-link', 'btn-nav-login', 'about-check-list', 'fact-strip', 'service-grid-card', 'principal-wall-card', 'booking-form-box', 'bk_name', 'team-enterprise-card', 'testimonial-enterprise-card', 'faqAccordion', 'footer-clean', 'footer-links-list', 'btn-footer-social', 'btn-footer-login', 'footer-copyright', 'floating-wa-btn', 'mt-mastertruck', 'elementor', 'elementor-bridge')) {
+    foreach ($m in @('header-carousel', 'hero-brand-pill', 'top-social-btn', 'nav-menu-link', 'btn-nav-login', 'about-check-list', 'fact-strip', 'service-grid-card', 'principal-wall-card', 'booking-section-wrapper', 'derek-stat-card', 'team-enterprise-card', 'testimonial-enterprise-card', 'faqAccordion', 'footer-clean', 'footer-links-list', 'btn-footer-social', 'btn-footer-login', 'footer-copyright', 'floating-wa-btn', 'mt-mastertruck', 'elementor', 'elementor-bridge')) {
         if ($htmlContent -notmatch [regex]::Escape($m)) { Warn-Msg "marker hilang di homepage: $m"; $miss = 1 }
     }
     foreach ($m in @('bg-dark', 'brand-badge-card', 'template-mastertruck')) {

@@ -571,80 +571,51 @@ if ( ! function_exists( 'mt_get_content' ) ) {
     <!-- Principals End -->
 
 
-    <!-- Booking & Emergency Start -->
+    <!-- Derek 24 Jam Start -->
     <div id="booking" class="container-fluid booking-section-wrapper">
         <div class="container">
             <div class="row gx-5 align-items-center">
-                <div class="col-lg-6 py-5">
+                <div class="col-lg-7 booking-left-banner py-5">
                     <div class="py-4">
-                        <span class="badge-section-pill badge-emergency-pill"><i class="fa fa-phone-volume me-1"></i><?php echo esc_html( mt_get_content( 'book_pill', 'Derek Siaga 24 Jam' ) ); ?></span>
-                        <h2 class="mb-3"><?php echo esc_html( mt_get_content( 'book_title', 'Truk Mogok? Kami Jemput Kapan Saja' ) ); ?></h2>
-                        <p class="mb-3">
+                        <span class="badge-section-pill badge-emergency-pill"><span class="live-dot live-dot-red"></span>Derek Siaga 24 Jam</span>
+                        <h2 class="mb-3 derek-title">Truk Mogok? Kami Jemput Kapan Saja</h2>
+                        <p class="mb-3 derek-desc">
                             <?php echo esc_html( mt_get_content( 'book_desc1', 'Mogok di Medan, Belawan, Tebing Tinggi, atau lintas Sumatera? Mobil derek kami siap menjemput dan membawa truk Anda ke bengkel.' ) ); ?>
                         </p>
-                        <p class="mb-4">
+                        <p class="mb-4 derek-desc">
                             <?php echo wp_kses_post( mt_get_content( 'book_desc2', 'Daftar jadi pelanggan perusahaan: <strong>bisa bayar tempo</strong>, <strong>harga khusus</strong>, dan <strong>gratis pantau servis online</strong>.' ) ); ?>
                         </p>
-                        <div class="d-flex flex-wrap gap-2 mb-4">
-                            <a href="<?php echo esc_attr( 'tel:' . preg_replace( '/[^0-9+]/', '', mt_get_content( 'book_phone', '0812-3456-7890' ) ) ); ?>" class="btn btn-emergency">
-                                <i class="fa fa-phone-alt me-2"></i><?php echo esc_html( mt_get_content( 'book_phone', '0812-3456-7890' ) ); ?>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a href="tel:081234567890" class="btn btn-emergency">
+                                <i class="fa fa-phone-alt me-2"></i>Telepon Sekarang &mdash; 0812-3456-7890
                             </a>
                             <a href="http://localhost:3000/#register" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">
                                 <i class="fa fa-user-plus me-2"></i>Daftar Fleet
                             </a>
                         </div>
-                        <div class="booking-chips-grid">
-                            <div class="booking-chip-card">
-                                <div class="booking-chip-val">&lt; 60 mnt</div>
-                                <div class="booking-chip-lbl">Datang area KIM — Belawan</div>
-                            </div>
-                            <div class="booking-chip-card">
-                                <div class="booking-chip-val">24 jam</div>
-                                <div class="booking-chip-lbl">Siaga telepon derek</div>
-                            </div>
-                            <div class="booking-chip-card">
-                                <div class="booking-chip-val">Tempo</div>
-                                <div class="booking-chip-lbl">Bisa bayar belakangan</div>
-                            </div>
-                        </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="booking-form-box wow zoomIn" data-wow-delay="0.2s">
-                        <h3 class="text-center mb-1">Booking Servis Truk</h3>
-                        <p class="text-center text-muted mb-4">Isi form — langsung terkirim ke WhatsApp bengkel.</p>
-                        <form onsubmit="event.preventDefault(); window.open('https://wa.me/<?php echo esc_attr( preg_replace( '/[^0-9]/', '', mt_get_content( 'book_wa', '6281234567890' ) ) ); ?>?text=Halo%20Master%20Truck,%20saya%20ingin%20jadwalkan%20servis:%0ANama:%20' + encodeURIComponent(document.getElementById('bk_name').value) + '%0ANo%20WA:%20' + encodeURIComponent(document.getElementById('bk_phone').value) + '%0ALayanan:%20' + encodeURIComponent(document.getElementById('bk_service').value) + '%0ATanggal:%20' + encodeURIComponent(document.getElementById('bk_date').value) + '%0ANoPol/Keterangan:%20' + encodeURIComponent(document.getElementById('bk_notes').value), '_blank');">
-                            <div class="row g-3">
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" id="bk_name" class="form-control" placeholder="Nama / Perusahaan" required>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="tel" id="bk_phone" class="form-control" placeholder="No. WhatsApp" required>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <select id="bk_service" class="form-select">
-                                        <option value="Servis Rutin & Cek 30 Bagian" selected>Servis Rutin &amp; Cek 30 Bagian</option>
-                                        <option value="Servis Mesin Besar">Servis Mesin Besar</option>
-                                        <option value="Rem Angin & Kaki-Kaki">Rem Angin &amp; Kaki-Kaki</option>
-                                        <option value="Ganti Oli">Ganti Oli</option>
-                                        <option value="Ban Dunlop">Ban Dunlop</option>
-                                        <option value="Aki & Kelistrikan">Aki &amp; Kelistrikan</option>
-                                        <option value="Derek Darurat 24 Jam">Derek Darurat 24 Jam</option>
-                                    </select>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="date" id="bk_date" class="form-control">
-                                </div>
-                                <div class="col-12">
-                                    <textarea id="bk_notes" class="form-control" placeholder="Nomor Polisi / Gejala Kerusakan" rows="3"></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-booking-wa w-100" type="submit">
-                                        <i class="fab fa-whatsapp me-2"></i>Kirim Permintaan Servis
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+                <div class="col-lg-5 booking-right-cards py-5">
+                    <div class="derek-stat-card derek-stat-blue mb-3">
+                        <div class="derek-stat-icon"><i class="far fa-clock"></i></div>
+                        <div>
+                            <h5 class="derek-stat-title">&lt; 60 Menit Tanggap</h5>
+                            <p class="derek-stat-desc mb-0">Truk kami jemput di area Medan &ndash; Belawan secepatnya setelah Anda telepon.</p>
+                        </div>
+                    </div>
+                    <div class="derek-stat-card derek-stat-teal mb-3">
+                        <div class="derek-stat-icon"><i class="fa fa-phone-alt"></i></div>
+                        <div>
+                            <h5 class="derek-stat-title">Siaga 24 Jam Nonstop</h5>
+                            <p class="derek-stat-desc mb-0">Layanan derek darurat termasuk malam hari, akhir pekan, dan hari libur.</p>
+                        </div>
+                    </div>
+                    <div class="derek-stat-card derek-stat-amber mb-0">
+                        <div class="derek-stat-icon"><i class="fa fa-file-invoice"></i></div>
+                        <div>
+                            <h5 class="derek-stat-title">Tempo Bayar 30 Hari</h5>
+                            <p class="derek-stat-desc mb-0">Khusus pelanggan perusahaan yang terdaftar di Master Truck.</p>
+                        </div>
                     </div>
                 </div>
             </div>
