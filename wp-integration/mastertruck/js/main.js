@@ -215,7 +215,15 @@
                 closeNav();
                 const target = document.querySelector(href);
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Scroll ke posisi LAYOUT (offsetTop tak terpengaruh transform
+                    // reveal — getBoundingClientRect masih membawa translateY saat
+                    // transisi berjalan → landing meleset 16px). scroll-margin-top
+                    // dibaca dari CSS agar tetap satu sumber dengan stylesheet.
+                    const smt = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
+                    let y = 0;
+                    let node = target;
+                    while (node) { y += node.offsetTop; node = node.offsetParent; }
+                    window.scrollTo({ top: Math.max(0, y - smt), behavior: 'smooth' });
                     history.pushState(null, '', href);
                 }
             } else {
@@ -266,6 +274,69 @@
                     }, 6000);
                 }
             );
+        }
+    });
+
+    // ===== Revamp lanjutan (2026-10-10): reveal, carousel HP, back-to-top =====
+    $(document).ready(function () {
+        document.body.classList.add('mt-js');
+        var isPage59 = document.body.classList.contains('elementor-page-59');
+        var inEditor = document.body.classList.contains('elementor-editor-active');
+
+        // 1) Reveal halus per section — sekali tampil lalu unobserve.
+        //    Kecualikan: navbar (sticky), hero (jangan berkedip), topbar, WA float.
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (isPage59 && !inEditor && !reduce && 'IntersectionObserver' in window) {
+            var targets = document.querySelectorAll(
+                'body.elementor-page-59 .elementor-top-section' +
+                ':not(.navbar):not(.mt-hero-slide):not(.top-bar-custom):not(.mt-wa-float-section)'
+            );
+            if (targets.length) {
+                var io = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (en) {
+                        if (en.isIntersecting) {
+                            en.target.classList.add('is-inview');
+                            io.unobserve(en.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+                Array.prototype.forEach.call(targets, function (el) {
+                    el.classList.add('mt-reveal');
+                    io.observe(el);
+                });
+            }
+        }
+
+        // 2) Carousel HP: matikan fade tepi kanan saat sudah di ujung scroll
+        ['.sec-services-cards', '.sec-team-cards', '.sec-testimonial-cards'].forEach(function (sel) {
+            Array.prototype.forEach.call(document.querySelectorAll(sel), function (sec) {
+                var box = sec.querySelector(':scope > .elementor-container');
+                if (!box) { return; }
+                var upd = function () {
+                    var atEnd = box.scrollLeft + box.clientWidth >= box.scrollWidth - 4;
+                    sec.classList.toggle('mt-scroll-end', atEnd);
+                };
+                box.addEventListener('scroll', upd, { passive: true });
+                upd();
+            });
+        });
+
+        // 3) Back-to-top (hanya homepage, di luar Elementor editor)
+        if (isPage59 && !inEditor) {
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'mt-back-top';
+            btn.setAttribute('aria-label', 'Kembali ke atas');
+            btn.innerHTML = '<i class="fas fa-arrow-up" aria-hidden="true"></i>';
+            document.body.appendChild(btn);
+            btn.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            var tick = function () {
+                btn.classList.toggle('is-visible', window.scrollY > 400);
+            };
+            window.addEventListener('scroll', tick, { passive: true });
+            tick();
         }
     });
 

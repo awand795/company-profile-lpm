@@ -2828,3 +2828,203 @@ body.elementor-page-59 .footer-links-list a:hover,
 body.elementor-page-59 .footer-menu-links a:hover {
     transform: translateX(2px) !important;
 }
+
+/* ==============================================================
+   19. REVAMP LANJUTAN (2026-10-10) — carousel HP, hamburger→X,
+   foto mobile penuh, hero stats HP, back-to-top, reveal halus
+   ============================================================== */
+
+/* 19A. Montir: warna penuh di layar sentuh — grayscale hanya perangkat
+   yang punya hover (netralkan aturan 18, aktifkan lagi di media hover) */
+body.elementor-page-59 .sec-team-cards .team-enterprise-card .elementor-widget-image img {
+    filter: none !important;
+}
+@media (hover: hover) and (pointer: fine) {
+    body.elementor-page-59 .sec-team-cards .team-enterprise-card .elementor-widget-image img {
+        filter: grayscale(0.4) contrast(1.03) !important;
+    }
+    body.elementor-page-59 .sec-team-cards .team-enterprise-card:hover .elementor-widget-image img {
+        filter: grayscale(0) contrast(1) !important;
+    }
+}
+
+/* 19B. Hamburger → X saat panel terbuka (state dari aria-expanded, JS tetap) */
+body.elementor-page-59 .navbar .navbar-toggler .elementor-button-icon {
+    position: relative !important;
+}
+body.elementor-page-59 .navbar .navbar-toggler .elementor-button-icon svg {
+    transition: opacity 0.2s ease, transform 0.2s ease !important;
+}
+body.elementor-page-59 .navbar .navbar-toggler[aria-expanded="true"] .elementor-button-icon svg {
+    opacity: 0 !important;
+    transform: scale(0.5) !important;
+}
+body.elementor-page-59 .navbar .navbar-toggler[aria-expanded="true"] .elementor-button-icon::before,
+body.elementor-page-59 .navbar .navbar-toggler[aria-expanded="true"] .elementor-button-icon::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 18px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--navy, #0F2A5C);
+}
+body.elementor-page-59 .navbar .navbar-toggler[aria-expanded="true"] .elementor-button-icon::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+body.elementor-page-59 .navbar .navbar-toggler[aria-expanded="true"] .elementor-button-icon::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* 19C. Hero stats tampil compact di HP (override .d-none d-md-flex) */
+@media (max-width: 767.98px) {
+    body.elementor-page-59 .hero-stats-inner.d-none {
+        display: flex !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 1rem !important;
+    }
+    body.elementor-page-59 .hero-stats-inner > .elementor-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        justify-content: flex-start !important;
+    }
+    body.elementor-page-59 .hero-stats-inner .elementor-column {
+        flex: 1 1 0 !important;
+        width: auto !important;
+        padding: 0 10px !important;
+    }
+    body.elementor-page-59 .hero-counter-item .elementor-counter-number-wrapper {
+        font-size: 1.15rem !important;
+    }
+    body.elementor-page-59 .hero-counter-item .elementor-counter-title {
+        font-size: 10.5px !important;
+        white-space: normal !important;
+    }
+}
+
+/* 19D. Carousel scroll-snap: Service / Team / Testimonial di HP.
+   Struktur Elementor tak tersentuh — hanya CSS pada inner section. */
+@media (max-width: 767.98px) {
+    body.elementor-page-59 .sec-services-cards,
+    body.elementor-page-59 .sec-team-cards,
+    body.elementor-page-59 .sec-testimonial-cards {
+        position: relative !important;
+    }
+    body.elementor-page-59 .sec-services-cards > .elementor-container,
+    body.elementor-page-59 .sec-team-cards > .elementor-container,
+    body.elementor-page-59 .sec-testimonial-cards > .elementor-container {
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+        padding-top: 6px !important;
+        padding-bottom: 6px !important;
+        margin-top: -6px !important;
+        margin-bottom: -6px !important;
+    }
+    body.elementor-page-59 .sec-services-cards > .elementor-container::-webkit-scrollbar,
+    body.elementor-page-59 .sec-team-cards > .elementor-container::-webkit-scrollbar,
+    body.elementor-page-59 .sec-testimonial-cards > .elementor-container::-webkit-scrollbar {
+        display: none !important;
+        height: 0 !important;
+    }
+    body.elementor-page-59 .sec-services-cards .service-column-card,
+    body.elementor-page-59 .sec-services-cards .service-grid-card,
+    body.elementor-page-59 .sec-team-cards .team-column-card,
+    body.elementor-page-59 .sec-team-cards .team-enterprise-card,
+    body.elementor-page-59 .sec-testimonial-cards .testimonial-column-card,
+    body.elementor-page-59 .sec-testimonial-cards .testimonial-enterprise-card {
+        flex: 0 0 84% !important;
+        width: 84% !important;
+        max-width: none !important;
+        scroll-snap-align: start !important;
+        scroll-snap-stop: always !important;
+    }
+    /* Fade tepi kanan (hint "masih ada") — hilang saat di ujung scroll,
+       dikontrol class .mt-scroll-end dari main.js */
+    body.elementor-page-59 .sec-services-cards::after,
+    body.elementor-page-59 .sec-team-cards::after,
+    body.elementor-page-59 .sec-testimonial-cards::after {
+        content: "" !important;
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 40px !important;
+        pointer-events: none !important;
+        z-index: 3 !important;
+        opacity: 1 !important;
+        transition: opacity 0.3s ease !important;
+    }
+    body.elementor-page-59 .sec-services-cards::after,
+    body.elementor-page-59 .sec-team-cards::after {
+        background: linear-gradient(to right, rgba(255, 255, 255, 0), #FFFFFF) !important;
+    }
+    body.elementor-page-59 .sec-testimonial-cards::after {
+        background: linear-gradient(to right, rgba(250, 248, 245, 0), #FAF8F5) !important;
+    }
+    body.elementor-page-59 .sec-services-cards.mt-scroll-end::after,
+    body.elementor-page-59 .sec-team-cards.mt-scroll-end::after,
+    body.elementor-page-59 .sec-testimonial-cards.mt-scroll-end::after {
+        opacity: 0 !important;
+    }
+}
+
+/* 19E. Back-to-top — di atas tombol WA (WA: bottom 24, tinggi 50) */
+body.mt-back-top {
+    position: fixed !important;
+    bottom: 86px !important;
+    right: 28px !important;
+    z-index: 1021 !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    border: none !important;
+    cursor: pointer !important;
+    background: #0F2A5C !important;
+    color: #FFFFFF !important;
+    font-size: 16px !important;
+    line-height: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 6px 18px rgba(15, 42, 92, 0.35) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(10px) !important;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, background 0.2s ease !important;
+    padding: 0 !important;
+}
+body.mt-back-top.is-visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
+body.mt-back-top:hover {
+    background: var(--primary, #2563EB) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* 19F. Reveal halus tiap section saat masuk viewport.
+   Hanya aktif bila JS jalan (body.mt-js) — tanpa JS konten tampil normal.
+   Navbar & hero dikecualikan dari JS. */
+body.mt-js .elementor-top-section.mt-reveal {
+    opacity: 0 !important;
+    transform: translateY(16px) !important;
+    transition: opacity 0.55s ease-out, transform 0.55s ease-out !important;
+}
+body.mt-js .elementor-top-section.mt-reveal.is-inview {
+    opacity: 1 !important;
+    transform: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+    body.mt-js .elementor-top-section.mt-reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
