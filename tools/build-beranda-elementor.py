@@ -139,12 +139,14 @@ def W_heading(title, tag="h2", align="left", color="", cls=""):
         st["_css_classes"] = cls
     return {"id": nid(), "elType": "widget", "widgetType": "heading", "settings": st, "elements": []}
 
-def W_text(html, align="left", color="", cls=""):
+def W_text(html, align="left", color="", cls="", extra=None):
     st = {"editor": html, "align": align}
     if color:
         st["text_color"] = color
     if cls:
         st["_css_classes"] = cls
+    if extra:
+        st.update(extra)
     return {"id": nid(), "elType": "widget", "widgetType": "text-editor", "settings": st, "elements": []}
 
 def W_image(img_input, alt="", align="center", cls=""):
@@ -253,7 +255,10 @@ sections.append(make_section(
         ]),
     ],
     css_classes="container-fluid top-bar-custom p-0",
-    layout="full_width"
+    layout="full_width",
+    # Kontrol asli Elementor: Advanced > Responsive > Hide On Mobile.
+    # <768px topbar disembunyikan; info pindah ke widget panel-info di menu.
+    extra={"hide_mobile": "hidden-mobile"}
 ))
 
 # ==============================================================================
@@ -273,9 +278,20 @@ sections.append(make_section(
                 (9, "", [W_button("Mitra", link="#testimonial", align="center", cls="nav-menu-link")]),
                 (9, "", [W_button("FAQ", link="#faq", align="center", cls="nav-menu-link")]),
                 (9, "", [W_button("Kontak", link="#contact", align="center", cls="nav-menu-link")]),
-                (23, "", [W_button("Login Fleet", link="http://localhost:3000/#login", icon_val="fas fa-sign-in-alt", icon_pos="before", align="center", cls="btn-nav-login", is_ext=True)]),
-                (23, "", [W_button("Daftar Fleet", link="http://localhost:3000/#register", icon_val="fas fa-user-plus", icon_pos="before", align="center", cls="btn-nav-register", is_ext=True)]),
+                (23, "menu-cta-col", [W_button("Login Fleet", link="http://localhost:3000/#login", icon_val="fas fa-sign-in-alt", icon_pos="before", align="center", cls="btn-nav-login", is_ext=True)]),
+                (23, "menu-cta-col", [W_button("Daftar Fleet", link="http://localhost:3000/#register", icon_val="fas fa-user-plus", icon_pos="before", align="center", cls="btn-nav-register", is_ext=True)]),
             ], css_classes="navbar-right-inner"),
+            # Info kontak pengganti topbar — hanya tampil di HP (topbar
+            # <768 disembunyikan via kontrol asli Elementor "Hide On Mobile").
+            # hide_desktop/hide_tablet = kontrol Responsive Elementor yang sama.
+            W_text(
+                '<p class="panel-info-line">KIM III Medan — Sumatera Utara<br>'
+                'Senin – Sabtu : 08.00 – 17.00 WIB<br>'
+                '<a href="tel:06188881234"><strong>061-8888-1234</strong></a></p>',
+                align="center",
+                cls="panel-info",
+                extra={"hide_desktop": "hidden-desktop", "hide_tablet": "hidden-tablet"},
+            ),
         ]),
     ],
     css_classes="navbar navbar-expand-lg bg-white navbar-light shadow-sm sticky-top px-3 px-lg-4",

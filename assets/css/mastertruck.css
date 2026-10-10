@@ -1851,9 +1851,11 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     background: linear-gradient(90deg, var(--acc-blue), var(--acc-teal));
 }
 
-/* Topbar disembunyikan di mobile */
+/* Topbar disembunyikan di mobile — .top-bar-custom dkk. disembunyikan lewat
+   kontrol asli Elementor "Hide On Mobile" (class elementor-hidden-mobile,
+   ditangani di elementor-bridge.css), bukan hard-coded, agar bisa di-toggle
+   dari editor. .mt-topbar (plugin lama) tetap hard-hide. */
 @media (max-width: 991.98px) {
-    .top-bar-custom,
     .mt-topbar { display: none !important; }
 }
 

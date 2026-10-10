@@ -2139,7 +2139,7 @@ body.elementor-page-59 .topbar-left-col .elementor-icon-box-wrapper {
         fill: var(--navy) !important;
     }
 
-    /* --- Panel menu: grid 2 kolom, rapi seperti kartu --- */
+    /* --- Panel menu: kartu putih --- */
     body.elementor-page-59 .navbar-menu-col.collapse.navbar-collapse {
         flex-basis: 100% !important;
         margin-top: 12px !important;
@@ -2154,28 +2154,53 @@ body.elementor-page-59 .topbar-left-col .elementor-icon-box-wrapper {
         display: flex !important;
         animation: mtNavIn 0.22s ease;
     }
+    /* Isi panel: 1 kolom standar HP, tombol full-width */
     body.elementor-page-59 .navbar-right-inner > .elementor-container {
-        display: grid !important;
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        flex-wrap: wrap !important;
-        gap: 8px !important;
-        justify-content: stretch !important;
+        display: flex !important;
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
+        gap: 6px !important;
+        justify-content: flex-start !important;
     }
     body.elementor-page-59 .navbar-right-inner .elementor-column {
-        width: auto !important;
+        width: 100% !important;
     }
-    body.elementor-page-59 .navbar-right-inner .nav-menu-link.elementor-widget-button {
+    body.elementor-page-59 .navbar-right-inner .elementor-widget-button {
         width: 100% !important;
         margin: 0 !important;
     }
-    body.elementor-page-59 .navbar-right-inner .nav-menu-link .elementor-button,
-    body.elementor-page-59 .btn-nav-login .elementor-button,
-    body.elementor-page-59 .btn-nav-register .elementor-button {
+    body.elementor-page-59 .navbar-right-inner .elementor-button {
         width: 100% !important;
         justify-content: center !important;
+        text-align: center !important;
+    }
+    /* Pemisah sebelum blok CTA (kolom ke-7 dari 8 sel = :nth-last-child(2)) */
+    body.elementor-page-59 .navbar-right-inner > .elementor-container > .menu-cta-col:nth-last-child(2) {
+        border-top: 1px solid var(--hairline) !important;
+        padding-top: 8px !important;
+        margin-top: 4px !important;
     }
     body.elementor-page-59 .btn-nav-login.elementor-widget-button {
         margin-left: 0 !important;
+    }
+    /* Info kontak pengganti topbar — widget Text Editor Elementor,
+       tampil hanya di HP (hide_desktop + hide_tablet di kontrol
+       Responsive widget; topbar pakai hide_mobile di kontrol section) */
+    body.elementor-page-59 .panel-info {
+        margin-top: 8px !important;
+        margin-bottom: 0 !important;
+    }
+    body.elementor-page-59 .panel-info .panel-info-line {
+        font-family: var(--font-body) !important;
+        font-size: 12px !important;
+        line-height: 1.7 !important;
+        color: var(--text-muted) !important;
+        text-align: center !important;
+        margin: 0 !important;
+    }
+    body.elementor-page-59 .panel-info .panel-info-line a {
+        color: var(--primary) !important;
+        text-decoration: none !important;
     }
 
     /* --- Topbar mobile: 2 baris compact, bukan 4 baris renggang --- */
@@ -2235,6 +2260,44 @@ body.elementor-page-59 .topbar-left-col .elementor-icon-box-wrapper {
     body.elementor-page-59 .topbar-right-col .elementor-widget-wrap { padding-bottom: 2px !important; }
     body.elementor-page-59 .top-bar-custom,
     body.elementor-page-59 .top-bar-custom > .elementor-container { min-height: 0 !important; }
+}
+
+/* Sembunyikan topbar di HP (≤767px) — menang dari
+   .top-bar-custom{display:block!important} di mastertruck.css (spesifisitas
+   + !important). Dikunci ke class elementor-hidden-mobile hasil kontrol
+   Elementor "Hide On Mobile": class dilepas di editor → topbar tampil lagi.
+   768–991px: topbar tampil (1 baris, blok di bawah). */
+@media (max-width: 767.98px) {
+    body.elementor-page-59 .top-bar-custom.elementor-hidden-mobile {
+        display: none !important;
+    }
+}
+
+/* --- Topbar tablet (768–991): 1 baris side-by-side, jangan nempel kiri.
+   Blok ini harus SETELAH media max991.98 di atas agar menang tie-break. --- */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    body.elementor-page-59 .top-bar-custom > .elementor-container {
+        flex-wrap: nowrap !important;
+        justify-content: space-between !important;
+        gap: 16px !important;
+    }
+    body.elementor-page-59 .top-bar-custom > .elementor-container > .elementor-column {
+        width: auto !important;
+        flex: 0 0 auto !important;
+    }
+    body.elementor-page-59 .topbar-left-col .elementor-widget-wrap {
+        flex-wrap: nowrap !important;
+        gap: 14px !important;
+        padding-top: 6px !important;
+        padding-bottom: 6px !important;
+    }
+    body.elementor-page-59 .topbar-right-col .elementor-widget-wrap {
+        flex-wrap: nowrap !important;
+        justify-content: flex-end !important;
+        gap: 14px !important;
+        padding-top: 6px !important;
+        padding-bottom: 6px !important;
+    }
 }
 
 @keyframes mtNavIn {

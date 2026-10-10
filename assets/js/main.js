@@ -205,7 +205,23 @@
             const open = $panel.toggleClass('show').hasClass('show');
             $toggler.attr('aria-expanded', open ? 'true' : 'false');
         });
-        $panel.on('click', 'a', closeNav);
+        // Link anchor: tutup panel DULU (reflow selesai) baru scroll —
+        // kalau native navigation jalan duluan, layout shift saat panel
+        // collapse menggeser target sehingga offset scroll-margin meleset.
+        $panel.on('click', 'a', function (e) {
+            const href = $(this).attr('href') || '';
+            if (href.charAt(0) === '#') {
+                e.preventDefault();
+                closeNav();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    history.pushState(null, '', href);
+                }
+            } else {
+                closeNav();
+            }
+        });
         $(document).on('keydown', function (e) { if (e.key === 'Escape') { closeNav(); } });
     });
 
