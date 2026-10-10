@@ -337,6 +337,21 @@
             };
             window.addEventListener('scroll', tick, { passive: true });
             tick();
+
+            // 4) Scroll progress bar tipis di atas navbar
+            var bar = document.createElement('div');
+            bar.className = 'mt-scroll-progress';
+            bar.setAttribute('aria-hidden', 'true');
+            document.body.appendChild(bar);
+            var updateBar = function () {
+                var doc = document.documentElement;
+                var max = (doc.scrollHeight - window.innerHeight) || 1;
+                var pct = Math.min(100, Math.max(0, (window.scrollY / max) * 100));
+                bar.style.width = pct.toFixed(2) + '%';
+            };
+            window.addEventListener('scroll', updateBar, { passive: true });
+            window.addEventListener('resize', updateBar, { passive: true });
+            updateBar();
         }
     });
 

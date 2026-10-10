@@ -3028,3 +3028,205 @@ body.mt-js .elementor-top-section.mt-reveal.is-inview {
         transition: none !important;
     }
 }
+
+/* ==============================================================
+   20. POLISH KORPORAT BERSIH (2026-10-10) — halus, putih-biru,
+   layout tak berubah, komponen Elementor tetap utuh
+   ============================================================== */
+
+/* 20A. Scroll progress bar di atas navbar (dibuat JS, halus & tipis) */
+body.mt-scroll-progress {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: 3px !important;
+    width: 0% !important;
+    z-index: 1040 !important;
+    background: linear-gradient(90deg, #2563EB 0%, #1D4ED8 55%, #0D9488 100%) !important;
+    box-shadow: 0 0 6px rgba(37, 99, 235, 0.45) !important;
+    pointer-events: none !important;
+    transition: width 0.12s linear !important;
+    border-radius: 0 2px 2px 0 !important;
+}
+
+/* 20B. Logo principals: grayscale ringan → penuh saat hover + scale */
+body.elementor-page-59 .principal-wall-col .elementor-widget-image img,
+body.elementor-page-59 .principal-wall-card .elementor-widget-image img {
+    filter: grayscale(1) opacity(0.78) !important;
+    transition: filter 0.25s ease, transform 0.25s ease !important;
+}
+body.elementor-page-59 .principal-wall-col:hover .elementor-widget-image img,
+body.elementor-page-59 .principal-wall-card:hover .elementor-widget-image img {
+    filter: grayscale(0) opacity(1) !important;
+    transform: scale(1.06) !important;
+}
+
+/* 20C. Pulse glow merah di sekitar tombol darurat "Telepon Sekarang" */
+body.elementor-page-59 .btn-booking-call .elementor-button {
+    position: relative !important;
+    animation: mtCallPulse 2.2s ease-in-out infinite !important;
+}
+body.elementor-page-59 .btn-booking-call .elementor-button::after {
+    content: "" !important;
+    position: absolute !important;
+    inset: -5px !important;
+    border-radius: 17px !important;
+    border: 2px solid rgba(220, 38, 38, 0.5) !important;
+    animation: mtCallRing 2.2s ease-out infinite !important;
+    pointer-events: none !important;
+}
+@keyframes mtCallPulse {
+    0%, 100% { box-shadow: 0 4px 14px rgba(220, 38, 38, 0.25) !important; }
+    50% { box-shadow: 0 4px 22px rgba(220, 38, 38, 0.5) !important; }
+}
+@keyframes mtCallRing {
+    0% { opacity: 0.85; transform: scale(1); }
+    70% { opacity: 0; transform: scale(1.12); }
+    100% { opacity: 0; transform: scale(1.12); }
+}
+
+/* 20D. Features strip: hover kolom lembut + ikon scale */
+body.elementor-page-59 .sec-features .elementor-top-column:hover {
+    background-color: rgba(37, 99, 235, 0.04) !important;
+}
+body.elementor-page-59 .sec-features .elementor-top-column:hover .elementor-icon-box-icon {
+    transform: scale(1.08) !important;
+}
+body.elementor-page-59 .sec-features .elementor-icon-box-icon {
+    transition: transform 0.22s ease !important;
+}
+
+/* 20E. Fact strip: pemisah lebih halus + hover kolom */
+@media (min-width: 992px) {
+    body.elementor-page-59 .fact-strip .fact-col:not(:last-child) {
+        border-right: 1px solid rgba(37, 99, 235, 0.12) !important;
+    }
+}
+body.elementor-page-59 .fact-strip .fact-col {
+    border-radius: 14px !important;
+    transition: background-color 0.22s ease !important;
+}
+body.elementor-page-59 .fact-strip .fact-col:hover {
+    background-color: rgba(255, 255, 255, 0.65) !important;
+}
+
+/* 20F. About: TIDAK menambah pseudo-element — mastertruck.css sudah memakai
+   ::before (frame biru offset) & ::after (gradient bawah) di foto ini. */
+
+/* 20G. Service cards: tombol seragam hover-lift (radius & tinggi tetap) */
+body.elementor-page-59 .service-column-card .btn-service-action .elementor-button:hover,
+body.elementor-page-59 .service-grid-card .btn-service-action .elementor-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25) !important;
+}
+
+/* 20H. Testimonial: avatar ring gradient tipis + quote lebih rapi */
+body.elementor-page-59 .testimonial-avatar-wrap img {
+    border-radius: 50% !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.14) !important;
+    transition: box-shadow 0.22s ease !important;
+}
+body.elementor-page-59 .testimonial-enterprise-card:hover .testimonial-avatar-wrap img,
+body.elementor-page-59 .testimonial-column-card:hover .testimonial-avatar-wrap img {
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.32) !important;
+}
+body.elementor-page-59 .sec-testimonial-cards .testimonial-enterprise-card {
+    transition: transform 0.22s ease, box-shadow 0.22s ease !important;
+}
+
+/* 20I. FAQ: hover lembut + state aktif biru muda
+   (Elementor menaruh class .elementor-active di .elementor-tab-title) */
+body.elementor-page-59 .faqAccordion .elementor-accordion-item {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+}
+body.elementor-page-59 .faqAccordion .elementor-accordion-item:hover {
+    border-color: rgba(37, 99, 235, 0.35) !important;
+    box-shadow: 0 4px 14px rgba(15, 42, 92, 0.06) !important;
+}
+body.elementor-page-59 .faqAccordion .elementor-accordion-item:has(.elementor-tab-title.elementor-active) {
+    border-color: rgba(37, 99, 235, 0.5) !important;
+    background: #F8FBFF !important;
+}
+body.elementor-page-59 .faqAccordion .elementor-tab-title {
+    transition: color 0.2s ease, background-color 0.2s ease !important;
+}
+body.elementor-page-59 .faqAccordion .elementor-tab-title.elementor-active {
+    background: rgba(37, 99, 235, 0.05) !important;
+}
+body.elementor-page-59 .faqAccordion .elementor-accordion-item:has(.elementor-tab-title.elementor-active) .elementor-accordion-title,
+body.elementor-page-59 .faqAccordion .elementor-tab-title.elementor-active .elementor-accordion-title {
+    color: var(--primary) !important;
+}
+
+/* 20J. Footer (tetap putih): heading + social hover.
+   Catatan: garis brand 3-warna `footer-clean::before` dari mastertruck.css
+   dipertahankan apa adanya (tidak di-override). */
+body.elementor-page-59 .footer-clean {
+    border-top: 1px solid var(--border) !important;
+    position: relative !important;
+}
+body.elementor-page-59 .footer-clean .footer-heading {
+    color: var(--navy) !important;
+    position: relative !important;
+    padding-bottom: 8px !important;
+}
+body.elementor-page-59 .footer-clean .footer-heading::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 28px !important;
+    height: 2.5px !important;
+    border-radius: 999px !important;
+    background: var(--primary) !important;
+}
+/* Kolom Elementor default width:100% di mobile → sosial jadi vertikal.
+   Paksa sebar horizontal (tombol 36px, gap 8px = 168px) — hanya di mobile,
+   layout desktop tetap seperti semula. */
+@media (max-width: 767.98px) {
+    body.elementor-page-59 .footer-social-inner > .elementor-container > .elementor-column {
+        width: auto !important;
+        flex: 0 0 auto !important;
+    }
+}
+body.elementor-page-59 .btn-footer-social .elementor-button {
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease !important;
+}
+body.elementor-page-59 .btn-footer-social .elementor-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 14px rgba(37, 99, 235, 0.22) !important;
+}
+body.elementor-page-59 .footer-links-list a,
+body.elementor-page-59 .footer-contact-list p {
+    transition: color 0.2s ease !important;
+}
+body.elementor-page-59 .footer-links-list a:hover {
+    color: var(--primary) !important;
+}
+
+/* 20K. CTA utama seragam: radius 10px, hover-lift + shadow (tanpa ubah ukuran) */
+body.elementor-page-59 .btn-hero-primary .elementor-button,
+body.elementor-page-59 .btn-about-primary .elementor-button,
+body.elementor-page-59 .btn-faq-whatsapp .elementor-button {
+    border-radius: 10px !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease !important;
+}
+body.elementor-page-59 .btn-faq-whatsapp .elementor-button:hover,
+body.elementor-page-59 .btn-about-primary .elementor-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.3) !important;
+}
+body.elementor-page-59 .btn-hero-secondary .elementor-button,
+body.elementor-page-59 .btn-about-secondary .elementor-button {
+    border-radius: 10px !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
+}
+
+/* 20L. Motion-safety: semua animasi "mencolok" nonaktif bila prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    body.mt-scroll-progress { transition: none !important; }
+    body.elementor-page-59 .btn-booking-call .elementor-button,
+    body.elementor-page-59 .btn-booking-call .elementor-button::after {
+        animation: none !important;
+    }
+}
