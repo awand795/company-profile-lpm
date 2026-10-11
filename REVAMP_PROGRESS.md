@@ -16,19 +16,20 @@ Dokumen ini memantau progres refaktor landing page Beranda (WordPress + Elemento
   - [x] Set Elementor Site Settings: Global Colors & Global Typography (Primary #2563EB, Navy #0F2A5C, Surface #FFFFFF/#F8FAFC, text #0F172A/#475569, Plus Jakarta Sans heading, Inter body)
   - [x] Evaluasi theme: Astra dipertahankan karena kompatibel penuh, tanpa Bootstrap conflict di page level
   - [x] Konfigurasi Canvas & HFE: HFE terpasang aktif; Beranda dipertahankan via Elementor Canvas dengan navigasi modular
-- [ ] **FASE 2 - Rebangun Beranda dengan Flexbox Container**
-  - [ ] Generator Container script (`tools/build-beranda-elementor.py` -> Flexbox Container)
-  - [ ] Section: Hero (Statis, Frame radius 24px, Badge pill, Card Distributor, Blur overlay)
-  - [ ] Section: Keunggulan (Features)
-  - [ ] Section: Tentang Kami (About)
-  - [ ] Section: Fakta & Angka (Counter)
-  - [ ] Section: Layanan (Services)
-  - [ ] Section: Prinsipal (Partner Logos)
-  - [ ] Section: Derek 24 Jam (Emergency / Booking)
-  - [ ] Section: Tim (Team)
-  - [ ] Section: Testimoni (Testimonials)
-  - [ ] Section: FAQ (Accordion)
-  - [ ] Section: CTA Penutup
+- [x] **FASE 2 - Rebangun Beranda dengan Flexbox Container** (2026-10-11)
+  - [x] Generator Container script (`tools/build-beranda-elementor.py` -> Flexbox Container elType: container)
+  - [x] Section: Hero (Statis/2 slide terkonversi container, frame radius 24px, badge pill, card distributor)
+  - [x] Section: Keunggulan (Features 4 card container)
+  - [x] Section: Tentang Kami (About 2 column container)
+  - [x] Section: Fakta & Angka (Counter 4 column container)
+  - [x] Section: Layanan (Services 4 card container)
+  - [x] Section: Prinsipal (Partner Logos 6 card container)
+  - [x] Section: Derek 24 Jam (Emergency / Booking 2 column container)
+  - [x] Section: Tim (Team 4 card container)
+  - [x] Section: Testimoni (Testimonials 3 card container)
+  - [x] Section: FAQ (Accordion container)
+  - [x] Section: CTA Penutup & Footer (4 column container + copyright container)
+  - [x] Live DB Page 59 verifikasi: 108 Container, 0 legacy Section, 0 legacy Column, 160 native Widgets
 - [ ] **FASE 3 - Pangkas CSS**
   - [ ] Kurangi bridge CSS per section yang sudah lolos
   - [ ] Ganti bridge CSS dengan `mt-custom.css` (<= 150 baris, tanpa `!important` berantai)

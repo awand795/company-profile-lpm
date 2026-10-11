@@ -4,8 +4,13 @@
  *   node tests/verify-revamp3.cjs
  * Butuh: server http://localhost:5000 (docker lpm-wp-app).
  */
-const PW = '/home/awanda/.gemini/antigravity-cli/brain/4a5c5b42-6ad5-4407-bfb4-71d03e96476c/scratch/node_modules/playwright';
-const { chromium, devices } = require(PW);
+let playwrightMod;
+try {
+    playwrightMod = require('playwright');
+} catch (e) {
+    playwrightMod = require('/home/awanda/.gemini/antigravity-cli/brain/4a5c5b42-6ad5-4407-bfb4-71d03e96476c/scratch/node_modules/playwright');
+}
+const { chromium, devices } = playwrightMod;
 const fs = require('fs');
 const path = require('path');
 
@@ -83,7 +88,7 @@ async function scrollThrough(page) {
         ['sec-services-cards', 'sec-team-cards', 'sec-testimonial-cards'].forEach((s) => {
             const sec = document.querySelector('.' + s);
             if (!sec) { out[s] = 'missing'; return; }
-            const box = sec.querySelector(':scope > .elementor-container');
+            const box = sec.querySelector(':scope > .elementor-container') || sec.querySelector(':scope > .e-con-inner') || sec;
             const scrollable = box.scrollWidth > box.clientWidth;
             box.scrollLeft = 200;
             const moved = box.scrollLeft > 0;
@@ -219,7 +224,10 @@ async function scrollThrough(page) {
     const tOvf = await t.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1);
     check('TABLET: tanpa overflow 768', tOvf);
     const tGrid = await t.evaluate(() => {
-        const box = document.querySelector('.sec-services-cards > .elementor-container');
+        const box = document.querySelector('.sec-services-cards > .elementor-container') ||
+                    document.querySelector('.sec-services-cards > .e-con-inner') ||
+                    document.querySelector('.sec-services-cards');
+        if (!box) return { wrap: 'missing', overflow: 'missing' };
         const cs = getComputedStyle(box);
         return { wrap: cs.flexWrap, overflow: cs.overflowX };
     });

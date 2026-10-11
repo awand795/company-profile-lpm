@@ -288,7 +288,9 @@
         var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         if (isPage59 && !inEditor && !reduce && 'IntersectionObserver' in window) {
             var targets = document.querySelectorAll(
-                'body.elementor-page-59 .elementor-top-section' +
+                'body.elementor-page-59 > .elementor > .elementor-top-section' +
+                ':not(.navbar):not(.mt-hero-slide):not(.top-bar-custom):not(.mt-wa-float-section), ' +
+                'body.elementor-page-59 > .elementor > .e-con' +
                 ':not(.navbar):not(.mt-hero-slide):not(.top-bar-custom):not(.mt-wa-float-section)'
             );
             if (targets.length) {
@@ -310,7 +312,7 @@
         // 2) Carousel HP: matikan fade tepi kanan saat sudah di ujung scroll
         ['.sec-services-cards', '.sec-team-cards', '.sec-testimonial-cards'].forEach(function (sel) {
             Array.prototype.forEach.call(document.querySelectorAll(sel), function (sec) {
-                var box = sec.querySelector(':scope > .elementor-container');
+                var box = sec.querySelector(':scope > .elementor-container') || sec.querySelector(':scope > .e-con-inner') || sec;
                 if (!box) { return; }
                 var upd = function () {
                     var atEnd = box.scrollLeft + box.clientWidth >= box.scrollWidth - 4;

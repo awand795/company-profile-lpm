@@ -65,8 +65,13 @@ def get_img_id(key):
 def nid():
     return secrets.token_hex(4)
 
-def make_section(cols, css_id="", css_classes="", bg_url=None, bg_color=None, layout="full_width", extra=None, inline_sizes=None):
-    st = {"layout": layout}
+def make_section(cols, css_id="", css_classes="", bg_url=None, bg_color=None, layout="full_width", extra=None, inline_sizes=None, nav_name=""):
+    st = {
+        "content_width": "boxed" if layout == "boxed" else "full",
+        "flex_direction": "row" if len(cols) > 1 else "column"
+    }
+    if nav_name:
+        st["_title"] = nav_name
     if css_id:
         st["_element_id"] = css_id
     if css_classes:
@@ -86,46 +91,59 @@ def make_section(cols, css_id="", css_classes="", bg_url=None, bg_color=None, la
     
     col_elements = []
     for i, (col_size, col_cls, widgets) in enumerate(cols):
-        col_st = {"_column_size": col_size}
-        if col_cls:
-            col_st["css_classes"] = col_cls
-        # _inline_size = kontrol "Column Width (%)" Elementor → menghasilkan
-        # rule width eksplisit di post-59.css (kelas elementor-col-* hanya
-        # punya 19 preset di Elementor 4, lebar lain tidak punya CSS).
-        if inline_sizes and i < len(inline_sizes) and inline_sizes[i] is not None:
-            col_st["_inline_size"] = inline_sizes[i]
-        col_elements.append({
-            "id": nid(),
-            "elType": "column",
-            "settings": col_st,
-            "elements": list(widgets)
-        })
-    return {
-        "id": nid(),
-        "elType": "section",
-        "settings": st,
-        "elements": col_elements
-    }
-
-def make_inner_section(cols, css_classes=""):
-    col_elements = []
-    for col_size, col_cls, widgets in cols:
-        col_st = {"_column_size": col_size}
+        size_val = inline_sizes[i] if (inline_sizes and i < len(inline_sizes) and inline_sizes[i] is not None) else col_size
+        col_st = {
+            "content_width": "full",
+            "flex_direction": "column"
+        }
+        if size_val is not None:
+            col_st["width"] = {"unit": "%", "size": float(size_val)}
         if col_cls:
             col_st["css_classes"] = col_cls
         col_elements.append({
             "id": nid(),
-            "elType": "column",
+            "elType": "container",
             "isInner": True,
             "settings": col_st,
             "elements": list(widgets)
         })
-    st = {}
+    return {
+        "id": nid(),
+        "elType": "container",
+        "isInner": False,
+        "settings": st,
+        "elements": col_elements
+    }
+
+def make_inner_section(cols, css_classes="", nav_name=""):
+    col_elements = []
+    for col_size, col_cls, widgets in cols:
+        col_st = {
+            "content_width": "full",
+            "flex_direction": "column"
+        }
+        if col_size is not None:
+            col_st["width"] = {"unit": "%", "size": float(col_size)}
+        if col_cls:
+            col_st["css_classes"] = col_cls
+        col_elements.append({
+            "id": nid(),
+            "elType": "container",
+            "isInner": True,
+            "settings": col_st,
+            "elements": list(widgets)
+        })
+    st = {
+        "content_width": "full",
+        "flex_direction": "row" if len(cols) > 1 else "column"
+    }
+    if nav_name:
+        st["_title"] = nav_name
     if css_classes:
         st["css_classes"] = css_classes
     return {
         "id": nid(),
-        "elType": "section",
+        "elType": "container",
         "isInner": True,
         "settings": st,
         "elements": col_elements

@@ -951,7 +951,16 @@ body.elementor-page-59 .hero-card-floating-bottom .elementor-icon-box-icon svg {
     font-size: 22px !important;
 }
 /* Kolom kanan sebagai bingkai putih (kokoh, tanpa hitungan piksel rapuh) */
-body.elementor-page-59 .hero-right-col .elementor-widget-wrap {
+body.elementor-page-59 .hero-right-col .elementor-widget-wrap,
+body.elementor-page-59 .hero-right-col.e-con {
+    background: #FFFFFF !important;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
+    border-radius: 24px !important;
+    padding: 16px !important;
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12) !important;
+    max-width: 100% !important;
+}
+body.elementor-page-59 .hero-right-col .elementor-widget-wrap-old {
     background: #FFFFFF !important;
     border: 1px solid rgba(226, 232, 240, 0.8) !important;
     border-radius: 24px !important;
@@ -1191,11 +1200,15 @@ body.elementor-page-59 .service-grid-card:nth-child(4) .elementor-widget-image::
 }
 
 /* 6. Layanan: 4 Kartu Rapi (Native Image, Heading, List, Button) */
-body.elementor-page-59 .sec-services-cards > .elementor-container {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 24px !important;
-    align-items: stretch !important;
+@media (min-width: 768px) {
+    body.elementor-page-59 .sec-services-cards > .elementor-container,
+    body.elementor-page-59 .sec-services-cards.e-con,
+    body.elementor-page-59 .sec-services-cards > .e-con-inner {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 24px !important;
+        align-items: stretch !important;
+    }
 }
 body.elementor-page-59 .service-column-card,
 body.elementor-page-59 .service-grid-card {
@@ -1511,7 +1524,7 @@ body.elementor-page-59 .team-enterprise-card .elementor-widget-text-editor p {
 }
 
 /* 9. Testimoni: 3 Kartu Presisi */
-body.elementor-page-59 .sec-testimonial-cards > .elementor-container {
+body.elementor-page-59 .sec-testimonial-cards > .elementor-container, .sec-testimonial-cards.e-con, .sec-testimonial-cards > .e-con-inner {
     display: flex !important;
     flex-wrap: wrap !important;
     gap: 24px !important;
@@ -2504,7 +2517,16 @@ body.elementor-page-59 .btn-footer-register .elementor-button:hover {
    bisa edit via Elementor. Blok ini HARUS di paling akhir file supaya
    menimpa aturan lama (§14 & blok media) yang spesifisitasnya sama.
    ============================================================== */
-body.elementor-page-59 .hero-right-col .elementor-widget-wrap {
+body.elementor-page-59 .hero-right-col .elementor-widget-wrap,
+body.elementor-page-59 .hero-right-col.e-con {
+    background: #FFFFFF !important;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
+    border-radius: 24px !important;
+    padding: 16px !important;
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12) !important;
+    max-width: 100% !important;
+}
+body.elementor-page-59 .hero-right-col .elementor-widget-wrap-old {
     position: relative !important;
 }
 /* Badge pil: straddle tepi atas bingkai, sama dgn .hero-truck-frame :8080 */
@@ -2922,9 +2944,9 @@ body.elementor-page-59 .navbar .navbar-toggler[aria-expanded="true"] .elementor-
     body.elementor-page-59 .sec-testimonial-cards {
         position: relative !important;
     }
-    body.elementor-page-59 .sec-services-cards > .elementor-container,
-    body.elementor-page-59 .sec-team-cards > .elementor-container,
-    body.elementor-page-59 .sec-testimonial-cards > .elementor-container {
+    body.elementor-page-59 .sec-services-cards > .elementor-container, .sec-services-cards.e-con, .sec-services-cards > .e-con-inner,
+    body.elementor-page-59 .sec-team-cards > .elementor-container, .sec-team-cards.e-con, .sec-team-cards > .e-con-inner,
+    body.elementor-page-59 .sec-testimonial-cards > .elementor-container, .sec-testimonial-cards.e-con, .sec-testimonial-cards > .e-con-inner {
         flex-wrap: nowrap !important;
         overflow-x: auto !important;
         overflow-y: hidden !important;
@@ -3024,17 +3046,17 @@ body.elementor-page-59 .navbar .navbar-toggler[aria-expanded="true"] .elementor-
 /* 19F. Reveal halus tiap section saat masuk viewport.
    Hanya aktif bila JS jalan (body.mt-js) — tanpa JS konten tampil normal.
    Navbar & hero dikecualikan dari JS. */
-body.mt-js .elementor-top-section.mt-reveal {
+body.mt-js .elementor-top-section.mt-reveal, body.mt-js .e-con.mt-reveal {
     opacity: 0 !important;
     transform: translateY(16px) !important;
     transition: opacity 0.55s ease-out, transform 0.55s ease-out !important;
 }
-body.mt-js .elementor-top-section.mt-reveal.is-inview {
+body.mt-js .elementor-top-section.mt-reveal, body.mt-js .e-con.mt-reveal.is-inview {
     opacity: 1 !important;
     transform: none !important;
 }
 @media (prefers-reduced-motion: reduce) {
-    body.mt-js .elementor-top-section.mt-reveal {
+    body.mt-js .elementor-top-section.mt-reveal, body.mt-js .e-con.mt-reveal {
         opacity: 1 !important;
         transform: none !important;
         transition: none !important;
@@ -3682,7 +3704,16 @@ body.elementor-page-59 .about-exp-float-card {
 }
 
 /* 25A2. Frame putih wrapper kolom kanan dibuang — foto tampil bersih */
-body.elementor-page-59 .hero-right-col .elementor-widget-wrap {
+body.elementor-page-59 .hero-right-col .elementor-widget-wrap,
+body.elementor-page-59 .hero-right-col.e-con {
+    background: #FFFFFF !important;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
+    border-radius: 24px !important;
+    padding: 16px !important;
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12) !important;
+    max-width: 100% !important;
+}
+body.elementor-page-59 .hero-right-col .elementor-widget-wrap-old {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
@@ -3744,7 +3775,16 @@ body.elementor-page-59 .hero-right-col .elementor-widget-wrap {
         max-width: 40% !important;
         margin-top: 0 !important;
     }
-    body.elementor-page-59 .hero-right-col .elementor-widget-wrap {
+    body.elementor-page-59 .hero-right-col .elementor-widget-wrap,
+body.elementor-page-59 .hero-right-col.e-con {
+    background: #FFFFFF !important;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
+    border-radius: 24px !important;
+    padding: 16px !important;
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12) !important;
+    max-width: 100% !important;
+}
+body.elementor-page-59 .hero-right-col .elementor-widget-wrap-old {
         max-width: 100% !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
@@ -3821,7 +3861,16 @@ body.elementor-page-59 .service-column-card .elementor-widget-text-editor {
    ============================================================== */
 
 /* 27A. Frame putih kolom kanan */
-body.elementor-page-59 .hero-right-col .elementor-widget-wrap {
+body.elementor-page-59 .hero-right-col .elementor-widget-wrap,
+body.elementor-page-59 .hero-right-col.e-con {
+    background: #FFFFFF !important;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
+    border-radius: 24px !important;
+    padding: 16px !important;
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12) !important;
+    max-width: 100% !important;
+}
+body.elementor-page-59 .hero-right-col .elementor-widget-wrap-old {
     background: #FFFFFF !important;
     border: 1px solid rgba(226, 232, 240, 0.8) !important;
     border-radius: 24px !important;
