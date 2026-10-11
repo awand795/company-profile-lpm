@@ -36,6 +36,9 @@ body.elementor-page-59 .navbar.sticky-top {
     box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06), 0 4px 6px -4px rgba(15, 23, 42, 0.04) !important;
     padding: 8px 24px !important;
 }
+body.elementor-page-59 .navbar::after {
+    display: none !important;
+}
 
 @media (max-width: 991.98px) {
     body.elementor-page-59 .navbar.sticky-top {
@@ -201,4 +204,27 @@ body.elementor-page-59 .hero-lead {
     color: #475569 !important;
     filter: none !important;
     text-shadow: none !important;
+}
+
+/* 9. All-White Enterprise Theme (Pola DarkoGuide) */
+body.elementor-page-59,
+body.elementor-page-59 .mt-hero-slide,
+body.elementor-page-59 .sec-features,
+body.elementor-page-59 .sec-about,
+body.elementor-page-59 .fact-strip,
+body.elementor-page-59 .sec-services,
+body.elementor-page-59 #principals,
+body.elementor-page-59 .sec-principals,
+body.elementor-page-59 .booking-section-wrapper,
+body.elementor-page-59 .sec-team,
+body.elementor-page-59 .sec-testimonial,
+body.elementor-page-59 .sec-faq,
+body.elementor-page-59 .footer-clean {
+    background-color: #FFFFFF !important;
+}
+body.elementor-page-59 .mt-hero-slide {
+    background-image: none !important;
+}
+body.elementor-page-59 .mt-hero-slide::before {
+    display: none !important;
 }

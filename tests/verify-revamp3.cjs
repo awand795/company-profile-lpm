@@ -68,7 +68,7 @@ async function scrollThrough(page) {
 
     // Section utama ada
     const sections = await m.evaluate(() => {
-        const ids = ['header-carousel', 'header-slide-2', 'about', 'service', 'principals', 'booking', 'team', 'testimonial', 'faq', 'contact'];
+        const ids = ['header-carousel', 'about', 'service', 'principals', 'booking', 'team', 'testimonial', 'faq', 'contact'];
         return ids.filter((id) => !document.getElementById(id));
     });
     check('MOBILE: semua section utama ada', sections.length === 0, 'missing=' + sections.join(','));
@@ -321,32 +321,42 @@ async function scrollThrough(page) {
     await scrollThrough(d);
     await d.screenshot({ path: path.join(OUT, 'd1440-full.png'), fullPage: true });
 
-    // Hero tak tersentuh
+    // Hero statis enterprise
     const hero = await d.evaluate(() => {
-        const slides = document.querySelectorAll('.mt-hero-slide-item');
-        const imgs = Array.from(document.querySelectorAll('.mt-hero-slide img')).map((i) => i.getAttribute('src'));
-        return { slides: slides.length, imgs: imgs.length, first: imgs[0] };
-    });
-    check('DESKTOP: hero 2 slide utuh', hero.slides === 2 && hero.imgs >= 2, JSON.stringify(hero));
-
-    // Background hero diseragamkan: slide 1 == slide 2 (navy + scrim identik)
-    const heroBg = await d.evaluate(() => {
-        const read = (sel) => {
-            const el = document.querySelector(sel);
-            if (!el) { return null; }
-            return {
-                color: getComputedStyle(el).backgroundColor,
-                before: getComputedStyle(el, '::before').backgroundImage,
-            };
+        const slide = document.querySelector('.mt-hero-slide');
+        const img = document.querySelector('.mt-hero-slide .hero-truck-img img');
+        const h1 = document.querySelector('.mt-hero-slide h1');
+        const counters = document.querySelectorAll('.mt-hero-slide .hero-counter-item');
+        return {
+            exists: !!slide,
+            bg: slide ? getComputedStyle(slide).backgroundColor : null,
+            h1: h1 ? h1.textContent : null,
+            imgSrc: img ? img.getAttribute('src') : null,
+            counters: counters.length
         };
-        return { s1: read('.mt-hero-slide-1'), s2: read('.mt-hero-slide-2') };
     });
-    check('DESKTOP: bg slide 1 & slide 2 identik (navy + scrim sama)',
-        heroBg.s1 && heroBg.s2 &&
-        heroBg.s1.color === heroBg.s2.color &&
-        heroBg.s1.color === 'rgb(15, 23, 42)' &&
-        heroBg.s1.before === heroBg.s2.before,
-        JSON.stringify({ c1: heroBg.s1 && heroBg.s1.color, c2: heroBg.s2 && heroBg.s2.color }));
+    check('DESKTOP: hero statis bersih enterprise (bg putih, h1, img)',
+        hero.exists && hero.bg === 'rgb(255, 255, 255)' && !!hero.imgSrc && hero.counters >= 3,
+        JSON.stringify(hero));
+
+    // Floating Pill Navbar modern ala DarkoGuide
+    const nav = await d.evaluate(() => {
+        const el = document.querySelector('.navbar.sticky-top');
+        if (!el) { return null; }
+        const cs = getComputedStyle(el);
+        const loginBtn = el.querySelector('.btn-nav-login');
+        const regBtn = el.querySelector('.btn-nav-register');
+        return {
+            exists: true,
+            bg: cs.backgroundColor,
+            borderRadius: cs.borderRadius,
+            hasLogin: !!loginBtn,
+            hasRegister: !!regBtn
+        };
+    });
+    check('DESKTOP: floating pill navbar ala DarkoGuide (pill + blur + cta)',
+        nav && nav.exists && nav.hasLogin && nav.hasRegister,
+        JSON.stringify(nav));
 
     // ===== Enterprise polish (blok 21) =====
     const ent = await d.evaluate(() => {
@@ -396,12 +406,12 @@ async function scrollThrough(page) {
     check('DESKTOP: garis aksen h2 dihapus (clean enterprise)',
         ent.accentAbout === 'none' && ent.accentFaq === 'none',
         `about=${ent.accentAbout} faq=${ent.accentFaq}`);
-    check('DESKTOP: topbar putih + hairline',
-        ent.topbarBg === 'rgb(255, 255, 255)', ent.topbarBg);
+    check('DESKTOP: header minimalis murni ala DarkoGuide (tanpa topbar terpisah)',
+        !ent.topbarBg || ent.topbarBg === 'rgba(0, 0, 0, 0)', 'clean');
     check('DESKTOP: padding section seragam 104px',
         ent.pads.every((p) => p === 104), ent.pads.join(','));
-    check('DESKTOP: testimonial bg slate (bukan cream)',
-        ent.testiBg === 'rgb(248, 250, 252)', ent.testiBg);
+    check('DESKTOP: testimonial bg putih bersih enterprise',
+        ent.testiBg === 'rgb(255, 255, 255)', ent.testiBg);
 
     // ================= RINGKASAN =================
     await browser.close();

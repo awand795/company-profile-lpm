@@ -213,22 +213,15 @@ body.elementor-page-59 .navbar .navbar-nav {
 body.elementor-page-59 .mt-hero-slide {
     position: relative;
     overflow: hidden;
-    background-color: #0F172A !important;
-    background-size: cover !important;
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
+    background-color: #FFFFFF !important;
+    background-image: none !important;
     padding: 24px 0 60px 0 !important;
-    min-height: max(620px, calc(100vh - 112px)) !important;
+    min-height: max(560px, calc(100vh - 120px)) !important;
     display: flex;
     align-items: center;
 }
 body.elementor-page-59 .mt-hero-slide::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, rgba(248, 250, 252, 0.96) 0%, rgba(248, 250, 252, 0.90) 48%, rgba(248, 250, 252, 0.38) 100%) !important;
-    z-index: 1;
-    pointer-events: none;
+    display: none !important;
 }
 body.elementor-page-59 .mt-hero-slide > .elementor-container,
 body.elementor-page-59 .mt-hero-slide > .e-con,
@@ -1061,9 +1054,9 @@ body.elementor-page-59 .sec-features .elementor-widget-icon-box .elementor-icon-
 
 /* 5. Facts / Counter Strip (4 Native Counter Widgets + Icons 1:1) */
 body.elementor-page-59 .fact-strip {
-    background: linear-gradient(135deg, #EFF6FF 0%, #E2EDFD 50%, #EFF6FF 100%) !important;
-    border-top: 1px solid rgba(37, 99, 235, 0.14) !important;
-    border-bottom: 1px solid rgba(37, 99, 235, 0.14) !important;
+    background: #FFFFFF !important;
+    border-top: 1px solid #E2E8F0 !important;
+    border-bottom: 1px solid #E2E8F0 !important;
     padding-top: 36px !important;
     padding-bottom: 36px !important;
 }
@@ -1354,7 +1347,7 @@ body.elementor-page-59 .service-grid-card .btn-service-action .elementor-button:
 /* 7. Principals 6 Kolom Presisi Dalam Background Biru Utuh */
 body.elementor-page-59 #principals,
 body.elementor-page-59 .sec-principals {
-    background-color: var(--principals-surface) !important;
+    background-color: #FFFFFF !important;
     border-top: 1px solid var(--border) !important;
     border-bottom: 1px solid var(--border) !important;
     padding-top: 64px !important;
@@ -3359,10 +3352,10 @@ body.elementor-page-59 .derek-desc {
 /* 21E. Background rhythm satu keluarga (slate-biru, tanpa cream nyeleneh);
    features panel putih jadi menonjol di atas band slate */
 body.elementor-page-59 .sec-testimonial {
-    background-color: #F8FAFC !important;
+    background-color: #FFFFFF !important;
 }
 body.elementor-page-59 .sec-features {
-    background-color: #F8FAFC !important;
+    background-color: #FFFFFF !important;
 }
 
 /* 21F. Kartu servis: border halus enterprise (shadow tetap lembut) */
@@ -3740,7 +3733,7 @@ body.elementor-page-59 .hero-right-col .elementor-widget-wrap-old {
    Mobile tetap center (rule blok 25 berlaku umum, di-override di sini) */
 @media (min-width: 992px) {
     body.elementor-page-59 .mt-hero-slide::before {
-        background: linear-gradient(90deg, rgba(248, 250, 252, 0.96) 0%, rgba(248, 250, 252, 0.90) 48%, rgba(248, 250, 252, 0.38) 100%) !important;
+        display: none !important;
     }
     body.elementor-page-59 .mt-hero-slide {
         padding-bottom: 60px !important;
@@ -4161,3 +4154,4 @@ body.elementor-page-59 .sec-principals {
 body.elementor-page-59 .footer-clean {
     background: #FFFFFF !important;
 }
+body.elementor-page-59 .navbar::after { display: none !important; }

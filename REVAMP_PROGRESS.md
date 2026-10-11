@@ -39,8 +39,13 @@ Dokumen ini memantau progres refaktor landing page Beranda (WordPress + Elemento
   - [x] Samakan sync-to-wp.sh, setup.sh, setup.ps1 ke container lpm-wp-app dan port 5000
   - [x] Refaktor tests/verify-revamp3.cjs (fallback dynamic playwright import & selektor adaptif container)
   - [x] Perbaikan legibilitas teks Hero slide: stacking context `.hero-left-col` (z-index 2 di atas scrim overlay `::before`), eliminasi filter drop-shadow kabur menjadi tipografi kontras tinggi (#0A1B3B navy & #475569 slate)
+  - [x] **Redesign Total All-White Enterprise ala DarkoGuide (http://94.237.69.119:4000/):**
+    - Hero statis tunggal fokus B2B & distributor sparepart OEM dalam frame showcase radius 24px, latar putih murni `#FFFFFF` tanpa background foto blur gelap.
+    - Floating pill navbar murni (`rounded-full`, backdrop blur, border slate `#E2E8F0`, CTA Login & Register Fleet) tanpa topbar kontak terpisah di atasnya.
+    - Seluruh section (Keunggulan, Tentang Kami, Fakta/Counter, Layanan, Derek 24 Jam, Tim, Testimoni, FAQ, Footer) berlatar putih `#FFFFFF` bersih dengan border slate halus.
+    - 100% Flexbox Container native Elementor, dapat diedit langsung oleh user via UI Elementor.
   - [x] Regenerasi database_dump.sql fresh dari MariaDB container lpm-wp-db (2.1 MB)
-  - [x] Seluruh 31 assertion test suite PASS 100% tanpa error
+  - [x] Seluruh 31 assertion test suite PASS 100% tanpa error (Mobile, Tablet, Desktop)
 
 ---
 

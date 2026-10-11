@@ -255,32 +255,7 @@ def W_shortcode(code, cls=""):
 sections = []
 
 # ==============================================================================
-# 0. TOPBAR — 100% native (tanpa HTML) agar teks bisa diklik di Elementor
-# ==============================================================================
-sections.append(make_section(
-    cols=[
-        (60, "topbar-left-col", [
-            W_icon_box("fas fa-map-marker-alt", "KIM III Medan — Sumatera Utara", "", tag="p", pos="left", cls="topbar-addr"),
-            W_icon_box("far fa-clock", "Senin – Sabtu : 08.00 – 17.00 WIB", "", tag="p", pos="left", cls="topbar-hours"),
-        ]),
-        (40, "topbar-right-col", [
-            W_text('<p><a href="tel:06188881234" class="text-decoration-none fw-bold">061-8888-1234</a></p>', align="right", cls="topbar-phone"),
-            make_inner_section([
-                (33, "", [W_button("", link="#", icon_val="fab fa-facebook-f", icon_pos="before", align="center", cls="top-social-btn top-social-fb")]),
-                (33, "", [W_button("", link="#", icon_val="fab fa-instagram", icon_pos="before", align="center", cls="top-social-btn top-social-ig")]),
-                (34, "", [W_button("", link="https://wa.me/6281234567890", icon_val="fab fa-whatsapp", icon_pos="before", align="center", cls="top-social-btn top-social-wa", is_ext=True)]),
-            ], css_classes="topbar-social-inner"),
-        ]),
-    ],
-    css_classes="container-fluid top-bar-custom p-0",
-    layout="full_width",
-    # Kontrol asli Elementor: Advanced > Responsive > Hide On Mobile.
-    # <768px topbar disembunyikan; info pindah ke widget panel-info di menu.
-    extra={"hide_mobile": "hidden-mobile"}
-))
-
-# ==============================================================================
-# 1. NAVBAR — 100% native (brand + menu + 2 tombol Fleet)
+# 1. NAVBAR — Floating Pill Navbar Modern ala DarkoGuide (100% Native)
 # ==============================================================================
 sections.append(make_section(
     cols=[
@@ -299,9 +274,6 @@ sections.append(make_section(
                 (23, "menu-cta-col", [W_button("Login Fleet", link="http://localhost:3000/#login", icon_val="fas fa-sign-in-alt", icon_pos="before", align="center", cls="btn-nav-login", is_ext=True)]),
                 (23, "menu-cta-col", [W_button("Daftar Fleet", link="http://localhost:3000/#register", icon_val="fas fa-user-plus", icon_pos="before", align="center", cls="btn-nav-register", is_ext=True)]),
             ], css_classes="navbar-right-inner"),
-            # Info kontak pengganti topbar — hanya tampil di HP (topbar
-            # <768 disembunyikan via kontrol asli Elementor "Hide On Mobile").
-            # hide_desktop/hide_tablet = kontrol Responsive Elementor yang sama.
             W_text(
                 '<p class="panel-info-line">KIM III Medan — Sumatera Utara<br>'
                 'Senin – Sabtu : 08.00 – 17.00 WIB<br>'
@@ -312,26 +284,26 @@ sections.append(make_section(
             ),
         ]),
     ],
-    css_classes="navbar navbar-expand-lg bg-white navbar-light shadow-sm sticky-top px-3 px-lg-4",
+    css_classes="navbar navbar-expand-lg bg-white navbar-light shadow-sm sticky-top px-3 px-lg-4 mt-floating-navbar",
     layout="full_width"
 ))
 
 # ==============================================================================
-# 2. HERO SLIDE 1 (Servis Armada) — 100% Native Widgets (gambar bisa di-Replace)
+# 2. HERO SECTION — Single Static Enterprise Hero (All-White Background ala DarkoGuide)
 # ==============================================================================
 sections.append(make_section(
     css_id="header-carousel",
-    css_classes="container-fluid p-0 mb-4 mt-hero-slide mt-hero-slide-item mt-hero-slide-1 active",
-    bg_url=get_img_url("bg1"),
+    css_classes="container-xxl py-5 mt-hero-slide mt-hero-slide-item mt-hero-slide-1 active mt-hero-clean-white",
+    bg_color="#FFFFFF",
     cols=[
         (60, "hero-left-col px-4 px-lg-5", [
-            W_heading('<span class="live-dot"></span>PT Master Truck Indonesia &bull; KIM III Medan', tag="p", align="left", cls="hero-brand-pill"),
-            W_heading('Master Truck: Bengkel Truk <span class="hero-brand-highlight">Terpercaya</span> di Medan', tag="h1", align="left", cls="hero-title"),
-            W_text('Sudah 15 tahun kami merawat truk sekaligus menjual oli, ban, dan aki asli langsung dari pabriknya &mdash; dipercaya 120+ perusahaan.', align="left", cls="hero-lead"),
+            W_heading('<span class="live-dot"></span>PT MASTER TRUCK INDONESIA &bull; KIM III MEDAN', tag="p", align="left", cls="hero-brand-pill"),
+            W_heading('Solusi Total Bengkel &amp; <span class="hero-brand-highlight">Distributor Sparepart</span> Truk di Medan', tag="h1", align="left", cls="hero-title"),
+            W_text('Perawatan armada terpercaya selama 15+ tahun sekaligus penyedia resmi oli Pertamina, oli Mobil, ban Dunlop, dan aki GS Astra langsung dari pabrik dengan jaminan 100% orisinal.', align="left", cls="hero-lead"),
             make_inner_section([
                 (33, "", [W_counter(15, "Tahun Berpengalaman", cls="hero-counter-item")]),
-                (33, "", [W_counter(120, "Perusahaan Pelanggan", suffix="+", cls="hero-counter-item")]),
-                (34, "", [W_counter(2500, "Truk per Tahun", cls="hero-counter-item", delimiter=".")]),
+                (33, "", [W_counter(120, "Perusahaan Mitra", suffix="+", cls="hero-counter-item")]),
+                (34, "", [W_counter(2500, "Armada per Tahun", cls="hero-counter-item", delimiter=".")]),
             ], css_classes="hero-stats-inner d-none d-md-flex"),
             make_inner_section([
                 (50, "", [W_button("Jadwalkan Servis", link="#booking", icon_val="fas fa-arrow-right", icon_pos="after", cls="btn-hero-primary")]),
@@ -341,37 +313,7 @@ sections.append(make_section(
         (40, "hero-right-col px-3", [
             W_icon_box("fas fa-shield-alt", "Terpercaya 120+ Mitra", "", tag="p", pos="left", cls="hero-badge-floating-top"),
             W_image(IMG["truck1"], alt="Armada Truk Master Truck", cls="hero-truck-img"),
-            W_icon_box("fas fa-building", "PT Master Truck Indonesia", "Servis bergaransi, dicek 30 bagian", tag="h5", pos="left", cls="hero-card-floating-bottom"),
-        ]),
-    ]
-))
-
-# ==============================================================================
-# 2B. HERO SLIDE 2 (Distributor Sparepart OEM) — 100% Native Widgets
-# ==============================================================================
-sections.append(make_section(
-    css_id="header-slide-2",
-    css_classes="container-fluid p-0 mb-4 mt-hero-slide mt-hero-slide-item mt-hero-slide-2",
-    bg_url=get_img_url("bg2"),
-    cols=[
-        (60, "hero-left-col px-4 px-lg-5", [
-            W_heading('<span class="live-dot"></span>PT Master Truck Indonesia &bull; Distributor Nasional Resmi', tag="p", align="left", cls="hero-brand-pill"),
-            W_heading('Master Truck: <span class="hero-brand-highlight">Sparepart Truk Asli</span> dari Pabrik', tag="h1", align="left", cls="hero-title"),
-            W_text('Oli Pertamina, oli Mobil, ban Dunlop &amp; aki GS Astra &mdash; dijamin asli dari pabriknya, dengan harga khusus untuk pelanggan perusahaan.', align="left", cls="hero-lead"),
-            make_inner_section([
-                (33, "", [W_counter(15, "Tahun Berpengalaman", cls="hero-counter-item")]),
-                (33, "", [W_counter(120, "Perusahaan Pelanggan", suffix="+", cls="hero-counter-item")]),
-                (34, "", [W_counter(2500, "Truk per Tahun", cls="hero-counter-item", delimiter=".")]),
-            ], css_classes="hero-stats-inner d-none d-md-flex"),
-            make_inner_section([
-                (50, "", [W_button("Lihat Produk OEM", link="#principals", icon_val="fas fa-arrow-right", icon_pos="after", cls="btn-hero-primary")]),
-                (50, "", [W_button("Daftar Fleet", link="http://localhost:3000/#register", icon_val="fas fa-user-plus", icon_pos="before", cls="btn-hero-secondary", is_ext=True)]),
-            ], css_classes="hero-btns-inner mt-3"),
-        ]),
-        (40, "hero-right-col px-3", [
-            W_icon_box("fas fa-check-circle", "100% Original", "", tag="p", pos="left", cls="hero-badge-floating-top"),
-            W_image(IMG["truck2"], alt="Distributor Sparepart Master Truck", cls="hero-truck-img"),
-            W_icon_box("fas fa-handshake", "Tarif Distributor Mitra", "Bisa bayar tempo + gratis pantau servis online", tag="h5", pos="left", cls="hero-card-floating-bottom"),
+            W_icon_box("fas fa-building", "PT Master Truck Indonesia", "Servis bergaransi, dicek 30 bagian & distributor resmi pabrik", tag="h5", pos="left", cls="hero-card-floating-bottom"),
         ]),
     ]
 ))
