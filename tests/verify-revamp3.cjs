@@ -357,16 +357,18 @@ async function scrollThrough(page) {
         const lr = lead ? lead.getBoundingClientRect() : null;
         const eyebrowTitle = document.querySelector('.sec-services .badge-section-pill .elementor-heading-title');
         const ebCs = eyebrowTitle ? getComputedStyle(eyebrowTitle) : null;
+        const topbar = document.querySelector('.top-bar-custom');
         return {
             font: cs ? cs.fontFamily : null,
             eyebrowTT: ebCs ? ebCs.textTransform : null,
             eyebrowBg: ebCs ? ebCs.backgroundColor : null,
+            topbarBg: topbar ? getComputedStyle(topbar).backgroundColor : null,
             color: cs ? cs.color : null,
             size: cs ? parseFloat(cs.fontSize) : -1,
             leadW: lr ? Math.round(lr.width) : -1,
             leadCentered: lr ? Math.abs(lr.left - (window.innerWidth - lr.width) / 2) < 20 : false,
-            accentAbout: aboutAfter ? parseFloat(aboutAfter.width) : 0,
-            accentFaq: faqAfter ? parseFloat(faqAfter.width) : 0,
+            accentAbout: aboutAfter ? aboutAfter.content : '?',
+            accentFaq: faqAfter ? faqAfter.content : '?',
             pads: [
                 padOf('.sec-about'), padOf('.sec-services'), padOf('.sec-principals'),
                 padOf('.booking-section-wrapper'), padOf('.sec-team'), padOf('.sec-testimonial'),
@@ -383,9 +385,11 @@ async function scrollThrough(page) {
         `${ent.eyebrowTT} bg=${ent.eyebrowBg}`);
     check('DESKTOP: lead paragraph cap 720px & center',
         ent.leadW > 0 && ent.leadW <= 720 && ent.leadCentered, `w=${ent.leadW}`);
-    check('DESKTOP: garis aksen h2 ada di about & faq',
-        ent.accentAbout >= 50 && ent.accentFaq >= 50,
+    check('DESKTOP: garis aksen h2 dihapus (clean enterprise)',
+        ent.accentAbout === 'none' && ent.accentFaq === 'none',
         `about=${ent.accentAbout} faq=${ent.accentFaq}`);
+    check('DESKTOP: topbar putih + hairline',
+        ent.topbarBg === 'rgb(255, 255, 255)', ent.topbarBg);
     check('DESKTOP: padding section seragam 104px',
         ent.pads.every((p) => p === 104), ent.pads.join(','));
     check('DESKTOP: testimonial bg slate (bukan cream)',

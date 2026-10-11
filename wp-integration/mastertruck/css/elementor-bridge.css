@@ -1641,10 +1641,21 @@ body.elementor-page-59 .sec-team .team-enterprise-card .team-photo-wrap img {
    Class custom menempel di WRAPPER Elementor, jadi selektor
    menarget .<cls> .elementor-button / .elementor-icon-box-*. */
 
-/* --- Topbar TERANG (samakan :8080 / mastertruck.css TOPBAR:TERANG) --- */
+/* --- Topbar TERANG enterprise: putih murni + hairline slate --- */
 body.elementor-page-59 .top-bar-custom {
     min-height: 38px !important;
-    background-color: #EFF6FF !important;
+    background-color: #FFFFFF !important;
+    border-bottom: 1px solid #E2E8F0 !important;
+}
+body.elementor-page-59 .top-bar-custom small,
+body.elementor-page-59 .top-bar-custom .elementor-icon-box-title,
+body.elementor-page-59 .top-bar-custom .elementor-icon-box-description,
+body.elementor-page-59 .top-bar-custom a,
+body.elementor-page-59 .top-bar-custom .elementor-icon {
+    color: #64748B !important;
+}
+body.elementor-page-59 .top-bar-custom a:hover {
+    color: #1D4ED8 !important;
 }
 body.elementor-page-59 .top-bar-custom > .elementor-container {
     min-height: 34px !important;
@@ -3404,4 +3415,515 @@ body.elementor-page-59 .faqAccordion .elementor-accordion-item + .elementor-acco
 }
 body.elementor-page-59 .faqAccordion .elementor-accordion-item {
     border-radius: 14px !important;
+}
+
+/* ==============================================================
+   23. TRUE ENTERPRISE ALIGNMENT — pola DarkoGuide:
+   minim dekorasi, band flat berselang putih ↔ slate, tombol pill,
+   kartu netral border slate. Murni CSS (konten tetap editable).
+   ============================================================== */
+
+/* 23A. Judul section bersih — garis aksen dihapus semua */
+body.elementor-page-59 .sec-services h2::after,
+body.elementor-page-59 .sec-principals h2::after,
+body.elementor-page-59 .sec-team h2::after,
+body.elementor-page-59 .sec-testimonial h2::after,
+body.elementor-page-59 .sec-about h2::after,
+body.elementor-page-59 .sec-faq h2::after,
+body.elementor-page-59 .booking-section-wrapper h2::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* 23B. Band flat: booking gradien -> putih bersih (ritme putih/slate) */
+body.elementor-page-59 .booking-section-wrapper {
+    background: #FFFFFF !important;
+}
+
+/* 23C. Tombol pill seragam radius penuh (solid + outline) */
+body.elementor-page-59 .elementor-button,
+body.elementor-page-59 .btn {
+    border-radius: 999px !important;
+}
+
+/* 23D1. Kartu servis netral: garis atas seragam slate (bukan warna-warni) */
+body.elementor-page-59 .service-grid-card,
+body.elementor-page-59 .service-column-card {
+    border-top: 1px solid #E2E8F0 !important;
+}
+/* Ikon kartu servis seragam biru enterprise */
+body.elementor-page-59 .service-grid-card:nth-child(2) .elementor-widget-image::after,
+body.elementor-page-59 .service-grid-card:nth-child(3) .elementor-widget-image::after,
+body.elementor-page-59 .service-column-card:nth-child(2) .elementor-widget-image::after,
+body.elementor-page-59 .service-column-card:nth-child(3) .elementor-widget-image::after {
+    background: #EFF6FF !important;
+    color: #2563EB !important;
+}
+
+/* 23D2. Kartu testimonial netral: border slate, tanpa top-border amber */
+body.elementor-page-59 .sec-testimonial .testimonial-enterprise-card,
+body.elementor-page-59 .testimonial-enterprise-card,
+body.elementor-page-59 .testimonial-column-card {
+    border: 1px solid #E2E8F0 !important;
+    border-top: 1px solid #E2E8F0 !important;
+}
+
+/* 23E. Footer netral: garis 3-warna brand -> hairline slate lembut */
+body.elementor-page-59 .footer-clean::before {
+    background: #E2E8F0 !important;
+    height: 2px !important;
+}
+
+/* ==============================================================
+   24. FULL DARKOGUIDE PASS — netralisasi warna: satu bahasa biru.
+   Per keputusan: merah darurat -> biru; bintang rating amber
+   DIPERTAHANKAN (sinyal review). Murni CSS — konten tetap editable.
+   ============================================================== */
+
+/* 24A. Feature strip: kotak ikon seragam tinted biru */
+body.elementor-page-59 .sec-features .elementor-icon-box-icon {
+    background-color: #EFF6FF !important;
+}
+
+/* 24B. Kartu derek: ikon teal/amber -> biru */
+body.elementor-page-59 .derek-stat-teal .elementor-icon-box-icon,
+body.elementor-page-59 .derek-stat-amber .elementor-icon-box-icon {
+    background-color: #EFF6FF !important;
+    color: #2563EB !important;
+}
+
+/* 24C. Pill darurat -> biru (pulse animasi tetap) */
+body.elementor-page-59 .elementor-widget-heading.badge-emergency-pill .elementor-heading-title {
+    background: #EFF6FF !important;
+    color: #1D4ED8 !important;
+    border-color: rgba(37, 99, 235, 0.30) !important;
+}
+body.elementor-page-59 .badge-emergency-pill .live-dot-red {
+    background: #2563EB !important;
+    box-shadow: 0 0 8px rgba(37, 99, 235, 0.6) !important;
+}
+
+/* 24D. Tombol "Telepon Sekarang": merah -> biru solid pill (+ring pulse
+   biru; aturan posisi/padding dari rule lama tetap berlaku) */
+body.elementor-page-59 .btn-booking-call .elementor-button {
+    background: #2563EB !important;
+    border-radius: 999px !important;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25) !important;
+}
+body.elementor-page-59 .btn-booking-call .elementor-button:hover {
+    background: #1D4ED8 !important;
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35) !important;
+}
+body.elementor-page-59 .btn-booking-call .elementor-button::after {
+    border-radius: 999px !important;
+    border-color: rgba(37, 99, 235, 0.5) !important;
+}
+
+/* 24E. Pill footer "24 Jam Nonstop" -> biru */
+body.elementor-page-59 .footer-hours-text p:last-child {
+    background: #EFF6FF !important;
+    color: #1D4ED8 !important;
+    border-color: #BFDBFE !important;
+}
+
+/* 24F. Kartu team: bar warna-warni -> netral slate */
+body.elementor-page-59 .sec-team-cards .elementor-column:nth-child(2),
+body.elementor-page-59 .sec-team-cards .elementor-column:nth-child(3),
+body.elementor-page-59 .sec-team-cards .elementor-column:nth-child(4) {
+    border-bottom-color: #E2E8F0 !important;
+}
+body.elementor-page-59 .team-enterprise-card,
+body.elementor-page-59 .team-column-card {
+    border-bottom: 1px solid #E2E8F0 !important;
+}
+
+/* 24G. Glyph kutip testimonial -> slate pucat (bintang amber tetap) */
+body.elementor-page-59 .sec-testimonial .testimonial-quote-icon {
+    color: #CBD5E1 !important;
+}
+
+/* ==============================================================
+   25. FULL ENTERPRISE REDESIGN — center-hero ala SaaS, fitur polos,
+   kartu servis minimalis, footer lapang. Murni CSS: chrome yang
+   disembunyikan tetap hidup & editable di Elementor.
+   ============================================================== */
+
+/* 25A. CENTER-HERO — teks center, foto full-width di bawah */
+body.elementor-page-59 .mt-hero-slide::before {
+    background: linear-gradient(180deg, rgba(248, 250, 252, 0.97) 0%, rgba(248, 250, 252, 0.88) 100%) !important;
+}
+body.elementor-page-59 .mt-hero-slide {
+    padding-bottom: 84px !important;
+}
+body.elementor-page-59 .mt-hero-slide > .elementor-container {
+    flex-wrap: wrap !important;
+}
+body.elementor-page-59 .hero-left-col,
+body.elementor-page-59 .hero-left-col > .elementor-widget-wrap {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    align-items: center !important;
+    text-align: center !important;
+}
+body.elementor-page-59 .hero-lead {
+    max-width: 620px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+body.elementor-page-59 .hero-counter-item .elementor-counter {
+    align-items: center !important;
+    text-align: center !important;
+}
+body.elementor-page-59 .hero-stats-inner > .elementor-container,
+body.elementor-page-59 .hero-btns-inner > .elementor-container {
+    justify-content: center !important;
+}
+body.elementor-page-59 .hero-btns-inner {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+/* Chrome chip & kartu info disembunyikan dari tampilan */
+body.elementor-page-59 .hero-badge-floating-top,
+body.elementor-page-59 .hero-card-floating-bottom {
+    display: none !important;
+}
+body.elementor-page-59 .hero-right-col {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 44px !important;
+}
+body.elementor-page-59 .hero-right-col .hero-truck-img {
+    max-width: 860px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+body.elementor-page-59 .hero-truck-img img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 400px !important;
+    object-fit: cover !important;
+    border-radius: 20px !important;
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.16) !important;
+}
+
+/* 25B. FEATURE STRIP POLOS — tanpa kartu melayang */
+body.elementor-page-59 .sec-features > .elementor-container {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 8px 0 !important;
+}
+body.elementor-page-59 .sec-features .elementor-icon-box-icon {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    font-size: 17px !important;
+}
+/* Semua ikon fitur seragam biru (rule per-col lama lebih spesifik) */
+body.elementor-page-59 .sec-features .feature-col-1 .elementor-icon-box-icon,
+body.elementor-page-59 .sec-features .feature-col-2 .elementor-icon-box-icon,
+body.elementor-page-59 .sec-features .feature-col-3 .elementor-icon-box-icon,
+body.elementor-page-59 .sec-features .feature-col-4 .elementor-icon-box-icon {
+    background: #EFF6FF !important;
+    color: #2563EB !important;
+}
+
+/* 25C. KARTU SERVIS MINIMALIS — foto ringkas, tanpa ikon overlay */
+body.elementor-page-59 .service-grid-card .elementor-widget-image::after,
+body.elementor-page-59 .service-column-card .elementor-widget-image::after {
+    display: none !important;
+}
+body.elementor-page-59 .service-grid-card .elementor-widget-image,
+body.elementor-page-59 .service-column-card .elementor-widget-image {
+    max-height: 180px !important;
+    overflow: hidden !important;
+}
+body.elementor-page-59 .service-grid-card .elementor-widget-image img,
+body.elementor-page-59 .service-column-card .elementor-widget-image img {
+    height: 180px !important;
+    max-height: 180px !important;
+}
+body.elementor-page-59 .service-grid-card .elementor-widget-heading,
+body.elementor-page-59 .service-column-card .elementor-widget-heading {
+    padding: 22px 22px 8px 22px !important;
+}
+body.elementor-page-59 .service-grid-card .elementor-widget-text-editor,
+body.elementor-page-59 .service-column-card .elementor-widget-text-editor {
+    padding: 0 22px !important;
+}
+
+/* 25D. FOOTER LAPANG — heading ringkas, ruang lega */
+body.elementor-page-59 .footer-clean {
+    padding-top: 64px !important;
+}
+body.elementor-page-59 .footer-clean .footer-heading {
+    font-size: 12px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    color: #64748B !important;
+    margin-bottom: 18px !important;
+}
+body.elementor-page-59 .footer-clean .footer-menu-links a,
+body.elementor-page-59 .footer-clean .footer-contact-list p {
+    color: #475569 !important;
+}
+body.elementor-page-59 .footer-clean .footer-menu-links a:hover {
+    color: #1D4ED8 !important;
+}
+
+/* 25E. Badge "15 Tahun" di about — lebih halus */
+body.elementor-page-59 .about-exp-float-card {
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 14px !important;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.10) !important;
+}
+
+/* 25A2. Frame putih wrapper kolom kanan dibuang — foto tampil bersih */
+body.elementor-page-59 .hero-right-col .elementor-widget-wrap {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    max-width: 860px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* ==============================================================
+   26. SPLIT HERO + UNIFORM POLISH — hero split elegan (desktop),
+   semua kartu/foto/spacing/typography seragam enterprise.
+   ============================================================== */
+
+/* 26A. HERO SPLIT ELEGAN (desktop): teks kiri + foto kanan.
+   Mobile tetap center (rule blok 25 berlaku umum, di-override di sini) */
+@media (min-width: 992px) {
+    body.elementor-page-59 .mt-hero-slide::before {
+        background: linear-gradient(90deg, rgba(248, 250, 252, 0.96) 0%, rgba(248, 250, 252, 0.90) 48%, rgba(248, 250, 252, 0.38) 100%) !important;
+    }
+    body.elementor-page-59 .mt-hero-slide {
+        padding-bottom: 60px !important;
+    }
+    body.elementor-page-59 .mt-hero-slide > .elementor-container {
+        flex-wrap: nowrap !important;
+    }
+    body.elementor-page-59 .hero-left-col {
+        flex: 0 0 60% !important;
+        width: 60% !important;
+        max-width: 60% !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+    }
+    body.elementor-page-59 .hero-left-col > .elementor-widget-wrap {
+        align-items: flex-start !important;
+        text-align: left !important;
+    }
+    body.elementor-page-59 .hero-lead {
+        max-width: 520px !important;
+        margin-left: 0 !important;
+        margin-right: auto !important;
+    }
+    body.elementor-page-59 .hero-counter-item .elementor-counter {
+        align-items: flex-start !important;
+        text-align: left !important;
+    }
+    body.elementor-page-59 .hero-stats-inner > .elementor-container,
+    body.elementor-page-59 .hero-btns-inner > .elementor-container {
+        justify-content: flex-start !important;
+    }
+    body.elementor-page-59 .hero-btns-inner {
+        margin-left: 0 !important;
+        margin-right: auto !important;
+    }
+    body.elementor-page-59 .hero-right-col {
+        flex: 0 0 40% !important;
+        width: 40% !important;
+        max-width: 40% !important;
+        margin-top: 0 !important;
+    }
+    body.elementor-page-59 .hero-right-col .elementor-widget-wrap {
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    body.elementor-page-59 .hero-truck-img img {
+        max-height: 460px !important;
+        border-radius: 20px !important;
+    }
+}
+
+/* 26B. Semua kartu seragam: radius 16, border slate, shadow tipis,
+   hover angkat halus */
+body.elementor-page-59 .service-grid-card,
+body.elementor-page-59 .service-column-card,
+body.elementor-page-59 .team-enterprise-card,
+body.elementor-page-59 .team-column-card,
+body.elementor-page-59 .testimonial-enterprise-card,
+body.elementor-page-59 .testimonial-column-card,
+body.elementor-page-59 .principal-wall-card,
+body.elementor-page-59 .derek-stat-card {
+    border-radius: 16px !important;
+    border-color: #E2E8F0 !important;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05) !important;
+    transition: transform 0.22s ease, box-shadow 0.22s ease !important;
+}
+body.elementor-page-59 .service-grid-card:hover,
+body.elementor-page-59 .service-column-card:hover,
+body.elementor-page-59 .team-enterprise-card:hover,
+body.elementor-page-59 .testimonial-enterprise-card:hover,
+body.elementor-page-59 .derek-stat-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 12px 28px rgba(15, 42, 92, 0.08) !important;
+}
+body.elementor-page-59 .faqAccordion .elementor-accordion-item {
+    border-radius: 16px !important;
+}
+
+/* 26C. Foto & proporsi: foto team tinggi seragam, cover rapi */
+body.elementor-page-59 .team-enterprise-card .elementor-widget-image img,
+body.elementor-page-59 .team-column-card .elementor-widget-image img {
+    height: 250px !important;
+    max-height: 250px !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+}
+
+/* 26D. Spacing internal kolom split (about/booking) */
+@media (min-width: 992px) {
+    body.elementor-page-59 .about-right-col .elementor-widget-text-editor,
+    body.elementor-page-59 .booking-left-banner .elementor-widget-text-editor {
+        margin-bottom: 20px !important;
+    }
+}
+
+/* 26E. Tipografi kartu seragam */
+body.elementor-page-59 .service-grid-card .elementor-heading-title,
+body.elementor-page-59 .service-column-card .elementor-heading-title,
+body.elementor-page-59 .team-enterprise-card .elementor-heading-title {
+    font-size: 17px !important;
+    font-weight: 700 !important;
+    color: var(--navy) !important;
+}
+body.elementor-page-59 .service-grid-card .elementor-widget-text-editor,
+body.elementor-page-59 .service-column-card .elementor-widget-text-editor {
+    font-size: 14px !important;
+    color: #64748B !important;
+    line-height: 1.6 !important;
+}
+
+/* ==============================================================
+   27. RESTORE HERO LAYERS — kembalikan komposisi kolom kanan hero
+   persis gaya f6d9b6e (frame putih + badge pil + info card), gaya
+   yang dipilih user. Teks kiri tetap split elegan (blok 26).
+   ============================================================== */
+
+/* 27A. Frame putih kolom kanan */
+body.elementor-page-59 .hero-right-col .elementor-widget-wrap {
+    background: #FFFFFF !important;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
+    border-radius: 24px !important;
+    padding: 16px !important;
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12) !important;
+    max-width: 100% !important;
+}
+body.elementor-page-59 .hero-right-col {
+    position: relative !important;
+}
+body.elementor-page-59 .hero-right-col .hero-truck-img {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 0 140px 0 !important;
+    margin-bottom: 0 !important;
+}
+body.elementor-page-59 .hero-right-col .hero-truck-img img {
+    width: 100% !important;
+    max-height: 360px !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    border-radius: 16px !important;
+    display: block !important;
+    box-shadow: none !important;
+}
+
+/* 27B. Badge pil "100% Original" tampil lagi — numpang tepi atas frame */
+body.elementor-page-59 .hero-right-col .hero-badge-floating-top {
+    display: block !important;
+    position: relative !important;
+    z-index: 3 !important;
+    margin: 0 24px -18px auto !important;
+    width: fit-content !important;
+    background: #FFFFFF !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-pill) !important;
+    padding: 6px 16px !important;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08) !important;
+}
+body.elementor-page-59 .hero-right-col .hero-badge-floating-top .elementor-icon-box-wrapper {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+body.elementor-page-59 .hero-right-col .hero-badge-floating-top .elementor-icon-box-icon {
+    margin: 0 !important;
+}
+body.elementor-page-59 .hero-right-col .hero-badge-floating-top .elementor-icon-box-icon i,
+body.elementor-page-59 .hero-right-col .hero-badge-floating-top .elementor-icon-box-icon svg {
+    color: #2563EB !important;
+    fill: #2563EB !important;
+    width: 13px !important;
+    height: 13px !important;
+}
+body.elementor-page-59 .hero-right-col .hero-badge-floating-top .elementor-icon-box-title {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    color: var(--heading) !important;
+    margin: 0 !important;
+}
+body.elementor-page-59 .hero-right-col .hero-badge-floating-top .elementor-icon-box-description {
+    display: none !important;
+}
+
+/* 27C. Info card "Tarif Distributor Mitra" — absolute di dalam frame */
+body.elementor-page-59 .hero-right-col .hero-card-floating-bottom.elementor-widget-icon-box {
+    display: block !important;
+    position: absolute !important;
+    bottom: 24px !important;
+    left: 40px !important;
+    right: 40px !important;
+    width: auto !important;
+    margin: 0 !important;
+    z-index: 3 !important;
+}
+body.elementor-page-59 .hero-card-floating-bottom .elementor-icon-box-icon .elementor-icon {
+    background: #EFF6FF !important;
+    border-radius: 12px !important;
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: none !important;
+}
+body.elementor-page-59 .hero-card-floating-bottom .elementor-icon-box-icon i,
+body.elementor-page-59 .hero-card-floating-bottom .elementor-icon-box-icon svg {
+    color: #2563EB !important;
+    fill: #2563EB !important;
+    width: 22px !important;
+    height: 22px !important;
+    font-size: 22px !important;
+}
+@media (max-width: 767.98px) {
+    body.elementor-page-59 .hero-right-col .hero-truck-img {
+        padding-bottom: 170px !important;
+    }
+    body.elementor-page-59 .hero-card-floating-bottom.elementor-widget-icon-box {
+        bottom: 16px !important;
+        left: 24px !important;
+        right: 24px !important;
+    }
 }
