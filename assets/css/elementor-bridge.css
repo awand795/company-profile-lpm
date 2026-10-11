@@ -3976,3 +3976,179 @@ body.elementor-page-59 .hero-card-floating-bottom .elementor-icon-box-icon svg {
         right: 24px !important;
     }
 }
+
+/* Topbar Ultra-Clean Slim Enterprise */
+body.elementor-page-59 .top-bar-custom {
+    background: #FFFFFF !important;
+    border-bottom: 1px solid #E2E8F0 !important;
+    padding: 0 !important;
+    min-height: 38px !important;
+    height: 38px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+body.elementor-page-59 .top-bar-custom > .elementor-container,
+body.elementor-page-59 .top-bar-custom.e-con {
+    max-width: 1280px !important;
+    margin: 0 auto !important;
+    padding: 0 24px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    min-height: 38px !important;
+    height: 38px !important;
+}
+body.elementor-page-59 .topbar-left-col {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 24px !important;
+    width: auto !important;
+    height: 38px !important;
+}
+body.elementor-page-59 .topbar-right-col {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 16px !important;
+    width: auto !important;
+    height: 38px !important;
+}
+body.elementor-page-59 .topbar-social-inner,
+body.elementor-page-59 .topbar-social-inner > .elementor-container {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin: 0 !important;
+}
+body.elementor-page-59 .topbar-addr,
+body.elementor-page-59 .topbar-hours,
+body.elementor-page-59 .topbar-phone {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 12.5px !important;
+}
+body.elementor-page-59 .topbar-phone p {
+    margin: 0 !important;
+}
+
+/* Enterprise Navbar Brand & Clean Menu Spacing */
+body.elementor-page-59 .navbar-brand-widget .elementor-icon-box-title {
+    font-size: 18px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.05em !important;
+    color: #0F2A5C !important;
+    margin: 0 !important;
+}
+body.elementor-page-59 .navbar-brand-widget .elementor-icon-box-description {
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    color: #64748B !important;
+    letter-spacing: 0.04em !important;
+    margin-top: 2px !important;
+}
+body.elementor-page-59 .navbar-brand-widget .elementor-icon-box-icon {
+    margin-right: 12px !important;
+}
+body.elementor-page-59 .navbar-brand-widget .elementor-icon {
+    background: #EFF6FF !important;
+    color: #2563EB !important;
+    border-radius: 12px !important;
+    padding: 10px !important;
+    font-size: 18px !important;
+    width: 42px !important;
+    height: 42px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+body.elementor-page-59 .navbar .nav-menu-link .elementor-button {
+    font-size: 14.5px !important;
+    font-weight: 600 !important;
+    color: #475569 !important;
+    background: transparent !important;
+    padding: 8px 14px !important;
+    border-radius: 9999px !important;
+    transition: all 0.2s ease !important;
+}
+body.elementor-page-59 .navbar .nav-menu-link .elementor-button:hover,
+body.elementor-page-59 .navbar .nav-menu-link.nav-link-active .elementor-button {
+    color: #2563EB !important;
+    background: #EFF6FF !important;
+}
+body.elementor-page-59 .navbar .btn-nav-login .elementor-button {
+    background: transparent !important;
+    color: #2563EB !important;
+    border: 1px solid #2563EB !important;
+    border-radius: 9999px !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    padding: 8px 18px !important;
+}
+body.elementor-page-59 .navbar .btn-nav-login .elementor-button:hover {
+    background: #EFF6FF !important;
+}
+body.elementor-page-59 .navbar .btn-nav-register .elementor-button {
+    background: #2563EB !important;
+    color: #FFFFFF !important;
+    border-radius: 9999px !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    padding: 8px 18px !important;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25) !important;
+}
+body.elementor-page-59 .navbar .btn-nav-register .elementor-button:hover {
+    background: #1D4ED8 !important;
+}
+
+/* Features Strip: Clean White Enterprise Card with Icon Badge */
+body.elementor-page-59 .sec-features {
+    background: #FFFFFF !important;
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+}
+body.elementor-page-59 .sec-features .feature-strip-widget {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 20px !important;
+    padding: 24px !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04) !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+body.elementor-page-59 .sec-features .feature-strip-widget:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 16px 28px rgba(15, 42, 92, 0.08) !important;
+    border-color: #CBD5E1 !important;
+}
+body.elementor-page-59 .sec-features .feature-strip-widget .elementor-icon-box-icon .elementor-icon {
+    background: #DBEAFE !important;
+    color: #2563EB !important;
+    border-radius: 14px !important;
+    width: 48px !important;
+    height: 48px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 20px !important;
+}
+body.elementor-page-59 .sec-features .feature-strip-widget .elementor-icon-box-title {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #0F2A5C !important;
+    margin-top: 12px !important;
+}
+body.elementor-page-59 .sec-features .feature-strip-widget .elementor-icon-box-description {
+    font-size: 13.5px !important;
+    color: #64748B !important;
+    line-height: 1.6 !important;
+}
+
+/* Ensure Clean Pure White for Principals, Derek, & Footer */
+body.elementor-page-59 .sec-principals {
+    background: #FFFFFF !important;
+}
+body.elementor-page-59 .footer-clean {
+    background: #FFFFFF !important;
+}
