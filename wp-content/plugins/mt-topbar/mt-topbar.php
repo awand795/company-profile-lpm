@@ -46,6 +46,7 @@ add_action( 'wp_enqueue_scripts', function () {
 	wp_enqueue_style( 'mt-style', $site . '/css/style.css', array( 'mt-bootstrap' ), $ver( '/css/style.css' ) );
 	wp_enqueue_style( 'mt-mastertruck', $site . '/css/mastertruck.css', array( 'elementor-frontend', 'mt-style' ), $ver( '/css/mastertruck.css' ) );
 	wp_enqueue_style( 'mt-bridge', $site . '/css/elementor-bridge.css', array( 'mt-mastertruck' ), $ver( '/css/elementor-bridge.css' ) );
+	wp_enqueue_style( 'mt-custom', $site . '/css/mt-custom.css', array( 'mt-bridge' ), $ver( '/css/mt-custom.css' ) );
 	/* JS libs persis template PHP (carousel, counter, wow, main.js). */
 	wp_enqueue_script( 'mt-bootstrap-bundle', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js', array( 'jquery' ), '5.0.0', true );
 	foreach ( array( '/lib/wow/wow.min.js' => 'mt-wow', '/lib/easing/easing.min.js' => 'mt-easing', '/lib/waypoints/waypoints.min.js' => 'mt-waypoints', '/lib/counterup/counterup.min.js' => 'mt-counterup', '/js/main.js' => 'mt-main' ) as $rel => $h ) {

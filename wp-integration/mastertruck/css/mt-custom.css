@@ -1,0 +1,118 @@
+/* MT Custom CSS — Lightweight interactions, subtle hover effects, & animations */
+:root {
+    --primary: #2563EB;
+    --navy: #0F2A5C;
+    --border: #E2E8F0;
+    --heading: #0F172A;
+    --radius-pill: 999px;
+}
+
+/* 1. Header Sticky Blur & Hairline */
+body.elementor-page-59 .navbar.sticky-top {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+/* 2. Emergency Call Pulse & Ring Animations */
+@keyframes mtCallPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+@keyframes mtCallRing {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(1.35); opacity: 0; }
+}
+body.elementor-page-59 .btn-booking-call .elementor-button {
+    animation: mtCallPulse 2.4s ease-in-out infinite;
+    position: relative;
+}
+body.elementor-page-59 .btn-booking-call .elementor-button::after {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border: 2px solid rgba(37, 99, 235, 0.45);
+    border-radius: 999px;
+    animation: mtCallRing 2.4s ease-out infinite;
+    pointer-events: none;
+}
+
+/* 3. Principals Brand Grayscale -> Full Color Hover */
+body.elementor-page-59 .principal-wall-card .elementor-widget-image img {
+    filter: grayscale(1) opacity(0.78);
+    transition: filter 0.25s ease, opacity 0.25s ease;
+}
+body.elementor-page-59 .principal-wall-card:hover .elementor-widget-image img {
+    filter: grayscale(0) opacity(1);
+}
+
+/* 4. Scroll Reveal halus */
+body.mt-js .elementor-top-section.mt-reveal,
+body.mt-js .e-con.mt-reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.55s ease-out, transform 0.55s ease-out;
+}
+body.mt-js .elementor-top-section.mt-reveal.is-inview,
+body.mt-js .e-con.mt-reveal.is-inview {
+    opacity: 1;
+    transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+    body.mt-js .elementor-top-section.mt-reveal,
+    body.mt-js .e-con.mt-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* 5. Mobile Carousel Scroll-Snap & Card Hover */
+@media (max-width: 767.98px) {
+    body.elementor-page-59 .sec-services-cards,
+    body.elementor-page-59 .sec-team-cards,
+    body.elementor-page-59 .sec-testimonial-cards {
+        position: relative;
+    }
+    body.elementor-page-59 .sec-services-cards > .elementor-container,
+    body.elementor-page-59 .sec-services-cards.e-con,
+    body.elementor-page-59 .sec-services-cards > .e-con-inner,
+    body.elementor-page-59 .sec-team-cards > .elementor-container,
+    body.elementor-page-59 .sec-team-cards.e-con,
+    body.elementor-page-59 .sec-team-cards > .e-con-inner,
+    body.elementor-page-59 .sec-testimonial-cards > .elementor-container,
+    body.elementor-page-59 .sec-testimonial-cards.e-con,
+    body.elementor-page-59 .sec-testimonial-cards > .e-con-inner {
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+    }
+    body.elementor-page-59 .sec-services-cards .service-grid-card,
+    body.elementor-page-59 .sec-team-cards .team-enterprise-card,
+    body.elementor-page-59 .sec-testimonial-cards .testimonial-enterprise-card {
+        flex: 0 0 84% !important;
+        width: 84% !important;
+        max-width: none !important;
+        scroll-snap-align: start !important;
+        scroll-snap-stop: always !important;
+    }
+}
+
+/* 6. Card Hover Elevate */
+body.elementor-page-59 .service-grid-card,
+body.elementor-page-59 .team-enterprise-card,
+body.elementor-page-59 .testimonial-enterprise-card,
+body.elementor-page-59 .principal-wall-card,
+body.elementor-page-59 .derek-stat-card {
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+body.elementor-page-59 .service-grid-card:hover,
+body.elementor-page-59 .team-enterprise-card:hover,
+body.elementor-page-59 .testimonial-enterprise-card:hover,
+body.elementor-page-59 .derek-stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(15, 42, 92, 0.08);
+}

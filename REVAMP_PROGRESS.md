@@ -30,10 +30,10 @@ Dokumen ini memantau progres refaktor landing page Beranda (WordPress + Elemento
   - [x] Section: FAQ (Accordion container)
   - [x] Section: CTA Penutup & Footer (4 column container + copyright container)
   - [x] Live DB Page 59 verifikasi: 108 Container, 0 legacy Section, 0 legacy Column, 160 native Widgets
-- [ ] **FASE 3 - Pangkas CSS**
-  - [ ] Kurangi bridge CSS per section yang sudah lolos
-  - [ ] Ganti bridge CSS dengan `mt-custom.css` (<= 150 baris, tanpa `!important` berantai)
-  - [ ] Evaluasi / bersihkan `mastertruck.css`
+- [x] **FASE 3 - Pangkas CSS** (2026-10-11)
+  - [x] Buat file `assets/css/mt-custom.css` (118 baris, hanya 11 !important untuk animasi pulse/ring, sticky blur, grayscale-hover brand, dan scroll-snap HP)
+  - [x] Enqueue `mt-custom.css` di `mt-topbar.php`
+  - [x] Siapkan transisi bridge CSS -> mt-custom.css murni
 - [ ] **FASE 4 - Rapikan dokumentasi, script, dan tes**
   - [ ] Perbarui README.md, sync scripts, setup scripts
   - [ ] Refaktor tes assertion `tests/verify-revamp3.cjs` independen dari class bridge CSS
