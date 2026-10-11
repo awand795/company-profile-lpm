@@ -149,7 +149,7 @@ body.elementor-page-59 .sec-services {
     padding: 76px 0 !important;
 }
 body.elementor-page-59 .sec-principals {
-    background-color: #F1F5F9 !important;
+    background-color: #FFFFFF !important;
     padding: 76px 0 !important;
 }
 body.elementor-page-59 .booking-section-wrapper {
@@ -161,7 +161,7 @@ body.elementor-page-59 .sec-team {
     padding: 76px 0 !important;
 }
 body.elementor-page-59 .sec-testimonial {
-    background-color: #FAF8F5 !important;
+    background-color: #FFFFFF !important;
     padding: 66px 0 42px 0 !important;
 }
 body.elementor-page-59 .sec-faq {
@@ -558,7 +558,7 @@ body.elementor-page-59 .btn-hero-secondary .elementor-button {
     box-shadow: 0 2px 8px rgba(15, 42, 92, 0.05) !important;
 }
 body.elementor-page-59 .btn-hero-secondary .elementor-button:hover {
-    background: #EFF6FF !important;
+    background: #F8FAFC !important;
     color: #1D4ED8 !important;
     border-color: var(--primary) !important;
     transform: translateY(-2px) !important;
@@ -932,7 +932,7 @@ body.elementor-page-59 .hero-right-col .hero-badge-floating-top .elementor-icon-
 }
 /* Ikon kartu bawah: kotak tint terang + glyph biru (seperti :8080) */
 body.elementor-page-59 .hero-card-floating-bottom .elementor-icon-box-icon .elementor-icon {
-    background: #EFF6FF !important;
+    background: #F8FAFC !important;
     border-radius: 12px !important;
     width: 48px !important;
     height: 48px !important;
@@ -1034,10 +1034,10 @@ body.elementor-page-59 .sec-features .elementor-widget-icon-box .elementor-icon-
     justify-content: center !important;
     font-size: 20px !important;
 }
-body.elementor-page-59 .sec-features .feature-col-1 .elementor-icon-box-icon { background: #EFF6FF !important; color: #2563EB !important; }
+body.elementor-page-59 .sec-features .feature-col-1 .elementor-icon-box-icon { background: #F8FAFC !important; color: #2563EB !important; }
 body.elementor-page-59 .sec-features .feature-col-2 .elementor-icon-box-icon { background: #F0FDF4 !important; color: #059669 !important; }
 body.elementor-page-59 .sec-features .feature-col-3 .elementor-icon-box-icon { background: #FEF3C7 !important; color: #D97706 !important; }
-body.elementor-page-59 .sec-features .feature-col-4 .elementor-icon-box-icon { background: #EFF6FF !important; color: #2563EB !important; }
+body.elementor-page-59 .sec-features .feature-col-4 .elementor-icon-box-icon { background: #F8FAFC !important; color: #2563EB !important; }
 
 body.elementor-page-59 .sec-features .elementor-widget-icon-box .elementor-icon-box-title {
     font-size: 15px !important;
@@ -1180,7 +1180,7 @@ body.elementor-page-59 .service-grid-card .elementor-widget-image::after {
 }
 body.elementor-page-59 .service-grid-card:nth-child(1) .elementor-widget-image::after {
     content: "\f5fc"; /* fa-laptop-code */
-    background: #EFF6FF !important;
+    background: #F8FAFC !important;
     color: #2563EB !important;
 }
 body.elementor-page-59 .service-grid-card:nth-child(2) .elementor-widget-image::after {
@@ -1195,7 +1195,7 @@ body.elementor-page-59 .service-grid-card:nth-child(3) .elementor-widget-image::
 }
 body.elementor-page-59 .service-grid-card:nth-child(4) .elementor-widget-image::after {
     content: "\f613"; /* fa-oil-can */
-    background: #EFF6FF !important;
+    background: #F8FAFC !important;
     color: #2563EB !important;
 }
 
@@ -1470,7 +1470,7 @@ body.elementor-page-59 .team-enterprise-card .elementor-widget-image {
     aspect-ratio: auto !important;
     width: 100% !important;
     overflow: hidden !important;
-    background: #F1F5F9 !important;
+    background: #FFFFFF !important;
     margin-bottom: 0 !important;
 }
 body.elementor-page-59 .team-column-card .elementor-widget-image img,
@@ -1882,7 +1882,7 @@ body.elementor-page-59 .btn-nav-login .elementor-button {
     padding: 0 16px !important;
     border-radius: var(--radius-btn) !important;
     color: #1D4ED8 !important;
-    background: #EFF6FF !important;
+    background: #F8FAFC !important;
     border: 1.5px solid #BFDBFE !important;
     display: inline-flex !important;
     align-items: center !important;
@@ -3478,7 +3478,7 @@ body.elementor-page-59 .service-grid-card:nth-child(2) .elementor-widget-image::
 body.elementor-page-59 .service-grid-card:nth-child(3) .elementor-widget-image::after,
 body.elementor-page-59 .service-column-card:nth-child(2) .elementor-widget-image::after,
 body.elementor-page-59 .service-column-card:nth-child(3) .elementor-widget-image::after {
-    background: #EFF6FF !important;
+    background: #F8FAFC !important;
     color: #2563EB !important;
 }
 
@@ -3504,19 +3504,19 @@ body.elementor-page-59 .footer-clean::before {
 
 /* 24A. Feature strip: kotak ikon seragam tinted biru */
 body.elementor-page-59 .sec-features .elementor-icon-box-icon {
-    background-color: #EFF6FF !important;
+    background-color: #F8FAFC !important;
 }
 
 /* 24B. Kartu derek: ikon teal/amber -> biru */
 body.elementor-page-59 .derek-stat-teal .elementor-icon-box-icon,
 body.elementor-page-59 .derek-stat-amber .elementor-icon-box-icon {
-    background-color: #EFF6FF !important;
+    background-color: #F8FAFC !important;
     color: #2563EB !important;
 }
 
 /* 24C. Pill darurat -> biru (pulse animasi tetap) */
 body.elementor-page-59 .elementor-widget-heading.badge-emergency-pill .elementor-heading-title {
-    background: #EFF6FF !important;
+    background: #F8FAFC !important;
     color: #1D4ED8 !important;
     border-color: rgba(37, 99, 235, 0.30) !important;
 }
@@ -3543,7 +3543,7 @@ body.elementor-page-59 .btn-booking-call .elementor-button::after {
 
 /* 24E. Pill footer "24 Jam Nonstop" -> biru */
 body.elementor-page-59 .footer-hours-text p:last-child {
-    background: #EFF6FF !important;
+    background: #F8FAFC !important;
     color: #1D4ED8 !important;
     border-color: #BFDBFE !important;
 }
@@ -3649,7 +3649,7 @@ body.elementor-page-59 .sec-features .feature-col-1 .elementor-icon-box-icon,
 body.elementor-page-59 .sec-features .feature-col-2 .elementor-icon-box-icon,
 body.elementor-page-59 .sec-features .feature-col-3 .elementor-icon-box-icon,
 body.elementor-page-59 .sec-features .feature-col-4 .elementor-icon-box-icon {
-    background: #EFF6FF !important;
+    background: #F8FAFC !important;
     color: #2563EB !important;
 }
 
@@ -3948,7 +3948,7 @@ body.elementor-page-59 .hero-right-col .hero-card-floating-bottom.elementor-widg
     z-index: 3 !important;
 }
 body.elementor-page-59 .hero-card-floating-bottom .elementor-icon-box-icon .elementor-icon {
-    background: #EFF6FF !important;
+    background: #F8FAFC !important;
     border-radius: 12px !important;
     width: 48px !important;
     height: 48px !important;
