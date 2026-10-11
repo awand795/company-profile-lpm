@@ -182,3 +182,23 @@ body.mt-js .e-con.mt-reveal.is-inview {
         scroll-snap-stop: always !important;
     }
 }
+
+/* 8. Hero Slide: Stacking Context & Sharp Typography */
+body.elementor-page-59 .mt-hero-slide > .elementor-container,
+body.elementor-page-59 .mt-hero-slide > .e-con,
+body.elementor-page-59 .mt-hero-slide > .e-con-inner,
+body.elementor-page-59 .hero-left-col,
+body.elementor-page-59 .hero-right-col {
+    position: relative !important;
+    z-index: 2 !important;
+}
+body.elementor-page-59 .hero-title .elementor-heading-title {
+    color: #0A1B3B !important;
+    filter: none !important;
+    text-shadow: none !important;
+}
+body.elementor-page-59 .hero-lead {
+    color: #475569 !important;
+    filter: none !important;
+    text-shadow: none !important;
+}

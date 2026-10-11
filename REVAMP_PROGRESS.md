@@ -38,6 +38,7 @@ Dokumen ini memantau progres refaktor landing page Beranda (WordPress + Elemento
   - [x] Perbarui README.md (port 5000, font Plus Jakarta Sans & Inter, container lpm-wp-app, Elementor Flexbox Container)
   - [x] Samakan sync-to-wp.sh, setup.sh, setup.ps1 ke container lpm-wp-app dan port 5000
   - [x] Refaktor tests/verify-revamp3.cjs (fallback dynamic playwright import & selektor adaptif container)
+  - [x] Perbaikan legibilitas teks Hero slide: stacking context `.hero-left-col` (z-index 2 di atas scrim overlay `::before`), eliminasi filter drop-shadow kabur menjadi tipografi kontras tinggi (#0A1B3B navy & #475569 slate)
   - [x] Regenerasi database_dump.sql fresh dari MariaDB container lpm-wp-db (2.1 MB)
   - [x] Seluruh 31 assertion test suite PASS 100% tanpa error
 

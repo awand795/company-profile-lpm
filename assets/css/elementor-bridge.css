@@ -230,9 +230,13 @@ body.elementor-page-59 .mt-hero-slide::before {
     z-index: 1;
     pointer-events: none;
 }
-body.elementor-page-59 .mt-hero-slide > .elementor-container {
-    position: relative;
-    z-index: 2;
+body.elementor-page-59 .mt-hero-slide > .elementor-container,
+body.elementor-page-59 .mt-hero-slide > .e-con,
+body.elementor-page-59 .mt-hero-slide > .e-con-inner,
+body.elementor-page-59 .hero-left-col,
+body.elementor-page-59 .hero-right-col {
+    position: relative !important;
+    z-index: 2 !important;
 }
 
 /* Transisi Slider Hero di Frontend */
@@ -384,18 +388,21 @@ body.elementor-page-59 .hero-title .elementor-heading-title {
     line-height: 1.24 !important;
     letter-spacing: -0.025em !important;
     margin-bottom: 1rem !important;
-    filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.95));
+    filter: none !important;
+    text-shadow: none !important;
 }
 body.elementor-page-59 .hero-title .hero-brand-highlight {
-    color: var(--primary);
+    color: var(--primary) !important;
 }
 body.elementor-page-59 .hero-lead {
     font-size: 1.05rem !important;
     color: #475569 !important;
+    font-weight: 500 !important;
     line-height: 1.65 !important;
     margin-bottom: 1.5rem !important;
     max-width: 620px;
-    filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.95));
+    filter: none !important;
+    text-shadow: none !important;
 }
 
 /* Hero Stats — Presisi 1:1 index.html */
@@ -3738,8 +3745,10 @@ body.elementor-page-59 .hero-right-col .elementor-widget-wrap-old {
     body.elementor-page-59 .mt-hero-slide {
         padding-bottom: 60px !important;
     }
-    body.elementor-page-59 .mt-hero-slide > .elementor-container {
+    body.elementor-page-59 .mt-hero-slide > .elementor-container,
+    body.elementor-page-59 .mt-hero-slide.e-con {
         flex-wrap: nowrap !important;
+        flex-direction: row !important;
     }
     body.elementor-page-59 .hero-left-col {
         flex: 0 0 60% !important;
