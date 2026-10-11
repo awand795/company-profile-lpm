@@ -298,7 +298,7 @@ sections.append(make_section(
     cols=[
         (60, "hero-left-col px-4 px-lg-5", [
             W_heading('<span class="live-dot"></span>DISTRIBUTOR RESMI &bull; BENGKEL REKANAN KORPORAT &bull; KIM III MEDAN', tag="p", align="left", cls="hero-brand-pill"),
-            W_heading('Solusi Total Perawatan Armada &amp; <span class="hero-brand-highlight">Distributor Sparepart OEM</span>', tag="h1", align="left", cls="hero-title"),
+            W_heading('Solusi Total Perawatan Armada di <span class="hero-brand-highlight">Master Truck</span>', tag="h1", align="left", cls="hero-title"),
             W_text('Spesialis pemeliharaan armada truk komersial terpercaya selama 15+ tahun di Kawasan Industri Medan. Distributor resmi oli Pertamina, oli Mobil, ban Dunlop, dan aki GS Astra langsung dari pabrik dengan jaminan 100% orisinal.', align="left", cls="hero-lead"),
             make_inner_section([
                 (50, "", [W_button("Konsultasi Servis Armada", link="#booking", icon_val="fas fa-arrow-right", icon_pos="after", cls="btn-hero-primary")]),

@@ -53,6 +53,10 @@ Dokumen ini memantau progres refaktor landing page Beranda (WordPress + Elemento
     - **Hierarki Hero Ditingkatkan**: Tombol CTA diletakkan tepat di bawah teks lead, diikuti Bento Metrics card terpadu berlatar `#F8FAFC` dengan border halus `#E2E8F0` & radius 20px.
     - **Pembersihan Anomali Sticky Navbar**: Menghilangkan glitch capture Playwright saat render full-page sehingga navbar floating hanya tampil 1x di atas halaman dan area footer bersih.
     - **Filter Network Errors**: Menstabilkan test suite Playwright terhadap network error resource eksternal saat offline.
+  - [x] **Penyelarasan Presisi 1:1 Pola Asli DarkoGuide (2026-10-11):**
+    - **Ultra-Clean Hero Visual**: Menghilangkan bingkai kotak ganda dan kartu penutup di atas foto; foto armada komersial kini tampil megah, utuh, dan bersih dengan sudut melengkung 28px & soft elevation.
+    - **Headline Berbobot & Tombol Lapang**: Headline 60px Plus Jakarta Sans (`Solusi Total Perawatan Armada di Master Truck`), dua tombol pill lapang (biru solid + putih outline), dan baris metrik bergaris pembatas vertikal.
+    - **Dark Slate Navbar CTA**: Tombol Daftar Fleet bergaya dark slate `#1E293B` persis tombol Dashboard di http://94.237.69.119:4000/.
   - [x] Regenerasi database_dump.sql fresh dari MariaDB container lpm-wp-db (2.1 MB)
   - [x] Seluruh 31 assertion test suite PASS 100% tanpa error (Mobile, Tablet, Desktop)
 

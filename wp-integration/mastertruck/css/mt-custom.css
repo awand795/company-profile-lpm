@@ -234,67 +234,69 @@ body.elementor-page-59 .hero-brand-pill .live-dot {
 }
 
 body.elementor-page-59 .hero-stats-inner {
-    background: #F8FAFC !important;
-    border: 1px solid #E2E8F0 !important;
-    border-radius: 20px !important;
-    padding: 14px 20px !important;
+    background: transparent !important;
+    border: none !important;
+    border-top: 1px solid #E2E8F0 !important;
+    border-radius: 0 !important;
+    padding: 20px 0 0 0 !important;
     max-width: 540px !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
+    box-shadow: none !important;
 }
 body.elementor-page-59 .hero-stats-inner .elementor-column {
-    border-left: 1px solid #CBD5E1 !important;
+    border-left: 1px solid #E2E8F0 !important;
+    padding: 0 24px !important;
 }
 body.elementor-page-59 .hero-stats-inner .elementor-column:first-child {
     border-left: none !important;
+    padding-left: 0 !important;
 }
 body.elementor-page-59 .hero-stats-inner .elementor-counter-number-wrapper {
-    font-size: 26px !important;
+    font-size: 28px !important;
     font-weight: 800 !important;
     color: #0F2A5C !important;
 }
 body.elementor-page-59 .hero-stats-inner .elementor-counter-title {
-    font-size: 11.5px !important;
+    font-size: 12px !important;
     font-weight: 600 !important;
     color: #64748B !important;
     text-transform: uppercase !important;
     letter-spacing: 0.03em !important;
 }
 
-/* 10. Hero Right Bento Showcase */
-body.elementor-page-59 .hero-right-col {
-    background: #FFFFFF !important;
-    border: 1px solid #E2E8F0 !important;
-    border-radius: 32px !important;
-    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(226, 232, 240, 0.5) !important;
-    padding: 24px !important;
-    position: relative !important;
+/* 10. Hero Right Clean Showcase ala DarkoGuide (Reset Blok 27) */
+body.elementor-page-59 .hero-right-col,
+body.elementor-page-59 .hero-right-col.elementor-column {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
-body.elementor-page-59 .hero-truck-img img {
-    border-radius: 20px !important;
-    box-shadow: 0 8px 20px -4px rgba(15, 23, 42, 0.08) !important;
+body.elementor-page-59 .hero-right-col .hero-truck-img {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
 }
-body.elementor-page-59 .hero-right-col .hero-badge-floating-top {
-    position: absolute !important;
-    top: -12px !important;
-    right: 32px !important;
-    background: #FFFFFF !important;
-    border: 1px solid #E2E8F0 !important;
-    border-radius: 9999px !important;
-    padding: 8px 18px !important;
-    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08) !important;
+body.elementor-page-59 .hero-right-col .hero-truck-img img {
+    border-radius: 28px !important;
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(226, 232, 240, 0.8) !important;
+    width: 100% !important;
+    max-height: 480px !important;
+    height: auto !important;
+    object-fit: cover !important;
+    display: block !important;
 }
-body.elementor-page-59 .hero-right-col .hero-card-floating-bottom {
-    background: #FFFFFF !important;
-    border: 1px solid #E2E8F0 !important;
-    border-radius: 20px !important;
-    box-shadow: 0 12px 28px -6px rgba(15, 23, 42, 0.08) !important;
-    padding: 16px 20px !important;
-    margin-top: -20px !important;
-    position: relative !important;
-    z-index: 4 !important;
+body.elementor-page-59 .hero-right-col .hero-badge-floating-top,
+body.elementor-page-59 .hero-right-col .hero-badge-floating-top.elementor-widget-icon-box,
+body.elementor-page-59 .hero-right-col .hero-card-floating-bottom,
+body.elementor-page-59 .hero-right-col .hero-card-floating-bottom.elementor-widget-icon-box {
+    display: none !important;
 }
 
-/* 11. Navbar Menu Clean Typography */
+/* 11. Navbar Menu Clean Typography & DarkoGuide Pill CTA */
 body.elementor-page-59 .navbar .nav-menu-link .elementor-button {
     background: transparent !important;
     color: #475569 !important;
@@ -304,9 +306,19 @@ body.elementor-page-59 .navbar .nav-menu-link .elementor-button {
 }
 body.elementor-page-59 .navbar .nav-menu-link .elementor-button:hover,
 body.elementor-page-59 .navbar .nav-menu-link.nav-link-active .elementor-button {
-    background: #F1F5F9 !important;
-    color: #0F172A !important;
+    background: transparent !important;
+    color: #2563EB !important;
     font-weight: 600 !important;
+}
+body.elementor-page-59 .navbar .btn-nav-register .elementor-button {
+    background: #1E293B !important;
+    color: #FFFFFF !important;
+    border: 1px solid #1E293B !important;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12) !important;
+}
+body.elementor-page-59 .navbar .btn-nav-register .elementor-button:hover {
+    background: #0F172A !important;
+    color: #FFFFFF !important;
 }
 
 /* 12. Feature Strip Cards Polish */
