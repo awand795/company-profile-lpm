@@ -25,12 +25,12 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$ROOT"
 
-APP="${MT_APP:-lotus-wp-app}"
-DB="${MT_DB:-lotus-wp-db}"
+APP="${MT_APP:-lpm-wp-app}"
+DB="${MT_DB:-lpm-wp-db}"
 DB_USER="${MT_DB_USER:-wordpress}"
 DB_PASS="${MT_DB_PASS:-lotus_wp_password_2026}"
 DB_NAME="${MT_DB_NAME:-wordpress}"
-URL="${MT_URL:-http://localhost:8080}"
+URL="${MT_URL:-http://localhost:5000}"
 DO_REBUILD=0
 DO_IMPORT=1
 

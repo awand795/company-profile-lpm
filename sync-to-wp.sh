@@ -7,7 +7,7 @@
 #   ./sync-to-wp.sh -c lotus-wp-app -t astra
 set -euo pipefail
 
-CONTAINER="lotus-wp-app"
+CONTAINER="lpm-wp-app"
 THEME=""
 while [[ $# -gt 0 ]]; do
   case "$1" in

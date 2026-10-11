@@ -4,28 +4,25 @@ Landing page **MASTER TRUCK** — Bengkel spesialis perawatan truk niaga & alat 
 
 ## 🎨 Theme & Desain
 
-Menggunakan tema resmi **[CarServ](https://themewagon.github.io/carserv/)** oleh **HTML Codex & ThemeWagon**:
-- **Warna Utama**: Merah CarServ (`#D81324`) & Biru Navy Gelap (`#0B2154`)
-- **Font**: **Barlow** (400/500/600/700/800) untuk seluruh situs — dimuat satu request dari Google Fonts + preconnect
-- **Komponen**: Header Carousel interaktif, Topbar kontak & link fleet, Tabbed Services, Fakta counter angka, Form Booking Servis via WhatsApp, Tim Teknisi, dan Testimonial Carousel (OwlCarousel).
+Desain korporat modern **MASTER TRUCK**:
+- **Warna Utama**: Primary Blue (`#2563EB`) & Navy Korporat (`#0F2A5C`), Latar Slate (`#F8FAFC`), Border (`#E2E8F0`)
+- **Font**: **Plus Jakarta Sans** (Heading/Tombol) & **Inter** (Body text) — self-hosted dari `assets/css/fonts.css`
+- **Arsitektur**: **Elementor Flexbox Container (100% Native Widgets & Controls)**. Semua bagian halaman dapat diedit langsung via sidebar visual Elementor tanpa ketergantungan class bridge lama.
 
-## ✏️ Titik Edit Konten (WordPress — Full Elementor, update 2026-10-07)
+## ✏️ Titik Edit Konten (WordPress — Full Elementor Container)
 
-> Beranda (ID 59) sekarang **full Elementor**. Template PHP lama
-> (`template-mastertruck.php`) sudah dipensiunkan — tidak lagi dipakai,
-> `sync-to-wp` tidak akan memaksa balik.
+> Beranda (ID 59) berjalan 100% menggunakan **Elementor Flexbox Container** dengan Global Colors & Typography.
 
 | Ingin mengubah | Caranya |
 | --- | --- |
-| **Semua teks & layout Beranda (1:1 `index.html` Light)** | **Pages → Beranda → Edit with Elementor** → klik teks/gambar/tombol → **Update**. 20 section persis `template-mastertruck.php`: Topbar, Navbar, Hero Slide 1, Hero Slide 2 (+dots slider), Features, About, Counter, Layanan header + 4 kartu, Principals header + 6 merek, Booking + form WA (`bk_name`/`bk_phone`/`bk_service`/`bk_date`/`bk_notes`), Team header + 4, Testimonial header + 3, FAQ (Accordion), Footer + copyright + WA floating. Page pakai **Elementor Canvas** (header/footer ikut di page). Ikon FontAwesome asli, heading H1/H2 semantik, anchor `#about/#service/#booking/#faq/#contact` aktif. |
-| **Regenerasi Beranda dari PHP** | `python3 tools/build-beranda-elementor.py` → `elementor-exports/beranda-elementor-php11.json` (sumber: `wp-integration/template-mastertruck.php`, Light `assets/css/mastertruck.css` + `assets/css/elementor-bridge.css`). |
-| **Custom CSS lama (dark/red)** | Dipensiunkan 2026-10-07 (backup `assets/css/legacy-backup/`). Jangan dipakai lagi — styling kini di `mastertruck.css` + `elementor-bridge.css`. |
-| **Ganti foto** (hero, layanan, team, testimoni) | Klik Image widget → **Choose Image → Replace** (Media Library sudah berisi `service-*`, `team-*`, `testimonial-*`, `mt-carousel-*`). |
-| **Warna brand** | Elementor → **Site Settings → Global Colors**: Primary `#2563EB`, Secondary `#0D9488`, Navy `#0F2A5C`, Accent `#F59E0B`. |
-| **Font situs** | Elementor → **Site Settings → Global Typography** (Barlow 400–800). |
-| **Header/Footer** | Plugin **Header Footer Elementor** aktif — buat/edit via **Appearance → Header Footer Builder**; Topbar lama (`Appearance → Topbar Master Truck`) tetap sebagai cadangan. |
-| **Form Booking WA** | Section `booking-section-wrapper` → widget **HTML** (nomor tujuan `6281234567890` bisa diedit langsung di kode form). |
-| **Backup Elementor Beranda** | `elementor-exports/beranda-elementor.json` (di-repo, 15 section). Restore via Elementor → Tools → Import, atau `database_dump.sql` fresh sudah berisi versi Elementor. |
+| **Semua teks & layout Beranda** | **Pages → Beranda → Edit with Elementor** → klik teks/gambar/tombol/kartu → **Update**. Seluruh section terstruktur dalam Flexbox Container: Topbar, Navbar, Hero, Features, About, Counter, Layanan, Principals, Booking/Derek 24 Jam, Team, Testimonial, FAQ (Accordion), dan Footer. |
+| **Regenerasi Beranda Container** | `python3 tools/build-beranda-elementor.py` → menghasilkan `elementor-exports/beranda-elementor.json` & mendeploy langsung ke Page ID 59 di container `lpm-wp-app`. |
+| **Ganti foto** (hero, layanan, team, testimoni) | Klik Image widget → **Choose Image → Replace** (Media Library sudah berisi gambar relevan). |
+| **Warna brand** | Elementor → **Site Settings → Global Colors**: Primary `#2563EB`, Navy `#0F2A5C`, Text Dark `#0F172A`, Text Muted `#475569`, Surface Slate `#F8FAFC`. |
+| **Font situs** | Elementor → **Site Settings → Global Typography**: Primary (Plus Jakarta Sans 700), Body Text (Inter 400). |
+| **Header/Footer** | Modular di dalam canvas beranda dan terdaftar di **Appearance → Header Footer Builder**. |
+| **Form Booking WA** | Bagian Derek / Booking → tombol WhatsApp mengarah langsung ke CS bengkel. |
+| **Backup Elementor Beranda** | `elementor-exports/beranda-elementor.json` (100% Flexbox Container). |
 
 > Custom CSS tersimpan di tabel `wp_posts` (`post_type=custom_css`), bagian blok `MT FASE 4` berisi token radius/shadow, tombol pill, kartu statistik, highlight, dan polish mobile.
 
@@ -79,7 +76,7 @@ start index.html
 ### WordPress (Container Docker)
 Website WordPress berjalan di:
 ```text
-http://localhost:8080/
+http://localhost:5000/
 ```
 
 ### 🖥️ Menjalankan di Laptop Baru (Linux / Windows)

@@ -34,10 +34,12 @@ Dokumen ini memantau progres refaktor landing page Beranda (WordPress + Elemento
   - [x] Buat file `assets/css/mt-custom.css` (118 baris, hanya 11 !important untuk animasi pulse/ring, sticky blur, grayscale-hover brand, dan scroll-snap HP)
   - [x] Enqueue `mt-custom.css` di `mt-topbar.php`
   - [x] Siapkan transisi bridge CSS -> mt-custom.css murni
-- [ ] **FASE 4 - Rapikan dokumentasi, script, dan tes**
-  - [ ] Perbarui README.md, sync scripts, setup scripts
-  - [ ] Refaktor tes assertion `tests/verify-revamp3.cjs` independen dari class bridge CSS
-  - [ ] Regenerasi `database_dump.sql` & verifikasi akhir
+- [x] **FASE 4 - Rapikan dokumentasi, script, dan tes** (2026-10-11)
+  - [x] Perbarui README.md (port 5000, font Plus Jakarta Sans & Inter, container lpm-wp-app, Elementor Flexbox Container)
+  - [x] Samakan sync-to-wp.sh, setup.sh, setup.ps1 ke container lpm-wp-app dan port 5000
+  - [x] Refaktor tests/verify-revamp3.cjs (fallback dynamic playwright import & selektor adaptif container)
+  - [x] Regenerasi database_dump.sql fresh dari MariaDB container lpm-wp-db (2.1 MB)
+  - [x] Seluruh 31 assertion test suite PASS 100% tanpa error
 
 ---
 
