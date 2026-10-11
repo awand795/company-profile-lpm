@@ -44,6 +44,11 @@ Dokumen ini memantau progres refaktor landing page Beranda (WordPress + Elemento
     - Floating pill navbar murni (`rounded-full`, backdrop blur, border slate `#E2E8F0`, CTA Login & Register Fleet) tanpa topbar kontak terpisah di atasnya.
     - Seluruh section (Keunggulan, Tentang Kami, Fakta/Counter, Layanan, Derek 24 Jam, Tim, Testimoni, FAQ, Footer) berlatar putih `#FFFFFF` bersih dengan border slate halus.
     - 100% Flexbox Container native Elementor, dapat diedit langsung oleh user via UI Elementor.
+  - [x] **Elevasi Desain Enterprise Lanjutan via Grill-Me Alignment (2026-10-11):**
+    - **Bento Grid Hero Showcase**: Badge distributor resmi & bengkel rekanan korporat, headline B2B tajam, 3 live counter metrik, tombol CTA ganda, dan kartu showcase garansi 30 titik dengan radius 24px & subtle shadow.
+    - **Bento Grid Service Layout**: Hierarki visual terstruktur untuk Kontrak Armada B2B (layanan unggulan) beserta layanan overhaul, rem angin & pelumas OEM.
+    - **Emergency Command Bar**: Command center siaga 24/7 dengan tombol hotline beranimasi pulse/radar langsung terhubung dispatcher.
+    - **Curated Enterprise Trust Stack**: Logo mitra prinsipal OEM (Pertamina, Mobil, Dunlop, GS Astra, Incoe, Sakura) dengan label spesialisasi resmi dan kartu kutipan testimoni eksekutif.
   - [x] Regenerasi database_dump.sql fresh dari MariaDB container lpm-wp-db (2.1 MB)
   - [x] Seluruh 31 assertion test suite PASS 100% tanpa error (Mobile, Tablet, Desktop)
 

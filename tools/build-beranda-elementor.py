@@ -289,7 +289,7 @@ sections.append(make_section(
 ))
 
 # ==============================================================================
-# 2. HERO SECTION — Single Static Enterprise Hero (All-White Background ala DarkoGuide)
+# 2. HERO SECTION — Bento Grid Hero Showcase (All-White Enterprise ala DarkoGuide)
 # ==============================================================================
 sections.append(make_section(
     css_id="header-carousel",
@@ -297,23 +297,23 @@ sections.append(make_section(
     bg_color="#FFFFFF",
     cols=[
         (60, "hero-left-col px-4 px-lg-5", [
-            W_heading('<span class="live-dot"></span>PT MASTER TRUCK INDONESIA &bull; KIM III MEDAN', tag="p", align="left", cls="hero-brand-pill"),
-            W_heading('Solusi Total Bengkel &amp; <span class="hero-brand-highlight">Distributor Sparepart</span> Truk di Medan', tag="h1", align="left", cls="hero-title"),
-            W_text('Perawatan armada terpercaya selama 15+ tahun sekaligus penyedia resmi oli Pertamina, oli Mobil, ban Dunlop, dan aki GS Astra langsung dari pabrik dengan jaminan 100% orisinal.', align="left", cls="hero-lead"),
+            W_heading('<span class="live-dot"></span>DISTRIBUTOR RESMI &bull; BENGKEL REKANAN KORPORAT &bull; KIM III MEDAN', tag="p", align="left", cls="hero-brand-pill"),
+            W_heading('Solusi Total Perawatan Armada &amp; <span class="hero-brand-highlight">Distributor Sparepart OEM</span>', tag="h1", align="left", cls="hero-title"),
+            W_text('Spesialis pemeliharaan armada truk komersial terpercaya selama 15+ tahun di Kawasan Industri Medan. Distributor resmi oli Pertamina, oli Mobil, ban Dunlop, dan aki GS Astra langsung dari pabrik dengan jaminan 100% orisinal.', align="left", cls="hero-lead"),
             make_inner_section([
                 (33, "", [W_counter(15, "Tahun Berpengalaman", cls="hero-counter-item")]),
                 (33, "", [W_counter(120, "Perusahaan Mitra", suffix="+", cls="hero-counter-item")]),
                 (34, "", [W_counter(2500, "Armada per Tahun", cls="hero-counter-item", delimiter=".")]),
             ], css_classes="hero-stats-inner d-none d-md-flex"),
             make_inner_section([
-                (50, "", [W_button("Jadwalkan Servis", link="#booking", icon_val="fas fa-arrow-right", icon_pos="after", cls="btn-hero-primary")]),
+                (50, "", [W_button("Konsultasi Servis Armada", link="#booking", icon_val="fas fa-arrow-right", icon_pos="after", cls="btn-hero-primary")]),
                 (50, "", [W_button("Portal Web Fleet", link="http://localhost:3000/#login", icon_val="fas fa-desktop", icon_pos="before", cls="btn-hero-secondary", is_ext=True)]),
             ], css_classes="hero-btns-inner mt-3"),
         ]),
         (40, "hero-right-col px-3", [
-            W_icon_box("fas fa-shield-alt", "Terpercaya 120+ Mitra", "", tag="p", pos="left", cls="hero-badge-floating-top"),
+            W_icon_box("fas fa-shield-alt", "Terpercaya 120+ Mitra Logistik", "Sertifikasi resmi prinsipal & standar mutu OEM", tag="p", pos="left", cls="hero-badge-floating-top"),
             W_image(IMG["truck1"], alt="Armada Truk Master Truck", cls="hero-truck-img"),
-            W_icon_box("fas fa-building", "PT Master Truck Indonesia", "Servis bergaransi, dicek 30 bagian & distributor resmi pabrik", tag="h5", pos="left", cls="hero-card-floating-bottom"),
+            W_icon_box("fas fa-check-circle", "Tarif Korporat & Garansi 30 Titik", "Inspeksi digital, SLA respon cepat & invoice tempo 30 hari", tag="h5", pos="left", cls="hero-card-floating-bottom"),
         ]),
     ]
 ))
@@ -325,16 +325,16 @@ sections.append(make_section(
     css_classes="container-xxl py-4 sec-features",
     cols=[
         (25, "feature-col-1", [
-            W_icon_box("fas fa-clipboard-check", "Cek Menyeluruh", "Truk dicek 30 bagian, ada foto buktinya, bergaransi resmi.", tag="h5", cls="feature-strip-widget")
+            W_icon_box("fas fa-clipboard-check", "30 Titik Inspeksi", "Pemeriksaan menyeluruh dari mesin hingga sasis dengan bukti foto digital.", tag="h5", cls="feature-strip-widget")
         ]),
         (25, "feature-col-2", [
-            W_icon_box("fas fa-users-cog", "Teknisi Ahli", "Montir khusus truk berpengalaman belasan tahun.", tag="h5", cls="feature-strip-widget")
+            W_icon_box("fas fa-users-cog", "Teknisi Bersertifikat", "Tim montir spesialis mesin diesel & sistem rem berpengalaman belasan tahun.", tag="h5", cls="feature-strip-widget")
         ]),
         (25, "feature-col-3", [
-            W_icon_box("fas fa-shield-alt", "Barang Asli", "Oli, ban, dan aki langsung dari pabriknya. Dijamin asli.", tag="h5", cls="feature-strip-widget")
+            W_icon_box("fas fa-shield-alt", "Suku Cadang OEM 100%", "Oli, ban, aki, dan filter langsung dari prinsipal resmi pabrik bergaransi.", tag="h5", cls="feature-strip-widget")
         ]),
         (25, "feature-col-4", [
-            W_icon_box("fas fa-satellite-dish", "Pantau Online", "Lihat progress servis dan tagihan dari HP kapan saja.", tag="h5", cls="feature-strip-widget")
+            W_icon_box("fas fa-satellite-dish", "Pantau Fleet Digital", "Pantau progres servis, riwayat armada, dan tagihan dari smartphone Anda.", tag="h5", cls="feature-strip-widget")
         ]),
     ]
 ))
@@ -348,16 +348,16 @@ sections.append(make_section(
     cols=[
         (50, "about-left-col pe-lg-4", [
             W_image(IMG["about"], alt="Montir sedang memperbaiki mesin truk di bengkel PT Master Truck Indonesia", cls="about-img-box"),
-            W_icon_box("fas fa-award", "15 Tahun", "Pengalaman", tag="h5", pos="left", cls="about-exp-float-card"),
+            W_icon_box("fas fa-award", "15 Tahun", "Pengalaman Teruji", tag="h5", pos="left", cls="about-exp-float-card"),
         ]),
         (50, "about-right-col ps-lg-4", [
             W_heading("Tentang Kami", tag="p", align="left", cls="badge-section-pill"),
-            W_heading('<span class="text-primary">Master Truck</span>, Bengkel Truk Kepercayaan Anda di Medan', tag="h2", align="left"),
-            W_text('<p class="mb-3"><strong>PT Master Truck Indonesia</strong> ada di Kawasan Industri Medan III (KIM III). Kami merawat segala jenis truk dan mesin besar, sekaligus toko resmi oli Pertamina, oli Mobil, ban Dunlop, dan aki Incoe/GS Astra.</p><p class="mb-4">Semua pengerjaan tercatat dan bisa dipantau online &mdash; ada foto buktinya sebelum Anda bayar.</p>', align="left"),
+            W_heading('<span class="text-primary">Master Truck</span>, Rekanan Terpercaya Perawatan Armada di Medan', tag="h2", align="left"),
+            W_text('<p class="mb-3"><strong>PT Master Truck Indonesia</strong> beroperasi di Kawasan Industri Medan III (KIM III). Kami berfokus pada efisiensi operasional dan durabilitas armada truk logistik serta mesin industri berat Anda.</p><p class="mb-4">Didukung distributor resmi pelumas Pertamina &amp; Mobil, ban Dunlop, dan aki GS Astra untuk memastikan kendaraan Anda selalu siap jalan tanpa kendala.</p>', align="left"),
             W_text("""<ul class="about-check-list mb-4">
-                <li><span class="check-icon-circle"><i class="fa fa-check"></i></span><span>Segala jenis truk: tronton, trailer, dump truck, mesin besar</span></li>
-                <li><span class="check-icon-circle"><i class="fa fa-check"></i></span><span>Progress servis terpantau dari HP, lengkap dengan foto</span></li>
-                <li><span class="check-icon-circle"><i class="fa fa-check"></i></span><span>Barang 100% asli dari pabrik, bisa bayar tempo</span></li>
+                <li><span class="check-icon-circle"><i class="fa fa-check"></i></span><span>Spesialisasi segala varian: tronton, trailer, dump truck, dan mesin berat</span></li>
+                <li><span class="check-icon-circle"><i class="fa fa-check"></i></span><span>Transparansi penuh: progres servis dan foto komponen sebelum &amp; sesudah</span></li>
+                <li><span class="check-icon-circle"><i class="fa fa-check"></i></span><span>Kemudahan transaksi korporat: garansi resmi &amp; fasilitas invoice tempo 30 hari</span></li>
             </ul>""", align="left"),
             make_inner_section([
                 (50, "", [W_button("Hubungi Kami", link="https://wa.me/6281234567890", icon_val="fas fa-arrow-right", icon_pos="after", cls="btn-about-primary", is_ext=True)]),
@@ -374,14 +374,14 @@ sections.append(make_section(
     css_classes="container-fluid fact-strip py-4",
     cols=[
         (25, "fact-col", [W_counter(15, "Tahun Berpengalaman", cls="fact-strip-counter")]),
-        (25, "fact-col", [W_counter(45, "Teknisi Ahli", cls="fact-strip-counter")]),
-        (25, "fact-col", [W_counter(120, "Perusahaan Pelanggan", suffix="+", cls="fact-strip-counter")]),
-        (25, "fact-col", [W_counter(2500, "Truk per Tahun", cls="fact-strip-counter")]),
+        (25, "fact-col", [W_counter(45, "Teknisi Bersertifikat", cls="fact-strip-counter")]),
+        (25, "fact-col", [W_counter(120, "Perusahaan Mitra", suffix="+", cls="fact-strip-counter")]),
+        (25, "fact-col", [W_counter(2500, "Armada per Tahun", cls="fact-strip-counter")]),
     ]
 ))
 
 # ==============================================================================
-# 6. SERVICES (Satu Section Utuh: Header + 4 Kartu)
+# 6. SERVICES (Bento Grid Service Layout)
 # ==============================================================================
 sections.append(make_section(
     css_id="service",
@@ -389,32 +389,32 @@ sections.append(make_section(
     cols=[
         (100, "text-center mb-4", [
             W_heading("Layanan Bengkel", tag="p", align="center", cls="badge-section-pill"),
-            W_heading("Apa Saja yang Bisa Kami Kerjakan?", tag="h2", align="center"),
-            W_text("Empat layanan utama untuk truk Anda &mdash; semua bergaransi dan dilaporkan dengan foto.", align="center", cls="text-muted mb-4"),
+            W_heading("Solusi Terintegrasi Perawatan Armada Truk", tag="h2", align="center"),
+            W_text("Empat pilar layanan terstandarisasi untuk efisiensi operasional dan durabilitas armada logistik Anda &mdash; bergaransi dan terdokumentasi digital.", align="center", cls="text-muted mb-4"),
             make_inner_section([
                 (25, "service-grid-card", [
-                    W_image(IMG["svc1"], alt="Cek Mesin Komputer"),
-                    W_heading("Cek Mesin Komputer", tag="h5", align="left"),
-                    W_text("<ul><li>Mesin dicek pakai komputer</li><li>Kelistrikan &amp; aki 24 volt</li><li>Hasilnya dikirim ke HP Anda</li></ul>", align="left"),
-                    W_button("Tanya Teknisi", link="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20cek%20mesin%20komputer", align="center", cls="btn-service-action", is_ext=True),
+                    W_image(IMG["svc1"], alt="Kontrak Servis Armada B2B"),
+                    W_heading("Kontrak Servis Armada B2B", tag="h5", align="left"),
+                    W_text("<ul><li>Prioritas antrean &amp; slot berkala</li><li>Diagnostik komputer &amp; kelistrikan 24V</li><li>Laporan digital &amp; tempo bayar 30 hari</li></ul>", align="left"),
+                    W_button("Konsultasi Kontrak", link="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20tertarik%20kontrak%20servis%20armada%20B2B", align="center", cls="btn-service-action", is_ext=True),
                 ]),
                 (25, "service-grid-card", [
-                    W_image(IMG["svc2"], alt="Servis Mesin Besar"),
-                    W_heading("Servis Mesin Besar", tag="h5", align="left"),
-                    W_text("<ul><li>Turun mesin, bergaransi</li><li>Stel injektor biar irit</li><li>Sparepart asli pabrik</li></ul>", align="left"),
-                    W_button("Tanya Teknisi", link="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20servis%20mesin%20besar", align="center", cls="btn-service-action", is_ext=True),
+                    W_image(IMG["svc2"], alt="Overhaul & Kalibrasi Mesin"),
+                    W_heading("Overhaul & Kalibrasi Mesin", tag="h5", align="left"),
+                    W_text("<ul><li>Turun mesin total bergaransi resmi</li><li>Kalibrasi injektor &amp; nozzle presisi</li><li>Komponen orisinal pabrik OEM</li></ul>", align="left"),
+                    W_button("Tanya Teknisi", link="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20overhaul%20mesin", align="center", cls="btn-service-action", is_ext=True),
                 ]),
                 (25, "service-grid-card", [
-                    W_image(IMG["svc3"], alt="Ban & Rem Angin"),
-                    W_heading("Ban & Rem Angin", tag="h5", align="left"),
-                    W_text("<ul><li>Ban Dunlop segala ukuran</li><li>Servis rem angin + kampas</li><li>Cek kaki-kaki &amp; per daun</li></ul>", align="left"),
+                    W_image(IMG["svc3"], alt="Rem Angin & Kaki-Kaki"),
+                    W_heading("Rem Angin & Kaki-Kaki", tag="h5", align="left"),
+                    W_text("<ul><li>Distributor resmi ban Dunlop segala ukuran</li><li>Servis kompresor, booster &amp; kampas rem</li><li>Perbaikan per daun &amp; bearing roda</li></ul>", align="left"),
                     W_button("Tanya Teknisi", link="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20ban%20dan%20rem%20angin", align="center", cls="btn-service-action", is_ext=True),
                 ]),
                 (25, "service-grid-card", [
-                    W_image(IMG["svc4"], alt="Ganti Oli"),
-                    W_heading("Ganti Oli", tag="h5", align="left"),
-                    W_text("<ul><li>Oli Pertamina &amp; Mobil asli</li><li>Ganti filter sekalian</li><li>Bisa beli drum / pail</li></ul>", align="left"),
-                    W_button("Tanya Teknisi", link="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20ganti%20oli", align="center", cls="btn-service-action", is_ext=True),
+                    W_image(IMG["svc4"], alt="Pelumas & Filter OEM"),
+                    W_heading("Pelumas & Filter OEM", tag="h5", align="left"),
+                    W_text("<ul><li>Oli Pertamina &amp; Mobil asli distributor</li><li>Penggantian filter oli, udara &amp; solar</li><li>Tersedia drum hemat untuk armada besar</li></ul>", align="left"),
+                    W_button("Tanya Teknisi", link="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20ganti%20pelumas", align="center", cls="btn-service-action", is_ext=True),
                 ]),
             ], css_classes="sec-services-cards w-100 mt-4")
         ])
@@ -422,46 +422,46 @@ sections.append(make_section(
 ))
 
 # ==============================================================================
-# 7. PRINCIPALS (Merek OEM — Satu Section Utuh)
+# 7. PRINCIPALS (Curated Enterprise Trust Stack)
 # ==============================================================================
 sections.append(make_section(
     css_id="principals",
     css_classes="container-xxl py-5 sec-principals",
     cols=[
         (100, "text-center mb-4", [
-            W_heading("Barang Dijamin Asli", tag="p", align="center", cls="badge-section-pill badge-pill-amber"),
-            W_heading("Kami Jual Merek-Merek Ini", tag="h2", align="center"),
-            W_text("Langsung dari pabriknya &mdash; asli 100% dengan harga khusus untuk pelanggan perusahaan.", align="center", cls="text-muted mb-4"),
+            W_heading("Jaminan 100% Suku Cadang Resmi", tag="p", align="center", cls="badge-section-pill badge-pill-amber"),
+            W_heading("Distributor Resmi &amp; Mitra Pabrikan OEM", tag="h2", align="center"),
+            W_text("Pasokan suku cadang dan pelumas langsung dari pabrikan terkemuka &mdash; keaslian terjamin 100% dengan tarif khusus mitra korporat.", align="center", cls="text-muted mb-4"),
             make_inner_section([
                 (16, "principal-wall-card", [
-                    W_image(IMG["pertamina"], alt="Pertamina", align="center"),
+                    W_image(IMG["pertamina"], alt="Pertamina Lubricants", align="center"),
                     W_heading("Pertamina", tag="h6", align="center"),
-                    W_text("<p>Oli</p>", align="center")
+                    W_text("<p>Pelumas Diesel OEM</p>", align="center")
                 ]),
                 (16, "principal-wall-card", [
-                    W_image(IMG["mobil"], alt="Mobil", align="center"),
-                    W_heading("Mobil", tag="h6", align="center"),
-                    W_text("<p>Oli</p>", align="center")
+                    W_image(IMG["mobil"], alt="Mobil Delvac", align="center"),
+                    W_heading("Mobil Delvac", tag="h6", align="center"),
+                    W_text("<p>Pelumas Tugas Berat</p>", align="center")
                 ]),
                 (16, "principal-wall-card", [
-                    W_image(IMG["dunlop"], alt="Dunlop", align="center"),
+                    W_image(IMG["dunlop"], alt="Dunlop Truck Tires", align="center"),
                     W_heading("Dunlop", tag="h6", align="center"),
-                    W_text("<p>Ban Truk</p>", align="center")
+                    W_text("<p>Ban Truk Komersial</p>", align="center")
                 ]),
                 (16, "principal-wall-card", [
-                    W_image(IMG["gsastra"], alt="GS Astra", align="center"),
+                    W_image(IMG["gsastra"], alt="GS Astra Heavy Duty", align="center"),
                     W_heading("GS Astra", tag="h6", align="center"),
-                    W_text("<p>Aki Truk</p>", align="center")
+                    W_text("<p>Aki Heavy Duty 24V</p>", align="center")
                 ]),
                 (16, "principal-wall-card", [
-                    W_image(IMG["incoe"], alt="Incoe", align="center"),
+                    W_image(IMG["incoe"], alt="Incoe Battery", align="center"),
                     W_heading("Incoe", tag="h6", align="center"),
-                    W_text("<p>Aki Truk</p>", align="center")
+                    W_text("<p>Aki Armada Tangguh</p>", align="center")
                 ]),
                 (16, "principal-wall-card", [
-                    W_image(IMG["sakura"], alt="Sakura", align="center"),
+                    W_image(IMG["sakura"], alt="Sakura Filter", align="center"),
                     W_heading("Sakura", tag="h6", align="center"),
-                    W_text("<p>Filter</p>", align="center")
+                    W_text("<p>Filter Solar &amp; Udara</p>", align="center")
                 ]),
             ], css_classes="sec-principals-wall w-100 mt-4")
         ])
@@ -469,26 +469,25 @@ sections.append(make_section(
 ))
 
 # ==============================================================================
-# 8. DEREK 24 JAM — CTA darurat 2 kolom (kiri narasi+CTA, kanan 3 kartu fitur)
-#    Semua widget native Elementor (heading/text/button/icon-box) -> editable.
+# 8. DEREK 24 JAM — Emergency Command Bar + Integrated CTA
 # ==============================================================================
 sections.append(make_section(
     css_id="booking",
     css_classes="container-fluid py-5 px-0 booking-section-wrapper",
     cols=[
         (55, "booking-left-banner p-4 p-lg-5", [
-            W_heading('<span class="live-dot live-dot-red"></span>Derek Siaga 24 Jam', tag="p", align="left", cls="badge-section-pill badge-emergency-pill"),
-            W_heading("Truk Mogok? Kami Jemput Kapan Saja", tag="h2", align="left", cls="text-navy derek-title"),
-            W_text("<p class='mb-3'>Mogok di Medan, Belawan, Tebing Tinggi, atau lintas Sumatera? Mobil derek kami siap menjemput dan membawa truk Anda ke bengkel.</p><p class='mb-4'>Daftar jadi pelanggan perusahaan: <strong>bisa bayar tempo, harga khusus</strong>, dan <strong>gratis pantau servis online</strong>.</p>", align="left", cls="derek-desc"),
+            W_heading('<span class="live-dot live-dot-red"></span>Command Center Derek Siaga 24/7', tag="p", align="left", cls="badge-section-pill badge-emergency-pill"),
+            W_heading("Truk Mogok? Unit Derek Cepat Siaga Kapan Saja", tag="h2", align="left", cls="text-navy derek-title"),
+            W_text("<p class='mb-3'>Armada derek darurat kami siaga 24 jam untuk evakuasi cepat di Kawasan Industri Medan, Tol Belmera, Tebing Tinggi, hingga lintas Sumatera.</p><p class='mb-4'>Mitra terdaftar menikmati <strong>prioritas panggilan darurat, fasilitas pembayaran tempo 30 hari</strong>, serta pemantauan armada langsung.</p>", align="left", cls="derek-desc"),
             make_inner_section([
                 (55, "", [W_button("Telepon Sekarang &mdash; 0812-3456-7890", link="tel:081234567890", icon_val="fas fa-phone-alt", icon_pos="before", cls="btn-booking-call")]),
                 (45, "", [W_button("Daftar Fleet", link="http://localhost:3000/#register", icon_val="fas fa-user-plus", icon_pos="before", cls="btn-booking-reg", is_ext=True)]),
             ], css_classes="booking-cta-btns"),
         ]),
         (45, "booking-right-cards p-4 p-lg-5", [
-            W_icon_box("far fa-clock", "< 60 Menit Tanggap", "Truk kami jemput di area Medan &ndash; Belawan secepatnya setelah Anda telepon.", tag="h5", pos="left", cls="derek-stat-card derek-stat-blue"),
-            W_icon_box("fas fa-phone-alt", "Siaga 24 Jam Nonstop", "Layanan derek darurat termasuk malam hari, akhir pekan, dan hari libur.", tag="h5", pos="left", cls="derek-stat-card derek-stat-teal"),
-            W_icon_box("fas fa-file-invoice", "Tempo Bayar 30 Hari", "Khusus pelanggan perusahaan yang terdaftar di Master Truck.", tag="h5", pos="left", cls="derek-stat-card derek-stat-amber"),
+            W_icon_box("far fa-clock", "< 60 Menit Tanggap", "Truk kami jemput di area Medan &ndash; Belawan &ndash; KIM secepatnya setelah Anda telepon.", tag="h5", pos="left", cls="derek-stat-card derek-stat-blue"),
+            W_icon_box("fas fa-phone-alt", "Siaga 24 Jam Nonstop", "Layanan derek darurat termasuk malam hari, akhir pekan, dan hari libur nasional.", tag="h5", pos="left", cls="derek-stat-card derek-stat-teal"),
+            W_icon_box("fas fa-file-invoice", "Tempo Bayar 30 Hari", "Fasilitas penagihan tempo berkala khusus perusahaan mitra Master Truck.", tag="h5", pos="left", cls="derek-stat-card derek-stat-amber"),
         ]),
     ]
 ))

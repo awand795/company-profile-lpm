@@ -1,6 +1,6 @@
 [
   {
-    "id": "e33d72fc",
+    "id": "2c2e8b07",
     "elType": "container",
     "isInner": false,
     "settings": {
@@ -10,7 +10,7 @@
     },
     "elements": [
       {
-        "id": "6c6d7222",
+        "id": "39ec2782",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -24,7 +24,7 @@
         },
         "elements": [
           {
-            "id": "c6d4d5c8",
+            "id": "160a90e1",
             "elType": "widget",
             "widgetType": "icon-box",
             "settings": {
@@ -42,7 +42,7 @@
             "elements": []
           },
           {
-            "id": "59bcc9d4",
+            "id": "27446f53",
             "elType": "widget",
             "widgetType": "button",
             "settings": {
@@ -65,7 +65,7 @@
         ]
       },
       {
-        "id": "1ae12ecb",
+        "id": "646eec7a",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -79,7 +79,7 @@
         },
         "elements": [
           {
-            "id": "a3968867",
+            "id": "11ace6a2",
             "elType": "container",
             "isInner": true,
             "settings": {
@@ -89,7 +89,7 @@
             },
             "elements": [
               {
-                "id": "8b5cdb7e",
+                "id": "b5c50f5d",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -102,7 +102,7 @@
                 },
                 "elements": [
                   {
-                    "id": "2c07541b",
+                    "id": "7ca5a220",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -120,7 +120,7 @@
                 ]
               },
               {
-                "id": "26d0704d",
+                "id": "95918d6d",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -133,7 +133,7 @@
                 },
                 "elements": [
                   {
-                    "id": "11d9175c",
+                    "id": "b618de58",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -151,7 +151,7 @@
                 ]
               },
               {
-                "id": "af495b9e",
+                "id": "52efd94e",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -164,7 +164,7 @@
                 },
                 "elements": [
                   {
-                    "id": "12e71779",
+                    "id": "5c9bbe8d",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -182,7 +182,7 @@
                 ]
               },
               {
-                "id": "9dd1fdc0",
+                "id": "9e0f843d",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -195,7 +195,7 @@
                 },
                 "elements": [
                   {
-                    "id": "e4937423",
+                    "id": "4d157182",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -213,7 +213,7 @@
                 ]
               },
               {
-                "id": "a2d2bc4b",
+                "id": "cdf7a355",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -226,7 +226,7 @@
                 },
                 "elements": [
                   {
-                    "id": "e9acff39",
+                    "id": "d9546b50",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -244,7 +244,7 @@
                 ]
               },
               {
-                "id": "4cb12260",
+                "id": "65182578",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -257,7 +257,7 @@
                 },
                 "elements": [
                   {
-                    "id": "e290e3e4",
+                    "id": "da8c7b29",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -275,7 +275,7 @@
                 ]
               },
               {
-                "id": "5d909354",
+                "id": "fdd09c9c",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -289,7 +289,7 @@
                 },
                 "elements": [
                   {
-                    "id": "03cfa1f0",
+                    "id": "56791d69",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -312,7 +312,7 @@
                 ]
               },
               {
-                "id": "5e764764",
+                "id": "dd762cb9",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -326,7 +326,7 @@
                 },
                 "elements": [
                   {
-                    "id": "ba6283bc",
+                    "id": "55ecd4eb",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -351,7 +351,7 @@
             ]
           },
           {
-            "id": "437024cf",
+            "id": "e1d2797b",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -368,7 +368,7 @@
     ]
   },
   {
-    "id": "e20a482c",
+    "id": "9ef5efeb",
     "elType": "container",
     "isInner": false,
     "settings": {
@@ -381,7 +381,7 @@
     },
     "elements": [
       {
-        "id": "4d757e03",
+        "id": "8488e177",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -395,11 +395,11 @@
         },
         "elements": [
           {
-            "id": "6fa19ed9",
+            "id": "d87d7dbe",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
-              "title": "<span class=\"live-dot\"></span>PT MASTER TRUCK INDONESIA &bull; KIM III MEDAN",
+              "title": "<span class=\"live-dot\"></span>DISTRIBUTOR RESMI &bull; BENGKEL REKANAN KORPORAT &bull; KIM III MEDAN",
               "header_size": "p",
               "align": "left",
               "_css_classes": "hero-brand-pill"
@@ -407,11 +407,11 @@
             "elements": []
           },
           {
-            "id": "065ad1a7",
+            "id": "1c2e7c0a",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
-              "title": "Solusi Total Bengkel &amp; <span class=\"hero-brand-highlight\">Distributor Sparepart</span> Truk di Medan",
+              "title": "Solusi Total Perawatan Armada &amp; <span class=\"hero-brand-highlight\">Distributor Sparepart OEM</span>",
               "header_size": "h1",
               "align": "left",
               "_css_classes": "hero-title"
@@ -419,18 +419,18 @@
             "elements": []
           },
           {
-            "id": "f5dc5286",
+            "id": "bbcc92ea",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
-              "editor": "Perawatan armada terpercaya selama 15+ tahun sekaligus penyedia resmi oli Pertamina, oli Mobil, ban Dunlop, dan aki GS Astra langsung dari pabrik dengan jaminan 100% orisinal.",
+              "editor": "Spesialis pemeliharaan armada truk komersial terpercaya selama 15+ tahun di Kawasan Industri Medan. Distributor resmi oli Pertamina, oli Mobil, ban Dunlop, dan aki GS Astra langsung dari pabrik dengan jaminan 100% orisinal.",
               "align": "left",
               "_css_classes": "hero-lead"
             },
             "elements": []
           },
           {
-            "id": "70fa96f1",
+            "id": "3804d41a",
             "elType": "container",
             "isInner": true,
             "settings": {
@@ -440,7 +440,7 @@
             },
             "elements": [
               {
-                "id": "13bf79e2",
+                "id": "dd268180",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -453,7 +453,7 @@
                 },
                 "elements": [
                   {
-                    "id": "1c81f317",
+                    "id": "ce234893",
                     "elType": "widget",
                     "widgetType": "counter",
                     "settings": {
@@ -469,7 +469,7 @@
                 ]
               },
               {
-                "id": "396f3092",
+                "id": "7ef1f619",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -482,7 +482,7 @@
                 },
                 "elements": [
                   {
-                    "id": "526fffc5",
+                    "id": "21e04a6e",
                     "elType": "widget",
                     "widgetType": "counter",
                     "settings": {
@@ -498,7 +498,7 @@
                 ]
               },
               {
-                "id": "9c60336b",
+                "id": "2314aaa8",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -511,7 +511,7 @@
                 },
                 "elements": [
                   {
-                    "id": "09561a5b",
+                    "id": "0fe67454",
                     "elType": "widget",
                     "widgetType": "counter",
                     "settings": {
@@ -531,7 +531,7 @@
             ]
           },
           {
-            "id": "e26cdac1",
+            "id": "3d8ee647",
             "elType": "container",
             "isInner": true,
             "settings": {
@@ -541,7 +541,7 @@
             },
             "elements": [
               {
-                "id": "fdc7b72a",
+                "id": "8d3d90b4",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -554,11 +554,11 @@
                 },
                 "elements": [
                   {
-                    "id": "b2cec804",
+                    "id": "86b9dd48",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
-                      "text": "Jadwalkan Servis",
+                      "text": "Konsultasi Servis Armada",
                       "link": {
                         "url": "#booking",
                         "is_external": "",
@@ -577,7 +577,7 @@
                 ]
               },
               {
-                "id": "b8d735ac",
+                "id": "b7459d11",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -590,7 +590,7 @@
                 },
                 "elements": [
                   {
-                    "id": "0b7d1fbc",
+                    "id": "866e5197",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -617,7 +617,7 @@
         ]
       },
       {
-        "id": "11784669",
+        "id": "a506df01",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -631,7 +631,7 @@
         },
         "elements": [
           {
-            "id": "81ee4c1f",
+            "id": "7e7881f4",
             "elType": "widget",
             "widgetType": "icon-box",
             "settings": {
@@ -639,8 +639,8 @@
                 "value": "fas fa-shield-alt",
                 "library": "fa-solid"
               },
-              "title_text": "Terpercaya 120+ Mitra",
-              "description_text": "",
+              "title_text": "Terpercaya 120+ Mitra Logistik",
+              "description_text": "Sertifikasi resmi prinsipal & standar mutu OEM",
               "title_size": "p",
               "position": "left",
               "_css_classes": "hero-badge-floating-top"
@@ -648,7 +648,7 @@
             "elements": []
           },
           {
-            "id": "4d3d1df0",
+            "id": "bf59ea8a",
             "elType": "widget",
             "widgetType": "image",
             "settings": {
@@ -663,16 +663,16 @@
             "elements": []
           },
           {
-            "id": "347047a6",
+            "id": "8f98ce96",
             "elType": "widget",
             "widgetType": "icon-box",
             "settings": {
               "selected_icon": {
-                "value": "fas fa-building",
+                "value": "fas fa-check-circle",
                 "library": "fa-solid"
               },
-              "title_text": "PT Master Truck Indonesia",
-              "description_text": "Servis bergaransi, dicek 30 bagian & distributor resmi pabrik",
+              "title_text": "Tarif Korporat & Garansi 30 Titik",
+              "description_text": "Inspeksi digital, SLA respon cepat & invoice tempo 30 hari",
               "title_size": "h5",
               "position": "left",
               "_css_classes": "hero-card-floating-bottom"
@@ -684,7 +684,7 @@
     ]
   },
   {
-    "id": "31a190cd",
+    "id": "db4f1434",
     "elType": "container",
     "isInner": false,
     "settings": {
@@ -694,7 +694,7 @@
     },
     "elements": [
       {
-        "id": "323c6f9e",
+        "id": "931dfd3f",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -708,7 +708,7 @@
         },
         "elements": [
           {
-            "id": "f364f2e2",
+            "id": "647a56a8",
             "elType": "widget",
             "widgetType": "icon-box",
             "settings": {
@@ -716,8 +716,8 @@
                 "value": "fas fa-clipboard-check",
                 "library": "fa-solid"
               },
-              "title_text": "Cek Menyeluruh",
-              "description_text": "Truk dicek 30 bagian, ada foto buktinya, bergaransi resmi.",
+              "title_text": "30 Titik Inspeksi",
+              "description_text": "Pemeriksaan menyeluruh dari mesin hingga sasis dengan bukti foto digital.",
               "title_size": "h5",
               "position": "left",
               "_css_classes": "feature-strip-widget"
@@ -727,7 +727,7 @@
         ]
       },
       {
-        "id": "f2f5385d",
+        "id": "577e310e",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -741,7 +741,7 @@
         },
         "elements": [
           {
-            "id": "221a332a",
+            "id": "11dc7d98",
             "elType": "widget",
             "widgetType": "icon-box",
             "settings": {
@@ -749,8 +749,8 @@
                 "value": "fas fa-users-cog",
                 "library": "fa-solid"
               },
-              "title_text": "Teknisi Ahli",
-              "description_text": "Montir khusus truk berpengalaman belasan tahun.",
+              "title_text": "Teknisi Bersertifikat",
+              "description_text": "Tim montir spesialis mesin diesel & sistem rem berpengalaman belasan tahun.",
               "title_size": "h5",
               "position": "left",
               "_css_classes": "feature-strip-widget"
@@ -760,7 +760,7 @@
         ]
       },
       {
-        "id": "3c193f1d",
+        "id": "b136a266",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -774,7 +774,7 @@
         },
         "elements": [
           {
-            "id": "a2719d58",
+            "id": "9da0794d",
             "elType": "widget",
             "widgetType": "icon-box",
             "settings": {
@@ -782,8 +782,8 @@
                 "value": "fas fa-shield-alt",
                 "library": "fa-solid"
               },
-              "title_text": "Barang Asli",
-              "description_text": "Oli, ban, dan aki langsung dari pabriknya. Dijamin asli.",
+              "title_text": "Suku Cadang OEM 100%",
+              "description_text": "Oli, ban, aki, dan filter langsung dari prinsipal resmi pabrik bergaransi.",
               "title_size": "h5",
               "position": "left",
               "_css_classes": "feature-strip-widget"
@@ -793,7 +793,7 @@
         ]
       },
       {
-        "id": "bbb7dfb5",
+        "id": "526f4808",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -807,7 +807,7 @@
         },
         "elements": [
           {
-            "id": "70670905",
+            "id": "cbdaf6b0",
             "elType": "widget",
             "widgetType": "icon-box",
             "settings": {
@@ -815,8 +815,8 @@
                 "value": "fas fa-satellite-dish",
                 "library": "fa-solid"
               },
-              "title_text": "Pantau Online",
-              "description_text": "Lihat progress servis dan tagihan dari HP kapan saja.",
+              "title_text": "Pantau Fleet Digital",
+              "description_text": "Pantau progres servis, riwayat armada, dan tagihan dari smartphone Anda.",
               "title_size": "h5",
               "position": "left",
               "_css_classes": "feature-strip-widget"
@@ -828,7 +828,7 @@
     ]
   },
   {
-    "id": "81f228a4",
+    "id": "e41db81b",
     "elType": "container",
     "isInner": false,
     "settings": {
@@ -839,7 +839,7 @@
     },
     "elements": [
       {
-        "id": "38dec66b",
+        "id": "14ab8589",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -853,7 +853,7 @@
         },
         "elements": [
           {
-            "id": "4d77efa7",
+            "id": "9ae02b0d",
             "elType": "widget",
             "widgetType": "image",
             "settings": {
@@ -868,7 +868,7 @@
             "elements": []
           },
           {
-            "id": "348b95e0",
+            "id": "b0f02abc",
             "elType": "widget",
             "widgetType": "icon-box",
             "settings": {
@@ -877,7 +877,7 @@
                 "library": "fa-solid"
               },
               "title_text": "15 Tahun",
-              "description_text": "Pengalaman",
+              "description_text": "Pengalaman Teruji",
               "title_size": "h5",
               "position": "left",
               "_css_classes": "about-exp-float-card"
@@ -887,7 +887,7 @@
         ]
       },
       {
-        "id": "6cff2dd2",
+        "id": "1bac0f4a",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -901,7 +901,7 @@
         },
         "elements": [
           {
-            "id": "e55f9e93",
+            "id": "649a855e",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -913,38 +913,38 @@
             "elements": []
           },
           {
-            "id": "3d8e0390",
+            "id": "07794d27",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
-              "title": "<span class=\"text-primary\">Master Truck</span>, Bengkel Truk Kepercayaan Anda di Medan",
+              "title": "<span class=\"text-primary\">Master Truck</span>, Rekanan Terpercaya Perawatan Armada di Medan",
               "header_size": "h2",
               "align": "left"
             },
             "elements": []
           },
           {
-            "id": "6ec6de8d",
+            "id": "7d03074b",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
-              "editor": "<p class=\"mb-3\"><strong>PT Master Truck Indonesia</strong> ada di Kawasan Industri Medan III (KIM III). Kami merawat segala jenis truk dan mesin besar, sekaligus toko resmi oli Pertamina, oli Mobil, ban Dunlop, dan aki Incoe/GS Astra.</p><p class=\"mb-4\">Semua pengerjaan tercatat dan bisa dipantau online &mdash; ada foto buktinya sebelum Anda bayar.</p>",
+              "editor": "<p class=\"mb-3\"><strong>PT Master Truck Indonesia</strong> beroperasi di Kawasan Industri Medan III (KIM III). Kami berfokus pada efisiensi operasional dan durabilitas armada truk logistik serta mesin industri berat Anda.</p><p class=\"mb-4\">Didukung distributor resmi pelumas Pertamina &amp; Mobil, ban Dunlop, dan aki GS Astra untuk memastikan kendaraan Anda selalu siap jalan tanpa kendala.</p>",
               "align": "left"
             },
             "elements": []
           },
           {
-            "id": "785715a9",
+            "id": "6083363f",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
-              "editor": "<ul class=\"about-check-list mb-4\">\n                <li><span class=\"check-icon-circle\"><i class=\"fa fa-check\"></i></span><span>Segala jenis truk: tronton, trailer, dump truck, mesin besar</span></li>\n                <li><span class=\"check-icon-circle\"><i class=\"fa fa-check\"></i></span><span>Progress servis terpantau dari HP, lengkap dengan foto</span></li>\n                <li><span class=\"check-icon-circle\"><i class=\"fa fa-check\"></i></span><span>Barang 100% asli dari pabrik, bisa bayar tempo</span></li>\n            </ul>",
+              "editor": "<ul class=\"about-check-list mb-4\">\n                <li><span class=\"check-icon-circle\"><i class=\"fa fa-check\"></i></span><span>Spesialisasi segala varian: tronton, trailer, dump truck, dan mesin berat</span></li>\n                <li><span class=\"check-icon-circle\"><i class=\"fa fa-check\"></i></span><span>Transparansi penuh: progres servis dan foto komponen sebelum &amp; sesudah</span></li>\n                <li><span class=\"check-icon-circle\"><i class=\"fa fa-check\"></i></span><span>Kemudahan transaksi korporat: garansi resmi &amp; fasilitas invoice tempo 30 hari</span></li>\n            </ul>",
               "align": "left"
             },
             "elements": []
           },
           {
-            "id": "fb2a522f",
+            "id": "f24a8aaa",
             "elType": "container",
             "isInner": true,
             "settings": {
@@ -954,7 +954,7 @@
             },
             "elements": [
               {
-                "id": "e4b53552",
+                "id": "c7e186da",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -967,7 +967,7 @@
                 },
                 "elements": [
                   {
-                    "id": "130cb743",
+                    "id": "7ff52859",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -990,7 +990,7 @@
                 ]
               },
               {
-                "id": "abadafd4",
+                "id": "0365af00",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -1003,7 +1003,7 @@
                 },
                 "elements": [
                   {
-                    "id": "57d59d75",
+                    "id": "f1ac9550",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -1027,7 +1027,7 @@
     ]
   },
   {
-    "id": "4a00eec6",
+    "id": "f09f3dfa",
     "elType": "container",
     "isInner": false,
     "settings": {
@@ -1037,7 +1037,7 @@
     },
     "elements": [
       {
-        "id": "41f96c82",
+        "id": "3abb39be",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -1051,7 +1051,7 @@
         },
         "elements": [
           {
-            "id": "306deea7",
+            "id": "ee32dde3",
             "elType": "widget",
             "widgetType": "counter",
             "settings": {
@@ -1067,7 +1067,7 @@
         ]
       },
       {
-        "id": "24e11643",
+        "id": "5e6d3b47",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -1081,7 +1081,7 @@
         },
         "elements": [
           {
-            "id": "1c52f91e",
+            "id": "c38f74b6",
             "elType": "widget",
             "widgetType": "counter",
             "settings": {
@@ -1089,7 +1089,7 @@
               "ending_number": 45,
               "prefix": "",
               "suffix": "",
-              "title": "Teknisi Ahli",
+              "title": "Teknisi Bersertifikat",
               "_css_classes": "fact-strip-counter"
             },
             "elements": []
@@ -1097,7 +1097,7 @@
         ]
       },
       {
-        "id": "5469b485",
+        "id": "397dfa50",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -1111,7 +1111,7 @@
         },
         "elements": [
           {
-            "id": "ab8f7980",
+            "id": "2175df63",
             "elType": "widget",
             "widgetType": "counter",
             "settings": {
@@ -1119,7 +1119,7 @@
               "ending_number": 120,
               "prefix": "",
               "suffix": "+",
-              "title": "Perusahaan Pelanggan",
+              "title": "Perusahaan Mitra",
               "_css_classes": "fact-strip-counter"
             },
             "elements": []
@@ -1127,7 +1127,7 @@
         ]
       },
       {
-        "id": "d78b1998",
+        "id": "52b00fcf",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -1141,7 +1141,7 @@
         },
         "elements": [
           {
-            "id": "3205a4ac",
+            "id": "2826cc5c",
             "elType": "widget",
             "widgetType": "counter",
             "settings": {
@@ -1149,7 +1149,7 @@
               "ending_number": 2500,
               "prefix": "",
               "suffix": "",
-              "title": "Truk per Tahun",
+              "title": "Armada per Tahun",
               "_css_classes": "fact-strip-counter"
             },
             "elements": []
@@ -1159,7 +1159,7 @@
     ]
   },
   {
-    "id": "54c25fc8",
+    "id": "7081fe70",
     "elType": "container",
     "isInner": false,
     "settings": {
@@ -1170,7 +1170,7 @@
     },
     "elements": [
       {
-        "id": "f84a4b96",
+        "id": "461e91b0",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -1184,7 +1184,7 @@
         },
         "elements": [
           {
-            "id": "e023c6bc",
+            "id": "443da663",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -1196,29 +1196,29 @@
             "elements": []
           },
           {
-            "id": "f84c0ba4",
+            "id": "d07745ce",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
-              "title": "Apa Saja yang Bisa Kami Kerjakan?",
+              "title": "Solusi Terintegrasi Perawatan Armada Truk",
               "header_size": "h2",
               "align": "center"
             },
             "elements": []
           },
           {
-            "id": "d354e550",
+            "id": "c428d468",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
-              "editor": "Empat layanan utama untuk truk Anda &mdash; semua bergaransi dan dilaporkan dengan foto.",
+              "editor": "Empat pilar layanan terstandarisasi untuk efisiensi operasional dan durabilitas armada logistik Anda &mdash; bergaransi dan terdokumentasi digital.",
               "align": "center",
               "_css_classes": "text-muted mb-4"
             },
             "elements": []
           },
           {
-            "id": "491079b6",
+            "id": "f1767ed2",
             "elType": "container",
             "isInner": true,
             "settings": {
@@ -1228,7 +1228,7 @@
             },
             "elements": [
               {
-                "id": "2df81fad",
+                "id": "73d402d4",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -1242,7 +1242,7 @@
                 },
                 "elements": [
                   {
-                    "id": "aaea7203",
+                    "id": "77a930c9",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
@@ -1256,34 +1256,34 @@
                     "elements": []
                   },
                   {
-                    "id": "963afcae",
+                    "id": "2823831d",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
-                      "title": "Cek Mesin Komputer",
+                      "title": "Kontrak Servis Armada B2B",
                       "header_size": "h5",
                       "align": "left"
                     },
                     "elements": []
                   },
                   {
-                    "id": "72733aff",
+                    "id": "961c416e",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
-                      "editor": "<ul><li>Mesin dicek pakai komputer</li><li>Kelistrikan &amp; aki 24 volt</li><li>Hasilnya dikirim ke HP Anda</li></ul>",
+                      "editor": "<ul><li>Prioritas antrean &amp; slot berkala</li><li>Diagnostik komputer &amp; kelistrikan 24V</li><li>Laporan digital &amp; tempo bayar 30 hari</li></ul>",
                       "align": "left"
                     },
                     "elements": []
                   },
                   {
-                    "id": "1d153450",
+                    "id": "750949d0",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
-                      "text": "Tanya Teknisi",
+                      "text": "Konsultasi Kontrak",
                       "link": {
-                        "url": "https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20cek%20mesin%20komputer",
+                        "url": "https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20tertarik%20kontrak%20servis%20armada%20B2B",
                         "is_external": "on",
                         "nofollow": ""
                       },
@@ -1295,7 +1295,7 @@
                 ]
               },
               {
-                "id": "f37d06b2",
+                "id": "cf03c071",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -1309,7 +1309,7 @@
                 },
                 "elements": [
                   {
-                    "id": "de7c6ffe",
+                    "id": "530b668e",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
@@ -1323,34 +1323,34 @@
                     "elements": []
                   },
                   {
-                    "id": "bf16166a",
+                    "id": "7c575988",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
-                      "title": "Servis Mesin Besar",
+                      "title": "Overhaul & Kalibrasi Mesin",
                       "header_size": "h5",
                       "align": "left"
                     },
                     "elements": []
                   },
                   {
-                    "id": "32102b8c",
+                    "id": "eec5a327",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
-                      "editor": "<ul><li>Turun mesin, bergaransi</li><li>Stel injektor biar irit</li><li>Sparepart asli pabrik</li></ul>",
+                      "editor": "<ul><li>Turun mesin total bergaransi resmi</li><li>Kalibrasi injektor &amp; nozzle presisi</li><li>Komponen orisinal pabrik OEM</li></ul>",
                       "align": "left"
                     },
                     "elements": []
                   },
                   {
-                    "id": "e2fb03e3",
+                    "id": "5f5248f9",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
                       "text": "Tanya Teknisi",
                       "link": {
-                        "url": "https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20servis%20mesin%20besar",
+                        "url": "https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20overhaul%20mesin",
                         "is_external": "on",
                         "nofollow": ""
                       },
@@ -1362,7 +1362,7 @@
                 ]
               },
               {
-                "id": "40e0e0b2",
+                "id": "af5acb3e",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -1376,7 +1376,7 @@
                 },
                 "elements": [
                   {
-                    "id": "7c6bb1fa",
+                    "id": "191d6248",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
@@ -1390,28 +1390,28 @@
                     "elements": []
                   },
                   {
-                    "id": "11cf9e7c",
+                    "id": "d1771420",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
-                      "title": "Ban & Rem Angin",
+                      "title": "Rem Angin & Kaki-Kaki",
                       "header_size": "h5",
                       "align": "left"
                     },
                     "elements": []
                   },
                   {
-                    "id": "fec83b18",
+                    "id": "1cf5d044",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
-                      "editor": "<ul><li>Ban Dunlop segala ukuran</li><li>Servis rem angin + kampas</li><li>Cek kaki-kaki &amp; per daun</li></ul>",
+                      "editor": "<ul><li>Distributor resmi ban Dunlop segala ukuran</li><li>Servis kompresor, booster &amp; kampas rem</li><li>Perbaikan per daun &amp; bearing roda</li></ul>",
                       "align": "left"
                     },
                     "elements": []
                   },
                   {
-                    "id": "de6be799",
+                    "id": "f93b6e22",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -1429,7 +1429,7 @@
                 ]
               },
               {
-                "id": "db0fa1d9",
+                "id": "228ffaf2",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -1443,7 +1443,7 @@
                 },
                 "elements": [
                   {
-                    "id": "034cce7c",
+                    "id": "c5e72c18",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
@@ -1457,34 +1457,34 @@
                     "elements": []
                   },
                   {
-                    "id": "9b8b75b4",
+                    "id": "0cefe076",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
-                      "title": "Ganti Oli",
+                      "title": "Pelumas & Filter OEM",
                       "header_size": "h5",
                       "align": "left"
                     },
                     "elements": []
                   },
                   {
-                    "id": "12f984f9",
+                    "id": "0e7c631c",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
-                      "editor": "<ul><li>Oli Pertamina &amp; Mobil asli</li><li>Ganti filter sekalian</li><li>Bisa beli drum / pail</li></ul>",
+                      "editor": "<ul><li>Oli Pertamina &amp; Mobil asli distributor</li><li>Penggantian filter oli, udara &amp; solar</li><li>Tersedia drum hemat untuk armada besar</li></ul>",
                       "align": "left"
                     },
                     "elements": []
                   },
                   {
-                    "id": "f041a0c7",
+                    "id": "03805827",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
                       "text": "Tanya Teknisi",
                       "link": {
-                        "url": "https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20ganti%20oli",
+                        "url": "https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20ganti%20pelumas",
                         "is_external": "on",
                         "nofollow": ""
                       },
@@ -1502,7 +1502,7 @@
     ]
   },
   {
-    "id": "b8e9d4de",
+    "id": "1c62b56e",
     "elType": "container",
     "isInner": false,
     "settings": {
@@ -1513,7 +1513,7 @@
     },
     "elements": [
       {
-        "id": "ad9d8f34",
+        "id": "e547f2b5",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -1527,11 +1527,11 @@
         },
         "elements": [
           {
-            "id": "177b334b",
+            "id": "f9b02632",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
-              "title": "Barang Dijamin Asli",
+              "title": "Jaminan 100% Suku Cadang Resmi",
               "header_size": "p",
               "align": "center",
               "_css_classes": "badge-section-pill badge-pill-amber"
@@ -1539,29 +1539,29 @@
             "elements": []
           },
           {
-            "id": "cc511171",
+            "id": "d37fefda",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
-              "title": "Kami Jual Merek-Merek Ini",
+              "title": "Distributor Resmi &amp; Mitra Pabrikan OEM",
               "header_size": "h2",
               "align": "center"
             },
             "elements": []
           },
           {
-            "id": "0b84e635",
+            "id": "579323b8",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
-              "editor": "Langsung dari pabriknya &mdash; asli 100% dengan harga khusus untuk pelanggan perusahaan.",
+              "editor": "Pasokan suku cadang dan pelumas langsung dari pabrikan terkemuka &mdash; keaslian terjamin 100% dengan tarif khusus mitra korporat.",
               "align": "center",
               "_css_classes": "text-muted mb-4"
             },
             "elements": []
           },
           {
-            "id": "53ca1823",
+            "id": "fbfa8627",
             "elType": "container",
             "isInner": true,
             "settings": {
@@ -1571,7 +1571,7 @@
             },
             "elements": [
               {
-                "id": "1083fce6",
+                "id": "6ec64813",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -1585,7 +1585,7 @@
                 },
                 "elements": [
                   {
-                    "id": "16d28eb1",
+                    "id": "64ffdf21",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
@@ -1599,7 +1599,7 @@
                     "elements": []
                   },
                   {
-                    "id": "5fe2e234",
+                    "id": "4783bd31",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -1610,11 +1610,11 @@
                     "elements": []
                   },
                   {
-                    "id": "f0267b88",
+                    "id": "61ed774b",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
-                      "editor": "<p>Oli</p>",
+                      "editor": "<p>Pelumas Diesel OEM</p>",
                       "align": "center"
                     },
                     "elements": []
@@ -1622,7 +1622,7 @@
                 ]
               },
               {
-                "id": "a916b877",
+                "id": "23e2baf8",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -1636,7 +1636,7 @@
                 },
                 "elements": [
                   {
-                    "id": "2fa03159",
+                    "id": "8a0fed26",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
@@ -1650,22 +1650,22 @@
                     "elements": []
                   },
                   {
-                    "id": "068caef6",
+                    "id": "fe079810",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
-                      "title": "Mobil",
+                      "title": "Mobil Delvac",
                       "header_size": "h6",
                       "align": "center"
                     },
                     "elements": []
                   },
                   {
-                    "id": "e1eef549",
+                    "id": "1f1069c8",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
-                      "editor": "<p>Oli</p>",
+                      "editor": "<p>Pelumas Tugas Berat</p>",
                       "align": "center"
                     },
                     "elements": []
@@ -1673,7 +1673,7 @@
                 ]
               },
               {
-                "id": "eb1cf93d",
+                "id": "5b477d95",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -1687,7 +1687,7 @@
                 },
                 "elements": [
                   {
-                    "id": "af06b57d",
+                    "id": "8e1a9cb6",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
@@ -1701,7 +1701,7 @@
                     "elements": []
                   },
                   {
-                    "id": "fa214b23",
+                    "id": "642490ac",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -1712,11 +1712,11 @@
                     "elements": []
                   },
                   {
-                    "id": "05ffce2b",
+                    "id": "6a0a5432",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
-                      "editor": "<p>Ban Truk</p>",
+                      "editor": "<p>Ban Truk Komersial</p>",
                       "align": "center"
                     },
                     "elements": []
@@ -1724,7 +1724,7 @@
                 ]
               },
               {
-                "id": "b3713547",
+                "id": "bcc57b5a",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -1738,7 +1738,7 @@
                 },
                 "elements": [
                   {
-                    "id": "842242fb",
+                    "id": "267b9e1e",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
@@ -1752,7 +1752,7 @@
                     "elements": []
                   },
                   {
-                    "id": "630a0b18",
+                    "id": "533153f5",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -1763,11 +1763,11 @@
                     "elements": []
                   },
                   {
-                    "id": "dde8452f",
+                    "id": "1621bc5c",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
-                      "editor": "<p>Aki Truk</p>",
+                      "editor": "<p>Aki Heavy Duty 24V</p>",
                       "align": "center"
                     },
                     "elements": []
@@ -1775,7 +1775,7 @@
                 ]
               },
               {
-                "id": "d9a27b52",
+                "id": "70488709",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -1789,7 +1789,7 @@
                 },
                 "elements": [
                   {
-                    "id": "5e351cfd",
+                    "id": "2935358b",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
@@ -1803,7 +1803,7 @@
                     "elements": []
                   },
                   {
-                    "id": "b03524f5",
+                    "id": "bc144570",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -1814,11 +1814,11 @@
                     "elements": []
                   },
                   {
-                    "id": "90113698",
+                    "id": "aece6cff",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
-                      "editor": "<p>Aki Truk</p>",
+                      "editor": "<p>Aki Armada Tangguh</p>",
                       "align": "center"
                     },
                     "elements": []
@@ -1826,7 +1826,7 @@
                 ]
               },
               {
-                "id": "9948300d",
+                "id": "4c03042a",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -1840,7 +1840,7 @@
                 },
                 "elements": [
                   {
-                    "id": "1c3bf6e3",
+                    "id": "b09c781d",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
@@ -1854,7 +1854,7 @@
                     "elements": []
                   },
                   {
-                    "id": "690b0622",
+                    "id": "500f8002",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -1865,11 +1865,11 @@
                     "elements": []
                   },
                   {
-                    "id": "3da3cee0",
+                    "id": "2582d10e",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
-                      "editor": "<p>Filter</p>",
+                      "editor": "<p>Filter Solar &amp; Udara</p>",
                       "align": "center"
                     },
                     "elements": []
@@ -1883,7 +1883,7 @@
     ]
   },
   {
-    "id": "5f8677cc",
+    "id": "72c6b6ed",
     "elType": "container",
     "isInner": false,
     "settings": {
@@ -1894,7 +1894,7 @@
     },
     "elements": [
       {
-        "id": "b7b1de7e",
+        "id": "21f51790",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -1908,11 +1908,11 @@
         },
         "elements": [
           {
-            "id": "bb9d74f4",
+            "id": "120672ee",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
-              "title": "<span class=\"live-dot live-dot-red\"></span>Derek Siaga 24 Jam",
+              "title": "<span class=\"live-dot live-dot-red\"></span>Command Center Derek Siaga 24/7",
               "header_size": "p",
               "align": "left",
               "_css_classes": "badge-section-pill badge-emergency-pill"
@@ -1920,11 +1920,11 @@
             "elements": []
           },
           {
-            "id": "35adf952",
+            "id": "429e023c",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
-              "title": "Truk Mogok? Kami Jemput Kapan Saja",
+              "title": "Truk Mogok? Unit Derek Cepat Siaga Kapan Saja",
               "header_size": "h2",
               "align": "left",
               "_css_classes": "text-navy derek-title"
@@ -1932,18 +1932,18 @@
             "elements": []
           },
           {
-            "id": "efa02420",
+            "id": "50a0d5e1",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
-              "editor": "<p class='mb-3'>Mogok di Medan, Belawan, Tebing Tinggi, atau lintas Sumatera? Mobil derek kami siap menjemput dan membawa truk Anda ke bengkel.</p><p class='mb-4'>Daftar jadi pelanggan perusahaan: <strong>bisa bayar tempo, harga khusus</strong>, dan <strong>gratis pantau servis online</strong>.</p>",
+              "editor": "<p class='mb-3'>Armada derek darurat kami siaga 24 jam untuk evakuasi cepat di Kawasan Industri Medan, Tol Belmera, Tebing Tinggi, hingga lintas Sumatera.</p><p class='mb-4'>Mitra terdaftar menikmati <strong>prioritas panggilan darurat, fasilitas pembayaran tempo 30 hari</strong>, serta pemantauan armada langsung.</p>",
               "align": "left",
               "_css_classes": "derek-desc"
             },
             "elements": []
           },
           {
-            "id": "515178a7",
+            "id": "e6d5bb51",
             "elType": "container",
             "isInner": true,
             "settings": {
@@ -1953,7 +1953,7 @@
             },
             "elements": [
               {
-                "id": "a3a6d638",
+                "id": "8c998d50",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -1966,7 +1966,7 @@
                 },
                 "elements": [
                   {
-                    "id": "a64852ca",
+                    "id": "6b0e74cc",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -1989,7 +1989,7 @@
                 ]
               },
               {
-                "id": "61cc98b8",
+                "id": "c37c645a",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -2002,7 +2002,7 @@
                 },
                 "elements": [
                   {
-                    "id": "fa38d5f8",
+                    "id": "d4093de7",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -2029,7 +2029,7 @@
         ]
       },
       {
-        "id": "28a9bd1b",
+        "id": "90d0996b",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -2043,7 +2043,7 @@
         },
         "elements": [
           {
-            "id": "5a78c6a5",
+            "id": "b5d2d964",
             "elType": "widget",
             "widgetType": "icon-box",
             "settings": {
@@ -2052,7 +2052,7 @@
                 "library": "fa-solid"
               },
               "title_text": "< 60 Menit Tanggap",
-              "description_text": "Truk kami jemput di area Medan &ndash; Belawan secepatnya setelah Anda telepon.",
+              "description_text": "Truk kami jemput di area Medan &ndash; Belawan &ndash; KIM secepatnya setelah Anda telepon.",
               "title_size": "h5",
               "position": "left",
               "_css_classes": "derek-stat-card derek-stat-blue"
@@ -2060,7 +2060,7 @@
             "elements": []
           },
           {
-            "id": "57b4d523",
+            "id": "654ca7f8",
             "elType": "widget",
             "widgetType": "icon-box",
             "settings": {
@@ -2069,7 +2069,7 @@
                 "library": "fa-solid"
               },
               "title_text": "Siaga 24 Jam Nonstop",
-              "description_text": "Layanan derek darurat termasuk malam hari, akhir pekan, dan hari libur.",
+              "description_text": "Layanan derek darurat termasuk malam hari, akhir pekan, dan hari libur nasional.",
               "title_size": "h5",
               "position": "left",
               "_css_classes": "derek-stat-card derek-stat-teal"
@@ -2077,7 +2077,7 @@
             "elements": []
           },
           {
-            "id": "fdfbce69",
+            "id": "50082d32",
             "elType": "widget",
             "widgetType": "icon-box",
             "settings": {
@@ -2086,7 +2086,7 @@
                 "library": "fa-solid"
               },
               "title_text": "Tempo Bayar 30 Hari",
-              "description_text": "Khusus pelanggan perusahaan yang terdaftar di Master Truck.",
+              "description_text": "Fasilitas penagihan tempo berkala khusus perusahaan mitra Master Truck.",
               "title_size": "h5",
               "position": "left",
               "_css_classes": "derek-stat-card derek-stat-amber"
@@ -2098,7 +2098,7 @@
     ]
   },
   {
-    "id": "f61d60ca",
+    "id": "46abf73e",
     "elType": "container",
     "isInner": false,
     "settings": {
@@ -2109,7 +2109,7 @@
     },
     "elements": [
       {
-        "id": "81a4734e",
+        "id": "93cfc7af",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -2123,7 +2123,7 @@
         },
         "elements": [
           {
-            "id": "82d8cfd1",
+            "id": "0969ecc2",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -2135,7 +2135,7 @@
             "elements": []
           },
           {
-            "id": "4a42462f",
+            "id": "dae961aa",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -2146,7 +2146,7 @@
             "elements": []
           },
           {
-            "id": "ba63bfb6",
+            "id": "9b8970db",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -2157,7 +2157,7 @@
             "elements": []
           },
           {
-            "id": "499d9407",
+            "id": "734ad031",
             "elType": "container",
             "isInner": true,
             "settings": {
@@ -2167,7 +2167,7 @@
             },
             "elements": [
               {
-                "id": "437182a1",
+                "id": "40fe54d7",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -2181,7 +2181,7 @@
                 },
                 "elements": [
                   {
-                    "id": "42e63a27",
+                    "id": "cfc718e2",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
@@ -2195,7 +2195,7 @@
                     "elements": []
                   },
                   {
-                    "id": "38333b57",
+                    "id": "0e007980",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -2206,7 +2206,7 @@
                     "elements": []
                   },
                   {
-                    "id": "33863a6c",
+                    "id": "805cd55a",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -2218,7 +2218,7 @@
                 ]
               },
               {
-                "id": "66648d0e",
+                "id": "92286037",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -2232,7 +2232,7 @@
                 },
                 "elements": [
                   {
-                    "id": "5c3cef27",
+                    "id": "1a8c6eee",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
@@ -2246,7 +2246,7 @@
                     "elements": []
                   },
                   {
-                    "id": "2f12cfb5",
+                    "id": "172fce8b",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -2257,7 +2257,7 @@
                     "elements": []
                   },
                   {
-                    "id": "79714905",
+                    "id": "e9ecf269",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -2269,7 +2269,7 @@
                 ]
               },
               {
-                "id": "3b6a717d",
+                "id": "0cde68f5",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -2283,7 +2283,7 @@
                 },
                 "elements": [
                   {
-                    "id": "c8b8ef08",
+                    "id": "8f9e77ae",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
@@ -2297,7 +2297,7 @@
                     "elements": []
                   },
                   {
-                    "id": "9428b66b",
+                    "id": "270a0725",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -2308,7 +2308,7 @@
                     "elements": []
                   },
                   {
-                    "id": "17255320",
+                    "id": "7a1e5f3f",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -2320,7 +2320,7 @@
                 ]
               },
               {
-                "id": "07d46667",
+                "id": "6e498ef3",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -2334,7 +2334,7 @@
                 },
                 "elements": [
                   {
-                    "id": "17350c31",
+                    "id": "31209f48",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
@@ -2348,7 +2348,7 @@
                     "elements": []
                   },
                   {
-                    "id": "d269ac82",
+                    "id": "28577167",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -2359,7 +2359,7 @@
                     "elements": []
                   },
                   {
-                    "id": "3ae98391",
+                    "id": "6fbdd652",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -2377,7 +2377,7 @@
     ]
   },
   {
-    "id": "6715d54d",
+    "id": "5461e692",
     "elType": "container",
     "isInner": false,
     "settings": {
@@ -2388,7 +2388,7 @@
     },
     "elements": [
       {
-        "id": "9fa91e3f",
+        "id": "f0def99f",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -2402,7 +2402,7 @@
         },
         "elements": [
           {
-            "id": "fb3fdf1b",
+            "id": "517a1ed8",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -2414,7 +2414,7 @@
             "elements": []
           },
           {
-            "id": "6a0f9859",
+            "id": "67398008",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -2425,7 +2425,7 @@
             "elements": []
           },
           {
-            "id": "6ae3415d",
+            "id": "5a7a3033",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -2436,7 +2436,7 @@
             "elements": []
           },
           {
-            "id": "e7417de9",
+            "id": "58a66e6b",
             "elType": "container",
             "isInner": true,
             "settings": {
@@ -2446,7 +2446,7 @@
             },
             "elements": [
               {
-                "id": "8600bed6",
+                "id": "3f9286d8",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -2460,7 +2460,7 @@
                 },
                 "elements": [
                   {
-                    "id": "d901321c",
+                    "id": "0d7d0598",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
@@ -2475,7 +2475,7 @@
                     "elements": []
                   },
                   {
-                    "id": "24f0d412",
+                    "id": "18bf06f3",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -2487,7 +2487,7 @@
                     "elements": []
                   },
                   {
-                    "id": "c7e22a4d",
+                    "id": "25fbeec4",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -2498,7 +2498,7 @@
                     "elements": []
                   },
                   {
-                    "id": "35f7483b",
+                    "id": "8d8d1723",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -2509,7 +2509,7 @@
                     "elements": []
                   },
                   {
-                    "id": "1b159191",
+                    "id": "a2f0c5f4",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -2522,7 +2522,7 @@
                 ]
               },
               {
-                "id": "34b7a9c2",
+                "id": "abb76970",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -2536,7 +2536,7 @@
                 },
                 "elements": [
                   {
-                    "id": "3c20f4c1",
+                    "id": "f2d0bc45",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
@@ -2551,7 +2551,7 @@
                     "elements": []
                   },
                   {
-                    "id": "cc0d327e",
+                    "id": "b449127f",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -2563,7 +2563,7 @@
                     "elements": []
                   },
                   {
-                    "id": "b7a1dfae",
+                    "id": "10b656cb",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -2574,7 +2574,7 @@
                     "elements": []
                   },
                   {
-                    "id": "bcad7a23",
+                    "id": "5b5c66d3",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -2585,7 +2585,7 @@
                     "elements": []
                   },
                   {
-                    "id": "7368397f",
+                    "id": "c1d608d8",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -2598,7 +2598,7 @@
                 ]
               },
               {
-                "id": "a98b7a7c",
+                "id": "76cdd83c",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -2612,7 +2612,7 @@
                 },
                 "elements": [
                   {
-                    "id": "6a852ba8",
+                    "id": "cf73bcb3",
                     "elType": "widget",
                     "widgetType": "image",
                     "settings": {
@@ -2627,7 +2627,7 @@
                     "elements": []
                   },
                   {
-                    "id": "10d2fa42",
+                    "id": "4f3ee99d",
                     "elType": "widget",
                     "widgetType": "heading",
                     "settings": {
@@ -2639,7 +2639,7 @@
                     "elements": []
                   },
                   {
-                    "id": "c4a8ebbd",
+                    "id": "b81092a4",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -2650,7 +2650,7 @@
                     "elements": []
                   },
                   {
-                    "id": "7f58d765",
+                    "id": "ba9f1aa5",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -2661,7 +2661,7 @@
                     "elements": []
                   },
                   {
-                    "id": "12b0ffdd",
+                    "id": "59645a6e",
                     "elType": "widget",
                     "widgetType": "text-editor",
                     "settings": {
@@ -2680,7 +2680,7 @@
     ]
   },
   {
-    "id": "3da7c654",
+    "id": "1d0f81fd",
     "elType": "container",
     "isInner": false,
     "settings": {
@@ -2691,7 +2691,7 @@
     },
     "elements": [
       {
-        "id": "9681c4c1",
+        "id": "cef6cf1f",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -2705,7 +2705,7 @@
         },
         "elements": [
           {
-            "id": "61f05b5a",
+            "id": "066269fa",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -2717,7 +2717,7 @@
             "elements": []
           },
           {
-            "id": "ce9c3f09",
+            "id": "f3906972",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -2728,7 +2728,7 @@
             "elements": []
           },
           {
-            "id": "a0ab7d7a",
+            "id": "c1cbbfb8",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -2738,7 +2738,7 @@
             "elements": []
           },
           {
-            "id": "0bbefb82",
+            "id": "d84fc3bd",
             "elType": "widget",
             "widgetType": "button",
             "settings": {
@@ -2761,7 +2761,7 @@
         ]
       },
       {
-        "id": "7103bfb5",
+        "id": "5193e041",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -2775,7 +2775,7 @@
         },
         "elements": [
           {
-            "id": "382ce9f3",
+            "id": "ad02b1a4",
             "elType": "widget",
             "widgetType": "accordion",
             "settings": {
@@ -2820,7 +2820,7 @@
     ]
   },
   {
-    "id": "710d8756",
+    "id": "876e634a",
     "elType": "container",
     "isInner": false,
     "settings": {
@@ -2831,7 +2831,7 @@
     },
     "elements": [
       {
-        "id": "51c0a7e4",
+        "id": "043c5e7f",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -2845,7 +2845,7 @@
         },
         "elements": [
           {
-            "id": "408edfa7",
+            "id": "4e0cae80",
             "elType": "widget",
             "widgetType": "icon-box",
             "settings": {
@@ -2862,7 +2862,7 @@
             "elements": []
           },
           {
-            "id": "42596b44",
+            "id": "3b8bf906",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -2873,7 +2873,7 @@
             "elements": []
           },
           {
-            "id": "5644d0e5",
+            "id": "f2b660b0",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -2885,7 +2885,7 @@
             "elements": []
           },
           {
-            "id": "712352a2",
+            "id": "2100e68a",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -2896,7 +2896,7 @@
             "elements": []
           },
           {
-            "id": "d1b4aec0",
+            "id": "c23f195d",
             "elType": "container",
             "isInner": true,
             "settings": {
@@ -2906,7 +2906,7 @@
             },
             "elements": [
               {
-                "id": "deb9a887",
+                "id": "b4c49db3",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -2919,7 +2919,7 @@
                 },
                 "elements": [
                   {
-                    "id": "6f0d670b",
+                    "id": "f80b4b54",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -2942,7 +2942,7 @@
                 ]
               },
               {
-                "id": "fbd47fa9",
+                "id": "b7c16847",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -2955,7 +2955,7 @@
                 },
                 "elements": [
                   {
-                    "id": "fb9f8531",
+                    "id": "333504ee",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -2978,7 +2978,7 @@
                 ]
               },
               {
-                "id": "a4fd4e73",
+                "id": "1302a044",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -2991,7 +2991,7 @@
                 },
                 "elements": [
                   {
-                    "id": "d186fc69",
+                    "id": "3a0cca43",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -3014,7 +3014,7 @@
                 ]
               },
               {
-                "id": "b86472e2",
+                "id": "52e529ce",
                 "elType": "container",
                 "isInner": true,
                 "settings": {
@@ -3027,7 +3027,7 @@
                 },
                 "elements": [
                   {
-                    "id": "9dbe0741",
+                    "id": "f2bdd6ba",
                     "elType": "widget",
                     "widgetType": "button",
                     "settings": {
@@ -3054,7 +3054,7 @@
         ]
       },
       {
-        "id": "485fd618",
+        "id": "3cd310c0",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -3068,7 +3068,7 @@
         },
         "elements": [
           {
-            "id": "b318429c",
+            "id": "adff5d34",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -3080,7 +3080,7 @@
             "elements": []
           },
           {
-            "id": "8438acfc",
+            "id": "7bc774c4",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -3093,7 +3093,7 @@
         ]
       },
       {
-        "id": "6a6de6f3",
+        "id": "c5386e64",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -3107,7 +3107,7 @@
         },
         "elements": [
           {
-            "id": "f273476a",
+            "id": "ee2a01b4",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -3119,7 +3119,7 @@
             "elements": []
           },
           {
-            "id": "edf0d43b",
+            "id": "592aefb4",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -3132,7 +3132,7 @@
         ]
       },
       {
-        "id": "d9b6d5e9",
+        "id": "7f0c0442",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -3146,7 +3146,7 @@
         },
         "elements": [
           {
-            "id": "5cde6060",
+            "id": "37f85163",
             "elType": "widget",
             "widgetType": "heading",
             "settings": {
@@ -3158,7 +3158,7 @@
             "elements": []
           },
           {
-            "id": "e23eec18",
+            "id": "9cb4d9eb",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -3169,7 +3169,7 @@
             "elements": []
           },
           {
-            "id": "474a552b",
+            "id": "17512340",
             "elType": "widget",
             "widgetType": "button",
             "settings": {
@@ -3190,7 +3190,7 @@
             "elements": []
           },
           {
-            "id": "921e1f5a",
+            "id": "ccc02c21",
             "elType": "widget",
             "widgetType": "button",
             "settings": {
@@ -3215,7 +3215,7 @@
     ]
   },
   {
-    "id": "daf63467",
+    "id": "48c348c5",
     "elType": "container",
     "isInner": false,
     "settings": {
@@ -3225,7 +3225,7 @@
     },
     "elements": [
       {
-        "id": "8ddbd664",
+        "id": "7d8553d4",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -3239,7 +3239,7 @@
         },
         "elements": [
           {
-            "id": "88caa5ce",
+            "id": "2d7dcf4a",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -3252,7 +3252,7 @@
         ]
       },
       {
-        "id": "34ea76ad",
+        "id": "d938db3d",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -3266,7 +3266,7 @@
         },
         "elements": [
           {
-            "id": "2acba197",
+            "id": "a1d13e00",
             "elType": "widget",
             "widgetType": "text-editor",
             "settings": {
@@ -3281,7 +3281,7 @@
     ]
   },
   {
-    "id": "140d28eb",
+    "id": "37ed16fd",
     "elType": "container",
     "isInner": false,
     "settings": {
@@ -3291,7 +3291,7 @@
     },
     "elements": [
       {
-        "id": "493b8f80",
+        "id": "834e968f",
         "elType": "container",
         "isInner": true,
         "settings": {
@@ -3304,7 +3304,7 @@
         },
         "elements": [
           {
-            "id": "af8e3cfb",
+            "id": "5913b636",
             "elType": "widget",
             "widgetType": "button",
             "settings": {
