@@ -355,8 +355,12 @@ async function scrollThrough(page) {
         };
         const testiBg = document.querySelector('.sec-testimonial');
         const lr = lead ? lead.getBoundingClientRect() : null;
+        const eyebrowTitle = document.querySelector('.sec-services .badge-section-pill .elementor-heading-title');
+        const ebCs = eyebrowTitle ? getComputedStyle(eyebrowTitle) : null;
         return {
             font: cs ? cs.fontFamily : null,
+            eyebrowTT: ebCs ? ebCs.textTransform : null,
+            eyebrowBg: ebCs ? ebCs.backgroundColor : null,
             color: cs ? cs.color : null,
             size: cs ? parseFloat(cs.fontSize) : -1,
             leadW: lr ? Math.round(lr.width) : -1,
@@ -370,17 +374,20 @@ async function scrollThrough(page) {
             testiBg: testiBg ? getComputedStyle(testiBg).backgroundColor : null,
         };
     });
-    check('DESKTOP: judul section = Plus Jakarta Sans + navy + 36px',
+    check('DESKTOP: judul section = Plus Jakarta Sans + navy + 40px',
         !!ent.font && ent.font.includes('Plus Jakarta Sans') &&
-        ent.color === 'rgb(15, 42, 92)' && ent.size >= 34 && ent.size <= 37,
+        ent.color === 'rgb(15, 42, 92)' && ent.size >= 38 && ent.size <= 42,
         `${ent.color} ${ent.size}px ${ent.font ? ent.font.split(',')[0] : '?'}`);
+    check('DESKTOP: eyebrow uppercase polos transparan (tanpa pill)',
+        ent.eyebrowTT === 'uppercase' && ent.eyebrowBg === 'rgba(0, 0, 0, 0)',
+        `${ent.eyebrowTT} bg=${ent.eyebrowBg}`);
     check('DESKTOP: lead paragraph cap 720px & center',
         ent.leadW > 0 && ent.leadW <= 720 && ent.leadCentered, `w=${ent.leadW}`);
     check('DESKTOP: garis aksen h2 ada di about & faq',
         ent.accentAbout >= 50 && ent.accentFaq >= 50,
         `about=${ent.accentAbout} faq=${ent.accentFaq}`);
-    check('DESKTOP: padding section seragam 80px',
-        ent.pads.every((p) => p === 80), ent.pads.join(','));
+    check('DESKTOP: padding section seragam 104px',
+        ent.pads.every((p) => p === 104), ent.pads.join(','));
     check('DESKTOP: testimonial bg slate (bukan cream)',
         ent.testiBg === 'rgb(248, 250, 252)', ent.testiBg);
 

@@ -282,7 +282,7 @@ body.elementor-page-59 .elementor-widget-heading.hero-brand-pill {
     border: none !important;
     box-shadow: none !important;
     padding: 0 !important;
-    margin: 0 0 0.85rem 0 !important;
+    margin: 0 0 18px 0 !important;
     display: flex !important;
     width: auto !important;
 }
@@ -3250,9 +3250,10 @@ body.elementor-page-59 .sec-faq h2 {
     font-family: var(--font-heading) !important;
     color: var(--navy) !important;
     font-weight: 800 !important;
-    letter-spacing: -0.02em !important;
-    line-height: 1.18 !important;
-    font-size: clamp(26px, 3vw, 36px) !important;
+    letter-spacing: -0.025em !important;
+    line-height: 1.12 !important;
+    font-size: clamp(28px, 3.2vw, 40px) !important;
+    margin-bottom: 18px !important;
 }
 
 /* 21B. Garis aksen di bawah judul — kini ADA DI SEMUA section header
@@ -3278,8 +3279,8 @@ body.elementor-page-59 .booking-section-wrapper h2::after {
     background: linear-gradient(90deg, #DC2626, #F59E0B) !important;
 }
 
-/* 21C. Keterbacaan: lead paragraph section header di-cap 720px
-   (sebelumnya full 1276px — baris terlalu panjang untuk desktop) */
+/* 22C1. Keterbacaan: lead paragraph section header di-cap 720px
+   + tipografi lead mewah (17px, leading lega, slate medium) */
 @media (min-width: 992px) {
     body.elementor-page-59 .sec-services .elementor-widget-text-editor.text-muted,
     body.elementor-page-59 .sec-principals .elementor-widget-text-editor.text-muted,
@@ -3289,9 +3290,15 @@ body.elementor-page-59 .booking-section-wrapper h2::after {
         margin-right: auto !important;
     }
 }
+body.elementor-page-59 .elementor-widget-text-editor.text-muted,
+body.elementor-page-59 .derek-desc {
+    font-size: 17px !important;
+    line-height: 1.75 !important;
+    color: #64748B !important;
+}
 
-/* 21D. Ritme vertikal seragam 80px antar-section (dulu 64/72/76 campur);
-   hanya desktop — mobile memakai skala sendiri */
+/* 21D. Ritme vertikal lega seragam 104px antar-section (aliran
+   whitespace luas ala referensi); hanya desktop — mobile skala sendiri */
 @media (min-width: 992px) {
     body.elementor-page-59 .sec-about,
     body.elementor-page-59 .sec-services,
@@ -3300,12 +3307,12 @@ body.elementor-page-59 .booking-section-wrapper h2::after {
     body.elementor-page-59 .booking-section-wrapper,
     body.elementor-page-59 .sec-team,
     body.elementor-page-59 .sec-testimonial {
-        padding-top: 80px !important;
-        padding-bottom: 80px !important;
+        padding-top: 104px !important;
+        padding-bottom: 104px !important;
     }
     body.elementor-page-59 .sec-faq {
-        padding-top: 80px !important;
-        padding-bottom: 40px !important;
+        padding-top: 104px !important;
+        padding-bottom: 48px !important;
     }
 }
 
@@ -3327,4 +3334,74 @@ body.elementor-page-59 .service-grid-card {
    konsisten dengan gaya corporate */
 body.elementor-page-59 .navbar.sticky-top {
     border-bottom: 1px solid rgba(226, 232, 240, 0.9) !important;
+}
+
+/* ==============================================================
+   22. LUXURY TYPE & POSITIONING — medium-luxe, light theme
+   Pola referensi (DarkoGuide): eyebrow uppercase polos, judul besar
+   leading rapat, lead slate medium, whitespace lega.
+   Murni CSS — struktur/konten tetap 100% editable via Elementor.
+   ============================================================== */
+
+/* 22A. Eyebrow enterprise — teks polos uppercase tracked biru
+   (bukan pill). Pill hero-brand & pill rating testimonial tetap
+   bergaya pil; pill amber/darurat warnanya dipertahankan via rule lama. */
+body.elementor-page-59 .elementor-widget-heading.badge-section-pill .elementor-heading-title {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.14em !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    gap: 0 !important;
+}
+/* 22B. Eyebrow testimonial menyesuaikan sistem (rule :2637 lebih spesifik) */
+body.elementor-page-59 .sec-testimonial .badge-section-pill .elementor-heading-title {
+    font-size: 12px !important;
+    letter-spacing: 0.14em !important;
+    text-transform: uppercase !important;
+    color: #1D4ED8 !important;
+}
+
+/* 22C. Header section -> konten: jarak lega 48px (desktop) */
+@media (min-width: 992px) {
+    body.elementor-page-59 .sec-services > .elementor-container > .elementor-top-column.elementor-col-100:first-child,
+    body.elementor-page-59 .sec-principals > .elementor-container > .elementor-top-column.elementor-col-100:first-child,
+    body.elementor-page-59 .sec-team > .elementor-container > .elementor-top-column.elementor-col-100:first-child,
+    body.elementor-page-59 .sec-testimonial > .elementor-container > .elementor-top-column.elementor-col-100:first-child {
+        margin-bottom: 48px !important;
+    }
+}
+
+/* 22D. Lead split section: measure lega (booking 580px, desktop) */
+@media (min-width: 992px) {
+    body.elementor-page-59 .booking-section-wrapper .elementor-widget-text-editor.derek-desc {
+        max-width: 580px !important;
+    }
+}
+
+/* 22E. Fact strip: label uppercase tracked (hanya >=768 — di HP label
+   tetap normal agar "Perusahaan Pelanggan" tidak overflow) */
+@media (min-width: 768px) {
+    body.elementor-page-59 .fact-strip .elementor-widget-counter .elementor-counter-title {
+        font-size: 12px !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.08em !important;
+        color: #64748B !important;
+        font-weight: 700 !important;
+    }
+    body.elementor-page-59 .fact-strip .elementor-widget-counter .elementor-counter-number-wrapper {
+        letter-spacing: -0.02em !important;
+    }
+}
+
+/* 22F. FAQ accordion: ritme item lega (gap 12px, radius 14px) */
+body.elementor-page-59 .faqAccordion .elementor-accordion-item + .elementor-accordion-item {
+    margin-top: 12px !important;
+}
+body.elementor-page-59 .faqAccordion .elementor-accordion-item {
+    border-radius: 14px !important;
 }
