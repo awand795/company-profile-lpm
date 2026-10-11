@@ -27,7 +27,7 @@ body.elementor-page-59 .navbar.sticky-top {
     position: sticky !important;
     top: 12px !important;
     z-index: 1020 !important;
-    margin: 12px 20px 24px 20px !important;
+    margin: 10px auto 20px auto !important; max-width: 1280px !important;
     border-radius: var(--radius-pill) !important;
     background: rgba(255, 255, 255, 0.75) !important;
     backdrop-filter: blur(16px) !important;
@@ -121,11 +121,11 @@ body.elementor-page-59 .btn-booking-call .elementor-button::after {
 
 /* 5. Logo Mitra / Principals Grayscale Rest -> Full Color Hover */
 body.elementor-page-59 .principal-wall-card .elementor-widget-image img {
-    filter: grayscale(1) opacity(0.78);
+    filter: none; opacity: 0.9;
     transition: filter 0.25s ease, opacity 0.25s ease;
 }
 body.elementor-page-59 .principal-wall-card:hover .elementor-widget-image img {
-    filter: grayscale(0) opacity(1);
+    filter: none; opacity: 1;
 }
 
 /* 6. Scroll Reveal Halus */

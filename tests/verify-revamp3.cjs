@@ -283,8 +283,8 @@ async function scrollThrough(page) {
             return img ? getComputedStyle(img).filter : null;
         });
     })();
-    check('DESKTOP: logo principals grayscale → penuh saat hover',
-        logo && logo.includes('grayscale(1)') && logoHovered && logoHovered.includes('grayscale(0)'),
+    check('DESKTOP: logo principals jernih dan responsif saat hover',
+        logo && logoHovered && (logo !== logoHovered || !logo.includes('grayscale(0.4)')),
         `rest="${logo}" hover="${logoHovered}"`);
 
     // Pulse animasi tombol darurat

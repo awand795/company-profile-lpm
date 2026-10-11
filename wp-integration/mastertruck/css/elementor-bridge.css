@@ -2835,7 +2835,7 @@ body.elementor-page-59 .sec-testimonial .testimonial-enterprise-card .elementor-
    ============================================================== */
 /* Montir: foto grayscale ringan → penuh saat hover */
 body.elementor-page-59 .sec-team-cards .team-enterprise-card .elementor-widget-image img {
-    filter: grayscale(0.4) contrast(1.03) !important;
+    filter: none !important;
 }
 body.elementor-page-59 .sec-team-cards .team-enterprise-card:hover .elementor-widget-image img {
     filter: grayscale(0) contrast(1) !important;
@@ -2873,7 +2873,7 @@ body.elementor-page-59 .sec-team-cards .team-enterprise-card .elementor-widget-i
 }
 @media (hover: hover) and (pointer: fine) {
     body.elementor-page-59 .sec-team-cards .team-enterprise-card .elementor-widget-image img {
-        filter: grayscale(0.4) contrast(1.03) !important;
+        filter: none !important;
     }
     body.elementor-page-59 .sec-team-cards .team-enterprise-card:hover .elementor-widget-image img {
         filter: grayscale(0) contrast(1) !important;
@@ -3086,12 +3086,12 @@ body.mt-scroll-progress {
 /* 20B. Logo principals: grayscale ringan → penuh saat hover + scale */
 body.elementor-page-59 .principal-wall-col .elementor-widget-image img,
 body.elementor-page-59 .principal-wall-card .elementor-widget-image img {
-    filter: grayscale(1) opacity(0.78) !important;
+    filter: none !important; opacity: 0.9 !important;
     transition: filter 0.25s ease, transform 0.25s ease !important;
 }
 body.elementor-page-59 .principal-wall-col:hover .elementor-widget-image img,
 body.elementor-page-59 .principal-wall-card:hover .elementor-widget-image img {
-    filter: grayscale(0) opacity(1) !important;
+    filter: none !important; opacity: 1 !important;
     transform: scale(1.06) !important;
 }
 
