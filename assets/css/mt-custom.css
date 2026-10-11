@@ -1,31 +1,102 @@
 /* ==============================================================
    MASTER TRUCK ENTERPRISE CUSTOM CSS
    Standard: Modern White Minimalist Enterprise (Pola DarkoGuide)
-   Clean, light, pill-rounded CTAs, crisp slate borders, & subtle micro-interactions.
-   Total line count strictly kept under ~150 lines.
+   http://94.237.69.119:4000/
+   - Floating pill navbar (rounded-full, backdrop-blur-md, border slate-200)
+   - Large bold hero typography (60px, navy slate-900, blue-600 highlight)
+   - Enterprise module cards (rounded-3xl 24px, border slate-200, shadow-md, hover lift)
+   - Square-rounded icon badges (56px, rounded-2xl 16px, bg blue-100)
+   - Pill buttons (rounded-full 9999px)
    ============================================================== */
 
 :root {
     --primary: #2563EB;
+    --primary-hover: #1D4ED8;
     --navy: #0F2A5C;
+    --navy-deep: #0F2A5C;
+    --slate-text: #475569;
     --border: #E2E8F0;
-    --heading: #0F172A;
-    --radius-card: 20px;
+    --radius-card: 24px;
     --radius-pill: 9999px;
-    --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.05);
-    --shadow-hover: 0 16px 36px rgba(15, 42, 92, 0.08);
+    --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
 }
 
-/* 1. Header Sticky Blur & Hairline (DarkoGuide glassmorphism style) */
+/* 1. Header: DarkoGuide Floating Pill Navbar */
 body.elementor-page-59 .navbar.sticky-top {
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
-    background-color: rgba(255, 255, 255, 0.88) !important;
-    border-bottom: 1px solid rgba(226, 232, 240, 0.8) !important;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03) !important;
+    position: sticky !important;
+    top: 12px !important;
+    z-index: 1020 !important;
+    margin: 12px 20px 24px 20px !important;
+    border-radius: var(--radius-pill) !important;
+    background: rgba(255, 255, 255, 0.75) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(226, 232, 240, 0.9) !important;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06), 0 4px 6px -4px rgba(15, 23, 42, 0.04) !important;
+    padding: 8px 24px !important;
 }
 
-/* 2. Emergency Call Pulse & Subtle Ring Animation */
+@media (max-width: 991.98px) {
+    body.elementor-page-59 .navbar.sticky-top {
+        margin: 0 !important;
+        border-radius: 0 !important;
+        padding: 8px 16px !important;
+    }
+}
+
+/* 2. Tombol Pill Modern ala DarkoGuide */
+body.elementor-page-59 .elementor-button,
+body.elementor-page-59 .btn-hero-primary .elementor-button,
+body.elementor-page-59 .btn-hero-secondary .elementor-button,
+body.elementor-page-59 .btn-booking-call .elementor-button,
+body.elementor-page-59 .btn-booking-reg .elementor-button,
+body.elementor-page-59 .btn-service-action .elementor-button,
+body.elementor-page-59 .btn-faq-whatsapp .elementor-button,
+body.elementor-page-59 .btn-nav-login .elementor-button,
+body.elementor-page-59 .btn-nav-register .elementor-button {
+    border-radius: var(--radius-pill) !important;
+    font-weight: 600 !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* DarkoGuide Blue Outline Pill Button */
+body.elementor-page-59 .btn-hero-secondary .elementor-button,
+body.elementor-page-59 .btn-about-secondary .elementor-button {
+    background: #FFFFFF !important;
+    color: #2563EB !important;
+    border: 1px solid #2563EB !important;
+}
+body.elementor-page-59 .btn-hero-secondary .elementor-button:hover,
+body.elementor-page-59 .btn-about-secondary .elementor-button:hover {
+    background: #EFF6FF !important;
+    color: #1D4ED8 !important;
+}
+
+/* 3. Kartu Enterprise Modern (24px radius, crisp border, elegant shadow) */
+body.elementor-page-59 .service-grid-card,
+body.elementor-page-59 .team-enterprise-card,
+body.elementor-page-59 .testimonial-enterprise-card,
+body.elementor-page-59 .principal-wall-card,
+body.elementor-page-59 .derek-stat-card {
+    background: #FFFFFF !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-card) !important;
+    box-shadow: var(--shadow-card) !important;
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+body.elementor-page-59 .service-grid-card:hover,
+body.elementor-page-59 .team-enterprise-card:hover,
+body.elementor-page-59 .testimonial-enterprise-card:hover,
+body.elementor-page-59 .principal-wall-card:hover,
+body.elementor-page-59 .derek-stat-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: var(--shadow-hover) !important;
+    border-color: #CBD5E1 !important;
+}
+
+/* 4. Derek Call Pulse & Subtle Ring Animation */
 @keyframes mtCallPulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.02); }
@@ -48,7 +119,7 @@ body.elementor-page-59 .btn-booking-call .elementor-button::after {
     pointer-events: none;
 }
 
-/* 3. Partner Brand Logos (Grayscale rest -> Crisp Full Color hover) */
+/* 5. Logo Mitra / Principals Grayscale Rest -> Full Color Hover */
 body.elementor-page-59 .principal-wall-card .elementor-widget-image img {
     filter: grayscale(1) opacity(0.78);
     transition: filter 0.25s ease, opacity 0.25s ease;
@@ -57,7 +128,7 @@ body.elementor-page-59 .principal-wall-card:hover .elementor-widget-image img {
     filter: grayscale(0) opacity(1);
 }
 
-/* 4. Enterprise Scroll Reveal (Smooth Fade + Slight Slide) */
+/* 6. Scroll Reveal Halus */
 body.mt-js .elementor-top-section.mt-reveal,
 body.mt-js .e-con.mt-reveal {
     opacity: 0;
@@ -78,7 +149,7 @@ body.mt-js .e-con.mt-reveal.is-inview {
     }
 }
 
-/* 5. Mobile Carousel Scroll-Snap (Services, Team, Testimonials) */
+/* 7. Mobile Carousel Scroll-Snap (HP) */
 @media (max-width: 767.98px) {
     body.elementor-page-59 .sec-services-cards,
     body.elementor-page-59 .sec-team-cards,
@@ -110,21 +181,4 @@ body.mt-js .e-con.mt-reveal.is-inview {
         scroll-snap-align: start !important;
         scroll-snap-stop: always !important;
     }
-}
-
-/* 6. Enterprise Card Hover Elevation (Smooth -4px lift & crisp shadow) */
-body.elementor-page-59 .service-grid-card,
-body.elementor-page-59 .team-enterprise-card,
-body.elementor-page-59 .testimonial-enterprise-card,
-body.elementor-page-59 .principal-wall-card,
-body.elementor-page-59 .derek-stat-card {
-    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-body.elementor-page-59 .service-grid-card:hover,
-body.elementor-page-59 .team-enterprise-card:hover,
-body.elementor-page-59 .testimonial-enterprise-card:hover,
-body.elementor-page-59 .principal-wall-card:hover,
-body.elementor-page-59 .derek-stat-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-hover);
 }
