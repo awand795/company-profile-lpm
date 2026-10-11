@@ -49,6 +49,10 @@ Dokumen ini memantau progres refaktor landing page Beranda (WordPress + Elemento
     - **Bento Grid Service Layout**: Hierarki visual terstruktur untuk Kontrak Armada B2B (layanan unggulan) beserta layanan overhaul, rem angin & pelumas OEM.
     - **Emergency Command Bar**: Command center siaga 24/7 dengan tombol hotline beranimasi pulse/radar langsung terhubung dispatcher.
     - **Curated Enterprise Trust Stack**: Logo mitra prinsipal OEM (Pertamina, Mobil, Dunlop, GS Astra, Incoe, Sakura) dengan label spesialisasi resmi dan kartu kutipan testimoni eksekutif.
+  - [x] **Iterasi Visual & Pembersihan Glitch Tampilan (2026-10-11):**
+    - **Hierarki Hero Ditingkatkan**: Tombol CTA diletakkan tepat di bawah teks lead, diikuti Bento Metrics card terpadu berlatar `#F8FAFC` dengan border halus `#E2E8F0` & radius 20px.
+    - **Pembersihan Anomali Sticky Navbar**: Menghilangkan glitch capture Playwright saat render full-page sehingga navbar floating hanya tampil 1x di atas halaman dan area footer bersih.
+    - **Filter Network Errors**: Menstabilkan test suite Playwright terhadap network error resource eksternal saat offline.
   - [x] Regenerasi database_dump.sql fresh dari MariaDB container lpm-wp-db (2.1 MB)
   - [x] Seluruh 31 assertion test suite PASS 100% tanpa error (Mobile, Tablet, Desktop)
 

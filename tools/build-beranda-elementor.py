@@ -301,14 +301,14 @@ sections.append(make_section(
             W_heading('Solusi Total Perawatan Armada &amp; <span class="hero-brand-highlight">Distributor Sparepart OEM</span>', tag="h1", align="left", cls="hero-title"),
             W_text('Spesialis pemeliharaan armada truk komersial terpercaya selama 15+ tahun di Kawasan Industri Medan. Distributor resmi oli Pertamina, oli Mobil, ban Dunlop, dan aki GS Astra langsung dari pabrik dengan jaminan 100% orisinal.', align="left", cls="hero-lead"),
             make_inner_section([
+                (50, "", [W_button("Konsultasi Servis Armada", link="#booking", icon_val="fas fa-arrow-right", icon_pos="after", cls="btn-hero-primary")]),
+                (50, "", [W_button("Portal Web Fleet", link="http://localhost:3000/#login", icon_val="fas fa-desktop", icon_pos="before", cls="btn-hero-secondary", is_ext=True)]),
+            ], css_classes="hero-btns-inner mt-4 mb-4"),
+            make_inner_section([
                 (33, "", [W_counter(15, "Tahun Berpengalaman", cls="hero-counter-item")]),
                 (33, "", [W_counter(120, "Perusahaan Mitra", suffix="+", cls="hero-counter-item")]),
                 (34, "", [W_counter(2500, "Armada per Tahun", cls="hero-counter-item", delimiter=".")]),
             ], css_classes="hero-stats-inner d-none d-md-flex"),
-            make_inner_section([
-                (50, "", [W_button("Konsultasi Servis Armada", link="#booking", icon_val="fas fa-arrow-right", icon_pos="after", cls="btn-hero-primary")]),
-                (50, "", [W_button("Portal Web Fleet", link="http://localhost:3000/#login", icon_val="fas fa-desktop", icon_pos="before", cls="btn-hero-secondary", is_ext=True)]),
-            ], css_classes="hero-btns-inner mt-3"),
         ]),
         (40, "hero-right-col px-3", [
             W_icon_box("fas fa-shield-alt", "Terpercaya 120+ Mitra Logistik", "Sertifikasi resmi prinsipal & standar mutu OEM", tag="p", pos="left", cls="hero-badge-floating-top"),

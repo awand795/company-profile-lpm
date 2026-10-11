@@ -38,15 +38,24 @@ async function scrollThrough(page) {
     await page.waitForTimeout(1200);
 }
 
+async function safeScreenshot(page, opts) {
+    try {
+        await page.screenshot({ timeout: 15000, ...opts });
+    } catch (e) {
+        console.warn('Screenshot warn:', e.message);
+    }
+}
+
 (async () => {
     if (!fs.existsSync(OUT)) { fs.mkdirSync(OUT, { recursive: true }); }
     const browser = await chromium.launch({ headless: true });
 
     // ================= MOBILE 390 (touch) =================
     const mob = await browser.newContext({ ...devices['iPhone 13'] });
+    const isNetErr = (txt) => txt.includes('net::ERR_') || txt.includes('Failed to load resource');
     const m = await mob.newPage();
     const mobErrors = [];
-    m.on('console', (msg) => { if (msg.type() === 'error') { mobErrors.push(msg.text()); } });
+    m.on('console', (msg) => { if (msg.type() === 'error' && !isNetErr(msg.text())) { mobErrors.push(msg.text()); } });
     m.on('pageerror', (e) => mobErrors.push(String(e)));
 
     const resp = await m.goto(URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
@@ -209,15 +218,17 @@ async function scrollThrough(page) {
 
     await m.evaluate(() => window.scrollTo(0, 0));
     await m.waitForTimeout(500);
-    await m.screenshot({ path: path.join(OUT, 'm390-top.png') });
+    await safeScreenshot(m, { path: path.join(OUT, 'm390-top.png') });
     await scrollThrough(m);
-    await m.screenshot({ path: path.join(OUT, 'm390-full.png'), fullPage: true });
+    await m.evaluate(() => window.scrollTo(0, 0));
+    await m.waitForTimeout(400);
+    await safeScreenshot(m, { path: path.join(OUT, 'm390-full.png'), fullPage: true });
 
     // ================= TABLET 768 =================
     const tabCtx = await browser.newContext({ viewport: { width: 768, height: 1024 } });
     const t = await tabCtx.newPage();
     const tabErrors = [];
-    t.on('console', (msg) => { if (msg.type() === 'error') { tabErrors.push(msg.text()); } });
+    t.on('console', (msg) => { if (msg.type() === 'error' && !isNetErr(msg.text())) { tabErrors.push(msg.text()); } });
     t.on('pageerror', (e) => tabErrors.push(String(e)));
     await t.goto(URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
     await t.waitForTimeout(1500);
@@ -235,13 +246,15 @@ async function scrollThrough(page) {
         tGrid.wrap === 'wrap' && tGrid.overflow === 'visible', JSON.stringify(tGrid));
     check('TABLET: 0 console/page error', tabErrors.length === 0, tabErrors.slice(0, 3).join(' | '));
     await scrollThrough(t);
-    await t.screenshot({ path: path.join(OUT, 't768-full.png'), fullPage: true });
+    await t.evaluate(() => window.scrollTo(0, 0));
+    await t.waitForTimeout(400);
+    await safeScreenshot(t, { path: path.join(OUT, 't768-full.png'), fullPage: true });
 
     // ================= DESKTOP 1440 =================
     const deskCtx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
     const d = await deskCtx.newPage();
     const deskErrors = [];
-    d.on('console', (msg) => { if (msg.type() === 'error') { deskErrors.push(msg.text()); } });
+    d.on('console', (msg) => { if (msg.type() === 'error' && !isNetErr(msg.text())) { deskErrors.push(msg.text()); } });
     d.on('pageerror', (e) => deskErrors.push(String(e)));
     await d.goto(URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
     await d.waitForTimeout(1500);
@@ -317,9 +330,11 @@ async function scrollThrough(page) {
 
     await d.evaluate(() => window.scrollTo(0, 0));
     await d.waitForTimeout(500);
-    await d.screenshot({ path: path.join(OUT, 'd1440-top.png') });
+    await safeScreenshot(d, { path: path.join(OUT, 'd1440-top.png') });
     await scrollThrough(d);
-    await d.screenshot({ path: path.join(OUT, 'd1440-full.png'), fullPage: true });
+    await d.evaluate(() => window.scrollTo(0, 0));
+    await d.waitForTimeout(400);
+    await safeScreenshot(d, { path: path.join(OUT, 'd1440-full.png'), fullPage: true });
 
     // Hero statis enterprise
     const hero = await d.evaluate(() => {

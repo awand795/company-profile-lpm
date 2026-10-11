@@ -196,17 +196,147 @@ body.elementor-page-59 .hero-right-col {
     z-index: 2 !important;
 }
 body.elementor-page-59 .hero-title .elementor-heading-title {
-    color: #0A1B3B !important;
+    font-size: clamp(2.5rem, 3.8vw, 3.5rem) !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.035em !important;
+    font-weight: 800 !important;
+    color: #0F172A !important;
     filter: none !important;
     text-shadow: none !important;
 }
+body.elementor-page-59 .hero-title .hero-brand-highlight {
+    color: #2563EB !important;
+}
 body.elementor-page-59 .hero-lead {
+    font-size: 1.125rem !important;
+    line-height: 1.65 !important;
     color: #475569 !important;
+    max-width: 580px !important;
     filter: none !important;
     text-shadow: none !important;
 }
 
-/* 9. All-White Enterprise Theme (Pola DarkoGuide) */
+/* 9. Hero Badge & Stats Bento Polish */
+body.elementor-page-59 .hero-brand-pill .elementor-heading-title {
+    background: #EFF6FF !important;
+    border: 1px solid #BFDBFE !important;
+    color: #1D4ED8 !important;
+    border-radius: 9999px !important;
+    padding: 8px 18px !important;
+    font-size: 12.5px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.04em !important;
+    box-shadow: 0 1px 2px rgba(37, 99, 235, 0.05) !important;
+}
+body.elementor-page-59 .hero-brand-pill .live-dot {
+    background: #10B981 !important;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25) !important;
+}
+
+body.elementor-page-59 .hero-stats-inner {
+    background: #F8FAFC !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 20px !important;
+    padding: 14px 20px !important;
+    max-width: 540px !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
+}
+body.elementor-page-59 .hero-stats-inner .elementor-column {
+    border-left: 1px solid #CBD5E1 !important;
+}
+body.elementor-page-59 .hero-stats-inner .elementor-column:first-child {
+    border-left: none !important;
+}
+body.elementor-page-59 .hero-stats-inner .elementor-counter-number-wrapper {
+    font-size: 26px !important;
+    font-weight: 800 !important;
+    color: #0F2A5C !important;
+}
+body.elementor-page-59 .hero-stats-inner .elementor-counter-title {
+    font-size: 11.5px !important;
+    font-weight: 600 !important;
+    color: #64748B !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.03em !important;
+}
+
+/* 10. Hero Right Bento Showcase */
+body.elementor-page-59 .hero-right-col {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 32px !important;
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(226, 232, 240, 0.5) !important;
+    padding: 24px !important;
+    position: relative !important;
+}
+body.elementor-page-59 .hero-truck-img img {
+    border-radius: 20px !important;
+    box-shadow: 0 8px 20px -4px rgba(15, 23, 42, 0.08) !important;
+}
+body.elementor-page-59 .hero-right-col .hero-badge-floating-top {
+    position: absolute !important;
+    top: -12px !important;
+    right: 32px !important;
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 9999px !important;
+    padding: 8px 18px !important;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08) !important;
+}
+body.elementor-page-59 .hero-right-col .hero-card-floating-bottom {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 20px !important;
+    box-shadow: 0 12px 28px -6px rgba(15, 23, 42, 0.08) !important;
+    padding: 16px 20px !important;
+    margin-top: -20px !important;
+    position: relative !important;
+    z-index: 4 !important;
+}
+
+/* 11. Navbar Menu Clean Typography */
+body.elementor-page-59 .navbar .nav-menu-link .elementor-button {
+    background: transparent !important;
+    color: #475569 !important;
+    font-weight: 500 !important;
+    padding: 8px 14px !important;
+    box-shadow: none !important;
+}
+body.elementor-page-59 .navbar .nav-menu-link .elementor-button:hover,
+body.elementor-page-59 .navbar .nav-menu-link.nav-link-active .elementor-button {
+    background: #F1F5F9 !important;
+    color: #0F172A !important;
+    font-weight: 600 !important;
+}
+
+/* 12. Feature Strip Cards Polish */
+body.elementor-page-59 .feature-strip-widget {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 22px !important;
+    padding: 24px 20px !important;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03) !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
+}
+body.elementor-page-59 .feature-strip-widget:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.06) !important;
+    border-color: #CBD5E1 !important;
+}
+body.elementor-page-59 .feature-strip-widget .elementor-icon-box-icon {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 14px !important;
+    background: #EFF6FF !important;
+    color: #2563EB !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 20px !important;
+    margin-bottom: 14px !important;
+}
+
+/* 13. All-White Enterprise Theme (Pola DarkoGuide) */
 body.elementor-page-59,
 body.elementor-page-59 .mt-hero-slide,
 body.elementor-page-59 .sec-features,
@@ -228,3 +358,4 @@ body.elementor-page-59 .mt-hero-slide {
 body.elementor-page-59 .mt-hero-slide::before {
     display: none !important;
 }
+
