@@ -265,6 +265,7 @@ body.elementor-page-59 .hero-stats-inner .elementor-counter-title {
 
 /* 10. Hero Right Clean Showcase & Floating Telematics Badges */
 body.elementor-page-59 .hero-right-col,
+body.elementor-page-59 .hero-right-col.e-con,
 body.elementor-page-59 .hero-right-col.elementor-column {
     background: transparent !important;
     border: none !important;
@@ -284,13 +285,15 @@ body.elementor-page-59 .hero-right-col .hero-truck-img {
     z-index: 1 !important;
 }
 body.elementor-page-59 .hero-right-col .hero-truck-img img {
-    border-radius: 28px !important;
-    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(226, 232, 240, 0.8) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
     width: 100% !important;
-    max-height: 480px !important;
+    max-height: 500px !important;
     height: auto !important;
-    object-fit: cover !important;
+    object-fit: contain !important;
     display: block !important;
+    filter: drop-shadow(0 20px 30px rgba(15, 23, 42, 0.08)) !important;
 }
 
 /* Floating Telematics Status Cards */
@@ -483,6 +486,38 @@ body.elementor-page-59 .mt-hero-slide::before {
 body.elementor-page-59 .service-grid-card.service-card-featured {
     border-top: 3px solid #2563EB !important;
     position: relative !important;
+    background: #FFFFFF !important;
+    border: 1.5px solid #BFDBFE !important;
+    box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.08) !important;
+}
+body.elementor-page-59 .service-grid-card.service-card-featured::before {
+    content: "LAYANAN UTAMA KORPORAT" !important;
+    position: absolute !important;
+    top: 14px !important;
+    right: 18px !important;
+    left: auto !important;
+    bottom: auto !important;
+    width: auto !important;
+    height: auto !important;
+    display: inline-block !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+    background: #EFF6FF !important;
+    color: #1D4ED8 !important;
+    padding: 4px 10px !important;
+    border-radius: 9999px !important;
+    border: 1px solid #BFDBFE !important;
+    z-index: 2 !important;
+    line-height: normal !important;
+}
+body.elementor-page-59 .service-grid-card .elementor-widget-image img {
+    border-radius: 16px !important;
+    width: 100% !important;
+    height: 180px !important;
+    object-fit: cover !important;
+    margin-bottom: 16px !important;
+    display: block !important;
 }
 
 /* 15. ISO & SMK3 Certification Badges */
