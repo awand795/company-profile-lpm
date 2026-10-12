@@ -311,9 +311,9 @@ sections.append(make_section(
             ], css_classes="hero-stats-inner d-none d-md-flex"),
         ]),
         (40, "hero-right-col px-3", [
-            W_icon_box("fas fa-shield-alt", "Terpercaya 120+ Mitra Logistik", "Sertifikasi resmi prinsipal & standar mutu OEM", tag="p", pos="left", cls="hero-badge-floating-top"),
+            W_icon_box("fas fa-shield-alt", "99.8% On-Time SLA", "Sertifikasi Mutu & Standar K3 Aktif", tag="p", pos="left", cls="hero-badge-floating-top"),
             W_image(IMG["truck1"], alt="Armada Truk Master Truck", cls="hero-truck-img"),
-            W_icon_box("fas fa-check-circle", "Tarif Korporat & Garansi 30 Titik", "Inspeksi digital, SLA respon cepat & invoice tempo 30 hari", tag="h5", pos="left", cls="hero-card-floating-bottom"),
+            W_icon_box("fas fa-satellite-dish", "Live GPS Telematics Active", "500+ Unit Siap Jalan • Respon Cepat 24/7", tag="h5", pos="left", cls="hero-card-floating-bottom"),
         ]),
     ]
 ))
@@ -381,7 +381,7 @@ sections.append(make_section(
 ))
 
 # ==============================================================================
-# 6. SERVICES (Bento Grid Service Layout)
+# 6. SERVICES (Asymmetric Bento Grid Service Layout)
 # ==============================================================================
 sections.append(make_section(
     css_id="service",
@@ -392,11 +392,11 @@ sections.append(make_section(
             W_heading("Solusi Terintegrasi Perawatan Armada Truk", tag="h2", align="center"),
             W_text("Empat pilar layanan terstandarisasi untuk efisiensi operasional dan durabilitas armada logistik Anda &mdash; bergaransi dan terdokumentasi digital.", align="center", cls="text-muted mb-4"),
             make_inner_section([
-                (25, "service-grid-card", [
+                (25, "service-grid-card service-card-featured", [
                     W_image(IMG["svc1"], alt="Kontrak Servis Armada B2B"),
                     W_heading("Kontrak Servis Armada B2B", tag="h5", align="left"),
-                    W_text("<ul><li>Prioritas antrean &amp; slot berkala</li><li>Diagnostik komputer &amp; kelistrikan 24V</li><li>Laporan digital &amp; tempo bayar 30 hari</li></ul>", align="left"),
-                    W_button("Konsultasi Kontrak", link="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20tertarik%20kontrak%20servis%20armada%20B2B", align="center", cls="btn-service-action", is_ext=True),
+                    W_text("<ul><li>Prioritas antrean &amp; slot berkala VIP</li><li>Diagnostik komputer &amp; kelistrikan 24V</li><li>Laporan digital &amp; tempo bayar 30 hari</li></ul>", align="left"),
+                    W_button("Konsultasi Kontrak B2B", link="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20tertarik%20kontrak%20servis%20armada%20B2B", align="center", cls="btn-service-action", is_ext=True),
                 ]),
                 (25, "service-grid-card", [
                     W_image(IMG["svc2"], alt="Overhaul & Kalibrasi Mesin"),
@@ -422,16 +422,27 @@ sections.append(make_section(
 ))
 
 # ==============================================================================
-# 7. PRINCIPALS (Curated Enterprise Trust Stack)
+# 7. PRINCIPALS & SERTIFIKASI (Curated Enterprise Trust Stack)
 # ==============================================================================
 sections.append(make_section(
     css_id="principals",
     css_classes="container-xxl py-5 sec-principals",
     cols=[
         (100, "text-center mb-4", [
-            W_heading("Jaminan 100% Suku Cadang Resmi", tag="p", align="center", cls="badge-section-pill badge-pill-amber"),
+            W_heading("Jaminan 100% Suku Cadang Resmi &amp; Kepatuhan Standar", tag="p", align="center", cls="badge-section-pill badge-pill-amber"),
             W_heading("Distributor Resmi &amp; Mitra Pabrikan OEM", tag="h2", align="center"),
-            W_text("Pasokan suku cadang dan pelumas langsung dari pabrikan terkemuka &mdash; keaslian terjamin 100% dengan tarif khusus mitra korporat.", align="center", cls="text-muted mb-4"),
+            W_text("Pasokan suku cadang dan pelumas langsung dari pabrikan terkemuka &mdash; keaslian terjamin 100% dengan standar operasional ISO 9001:2015 &amp; SMK3.", align="center", cls="text-muted mb-4"),
+            make_inner_section([
+                (33, "cert-badge-col", [
+                    W_icon_box("fas fa-award", "Sertifikasi ISO 9001:2015", "Standar internasional manajemen mutu perawatan armada komersial.", tag="h6", pos="left", cls="cert-badge-card")
+                ]),
+                (33, "cert-badge-col", [
+                    W_icon_box("fas fa-shield-alt", "Kepatuhan SMK3 Kemenaker", "Sistem manajemen keselamatan &amp; kesehatan kerja bengkel heavy-duty.", tag="h6", pos="left", cls="cert-badge-card")
+                ]),
+                (34, "cert-badge-col", [
+                    W_icon_box("fas fa-certificate", "Garansi Keaslian Pabrik", "Jaminan 100% suku cadang resmi langsung dari prinsipal terdaftar.", tag="h6", pos="left", cls="cert-badge-card")
+                ]),
+            ], css_classes="sec-cert-badges w-100 mb-4"),
             make_inner_section([
                 (16, "principal-wall-card", [
                     W_image(IMG["pertamina"], alt="Pertamina Lubricants", align="center"),

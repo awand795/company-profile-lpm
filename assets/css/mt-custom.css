@@ -263,7 +263,7 @@ body.elementor-page-59 .hero-stats-inner .elementor-counter-title {
     letter-spacing: 0.03em !important;
 }
 
-/* 10. Hero Right Clean Showcase ala DarkoGuide (Reset Blok 27) */
+/* 10. Hero Right Clean Showcase & Floating Telematics Badges */
 body.elementor-page-59 .hero-right-col,
 body.elementor-page-59 .hero-right-col.elementor-column {
     background: transparent !important;
@@ -274,11 +274,14 @@ body.elementor-page-59 .hero-right-col.elementor-column {
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
+    position: relative !important;
 }
 body.elementor-page-59 .hero-right-col .hero-truck-img {
     padding: 0 !important;
     margin: 0 !important;
     width: 100% !important;
+    position: relative !important;
+    z-index: 1 !important;
 }
 body.elementor-page-59 .hero-right-col .hero-truck-img img {
     border-radius: 28px !important;
@@ -289,11 +292,116 @@ body.elementor-page-59 .hero-right-col .hero-truck-img img {
     object-fit: cover !important;
     display: block !important;
 }
+
+/* Floating Telematics Status Cards */
 body.elementor-page-59 .hero-right-col .hero-badge-floating-top,
 body.elementor-page-59 .hero-right-col .hero-badge-floating-top.elementor-widget-icon-box,
 body.elementor-page-59 .hero-right-col .hero-card-floating-bottom,
 body.elementor-page-59 .hero-right-col .hero-card-floating-bottom.elementor-widget-icon-box {
-    display: none !important;
+    display: block !important;
+    background: #FFFFFF !important;
+    border: 1px solid rgba(226, 232, 240, 0.95) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.04) !important;
+    padding: 14px 20px !important;
+    z-index: 10 !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+body.elementor-page-59 .hero-right-col .hero-badge-floating-top:hover,
+body.elementor-page-59 .hero-right-col .hero-card-floating-bottom:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 25px 30px -5px rgba(15, 23, 42, 0.14) !important;
+}
+
+@media (min-width: 992px) {
+    body.elementor-page-59 .hero-right-col .hero-badge-floating-top,
+    body.elementor-page-59 .hero-right-col .hero-badge-floating-top.elementor-widget-icon-box {
+        position: absolute !important;
+        top: 24px !important;
+        left: -20px !important;
+        right: auto !important;
+        bottom: auto !important;
+        max-width: 310px !important;
+        width: auto !important;
+    }
+    body.elementor-page-59 .hero-right-col .hero-card-floating-bottom,
+    body.elementor-page-59 .hero-right-col .hero-card-floating-bottom.elementor-widget-icon-box {
+        position: absolute !important;
+        bottom: 24px !important;
+        right: -20px !important;
+        left: auto !important;
+        top: auto !important;
+        max-width: 340px !important;
+        width: auto !important;
+    }
+}
+@media (max-width: 991.98px) {
+    body.elementor-page-59 .hero-right-col .hero-badge-floating-top,
+    body.elementor-page-59 .hero-right-col .hero-badge-floating-top.elementor-widget-icon-box,
+    body.elementor-page-59 .hero-right-col .hero-card-floating-bottom,
+    body.elementor-page-59 .hero-right-col .hero-card-floating-bottom.elementor-widget-icon-box {
+        position: static !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 12px 0 0 0 !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        top: auto !important;
+    }
+}
+
+body.elementor-page-59 .hero-badge-floating-top .elementor-icon-box-wrapper,
+body.elementor-page-59 .hero-card-floating-bottom .elementor-icon-box-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+    text-align: left !important;
+}
+body.elementor-page-59 .hero-badge-floating-top .elementor-icon-box-icon {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 12px !important;
+    background: #ECFDF5 !important;
+    color: #059669 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 20px !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+}
+body.elementor-page-59 .hero-card-floating-bottom .elementor-icon-box-icon {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 12px !important;
+    background: #EFF6FF !important;
+    color: #2563EB !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 20px !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+}
+body.elementor-page-59 .hero-badge-floating-top .elementor-icon-box-title,
+body.elementor-page-59 .hero-card-floating-bottom .elementor-icon-box-title {
+    font-size: 14.5px !important;
+    font-weight: 700 !important;
+    color: #0F2A5C !important;
+    margin: 0 0 2px 0 !important;
+    line-height: 1.25 !important;
+    white-space: normal !important;
+    letter-spacing: normal !important;
+}
+body.elementor-page-59 .hero-badge-floating-top .elementor-icon-box-description,
+body.elementor-page-59 .hero-card-floating-bottom .elementor-icon-box-description {
+    display: block !important;
+    font-size: 12px !important;
+    color: #64748B !important;
+    margin: 0 !important;
+    line-height: 1.35 !important;
+    white-space: normal !important;
 }
 
 /* 11. Navbar Menu Clean Typography & DarkoGuide Pill CTA */
@@ -370,4 +478,73 @@ body.elementor-page-59 .mt-hero-slide {
 body.elementor-page-59 .mt-hero-slide::before {
     display: none !important;
 }
+
+/* 14. Service Featured Bento Polish */
+body.elementor-page-59 .service-grid-card.service-card-featured {
+    border-top: 3px solid #2563EB !important;
+    position: relative !important;
+}
+
+/* 15. ISO & SMK3 Certification Badges */
+body.elementor-page-59 .sec-cert-badges {
+    display: flex !important;
+    gap: 16px !important;
+    margin-bottom: 24px !important;
+}
+body.elementor-page-59 .cert-badge-card {
+    background: #FFFFFF !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03) !important;
+    padding: 16px 20px !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
+}
+body.elementor-page-59 .cert-badge-card:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: var(--shadow-hover) !important;
+    border-color: #CBD5E1 !important;
+}
+body.elementor-page-59 .cert-badge-card .elementor-icon-box-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+    text-align: left !important;
+}
+body.elementor-page-59 .cert-badge-card .elementor-icon-box-icon {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 12px !important;
+    background: #EFF6FF !important;
+    color: #2563EB !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 20px !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+}
+body.elementor-page-59 .cert-badge-card .elementor-icon-box-title {
+    font-size: 14.5px !important;
+    font-weight: 700 !important;
+    color: #0F2A5C !important;
+    margin: 0 0 2px 0 !important;
+}
+body.elementor-page-59 .cert-badge-card .elementor-icon-box-description {
+    font-size: 12px !important;
+    color: #64748B !important;
+    margin: 0 !important;
+    line-height: 1.35 !important;
+}
+@media (max-width: 767.98px) {
+    body.elementor-page-59 .sec-cert-badges.e-con,
+    body.elementor-page-59 .sec-cert-badges > .elementor-container,
+    body.elementor-page-59 .sec-cert-badges > .e-con-inner {
+        flex-direction: column !important;
+    }
+    body.elementor-page-59 .cert-badge-col {
+        width: 100% !important;
+        margin-bottom: 8px !important;
+    }
+}
+
 
