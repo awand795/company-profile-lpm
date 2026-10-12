@@ -45,14 +45,54 @@ add_action( 'wp_enqueue_scripts', function () {
 	wp_enqueue_style( 'mt-animate', $site . '/lib/animate/animate.min.css', array(), $ver( '/lib/animate/animate.min.css' ) );
 	wp_enqueue_style( 'mt-style', $site . '/css/style.css', array( 'mt-bootstrap' ), $ver( '/css/style.css' ) );
 	wp_enqueue_style( 'mt-mastertruck', $site . '/css/mastertruck.css', array( 'elementor-frontend', 'mt-style' ), $ver( '/css/mastertruck.css' ) );
-	wp_enqueue_style( 'mt-bridge', $site . '/css/elementor-bridge.css', array( 'mt-mastertruck' ), $ver( '/css/elementor-bridge.css' ) );
-	wp_enqueue_style( 'mt-custom', $site . '/css/mt-custom.css', array( 'mt-bridge' ), $ver( '/css/mt-custom.css' ) );
+	/* REVAMP4: elementor-bridge.css tidak lagi di-enqueue (styling pindah ke
+	   kontrol native Elementor; sisa kebutuhan ada di mt-custom.css ~38 baris).
+	   Berkas bridge tetap di repo sebagai arsip. */
+	wp_enqueue_style( 'mt-custom', $site . '/css/mt-custom.css', array( 'elementor-frontend' ), $ver( '/css/mt-custom.css' ) );
 	/* JS libs persis template PHP (carousel, counter, wow, main.js). */
 	wp_enqueue_script( 'mt-bootstrap-bundle', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js', array( 'jquery' ), '5.0.0', true );
 	foreach ( array( '/lib/wow/wow.min.js' => 'mt-wow', '/lib/easing/easing.min.js' => 'mt-easing', '/lib/waypoints/waypoints.min.js' => 'mt-waypoints', '/lib/counterup/counterup.min.js' => 'mt-counterup', '/js/main.js' => 'mt-main' ) as $rel => $h ) {
 		wp_enqueue_script( $h, $site . $rel, array( 'jquery' ), $ver( $rel ), true );
 	}
 }, 20 );
+
+/* REVAMP4: halaman Beranda (ID 59) full-Elementor — lepas stylesheet legacy
+   (bootstrap / style CarServ / mastertruck template) agar tidak menimpa kontrol
+   native Elementor (ID selector & !important lama, mis. #header-carousel gelap).
+   Font, ikon, JS perilaku (main.js), dan mt-custom tetap dimuat. */
+add_action( 'wp_print_styles', function () {
+	if ( function_exists( 'is_page' ) && is_page( 59 ) ) {
+		foreach ( array( 'mt-bootstrap', 'mt-style', 'mt-mastertruck', 'dashicons', 'mt-fontawesome' ) as $h ) {
+			wp_dequeue_style( $h );
+			wp_deregister_style( $h );
+		}
+		// Bundle bootstrap CDN tak dipakai komponen kustom halaman 59 (hemat koneksi pihak ketiga).
+		wp_dequeue_script( 'mt-bootstrap-bundle' );
+		wp_deregister_script( 'mt-bootstrap-bundle' );
+	}
+}, 100 );
+
+/* REVAMP4: rampingkan <head> di Beranda — matikan skrip emoji WP (tak dipakai)
+   dan tambah meta description (skor SEO/A11y Lighthouse). */
+add_action( 'init', function () {
+	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+} );
+// Konten Bahasa Indonesia -> atribut lang="id-ID" (tanpa unduh language pack).
+add_filter( 'locale', function ( $loc ) { return 'id_ID'; } );
+// Beri landmark main pada root Elementor (tanpa mengubah struktur DOM).
+add_filter( 'the_content', function ( $c ) {
+	if ( function_exists( 'is_page' ) && is_page( 59 ) && strpos( $c, 'data-elementor-type="wp-page"' ) !== false ) {
+		$c = str_replace( 'data-elementor-type="wp-page"', 'role="main" data-elementor-type="wp-page"', $c );
+	}
+	return $c;
+}, 999 );
+add_action( 'wp_head', function () {
+	if ( function_exists( 'is_page' ) && is_page( 59 ) ) {
+		echo '<meta name="description" content="PT Master Truck Indonesia — bengkel spesialis truk niaga & distributor resmi Pertamina, Mobil Delvac, Dunlop, GS Astra di KIM III Medan. Servis armada, overhaul, derek 24 jam." />' . "\n";
+		echo '<link rel="preload" as="image" href="/wp-content/uploads/2026/10/out-hero-truck.webp" fetchpriority="high" />' . "\n";
+	}
+}, 1 );
 
 /* ------------------------------------------------------- topbar di frontend */
 function mt_render_topbar_html() {

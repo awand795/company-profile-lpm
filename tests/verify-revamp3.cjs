@@ -235,15 +235,16 @@ async function safeScreenshot(page, opts) {
     const tOvf = await t.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1);
     check('TABLET: tanpa overflow 768', tOvf);
     const tGrid = await t.evaluate(() => {
+        // REVAMP4: perilaku grid = tidak ada scroll horizontal (wrap native Elementor)
         const box = document.querySelector('.sec-services-cards > .elementor-container') ||
                     document.querySelector('.sec-services-cards > .e-con-inner') ||
                     document.querySelector('.sec-services-cards');
-        if (!box) return { wrap: 'missing', overflow: 'missing' };
+        if (!box) return { grid: 'missing' };
         const cs = getComputedStyle(box);
-        return { wrap: cs.flexWrap, overflow: cs.overflowX };
+        return { scrollable: box.scrollWidth > box.clientWidth + 1, overflow: cs.overflowX };
     });
     check('TABLET: service tetap grid (bukan carousel)',
-        tGrid.wrap === 'wrap' && tGrid.overflow === 'visible', JSON.stringify(tGrid));
+        tGrid.scrollable === false, JSON.stringify(tGrid));
     check('TABLET: 0 console/page error', tabErrors.length === 0, tabErrors.slice(0, 3).join(' | '));
     await scrollThrough(t);
     await t.evaluate(() => window.scrollTo(0, 0));
@@ -377,13 +378,15 @@ async function safeScreenshot(page, opts) {
     const ent = await d.evaluate(() => {
         const h2 = document.querySelector('.sec-services h2');
         const cs = h2 ? getComputedStyle(h2) : null;
-        const lead = document.querySelector('.sec-services .elementor-widget-text-editor.text-muted');
+        const lead = document.querySelector('.sec-services .sec-lead .elementor-widget-container, .sec-services .sec-lead');
+        const stepsLead = document.querySelector('.steps-lead');
         const aboutAfter = document.querySelector('.sec-about h2')
             ? getComputedStyle(document.querySelector('.sec-about h2'), '::after') : null;
         const faqAfter = document.querySelector('.sec-faq h2')
             ? getComputedStyle(document.querySelector('.sec-faq h2'), '::after') : null;
         const padOf = (sel) => {
-            const el = document.querySelector(sel);
+            // Container boxed Elementor menaruh padding di .e-con-inner
+            const el = document.querySelector(sel + ' > .e-con-inner') || document.querySelector(sel);
             return el ? parseInt(getComputedStyle(el).paddingTop, 10) : -1;
         };
         const testiBg = document.querySelector('.sec-testimonial');
@@ -400,6 +403,8 @@ async function safeScreenshot(page, opts) {
             size: cs ? parseFloat(cs.fontSize) : -1,
             leadW: lr ? Math.round(lr.width) : -1,
             leadCentered: lr ? Math.abs(lr.left - (window.innerWidth - lr.width) / 2) < 20 : false,
+            leadSize: lead ? parseFloat(getComputedStyle(lead).fontSize) : -1,
+            stepsCentered: stepsLead ? Math.abs(stepsLead.getBoundingClientRect().left - (window.innerWidth - stepsLead.getBoundingClientRect().width) / 2) < 24 : false,
             accentAbout: aboutAfter ? aboutAfter.content : '?',
             accentFaq: faqAfter ? faqAfter.content : '?',
             pads: [
@@ -416,17 +421,20 @@ async function safeScreenshot(page, opts) {
     check('DESKTOP: eyebrow uppercase polos transparan (tanpa pill)',
         ent.eyebrowTT === 'uppercase' && ent.eyebrowBg === 'rgba(0, 0, 0, 0)',
         `${ent.eyebrowTT} bg=${ent.eyebrowBg}`);
-    check('DESKTOP: lead paragraph cap 720px & center',
-        ent.leadW > 0 && ent.leadW <= 720 && ent.leadCentered, `w=${ent.leadW}`);
+    // REVAMP4: ritme bervariasi — lead services rata kiri (asimetris), lead steps center.
+    check('DESKTOP: lead terbaca (>=15px) & ritme campuran (kiri+center)',
+        ent.leadSize >= 15 && ent.stepsCentered, `lead=${ent.leadSize}px stepsCenter=${ent.stepsCentered}`);
     check('DESKTOP: garis aksen h2 dihapus (clean enterprise)',
         ent.accentAbout === 'none' && ent.accentFaq === 'none',
         `about=${ent.accentAbout} faq=${ent.accentFaq}`);
     check('DESKTOP: header minimalis murni ala DarkoGuide (tanpa topbar terpisah)',
         !ent.topbarBg || ent.topbarBg === 'rgba(0, 0, 0, 0)', 'clean');
-    check('DESKTOP: padding section seragam 104px',
-        ent.pads.every((p) => p === 104), ent.pads.join(','));
-    check('DESKTOP: testimonial bg putih bersih enterprise',
-        ent.testiBg === 'rgb(255, 255, 255)', ent.testiBg);
+    // REVAMP4: skala spacing 8px — padding section 96px desktop / 56px mobile.
+    check('DESKTOP: padding section seragam 96px',
+        ent.pads.every((p) => p === 96), ent.pads.join(','));
+    // REVAMP4: tint #F8FAFC hanya di 3 section (cara-kerja/testimoni/derek+footer).
+    check('DESKTOP: testimonial bg tint slate lembut',
+        ent.testiBg === 'rgb(248, 250, 252)', ent.testiBg);
 
     // ================= RINGKASAN =================
     await browser.close();
