@@ -296,45 +296,47 @@ body.elementor-page-59 .hero-right-col .hero-truck-img img {
     filter: drop-shadow(0 20px 30px rgba(15, 23, 42, 0.08)) !important;
 }
 
-/* Floating Telematics Status Cards */
+/* Floating Telematics Status Cards (Modern Glass Pills) */
 body.elementor-page-59 .hero-right-col .hero-badge-floating-top,
 body.elementor-page-59 .hero-right-col .hero-badge-floating-top.elementor-widget-icon-box,
 body.elementor-page-59 .hero-right-col .hero-card-floating-bottom,
 body.elementor-page-59 .hero-right-col .hero-card-floating-bottom.elementor-widget-icon-box {
     display: block !important;
-    background: #FFFFFF !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
     border: 1px solid rgba(226, 232, 240, 0.95) !important;
-    border-radius: 20px !important;
-    box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.04) !important;
-    padding: 14px 20px !important;
+    border-radius: 9999px !important;
+    box-shadow: 0 12px 30px -6px rgba(15, 23, 42, 0.1), 0 4px 6px -2px rgba(15, 23, 42, 0.04) !important;
+    padding: 10px 20px !important;
     z-index: 10 !important;
     transition: transform 0.25s ease, box-shadow 0.25s ease !important;
 }
 body.elementor-page-59 .hero-right-col .hero-badge-floating-top:hover,
 body.elementor-page-59 .hero-right-col .hero-card-floating-bottom:hover {
     transform: translateY(-2px) !important;
-    box-shadow: 0 25px 30px -5px rgba(15, 23, 42, 0.14) !important;
+    box-shadow: 0 20px 35px -6px rgba(15, 23, 42, 0.14) !important;
 }
 
 @media (min-width: 992px) {
     body.elementor-page-59 .hero-right-col .hero-badge-floating-top,
     body.elementor-page-59 .hero-right-col .hero-badge-floating-top.elementor-widget-icon-box {
         position: absolute !important;
-        top: 24px !important;
-        left: -20px !important;
+        top: 16px !important;
+        left: -16px !important;
         right: auto !important;
         bottom: auto !important;
-        max-width: 310px !important;
+        max-width: 320px !important;
         width: auto !important;
     }
     body.elementor-page-59 .hero-right-col .hero-card-floating-bottom,
     body.elementor-page-59 .hero-right-col .hero-card-floating-bottom.elementor-widget-icon-box {
         position: absolute !important;
-        bottom: 24px !important;
-        right: -20px !important;
+        bottom: 16px !important;
+        right: -16px !important;
         left: auto !important;
         top: auto !important;
-        max-width: 340px !important;
+        max-width: 350px !important;
         width: auto !important;
     }
 }
@@ -358,52 +360,52 @@ body.elementor-page-59 .hero-badge-floating-top .elementor-icon-box-wrapper,
 body.elementor-page-59 .hero-card-floating-bottom .elementor-icon-box-wrapper {
     display: flex !important;
     align-items: center !important;
-    gap: 14px !important;
+    gap: 12px !important;
     text-align: left !important;
 }
 body.elementor-page-59 .hero-badge-floating-top .elementor-icon-box-icon {
-    width: 44px !important;
-    height: 44px !important;
-    border-radius: 12px !important;
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
     background: #ECFDF5 !important;
     color: #059669 !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    font-size: 20px !important;
+    font-size: 16px !important;
     margin: 0 !important;
     flex-shrink: 0 !important;
 }
 body.elementor-page-59 .hero-card-floating-bottom .elementor-icon-box-icon {
-    width: 44px !important;
-    height: 44px !important;
-    border-radius: 12px !important;
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
     background: #EFF6FF !important;
     color: #2563EB !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    font-size: 20px !important;
+    font-size: 16px !important;
     margin: 0 !important;
     flex-shrink: 0 !important;
 }
 body.elementor-page-59 .hero-badge-floating-top .elementor-icon-box-title,
 body.elementor-page-59 .hero-card-floating-bottom .elementor-icon-box-title {
-    font-size: 14.5px !important;
+    font-size: 13.5px !important;
     font-weight: 700 !important;
     color: #0F2A5C !important;
-    margin: 0 0 2px 0 !important;
-    line-height: 1.25 !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
     white-space: normal !important;
     letter-spacing: normal !important;
 }
 body.elementor-page-59 .hero-badge-floating-top .elementor-icon-box-description,
 body.elementor-page-59 .hero-card-floating-bottom .elementor-icon-box-description {
     display: block !important;
-    font-size: 12px !important;
+    font-size: 11px !important;
     color: #64748B !important;
     margin: 0 !important;
-    line-height: 1.35 !important;
+    line-height: 1.25 !important;
     white-space: normal !important;
 }
 
@@ -518,6 +520,53 @@ body.elementor-page-59 .service-grid-card .elementor-widget-image img {
     object-fit: cover !important;
     margin-bottom: 16px !important;
     display: block !important;
+}
+
+/* Service Modern Checklist & Clean Typography */
+body.elementor-page-59 .service-grid-card ul {
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin: 14px 0 20px 0 !important;
+}
+body.elementor-page-59 .service-grid-card li {
+    position: relative !important;
+    padding-left: 22px !important;
+    font-size: 13.5px !important;
+    color: #475569 !important;
+    line-height: 1.55 !important;
+    margin-bottom: 8px !important;
+    text-align: left !important;
+}
+body.elementor-page-59 .service-grid-card li::before {
+    content: "✓" !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    color: #2563EB !important;
+    font-weight: 800 !important;
+    font-size: 13px !important;
+}
+body.elementor-page-59 .service-grid-card .elementor-heading-title {
+    font-size: 18px !important;
+    font-weight: 800 !important;
+    color: #0F2A5C !important;
+    margin-bottom: 8px !important;
+}
+body.elementor-page-59 .btn-service-action .elementor-button {
+    width: 100% !important;
+    text-align: center !important;
+    border-radius: 9999px !important;
+    padding: 10px 20px !important;
+    font-size: 13.5px !important;
+    font-weight: 600 !important;
+    background: #FFFFFF !important;
+    color: #2563EB !important;
+    border: 1.5px solid #2563EB !important;
+}
+body.elementor-page-59 .btn-service-action .elementor-button:hover {
+    background: #2563EB !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 8px 16px -4px rgba(37, 99, 235, 0.35) !important;
 }
 
 /* 15. ISO & SMK3 Certification Badges */
