@@ -59,6 +59,22 @@ Dokumen ini memantau progres refaktor landing page Beranda (WordPress + Elemento
     - **Dark Slate Navbar CTA**: Tombol Daftar Fleet bergaya dark slate `#1E293B` persis tombol Dashboard di http://94.237.69.119:4000/.
   - [x] Regenerasi database_dump.sql fresh dari MariaDB container lpm-wp-db (2.1 MB)
   - [x] Seluruh 31 assertion test suite PASS 100% tanpa error (Mobile, Tablet, Desktop)
+- [x] **REVAMP5 - Redesain ala Dribbble & Behance, All-White (2026-10-12):**
+  - [x] Riset referensi landing page modern (bento grid, floating chip, marquee logo, timeline bernomor, CTA band) — tema 100% putih dipertahankan
+  - [x] **Hero editorial**: H1 56px tracking -1.8, chip "Siaga 2 Jam" (dot live) & "99,8% SLA" melayang di atas foto, blob gradasi + lingkaran putus-putus dekoratif, statistik dengan garis pemisah
+  - [x] **Marquee logo prinsipal** beranimasi tanpa henti (mask gradasi tepi, jeda saat hover) — dua track identik agar seamless
+  - [x] **Bento Keunggulan**: kartu unggulan tint biru (58%) + 3 kartu putih, ikon chip seragam, teks rata kiri
+  - [x] **Chip ikon sistemik** (navbar, footer, fitur, langkah, sertifikat, derek) — radius 16px bg #EFF6FF
+  - [x] **Cara Kerja**: watermark angka 01–04 raksasa biru muda di pojok kartu + ikon lingkaran
+  - [x] **Layanan**: nomor 01–05 jadi pil biru, tinggi gambar seragam (212/260px, object-fit cover)
+  - [x] **Testimoni**: restrukturisasi jadi 3 kolom sejajar (kartu utama 42% + 2 kartu 29%), tanda kutip Georgia raksasa, isi ditengahkan vertikal
+  - [x] **CTA penutup** sebelum footer: kartu radius 28px gradasi biru+hijau lembut, tombol WA + Telepon
+  - [x] **Footer**: judul kolom jadi label uppercase 12px letterspacing 1.4px, hover tautan
+  - [x] Hover angkat kartu (translateY -6px) via CSS — Elementor Free tak punya kontrol hover container
+  - [x] Chip "15 Tahun" melayang di atas foto About; navbar mobile dirapatkan (brand inline, deskripsi disembunyikan)
+  - [x] Pseudo dekoratif dinetralkan border-nya (warisan border kartu container)
+  - [x] Test selector logo principals di-scoping ke `.sec-principals` (marquee beranimasi membuat hover tak stabil)
+  - [x] Seluruh 31 assertion test suite PASS 100% (Mobile, Tablet, Desktop)
 
 ---
 

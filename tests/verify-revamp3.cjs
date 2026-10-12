@@ -265,12 +265,14 @@ async function safeScreenshot(page, opts) {
 
     // Logo principals: grayscale → penuh saat hover
     // (hover dilakukan SETELAH transisi reveal selesai supaya :hover stabil)
+    // REVAMP5: strip hero kini marquee beranimasi — bidik dinding .sec-principals
+    // agar elemen yang diuji stabil (gerak horizontal marquee membuat hover lepas).
     const logo = await d.evaluate(() => {
-        const img = document.querySelector('.principal-wall-card .elementor-widget-image img');
+        const img = document.querySelector('.sec-principals .principal-wall-card .elementor-widget-image img');
         return img ? getComputedStyle(img).filter : null;
     });
     const logoHovered = await (async () => {
-        const card = d.locator('.principal-wall-card').first();
+        const card = d.locator('.sec-principals .principal-wall-card').first();
         await card.scrollIntoViewIfNeeded();
         // tunggu section selesai reveal (opacity 1) — kalau belum, card bisa
         // bergeser 16px saat transisi dan hover jadi lepas
@@ -286,14 +288,14 @@ async function safeScreenshot(page, opts) {
         // poll sampai filter berubah (hover stabil)
         for (let i = 0; i < 10; i++) {
             const f = await d.evaluate(() => {
-                const img = document.querySelector('.principal-wall-card .elementor-widget-image img');
+                const img = document.querySelector('.sec-principals .principal-wall-card .elementor-widget-image img');
                 return img ? getComputedStyle(img).filter : null;
             });
             if (f && f.includes('grayscale(0)')) { return f; }
             await d.waitForTimeout(200);
         }
         return d.evaluate(() => {
-            const img = document.querySelector('.principal-wall-card .elementor-widget-image img');
+            const img = document.querySelector('.sec-principals .principal-wall-card .elementor-widget-image img');
             return img ? getComputedStyle(img).filter : null;
         });
     })();

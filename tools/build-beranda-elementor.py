@@ -114,17 +114,18 @@ def typo(g, prefix, size, weight=400, family="Inter", lh=1.65, ls=0.0, color=Non
 
 def T_H1(color=C["dark"]):
     g = {}
-    s = typo(g, "typography", 56, 800, "Plus Jakarta Sans", 1.12, -1.5, tglobal="primary")
-    s["typography_font_size_tablet"] = fsize(44)
-    s["typography_font_size_mobile"] = fsize(34)
+    s = typo(g, "typography", 56, 800, "Plus Jakarta Sans", 1.1, -1.8, tglobal="primary")
+    s["typography_font_size_tablet"] = fsize(42)
+    s["typography_font_size_mobile"] = fsize(32)
     s["title_color"] = color
     gcol(g, "title_color", "dark")
     return s, g
 
 def T_H2(color=C["navy"]):
     g = {}
-    s = typo(g, "typography", 38, 800, "Plus Jakarta Sans", 1.2, -0.8, tglobal="primary")
-    s["typography_font_size_mobile"] = fsize(28)
+    s = typo(g, "typography", 40, 800, "Plus Jakarta Sans", 1.18, -1.0, tglobal="primary")
+    s["typography_font_size_tablet"] = fsize(34)
+    s["typography_font_size_mobile"] = fsize(27)
     s["title_color"] = color
     gcol(g, "title_color", "navy")
     return s, g
@@ -313,11 +314,11 @@ def W_button(text, link="#", icon="", ipos="after", align="left", cls="", style_
         st["_css_classes"] = cls
     return W("button", st)
 
-def W_counter(num, title, suffix="", cls="", prefix=""):
+def W_counter(num, title, suffix="", cls="", prefix="", size=40):
     st = {"starting_number": 0, "ending_number": num, "prefix": prefix, "suffix": suffix, "title": title,
           "number_color": C["dark"], "title_color": C["faint"],
           "typography_number_typography": "custom", "typography_number_font_family": "Plus Jakarta Sans",
-          "typography_number_font_size": fsize(40), "typography_number_font_weight": "800",
+          "typography_number_font_size": fsize(size), "typography_number_font_weight": "800",
           "typography_number_line_height": {"unit": "em", "size": 1.1},
           "typography_title_typography": "custom", "typography_title_font_family": "Inter",
           "typography_title_font_size": fsize(13), "typography_title_font_weight": "600",
@@ -451,14 +452,17 @@ hero["elements"] = [inner([
                                    style_fn=btn_outline, ext=True)], None),
         ], css_classes="hero-btns-inner"),
         inner([
-            col(33, "", [W_counter(15, "Tahun Berpengalaman", cls="hero-counter-item")], None),
-            col(33, "", [W_counter(120, "Perusahaan Mitra", suffix="+", cls="hero-counter-item")], None),
-            col(34, "", [W_counter(2500, "Armada per Tahun", cls="hero-counter-item")], None),
+            col(33, "", [W_counter(15, "Tahun Berpengalaman", cls="hero-counter-item", size=34)], None),
+            col(33, "", [W_counter(120, "Perusahaan Mitra", suffix="+", cls="hero-counter-item", size=34)], None),
+            col(34, "", [W_counter(2500, "Armada per Tahun", cls="hero-counter-item", size=34)], None),
         ], css_classes="hero-stats-inner"),
     ], None),
     col(45, "hero-right-col", [
         W_image("hero", alt="Teknisi Master Truck memeriksa mesin truk kuning di bengkel KIM III Medan",
                 cls="hero-truck-img", radius=24),
+        W_iconbox("fas fa-headset", "Siaga 24 Jam",
+                  "Dispatcher aktif malam &amp; akhir pekan", tag="p", pos="left",
+                  cls="hero-card-live", tsize=14, dsize=12),
         W_iconbox("fas fa-shield-alt", "99,8% SLA Tepat Waktu",
                   "Standar mutu ISO &amp; K3 — 500+ unit siap jalan", tag="p", pos="left",
                   cls="hero-card-floating-bottom", tsize=14, dsize=12),
@@ -466,50 +470,68 @@ hero["elements"] = [inner([
 ], css_classes="", direction="row")]
 sections.append(hero)
 
-# ============ 3. STRIP LOGO MITRA (tepat di bawah hero) ============
+# ============ 3. STRIP LOGO MITRA (marquee geser tanpa henti) ============
 strip = el_container("sec-logo-strip", boxed=1200, bg=C["white"],
-                     style={"padding": px4(8, 24, 32, 24), "padding_mobile": px4(8, 16, 28, 16)},
+                     style={"padding": px4(8, 0, 32, 0), "padding_mobile": px4(8, 0, 28, 0)},
                      nav="Strip Mitra")
+
+def logo_row(clone=False):
+    """Satu track marquee = 6 logo × 2 putaran (lebar > 1200px agar seamless)."""
+    rows = []
+    for _ in range(2):
+        for key, alt in [("pertamina", "Logo Pertamina Lubricants"), ("mobil", "Logo Mobil Delvac"),
+                         ("dunlop", "Logo Dunlop"), ("gsastra", "Logo GS Astra"),
+                         ("incoe", "Logo Incoe"), ("sakura", "Logo Sakura Filter")]:
+            rows.append((None, "principal-wall-card", [W_image(key, alt=alt, radius=8, shadow_on=False)], None))
+    return inner(rows, css_classes="logo-marquee-track" + (" logo-clone" if clone else ""),
+                 style={"flex_gap": fsize(64), "flex_wrap": "nowrap"})
+
 strip["elements"] = [inner([
     col(100, "", [
         W_text("<p>Dipercaya pasokan resmi dari prinsipal terkemuka</p>", align="center",
                cls="logo-strip-label", size=13, color=C["faint"]),
-        inner([
-            col(16, "principal-wall-card", [W_image("pertamina", alt="Logo Pertamina Lubricants", radius=8, shadow_on=False)], None),
-            col(16, "principal-wall-card", [W_image("mobil", alt="Logo Mobil Delvac", radius=8, shadow_on=False)], None),
-            col(17, "principal-wall-card", [W_image("dunlop", alt="Logo Dunlop", radius=8, shadow_on=False)], None),
-            col(17, "principal-wall-card", [W_image("gsastra", alt="Logo GS Astra", radius=8, shadow_on=False)], None),
-            col(17, "principal-wall-card", [W_image("incoe", alt="Logo Incoe", radius=8, shadow_on=False)], None),
-            col(17, "principal-wall-card", [W_image("sakura", alt="Logo Sakura Filter", radius=8, shadow_on=False)], None),
-        ], css_classes="sec-principals-wall"),
+        {"id": nid(), "elType": "container", "isInner": True,
+         "settings": {"content_width": "full", "flex_direction": "row", "flex_wrap": "nowrap",
+                      "css_classes": "logo-marquee", "flex_gap": fsize(64)},
+         "elements": [logo_row(False), logo_row(True)]},
     ], None),
 ], css_classes="", direction="column")]
 sections.append(strip)
 
-# ============ 4. KEUNGGULAN (4 kartu, tint ikon bergantian) ============
+# ============ 4. KEUNGGULAN (bento: kartu unggulan lebar + 3 kartu) ============
 feat = el_container("sec-features", boxed=1200, bg=C["white"], style=sec_pad(), nav="Keunggulan")
+
+def feature_card(icon, title, desc, tinted=False):
+    return [W_iconbox(icon, title, desc, cls="feature-strip-widget",
+                      icolor=C["primary"], tsize=18, dsize=15)], \
+           card(bg=C["tint_blue"] if tinted else C["white"], radius=24,
+                pad=(34, 34, 34, 34) if tinted else (30, 30, 30, 30))
+
+fw1, fc1 = feature_card("fas fa-clipboard-check",
+    "30 Titik Inspeksi",
+    "Pemeriksaan menyeluruh mesin hingga sasis — setiap temuan difoto digital dan "
+    "dikirim ke Anda sebelum pekerjaan dimulai, tanpa kejutan di akhir.", tinted=True)
+fw2, fc2 = feature_card("fas fa-users-cog", "Teknisi Bersertifikat",
+    "Montir spesialis mesin diesel &amp; rem angin berpengalaman belasan tahun.")
+fw3, fc3 = feature_card("fas fa-shield-alt", "Sparepart OEM 100%",
+    "Oli, ban, aki, dan filter langsung dari prinsipal resmi bergaransi.")
+fw4, fc4 = feature_card("fas fa-satellite-dish", "Pantau Fleet Digital",
+    "Pantau progres servis, riwayat armada, dan tagihan dari HP Anda.")
+
 feat["elements"] = [inner([
     col(100, "", [
         W_heading("Kenapa Master Truck", tag="p", align="left", cls="badge-section-pill", style_fn=T_EYEBROW),
         W_heading("Satu Atap untuk Servis &amp; Sparepart Asli", tag="h2", align="left", style_fn=T_H2),
+        W_text("Kualitas bengkel jaringan nasional, dengan layanan yang personal untuk armada Anda.",
+               align="left", cls="sec-lead", size=16),
         inner([
-            col(25, "feature-col-1", [W_iconbox("fas fa-clipboard-check", "30 Titik Inspeksi",
-                 "Pemeriksaan menyeluruh mesin hingga sasis dengan bukti foto digital.", cls="feature-strip-widget",
-                 icolor=C["primary"])],
-                card(bg=C["tint_blue_soft"], radius=22)),
-            col(25, "feature-col-2", [W_iconbox("fas fa-users-cog", "Teknisi Bersertifikat",
-                 "Montir spesialis mesin diesel &amp; rem angin berpengalaman belasan tahun.", cls="feature-strip-widget",
-                 icolor=C["emerald"])],
-                card(bg=C["emerald_bg"], radius=22)),
-            col(25, "feature-col-3", [W_iconbox("fas fa-shield-alt", "Sparepart OEM 100%",
-                 "Oli, ban, aki, dan filter langsung dari prinsipal resmi bergaransi.", cls="feature-strip-widget",
-                 icolor="#B45309")],
-                card(bg=C["tint_amber"], radius=22)),
-            col(25, "feature-col-4", [W_iconbox("fas fa-satellite-dish", "Pantau Fleet Digital",
-                 "Pantau progres servis, riwayat armada, dan tagihan dari HP Anda.", cls="feature-strip-widget",
-                 icolor=C["navy"])],
-                card(bg=C["slate"], radius=22)),
-        ], css_classes="sec-features-cards"),
+            col(58, "feature-col-1 feature-card-featured", fw1, fc1),
+            col(42, "feature-col-2", fw2, fc2),
+        ], css_classes="sec-features-row1"),
+        inner([
+            col(50, "feature-col-3", fw3, fc3),
+            col(50, "feature-col-4", fw4, fc4),
+        ], css_classes="sec-features-row2"),
     ], None),
 ], css_classes="", direction="column")]
 sections.append(feat)
@@ -523,7 +545,7 @@ about["elements"] = [inner([
         inner([col(100, "", [W_iconbox("fas fa-award", "15 Tahun", "Pengalaman teruji merawat armada logistik",
                                         tag="p", pos="left", cls="about-exp-float-card", tsize=16, dsize=13)],
                      card(radius=20, pad=(18, 24, 18, 24)))],
-              css_classes=""),
+              css_classes="about-exp-chip"),
     ], None),
     col(52, "about-right-col", [
         W_heading("Tentang Kami", tag="p", align="left", cls="badge-section-pill", style_fn=T_EYEBROW),
@@ -558,16 +580,16 @@ facts = el_container("fact-strip", boxed=1200, bg=C["white"],
                             "border_border": "solid", "border_width": px4(1, 0, 1, 0),
                             "border_color": "#F1F5F9"}, nav="Angka")
 facts["elements"] = [inner([
-    col(25, "fact-col", [W_counter(15, "Tahun Berpengalaman", cls="fact-strip-counter")],
+    col(25, "fact-col", [W_counter(15, "Tahun Berpengalaman", cls="fact-strip-counter", size=46)],
         {"border_border": "solid", "border_width": px4(0, 0, 0, 1), "border_color": C["border"],
          "padding": px4(8, 28, 8, 28)}),
-    col(25, "fact-col", [W_counter(45, "Teknisi Bersertifikat", cls="fact-strip-counter")],
+    col(25, "fact-col", [W_counter(45, "Teknisi Bersertifikat", cls="fact-strip-counter", size=46)],
         {"border_border": "solid", "border_width": px4(0, 0, 0, 1), "border_color": C["border"],
          "padding": px4(8, 28, 8, 28)}),
-    col(25, "fact-col", [W_counter(120, "Perusahaan Mitra", suffix="+", cls="fact-strip-counter")],
+    col(25, "fact-col", [W_counter(120, "Perusahaan Mitra", suffix="+", cls="fact-strip-counter", size=46)],
         {"border_border": "solid", "border_width": px4(0, 0, 0, 1), "border_color": C["border"],
          "padding": px4(8, 28, 8, 28)}),
-    col(25, "fact-col", [W_counter(2500, "Armada per Tahun", cls="fact-strip-counter")],
+    col(25, "fact-col", [W_counter(2500, "Armada per Tahun", cls="fact-strip-counter", size=46)],
         {"padding": px4(8, 28, 8, 28)}),
 ], css_classes="", direction="row")]
 sections.append(facts)
@@ -576,7 +598,7 @@ sections.append(facts)
 def svc_card(num, img, title, points, btn_text, btn_link, featured=False):
     widgets = [
         W_text(f"<p>{num}</p>", align="left", cls="svc-num", size=13, color=C["primary"]),
-        W_image(img, alt=title, radius=16),
+        W_image(img, alt=title, cls="svc-img", radius=16),
         W_heading(title, tag="h3", align="left", style_fn=T_H3),
         W_iconlist(points, size=15),
         W_button(btn_text, link=btn_link, align="center", cls="btn-service-action",
@@ -716,7 +738,7 @@ sections.append(derek)
 
 # ============ 11. TIM (foto montir asli + nama/jabatan) ============
 def team_card(img, name, role, alt):
-    return [W_image(img, alt=alt, radius=16, shadow_on=False),
+    return [W_image(img, alt=alt, cls="team-img", radius=16, shadow_on=False),
             W_heading(name, tag="h3", align="left", style_fn=T_H3),
             W_text(f"<p>{role}</p>", align="left", size=14, color=C["faint"])]
 
@@ -759,7 +781,7 @@ testi["elements"] = [inner([
         W_heading("Kata Pelanggan", tag="p", align="center", cls="badge-section-pill", style_fn=T_EYEBROW),
         W_heading("Dipercaya 120+ Perusahaan di Sumatera", tag="h2", align="center", style_fn=T_H2),
         inner([
-            col(52, "testimonial-enterprise-card testimonial-featured", [
+            col(42, "testimonial-enterprise-card testimonial-featured", [
                 W_text("<p>★★★★★</p>", align="left", cls="testimonial-stars", size=18, color="#B45309"),
                 W_text("<p>&ldquo;30 trailer kami jadi jarang rusak sejak kontrak servis di Master Truck. "
                        "Semua progres bisa dipantau dari HP — kontrol armada jadi jauh lebih gampang.&rdquo;</p>",
@@ -772,17 +794,15 @@ testi["elements"] = [inner([
                     ], None),
                 ], css_classes="testimonial-avatar-wrap"),
             ], card(bg=C["white"], radius=24, pad=(40, 40, 40, 40))),
-            col(48, "", [
-                inner([col(100, "testimonial-enterprise-card", testi_small(
-                    "testi2", "Budi Wicaksono", "Pemilik &mdash; CV Maju Bersama",
-                    "Oli dan ban asli, harganya miring. Ngirit banyak buat perawatan truk kami."),
-                    card(bg=C["white"], radius=22))], css_classes=""),
-                inner([col(100, "testimonial-enterprise-card", testi_small(
-                    "testi3", "Ahmad Faisal", "Pengawas &mdash; PT Deli Sawit Makmur",
-                    "Truk mogok rem blong di Tebing Tinggi, langsung dijemput. Gerak cepat!"),
-                    card(bg=C["white"], radius=22))], css_classes=""),
-            ], None),
-        ], css_classes="sec-testimonial-cards", style={"flex_align_items": "center"}),
+            col(29, "testimonial-enterprise-card", testi_small(
+                "testi2", "Budi Wicaksono", "Pemilik &mdash; CV Maju Bersama",
+                "Oli dan ban asli, harganya miring. Ngirit banyak buat perawatan truk kami."),
+                card(bg=C["white"], radius=24, pad=(32, 32, 32, 32))),
+            col(29, "testimonial-enterprise-card", testi_small(
+                "testi3", "Ahmad Faisal", "Pengawas &mdash; PT Deli Sawit Makmur",
+                "Truk mogok rem blong di Tebing Tinggi, langsung dijemput. Gerak cepat!"),
+                card(bg=C["white"], radius=24, pad=(32, 32, 32, 32))),
+        ], css_classes="sec-testimonial-cards", style={"flex_align_items": "stretch", "flex_gap": fsize(24)}),
     ], None),
 ], css_classes="", direction="column")]
 sections.append(testi)
@@ -808,6 +828,36 @@ faq["elements"] = [inner([
     col(67, "", [W_accordion(FAQ_ITEMS, cls="faqAccordion")], None),
 ], css_classes="", direction="row")]
 sections.append(faq)
+
+# ============ 13b. CTA PENUTUP (kartu gradient lembut sebelum footer) ============
+cta = el_container("sec-cta", css_id="cta", boxed=1200, bg=C["white"], style=sec_pad(), nav="CTA")
+cta["elements"] = [inner([
+    col(100, "cta-band-card", [
+        W_heading("Langkah Anda Selanjutnya", tag="p", align="center", cls="badge-section-pill",
+                  style_fn=T_EYEBROW),
+        W_heading("Rawat Armada Anda Sebelum Rusak, Bukan Sesudah", tag="h2", align="center",
+                  style_fn=T_H2),
+        W_text("Konsultasi gratis lewat WhatsApp — ceritakan kondisi armada Anda, kami susunkan "
+               "jadwal perawatan yang paling efisien.", align="center", cls="sec-lead cta-lead", size=16),
+        inner([
+            col(50, "", [W_button("Chat WhatsApp Sekarang",
+                                   link="https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20ingin%20konsultasi%20perawatan%20armada",
+                                   icon="fab fa-whatsapp", ipos="before", align="center",
+                                   cls="btn-cta-wa", style_fn=btn_emerald_soft, ext=True)], None),
+            col(50, "", [W_button("Telepon 0812-3456-7890", link="tel:081234567890",
+                                   icon="fas fa-phone-alt", ipos="before", align="center",
+                                   cls="btn-cta-phone")], None),
+        ], css_classes="cta-btns-inner"),
+    ], {"background_background": "classic", "background_color": "#EFF6FF",
+        "border_border": "solid", "border_width": px4(1, 1, 1, 1),
+        "border_color": "#DBEAFE", "border_radius": rad(28),
+        "box_shadow_box_shadow_type": "yes",
+        "box_shadow_box_shadow": shadow(0, 24, 48, -16, "rgba(37,99,235,0.18)"),
+        "padding": px4(72, 48, 72, 48), "padding_tablet": px4(56, 32, 56, 32),
+        "padding_mobile": px4(44, 22, 44, 22),
+        "text_align": "center"}),
+], css_classes="", direction="column")]
+sections.append(cta)
 
 # ============ 14. FOOTER (tint halus, 4 kolom, kontak lengkap) ============
 foot = el_container("footer-clean", css_id="contact", boxed=1200, bg=C["slate"],

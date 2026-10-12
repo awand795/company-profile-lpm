@@ -6,6 +6,7 @@ desktop.ini
 # Temporary files
 *.tmp
 *.log
+__pycache__/
 
 # Screenshot preview (artefak mockup)
 mockup_*.png
