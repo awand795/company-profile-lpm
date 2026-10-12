@@ -196,20 +196,23 @@ body.elementor-page-59 .hero-right-col {
     z-index: 2 !important;
 }
 body.elementor-page-59 .hero-title .elementor-heading-title {
-    font-size: clamp(2.5rem, 3.8vw, 3.5rem) !important;
-    line-height: 1.15 !important;
-    letter-spacing: -0.035em !important;
+    font-size: clamp(2.6rem, 4vw, 3.8rem) !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.04em !important;
     font-weight: 800 !important;
     color: #0F172A !important;
     filter: none !important;
     text-shadow: none !important;
 }
 body.elementor-page-59 .hero-title .hero-brand-highlight {
-    color: #2563EB !important;
+    background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 60%, #0284C7 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    display: inline !important;
 }
 body.elementor-page-59 .hero-lead {
     font-size: 1.125rem !important;
-    line-height: 1.65 !important;
+    line-height: 1.7 !important;
     color: #475569 !important;
     max-width: 580px !important;
     filter: none !important;
@@ -218,15 +221,15 @@ body.elementor-page-59 .hero-lead {
 
 /* 9. Hero Badge & Stats Bento Polish */
 body.elementor-page-59 .hero-brand-pill .elementor-heading-title {
-    background: #EFF6FF !important;
-    border: 1px solid #BFDBFE !important;
-    color: #1D4ED8 !important;
+    background: #F8FAFC !important;
+    border: 1px solid #E2E8F0 !important;
+    color: #1E293B !important;
     border-radius: 9999px !important;
     padding: 8px 18px !important;
-    font-size: 12.5px !important;
+    font-size: 12px !important;
     font-weight: 700 !important;
-    letter-spacing: 0.04em !important;
-    box-shadow: 0 1px 2px rgba(37, 99, 235, 0.05) !important;
+    letter-spacing: 0.06em !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
 }
 body.elementor-page-59 .hero-brand-pill .live-dot {
     background: #10B981 !important;
@@ -238,8 +241,8 @@ body.elementor-page-59 .hero-stats-inner {
     border: none !important;
     border-top: 1px solid #E2E8F0 !important;
     border-radius: 0 !important;
-    padding: 20px 0 0 0 !important;
-    max-width: 540px !important;
+    padding: 24px 0 0 0 !important;
+    max-width: 560px !important;
     box-shadow: none !important;
 }
 body.elementor-page-59 .hero-stats-inner .elementor-column {
@@ -251,16 +254,17 @@ body.elementor-page-59 .hero-stats-inner .elementor-column:first-child {
     padding-left: 0 !important;
 }
 body.elementor-page-59 .hero-stats-inner .elementor-counter-number-wrapper {
-    font-size: 28px !important;
+    font-size: 32px !important;
     font-weight: 800 !important;
-    color: #0F2A5C !important;
+    color: #0F172A !important;
+    letter-spacing: -0.03em !important;
 }
 body.elementor-page-59 .hero-stats-inner .elementor-counter-title {
-    font-size: 12px !important;
+    font-size: 11.5px !important;
     font-weight: 600 !important;
     color: #64748B !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.03em !important;
+    letter-spacing: 0.05em !important;
 }
 
 /* 10. Hero Right Clean Showcase & Floating Telematics Badges */
@@ -434,31 +438,73 @@ body.elementor-page-59 .navbar .btn-nav-register .elementor-button:hover {
     color: #FFFFFF !important;
 }
 
-/* 12. Feature Strip Cards Polish */
+/* 12. Feature Strip Cards Polish (Dribbble Bento Pillars) */
 body.elementor-page-59 .feature-strip-widget {
     background: #FFFFFF !important;
     border: 1px solid #E2E8F0 !important;
-    border-radius: 22px !important;
-    padding: 24px 20px !important;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03) !important;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
+    border-radius: 24px !important;
+    padding: 28px 24px !important;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02) !important;
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease !important;
 }
 body.elementor-page-59 .feature-strip-widget:hover {
-    transform: translateY(-4px) !important;
-    box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.06) !important;
+    transform: translateY(-5px) !important;
+    box-shadow: 0 20px 30px -8px rgba(15, 23, 42, 0.08) !important;
     border-color: #CBD5E1 !important;
 }
 body.elementor-page-59 .feature-strip-widget .elementor-icon-box-icon {
-    width: 48px !important;
-    height: 48px !important;
-    border-radius: 14px !important;
+    width: 52px !important;
+    height: 52px !important;
+    border-radius: 16px !important;
     background: #EFF6FF !important;
     color: #2563EB !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    font-size: 20px !important;
-    margin-bottom: 14px !important;
+    font-size: 22px !important;
+    margin-bottom: 16px !important;
+}
+body.elementor-page-59 .feature-strip-widget .elementor-icon-box-title {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #0F172A !important;
+    letter-spacing: -0.02em !important;
+    margin-bottom: 6px !important;
+}
+body.elementor-page-59 .feature-strip-widget .elementor-icon-box-description {
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+    color: #64748B !important;
+}
+
+/* Fact Strip Modern Bento Counters */
+body.elementor-page-59 .fact-strip {
+    background: #FFFFFF !important;
+    border-top: 1px solid #F1F5F9 !important;
+    border-bottom: 1px solid #F1F5F9 !important;
+}
+body.elementor-page-59 .fact-strip .elementor-widget-counter .elementor-counter-number-wrapper {
+    color: #0F172A !important;
+    letter-spacing: -0.03em !important;
+}
+body.elementor-page-59 .fact-strip .fact-col::before {
+    background: #EFF6FF !important;
+    color: #2563EB !important;
+    border-radius: 14px !important;
+}
+
+/* About Experience Floating Pill Card */
+body.elementor-page-59 .about-exp-float-card {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 20px !important;
+    padding: 18px 24px !important;
+    box-shadow: 0 16px 32px -6px rgba(15, 23, 42, 0.12) !important;
+}
+body.elementor-page-59 .about-img-box img {
+    border-radius: 24px !important;
 }
 
 /* 13. All-White Enterprise Theme (Pola DarkoGuide) */
@@ -577,15 +623,15 @@ body.elementor-page-59 .sec-cert-badges {
 }
 body.elementor-page-59 .cert-badge-card {
     background: #FFFFFF !important;
-    border: 1px solid var(--border) !important;
-    border-radius: 18px !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03) !important;
-    padding: 16px 20px !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 20px !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02) !important;
+    padding: 18px 22px !important;
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
 }
 body.elementor-page-59 .cert-badge-card:hover {
     transform: translateY(-3px) !important;
-    box-shadow: var(--shadow-hover) !important;
+    box-shadow: 0 12px 24px -4px rgba(15, 23, 42, 0.06) !important;
     border-color: #CBD5E1 !important;
 }
 body.elementor-page-59 .cert-badge-card .elementor-icon-box-wrapper {
@@ -630,5 +676,152 @@ body.elementor-page-59 .cert-badge-card .elementor-icon-box-description {
         margin-bottom: 8px !important;
     }
 }
+
+/* 16. Principal & Brand Logo Wall (Ultra-Clean Studio Grid) */
+body.elementor-page-59 .principal-wall-card,
+body.elementor-page-59 .principal-wall-col {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 20px !important;
+    padding: 24px 16px 20px !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02) !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
+}
+body.elementor-page-59 .principal-wall-card:hover,
+body.elementor-page-59 .principal-wall-col:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 16px 30px -6px rgba(15, 23, 42, 0.07) !important;
+    border-color: #93C5FD !important;
+}
+body.elementor-page-59 .principal-wall-card .elementor-widget-heading .elementor-heading-title,
+body.elementor-page-59 .principal-wall-col .elementor-widget-heading .elementor-heading-title {
+    font-size: 14.5px !important;
+    font-weight: 700 !important;
+    color: #0F172A !important;
+    margin-top: 8px !important;
+}
+body.elementor-page-59 .principal-wall-card .elementor-widget-text-editor p,
+body.elementor-page-59 .principal-wall-col .elementor-widget-text-editor p {
+    font-size: 12px !important;
+    color: #64748B !important;
+}
+
+/* 17. Derek 24 Jam Emergency Command Hub (Clean Modern Bento) */
+body.elementor-page-59 .booking-section-wrapper {
+    background: #FFFFFF !important;
+    position: relative !important;
+}
+body.elementor-page-59 .derek-stat-card {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 20px !important;
+    padding: 22px 24px !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02) !important;
+    margin-bottom: 16px !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
+}
+body.elementor-page-59 .derek-stat-card:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 16px 28px -6px rgba(15, 23, 42, 0.06) !important;
+    border-color: #CBD5E1 !important;
+}
+body.elementor-page-59 .derek-stat-card .elementor-icon-box-icon {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 12px !important;
+}
+body.elementor-page-59 .derek-stat-card .elementor-icon-box-title {
+    font-size: 15.5px !important;
+    font-weight: 700 !important;
+    color: #0F172A !important;
+    margin-bottom: 4px !important;
+}
+body.elementor-page-59 .derek-stat-card .elementor-icon-box-description {
+    font-size: 13px !important;
+    color: #64748B !important;
+    line-height: 1.5 !important;
+}
+
+/* 18. Tim Ahli Montir (Portrait Bento Cards) */
+body.elementor-page-59 .team-enterprise-card,
+body.elementor-page-59 .team-column-card {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 24px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02) !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
+}
+body.elementor-page-59 .team-enterprise-card:hover,
+body.elementor-page-59 .team-column-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 20px 30px -8px rgba(15, 23, 42, 0.08) !important;
+    border-color: #CBD5E1 !important;
+}
+body.elementor-page-59 .team-enterprise-card .elementor-widget-heading .elementor-heading-title,
+body.elementor-page-59 .team-column-card .elementor-widget-heading .elementor-heading-title {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #0F172A !important;
+    margin-top: 14px !important;
+}
+body.elementor-page-59 .team-enterprise-card .elementor-widget-text-editor p,
+body.elementor-page-59 .team-column-card .elementor-widget-text-editor p {
+    font-size: 13px !important;
+    color: #64748B !important;
+}
+
+/* 19. Testimoni Pelanggan (Modern Quote Bento Cards) */
+body.elementor-page-59 .testimonial-enterprise-card,
+body.elementor-page-59 .testimonial-column-card {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 24px !important;
+    padding: 30px 26px !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02) !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
+}
+body.elementor-page-59 .testimonial-enterprise-card:hover,
+body.elementor-page-59 .testimonial-column-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 20px 30px -8px rgba(15, 23, 42, 0.07) !important;
+    border-color: #CBD5E1 !important;
+}
+body.elementor-page-59 .testimonial-avatar-wrap img {
+    border-radius: 9999px !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06) !important;
+}
+body.elementor-page-59 .testimonial-quote-text {
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+    color: #334155 !important;
+}
+
+/* 20. FAQ Accordion (Clean Rounded Pills) */
+body.elementor-page-59 .faqAccordion .elementor-accordion-item {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 16px !important;
+    margin-bottom: 12px !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+body.elementor-page-59 .faqAccordion .elementor-accordion-item:hover {
+    border-color: #CBD5E1 !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03) !important;
+}
+body.elementor-page-59 .faqAccordion .elementor-tab-title {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: #0F172A !important;
+    padding: 18px 24px !important;
+}
+body.elementor-page-59 .faqAccordion .elementor-tab-content {
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+    color: #475569 !important;
+    padding: 16px 24px 22px !important;
+}
+
 
 
