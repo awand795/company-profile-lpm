@@ -157,7 +157,7 @@
     // Nav Elementor = widget .nav-menu-link (bukan .nav-link bootstrap),
     // href dibaca dari tombol di dalamnya.
     $(document).ready(function () {
-        const sections = document.querySelectorAll('#header-carousel, #about, #service, #testimonial, #faq, #contact');
+        const sections = document.querySelectorAll('#header-carousel, #about, #service, #principals, #testimonial, #faq, #contact');
         const navWidgets = document.querySelectorAll('.navbar-right-inner .nav-menu-link');
 
         function setActive(id) {
@@ -281,13 +281,15 @@
     $(document).ready(function () {
         document.body.classList.add('mt-js');
         var isPage59 = document.body.classList.contains('elementor-page-59');
-        var inEditor = document.body.classList.contains('elementor-editor-active');
+        var inEditor = document.body.classList.contains('elementor-editor-active') ||
+                       document.body.classList.contains('elementor-editor-preview') ||
+                       window.location.search.indexOf('elementor-preview') !== -1;
 
-        // 1) Reveal halus per section — sekali tampil lalu unobserve.
-        //    Kecualikan: navbar (sticky), hero (jangan berkedip), topbar, WA float.
         var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         if (isPage59 && !inEditor && !reduce && 'IntersectionObserver' in window) {
             var targets = document.querySelectorAll(
+                'body.elementor-page-59 .elementor-59 > .e-con' +
+                ':not(.navbar):not(.mt-hero-slide):not(.top-bar-custom):not(.mt-wa-float-section), ' +
                 'body.elementor-page-59 > .elementor > .elementor-top-section' +
                 ':not(.navbar):not(.mt-hero-slide):not(.top-bar-custom):not(.mt-wa-float-section), ' +
                 'body.elementor-page-59 > .elementor > .e-con' +
@@ -323,37 +325,54 @@
             });
         });
 
-        // 3) Back-to-top (hanya homepage, di luar Elementor editor)
+        // 3) Back-to-top & Floating WhatsApp (hanya homepage, di luar Elementor editor)
         if (isPage59 && !inEditor) {
-            var btn = document.createElement('button');
-            btn.type = 'button';
-            btn.className = 'mt-back-top';
-            btn.setAttribute('aria-label', 'Kembali ke atas');
-            btn.innerHTML = '<i class="fas fa-arrow-up" aria-hidden="true"></i>';
-            document.body.appendChild(btn);
-            btn.addEventListener('click', function () {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-            var tick = function () {
-                btn.classList.toggle('is-visible', window.scrollY > 400);
-            };
-            window.addEventListener('scroll', tick, { passive: true });
-            tick();
+            // Floating WhatsApp button
+            if (!document.querySelector('.floating-wa-btn')) {
+                var waBtn = document.createElement('a');
+                waBtn.href = 'https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20bantuan%20armada';
+                waBtn.target = '_blank';
+                waBtn.rel = 'noopener noreferrer';
+                waBtn.className = 'floating-wa-btn';
+                waBtn.setAttribute('aria-label', 'Chat WhatsApp');
+                waBtn.innerHTML = '<i class="fab fa-whatsapp" aria-hidden="true"></i>';
+                document.body.appendChild(waBtn);
+            }
+
+            // Back to top button (lingkaran 48x48 di atas WA)
+            if (!document.querySelector('.mt-back-top')) {
+                var btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'mt-back-top';
+                btn.setAttribute('aria-label', 'Kembali ke atas');
+                btn.innerHTML = '<i class="fas fa-arrow-up" aria-hidden="true"></i>';
+                document.body.appendChild(btn);
+                btn.addEventListener('click', function () {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+                var tick = function () {
+                    btn.classList.toggle('is-visible', window.scrollY > 400);
+                };
+                window.addEventListener('scroll', tick, { passive: true });
+                tick();
+            }
 
             // 4) Scroll progress bar tipis di atas navbar
-            var bar = document.createElement('div');
-            bar.className = 'mt-scroll-progress';
-            bar.setAttribute('aria-hidden', 'true');
-            document.body.appendChild(bar);
-            var updateBar = function () {
-                var doc = document.documentElement;
-                var max = (doc.scrollHeight - window.innerHeight) || 1;
-                var pct = Math.min(100, Math.max(0, (window.scrollY / max) * 100));
-                bar.style.width = pct.toFixed(2) + '%';
-            };
-            window.addEventListener('scroll', updateBar, { passive: true });
-            window.addEventListener('resize', updateBar, { passive: true });
-            updateBar();
+            if (!document.querySelector('.mt-scroll-progress')) {
+                var bar = document.createElement('div');
+                bar.className = 'mt-scroll-progress';
+                bar.setAttribute('aria-hidden', 'true');
+                document.body.appendChild(bar);
+                var updateBar = function () {
+                    var doc = document.documentElement;
+                    var max = (doc.scrollHeight - window.innerHeight) || 1;
+                    var pct = Math.min(100, Math.max(0, (window.scrollY / max) * 100));
+                    bar.style.width = pct.toFixed(2) + '%';
+                };
+                window.addEventListener('scroll', updateBar, { passive: true });
+                window.addEventListener('resize', updateBar, { passive: true });
+                updateBar();
+            }
         }
     });
 

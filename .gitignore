@@ -20,4 +20,6 @@ assets/css/legacy-backup/
 # Scratch and review directories
 scratch/
 playwright_review/
+node_modules/
+tests/node_modules/
 

@@ -29,7 +29,8 @@
 param(
     [string]$Container = 'lpm-wp-app',
     [string]$Theme = '',
-    [switch]$SkipImages
+    [switch]$SkipImages,
+    [switch]$LegacyTemplate
 )
 
 $ErrorActionPreference = 'Stop'
@@ -100,15 +101,18 @@ if (-not $Theme) {
 Write-Host "Theme aktif : $Theme" -ForegroundColor Cyan
 $themePath = "/var/www/html/wp-content/themes/$Theme"
 
-# Regenerasi template dari index.html bila python ada (single source of truth).
-$pyCmd = Get-Command python -ErrorAction SilentlyContinue
-if (-not $pyCmd) { $pyCmd = Get-Command python3 -ErrorAction SilentlyContinue }
-if (-not $pyCmd) { $pyCmd = Get-Command py -ErrorAction SilentlyContinue }
-if ($pyCmd) {
-    & $pyCmd.Source (Join-Path $root 'tools/build-template.py')
-    if ($LASTEXITCODE -ne 0) { Write-Warning "Regen template gagal, pakai file ter-commit." }
-} else {
-    Write-Warning "python tak ada, template tidak diregenerasi."
+# CATATAN RONDE 7: Beranda resmi diedit via Elementor Page 59.
+# Template PHP lama (template-mastertruck.php) tidak dibangun ulang otomatis kecuali dengan flag -LegacyTemplate.
+if ($LegacyTemplate) {
+    $pyCmd = Get-Command python -ErrorAction SilentlyContinue
+    if (-not $pyCmd) { $pyCmd = Get-Command python3 -ErrorAction SilentlyContinue }
+    if (-not $pyCmd) { $pyCmd = Get-Command py -ErrorAction SilentlyContinue }
+    if ($pyCmd) {
+        & $pyCmd.Source (Join-Path $root 'tools/build-template.py')
+        if ($LASTEXITCODE -ne 0) { Write-Warning "Regen template gagal, pakai file ter-commit." }
+    } else {
+        Write-Warning "python tak ada, template tidak diregenerasi."
+    }
 }
 
 # PENTING: update mirror CSS dulu SEBELUM stage dibangun, supaya docker cp
@@ -177,6 +181,18 @@ if (Test-Path $bridgeSrc) {
     Write-Host "OK  assets/css/elementor-bridge.css -> container & repo" -ForegroundColor Green
 }
 
+# --- Salin assets/css/mt-custom.css (single source of truth untuk polish CSS) ---
+$mtCustomSrc = Join-Path $root 'assets/css/mt-custom.css'
+if (Test-Path $mtCustomSrc) {
+    $customInt = Join-Path $root 'wp-integration/mastertruck/css/mt-custom.css'
+    if (Test-Path (Split-Path $customInt -Parent)) { Copy-Item -Path $mtCustomSrc -Destination $customInt -Force }
+    $customCarserv = Join-Path $root 'wp-theme/carserv/assets/css/mt-custom.css'
+    if (Test-Path (Split-Path $customCarserv -Parent)) { Copy-Item -Path $mtCustomSrc -Destination $customCarserv -Force }
+    docker exec $Container mkdir -p "$themePath/mastertruck/css" 2>$null | Out-Null
+    docker cp $mtCustomSrc "$Container`:$themePath/mastertruck/css/mt-custom.css"
+    Write-Host "OK  assets/css/mt-custom.css -> container & repo" -ForegroundColor Green
+}
+
 # Bila theme aktif adalah carserv, sinkronkan juga template files dari repo wp-theme/carserv
 if ($Theme -eq 'carserv') {
     $carservSrc = Join-Path $root 'wp-theme/carserv'
@@ -186,26 +202,36 @@ if ($Theme -eq 'carserv') {
     }
 }
 
-# --- Salin template -----------------------------------------------------------
-docker cp (Join-Path $src 'template-mastertruck.php') "$Container`:$themePath/template-mastertruck.php"
-if ($LASTEXITCODE -ne 0) { throw "docker cp template-mastertruck.php gagal" }
-Write-Host "OK  template-mastertruck.php" -ForegroundColor Green
+# --- Salin template (hanya bila -LegacyTemplate aktif) -----------------------
+if ($LegacyTemplate) {
+    docker cp (Join-Path $src 'template-mastertruck.php') "$Container`:$themePath/template-mastertruck.php"
+    if ($LASTEXITCODE -ne 0) { throw "docker cp template-mastertruck.php gagal" }
+    Write-Host "OK  template-mastertruck.php (Legacy)" -ForegroundColor Green
 
-# --- Salin template Bizniz (opsional, bila file-nya ada) ---------------------
-$bizniz = Join-Path $src 'template-bizniz.php'
-if (Test-Path $bizniz) {
-    docker cp $bizniz "$Container`:$themePath/template-bizniz.php"
-    if ($LASTEXITCODE -ne 0) { throw "docker cp template-bizniz.php gagal" }
-    Write-Host "OK  template-bizniz.php" -ForegroundColor Green
+    $bizniz = Join-Path $src 'template-bizniz.php'
+    if (Test-Path $bizniz) {
+        docker cp $bizniz "$Container`:$themePath/template-bizniz.php"
+        if ($LASTEXITCODE -ne 0) { throw "docker cp template-bizniz.php gagal" }
+        Write-Host "OK  template-bizniz.php (Legacy)" -ForegroundColor Green
+    }
 }
 docker exec $Container chown -R www-data:www-data "$themePath" 2>$null | Out-Null
 docker exec $Container wp cache flush --allow-root 2>$null | Out-Null
 
 # --- Media wp-content/uploads (opsional) ------------------------------------
+# RONDE 3: folder uploads/elementor/ (CSS hasil generate: post-59.css, post-4.css)
+# DIKECUALIKAN — file-file itu diregenerasi Elementor dari DB dan salinan basi
+# di repo pernah menimpa hasil regenerasi sehingga Beranda tampil tanpa style.
 $uploads = Join-Path $root 'wp-content/uploads'
 if (Test-Path $uploads) {
-    docker cp "$uploads/." "$Container`:/var/www/html/wp-content/uploads/"
+    $upStage = Join-Path ([System.IO.Path]::GetTempPath()) 'mt-uploads-stage'
+    if (Test-Path $upStage) { Remove-Item -Path $upStage -Recurse -Force }
+    New-Item -ItemType Directory -Path $upStage | Out-Null
+    Copy-Item -Path (Join-Path $uploads '*') -Destination $upStage -Recurse -Force -Exclude 'elementor'
+    Remove-Item -Path (Join-Path $upStage 'elementor') -Recurse -Force -ErrorAction SilentlyContinue
+    docker cp "$upStage/." "$Container`:/var/www/html/wp-content/uploads/"
     if ($LASTEXITCODE -ne 0) { throw "docker cp uploads gagal" }
+    Remove-Item -Path $upStage -Recurse -Force -ErrorAction SilentlyContinue
     docker exec $Container chown -R www-data:www-data /var/www/html/wp-content/uploads 2>$null | Out-Null
     $n = (Get-ChildItem -Path $uploads -Recurse -File | Measure-Object).Count
     Write-Host "OK  wp-content/uploads/ ($n file)" -ForegroundColor Green
@@ -230,6 +256,18 @@ if (Test-Path $booking) {
     docker exec $Container wp plugin activate mt-booking --allow-root --path=/var/www/html 2>&1 | Out-Null
     $ErrorActionPreference = $prevEA
     Write-Host "OK  plugins/mt-booking/ (shortcode [mt_booking_form])" -ForegroundColor Green
+}
+
+# --- Plugin custom login WordPress mt-login ---------------------------------
+$loginPlugin = Join-Path $root 'wp-content/plugins/mt-login'
+if (Test-Path $loginPlugin) {
+    docker cp "$loginPlugin/." "$Container`:/var/www/html/wp-content/plugins/mt-login/"
+    if ($LASTEXITCODE -ne 0) { throw "docker cp mt-login gagal" }
+    docker exec $Container chown -R www-data:www-data /var/www/html/wp-content/plugins/mt-login 2>$null | Out-Null
+    $prevEA = $ErrorActionPreference; $ErrorActionPreference = 'Continue'
+    docker exec $Container wp plugin activate mt-login --allow-root --path=/var/www/html 2>&1 | Out-Null
+    $ErrorActionPreference = $prevEA
+    Write-Host "OK  plugins/mt-login/ (WordPress custom login)" -ForegroundColor Green
 }
 
 # --- Homepage ID 59 sekarang FULL ELEMENTOR (migrasi 2026-10-07) -----------

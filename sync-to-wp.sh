@@ -9,12 +9,14 @@ set -euo pipefail
 
 CONTAINER="lpm-wp-app"
 THEME=""
+LEGACY_TEMPLATE=false
 while [[ $# -gt 0 ]]; do
   case "$1" in
     -c|--container) CONTAINER="$2"; shift 2 ;;
     -t|--theme) THEME="$2"; shift 2 ;;
+    --legacy-template) LEGACY_TEMPLATE=true; shift 1 ;;
     -h|--help)
-      echo "Usage: $0 [-c container] [-t theme]"; exit 0 ;;
+      echo "Usage: $0 [-c container] [-t theme] [--legacy-template]"; exit 0 ;;
     *) echo "Unknown arg: $1" >&2; exit 1 ;;
   esac
 done
@@ -36,21 +38,24 @@ fi
 echo "Theme aktif : $THEME"
 THEME_PATH="/var/www/html/wp-content/themes/$THEME"
 
-# Regenerasi template dari index.html bila python3 ada (single source of truth).
-if command -v python3 >/dev/null 2>&1; then
-  python3 "$ROOT/tools/build-template.py" || echo "WARN  regen template gagal, pakai file ter-commit" >&2
-else
-  echo "WARN  python3 tak ada, template tidak diregenerasi" >&2
+# CATATAN RONDE 7: Beranda resmi diedit via Elementor Page 59.
+# Template PHP lama (template-mastertruck.php) tidak dibangun ulang otomatis kecuali flag --legacy-template diberikan.
+if [[ "$LEGACY_TEMPLATE" = true ]]; then
+  if command -v python3 >/dev/null 2>&1; then
+    python3 "$ROOT/tools/build-template.py" || echo "WARN  regen template gagal, pakai file ter-commit" >&2
+  else
+    echo "WARN  python3 tak ada, template tidak diregenerasi" >&2
+  fi
+  docker cp "$SRC/template-mastertruck.php" "$CONTAINER:$THEME_PATH/template-mastertruck.php"
+  echo "OK  template-mastertruck.php (Legacy)"
+  if [[ -f "$SRC/template-bizniz.php" ]]; then
+    docker cp "$SRC/template-bizniz.php" "$CONTAINER:$THEME_PATH/template-bizniz.php"
+    echo "OK  template-bizniz.php (Legacy)"
+  fi
 fi
 docker exec "$CONTAINER" mkdir -p "$THEME_PATH/mastertruck"
 docker cp "$SRC/mastertruck/." "$CONTAINER:$THEME_PATH/mastertruck/"
 echo "OK  mastertruck/"
-docker cp "$SRC/template-mastertruck.php" "$CONTAINER:$THEME_PATH/template-mastertruck.php"
-echo "OK  template-mastertruck.php"
-if [[ -f "$SRC/template-bizniz.php" ]]; then
-  docker cp "$SRC/template-bizniz.php" "$CONTAINER:$THEME_PATH/template-bizniz.php"
-  echo "OK  template-bizniz.php"
-fi
 docker exec "$CONTAINER" chown -R www-data:www-data \
   "$THEME_PATH/mastertruck" "$THEME_PATH/template-mastertruck.php" "$THEME_PATH/template-bizniz.php" 2>/dev/null || true
 

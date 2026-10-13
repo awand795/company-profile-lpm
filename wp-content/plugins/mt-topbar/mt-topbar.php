@@ -9,10 +9,11 @@ defined( 'ABSPATH' ) || exit;
 require_once __DIR__ . '/mt-landing-fields.php';
 
 function mt_topbar_defaults() {
+	// TODO: konfirmasi pemilik — nilai sementara disatukan dengan tools/build-beranda-elementor.py.
 	return array(
-		'phone'          => '(061) 8882-9999',
+		'phone'          => '061-8888-1234',
 		'wa'             => '0812-3456-7890',
-		'email'          => 'info@mastertruck.co.id',
+		'email'          => 'cs@mastertruk.co.id',
 		'hours'          => 'Senin–Sabtu 08.00–17.00',
 		'fleet_login'    => 'http://localhost:3000/#login',
 		'fleet_register' => 'http://localhost:3000/#register',
@@ -56,13 +57,46 @@ add_action( 'wp_enqueue_scripts', function () {
 	}
 }, 20 );
 
-/* REVAMP4: halaman Beranda (ID 59) full-Elementor — lepas stylesheet legacy
-   (bootstrap / style CarServ / mastertruck template) agar tidak menimpa kontrol
-   native Elementor (ID selector & !important lama, mis. #header-carousel gelap).
-   Font, ikon, JS perilaku (main.js), dan mt-custom tetap dimuat. */
+/* Helper: deteksi editor / preview Elementor & wp-admin */
+function mt_is_elementor_editor_or_preview() {
+	if ( is_admin() ) {
+		return true;
+	}
+	if ( class_exists( '\Elementor\Plugin' ) ) {
+		if ( isset( \Elementor\Plugin::$instance->preview ) && \Elementor\Plugin::$instance->preview->is_preview_mode() ) {
+			return true;
+		}
+		if ( isset( \Elementor\Plugin::$instance->editor ) && \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
+			return true;
+		}
+	}
+	if ( isset( $_GET['elementor-preview'] ) || ( isset( $_GET['action'] ) && 'elementor' === $_GET['action'] ) ) {
+		return true;
+	}
+	return false;
+}
+
+/* REVAMP7: Redirect 301 halaman arsip legacy ke homepage Page 59 */
+add_action( 'template_redirect', function() {
+	if ( ! is_admin() && function_exists( 'is_page' ) && is_page( array( 13, 30, 'beranda', 'beranda-baru' ) ) ) {
+		wp_safe_redirect( home_url( '/' ), 301 );
+		exit;
+	}
+} );
+
+/* REVAMP4 & REVAMP7: halaman Beranda (ID 59) full-Elementor — lepas stylesheet legacy
+   hanya di frontend murni. JANGAN sentuh saat editor/preview aktif, dan
+   JANGAN dequeue dashicons saat admin bar aktif (is_user_logged_in / is_admin_bar_showing). */
 add_action( 'wp_print_styles', function () {
+	if ( mt_is_elementor_editor_or_preview() ) {
+		return;
+	}
 	if ( function_exists( 'is_page' ) && is_page( 59 ) ) {
-		foreach ( array( 'mt-bootstrap', 'mt-style', 'mt-mastertruck', 'dashicons', 'mt-fontawesome' ) as $h ) {
+		$styles_to_dequeue = array( 'mt-bootstrap', 'mt-style', 'mt-mastertruck', 'mt-fontawesome' );
+		if ( ! is_admin_bar_showing() && ! is_user_logged_in() ) {
+			$styles_to_dequeue[] = 'dashicons';
+		}
+		foreach ( $styles_to_dequeue as $h ) {
 			wp_dequeue_style( $h );
 			wp_deregister_style( $h );
 		}
@@ -75,6 +109,7 @@ add_action( 'wp_print_styles', function () {
 /* REVAMP4: rampingkan <head> di Beranda — matikan skrip emoji WP (tak dipakai)
    dan tambah meta description (skor SEO/A11y Lighthouse). */
 add_action( 'init', function () {
+	if ( is_admin() ) { return; }
 	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 	remove_action( 'wp_print_styles', 'print_emoji_styles' );
 } );
@@ -82,15 +117,21 @@ add_action( 'init', function () {
 add_filter( 'locale', function ( $loc ) { return 'id_ID'; } );
 // Beri landmark main pada root Elementor (tanpa mengubah struktur DOM).
 add_filter( 'the_content', function ( $c ) {
+	if ( mt_is_elementor_editor_or_preview() ) {
+		return $c;
+	}
 	if ( function_exists( 'is_page' ) && is_page( 59 ) && strpos( $c, 'data-elementor-type="wp-page"' ) !== false ) {
 		$c = str_replace( 'data-elementor-type="wp-page"', 'role="main" data-elementor-type="wp-page"', $c );
 	}
 	return $c;
 }, 999 );
 add_action( 'wp_head', function () {
+	if ( is_admin() || mt_is_elementor_editor_or_preview() ) {
+		return;
+	}
 	if ( function_exists( 'is_page' ) && is_page( 59 ) ) {
 		echo '<meta name="description" content="PT Master Truck Indonesia — bengkel spesialis truk niaga & distributor resmi Pertamina, Mobil Delvac, Dunlop, GS Astra di KIM III Medan. Servis armada, overhaul, derek 24 jam." />' . "\n";
-		echo '<link rel="preload" as="image" href="/wp-content/uploads/2026/10/out-hero-truck.webp" fetchpriority="high" />' . "\n";
+		echo '<link rel="preload" as="image" href="/wp-content/uploads/2026/10/mt6-hero-bengkel.webp" fetchpriority="high" />' . "\n";
 	}
 }, 1 );
 

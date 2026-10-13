@@ -480,16 +480,23 @@ add_action( 'save_post_page', function ( $post_id ) {
 } );
 
 /**
- * Shortcut "Edit Landing Page" di bar atas WordPress.
+ * Shortcut "Edit Landing Page" di bar atas WordPress (untuk arsip template PHP lama).
+ * Disembunyikan di front-page / Elementor Page 59 agar tidak membingungkan pengguna.
  */
 add_action( 'admin_bar_menu', function ( $wp_admin_bar ) {
 	if ( ! is_user_logged_in() || ! current_user_can( 'edit_pages' ) ) {
 		return;
 	}
+	$post_id = get_the_ID();
+	$is_page_59 = ( (int) $post_id === 59 ) || ( isset( $_GET['post'] ) && (int) $_GET['post'] === 59 );
+	if ( is_front_page() || $is_page_59 ) {
+		return;
+	}
 	$wp_admin_bar->add_node( array(
 		'id'    => 'mt_edit_landing',
-		'title' => '✏️ Edit Landing Page',
+		'title' => '✏️ Edit Landing Page (Arsip PHP)',
 		'href'  => admin_url( 'admin.php?page=mt-landing-editor' ),
-		'meta'  => array( 'title' => 'Ubah teks dan banner landing page' ),
+		'meta'  => array( 'title' => 'Ubah teks landing page versi arsip template PHP lama' ),
 	) );
 }, 80 );
+

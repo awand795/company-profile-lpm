@@ -1859,8 +1859,8 @@ span.text-primary, small.text-primary, i.text-primary, a.text-primary, div.text-
     .mt-topbar { display: none !important; }
 }
 
-/* HERO: dasar slate gelap meredam silau, foto tetap terlihat jelas & sejuk di mata */
-#header-carousel { background-color: #0F172A; }
+/* HERO: latar putih bersih enterprise */
+#header-carousel { background-color: #FFFFFF; }
 .carousel-caption {
     background: rgba(248, 250, 252, 0.74) !important;
 }

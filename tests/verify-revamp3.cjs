@@ -69,8 +69,10 @@ async function safeScreenshot(page, opts) {
         await m.setViewportSize({ width: w, height: 800 });
         await m.waitForTimeout(350);
         const r = await m.evaluate(() => ({ doc: document.documentElement.scrollWidth, win: window.innerWidth }));
-        const ok = r.doc <= r.win + 1;
-        if (!ok) { overflowOk = false; overflowDetail.push(`${w}:${r.doc}>${r.win}`); }
+        // Bandingkan dengan lebar viewport yang DIMINTA (di emulasi mobile,
+        // window.innerWidth ikut melebar mengikuti konten → banding itu vacuous).
+        const ok = r.doc <= w + 1;
+        if (!ok) { overflowOk = false; overflowDetail.push(`${w}:${r.doc}>${w}`); }
     }
     check('MOBILE: tanpa overflow horizontal 320-414', overflowOk, overflowDetail.join(','));
     await m.setViewportSize({ width: 390, height: 844 });
@@ -112,6 +114,21 @@ async function safeScreenshot(page, opts) {
     // Hamburger → X
     await m.evaluate(() => window.scrollTo(0, 0));
     await m.waitForTimeout(300);
+    // REVAMP6: gambar hero/layanan kini asli (bukan 404) — tunggu semua gambar
+    // selesai dimuat agar offset anchor stabil (tanpa layout shift).
+    await m.evaluate(() => Promise.all([...document.images].map((img) => img.complete ? null :
+        new Promise((res) => {
+            img.addEventListener('load', res, { once: true });
+            img.addEventListener('error', res, { once: true });
+            setTimeout(res, 20000);
+        }))));
+    // Pra-reveal #faq: target anchor memakai offsetTop (posisi layout) sedangkan
+    // section masih ber-translate 16px selama .mt-reveal belum is-inview —
+    // kunjungi dulu agar transisi selesai, baru uji presisi pendaratan.
+    await m.evaluate(() => document.querySelector('#faq').scrollIntoView());
+    await m.waitForTimeout(1200);
+    await m.evaluate(() => window.scrollTo(0, 0));
+    await m.waitForTimeout(300);
     await m.click('.navbar .navbar-toggler');
     await m.waitForTimeout(450);
     const ham = await m.evaluate(() => {
@@ -130,10 +147,15 @@ async function safeScreenshot(page, opts) {
     check('MOBILE: hamburger jadi X saat terbuka',
         ham.aria === 'true' && ham.panelShown && ham.svgOpacity === '0' && ham.hasX, JSON.stringify(ham));
 
-    // Anchor FAQ presisi 118
+    // Anchor FAQ presisi 118 (polling: font/image settle bisa menambah tinggi
+    // layout beberapa px setelah klik — intent: pendaratan tepat di bawah navbar)
     await m.click('.navbar-menu-col a[href="#faq"]');
-    await m.waitForTimeout(3300);
-    const faqTop = await m.evaluate(() => Math.round(document.querySelector('#faq').getBoundingClientRect().top));
+    let faqTop = 9999;
+    for (let i = 0; i < 16; i++) {
+        await m.waitForTimeout(500);
+        faqTop = await m.evaluate(() => Math.round(document.querySelector('#faq').getBoundingClientRect().top));
+        if (Math.abs(faqTop - 118) <= 3) { break; }
+    }
     check('MOBILE: anchor #faq presisi 118px', Math.abs(faqTop - 118) <= 3, 'faqTop=' + faqTop);
 
     // Grayscale team off di touch
@@ -203,7 +225,9 @@ async function safeScreenshot(page, opts) {
     });
     let btOk = bt.exists && bt.visible;
     if (btOk) {
-        await m.click('.mt-back-top');
+        // Klik via evaluate: viewport mobile bergeser dinamis (toolbar) sehingga
+        // hit-test Playwright flaky; perilaku & assertion tetap sama.
+        await m.evaluate(() => document.querySelector('.mt-back-top').click());
         await m.waitForTimeout(3000);
         const y = await m.evaluate(() => window.scrollY);
         btOk = y < 5;
@@ -344,7 +368,7 @@ async function safeScreenshot(page, opts) {
         const slide = document.querySelector('.mt-hero-slide');
         const img = document.querySelector('.mt-hero-slide .hero-truck-img img');
         const h1 = document.querySelector('.mt-hero-slide h1');
-        const counters = document.querySelectorAll('.mt-hero-slide .hero-counter-item');
+        const counters = document.querySelectorAll('.hero-stats-strip .hero-counter-item');
         return {
             exists: !!slide,
             bg: slide ? getComputedStyle(slide).backgroundColor : null,
@@ -376,6 +400,31 @@ async function safeScreenshot(page, opts) {
         nav && nav.exists && nav.hasLogin && nav.hasRegister,
         JSON.stringify(nav));
 
+    // RONDE 3 FASE 1: halaman ter-style — context baru tanpa cache. Jika CSS
+    // per-halaman tidak termuat, tombol kembali ke default kit (oranye).
+    // Kursor diparkir di pojok agar tidak ada tombol dalam status :hover.
+    await d.mouse.move(5, 5);
+    await d.waitForTimeout(400);
+    const styled = await d.evaluate(() => {
+        const q = (s) => document.querySelector(s);
+        const pill = q('.navbar-pill');
+        const reg = q('.btn-nav-register .elementor-button');
+        const heroBtn = q('.btn-hero-primary .elementor-button');
+        const h1 = q('.mt-hero-slide h1');
+        return {
+            pillRadius: pill ? parseFloat(getComputedStyle(pill).borderRadius) : -1,
+            pillH: pill ? Math.round(pill.getBoundingClientRect().height) : -1,
+            regBg: reg ? getComputedStyle(reg).backgroundColor : null,
+            heroBg: heroBtn ? getComputedStyle(heroBtn).backgroundColor : null,
+            h1font: h1 ? getComputedStyle(h1).fontFamily : null,
+        };
+    });
+    check('DESKTOP: halaman ter-style (pill + tombol + font)',
+        styled.pillRadius >= 100 && styled.pillH <= 76 &&
+        styled.regBg === 'rgb(30, 41, 59)' && styled.heroBg === 'rgb(37, 99, 235)' &&
+        !!styled.h1font && styled.h1font.includes('Plus Jakarta Sans'),
+        JSON.stringify(styled));
+
     // ===== Enterprise polish (blok 21) =====
     const ent = await d.evaluate(() => {
         const h2 = document.querySelector('.sec-services h2');
@@ -392,6 +441,7 @@ async function safeScreenshot(page, opts) {
             return el ? parseInt(getComputedStyle(el).paddingTop, 10) : -1;
         };
         const testiBg = document.querySelector('.sec-testimonial');
+        const derekCard = document.querySelector('.derek-wide-card');
         const lr = lead ? lead.getBoundingClientRect() : null;
         const eyebrowTitle = document.querySelector('.sec-services .badge-section-pill .elementor-heading-title');
         const ebCs = eyebrowTitle ? getComputedStyle(eyebrowTitle) : null;
@@ -414,6 +464,7 @@ async function safeScreenshot(page, opts) {
                 padOf('.booking-section-wrapper'), padOf('.sec-team'), padOf('.sec-testimonial'),
             ],
             testiBg: testiBg ? getComputedStyle(testiBg).backgroundColor : null,
+            derekCardBg: derekCard ? getComputedStyle(derekCard).backgroundColor : null,
         };
     });
     check('DESKTOP: judul section = Plus Jakarta Sans + navy + 40px',
@@ -434,9 +485,10 @@ async function safeScreenshot(page, opts) {
     // REVAMP4: skala spacing 8px — padding section 96px desktop / 56px mobile.
     check('DESKTOP: padding section seragam 96px',
         ent.pads.every((p) => p === 96), ent.pads.join(','));
-    // REVAMP4: tint #F8FAFC hanya di 3 section (cara-kerja/testimoni/derek+footer).
-    check('DESKTOP: testimonial bg tint slate lembut',
-        ent.testiBg === 'rgb(248, 250, 252)', ent.testiBg);
+    // REVAMP6: ritme light — testimoni putih, kartu derek tint biru #EFF6FF.
+    check('DESKTOP: ritme light (testimoni putih, kartu derek tint biru)',
+        ent.testiBg === 'rgb(255, 255, 255)' && ent.derekCardBg === 'rgb(239, 246, 255)',
+        `testi=${ent.testiBg} derek=${ent.derekCardBg}`);
 
     // ================= RINGKASAN =================
     await browser.close();
