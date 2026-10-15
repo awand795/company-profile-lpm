@@ -122,21 +122,30 @@ body.wp-admin #adminmenu {
 
 body.wp-admin #adminmenu {
     border-right: 1px solid #E2E8F0;
+    padding: 0 8px;
 }
 
 body.wp-admin #adminmenu a.menu-top {
     color: #334155;
+    border-radius: 10px;
+    margin: 1px 0;
+    transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 body.wp-admin #adminmenu .wp-menu-image::before {
     color: #94A3B8;
+    transition: color 0.15s ease;
 }
 
-body.wp-admin #adminmenu li.menu-top:hover,
+body.wp-admin #adminmenu li.menu-top:hover a.menu-top,
 body.wp-admin #adminmenu li.opensub > a.menu-top,
 body.wp-admin #adminmenu li > a.menu-top:focus {
-    background-color: #EFF6FF;
+    background-color: #F1F5F9;
     color: #0F2A5C;
+}
+
+body.wp-admin #adminmenu li.menu-top:hover .wp-menu-image::before {
+    color: #2563EB;
 }
 
 body.wp-admin #adminmenu li.wp-has-current-submenu a.wp-has-current-submenu,
@@ -144,8 +153,8 @@ body.wp-admin #adminmenu li.current a.menu-top {
     background-color: #EFF6FF;
     color: #2563EB;
     font-weight: 700;
-    border-radius: 0 12px 12px 0;
-    box-shadow: inset 3px 0 0 #2563EB;
+    border-radius: 10px;
+    box-shadow: none;
 }
 
 body.wp-admin #adminmenu li.wp-has-current-submenu .wp-menu-image::before,
@@ -585,74 +594,120 @@ body.wp-admin .wrap {
 body.wp-admin #dashboard-widgets .postbox {
     background-color: #FFFFFF;
     border: 1px solid #E2E8F0;
-    border-radius: 16px;
-    box-shadow: 0 4px 16px -4px rgba(15, 23, 42, 0.06);
+    border-radius: 18px;
+    box-shadow: 0 4px 20px -4px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.03);
+    overflow: hidden;
 }
 
 body.wp-admin #dashboard-widgets .postbox .postbox-header {
     border-bottom: 1px solid #F1F5F9;
-    min-height: 36px;
+    min-height: 40px;
+    background-color: #FAFCFF;
 }
 
 body.wp-admin #dashboard-widgets .postbox .postbox-header h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 14px;
-    padding: 8px 12px;
+    font-weight: 700;
+    color: #1E293B;
+    padding: 10px 14px;
 }
 
 body.wp-admin #dashboard-widgets #mt_admin_welcome .inside,
 body.wp-admin #dashboard-widgets #mt_admin_quick .inside,
 body.wp-admin #dashboard-widgets #mt_admin_status .inside,
 body.wp-admin #dashboard-widgets #mt_admin_help .inside {
-    margin-top: 8px;
-    padding-bottom: 10px;
+    margin-top: 6px;
+    padding: 8px 14px 12px 14px;
+}
+
+/* Banner Selamat Datang bernuansa enterprise */
+body.wp-admin #dashboard-widgets #mt_admin_welcome {
+    background: linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 60%);
+    border: 1px solid #DBEAFE;
+}
+
+body.wp-admin #dashboard-widgets #mt_admin_welcome .postbox-header {
+    background: transparent;
+    border-bottom: 1px solid rgba(219, 234, 254, 0.6);
+}
+
+body.wp-admin #dashboard-widgets #mt_admin_welcome .postbox-header h2 {
+    color: #1D4ED8;
 }
 
 body.wp-admin .mt-dash-welcome h2 {
     color: #0F2A5C;
-    font-size: 18px;
-    margin: 0 0 2px;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.4px;
+    margin: 0 0 4px;
 }
 
 body.wp-admin .mt-dash-welcome p {
     color: #475569;
-    margin: 0 0 8px;
+    font-size: 14px;
+    margin: 0 0 10px;
 }
 
 body.wp-admin .mt-dash-welcome p:last-child {
     margin-bottom: 0;
+    display: flex;
+    gap: 8px;
+    align-items: center;
 }
 
+/* Tile Aksi Cepat modern ber-bubble ikon */
 body.wp-admin .mt-dash-quick {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
+    gap: 10px;
 }
 
 body.wp-admin .mt-quick-tile {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
-    padding: 10px 6px;
+    gap: 8px;
+    padding: 12px 8px;
     border: 1px solid #E2E8F0;
-    border-radius: 12px;
-    color: #0F172A;
+    border-radius: 14px;
+    background-color: #FFFFFF;
+    color: #1E293B;
     text-decoration: none;
     font-weight: 600;
     font-size: 13px;
     text-align: center;
-    transition: border-color 0.15s ease, background-color 0.15s ease;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 body.wp-admin .mt-quick-tile svg {
     color: #2563EB;
+    background-color: #EFF6FF;
+    border: 1px solid #DBEAFE;
+    padding: 6px;
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    box-sizing: content-box;
+    transition: all 0.2s ease;
 }
 
 body.wp-admin .mt-quick-tile:hover,
 body.wp-admin .mt-quick-tile:focus {
     border-color: #93C5FD;
-    background-color: #EFF6FF;
+    background-color: #F8FAFC;
     color: #1D4ED8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px -2px rgba(37, 99, 235, 0.12);
+}
+
+body.wp-admin .mt-quick-tile:hover svg,
+body.wp-admin .mt-quick-tile:focus svg {
+    background-color: #2563EB;
+    color: #FFFFFF;
+    border-color: #2563EB;
 }
 
 body.wp-admin .mt-dash-status {
@@ -667,37 +722,72 @@ body.wp-admin .mt-dash-status {
 body.wp-admin .mt-dash-status li {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: 12px;
     font-size: 13px;
     color: #475569;
+    padding: 3px 0;
+    border-bottom: 1px dashed #F1F5F9;
+}
+
+body.wp-admin .mt-dash-status li:last-child {
+    border-bottom: none;
 }
 
 body.wp-admin .mt-dash-status strong {
     color: #0F172A;
+    font-weight: 600;
     text-align: right;
 }
 
 body.wp-admin .mt-dash-status .mt-ok {
-    color: #047857;
+    color: #065F46;
+    background-color: #D1FAE5;
+    border: 1px solid #A7F3D0;
+    padding: 1px 8px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 700;
 }
 
 body.wp-admin .mt-dash-status .mt-bad,
 body.wp-admin .mt-dash-status .mt-warn {
     color: #92400E;
+    background-color: #FEF3C7;
+    border: 1px solid #FDE68A;
+    padding: 1px 8px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 700;
 }
 
 body.wp-admin .mt-flushed {
     color: #047857;
     font-weight: 600;
+    font-size: 13px;
 }
 
 body.wp-admin .mt-dash-help {
-    margin: 0 0 8px 18px;
+    margin: 0 0 10px 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
     color: #475569;
 }
 
 body.wp-admin .mt-dash-help li {
-    margin-bottom: 6px;
+    font-size: 13px;
+    line-height: 1.45;
+    background-color: #F8FAFC;
+    border: 1px solid #F1F5F9;
+    border-radius: 8px;
+    padding: 6px 10px;
+}
+
+body.wp-admin .mt-dash-help li strong {
+    color: #0F2A5C;
 }
 
 /* --- Footer --- */
