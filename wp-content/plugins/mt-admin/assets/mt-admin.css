@@ -10,12 +10,17 @@ body.wp-admin {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-body.wp-admin h1,
-body.wp-admin h2,
-body.wp-admin h3,
-body.wp-admin .wrap > h1 {
+body.wp-admin .wrap > h1,
+body.wp-admin .wrap > h2:first-of-type {
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
     color: #0F2A5C;
+}
+
+/* Sembunyikan panel selamat datang bawaan WP jika ada markup tersisa */
+body.wp-admin .welcome-panel,
+body.wp-admin #welcome-panel,
+body.wp-admin .welcome-panel-close {
+    display: none;
 }
 
 /* --- Sidebar terang --- */
@@ -240,6 +245,48 @@ body.wp-admin #update-nag {
 }
 
 /* --- Kartu dasbor --- */
+@media screen and (min-width: 800px) {
+    body.wp-admin.index-php #dashboard-widgets {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    body.wp-admin.index-php #dashboard-widgets .postbox-container,
+    body.wp-admin.index-php #dashboard-widgets .meta-box-sortables {
+        display: contents;
+    }
+
+    body.wp-admin.index-php #dashboard-widgets #mt_admin_welcome {
+        grid-column: 1 / -1;
+        order: 1;
+        margin-bottom: 0;
+    }
+
+    body.wp-admin.index-php #dashboard-widgets #mt_admin_quick {
+        grid-column: 1;
+        order: 2;
+        margin-bottom: 0;
+    }
+
+    body.wp-admin.index-php #dashboard-widgets #mt_admin_status {
+        grid-column: 2;
+        order: 3;
+        margin-bottom: 0;
+    }
+
+    body.wp-admin.index-php #dashboard-widgets #mt_admin_help {
+        grid-column: 2;
+        order: 4;
+        margin-bottom: 0;
+    }
+
+    body.wp-admin.index-php #dashboard-widgets .postbox:not(#mt_admin_welcome):not(#mt_admin_quick):not(#mt_admin_status):not(#mt_admin_help) {
+        order: 10;
+        margin-bottom: 16px;
+    }
+}
+
 body.wp-admin #dashboard-widgets .postbox {
     background-color: #FFFFFF;
     border: 1px solid #E2E8F0;

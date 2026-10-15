@@ -278,6 +278,20 @@ function mt_admin_profile_save( $user_id ) {
 }
 
 /* ============ GRUP C: dasbor ============ */
+// Hapus panel selamat datang bawaan WP secara permanen
+remove_action( 'welcome_panel', 'wp_welcome_panel' );
+
+add_action( 'admin_init', function () {
+	$uid = get_current_user_id();
+	if ( $uid && (int) get_user_meta( $uid, 'show_welcome_panel', true ) !== 0 ) {
+		update_user_meta( $uid, 'show_welcome_panel', 0 );
+	}
+} );
+
+add_action( 'user_register', function ( $user_id ) {
+	update_user_meta( $user_id, 'show_welcome_panel', 0 );
+} );
+
 add_action( 'wp_dashboard_setup', function () {
 	if ( ! MT_ADMIN_SIMPLIFY ) {
 		return;
