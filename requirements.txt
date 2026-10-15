@@ -1,0 +1,2 @@
+# Tooling Python (lihat tools/*.py)
+Pillow>=11

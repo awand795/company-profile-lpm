@@ -1,0 +1,41 @@
+services:
+  db:
+    image: mariadb:10.11
+    container_name: lpm-verify-db
+    restart: "no"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MT_DB_ROOT_PASS:-lotus_root_password_2026}
+      MYSQL_DATABASE: ${MT_DB_NAME:-wordpress}
+      MYSQL_USER: ${MT_DB_USER:-wordpress}
+      MYSQL_PASSWORD: ${MT_DB_PASS:-lotus_wp_password_2026}
+    volumes:
+      - lpm_verify_db_data:/var/lib/mysql
+    networks:
+      - lpm-verify-network
+
+  wordpress:
+    image: wordpress:php8.2-apache
+    container_name: lpm-verify-app
+    restart: "no"
+    depends_on:
+      - db
+    ports:
+      - "5100:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: ${MT_DB_USER:-wordpress}
+      WORDPRESS_DB_PASSWORD: ${MT_DB_PASS:-lotus_wp_password_2026}
+      WORDPRESS_DB_NAME: ${MT_DB_NAME:-wordpress}
+      WORDPRESS_TABLE_PREFIX: wp_
+    volumes:
+      - lpm_verify_wp_data:/var/www/html
+    networks:
+      - lpm-verify-network
+
+networks:
+  lpm-verify-network:
+    driver: bridge
+
+volumes:
+  lpm_verify_db_data:
+  lpm_verify_wp_data:

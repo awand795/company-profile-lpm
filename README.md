@@ -88,7 +88,7 @@ http://localhost:5000/
 
 ### 🖥️ Menjalankan di Laptop Baru (Linux / Windows)
 
-**Prasyarat:** Docker (Docker Desktop di Windows, Docker Engine di Linux) dan internet — cukup sekali saat pertama, untuk mengunduh WP-CLI, theme **Astra**, serta plugin **Elementor** & **Astra Sites** dari wordpress.org/GitHub.
+**Prasyarat:** Git, Docker (Desktop/Engine), Python 3 (`pip install -r requirements.txt`), Node.js (lalu `npm install` di `tests/` + `npx playwright install chromium`) dan internet — cukup sekali saat pertama, untuk mengunduh WP-CLI, theme **Astra**, serta plugin **Elementor** & kawan-kawan dari wordpress.org/GitHub.
 
 ```bash
 # Linux / macOS / WSL / Git Bash
@@ -106,22 +106,36 @@ cd company-profile-lpm
 
 Yang dilakukan skrip bootstrap (urut):
 
-1. `docker compose up -d` lalu tunggu MariaDB siap.
-2. Salin `.htaccess`, `wp-content/uploads/`, dan `wp-content/plugins/mt-topbar/` ke container.
+1. Cek prasyarat (Git, Docker, Python 3, Node), `docker compose up -d` lalu tunggu MariaDB siap.
+2. Salin `.htaccess`, `wp-content/uploads/`, dan plugin kustom (`mt-topbar`, `mt-booking`, `mt-login`) ke container.
 3. Pasang WP-CLI di dalam container (`wp-cli.phar`).
-4. **Import `database_dump.sql`** → WordPress langsung ter-instal (semua halaman, konten, dan CSS Elementor Fase 1–3 ikut terbawa).
-5. Install + aktifkan theme **astra**, plugin **elementor**, **astra-sites**, dan **mt-topbar**.
+4. **Import `database/mt_site.sql`** (dump tersanitasi) → WordPress langsung ter-instal (halaman Beranda Elementor Page 59, login baru, media ikut terbawa).
+5. Install + aktifkan theme **astra** 4.14.0 dan plugin versi pin `docs/VERSIONS.md` (**elementor** 4.3.4, **astra-sites** 4.7.8, **header-footer-elementor** 2.9.5) + plugin kustom.
 6. Jalankan `sync-to-wp` (template page, aset tema, media).
-7. Flush permalink & regenerasi CSS Elementor.
-8. Verifikasi HTTP 200 pada halaman utama (`/`, `/profil/`, `/produk/`, `/wilayah/`, `/kontak/`, `/layanan-overhaul/`).
+7. Flush permalink & regenerasi CSS Elementor (`elementor flush-css`), lalu atur ulang kata sandi admin lewat prompt aman.
+8. Verifikasi HTTP 200 pada `/` dan `/wp-login.php`, cetak URL situs + dashboard.
 
 Opsi:
 
 | Linux (`setup.sh`) | Windows (`setup.ps1`) | Fungsi |
 | ------------------ | --------------------- | ------ |
 | `--rebuild`        | `-Rebuild`            | Hancurkan volume Docker dulu (fresh total) |
-| `--skip-import`    | `-SkipImport`         | Lewati import `database_dump.sql` |
+| `--skip-import`    | `-SkipImport`         | Lewati import `database/mt_site.sql` |
+| `--skip-admin-reset` | `-SkipAdminReset`   | Lewati prompt kata sandi admin |
 | `-h` / `--help`    | `Get-Help .\setup.ps1` | Bantuan |
+
+### Lanjut di laptop lain (AI agent)
+1. `git clone` + `setup` seperti di atas; kata sandi admin diisi saat prompt (tidak disimpan di repo).
+2. Buka editor: `/wp-admin/` → Pages → Beranda → **Edit with Elementor** (Page ID 59).
+3. Menjalankan test: `cd tests && npm install` (sekali), lalu `node verify-revamp3.cjs`, `node verify-revamp6j.cjs`, `node verify-editor-health.cjs`.
+4. Memakai AI agent: suruh baca `REVAMP_PROGRESS.md` (blok ronde terakhir) + `docs/prompts/` sebagai konteks.
+5. Menarik perubahan: `git pull origin main`. Membawa pulang hasil kerja: `tools/export-dump-sanitized.ps1` (atau `.sh`), commit, push.
+6. File lokal yang tidak ikut Git (tetap di mesin masing-masing): `.env`, `wp-config.php`, `_backup_lokal_tidak_di_git/`, `playwright_review/`, `scratch/`.
+
+### Backup & Rollback
+- Rollback seluruh ronde/grup ke tag atau commit: `tools/rollback.ps1 -To pre-ronde14` (tambah `-RestoreDb` bila database ikut dikembalikan, `-WhatIf` untuk pratinjau). Versi bash: `tools/rollback.sh <ref> [--restore-db] [--whatif]`.
+- Skrip me-restore file terlacak, deploy Page 59, sync, flush-css, verifikasi, lalu commit `rollback ke <ref>` + push (tanpa force).
+- Tag penting: `pre-ronde14` (sebelum ronde 14), `ronde14-done` (akhir ronde 14).
 
 Skrip juga menyamakan opsi `home`/`siteurl` ke URL yang dipakai, jadi bila Anda menguji di port lain cukup set environment variable (Linux) atau parameter (Windows):
 

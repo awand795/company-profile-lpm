@@ -5,16 +5,17 @@
 #
 #   ./setup.sh            # compose up + import dump + install tema/plugin + sync
 #   ./setup.sh --rebuild  # hancurkan volume lama dulu (fresh total)
-#   ./setup.sh --skip-import  # lewati import database_dump.sql
+#   ./setup.sh --skip-import  # lewati import database/mt_site.sql
+#   ./setup.sh --skip-admin-reset  # lewati prompt kata sandi admin
 #
 # Alur:
 #   1. docker compose up -d, tunggu MariaDB siap
-#   2. Salin .htaccess, wp-content/uploads/, plugins/mt-topbar/ ke container
+#   2. Salin .htaccess, wp-content/uploads/, plugins kustom ke container
 #   3. Install WP-CLI di container (unduh wp-cli.phar)
-#   4. Import database_dump.sql  -> WordPress langsung "ter-instal"
-#   5. Install + aktifkan theme astra, plugin elementor & astra-sites
+#   4. Import database/mt_site.sql (tersanitasi) -> WordPress langsung "ter-instal"
+#   5. Install + aktifkan theme astra + plugin versi pin docs/VERSIONS.md
 #   6. sync-to-wp.sh (template page + aset tema + media)
-#   7. Flush permalink & regenerate CSS Elementor
+#   7. Flush permalink & regenerasi CSS Elementor + reset kata sandi admin
 #   8. Verifikasi HTTP 200 pada halaman utama
 #
 # BUTUH INTERNET sekali saat pertama: wp-cli.phar, theme astra, plugin
@@ -31,13 +32,17 @@ DB_USER="${MT_DB_USER:-wordpress}"
 DB_PASS="${MT_DB_PASS:-lotus_wp_password_2026}"
 DB_NAME="${MT_DB_NAME:-wordpress}"
 URL="${MT_URL:-http://localhost:5000}"
+DUMP="${MT_DUMP:-database/mt_site.sql}"
+COMPOSE_FILE="${MT_COMPOSE_FILE:-docker-compose.yml}"
 DO_REBUILD=0
 DO_IMPORT=1
+DO_ADMIN_RESET=1
 
-for arg in "$@"; do
+  for arg in "$@"; do
   case "$arg" in
     -r|--rebuild)   DO_REBUILD=1 ;;
     --skip-import)  DO_IMPORT=0 ;;
+    --skip-admin-reset) DO_ADMIN_RESET=0 ;;
     -h|--help)
       sed -n '2,20p' "$0"; exit 0 ;;
     *) echo "Argumen tidak dikenal: $arg (lihat --help)" >&2; exit 1 ;;
@@ -51,6 +56,9 @@ fail() { printf '  \033[1;31mGAGAL\033[0m %s\n' "$*" >&2; exit 1; }
 # --- 0. Pra-syarat -----------------------------------------------------------
 step "Cek prasyarat"
 command -v docker >/dev/null 2>&1 || fail "docker tidak ditemukan. Install Docker Desktop / docker engine dulu."
+command -v git >/dev/null 2>&1 || fail "git tidak ditemukan."
+command -v python3 >/dev/null 2>&1 || fail "python3 tidak ditemukan (untuk tools/)."
+command -v node >/dev/null 2>&1 || fail "node tidak ditemukan (untuk tests/; lalu 'npm install' di tests/ dan 'npx playwright install chromium')."
 if docker compose version >/dev/null 2>&1; then
   COMPOSE="docker compose"
 elif command -v docker-compose >/dev/null 2>&1; then
@@ -59,7 +67,9 @@ else
   fail "Perintah 'docker compose' / 'docker-compose' tidak ada."
 fi
 [[ -f docker-compose.yml ]] || fail "docker-compose.yml tidak ditemukan di $ROOT"
-[[ -f database_dump.sql ]]  || fail "database_dump.sql tidak ditemukan di $ROOT"
+[[ -f "$COMPOSE_FILE" ]] || fail "$COMPOSE_FILE tidak ditemukan di $ROOT"
+COMPOSE="$COMPOSE -f $COMPOSE_FILE"
+[[ -f "$DUMP" ]]  || fail "$DUMP tidak ditemukan di $ROOT (ekspor via tools/export-dump-sanitized.sh)"
 ok "compose: $COMPOSE"
 
 # --- 1. Stack ----------------------------------------------------------------
@@ -84,7 +94,7 @@ done
 ok "MariaDB siap"
 
 # --- 2. Salin berkas statis ke container ------------------------------------
-step "Salin .htaccess + wp-content/uploads + plugins/mt-topbar"
+step "Salin .htaccess + wp-content/uploads + plugins kustom"
 if [[ -f .htaccess ]]; then
   docker cp .htaccess "$APP:/var/www/html/.htaccess" || fail "docker cp .htaccess gagal"
   ok ".htaccess"
@@ -93,14 +103,18 @@ if [[ -d wp-content/uploads ]]; then
   docker cp wp-content/uploads/. "$APP:/var/www/html/wp-content/uploads/" || fail "docker cp uploads gagal"
   ok "wp-content/uploads/ ($(find wp-content/uploads -type f | wc -l | tr -d ' ') file)"
 fi
-if [[ -d wp-content/plugins/mt-topbar ]]; then
-  docker cp wp-content/plugins/mt-topbar/. "$APP:/var/www/html/wp-content/plugins/mt-topbar/" || fail "docker cp mt-topbar gagal"
-  ok "plugins/mt-topbar/"
-fi
+for plug in mt-topbar mt-booking mt-login; do
+  if [[ -d "wp-content/plugins/$plug" ]]; then
+    docker cp "wp-content/plugins/$plug/." "$APP:/var/www/html/wp-content/plugins/$plug/" || fail "docker cp $plug gagal"
+    ok "plugins/$plug/"
+  fi
+done
 docker exec "$APP" chown -R www-data:www-data \
   /var/www/html/.htaccess \
   /var/www/html/wp-content/uploads \
-  /var/www/html/wp-content/plugins/mt-topbar || true
+  /var/www/html/wp-content/plugins/mt-topbar \
+  /var/www/html/wp-content/plugins/mt-booking \
+  /var/www/html/wp-content/plugins/mt-login || true
 
 # --- 3. WP-CLI ---------------------------------------------------------------
 step "Pasang WP-CLI (di dalam container)"
@@ -116,13 +130,11 @@ ok "WP-CLI siap"
 
 # --- 4. Import database ------------------------------------------------------
 if [[ $DO_IMPORT -eq 1 ]]; then
-  step "Import database_dump.sql"
-  RESTORE_SRC="database_dump.sql"
-  # Dump hasil ekspor Windows sering UTF-16 (BOM FFFE) yang ditolak klien
-  # mariadb ("ASCII '\0' appeared..."). Konversi dulu ke UTF-8 bila perlu.
-  if file database_dump.sql | grep -qi 'UTF-16'; then
+  step "Import $DUMP (tersanitasi)"
+  RESTORE_SRC="$DUMP"
+  if file "$DUMP" | grep -qi 'UTF-16'; then
     command -v iconv >/dev/null 2>&1 || fail "Dump UTF-16 butuh 'iconv' untuk konversi."
-    iconv -f UTF-16 -t UTF-8 database_dump.sql -o /tmp/mt_restore_utf8.sql \
+    iconv -f UTF-16 -t UTF-8 "$DUMP" -o /tmp/mt_restore_utf8.sql \
       || fail "Konversi UTF-16 -> UTF-8 gagal."
     RESTORE_SRC="/tmp/mt_restore_utf8.sql"
     ok "dump UTF-16 dikonversi ke UTF-8"
@@ -131,7 +143,7 @@ if [[ $DO_IMPORT -eq 1 ]]; then
   docker exec -e "MYSQL_PWD=$DB_PASS" "$DB" sh -c "mariadb -u'$DB_USER' '$DB_NAME' < /tmp/restore.sql && rm -f /tmp/restore.sql" \
     || fail "Import dump gagal."
   [[ "$RESTORE_SRC" == /tmp/mt_restore_utf8.sql ]] && rm -f /tmp/mt_restore_utf8.sql
-  ok "database_dump.sql diimport"
+  ok "$DUMP diimport"
 else
   step "Lewati import database (--skip-import)"
 fi
@@ -143,38 +155,42 @@ STORAGE_URL="$($WP option get home 2>/dev/null || true)"
 if [[ "$STORAGE_URL" != "$URL" ]]; then
   $WP option update home   "$URL" >/dev/null || fail "Gagal update opsi home"
   $WP option update siteurl "$URL" >/dev/null || fail "Gagal update opsi siteurl"
-  ok "home/siteurl: $STORAGE_URL -> $URL"
+  $WP search-replace "$STORAGE_URL" "$URL" --skip-columns=guid --report-changed-only >/dev/null || true
+  ok "home/siteurl: $STORAGE_URL -> $URL (+search-replace konten)"
 else
   ok "home/siteurl sudah $URL"
 fi
 
-# --- 5. Theme & plugin -------------------------------------------------------
-step "Theme astra + plugin elementor, astra-sites, mt-topbar"
+# --- 5. Theme & plugin (versi persis docs/VERSIONS.md) ------------------------
+step "Theme astra 4.14.0 + plugin versi pin"
 if $WP theme is-installed astra >/dev/null 2>&1; then
   ok "theme astra sudah terpasang"
 else
-  $WP theme install astra --activate >/dev/null || fail "Gagal unduh theme astra (cek internet)."
+  $WP theme install astra --version=4.14.0 --activate >/dev/null || fail "Gagal unduh theme astra (cek internet)."
   ok "theme astra terpasang"
 fi
 $WP theme activate astra >/dev/null 2>&1 || true
 $WP theme is-active astra >/dev/null 2>&1 && ok "theme astra aktif" || true
 
-for p in elementor astra-sites header-footer-elementor; do
+declare -A PINS=( [elementor]=4.3.4 [astra-sites]=4.7.8 [header-footer-elementor]=2.9.5 )
+for p in "${!PINS[@]}"; do
   if $WP plugin is-installed "$p" >/dev/null 2>&1; then
     ok "plugin $p sudah terpasang"
   else
-    $WP plugin install "$p" >/dev/null || fail "Gagal unduh plugin $p (cek internet)."
+    $WP plugin install "$p" --version="${PINS[$p]}" >/dev/null || fail "Gagal unduh plugin $p (cek internet)."
     ok "plugin $p terpasang"
   fi
   $WP plugin activate "$p" >/dev/null 2>&1 && ok "plugin $p aktif" || true
 done
 
-if $WP plugin is-installed mt-topbar >/dev/null 2>&1; then
-  $WP plugin activate mt-topbar >/dev/null 2>&1 || true
-  ok "plugin mt-topbar aktif"
-else
-  fail "plugin mt-topbar tidak ditemukan di container (salinan gagal?)"
-fi
+for plug in mt-topbar mt-booking mt-login; do
+  if $WP plugin is-installed "$plug" >/dev/null 2>&1; then
+    $WP plugin activate "$plug" >/dev/null 2>&1 || true
+    ok "plugin $plug aktif"
+  else
+    fail "plugin $plug tidak ditemukan di container (salinan gagal?)"
+  fi
+done
 
 # --- 6. Sinkronisasi template & media ---------------------------------------
 step "Sinkronisasi wp-integration + media"
@@ -188,10 +204,25 @@ $WP eval '
   foreach ($ids as $id) { delete_post_meta($id, "_elementor_css"); delete_post_meta($id, "_elementor_element_cache"); }
   echo count($ids);
 ' >/dev/null 2>&1 && ok "cache CSS Elementor dibersihkan" || true
+$WP elementor flush-css >/dev/null 2>&1 && ok "elementor flush-css" || true
+
+# --- 7b. Kata sandi admin (interaktif aman; tidak ditulis ke file/log) -------
+if [[ $DO_ADMIN_RESET -eq 1 ]]; then
+  step "Atur ulang kata sandi admin"
+  ADMIN="$($WP user list --role=administrator --field=user_login 2>/dev/null | head -n1)"
+  [[ -n "$ADMIN" ]] || fail "Tidak ada user administrator di DB."
+  read -rsp "Kata sandi BARU untuk admin '$ADMIN' (tidak ditampilkan): " NEWPASS; echo
+  [[ -n "$NEWPASS" ]] || fail "Kata sandi kosong."
+  MT_NEW_PASS="$NEWPASS" docker exec -e MT_NEW_PASS "$APP" wp --allow-root --path=/var/www/html user update "$ADMIN" --user_pass="$MT_NEW_PASS" --skip-email >/dev/null || fail "Gagal mengatur ulang kata sandi."
+  unset NEWPASS MT_NEW_PASS
+  ok "kata sandi admin '$ADMIN' diperbarui (hanya di container lokal)"
+else
+  step "Lewati reset kata sandi admin (--skip-admin-reset)"
+fi
 
 # --- 8. Verifikasi -----------------------------------------------------------
 step "Verifikasi HTTP"
-paths=( "/" "/profil/" "/produk/" "/wilayah/" "/kontak/" "/layanan-overhaul/" )
+paths=( "/" "/wp-login.php" )
 all_ok=1
 for p in "${paths[@]}"; do
   code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "$URL$p" || echo 000)
