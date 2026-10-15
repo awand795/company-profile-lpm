@@ -318,6 +318,29 @@ body.wp-admin #wpadminbar span.noticon {
     line-height: 32px;
 }
 
+body.wp-admin #wpadminbar #wp-admin-bar-updates .ab-label {
+    background-color: #EFF6FF;
+    color: #1D4ED8;
+    border: 1px solid #BFDBFE;
+    border-radius: 9999px;
+    padding: 0 6px;
+    font-weight: 700;
+    font-size: 11px;
+    display: inline-block;
+    height: 18px;
+    line-height: 18px;
+    vertical-align: middle;
+}
+
+body.wp-admin #wpadminbar #wp-admin-bar-command-palette kbd {
+    background-color: #F1F5F9;
+    color: #334155;
+    border: 1px solid #CBD5E1;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-size: 11px;
+}
+
 body.wp-admin #wpadminbar .ab-icon,
 body.wp-admin #wpadminbar .ab-icon::before,
 body.wp-admin #wpadminbar .ab-item::before {
@@ -520,7 +543,8 @@ body.wp-admin .wrap {
     body.wp-admin.index-php #dashboard-widgets {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 16px;
+        gap: 12px;
+        padding-top: 6px;
     }
 
     body.wp-admin.index-php #dashboard-widgets .postbox-container,
@@ -567,37 +591,51 @@ body.wp-admin #dashboard-widgets .postbox {
 
 body.wp-admin #dashboard-widgets .postbox .postbox-header {
     border-bottom: 1px solid #F1F5F9;
+    min-height: 36px;
+}
+
+body.wp-admin #dashboard-widgets .postbox .postbox-header h2 {
+    font-size: 14px;
+    padding: 8px 12px;
+}
+
+body.wp-admin #dashboard-widgets #mt_admin_welcome .inside,
+body.wp-admin #dashboard-widgets #mt_admin_quick .inside,
+body.wp-admin #dashboard-widgets #mt_admin_status .inside,
+body.wp-admin #dashboard-widgets #mt_admin_help .inside {
+    margin-top: 8px;
+    padding-bottom: 10px;
 }
 
 body.wp-admin .mt-dash-welcome h2 {
     color: #0F2A5C;
-    font-size: 19px;
+    font-size: 18px;
     margin: 0 0 2px;
 }
 
 body.wp-admin .mt-dash-welcome p {
     color: #475569;
-    margin: 0 0 10px;
+    margin: 0 0 8px;
 }
 
 body.wp-admin .mt-dash-welcome p:last-child {
-    margin-bottom: 2px;
+    margin-bottom: 0;
 }
 
 body.wp-admin .mt-dash-quick {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 8px;
 }
 
 body.wp-admin .mt-quick-tile {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
-    padding: 16px 8px;
+    gap: 6px;
+    padding: 10px 6px;
     border: 1px solid #E2E8F0;
-    border-radius: 14px;
+    border-radius: 12px;
     color: #0F172A;
     text-decoration: none;
     font-weight: 600;

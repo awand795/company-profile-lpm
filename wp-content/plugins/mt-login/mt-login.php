@@ -156,19 +156,19 @@ add_action( 'login_header', function () {
 
 		<div class="mt-login-panel-center">
 			<h2 class="mt-login-panel-heading">Perawatan Andal<br>untuk Truk Anda</h2>
-			<p class="mt-login-panel-desc">Bengkel khusus truk di Kawasan Industri Medan III. Servis rutin, perbaikan mesin, dan sparepart asli.</p>
+			<p class="mt-login-panel-desc">Bengkel khusus armada niaga di Kawasan Industri Medan III. Servis rutin, perbaikan mesin, dan suku cadang asli bergaransi.</p>
 			<ul class="mt-login-panel-features">
 				<li>
-					<span class="mt-feature-check">✓</span>
-					<span class="mt-feature-text">Sparepart asli</span>
+					<span class="mt-feature-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+					<span class="mt-feature-text">Sparepart asli langsung distributor resmi</span>
 				</li>
 				<li>
-					<span class="mt-feature-check">✓</span>
-					<span class="mt-feature-text">Garansi pengerjaan</span>
+					<span class="mt-feature-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+					<span class="mt-feature-text">Garansi pengerjaan & teknisi berpengalaman</span>
 				</li>
 				<li>
-					<span class="mt-feature-check">✓</span>
-					<span class="mt-feature-text">Derek 24 jam</span>
+					<span class="mt-feature-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+					<span class="mt-feature-text">Layanan derek jemput siaga 24 jam</span>
 				</li>
 			</ul>
 		</div>

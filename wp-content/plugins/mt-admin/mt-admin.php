@@ -440,11 +440,23 @@ function mt_admin_help_box() {
 // Halaman panduan (ringkas, menaut ke docs/PANDUAN-PENGELOLA.md di repo).
 add_action( 'admin_menu', function () {
 	add_dashboard_page( 'Panduan Pengelola', 'Panduan Pengelola', 'edit_pages', 'mt-admin-panduan', function () {
-		echo '<div class="wrap"><h1>Panduan Pengelola (ringkas)</h1>'
-			. '<ol><li><strong>Ganti teks:</strong> Dasbor → Edit Beranda → klik teks → Update.</li>'
-			. '<li><strong>Ganti foto:</strong> Dasbor → Ganti Foto (Media) → unggah/pilih → perbarui.</li>'
-			. '<li><strong>Nomor WhatsApp:</strong> lihat <code>docs/PANDUAN-PENGELOLA.md</code> di repo.</li></ol>'
-			. '<p>Dokumen lengkap berbahasa awam: <code>docs/PANDUAN-PENGELOLA.md</code>.</p></div>';
+		echo '<div class="wrap" style="max-width:880px;"><h1>Panduan Pengelola Situs Master Truck</h1>'
+			. '<div class="notice notice-info inline" style="margin:16px 0 24px;"><p>Panduan praktis untuk mengelola website Master Truck secara mandiri dan aman.</p></div>'
+			. '<h2>1. Ganti Teks Beranda</h2>'
+			. '<p>Buka <strong>Edit Beranda</strong> di menu sidebar kiri → klik langsung teks yang ingin diubah → klik tombol hijau <strong>Update</strong> di pojok kiri bawah.</p>'
+			. '<h2>2. Ganti Foto & Gambar</h2>'
+			. '<p>Buka <strong>Media</strong> (Ganti Foto) → klik <strong>Tambah Baru</strong> untuk mengunggah foto dari komputer → buka <strong>Edit Beranda</strong> → klik foto yang ingin diganti lalu pilih foto baru dari media library.</p>'
+			. '<h2>3. Mengubah Nomor WhatsApp & Telepon</h2>'
+			. '<p>Ada 2 cara yang sangat mudah:</p>'
+			. '<ol>'
+			. '<li><strong>Melalui Menu Topbar (Paling Mudah):</strong> Buka menu <strong>Tampilan → Topbar Master Truck</strong>. Masukkan nomor WhatsApp baru di kolom <em>Nomor WhatsApp</em>, lalu klik <strong>Simpan Topbar</strong>.</li>'
+			. '<li><strong>Melalui Editor Beranda:</strong> Buka <strong>Edit Beranda</strong>, cari tombol atau teks yang memiliki tautan WhatsApp, ubah kolom <strong>Link</strong> dengan format: <code>https://wa.me/62XXXXXXXXXX?text=Halo</code> (ganti <code>62XXXXXXXXXX</code> dengan nomor Anda tanpa tanda + atau spasi).</li>'
+			. '</ol>'
+			. '<h2>4. Perbaikan Tampilan (Bila Tampilan Rusak)</h2>'
+			. '<p>Jika tampilan beranda tidak rapi setelah edit, kembali ke <strong>Dasbor</strong> → pada kartu <strong>Status Situs</strong> klik tombol <strong>Muat Ulang CSS Elementor</strong> → lalu muat ulang halaman situs di browser (<code>Ctrl+F5</code>).</p>'
+			. '<hr style="margin:24px 0; border:none; border-top:1px solid #E2E8F0;" />'
+			. '<p style="color:#64748B;">Dokumen lengkap pengelola dapat dibaca di berkas <code>docs/PANDUAN-PENGELOLA.md</code>.</p>'
+			. '</div>';
 	} );
 } );
 
