@@ -1,5 +1,10 @@
 # RONDE 14 (GABUNGAN): Hero & halaman lebih PREMIUM + Git checkpoint/rollback + Arsip backup + PORTABILITAS
 
+> CATATAN RONDE 14b (2026-10-15): poin **B1 dibatalkan** atas permintaan pemilik —
+> section "Merek Resmi yang Kami Pakai" dikembalikan ke posisi & tampilan asli
+> (dinding 6 kartu berwarna, antara Cara Kerja dan Derek 24 Jam); baris logo
+> abu-abu dihapus. Lihat blok REVAMP6p di `REVAMP_PROGRESS.md`.
+
 Konteks: proyek dikerjakan di laptop kantor, dilanjutkan di laptop pribadi.
 Setelah ronde ini: `git clone` → `setup.ps1`/`setup.sh` → situs lokal jalan
 LENGKAP (Beranda Elementor Page 59, login baru, media, plugin kustom).

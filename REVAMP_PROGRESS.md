@@ -282,6 +282,12 @@ Dokumen ini memantau progres refaktor landing page Beranda (WordPress + Elemento
   - [x] **FASE 3 Grup C** (`1bd9319`): token CSS + hover -4px; smooth scroll (margin 118px dipertahankan demi assertion); OG/Twitter/theme-color + og 1200×630 36KB + favicon MT + `site_icon` (ID 321); bar CTA mobile 56px (ganti WA melayang; test 6j disesuaikan); lazy core + alt/dimensi 100%; revamp3 32/32, 6j 40/40.
   - [x] **FASE 4**: dump pasca-ronde (`d5f3757`) + tag `ronde14-done` push OK; klon final 4/4; repo pack ±149MB.
 
+- [x] **REVAMP6p - RONDE 14b: Kembalikan Merek Resmi asli, batalkan B1 (2026-10-15):**
+  - [x] Backup `archive/backups/_backup_revamp6p_20261015/`. Blok asli diambil dari tag `pre-ronde14` (builder `prins` + TODO ISO/SMK3) dan dipasang persis di posisi 8 (Cara Kerja → Merek → Derek); strip abu-abu B1 + CSS grayscale-nya dihapus total.
+  - [x] Logo asli berwarna (6 file PNG asli, HTTP 200 semua, tiap logo ×1 di halaman, grayscale 0, kotak logo seragam 60px); kartu 6 sebaris desktop + hover lama; tablet 3 kolom, mobile 2 kolom (CSS baru).
+  - [x] **Verifikasi**: builder ASSERT OK + sync; order 16 section benar; revamp3 32/32 (logo hover + padding 96 lulus), 6j 40/40, editor PASS, stats 15/120+/2.500; login tak berubah; section ronde 14 lain utuh; screenshot `playwright_review/sesudah_revamp6p/` (1440/768/390 + perbandingan vs crop pre-ronde14 identik).
+  - [x] **Git**: `cfdb97b` + arsip backup + `0815f49 chore(db)` + tag `ronde14b-done` push OK (tanpa force).
+
 ---
 
 ## Baseline Temuan Fase 0
