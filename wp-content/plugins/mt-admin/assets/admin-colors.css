@@ -19,6 +19,19 @@
     color: #94A3B8;
 }
 
+#adminmenu li.menu-top:hover,
+#adminmenu li.opensub > a.menu-top,
+#adminmenu li > a.menu-top:focus {
+    background-color: transparent;
+}
+
+#adminmenu a:hover,
+#adminmenu li.menu-top > a:focus,
+#adminmenu .wp-submenu a:hover,
+#adminmenu .wp-submenu a:focus {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
 #wpadminbar {
     background-color: #0B1120;
     color: #E2E8F0;

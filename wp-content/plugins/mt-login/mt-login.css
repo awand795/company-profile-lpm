@@ -4,7 +4,6 @@
    ============================================================ */
 
 /* 1. Base Layout */
-/* 1. Base Layout */
 html body.login {
     display: flex;
     flex-direction: row;
@@ -13,20 +12,20 @@ html body.login {
     min-height: 100dvh;
     margin: 0;
     padding: 0;
-    background-color: #0B1120;
-    color: #F8FAFC;
+    background-color: #F8FAFC;
+    color: #0F172A;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     box-sizing: border-box;
 }
 
-/* 2. Panel Kiri (Desktop Split-Screen >= 992px): Dark Navy Slate Enterprise */
+/* 2. Panel Kiri (Desktop Split-Screen >= 992px): Deep Royal Navy Enterprise */
 html body.login .mt-login-panel-left {
     flex: 0 0 50%;
     width: 50%;
     min-height: 100vh;
     min-height: 100dvh;
     position: relative;
-    background: radial-gradient(circle at 15% 20%, #1E293B 0%, #0F172A 70%);
+    background: linear-gradient(155deg, #071933 0%, #0F2E5E 55%, #1D4ED8 100%);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -41,10 +40,10 @@ html body.login .mt-login-panel-left::before {
     position: absolute;
     top: -120px;
     left: -120px;
-    width: 440px;
-    height: 440px;
+    width: 480px;
+    height: 480px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(37, 99, 235, 0.25) 0%, rgba(37, 99, 235, 0) 70%);
+    background: radial-gradient(circle, rgba(96, 165, 250, 0.25) 0%, rgba(37, 99, 235, 0) 70%);
     pointer-events: none;
     z-index: 1;
 }
@@ -224,7 +223,7 @@ html body.login .mt-login-dot {
 
 html body.login .mt-login-panel-footer {
     font-size: 13px;
-    color: #64748B;
+    color: #94A3B8;
     margin-top: 20px;
 }
 
@@ -232,7 +231,7 @@ html body.login .mt-login-panel-footer p {
     margin: 0;
 }
 
-/* 3. Kolom Kanan: kartu putih bersih di atas background Slate */
+/* 3. Kolom Kanan: kartu putih bersih di atas latar sejuk enterprise */
 html body.login .mt-login-right {
     flex: 1 1 50%;
     min-width: 0;
@@ -241,10 +240,10 @@ html body.login .mt-login-right {
     display: grid;
     padding: 32px 24px;
     box-sizing: border-box;
-    background-color: #0B1120;
+    background-color: #F8FAFC;
     background-image:
-        radial-gradient(circle at 100% 0%, rgba(37, 99, 235, 0.15) 0%, rgba(37, 99, 235, 0) 450px),
-        radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1.5px);
+        radial-gradient(circle at 100% 0%, rgba(37, 99, 235, 0.05) 0%, transparent 450px),
+        radial-gradient(#E2E8F0 1.2px, transparent 1.2px);
     background-size: auto, 24px 24px;
     background-repeat: no-repeat, repeat;
 }
@@ -255,9 +254,9 @@ html body.login #login {
     margin: auto;
     padding: 38px 34px 34px;
     background-color: #FFFFFF;
-    border: 1px solid rgba(226, 232, 240, 0.9);
+    border: 1px solid #E2E8F0;
     border-radius: 24px;
-    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.35), 0 0 1px 1px rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 45px -12px rgba(15, 23, 42, 0.08), 0 1px 3px 0 rgba(15, 23, 42, 0.04);
     box-sizing: border-box;
     overflow: visible;
 }

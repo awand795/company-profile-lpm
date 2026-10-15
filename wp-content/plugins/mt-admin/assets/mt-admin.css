@@ -137,20 +137,36 @@ body.wp-admin #adminmenu .wp-menu-image::before {
     transition: color 0.15s ease;
 }
 
-body.wp-admin #adminmenu li.menu-top:hover a.menu-top,
+/* 1. Netralkan li pembungkus dan link dari background core modern biru */
+body.wp-admin #adminmenu li.menu-top,
+body.wp-admin #adminmenu li.menu-top:hover,
+body.wp-admin #adminmenu li.opensub,
+body.wp-admin #adminmenu li.opensub:hover,
+body.wp-admin #adminmenu li.menu-top.opensub {
+    background: transparent;
+    background-color: transparent;
+}
+
+body.wp-admin #adminmenu a:hover,
+body.wp-admin #adminmenu a:focus,
+body.wp-admin #adminmenu a.menu-top:hover,
+body.wp-admin #adminmenu li.menu-top:hover > a,
+body.wp-admin #adminmenu li.menu-top:hover > a.menu-top,
 body.wp-admin #adminmenu li.opensub > a.menu-top,
 body.wp-admin #adminmenu li > a.menu-top:focus {
     background-color: rgba(255, 255, 255, 0.08);
     color: #FFFFFF;
 }
 
-body.wp-admin #adminmenu li.menu-top:hover .wp-menu-image::before {
+body.wp-admin #adminmenu li.menu-top:hover .wp-menu-image::before,
+body.wp-admin #adminmenu li.opensub > a.menu-top .wp-menu-image::before {
     color: #60A5FA;
 }
 
 body.wp-admin #adminmenu li.wp-has-current-submenu a.wp-has-current-submenu,
 body.wp-admin #adminmenu li.current a.menu-top {
     background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+    background-color: #2563EB;
     color: #FFFFFF;
     font-weight: 700;
     border-radius: 10px;
@@ -162,6 +178,12 @@ body.wp-admin #adminmenu li.current .wp-menu-image::before {
     color: #FFFFFF;
 }
 
+/* Sembunyikan panah default WordPress */
+body.wp-admin #adminmenu .wp-menu-arrow,
+body.wp-admin #adminmenu .wp-menu-arrow div {
+    display: none;
+}
+
 /* Submenu aktif (statis/inline) di dalam sidebar gelap */
 body.wp-admin:not(.folded) #adminmenu li.wp-has-current-submenu .wp-submenu,
 body.wp-admin:not(.folded) #adminmenu li.current .wp-submenu {
@@ -170,16 +192,20 @@ body.wp-admin:not(.folded) #adminmenu li.current .wp-submenu {
     left: auto;
     float: none;
     display: block;
+    background: transparent;
     background-color: transparent;
     border: none;
     border-radius: 0;
     box-shadow: none;
     padding: 4px 0 8px 0;
     margin: 0;
+    width: 100%;
 }
 
 body.wp-admin:not(.folded) #adminmenu li.wp-has-current-submenu .wp-submenu li,
 body.wp-admin:not(.folded) #adminmenu li.current .wp-submenu li {
+    background: transparent;
+    background-color: transparent;
     margin: 0;
     padding: 0;
 }
@@ -191,6 +217,7 @@ body.wp-admin:not(.folded) #adminmenu li.current .wp-submenu a {
     color: #94A3B8;
     border-radius: 8px;
     background: transparent;
+    background-color: transparent;
     box-shadow: none;
     display: block;
     transition: color 0.15s ease, background-color 0.15s ease;
@@ -199,7 +226,9 @@ body.wp-admin:not(.folded) #adminmenu li.current .wp-submenu a {
 body.wp-admin:not(.folded) #adminmenu li.wp-has-current-submenu .wp-submenu a:hover,
 body.wp-admin:not(.folded) #adminmenu li.wp-has-current-submenu .wp-submenu a:focus,
 body.wp-admin:not(.folded) #adminmenu li.current .wp-submenu a:hover,
-body.wp-admin:not(.folded) #adminmenu li.current .wp-submenu a:focus {
+body.wp-admin:not(.folded) #adminmenu li.current .wp-submenu a:focus,
+body.wp-admin #adminmenu .wp-submenu a:hover,
+body.wp-admin #adminmenu .wp-submenu a:focus {
     color: #FFFFFF;
     background-color: rgba(255, 255, 255, 0.08);
 }
@@ -211,16 +240,34 @@ body.wp-admin:not(.folded) #adminmenu li.current .wp-submenu li.current a {
     background-color: rgba(37, 99, 235, 0.12);
 }
 
-/* Gaya kartu melayang HANYA untuk hover pada item tidak aktif dan sidebar terlipat */
+/* Sembunyikan wp-submenu-head pada submenu desktop */
+body.wp-admin:not(.folded) #adminmenu .wp-submenu .wp-submenu-head {
+    display: none;
+}
+
+/* Gaya kartu melayang (flyout) HANYA untuk hover pada item tidak aktif */
 body.wp-admin:not(.folded) #adminmenu li.menu-top:not(.wp-has-current-submenu):not(.current):hover .wp-submenu,
-body.wp-admin:not(.folded) #adminmenu li.opensub:not(.wp-has-current-submenu):not(.current) .wp-submenu,
-body.wp-admin.folded #adminmenu .wp-submenu {
+body.wp-admin:not(.folded) #adminmenu li.opensub:not(.wp-has-current-submenu):not(.current) .wp-submenu {
+    position: absolute;
+    top: 0;
+    left: 220px;
+    width: 200px;
+    min-width: 190px;
     background-color: #0F172A;
     border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 14px;
-    box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.5);
-    padding: 8px;
+    border-radius: 12px;
+    box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    padding: 6px;
     margin-left: 6px;
+    z-index: 99999;
+}
+
+body.wp-admin:not(.folded) #adminmenu li.menu-top:not(.wp-has-current-submenu):not(.current):hover .wp-submenu li,
+body.wp-admin:not(.folded) #adminmenu li.opensub:not(.wp-has-current-submenu):not(.current) .wp-submenu li {
+    background: transparent;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
 }
 
 body.wp-admin:not(.folded) #adminmenu li.menu-top:not(.wp-has-current-submenu):not(.current):hover .wp-submenu a,
@@ -228,15 +275,35 @@ body.wp-admin:not(.folded) #adminmenu li.opensub:not(.wp-has-current-submenu):no
 body.wp-admin.folded #adminmenu .wp-submenu a {
     color: #CBD5E1;
     border-radius: 8px;
-    font-size: 13px;
-    padding: 6px 12px;
+    font-size: 13.5px;
+    padding: 7px 12px;
+    display: block;
+    background: transparent;
+    background-color: transparent;
 }
 
 body.wp-admin:not(.folded) #adminmenu li.menu-top:not(.wp-has-current-submenu):not(.current):hover .wp-submenu a:hover,
 body.wp-admin:not(.folded) #adminmenu li.opensub:not(.wp-has-current-submenu):not(.current) .wp-submenu a:hover,
 body.wp-admin.folded #adminmenu .wp-submenu a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.08);
     color: #FFFFFF;
+}
+
+/* Sidebar terlipat (folded) */
+body.wp-admin.folded #adminmenu li.menu-top:hover .wp-submenu,
+body.wp-admin.folded #adminmenu li.opensub .wp-submenu {
+    position: absolute;
+    top: 0;
+    left: 36px;
+    width: 200px;
+    min-width: 190px;
+    background-color: #0F172A;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    padding: 6px;
+    margin-left: 6px;
+    z-index: 99999;
 }
 
 /* --- Label grup LANJUTAN --- */

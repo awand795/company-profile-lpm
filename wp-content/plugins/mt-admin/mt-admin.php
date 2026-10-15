@@ -39,13 +39,6 @@ add_action( 'admin_init', function () {
 } );
 
 add_filter( 'get_user_option_admin_color', function ( $color ) {
-	$u = wp_get_current_user();
-	if ( $u && $u->ID ) {
-		$saved = get_user_meta( $u->ID, 'admin_color', true );
-		if ( is_string( $saved ) && '' !== $saved ) {
-			return $saved;
-		}
-	}
 	return 'mastertruck';
 } );
 
@@ -70,7 +63,7 @@ add_action( 'admin_enqueue_scripts', function () {
 	}
 	$base = plugin_dir_url( __FILE__ ) . 'assets/mt-admin.css';
 	$ver = file_exists( __DIR__ . '/assets/mt-admin.css' ) ? (string) filemtime( __DIR__ . '/assets/mt-admin.css' ) : MT_ADMIN_VER;
-	wp_enqueue_style( 'mt-admin', $base, array(), $ver );
+	wp_enqueue_style( 'mt-admin', $base, array( 'colors' ), $ver );
 } );
 
 // Brand Master Truck di atas sidebar: chip MT + nama & role.
