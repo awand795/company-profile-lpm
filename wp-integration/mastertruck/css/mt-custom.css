@@ -36,9 +36,23 @@ body.elementor-page-59 .elementor-59 .badge-section-pill .elementor-heading-titl
 
 body.elementor-page-59 .elementor-59 .badge-section-pill .elementor-heading-title::before{content:"";display:inline-block;width:22px;height:2px;border:0;background:#2563EB;border-radius:2px;vertical-align:middle;margin-right:10px}
 
-/* 4. Status aktif link nav (JS scrollspy menambah .nav-link-active) */
+/* 4. Status aktif link nav: pil tint (JS scrollspy menambah .nav-link-active) */
 
-body.elementor-page-59 .elementor-59 .nav-menu-link.nav-link-active .elementor-button{color:#2563EB;font-weight:600}
+body.elementor-page-59 .elementor-59 .nav-menu-link .elementor-button{padding:8px 14px}
+
+body.elementor-page-59 .elementor-59 .nav-menu-link.nav-link-active .elementor-button{background:#EFF6FF;border-radius:999px;color:#2563EB;font-weight:600}
+
+/* 4b. Hover: garis bawah meluncur kiri-ke-kanan; fokus keyboard jelas */
+
+body.elementor-page-59 .elementor-59 .nav-menu-link:not(.nav-link-active) .elementor-button{position:relative}
+
+body.elementor-page-59 .elementor-59 .nav-menu-link:not(.nav-link-active) .elementor-button::after{content:"";position:absolute;left:14px;right:14px;bottom:4px;height:2px;border:0;border-radius:2px;background:#2563EB;transform:scaleX(0);transform-origin:left center;transition:transform .2s ease;pointer-events:none}
+
+body.elementor-page-59 .elementor-59 .nav-menu-link:not(.nav-link-active) .elementor-button:hover{color:#0F172A}
+
+body.elementor-page-59 .elementor-59 .nav-menu-link:not(.nav-link-active) .elementor-button:hover::after{transform:scaleX(1)}
+
+body.elementor-page-59 .elementor-59 .nav-menu-link .elementor-button:focus-visible{outline:3px solid rgba(37,99,235,.35);outline-offset:2px}
 
 /* 5. Hamburger: sembunyi di desktop, ikon jadi X saat panel terbuka */
 
@@ -848,7 +862,7 @@ body.elementor-page-59 .elementor-59 .about-right-col .sec-cert-badges{margin-bo
 /* --- M-A. Latar hero berlapis: 2 glow + dot grid memudar --- */
 body.elementor-page-59 .elementor-59 .mt-hero-slide{position:relative;overflow:visible}
 body.elementor-page-59 .elementor-59 .mt-hero-slide::before{content:"";position:absolute;top:-80px;right:-40px;width:420px;height:420px;border:0;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.07),rgba(37,99,235,0) 70%);pointer-events:none;z-index:0}
-body.elementor-page-59 .elementor-59 .mt-hero-slide::after{content:"";position:absolute;left:-120px;bottom:-60px;width:360px;height:360px;border:0;border-radius:50%;background:radial-gradient(circle,rgba(147,197,253,.25),rgba(147,197,253,0) 70%);pointer-events:none;z-index:0}
+body.elementor-page-59 .elementor-59 .mt-hero-slide::after{content:"";position:absolute;left:8%;bottom:-140px;width:640px;height:360px;border:0;border-radius:50%;background:radial-gradient(closest-side,rgba(37,99,235,.05),rgba(37,99,235,0));pointer-events:none;z-index:0}
 body.elementor-page-59 .elementor-59 .mt-hero-slide>*{position:relative;z-index:1}
 body.elementor-page-59 .elementor-59 .hero-right-col::before{content:"";position:absolute;top:-26px;right:-8px;width:210px;height:210px;border:0;border-radius:50%;background:radial-gradient(circle at 32% 32%,rgba(37,99,235,.16),rgba(37,99,235,0) 70%);pointer-events:none;z-index:0}
 /* Pola titik di belakang foto, memudar ke tepi (ganti blob lama di atas) */
@@ -870,10 +884,10 @@ body.elementor-page-59 .elementor-59 .hero-right-col{box-shadow:none}
 body.elementor-page-59 .elementor-59 .mt-hero-slide .hero-truck-img{position:relative;overflow:hidden;border-radius:32px}
 body.elementor-page-59 .elementor-59 .mt-hero-slide .hero-truck-img img{border:1px solid rgba(255,255,255,.9);border-radius:32px;box-shadow:0 2px 4px rgba(15,23,42,.06),0 24px 60px rgba(37,99,235,.18)}
 body.elementor-page-59 .elementor-59 .mt-hero-slide .hero-truck-img::before{content:"";position:absolute;inset:0;border:0;border-radius:32px;background:linear-gradient(180deg,rgba(37,99,235,.10) 0%,rgba(37,99,235,0) 45%),radial-gradient(120% 120% at 50% 40%,rgba(15,23,42,0) 60%,rgba(15,23,42,.10) 100%);pointer-events:none;z-index:2}
-body.elementor-page-59 .elementor-59 .hero-right-col::after{content:"";position:absolute;inset:0;border:1px solid #DBEAFE;border-radius:32px;background:#EFF6FF;transform:translate(16px,16px);pointer-events:none;z-index:0}
+body.elementor-page-59 .elementor-59 .hero-right-col::after{content:"";position:absolute;inset:0;border:1px solid #DBEAFE;border-radius:32px;background:#EFF6FF;transform:translate(14px,14px);pointer-events:none;z-index:0}
 
 /* --- M-D. Pil kaca + melayang halus --- */
-body.elementor-page-59 .elementor-59 .hero-chip-pill{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(226,232,240,.9);box-shadow:0 10px 30px rgba(15,42,92,.12);animation:mtChipFloat 6s ease-in-out infinite alternate}
+body.elementor-page-59 .elementor-59 .hero-chip-pill{background:rgba(255,255,255,.96);border:1px solid #E2E8F0;box-shadow:0 10px 30px rgba(15,42,92,.12);animation:mtChipFloat 6s ease-in-out infinite alternate}
 body.elementor-page-59 .elementor-59 .hero-card-live{animation-delay:3s}
 body.elementor-page-59 .elementor-59 .hero-card-live .elementor-icon-box-title::before{animation:mtDotPulse 2.4s ease-in-out infinite}
 @keyframes mtChipFloat{from{transform:translateY(0)}to{transform:translateY(-6px)}}

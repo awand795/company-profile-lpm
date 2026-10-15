@@ -84,6 +84,7 @@ Semua foto di bawah diunduh dari **Pexels** (lisensi: gratis untuk penggunaan ko
 | `mt6-testi2.webp` | 242 | Testimoni (avatar anonim) | https://www.pexels.com/photo/36478515/ | Kontributor Pexels (tak teridentifikasi) | Pexels License |
 | `mt6-testi3.webp` | 243 | Testimoni (avatar anonim) | https://www.pexels.com/photo/34518155/ | Kontributor Pexels (tak teridentifikasi) | Pexels License |
 | `mt6-hero-bengkel.webp` | 244 | Hero REVAMP6c (montir inspeksi roda + tablet, tanpa merek) | https://www.pexels.com/photo/6720537/ | Gustavo Fring | Pexels License |
+| `mt6-hero-terang.webp` | 315 | Hero REVAMP6o (olahan Pillow sekali jalan dari foto ID 244: gamma 0.85 + grading biru highlight + kontras lembut, WebP q82) | https://www.pexels.com/photo/6720537/ (olahan) | Gustavo Fring | Pexels License |
 | `mt6-svc1-armada.webp` | 245 | Layanan 01 B2B REVAMP6c (deretan armada dari udara) | https://www.pexels.com/photo/33623771/ | abdo alshreef | Pexels License |
 | `mt6-svc5-derek.webp` | 246 | Layanan 05 derek REVAMP6c (ruas jalan + kerucut pengaman) | https://www.pexels.com/photo/31802586/ | Kontributor Pexels (tak teridentifikasi) | Pexels License |
 

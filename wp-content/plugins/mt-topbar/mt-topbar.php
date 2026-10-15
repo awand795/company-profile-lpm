@@ -131,7 +131,7 @@ add_action( 'wp_head', function () {
 	}
 	if ( function_exists( 'is_page' ) && is_page( 59 ) ) {
 		echo '<meta name="description" content="PT Master Truck Indonesia — bengkel spesialis truk niaga & distributor resmi Pertamina, Mobil Delvac, Dunlop, GS Astra di KIM III Medan. Servis armada, overhaul, derek 24 jam." />' . "\n";
-		echo '<link rel="preload" as="image" href="/wp-content/uploads/2026/10/mt6-hero-bengkel.webp" fetchpriority="high" />' . "\n";
+		echo '<link rel="preload" as="image" href="/wp-content/uploads/2026/10/mt6-hero-terang.webp" fetchpriority="high" />' . "\n";
 	}
 }, 1 );
 

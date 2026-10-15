@@ -57,7 +57,7 @@ FLEET_REGISTER = f"{FLEET_URL}/#register"
 # team1-4 = ID 237-240 (aktivitas bengkel TANPA wajah — label jabatan saja);
 # testi1-3 = ID 241-243. Lihat CREDITS.md untuk sumber/fotografer/lisensi.
 IMG = {
-    "hero": (f"{BASE}/mt6-hero-bengkel.webp", 244),
+    "hero": (f"{BASE}/mt6-hero-terang.webp", 315),
     "about": (f"{BASE}/mt6-about.webp", 231),
     "svc1": (f"{BASE}/mt6-svc1-armada.webp", 245),
     "svc2": (f"{BASE}/mt6-svc2.webp", 233),
@@ -586,7 +586,7 @@ feat_body_pad = {"padding": px4(28, 28, 28, 28),
                  "padding_tablet": px4(24, 24, 24, 24),
                  "padding_mobile": px4(22, 22, 22, 22)}
 fw1 = [
-    W_image("hero", alt="Montir memeriksa roda truk dengan tablet di bengkel",
+    W_image("team1", alt="Montir melakukan inspeksi menyeluruh di bengkel",
             cls="feature-photo-img", radius=24, shadow_on=False),
     W_text("<p>30 Titik Inspeksi</p>", align="left", cls="feature-photo-badge", size=14, color=C["primary"]),
     inner([col(100, "", [
