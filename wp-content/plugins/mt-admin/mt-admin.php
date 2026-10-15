@@ -289,8 +289,8 @@ add_action( 'wp_dashboard_setup', function () {
 add_action( 'wp_dashboard_setup', function () {
 	wp_add_dashboard_widget( 'mt_admin_welcome', 'Selamat datang di Panel Master Truck', 'mt_admin_welcome_box' );
 	wp_add_dashboard_widget( 'mt_admin_quick', 'Aksi Cepat', 'mt_admin_quick_box' );
-	wp_add_dashboard_widget( 'mt_admin_status', 'Status Situs', 'mt_admin_status_box' );
-	wp_add_dashboard_widget( 'mt_admin_help', 'Bantuan Singkat', 'mt_admin_help_box' );
+	wp_add_dashboard_widget( 'mt_admin_status', 'Status Situs', 'mt_admin_status_box', null, null, 'side' );
+	wp_add_dashboard_widget( 'mt_admin_help', 'Bantuan Singkat', 'mt_admin_help_box', null, null, 'side' );
 }, 5 );
 
 add_action( 'wp_dashboard_setup', function () {

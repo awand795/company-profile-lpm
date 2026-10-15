@@ -253,12 +253,17 @@ body.wp-admin #dashboard-widgets .postbox .postbox-header {
 
 body.wp-admin .mt-dash-welcome h2 {
     color: #0F2A5C;
-    font-size: 22px;
-    margin: 4px 0 2px;
+    font-size: 19px;
+    margin: 0 0 2px;
 }
 
 body.wp-admin .mt-dash-welcome p {
     color: #475569;
+    margin: 0 0 10px;
+}
+
+body.wp-admin .mt-dash-welcome p:last-child {
+    margin-bottom: 2px;
 }
 
 body.wp-admin .mt-dash-quick {
