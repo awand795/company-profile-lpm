@@ -73,18 +73,37 @@ add_action( 'admin_enqueue_scripts', function () {
 	wp_enqueue_style( 'mt-admin', $base, array(), $ver );
 } );
 
-// Logo MT + nama di atas sidebar (URL ikon situs dinamis).
+// Brand Master Truck di atas sidebar: chip MT + nama & role.
 add_action( 'admin_head', function () {
 	if ( mt_admin_is_editor_screen() ) {
 		return;
 	}
 	$icon_id = (int) get_option( 'site_icon', 0 );
 	$icon = $icon_id ? wp_get_attachment_image_url( $icon_id, 64 ) : '';
-	if ( ! $icon ) {
-		return;
-	}
-	echo '<style>body.wp-admin #adminmenuwrap::before{content:"";display:block;width:40px;height:40px;margin:14px auto 2px;border-radius:12px;background:url("' . esc_url( $icon ) . '") center/cover no-repeat, #EFF6FF;box-shadow:0 4px 10px -2px rgba(15,23,42,.12)}'
-		. 'body.wp-admin #adminmenumain::after{content:"MASTER TRUCK";display:block;text-align:center;font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;font-weight:800;letter-spacing:1.5px;color:#0F2A5C;padding:0 0 10px}</style>' . "\n";
+	$chip_html = $icon
+		? '<span class="mt-sidebar-chip" style="background-image:url(\'' . esc_url( $icon ) . '\')"></span>'
+		: '<span class="mt-sidebar-chip"><span class="mt-chip-text">MT</span></span>';
+	?>
+	<script>
+	(function() {
+		function injectMtBrand() {
+			var wrap = document.getElementById('adminmenuwrap');
+			if (wrap && !document.getElementById('mt-sidebar-brand')) {
+				var div = document.createElement('div');
+				div.id = 'mt-sidebar-brand';
+				div.className = 'mt-sidebar-brand';
+				div.innerHTML = '<?php echo addslashes( $chip_html ); ?><div class="mt-brand-info"><span class="mt-brand-name">MASTER TRUCK</span><span class="mt-brand-role">Panel Pengelola</span></div>';
+				wrap.insertBefore(div, wrap.firstChild);
+			}
+		}
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', injectMtBrand);
+		} else {
+			injectMtBrand();
+		}
+	})();
+	</script>
+	<?php
 } );
 
 /* ============ GRUP A: admin bar + footer ============ */
@@ -150,19 +169,26 @@ add_filter( 'gettext', function ( $translated, $text, $domain ) {
 add_action( 'admin_menu', function () {
 	// Item Beranda: langsung ke editor Elementor Page 59.
 	add_menu_page(
-		'Beranda',
-		'Beranda',
+		'Edit Beranda',
+		'Edit Beranda',
 		'edit_pages',
 		MT_ADMIN_EDITOR_URL,
 		'',
 		'dashicons-admin-home',
 		2
 	);
-	// Label ulang arsip PHP (tetap di grup Lanjutan bila disederhanakan).
 }, 5 );
 
 add_action( 'admin_menu', function () {
-	global $menu;
+	global $menu, $submenu;
+	// Ganti submenu Dasbor 'Beranda' (Home) menjadi 'Ringkasan'
+	if ( isset( $submenu['index.php'] ) ) {
+		foreach ( $submenu['index.php'] as $k => $item ) {
+			if ( isset( $item[2] ) && 'index.php' === $item[2] ) {
+				$submenu['index.php'][ $k ][0] = 'Ringkasan';
+			}
+		}
+	}
 	foreach ( (array) $menu as $k => $m ) {
 		if ( isset( $m[2] ) && 'mt-landing-editor' === $m[2] ) {
 			$menu[ $k ][0] = 'Landing Page (Arsip PHP)';
@@ -190,10 +216,10 @@ add_action( 'admin_menu', function () {
 	remove_menu_page( 'ultimate-addons' ); // UAE alias (bila ada)
 }, 999 );
 
-// Urutan: Dashboard, Beranda, Halaman, Media, Pengguna, Tampilan, Pengaturan, Lanjutan...
+// Urutan: Dasbor, Edit Beranda, Halaman, Media, Pengguna, Tampilan, Pengaturan, [label LANJUTAN], Landing Page (Arsip PHP), Plugin, Peralatan, (menu lain bila Mode lanjutan aktif)
 add_filter( 'custom_menu_order', '__return_true' );
 add_filter( 'menu_order', function ( $order ) {
-	if ( mt_admin_is_advanced() || ! $order ) {
+	if ( ! $order ) {
 		return $order;
 	}
 	$want = array(
@@ -206,11 +232,11 @@ add_filter( 'menu_order', function ( $order ) {
 		'options-general.php',
 		'separator-mt-lanjutan',
 		'mt-landing-editor',
+		'plugins.php',
+		'tools.php',
 		'elementor',
 		'edit.php?post_type=elementor_library',
 		'hfe',
-		'plugins.php',
-		'tools.php',
 	);
 	$by_slug = array();
 	foreach ( (array) $order as $slug ) {
@@ -231,17 +257,8 @@ add_filter( 'menu_order', function ( $order ) {
 } );
 
 add_action( 'admin_menu', function () {
-	if ( mt_admin_is_advanced() ) {
-		return;
-	}
 	global $menu;
-	$menu[59] = array( '', 'read', 'separator-mt-lanjutan', '', 'wp-menu-separator' );
-	foreach ( (array) $menu as $k => $m ) {
-		if ( is_array( $m ) && isset( $m[2] ) && 'separator-mt-lanjutan' === $m[2] ) {
-			$menu[ $k ][0] = 'Lanjutan';
-			$menu[ $k ][4] = ( isset( $m[4] ) ? $m[4] . ' ' : '' ) . 'mt-sep-lanjutan-label';
-		}
-	}
+	$menu[59] = array( '', 'read', 'separator-mt-lanjutan', '', 'wp-menu-separator mt-sep-lanjutan' );
 }, 1000 );
 
 // Saklar Mode lanjutan di profil pengguna.

@@ -23,7 +23,96 @@ body.wp-admin .welcome-panel-close {
     display: none;
 }
 
+/* --- Brand di atas sidebar --- */
+body.wp-admin #mt-sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 14px 14px 14px;
+    border-bottom: 1px solid #F1F5F9;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+body.wp-admin .mt-sidebar-chip {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 10px;
+    background-color: #2563EB;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px -2px rgba(37, 99, 235, 0.35);
+    flex-shrink: 0;
+}
+
+body.wp-admin .mt-chip-text {
+    color: #FFFFFF;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 1;
+}
+
+body.wp-admin .mt-brand-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.25;
+    overflow: hidden;
+}
+
+body.wp-admin .mt-brand-name {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    color: #0F2A5C;
+    letter-spacing: normal;
+    white-space: nowrap;
+}
+
+body.wp-admin .mt-brand-role {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: #64748B;
+    white-space: nowrap;
+}
+
+/* Mode sidebar terlipat: hanya chip MT */
+body.wp-admin.folded #mt-sidebar-brand {
+    padding: 14px 0 10px 0;
+    justify-content: center;
+}
+
+body.wp-admin.folded #mt-sidebar-brand .mt-brand-info {
+    display: none;
+}
+
 /* --- Sidebar terang --- */
+@media screen and (min-width: 961px) {
+    body.wp-admin:not(.folded) #adminmenuback,
+    body.wp-admin:not(.folded) #adminmenumain,
+    body.wp-admin:not(.folded) #adminmenuwrap,
+    body.wp-admin:not(.folded) #adminmenu {
+        width: 220px;
+    }
+
+    body.wp-admin:not(.folded) #wpcontent,
+    body.wp-admin:not(.folded) #wpfooter {
+        margin-left: 220px;
+    }
+
+    body.wp-admin:not(.folded) #adminmenu .wp-submenu {
+        width: 220px;
+    }
+}
+
 body.wp-admin #adminmenuback,
 body.wp-admin #adminmenuwrap,
 body.wp-admin #adminmenu {
@@ -46,7 +135,7 @@ body.wp-admin #adminmenu li.menu-top:hover,
 body.wp-admin #adminmenu li.opensub > a.menu-top,
 body.wp-admin #adminmenu li > a.menu-top:focus {
     background-color: #EFF6FF;
-    color: #0F172A;
+    color: #0F2A5C;
 }
 
 body.wp-admin #adminmenu li.wp-has-current-submenu a.wp-has-current-submenu,
@@ -63,28 +152,142 @@ body.wp-admin #adminmenu li.current .wp-menu-image::before {
     color: #2563EB;
 }
 
-body.wp-admin #adminmenu .wp-submenu {
+/* Submenu aktif (statis/inline) */
+body.wp-admin:not(.folded) #adminmenu li.wp-has-current-submenu .wp-submenu,
+body.wp-admin:not(.folded) #adminmenu li.current .wp-submenu {
+    position: static;
+    top: auto;
+    left: auto;
+    float: none;
+    display: block;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 4px 0 8px 0;
+    margin: 0;
+}
+
+body.wp-admin:not(.folded) #adminmenu li.wp-has-current-submenu .wp-submenu li,
+body.wp-admin:not(.folded) #adminmenu li.current .wp-submenu li {
+    margin: 0;
+    padding: 0;
+}
+
+body.wp-admin:not(.folded) #adminmenu li.wp-has-current-submenu .wp-submenu a,
+body.wp-admin:not(.folded) #adminmenu li.current .wp-submenu a {
+    padding: 6px 12px 6px 36px;
+    font-size: 14px;
+    color: #475569;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    display: block;
+}
+
+body.wp-admin:not(.folded) #adminmenu li.wp-has-current-submenu .wp-submenu a:hover,
+body.wp-admin:not(.folded) #adminmenu li.wp-has-current-submenu .wp-submenu a:focus,
+body.wp-admin:not(.folded) #adminmenu li.current .wp-submenu a:hover,
+body.wp-admin:not(.folded) #adminmenu li.current .wp-submenu a:focus {
+    color: #2563EB;
+    background-color: #EFF6FF;
+}
+
+body.wp-admin:not(.folded) #adminmenu li.wp-has-current-submenu .wp-submenu li.current a,
+body.wp-admin:not(.folded) #adminmenu li.current .wp-submenu li.current a {
+    color: #2563EB;
+    font-weight: 700;
+    background-color: transparent;
+}
+
+/* Gaya kartu melayang HANYA untuk hover pada item tidak aktif dan sidebar terlipat */
+body.wp-admin:not(.folded) #adminmenu li.menu-top:not(.wp-has-current-submenu):not(.current):hover .wp-submenu,
+body.wp-admin:not(.folded) #adminmenu li.opensub:not(.wp-has-current-submenu):not(.current) .wp-submenu,
+body.wp-admin.folded #adminmenu .wp-submenu {
     background-color: #FFFFFF;
     border: 1px solid #E2E8F0;
     border-radius: 16px;
     box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.12);
-    padding: 6px;
+    padding: 8px;
+    margin-left: 4px;
 }
 
-body.wp-admin #adminmenu .wp-submenu a {
+body.wp-admin:not(.folded) #adminmenu li.menu-top:not(.wp-has-current-submenu):not(.current):hover .wp-submenu a,
+body.wp-admin:not(.folded) #adminmenu li.opensub:not(.wp-has-current-submenu):not(.current) .wp-submenu a,
+body.wp-admin.folded #adminmenu .wp-submenu a {
     color: #475569;
     border-radius: 10px;
+    font-size: 13px;
+    padding: 6px 12px;
 }
 
-body.wp-admin #adminmenu .wp-submenu a:hover,
-body.wp-admin #adminmenu .wp-submenu a:focus {
+body.wp-admin:not(.folded) #adminmenu li.menu-top:not(.wp-has-current-submenu):not(.current):hover .wp-submenu a:hover,
+body.wp-admin:not(.folded) #adminmenu li.opensub:not(.wp-has-current-submenu):not(.current) .wp-submenu a:hover,
+body.wp-admin.folded #adminmenu .wp-submenu a:hover {
     background-color: #EFF6FF;
     color: #2563EB;
 }
 
-body.wp-admin #adminmenu .wp-submenu li.current a {
-    color: #2563EB;
+/* --- Label grup LANJUTAN --- */
+body.wp-admin:not(.folded) #adminmenu li.mt-sep-lanjutan {
+    height: auto;
+    margin: 16px 0 6px 0;
+    padding: 0 16px;
+    cursor: default;
+    border: none;
+    background: transparent;
+}
+
+body.wp-admin:not(.folded) #adminmenu li.mt-sep-lanjutan::before {
+    content: "LANJUTAN";
+    display: block;
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    font-size: 11px;
     font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: #94A3B8;
+    line-height: 1.4;
+}
+
+body.wp-admin #adminmenu li.mt-sep-lanjutan .separator {
+    display: none;
+}
+
+/* Mode terlipat: garis pemisah tipis */
+body.wp-admin.folded #adminmenu li.mt-sep-lanjutan {
+    height: 1px;
+    margin: 12px 10px;
+    padding: 0;
+    border-top: 1px solid #E2E8F0;
+    background: transparent;
+}
+
+body.wp-admin.folded #adminmenu li.mt-sep-lanjutan::before {
+    display: none;
+}
+
+/* Item grup LANJUTAN sedikit lebih redup tapi tetap jelas (kontras >= 4.5:1) */
+body.wp-admin #adminmenu #toplevel_page_mt-landing-editor a.menu-top,
+body.wp-admin #adminmenu #menu-plugins a.menu-top,
+body.wp-admin #adminmenu #menu-tools a.menu-top,
+body.wp-admin #adminmenu #toplevel_page_elementor a.menu-top,
+body.wp-admin #adminmenu #menu-posts-elementor_library a.menu-top,
+body.wp-admin #adminmenu #toplevel_page_hfe a.menu-top,
+body.wp-admin #adminmenu #menu-posts a.menu-top,
+body.wp-admin #adminmenu #menu-comments a.menu-top {
+    color: #64748B;
+}
+
+body.wp-admin #adminmenu #toplevel_page_mt-landing-editor:hover a.menu-top,
+body.wp-admin #adminmenu #menu-plugins:hover a.menu-top,
+body.wp-admin #adminmenu #menu-tools:hover a.menu-top,
+body.wp-admin #adminmenu #toplevel_page_elementor:hover a.menu-top,
+body.wp-admin #adminmenu #menu-posts-elementor_library:hover a.menu-top,
+body.wp-admin #adminmenu #toplevel_page_hfe:hover a.menu-top,
+body.wp-admin #adminmenu #menu-posts:hover a.menu-top,
+body.wp-admin #adminmenu #menu-comments:hover a.menu-top {
+    color: #0F172A;
 }
 
 body.wp-admin #collapse-button {
