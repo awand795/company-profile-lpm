@@ -120,8 +120,13 @@ body.wp-admin #adminmenu {
     background-color: #0F172A;
 }
 
+body.wp-admin #adminmenuback,
+body.wp-admin #adminmenuwrap {
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 body.wp-admin #adminmenu {
-    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    border-right: none;
     padding: 0 8px;
 }
 
@@ -178,10 +183,32 @@ body.wp-admin #adminmenu li.current .wp-menu-image::before {
     color: #FFFFFF;
 }
 
-/* Sembunyikan panah default WordPress */
+/* Sembunyikan semua panah segitiga default WordPress (:after) yang membuat tepi sidebar patah/menonjol */
+body.wp-admin #adminmenu a.wp-has-current-submenu::after,
+body.wp-admin #adminmenu > li.current > a.current::after,
+body.wp-admin #adminmenu li.wp-has-current-submenu > a::after,
+body.wp-admin #adminmenu li.current > a::after,
+body.wp-admin #adminmenu a.menu-top::after,
+body.wp-admin #adminmenu li.menu-top::after,
+body.wp-admin #adminmenu li.wp-has-submenu::after,
+body.wp-admin #adminmenu li.wp-has-submenu:hover::after,
+body.wp-admin #adminmenu li.wp-has-submenu:focus-within::after,
+body.wp-admin #adminmenu a.wp-has-current-submenu:after,
+body.wp-admin #adminmenu > li.current > a.current:after,
+body.wp-admin #adminmenu li.wp-has-current-submenu > a:after,
+body.wp-admin #adminmenu li.current > a:after,
+body.wp-admin #adminmenu a.menu-top:after,
+body.wp-admin #adminmenu li.menu-top:after,
+body.wp-admin #adminmenu li.wp-has-submenu:after,
+body.wp-admin #adminmenu li.wp-has-submenu:hover:after,
+body.wp-admin #adminmenu li.wp-has-submenu:focus-within:after,
 body.wp-admin #adminmenu .wp-menu-arrow,
 body.wp-admin #adminmenu .wp-menu-arrow div {
     display: none;
+    content: none;
+    border: none;
+    width: 0;
+    height: 0;
 }
 
 /* Submenu aktif (statis/inline) di dalam sidebar gelap */

@@ -32,6 +32,13 @@
     background-color: rgba(255, 255, 255, 0.08);
 }
 
+#adminmenu a.wp-has-current-submenu:after,
+#adminmenu > li.current > a.current:after {
+    border-right-color: transparent;
+    display: none;
+    content: none;
+}
+
 #wpadminbar {
     background-color: #0B1120;
     color: #E2E8F0;
