@@ -19,10 +19,10 @@ param(
     [string]$Url = 'http://localhost:5000'
 )
 $ErrorActionPreference = 'Stop'
-$root = Split-Path -Parent $MyInvocation.MyCommand.Path
+$root = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 Set-Location $root
 
-$files = @(git diff --name-only $To -- . ':!playwright_review' ':!scratch')
+$files = @(git diff --name-only $To -- .) | Where-Object { $_ -notmatch '^(playwright_review|scratch)/' }
 if (-not $files) { Write-Host "Tidak ada perbedaan dengan $To."; exit 0 }
 Write-Host "File yang akan di-restore ke ${To}:"
 $files | ForEach-Object { Write-Host "  $_" }

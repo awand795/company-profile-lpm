@@ -6,7 +6,7 @@ TO="${1:-}"; RESTORE=0; WHATIF=0
 for a in "$@"; do case "$a" in --restore-db) RESTORE=1;; --whatif) WHATIF=1;; esac; done
 [[ -z "$TO" ]] && { echo "pakai: rollback.sh <ref> [--restore-db] [--whatif]"; exit 1; }
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"; cd "$ROOT"
-FILES=$(git diff --name-only "$TO" -- . ':!playwright_review' ':!scratch')
+FILES=$(git diff --name-only "$TO" -- . | grep -v -e '^playwright_review/' -e '^scratch/' || true)
 [[ -z "$FILES" ]] && { echo "Tidak ada perbedaan dengan $TO."; exit 0; }
 echo "File yang akan di-restore ke $TO:"; echo "$FILES"
 [[ $WHATIF -eq 1 ]] && exit 0
