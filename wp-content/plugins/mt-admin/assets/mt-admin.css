@@ -31,9 +31,10 @@ body.wp-admin #mt-sidebar-brand {
     gap: 12px;
     padding: 16px 14px 14px 14px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     box-sizing: border-box;
-    width: 100%;
+    width: 220px;
+    max-width: 220px;
 }
 
 body.wp-admin .mt-sidebar-chip {
@@ -102,6 +103,7 @@ body.wp-admin.folded #mt-sidebar-brand .mt-brand-info {
     body.wp-admin:not(.folded) #adminmenuwrap,
     body.wp-admin:not(.folded) #adminmenu {
         width: 220px;
+        box-sizing: border-box;
     }
 
     body.wp-admin:not(.folded) #wpcontent,
@@ -111,6 +113,7 @@ body.wp-admin.folded #mt-sidebar-brand .mt-brand-info {
 
     body.wp-admin:not(.folded) #adminmenu .wp-submenu {
         width: 220px;
+        box-sizing: border-box;
     }
 }
 
@@ -123,11 +126,20 @@ body.wp-admin #adminmenu {
 body.wp-admin #adminmenuback,
 body.wp-admin #adminmenuwrap {
     border-right: 1px solid rgba(255, 255, 255, 0.08);
+    box-sizing: border-box;
 }
 
 body.wp-admin #adminmenu {
     border-right: none;
     padding: 0 8px;
+    box-sizing: border-box;
+    width: 220px;
+}
+
+body.wp-admin #adminmenu li.menu-top,
+body.wp-admin #adminmenu a.menu-top {
+    width: auto;
+    box-sizing: border-box;
 }
 
 body.wp-admin #adminmenu a.menu-top {
@@ -227,6 +239,7 @@ body.wp-admin:not(.folded) #adminmenu li.current .wp-submenu {
     padding: 4px 0 8px 0;
     margin: 0;
     width: 100%;
+    box-sizing: border-box;
 }
 
 body.wp-admin:not(.folded) #adminmenu li.wp-has-current-submenu .wp-submenu li,
@@ -235,6 +248,8 @@ body.wp-admin:not(.folded) #adminmenu li.current .wp-submenu li {
     background-color: transparent;
     margin: 0;
     padding: 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 body.wp-admin:not(.folded) #adminmenu li.wp-has-current-submenu .wp-submenu a,
@@ -247,6 +262,8 @@ body.wp-admin:not(.folded) #adminmenu li.current .wp-submenu a {
     background-color: transparent;
     box-shadow: none;
     display: block;
+    width: auto;
+    box-sizing: border-box;
     transition: color 0.15s ease, background-color 0.15s ease;
 }
 
