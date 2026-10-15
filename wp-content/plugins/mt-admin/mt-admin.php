@@ -120,6 +120,14 @@ add_action( 'init', function () {
 	if ( function_exists( 'get_available_languages' ) && in_array( 'id_ID', get_available_languages(), true ) ) {
 		add_filter( 'locale', function () { return 'id_ID'; }, 1 );
 	}
+	// Bahasa pengguna admin yang masih kosong -> Indonesia (sekali saja).
+	if ( is_admin() ) {
+		foreach ( get_users( array( 'role' => 'administrator', 'fields' => 'ID', 'number' => 20 ) ) as $uid ) {
+			if ( '' === get_user_meta( $uid, 'locale', true ) ) {
+				update_user_meta( $uid, 'locale', 'id_ID' );
+			}
+		}
+	}
 } );
 
 // Sisa string Inggris milik alur kita (menu + widget + profil).
