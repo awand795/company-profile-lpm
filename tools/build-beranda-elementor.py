@@ -579,26 +579,6 @@ stats["elements"] = [inner([
 ], css_classes="hero-stats-inner", direction="row")]
 sections.append(stats)
 
-# ============ 2c. STRIP MEREK (kompak, 1 baris logo grayscale) ============
-# REVAMP6o B1: menggantikan section Prinsipal dinding-6-kartu (dihapus agar
-# logo tidak tampil dua kali). Anchor #principals dipertahankan untuk nav.
-brand = el_container("sec-principals sec-brands", css_id="principals", boxed=1200, bg=C["white"], style=sec_pad(), nav="Prinsipal")
-brand["elements"] = [inner([
-    col(100, "", [
-        W_text("Merek resmi yang kami pakai", align="center", cls="brand-strip-label", size=13, color=C["faint"]),
-        inner([
-            col(None, "principal-wall-card", [W_image("pertamina", alt="Logo Pertamina", cls="brand-logo-img", radius=0, shadow_on=False)], None),
-            col(None, "principal-wall-card", [W_image("mobil", alt="Logo Mobil", cls="brand-logo-img", radius=0, shadow_on=False)], None),
-            col(None, "principal-wall-card", [W_image("dunlop", alt="Logo Dunlop", cls="brand-logo-img", radius=0, shadow_on=False)], None),
-            col(None, "principal-wall-card", [W_image("gsastra", alt="Logo GS Astra", cls="brand-logo-img", radius=0, shadow_on=False)], None),
-            col(None, "principal-wall-card", [W_image("incoe", alt="Logo Incoe", cls="brand-logo-img", radius=0, shadow_on=False)], None),
-            col(None, "principal-wall-card", [W_image("sakura", alt="Logo Sakura", cls="brand-logo-img", radius=0, shadow_on=False)], None),
-        ], css_classes="sec-principals-wall brand-logo-row", direction="row",
-            style={"flex_gap": fsize(32), "flex_align_items": "center", "flex_justify_content": "center"}),
-    ], None),
-], css_classes="", direction="column")]
-sections.append(brand)
-
 # ============ 3. (MARQUEE DIHAPUS — lihat section Prinsipal di bawah) ============
 # REVAMP6b A5: logo tampil dua kali (marquee + dinding). Dinding dipertahankan
 # karena informatif (nama + spesialisasi), stabil untuk hover, dan tetap 100%
@@ -798,8 +778,32 @@ steps["elements"] = [inner([
 ], css_classes="", direction="column")]
 sections.append(steps)
 
-# ============ 8. (PRINSIPAL dinding-6-kartu DIHAPUS di REVAMP6o B1 —
-# digabung ke strip kompak tepat di bawah strip statistik) ============
+# ============ 8. PRINSIPAL (detail jaminan + 6 kartu logo) ============
+# REVAMP6p: dikembalikan persis seperti pre-ronde14 atas permintaan pemilik
+# (B1 ronde 14 dibatalkan; baris abu-abu dihapus).
+prins = el_container("sec-principals", css_id="principals", boxed=1200, bg=C["white"], style=sec_pad(), nav="Prinsipal")
+def princ_card(img, name, desc):
+    return [W_image(img, alt=f"Logo {name}", radius=8, shadow_on=False),
+            W_heading(name, tag="h3", align="center", style_fn=T_H3),
+            W_text(f"<p>{desc}</p>", align="center", size=14, color=C["faint"])]
+prins["elements"] = [inner([
+    col(100, "", [
+        W_heading("Sparepart Asli, Bergaransi", tag="p", align="center", cls="badge-section-pill", style_fn=T_EYEBROW),
+        W_heading("Merek Resmi yang Kami Pakai", tag="h2", align="center", style_fn=T_H2),
+        # TODO: konfirmasi pemilik — klaim ISO 9001:2015 & SMK3.
+        W_text("Pasokan langsung dari pabrikan — keaslian terjamin dengan standar ISO 9001:2015 &amp; SMK3.",
+               align="center", cls="sec-lead", size=16),
+        inner([
+            col(16, "principal-wall-card", princ_card("pertamina", "Pertamina", "Oli mesin diesel"), card(radius=20, pad=(24, 16, 24, 16))),
+            col(16, "principal-wall-card", princ_card("mobil", "Mobil Delvac", "Oli mesin tugas berat"), card(radius=20, pad=(24, 16, 24, 16))),
+            col(17, "principal-wall-card", princ_card("dunlop", "Dunlop", "Ban Truk Komersial"), card(radius=20, pad=(24, 16, 24, 16))),
+            col(17, "principal-wall-card", princ_card("gsastra", "GS Astra", "Aki truk 24V"), card(radius=20, pad=(24, 16, 24, 16))),
+            col(17, "principal-wall-card", princ_card("incoe", "Incoe", "Aki truk tangguh"), card(radius=20, pad=(24, 16, 24, 16))),
+            col(17, "principal-wall-card", princ_card("sakura", "Sakura", "Filter Solar &amp; Udara"), card(radius=20, pad=(24, 16, 24, 16))),
+        ], css_classes="sec-principals-wall"),
+    ], None),
+], css_classes="", direction="column")]
+sections.append(prins)
 
 # ============ 9. DEREK 24 JAM (section putih; kartu lebar tint biru) ============
 derek = el_container("booking-section-wrapper", css_id="booking", boxed=1200, bg=C["white"], style=sec_pad(), nav="Derek")

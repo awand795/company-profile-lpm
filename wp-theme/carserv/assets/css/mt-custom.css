@@ -962,17 +962,20 @@ body.elementor-editor-preview .elementor-59 .hero-right-col,
 body.elementor-editor-preview .elementor-59 .hero-chip-pill{animation:none;opacity:1;transform:none}
 
 /* ============================================================
-   REVAMP6o - RONDE 14 Grup B: strip merek kompak (10-2026)
-   Tanpa !important. Hook .sec-principals/.principal-wall-card
-   dipertahankan agar test logo lama tetap berlaku.
+   REVAMP6p - RONDE 14b: section Merek kembali asli (10-2026)
+   Baris abu-abu B1 dihapus. Kartu: logo asli berwarna, kotak logo
+   seragam agar nama sejajar; tablet 3 kolom, mobile 2 kolom.
    ============================================================ */
-body.elementor-page-59 .elementor-59 .sec-brands .brand-strip-label{text-align:center;margin-bottom:20px}
-body.elementor-page-59 .elementor-59 .sec-brands .brand-logo-row{flex-wrap:wrap;row-gap:20px}
-body.elementor-page-59 .elementor-59 .sec-brands .brand-logo-row .principal-wall-card{width:auto;flex:0 0 auto}
-body.elementor-page-59 .elementor-59 .sec-brands .principal-wall-card{border:0;background:transparent;box-shadow:none;padding:0}
-body.elementor-page-59 .elementor-59 .sec-brands .brand-logo-img img{width:auto;max-width:120px;height:30px;object-fit:contain;margin:0 auto;display:block;filter:grayscale(1);opacity:.7;transition:filter .2s ease,opacity .2s ease,transform .2s ease}
-body.elementor-page-59 .elementor-59 .sec-brands .principal-wall-card:hover .brand-logo-img img{filter:grayscale(0);opacity:1}
-@media (hover:hover) and (min-width:1024px){body.elementor-page-59 .elementor-59 .sec-brands .principal-wall-card:hover{transform:none;box-shadow:none;border-color:transparent}}
+body.elementor-page-59 .elementor-59 .sec-principals .principal-wall-card .elementor-widget-image{min-height:60px;display:flex;align-items:center;justify-content:center}
+body.elementor-page-59 .elementor-59 .sec-principals .principal-wall-card .elementor-widget-image img{filter:none;opacity:1}
+@media (min-width:768px) and (max-width:1023.98px){
+body.elementor-page-59 .elementor-59 .sec-principals-wall{flex-wrap:wrap}
+body.elementor-page-59 .elementor-59 .sec-principals-wall>.principal-wall-card{flex:0 0 calc(33.333% - 14px);width:calc(33.333% - 14px)}
+}
+@media (max-width:767.98px){
+body.elementor-page-59 .elementor-59 .sec-principals-wall{flex-wrap:wrap;justify-content:center}
+body.elementor-page-59 .elementor-59 .sec-principals-wall>.principal-wall-card{flex:0 0 calc(50% - 10px);width:calc(50% - 10px);text-align:center}
+}
 
 /* ============================================================
    REVAMP6o - RONDE 14 Grup C: token, smooth, bar CTA mobile (10-2026)
