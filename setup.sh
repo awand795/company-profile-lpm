@@ -118,12 +118,17 @@ docker exec "$APP" chown -R www-data:www-data \
 
 # --- 3. WP-CLI ---------------------------------------------------------------
 step "Pasang WP-CLI (di dalam container)"
-docker exec "$APP" sh -c 'command -v wp >/dev/null 2>&1 && exit 0
-  echo "  mengunduh wp-cli.phar ..."
-  curl -sSL -o /tmp/wp-cli.phar https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar || exit 11
-  chmod +x /tmp/wp-cli.phar
-  mv /tmp/wp-cli.phar /usr/local/bin/wp
-  wp --version --allow-root >/dev/null || exit 12' || fail "Gagal memasang WP-CLI (cek koneksi internet)."
+wp_ok=0
+for _ in 1 2 3; do
+  docker exec "$APP" sh -c 'command -v wp >/dev/null 2>&1 && exit 0
+    curl -sSL -o /tmp/wp-cli.phar https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar || exit 11
+    chmod +x /tmp/wp-cli.phar
+    mv /tmp/wp-cli.phar /usr/local/bin/wp
+    wp --version --allow-root >/dev/null || exit 12' >/dev/null 2>&1 || true
+  if docker exec "$APP" sh -c 'command -v wp' >/dev/null 2>&1; then wp_ok=1; break; fi
+  sleep 5
+done
+[[ $wp_ok -eq 1 ]] || fail "Gagal memasang WP-CLI (cek koneksi internet)."
 WP="docker exec $APP wp --allow-root --path=/var/www/html"
 $WP --version >/dev/null || fail "WP-CLI tidak bisa dijalankan."
 ok "WP-CLI siap"

@@ -129,13 +129,18 @@ function Invoke-Wp {
 
 # --- 3. WP-CLI ---------------------------------------------------------------
 Write-Step "Pasang WP-CLI (di dalam container)"
-docker exec $App sh -c 'command -v wp >/dev/null 2>&1 && exit 0
-  echo "  mengunduh wp-cli.phar ..."
-  curl -sSL -o /tmp/wp-cli.phar https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar || exit 11
-  chmod +x /tmp/wp-cli.phar
-  mv /tmp/wp-cli.phar /usr/local/bin/wp
-  wp --version --allow-root >/dev/null || exit 12' 
-if ($LASTEXITCODE -ne 0) { Fail "Gagal memasang WP-CLI (cek koneksi internet)." }
+$wpOk = $false
+for ($try = 1; $try -le 3; $try++) {
+    docker exec $App sh -c 'command -v wp >/dev/null 2>&1 && exit 0
+      curl -sSL -o /tmp/wp-cli.phar https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar || exit 11
+      chmod +x /tmp/wp-cli.phar
+      mv /tmp/wp-cli.phar /usr/local/bin/wp
+      wp --version --allow-root >/dev/null || exit 12'
+    docker exec $App wp --version --allow-root --path=/var/www/html 2>$null | Out-Null
+    if ($LASTEXITCODE -eq 0 -and (docker exec $App sh -c 'command -v wp' 2>$null)) { $wpOk = $true; break }
+    Start-Sleep -Seconds 5
+}
+if (-not $wpOk) { Fail "Gagal memasang WP-CLI (cek koneksi internet)." }
 Write-Ok "WP-CLI siap"
 
 # --- 4. Import database ------------------------------------------------------
@@ -218,8 +223,11 @@ if ($LASTEXITCODE -ne 0) { Fail "sync-to-wp.ps1 gagal." }
 # --- 7. Flush permalink + regenerasi CSS Elementor --------------------------
 Write-Step "Flush permalink & regenerasi CSS Elementor"
 if (Invoke-Wp rewrite flush) { Write-Ok "permalink di-flush" }
-$eval = '$ids = array_merge([59,4], range(24,29), [31,32,33,34]); foreach ($ids as $id) { delete_post_meta($id, "_elementor_css"); delete_post_meta($id, "_elementor_element_cache"); } echo count($ids);'
-if (Invoke-Wp eval $eval) { Write-Ok "cache CSS Elementor dibersihkan" }
+foreach ($id in @(59,4,24,25,26,27,28,29,31,32,33,34)) {
+    docker exec $App wp --allow-root --path=/var/www/html post meta delete $id _elementor_css 2>$null | Out-Null
+    docker exec $App wp --allow-root --path=/var/www/html post meta delete $id _elementor_element_cache 2>$null | Out-Null
+}
+Write-Ok "cache CSS Elementor dibersihkan"
 docker exec $App wp --allow-root --path=/var/www/html elementor flush-css | Out-Null
 Write-Ok "elementor flush-css"
 
