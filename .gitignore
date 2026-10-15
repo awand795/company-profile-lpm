@@ -15,6 +15,7 @@ wp_*.png
 # Temporary backups
 backup-*.sql
 _backup_*/
+_backup_lokal_tidak_di_git/
 assets/css/legacy-backup/
 
 # Scratch and review directories

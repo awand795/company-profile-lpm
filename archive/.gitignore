@@ -1,0 +1,20 @@
+# Yang TIDAK boleh masuk arsip Git (pindahkan ke _backup_lokal_tidak_di_git/).
+*.sql
+*.sql.gz
+*.dump
+*.zip
+*.tar*
+*.sqlite
+wp-config.php
+.env*
+*.pem
+*.key
+*id_rsa*
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.mp4
+node_modules/
+vendor/
