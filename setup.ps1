@@ -130,12 +130,15 @@ function Invoke-Wp {
 # --- 3. WP-CLI ---------------------------------------------------------------
 Write-Step "Pasang WP-CLI (di dalam container)"
 $wpOk = $false
+$wpInstallSh = @(
+    'command -v wp >/dev/null 2>&1 && exit 0',
+    'curl -sSL -o /tmp/wp-cli.phar https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar || exit 11',
+    'chmod +x /tmp/wp-cli.phar',
+    'mv /tmp/wp-cli.phar /usr/local/bin/wp',
+    'wp --version --allow-root >/dev/null || exit 12'
+) -join "`n"
 for ($try = 1; $try -le 3; $try++) {
-    docker exec $App sh -c 'command -v wp >/dev/null 2>&1 && exit 0
-      curl -sSL -o /tmp/wp-cli.phar https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar || exit 11
-      chmod +x /tmp/wp-cli.phar
-      mv /tmp/wp-cli.phar /usr/local/bin/wp
-      wp --version --allow-root >/dev/null || exit 12'
+    docker exec $App sh -c $wpInstallSh
     docker exec $App wp --version --allow-root --path=/var/www/html 2>$null | Out-Null
     if ($LASTEXITCODE -eq 0 -and (docker exec $App sh -c 'command -v wp' 2>$null)) { $wpOk = $true; break }
     Start-Sleep -Seconds 5
