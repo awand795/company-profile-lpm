@@ -106,20 +106,15 @@ add_action( 'admin_head', function () {
 	<?php
 } );
 
-/* ============ GRUP A: admin bar + footer ============ */
+/* ============ GRUP C: admin bar + footer ============ */
 add_action( 'admin_bar_menu', function ( $wp_admin_bar ) {
+	// Hapus item dari DOM admin bar (bukan dibuat transparan)
 	$wp_admin_bar->remove_node( 'wp-logo' );
-	$wp_admin_bar->add_node( array(
-		'id'    => 'mt-logo',
-		'title' => '<span class="ab-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg></span><span class="screen-reader-text">Lihat situs</span>',
-		'href'  => home_url( '/' ),
-		'meta'  => array( 'title' => 'Lihat situs' ),
-	) );
-}, 5 );
-
-// Shortcut arsip PHP tidak tampil di admin bar frontend.
-add_action( 'admin_bar_menu', function ( $wp_admin_bar ) {
+	$wp_admin_bar->remove_node( 'comments' );
+	$wp_admin_bar->remove_node( 'new-content' );
+	$wp_admin_bar->remove_node( 'archive' );
 	$wp_admin_bar->remove_node( 'mt_edit_landing' );
+	$wp_admin_bar->remove_node( 'mt-logo' );
 }, 999 );
 
 add_filter( 'admin_footer_text', function () {

@@ -14,6 +14,7 @@ body.wp-admin .wrap > h1,
 body.wp-admin .wrap > h2:first-of-type {
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
     color: #0F2A5C;
+    margin-top: 0;
 }
 
 /* Sembunyikan panel selamat datang bawaan WP jika ada markup tersisa */
@@ -308,20 +309,37 @@ body.wp-admin #wpadminbar {
 }
 
 body.wp-admin #wpadminbar .ab-item,
-body.wp-admin #wpadminbar a.ab-item {
+body.wp-admin #wpadminbar a.ab-item,
+body.wp-admin #wpadminbar .ab-label,
+body.wp-admin #wpadminbar span.noticon {
     color: #334155;
+    opacity: 1;
     height: 32px;
+    line-height: 32px;
 }
 
 body.wp-admin #wpadminbar .ab-icon,
+body.wp-admin #wpadminbar .ab-icon::before,
 body.wp-admin #wpadminbar .ab-item::before {
-    color: #64748B;
+    color: #334155;
+    opacity: 1;
 }
 
 body.wp-admin #wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item,
-body.wp-admin #wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus {
+body.wp-admin #wpadminbar:not(.mobile) .ab-top-menu > li.hover > .ab-item,
+body.wp-admin #wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus,
+body.wp-admin #wpadminbar:not(.mobile) .ab-top-menu > li:hover .ab-icon,
+body.wp-admin #wpadminbar:not(.mobile) .ab-top-menu > li:hover .ab-icon::before,
+body.wp-admin #wpadminbar:not(.mobile) .ab-top-menu > li:hover .ab-item::before {
     background-color: #EFF6FF;
     color: #2563EB;
+}
+
+/* Sembunyikan toggle mobile menu di desktop >= 783px */
+@media screen and (min-width: 783px) {
+    body.wp-admin #wpadminbar #wp-admin-bar-menu-toggle {
+        display: none;
+    }
 }
 
 /* --- Tombol --- */
@@ -445,6 +463,56 @@ body.wp-admin #update-nag {
     border-left: 4px solid #2563EB;
     border-radius: 12px;
     color: #1E3A8A;
+    margin-top: 16px;
+    margin-bottom: 4px;
+}
+
+body.wp-admin .update-nag a,
+body.wp-admin #update-nag a {
+    color: #2563EB;
+    font-weight: 600;
+}
+
+/* --- Tombol Opsi Layar dan Bantuan --- */
+body.wp-admin #screen-meta-links {
+    margin: 12px 20px 12px auto;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    position: static;
+    float: none;
+}
+
+body.wp-admin #screen-meta-links .screen-meta-toggle {
+    position: static;
+    float: none;
+    margin: 0;
+}
+
+body.wp-admin #screen-meta-links .show-settings {
+    height: 32px;
+    line-height: 30px;
+    padding: 0 12px;
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    color: #334155;
+    font-size: 13px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+    display: inline-flex;
+    align-items: center;
+}
+
+body.wp-admin #screen-meta-links .show-settings:hover,
+body.wp-admin #screen-meta-links .show-settings:focus {
+    background-color: #EFF6FF;
+    border-color: #93C5FD;
+    color: #2563EB;
+}
+
+body.wp-admin .wrap {
+    margin-top: 12px;
+    padding-top: 0;
 }
 
 /* --- Kartu dasbor --- */
