@@ -30,8 +30,8 @@ body.wp-admin #mt-sidebar-brand {
     align-items: center;
     gap: 12px;
     padding: 16px 14px 14px 14px;
-    border-bottom: 1px solid #F1F5F9;
-    margin-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 10px;
     box-sizing: border-box;
     width: 100%;
 }
@@ -41,14 +41,14 @@ body.wp-admin .mt-sidebar-chip {
     height: 36px;
     min-width: 36px;
     border-radius: 10px;
-    background-color: #2563EB;
+    background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 10px -2px rgba(37, 99, 235, 0.35);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.45);
     flex-shrink: 0;
 }
 
@@ -70,18 +70,18 @@ body.wp-admin .mt-brand-info {
 
 body.wp-admin .mt-brand-name {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 800;
-    color: #0F2A5C;
-    letter-spacing: normal;
+    color: #FFFFFF;
+    letter-spacing: -0.2px;
     white-space: nowrap;
 }
 
 body.wp-admin .mt-brand-role {
     font-family: 'Inter', sans-serif;
-    font-size: 12px;
+    font-size: 11.5px;
     font-weight: 500;
-    color: #64748B;
+    color: #94A3B8;
     white-space: nowrap;
 }
 
@@ -117,52 +117,52 @@ body.wp-admin.folded #mt-sidebar-brand .mt-brand-info {
 body.wp-admin #adminmenuback,
 body.wp-admin #adminmenuwrap,
 body.wp-admin #adminmenu {
-    background-color: #FFFFFF;
+    background-color: #0F172A;
 }
 
 body.wp-admin #adminmenu {
-    border-right: 1px solid #E2E8F0;
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
     padding: 0 8px;
 }
 
 body.wp-admin #adminmenu a.menu-top {
-    color: #334155;
+    color: #94A3B8;
     border-radius: 10px;
     margin: 1px 0;
     transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 body.wp-admin #adminmenu .wp-menu-image::before {
-    color: #94A3B8;
+    color: #64748B;
     transition: color 0.15s ease;
 }
 
 body.wp-admin #adminmenu li.menu-top:hover a.menu-top,
 body.wp-admin #adminmenu li.opensub > a.menu-top,
 body.wp-admin #adminmenu li > a.menu-top:focus {
-    background-color: #F1F5F9;
-    color: #0F2A5C;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #FFFFFF;
 }
 
 body.wp-admin #adminmenu li.menu-top:hover .wp-menu-image::before {
-    color: #2563EB;
+    color: #60A5FA;
 }
 
 body.wp-admin #adminmenu li.wp-has-current-submenu a.wp-has-current-submenu,
 body.wp-admin #adminmenu li.current a.menu-top {
-    background-color: #EFF6FF;
-    color: #2563EB;
+    background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+    color: #FFFFFF;
     font-weight: 700;
     border-radius: 10px;
-    box-shadow: none;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
 }
 
 body.wp-admin #adminmenu li.wp-has-current-submenu .wp-menu-image::before,
 body.wp-admin #adminmenu li.current .wp-menu-image::before {
-    color: #2563EB;
+    color: #FFFFFF;
 }
 
-/* Submenu aktif (statis/inline) */
+/* Submenu aktif (statis/inline) di dalam sidebar gelap */
 body.wp-admin:not(.folded) #adminmenu li.wp-has-current-submenu .wp-submenu,
 body.wp-admin:not(.folded) #adminmenu li.current .wp-submenu {
     position: static;
@@ -187,46 +187,47 @@ body.wp-admin:not(.folded) #adminmenu li.current .wp-submenu li {
 body.wp-admin:not(.folded) #adminmenu li.wp-has-current-submenu .wp-submenu a,
 body.wp-admin:not(.folded) #adminmenu li.current .wp-submenu a {
     padding: 6px 12px 6px 36px;
-    font-size: 14px;
-    color: #475569;
-    border-radius: 0;
+    font-size: 13.5px;
+    color: #94A3B8;
+    border-radius: 8px;
     background: transparent;
     box-shadow: none;
     display: block;
+    transition: color 0.15s ease, background-color 0.15s ease;
 }
 
 body.wp-admin:not(.folded) #adminmenu li.wp-has-current-submenu .wp-submenu a:hover,
 body.wp-admin:not(.folded) #adminmenu li.wp-has-current-submenu .wp-submenu a:focus,
 body.wp-admin:not(.folded) #adminmenu li.current .wp-submenu a:hover,
 body.wp-admin:not(.folded) #adminmenu li.current .wp-submenu a:focus {
-    color: #2563EB;
-    background-color: #EFF6FF;
+    color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.08);
 }
 
 body.wp-admin:not(.folded) #adminmenu li.wp-has-current-submenu .wp-submenu li.current a,
 body.wp-admin:not(.folded) #adminmenu li.current .wp-submenu li.current a {
-    color: #2563EB;
+    color: #60A5FA;
     font-weight: 700;
-    background-color: transparent;
+    background-color: rgba(37, 99, 235, 0.12);
 }
 
 /* Gaya kartu melayang HANYA untuk hover pada item tidak aktif dan sidebar terlipat */
 body.wp-admin:not(.folded) #adminmenu li.menu-top:not(.wp-has-current-submenu):not(.current):hover .wp-submenu,
 body.wp-admin:not(.folded) #adminmenu li.opensub:not(.wp-has-current-submenu):not(.current) .wp-submenu,
 body.wp-admin.folded #adminmenu .wp-submenu {
-    background-color: #FFFFFF;
-    border: 1px solid #E2E8F0;
-    border-radius: 16px;
-    box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.12);
+    background-color: #0F172A;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.5);
     padding: 8px;
-    margin-left: 4px;
+    margin-left: 6px;
 }
 
 body.wp-admin:not(.folded) #adminmenu li.menu-top:not(.wp-has-current-submenu):not(.current):hover .wp-submenu a,
 body.wp-admin:not(.folded) #adminmenu li.opensub:not(.wp-has-current-submenu):not(.current) .wp-submenu a,
 body.wp-admin.folded #adminmenu .wp-submenu a {
-    color: #475569;
-    border-radius: 10px;
+    color: #CBD5E1;
+    border-radius: 8px;
     font-size: 13px;
     padding: 6px 12px;
 }
@@ -234,14 +235,14 @@ body.wp-admin.folded #adminmenu .wp-submenu a {
 body.wp-admin:not(.folded) #adminmenu li.menu-top:not(.wp-has-current-submenu):not(.current):hover .wp-submenu a:hover,
 body.wp-admin:not(.folded) #adminmenu li.opensub:not(.wp-has-current-submenu):not(.current) .wp-submenu a:hover,
 body.wp-admin.folded #adminmenu .wp-submenu a:hover {
-    background-color: #EFF6FF;
-    color: #2563EB;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #FFFFFF;
 }
 
 /* --- Label grup LANJUTAN --- */
 body.wp-admin:not(.folded) #adminmenu li.mt-sep-lanjutan {
     height: auto;
-    margin: 16px 0 6px 0;
+    margin: 18px 0 6px 0;
     padding: 0 16px;
     cursor: default;
     border: none;
@@ -255,8 +256,8 @@ body.wp-admin:not(.folded) #adminmenu li.mt-sep-lanjutan::before {
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: .08em;
-    color: #94A3B8;
+    letter-spacing: .1em;
+    color: #64748B;
     line-height: 1.4;
 }
 
@@ -309,28 +310,28 @@ body.wp-admin #collapse-button:hover {
     color: #2563EB;
 }
 
-/* --- Admin bar putih --- */
+/* --- Admin bar Dark Navy Slate --- */
 body.wp-admin #wpadminbar {
-    background-color: #FFFFFF;
-    border-bottom: 1px solid #E2E8F0;
+    background-color: #0B1120;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     height: 32px;
-    color: #334155;
+    color: #E2E8F0;
 }
 
 body.wp-admin #wpadminbar .ab-item,
 body.wp-admin #wpadminbar a.ab-item,
 body.wp-admin #wpadminbar .ab-label,
 body.wp-admin #wpadminbar span.noticon {
-    color: #334155;
+    color: #CBD5E1;
     opacity: 1;
     height: 32px;
     line-height: 32px;
 }
 
 body.wp-admin #wpadminbar #wp-admin-bar-updates .ab-label {
-    background-color: #EFF6FF;
-    color: #1D4ED8;
-    border: 1px solid #BFDBFE;
+    background-color: rgba(37, 99, 235, 0.2);
+    color: #93C5FD;
+    border: 1px solid rgba(147, 197, 253, 0.3);
     border-radius: 9999px;
     padding: 0 6px;
     font-weight: 700;
@@ -342,9 +343,9 @@ body.wp-admin #wpadminbar #wp-admin-bar-updates .ab-label {
 }
 
 body.wp-admin #wpadminbar #wp-admin-bar-command-palette kbd {
-    background-color: #F1F5F9;
-    color: #334155;
-    border: 1px solid #CBD5E1;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #CBD5E1;
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 4px;
     padding: 1px 5px;
     font-size: 11px;
@@ -353,7 +354,7 @@ body.wp-admin #wpadminbar #wp-admin-bar-command-palette kbd {
 body.wp-admin #wpadminbar .ab-icon,
 body.wp-admin #wpadminbar .ab-icon::before,
 body.wp-admin #wpadminbar .ab-item::before {
-    color: #334155;
+    color: #94A3B8;
     opacity: 1;
 }
 
@@ -363,8 +364,8 @@ body.wp-admin #wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus,
 body.wp-admin #wpadminbar:not(.mobile) .ab-top-menu > li:hover .ab-icon,
 body.wp-admin #wpadminbar:not(.mobile) .ab-top-menu > li:hover .ab-icon::before,
 body.wp-admin #wpadminbar:not(.mobile) .ab-top-menu > li:hover .ab-item::before {
-    background-color: #EFF6FF;
-    color: #2563EB;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #FFFFFF;
 }
 
 /* Sembunyikan toggle mobile menu di desktop >= 783px */
@@ -609,7 +610,7 @@ body.wp-admin #dashboard-widgets .postbox .postbox-header h2 {
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 14px;
     font-weight: 700;
-    color: #1E293B;
+    color: #0F172A;
     padding: 10px 14px;
 }
 
@@ -623,13 +624,13 @@ body.wp-admin #dashboard-widgets #mt_admin_help .inside {
 
 /* Banner Selamat Datang bernuansa enterprise */
 body.wp-admin #dashboard-widgets #mt_admin_welcome {
-    background: linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 60%);
-    border: 1px solid #DBEAFE;
+    background: linear-gradient(135deg, #F0F6FF 0%, #FFFFFF 65%);
+    border: 1px solid #BFDBFE;
 }
 
 body.wp-admin #dashboard-widgets #mt_admin_welcome .postbox-header {
     background: transparent;
-    border-bottom: 1px solid rgba(219, 234, 254, 0.6);
+    border-bottom: 1px solid rgba(191, 219, 254, 0.6);
 }
 
 body.wp-admin #dashboard-widgets #mt_admin_welcome .postbox-header h2 {
@@ -637,7 +638,7 @@ body.wp-admin #dashboard-widgets #mt_admin_welcome .postbox-header h2 {
 }
 
 body.wp-admin .mt-dash-welcome h2 {
-    color: #0F2A5C;
+    color: #0B1120;
     font-size: 20px;
     font-weight: 800;
     letter-spacing: -0.4px;

@@ -4,6 +4,7 @@
    ============================================================ */
 
 /* 1. Base Layout */
+/* 1. Base Layout */
 html body.login {
     display: flex;
     flex-direction: row;
@@ -12,28 +13,27 @@ html body.login {
     min-height: 100dvh;
     margin: 0;
     padding: 0;
-    background-color: #F8FAFC;
-    color: #0F172A;
+    background-color: #0B1120;
+    color: #F8FAFC;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     box-sizing: border-box;
 }
 
-/* 2. Panel Kiri (Desktop Split-Screen >= 992px): tanpa foto latar & overlay.
-   Latar gradasi lembut + glow radial biru 8% di pojok kiri-atas. */
+/* 2. Panel Kiri (Desktop Split-Screen >= 992px): Dark Navy Slate Enterprise */
 html body.login .mt-login-panel-left {
     flex: 0 0 50%;
     width: 50%;
     min-height: 100vh;
     min-height: 100dvh;
     position: relative;
-    background: linear-gradient(150deg, #F0F6FF 0%, #FFFFFF 65%);
+    background: radial-gradient(circle at 15% 20%, #1E293B 0%, #0F172A 70%);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 56px 64px;
     box-sizing: border-box;
     overflow: hidden;
-    border-right: 1px solid #E2E8F0;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 html body.login .mt-login-panel-left::before {
@@ -41,10 +41,10 @@ html body.login .mt-login-panel-left::before {
     position: absolute;
     top: -120px;
     left: -120px;
-    width: 380px;
-    height: 380px;
+    width: 440px;
+    height: 440px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(37, 99, 235, 0.12) 0%, rgba(37, 99, 235, 0) 70%);
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.25) 0%, rgba(37, 99, 235, 0) 70%);
     pointer-events: none;
     z-index: 1;
 }
@@ -70,7 +70,7 @@ html body.login .mt-login-brand-chip {
     border-radius: 16px;
     background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
     color: #FFFFFF;
-    box-shadow: 0 10px 24px -4px rgba(37, 99, 235, 0.4);
+    box-shadow: 0 10px 24px -4px rgba(37, 99, 235, 0.5);
     flex: 0 0 auto;
 }
 
@@ -85,7 +85,7 @@ html body.login .mt-login-brand-name {
     font-size: 20px;
     font-weight: 800;
     letter-spacing: -0.5px;
-    color: #0F2A5C;
+    color: #FFFFFF;
     line-height: 1.2;
     margin: 0;
 }
@@ -93,7 +93,7 @@ html body.login .mt-login-brand-name {
 html body.login .mt-login-brand-tagline {
     font-size: 13.5px;
     font-weight: 500;
-    color: #64748B;
+    color: #94A3B8;
     line-height: 1.3;
     margin: 3px 0 0 0;
 }
@@ -111,14 +111,14 @@ html body.login .mt-login-panel-heading {
     line-height: 1.18;
     letter-spacing: -1.2px;
     text-wrap: balance;
-    color: #0F2A5C;
+    color: #FFFFFF;
     margin: 0 0 14px 0;
 }
 
 html body.login .mt-login-panel-desc {
     font-size: 15.5px;
     line-height: 1.6;
-    color: #475569;
+    color: #CBD5E1;
     max-width: 48ch;
     margin: 0 0 24px 0;
 }
@@ -138,7 +138,7 @@ html body.login .mt-login-panel-features li {
     gap: 12px;
     font-size: 14.5px;
     font-weight: 600;
-    color: #1E293B;
+    color: #E2E8F0;
 }
 
 html body.login .mt-feature-check {
@@ -148,13 +148,13 @@ html body.login .mt-feature-check {
     width: 26px;
     height: 26px;
     border-radius: 50%;
-    background-color: #EFF6FF;
-    border: 1px solid #BFDBFE;
-    color: #2563EB;
+    background-color: rgba(37, 99, 235, 0.2);
+    border: 1px solid rgba(147, 197, 253, 0.35);
+    color: #60A5FA;
     flex: 0 0 auto;
 }
 
-/* Foto tajam dalam bingkai (tanpa overlay) + dua pil kaca */
+/* Foto tajam dalam bingkai + dua pil kaca */
 html body.login .mt-login-photo {
     position: relative;
     width: 100%;
@@ -165,9 +165,9 @@ html body.login .mt-login-photo {
     margin: 0;
     border-radius: 24px;
     overflow: hidden;
-    border: 1px solid #E2E8F0;
-    box-shadow: 0 20px 40px -10px rgba(15, 42, 92, 0.12), 0 4px 12px rgba(15, 23, 42, 0.04);
-    background-color: #E2E8F0;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.6);
+    background-color: #1E293B;
 }
 
 html body.login .mt-login-photo img {
@@ -186,15 +186,15 @@ html body.login .mt-login-pill {
     height: 40px;
     padding: 4px 16px;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(226, 232, 240, 0.9);
-    box-shadow: 0 8px 24px -4px rgba(15, 42, 92, 0.14);
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.5);
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 13.5px;
     font-weight: 700;
-    color: #0F2A5C;
+    color: #FFFFFF;
     line-height: 1.2;
     white-space: nowrap;
     max-width: calc(100% - 24px);
@@ -217,14 +217,14 @@ html body.login .mt-login-dot {
     height: 8px;
     border-radius: 50%;
     background: #10B981;
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.35);
     margin-right: 8px;
     flex: 0 0 auto;
 }
 
 html body.login .mt-login-panel-footer {
     font-size: 13px;
-    color: #94A3B8;
+    color: #64748B;
     margin-top: 20px;
 }
 
@@ -232,7 +232,7 @@ html body.login .mt-login-panel-footer p {
     margin: 0;
 }
 
-/* 3. Kolom Kanan: pusat vertikal kartu (grid + margin auto = aman saat scroll) */
+/* 3. Kolom Kanan: kartu putih bersih di atas background Slate */
 html body.login .mt-login-right {
     flex: 1 1 50%;
     min-width: 0;
@@ -241,10 +241,10 @@ html body.login .mt-login-right {
     display: grid;
     padding: 32px 24px;
     box-sizing: border-box;
-    background-color: #F8FAFC;
+    background-color: #0B1120;
     background-image:
-        radial-gradient(circle at 100% 0%, rgba(37, 99, 235, 0.08) 0%, rgba(37, 99, 235, 0) 400px),
-        radial-gradient(rgba(37, 99, 235, 0.035) 1px, transparent 1.5px);
+        radial-gradient(circle at 100% 0%, rgba(37, 99, 235, 0.15) 0%, rgba(37, 99, 235, 0) 450px),
+        radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1.5px);
     background-size: auto, 24px 24px;
     background-repeat: no-repeat, repeat;
 }
@@ -253,11 +253,11 @@ html body.login #login {
     width: 100%;
     max-width: 440px;
     margin: auto;
-    padding: 36px 32px 32px;
+    padding: 38px 34px 34px;
     background-color: #FFFFFF;
-    border: 1px solid #E2E8F0;
+    border: 1px solid rgba(226, 232, 240, 0.9);
     border-radius: 24px;
-    box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.03), 0 24px 48px -12px rgba(15, 42, 92, 0.1);
+    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.35), 0 0 1px 1px rgba(255, 255, 255, 0.05);
     box-sizing: border-box;
     overflow: visible;
 }
