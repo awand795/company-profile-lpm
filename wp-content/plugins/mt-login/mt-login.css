@@ -18,21 +18,21 @@ html body.login {
     box-sizing: border-box;
 }
 
-/* 2. Panel Kiri (Desktop Split-Screen >= 992px): Deep Royal Navy Enterprise */
+/* 2. Panel Kiri (Desktop Split-Screen >= 992px): Light Enterprise Modern */
 html body.login .mt-login-panel-left {
     flex: 0 0 50%;
     width: 50%;
     min-height: 100vh;
     min-height: 100dvh;
     position: relative;
-    background: linear-gradient(155deg, #071933 0%, #0F2E5E 55%, #1D4ED8 100%);
+    background: linear-gradient(150deg, #F0F4F8 0%, #E8EEF5 45%, #E1EAF4 100%);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 56px 64px;
     box-sizing: border-box;
     overflow: hidden;
-    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    border-right: 1px solid #E2E8F0;
 }
 
 html body.login .mt-login-panel-left::before {
@@ -43,7 +43,7 @@ html body.login .mt-login-panel-left::before {
     width: 480px;
     height: 480px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(96, 165, 250, 0.25) 0%, rgba(37, 99, 235, 0) 70%);
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, rgba(37, 99, 235, 0) 70%);
     pointer-events: none;
     z-index: 1;
 }
@@ -69,7 +69,7 @@ html body.login .mt-login-brand-chip {
     border-radius: 16px;
     background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
     color: #FFFFFF;
-    box-shadow: 0 10px 24px -4px rgba(37, 99, 235, 0.5);
+    box-shadow: 0 8px 20px -4px rgba(37, 99, 235, 0.35);
     flex: 0 0 auto;
 }
 
@@ -84,7 +84,7 @@ html body.login .mt-login-brand-name {
     font-size: 20px;
     font-weight: 800;
     letter-spacing: -0.5px;
-    color: #FFFFFF;
+    color: #0F2A5C;
     line-height: 1.2;
     margin: 0;
 }
@@ -92,7 +92,7 @@ html body.login .mt-login-brand-name {
 html body.login .mt-login-brand-tagline {
     font-size: 13.5px;
     font-weight: 500;
-    color: #94A3B8;
+    color: #64748B;
     line-height: 1.3;
     margin: 3px 0 0 0;
 }
@@ -110,14 +110,14 @@ html body.login .mt-login-panel-heading {
     line-height: 1.18;
     letter-spacing: -1.2px;
     text-wrap: balance;
-    color: #FFFFFF;
+    color: #0F172A;
     margin: 0 0 14px 0;
 }
 
 html body.login .mt-login-panel-desc {
     font-size: 15.5px;
     line-height: 1.6;
-    color: #CBD5E1;
+    color: #475569;
     max-width: 48ch;
     margin: 0 0 24px 0;
 }
@@ -137,7 +137,7 @@ html body.login .mt-login-panel-features li {
     gap: 12px;
     font-size: 14.5px;
     font-weight: 600;
-    color: #E2E8F0;
+    color: #1E293B;
 }
 
 html body.login .mt-feature-check {
@@ -147,13 +147,13 @@ html body.login .mt-feature-check {
     width: 26px;
     height: 26px;
     border-radius: 50%;
-    background-color: rgba(37, 99, 235, 0.2);
-    border: 1px solid rgba(147, 197, 253, 0.35);
-    color: #60A5FA;
+    background-color: #EFF6FF;
+    border: 1px solid #BFDBFE;
+    color: #2563EB;
     flex: 0 0 auto;
 }
 
-/* Foto tajam dalam bingkai + dua pil kaca */
+/* Foto tajam dalam bingkai + dua pil kaca putih */
 html body.login .mt-login-photo {
     position: relative;
     width: 100%;
@@ -164,9 +164,9 @@ html body.login .mt-login-photo {
     margin: 0;
     border-radius: 24px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.6);
-    background-color: #1E293B;
+    border: 1px solid #CBD5E1;
+    box-shadow: 0 16px 36px -10px rgba(15, 23, 42, 0.12);
+    background-color: #F1F5F9;
 }
 
 html body.login .mt-login-photo img {
@@ -185,15 +185,15 @@ html body.login .mt-login-pill {
     height: 40px;
     padding: 4px 16px;
     border-radius: 999px;
-    background: rgba(15, 23, 42, 0.85);
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.1);
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 13.5px;
     font-weight: 700;
-    color: #FFFFFF;
+    color: #0F172A;
     line-height: 1.2;
     white-space: nowrap;
     max-width: calc(100% - 24px);
@@ -216,14 +216,14 @@ html body.login .mt-login-dot {
     height: 8px;
     border-radius: 50%;
     background: #10B981;
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.35);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
     margin-right: 8px;
     flex: 0 0 auto;
 }
 
 html body.login .mt-login-panel-footer {
     font-size: 13px;
-    color: #94A3B8;
+    color: #64748B;
     margin-top: 20px;
 }
 
