@@ -1,0 +1,567 @@
+/* ==========================================================================
+   MASTER TRUCK ENTERPRISE B2B DESIGN SYSTEM (mt-custom.css)
+   Clean Light Theme #FFFFFF & #F6F8FB, Navy #0F2A5C, Blue #2563EB, Emergency #DC2626
+   100% Native Elementor Container Architecture & Strict BEM
+   ========================================================================== */
+
+:root {
+    /* 1. Warna */
+    --mt-white: #FFFFFF;
+    --mt-surface: #F6F8FB;
+    --mt-line: #E2E8F0;
+    --mt-ink: #0B1B33;
+    --mt-navy: #0F2A5C;
+    --mt-muted: #475569;
+    --mt-blue: #2563EB;
+    --mt-blue-hover: #1D4ED8;
+    --mt-blue-light: #EFF6FF;
+    --mt-red: #DC2626;
+    --mt-red-hover: #B91C1C;
+
+    /* 2. Tipografi */
+    --mt-font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --mt-font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    /* 3. Radius & Elevasi */
+    --mt-radius-card: 12px;
+    --mt-radius-btn: 10px;
+    --mt-radius-icon: 10px;
+
+    /* 4. Transisi */
+    --mt-transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 1. Global Boxed Container 1200px (Sama Sisi di Semua Section) */
+.mt-container-boxed {
+    max-width: 1200px !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    box-sizing: border-box !important;
+}
+@media (max-width: 767.98px) {
+    .mt-container-boxed {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+}
+
+/* 2. Spacing Vertikal Section (96px desktop, 64px mobile) */
+.mt-section {
+    padding-top: 96px !important;
+    padding-bottom: 96px !important;
+    position: relative;
+    box-sizing: border-box;
+}
+@media (max-width: 767.98px) {
+    .mt-section {
+        padding-top: 64px !important;
+        padding-bottom: 64px !important;
+    }
+}
+.mt-section--surface {
+    background-color: var(--mt-surface) !important;
+}
+.mt-section--white {
+    background-color: var(--mt-white) !important;
+}
+
+/* 3. Tipografi BEM */
+body.elementor-page-59 h1, body.elementor-page-59 h2, body.elementor-page-59 h3,
+body.elementor-page-59 h4, body.elementor-page-59 h5, body.elementor-page-59 h6 {
+    font-family: var(--mt-font-heading) !important;
+    color: var(--mt-navy) !important;
+    letter-spacing: -0.02em !important;
+    margin-top: 0;
+}
+body.elementor-page-59 p, body.elementor-page-59 a, body.elementor-page-59 span,
+body.elementor-page-59 li {
+    font-family: var(--mt-font-body) !important;
+}
+.mt-eyebrow .elementor-heading-title {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    color: var(--mt-blue) !important;
+    background: transparent !important;
+    border: none !important;
+    margin-bottom: 12px !important;
+    padding: 0 !important;
+}
+.mt-heading-h1 .elementor-heading-title {
+    font-size: clamp(36px, 4vw, 56px) !important;
+    line-height: 1.14 !important;
+    font-weight: 800 !important;
+    color: var(--mt-navy) !important;
+    margin-bottom: 16px !important;
+}
+.mt-heading-h2 .elementor-heading-title {
+    font-size: clamp(28px, 3.2vw, 40px) !important;
+    line-height: 1.2 !important;
+    font-weight: 800 !important;
+    color: var(--mt-navy) !important;
+    margin-bottom: 12px !important;
+}
+.mt-heading-h3 .elementor-heading-title {
+    font-size: 24px !important;
+    line-height: 1.33 !important;
+    font-weight: 700 !important;
+    color: var(--mt-navy) !important;
+}
+.mt-heading-h4 .elementor-heading-title {
+    font-size: 20px !important;
+    line-height: 1.4 !important;
+    font-weight: 700 !important;
+    color: var(--mt-navy) !important;
+}
+.mt-lead p {
+    font-size: 17px !important;
+    line-height: 1.65 !important;
+    color: var(--mt-muted) !important;
+    margin-bottom: 0 !important;
+}
+.mt-body p {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    color: var(--mt-muted) !important;
+    margin-bottom: 0 !important;
+}
+.mt-hero__highlight {
+    color: var(--mt-blue) !important;
+    background: none !important;
+    -webkit-text-fill-color: initial !important;
+}
+
+/* 4. Tombol Enterprise (48px tinggi, 10px radius, BUKAN pill) */
+body.elementor-page-59 .elementor-button {
+    border-radius: var(--mt-radius-btn) !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    padding: 0 24px !important;
+    font-family: var(--mt-font-body) !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    transition: var(--mt-transition) !important;
+    box-sizing: border-box !important;
+}
+body.elementor-page-59 .elementor-button:focus-visible {
+    outline: 2px solid var(--mt-blue) !important;
+    outline-offset: 2px !important;
+}
+.mt-btn-primary .elementor-button {
+    background-color: var(--mt-blue) !important;
+    color: var(--mt-white) !important;
+    border: 1px solid var(--mt-blue) !important;
+}
+.mt-btn-primary .elementor-button:hover {
+    background-color: var(--mt-blue-hover) !important;
+    border-color: var(--mt-blue-hover) !important;
+    transform: translateY(-1px);
+}
+.mt-btn-secondary .elementor-button {
+    background-color: var(--mt-white) !important;
+    color: var(--mt-navy) !important;
+    border: 1px solid var(--mt-line) !important;
+}
+.mt-btn-secondary .elementor-button:hover {
+    background-color: var(--mt-surface) !important;
+    border-color: #CBD5E1 !important;
+    color: var(--mt-blue) !important;
+}
+.mt-btn-emergency .elementor-button {
+    background-color: var(--mt-red) !important;
+    color: var(--mt-white) !important;
+    border: 1px solid var(--mt-red) !important;
+    font-weight: 700 !important;
+}
+.mt-btn-emergency .elementor-button:hover {
+    background-color: var(--mt-red-hover) !important;
+    border-color: var(--mt-red-hover) !important;
+}
+.mt-btn-link .elementor-button {
+    background: transparent !important;
+    border: none !important;
+    color: var(--mt-blue) !important;
+    padding: 0 !important;
+    height: auto !important;
+    min-height: auto !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+}
+.mt-btn-link .elementor-button:hover {
+    color: var(--mt-blue-hover) !important;
+    text-decoration: underline !important;
+}
+
+/* 5. Utility Bar (Desktop only, 40px, #F6F8FB) */
+.mt-utility-bar {
+    background-color: var(--mt-surface) !important;
+    border-bottom: 1px solid var(--mt-line) !important;
+    min-height: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    font-size: 13px !important;
+    color: var(--mt-muted) !important;
+    box-sizing: border-box !important;
+}
+.mt-utility-bar a {
+    color: var(--mt-muted) !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+.mt-utility-bar a:hover {
+    color: var(--mt-blue) !important;
+}
+@media (max-width: 991.98px) {
+    .mt-utility-bar { display: none !important; }
+}
+
+/* 6. Navbar Full-Width (72px, Sticky Top 0, Border Bottom #E2E8F0, BUKAN Pill) */
+.mt-navbar-bar {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1020 !important;
+    background-color: var(--mt-white) !important;
+    border-bottom: 1px solid var(--mt-line) !important;
+    height: 72px !important;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03) !important;
+    display: flex !important;
+    align-items: center !important;
+}
+.mt-navbar-inner {
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+.mt-nav-link .elementor-button {
+    background: transparent !important;
+    color: var(--mt-ink) !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    padding: 8px 12px !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    border: none !important;
+}
+.mt-nav-link .elementor-button:hover,
+.mt-nav-link.is-active .elementor-button {
+    color: var(--mt-blue) !important;
+}
+
+/* 7. Hero Slideshow 2 Slide */
+.mt-hero-slider {
+    position: relative !important;
+    overflow: hidden !important;
+    background-color: var(--mt-white) !important;
+    min-height: 560px !important;
+    padding-top: 56px !important;
+    padding-bottom: 64px !important;
+}
+.mt-hero-slide {
+    display: none !important;
+    opacity: 0 !important;
+    transition: opacity 400ms ease-in-out !important;
+    width: 100% !important;
+}
+.mt-hero-slide.is-active {
+    display: flex !important;
+    opacity: 1 !important;
+}
+body.elementor-editor-active .mt-hero-slide {
+    display: flex !important;
+    opacity: 1 !important;
+    position: relative !important;
+    margin-bottom: 48px !important;
+    border-bottom: 2px dashed var(--mt-line) !important;
+    padding-bottom: 32px !important;
+}
+.mt-hero-img-wrap {
+    position: relative !important;
+    border-radius: var(--mt-radius-card) !important;
+    overflow: hidden !important;
+}
+.mt-hero-img-wrap img {
+    border-radius: var(--mt-radius-card) !important;
+    width: 100% !important;
+    height: 460px !important;
+    object-fit: cover !important;
+    display: block !important;
+    aspect-ratio: 4 / 3 !important;
+}
+.mt-hero-chip {
+    position: absolute !important;
+    bottom: 16px !important;
+    left: 16px !important;
+    background: rgba(11, 27, 51, 0.85) !important;
+    color: #FFFFFF !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    padding: 6px 14px !important;
+    border-radius: 6px !important;
+    backdrop-filter: blur(8px) !important;
+    z-index: 2 !important;
+}
+/* Slider Controls */
+.mt-hero-controls {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    margin-top: 24px !important;
+}
+.mt-hero-nav-btn {
+    width: 44px !important;
+    height: 44px !important;
+    border: 1px solid var(--mt-line) !important;
+    background: var(--mt-white) !important;
+    border-radius: var(--mt-radius-btn) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    color: var(--mt-navy) !important;
+    font-size: 14px !important;
+    transition: var(--mt-transition) !important;
+}
+.mt-hero-nav-btn:hover {
+    border-color: var(--mt-blue) !important;
+    color: var(--mt-blue) !important;
+}
+.mt-hero-dot {
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50% !important;
+    background: #CBD5E1 !important;
+    cursor: pointer !important;
+    transition: var(--mt-transition) !important;
+    display: inline-block !important;
+}
+.mt-hero-dot.is-active {
+    background: var(--mt-blue) !important;
+    width: 24px !important;
+    border-radius: 5px !important;
+}
+.mt-hero-counter {
+    font-family: var(--mt-font-heading) !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    color: var(--mt-navy) !important;
+    font-variant-numeric: tabular-nums !important;
+}
+
+/* 8. Proof Bar (Metrik Menimpa Hero -48px) */
+.mt-proof-bar-wrap {
+    margin-top: -48px !important;
+    position: relative !important;
+    z-index: 10 !important;
+}
+.mt-proof-card {
+    background: var(--mt-white) !important;
+    border: 1px solid var(--mt-line) !important;
+    border-radius: var(--mt-radius-card) !important;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05) !important;
+    padding: 24px 32px !important;
+}
+.mt-proof-metric {
+    border-left: 1px solid var(--mt-line) !important;
+    padding: 0 24px !important;
+    box-sizing: border-box !important;
+}
+.mt-proof-metric:first-child {
+    border-left: none !important;
+    padding-left: 0 !important;
+}
+.mt-proof-number .elementor-counter-number-wrapper,
+.mt-proof-number .elementor-heading-title {
+    font-size: 36px !important;
+    font-weight: 800 !important;
+    color: var(--mt-navy) !important;
+    font-family: var(--mt-font-heading) !important;
+    font-variant-numeric: tabular-nums !important;
+    line-height: 1.1 !important;
+}
+.mt-proof-label .elementor-heading-title,
+.mt-proof-label .elementor-counter-title {
+    font-size: 14px !important;
+    color: var(--mt-muted) !important;
+    margin-top: 4px !important;
+}
+
+/* 9. Kartu Enterprise & Hover (border #2563EB + translateY(-2px), tanpa shadow) */
+.mt-card {
+    background: var(--mt-white) !important;
+    border: 1px solid var(--mt-line) !important;
+    border-radius: var(--mt-radius-card) !important;
+    box-shadow: none !important;
+    transition: var(--mt-transition) !important;
+    overflow: hidden !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+}
+.mt-card:hover {
+    border-color: var(--mt-blue) !important;
+    transform: translateY(-2px) !important;
+}
+.mt-card-img {
+    width: 100% !important;
+    height: 180px !important;
+    object-fit: cover !important;
+    aspect-ratio: 16 / 10 !important;
+    display: block !important;
+}
+.mt-card-img--featured {
+    height: 260px !important;
+}
+
+/* 10. Ikon Kotak 44px Surface #EFF6FF Radius 10px */
+.mt-icon-box-44 {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: var(--mt-radius-icon) !important;
+    background-color: var(--mt-blue-light) !important;
+    color: var(--mt-blue) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 20px !important;
+    flex-shrink: 0 !important;
+}
+.mt-icon-box-44 i, .mt-icon-box-44 svg {
+    color: var(--mt-blue) !important;
+    fill: var(--mt-blue) !important;
+}
+
+/* 11. Merek Prinsipal (Grayscale -> Full Color Hover, Tanpa Kartu) */
+.mt-principal-strip img {
+    height: 32px !important;
+    max-height: 32px !important;
+    width: auto !important;
+    object-fit: contain !important;
+    filter: grayscale(1) !important;
+    opacity: 0.75 !important;
+    transition: var(--mt-transition) !important;
+    margin: 0 auto !important;
+    display: block !important;
+}
+.mt-principal-strip img:hover {
+    filter: grayscale(0) !important;
+    opacity: 1 !important;
+}
+
+/* 12. Browser Mockup Frame untuk Portal Fleet */
+.mt-browser-frame {
+    background: var(--mt-white) !important;
+    border: 1px solid var(--mt-line) !important;
+    border-radius: var(--mt-radius-card) !important;
+    overflow: hidden !important;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06) !important;
+}
+.mt-browser-header {
+    background: #F1F5F9 !important;
+    border-bottom: 1px solid var(--mt-line) !important;
+    height: 36px !important;
+    padding: 0 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+.mt-browser-dot {
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50% !important;
+    display: inline-block !important;
+}
+.mt-browser-dot--red { background: #EF4444 !important; }
+.mt-browser-dot--yellow { background: #F59E0B !important; }
+.mt-browser-dot--green { background: #10B981 !important; }
+.mt-browser-frame img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    object-fit: cover !important;
+}
+
+/* 13. Testimoni (Avatar Inisial 48px Bulat, Bintang Biru, Tanda Kutip #CBD5E1) */
+.mt-testi-avatar {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50% !important;
+    background: var(--mt-blue-light) !important;
+    color: var(--mt-blue) !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+}
+.mt-testi-stars {
+    color: var(--mt-blue) !important;
+    font-size: 16px !important;
+    letter-spacing: 2px !important;
+    margin-bottom: 12px !important;
+}
+.mt-testi-quote-icon {
+    color: #CBD5E1 !important;
+    font-size: 24px !important;
+    margin-right: 6px !important;
+}
+
+/* 14. Langkah Cara Kerja (Garis Penghubung & Nomor 32px Biru) */
+.mt-step-number {
+    font-family: var(--mt-font-heading) !important;
+    font-size: 32px !important;
+    font-weight: 800 !important;
+    color: var(--mt-blue) !important;
+    line-height: 1 !important;
+    margin-bottom: 12px !important;
+}
+
+/* 15. Footer Enterprise */
+.mt-footer-social {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    background: #F1F5F9 !important;
+    color: var(--mt-navy) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: var(--mt-transition) !important;
+}
+.mt-footer-social:hover {
+    background: var(--mt-blue) !important;
+    color: var(--mt-white) !important;
+}
+.mt-footer-divider {
+    color: #CBD5E1 !important;
+    margin: 0 10px !important;
+}
+
+/* 16. Responsif Breakpoints (1440, 1024, 768, 390) */
+@media (max-width: 991.98px) {
+    .mt-hero-slide { flex-direction: column !important; }
+    .mt-hero-left, .mt-hero-right { width: 100% !important; }
+    .mt-proof-card { flex-wrap: wrap !important; gap: 16px !important; }
+    .mt-proof-metric { width: 45% !important; border-left: none !important; padding: 8px 0 !important; }
+}
+@media (max-width: 767.98px) {
+    body.elementor-page-59 .elementor-button {
+        width: 100% !important;
+    }
+    .mt-btn-group-responsive {
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+    .mt-proof-metric { width: 100% !important; }
+}

@@ -1,0 +1,2553 @@
+/* ==========================================================================
+   MASTER TRUCK ENTERPRISE B2B DESIGN SYSTEM (mt-custom.css)
+   Ronde 4 — Navbar drawer, single .mt-btn system, footer, back-to-top.
+   Clean Light Theme #FFFFFF & #F6F8FB, Navy #0F2A5C, Blue #2563EB, Emergency #DC2626
+   Mandiri, Robust & Deterministic — Tidak bergantung pada post-59.css
+   ========================================================================== */
+
+:root {
+    /* 1. Warna */
+    --mt-white: #FFFFFF;
+    --mt-surface: #F6F8FB;
+    --mt-line: #E2E8F0;
+    --mt-ink: #0B1B33;
+    --mt-navy: #0F2A5C;
+    --mt-muted: #475569;
+    --mt-blue: #2563EB;
+    --mt-blue-hover: #1D4ED8;
+    --mt-blue-light: #EFF6FF;
+    --mt-red: #DC2626;
+    --mt-red-hover: #B91C1C;
+
+    /* 2. Tipografi */
+    --mt-font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --mt-font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    /* 3. Radius & Elevasi */
+    --mt-radius-card: 12px;
+    --mt-radius-btn: 10px;
+    --mt-radius-icon: 10px;
+
+    /* 4. Transisi & Gap */
+    --mt-transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --mt-gap: 16px;
+}
+
+/* ==========================================================================
+   STRUKTUR FLEX & GRID MANDIRI (.mt-row, .mt-col, .mt-w-*, .mt-grid-*)
+   ========================================================================== */
+.mt-row {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: var(--mt-gap, 16px) !important;
+    box-sizing: border-box !important;
+    min-width: 0 !important;
+}
+.mt-row > * {
+    min-width: 0 !important;
+}
+.mt-row--between { justify-content: space-between !important; }
+.mt-row--end     { justify-content: flex-end !important; }
+.mt-row--center  { justify-content: center !important; }
+.mt-row--top     { align-items: flex-start !important; }
+.mt-row--stretch { align-items: stretch !important; }
+
+.mt-feature-title {
+    font-size: 17px !important;
+    color: var(--mt-navy) !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    font-family: var(--mt-font-heading) !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+}
+
+.mt-col {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--mt-gap, 16px) !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+}
+.mt-col--between { justify-content: space-between !important; }
+.mt-col--center  { align-items: center !important; text-align: center !important; }
+.mt-col--stretch { align-items: stretch !important; }
+
+/* Lebar Kolom Relatif dalam Row Ber-gap */
+.mt-w-22  { flex: 0 0 22% !important; max-width: 22% !important; width: 22% !important; }
+.mt-w-25  { flex: 0 0 25% !important; max-width: 25% !important; width: 25% !important; }
+.mt-w-26  { flex: 0 0 26% !important; max-width: 26% !important; width: 26% !important; }
+.mt-w-28  { flex: 0 0 28% !important; max-width: 28% !important; width: 28% !important; }
+.mt-w-30  { flex: 0 0 30% !important; max-width: 30% !important; width: 30% !important; }
+.mt-w-33  { flex: 0 0 33.333% !important; max-width: 33.333% !important; width: 33.333% !important; }
+.mt-w-35  { flex: 0 0 35% !important; max-width: 35% !important; width: 35% !important; }
+.mt-w-40  { flex: 0 0 40% !important; max-width: 40% !important; width: 40% !important; }
+.mt-w-45  { flex: 0 0 45% !important; max-width: 45% !important; width: 45% !important; }
+.mt-w-50  { flex: 0 0 50% !important; max-width: 50% !important; width: 50% !important; }
+.mt-w-55  { flex: 0 0 55% !important; max-width: 55% !important; width: 55% !important; }
+.mt-w-60  { flex: 0 0 60% !important; max-width: 60% !important; width: 60% !important; }
+.mt-w-65  { flex: 0 0 65% !important; max-width: 65% !important; width: 65% !important; }
+.mt-row > .mt-w-22  { flex: 0 0 calc(22% - (var(--mt-gap, 16px) * 0.78)) !important; max-width: calc(22% - (var(--mt-gap, 16px) * 0.78)) !important; width: calc(22% - (var(--mt-gap, 16px) * 0.78)) !important; }
+.mt-row > .mt-w-25  { flex: 0 0 calc(25% - (var(--mt-gap, 16px) * 0.75)) !important; max-width: calc(25% - (var(--mt-gap, 16px) * 0.75)) !important; width: calc(25% - (var(--mt-gap, 16px) * 0.75)) !important; }
+.mt-row > .mt-w-26  { flex: 0 0 calc(26% - (var(--mt-gap, 16px) * 0.74)) !important; max-width: calc(26% - (var(--mt-gap, 16px) * 0.74)) !important; width: calc(26% - (var(--mt-gap, 16px) * 0.74)) !important; }
+.mt-row > .mt-w-28  { flex: 0 0 calc(28% - (var(--mt-gap, 16px) * 0.72)) !important; max-width: calc(28% - (var(--mt-gap, 16px) * 0.72)) !important; width: calc(28% - (var(--mt-gap, 16px) * 0.72)) !important; }
+.mt-row > .mt-w-30  { flex: 0 0 calc(30% - (var(--mt-gap, 16px) * 0.70)) !important; max-width: calc(30% - (var(--mt-gap, 16px) * 0.70)) !important; width: calc(30% - (var(--mt-gap, 16px) * 0.70)) !important; }
+.mt-row > .mt-w-33  { flex: 0 0 calc(33.333% - (var(--mt-gap, 16px) * 0.67)) !important; max-width: calc(33.333% - (var(--mt-gap, 16px) * 0.67)) !important; width: calc(33.333% - (var(--mt-gap, 16px) * 0.67)) !important; }
+.mt-row > .mt-w-35  { flex: 0 0 calc(35% - (var(--mt-gap, 16px) * 0.65)) !important; max-width: calc(35% - (var(--mt-gap, 16px) * 0.65)) !important; width: calc(35% - (var(--mt-gap, 16px) * 0.65)) !important; }
+.mt-row > .mt-w-40  { flex: 0 0 calc(40% - (var(--mt-gap, 16px) * 0.60)) !important; max-width: calc(40% - (var(--mt-gap, 16px) * 0.60)) !important; width: calc(40% - (var(--mt-gap, 16px) * 0.60)) !important; }
+.mt-row > .mt-w-45  { flex: 0 0 calc(45% - (var(--mt-gap, 16px) * 0.55)) !important; max-width: calc(45% - (var(--mt-gap, 16px) * 0.55)) !important; width: calc(45% - (var(--mt-gap, 16px) * 0.55)) !important; }
+.mt-row > .mt-w-50  { flex: 0 0 calc(50% - (var(--mt-gap, 16px) * 0.50)) !important; max-width: calc(50% - (var(--mt-gap, 16px) * 0.50)) !important; width: calc(50% - (var(--mt-gap, 16px) * 0.50)) !important; }
+.mt-row > .mt-w-55  { flex: 0 0 calc(55% - (var(--mt-gap, 16px) * 0.45)) !important; max-width: calc(55% - (var(--mt-gap, 16px) * 0.45)) !important; width: calc(55% - (var(--mt-gap, 16px) * 0.45)) !important; }
+.mt-row > .mt-w-60  { flex: 0 0 calc(60% - (var(--mt-gap, 16px) * 0.40)) !important; max-width: calc(60% - (var(--mt-gap, 16px) * 0.40)) !important; width: calc(60% - (var(--mt-gap, 16px) * 0.40)) !important; }
+.mt-row > .mt-w-65  { flex: 0 0 calc(65% - (var(--mt-gap, 16px) * 0.35)) !important; max-width: calc(65% - (var(--mt-gap, 16px) * 0.35)) !important; width: calc(65% - (var(--mt-gap, 16px) * 0.35)) !important; }
+.mt-w-100, .mt-full-w { flex: 0 0 100% !important; max-width: 100% !important; width: 100% !important; }
+
+/* Grid Mandiri */
+.mt-grid-2 {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: var(--mt-gap, 24px) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+.mt-grid-3 {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: var(--mt-gap, 24px) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+.mt-grid-4 {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: var(--mt-gap, 24px) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+.mt-span-2 { grid-column: span 2 !important; }
+
+.mt-card .mt-body,
+.mt-card-body .mt-body {
+    min-height: 48px !important;
+}
+
+/* Utility Gap */
+.mt-gap-4,  .mt-g-4  { --mt-gap: 4px;  gap: 4px !important; }
+.mt-gap-8,  .mt-g-8  { --mt-gap: 8px;  gap: 8px !important; }
+.mt-gap-10, .mt-g-10 { --mt-gap: 10px; gap: 10px !important; }
+.mt-gap-12, .mt-g-12 { --mt-gap: 12px; gap: 12px !important; }
+.mt-gap-16, .mt-g-16 { --mt-gap: 16px; gap: 16px !important; }
+.mt-gap-20, .mt-g-20 { --mt-gap: 20px; gap: 20px !important; }
+.mt-gap-24, .mt-g-24 { --mt-gap: 24px; gap: 24px !important; }
+.mt-gap-32, .mt-g-32 { --mt-gap: 32px; gap: 32px !important; }
+.mt-gap-40, .mt-g-40 { --mt-gap: 40px; gap: 40px !important; }
+.mt-gap-48, .mt-g-48 { --mt-gap: 48px; gap: 48px !important; }
+
+/* Border utilities */
+.mt-border-t { border-top: 1px solid var(--mt-line) !important; }
+.mt-border-b { border-bottom: 1px solid var(--mt-line) !important; }
+
+/* Global Boxed Container 1200px */
+.mt-container-boxed {
+    max-width: 1200px !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    box-sizing: border-box !important;
+    --padding-top: 0px !important;
+    --padding-bottom: 0px !important;
+    --padding-left: 24px !important;
+    --padding-right: 24px !important;
+}
+@media (max-width: 767.98px) {
+    .mt-container-boxed {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        --padding-left: 20px !important;
+        --padding-right: 20px !important;
+    }
+}
+
+/* Spacing Vertikal Section */
+.mt-section {
+    padding-top: 96px !important;
+    padding-bottom: 96px !important;
+    position: relative;
+    box-sizing: border-box;
+    width: 100% !important;
+}
+@media (max-width: 767.98px) {
+    .mt-section {
+        padding-top: 64px !important;
+        padding-bottom: 64px !important;
+    }
+}
+.mt-section--surface { background-color: var(--mt-surface) !important; }
+.mt-section--white   { background-color: var(--mt-white) !important; }
+
+/* Tipografi BEM & Global */
+body.elementor-page-59 h1, body.elementor-page-59 h2, body.elementor-page-59 h3,
+body.elementor-page-59 h4, body.elementor-page-59 h5, body.elementor-page-59 h6 {
+    font-family: var(--mt-font-heading) !important;
+    color: var(--mt-navy) !important;
+    letter-spacing: -0.02em !important;
+    margin-top: 0;
+}
+body.elementor-page-59 p, body.elementor-page-59 a, body.elementor-page-59 span,
+body.elementor-page-59 li {
+    font-family: var(--mt-font-body) !important;
+}
+.mt-eyebrow .elementor-heading-title {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    color: var(--mt-blue) !important;
+    background: transparent !important;
+    border: none !important;
+    margin-bottom: 12px !important;
+    padding: 0 !important;
+}
+.mt-heading-h1 .elementor-heading-title {
+    font-size: clamp(34px, 3.8vw, 54px) !important;
+    line-height: 1.15 !important;
+    font-weight: 800 !important;
+    color: var(--mt-navy) !important;
+    margin-bottom: 16px !important;
+}
+.mt-heading-h2 .elementor-heading-title {
+    font-size: clamp(26px, 3vw, 38px) !important;
+    line-height: 1.2 !important;
+    font-weight: 800 !important;
+    color: var(--mt-navy) !important;
+    margin-bottom: 12px !important;
+}
+.mt-heading-h3 .elementor-heading-title {
+    font-size: 22px !important;
+    line-height: 1.33 !important;
+    font-weight: 700 !important;
+    color: var(--mt-navy) !important;
+}
+.mt-heading-h4 .elementor-heading-title {
+    font-size: 19px !important;
+    line-height: 1.4 !important;
+    font-weight: 700 !important;
+    color: var(--mt-navy) !important;
+}
+.mt-lead p {
+    font-size: 16px !important;
+    line-height: 1.65 !important;
+    color: var(--mt-muted) !important;
+    margin-bottom: 0 !important;
+}
+.mt-body p {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    color: var(--mt-muted) !important;
+    margin-bottom: 0 !important;
+}
+.mt-hero__highlight {
+    color: var(--mt-blue) !important;
+    background: none !important;
+    -webkit-text-fill-color: initial !important;
+}
+/* Ronde 4: hero HP layout: padding atas 24px, H1 34px, sub 16px, tombol WA & Lihat Layanan sama penuh, tepi kiri semua elemen sama (padding 20px), kontrol slider rata tengah, foto 4:3 di bawah teks maks 260px, proof bar 2x2 */
+@media (max-width: 767.98px) {
+    .mt-hero-slider {
+        padding-top: 24px !important;
+        padding-bottom: 24px !important;
+    }
+    .mt-hero-slide.is-active {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 24px !important;
+        padding: 0 !important;
+    }
+    .mt-heading-h1 .elementor-heading-title {
+        font-size: 34px !important;
+    }
+    .mt-lead p, .mt-hero-slide .hero-sub-text, .mt-hero-slide .hero-sub-text p {
+        font-size: 16px !important;
+    }
+    .mt-hero-slide .mt-btn-primary .elementor-button,
+    .mt-hero-slide .mt-btn-secondary .elementor-button,
+    .mt-hero-slide .mt-btn-whatsapp .elementor-button,
+    .mt-hero-slide .mt-btn-link .elementor-button {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+    .mt-hero-slide .mt-col--stretch > :first-child,
+    .mt-hero-slide .mt-col > :first-child {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+    .mt-hero-slide .mt-col .elementor-column-wrap > :first-child,
+    .mt-hero-slide .mt-col > .elementor-widget-wrap > :first-child {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+    .mt-hero-img-wrap {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+    }
+    .mt-hero-img-wrap img {
+        height: 260px !important;
+        max-height: 260px !important;
+        aspect-ratio: 4 / 3 !important;
+        border-radius: var(--mt-radius-card) !important;
+    }
+    .mt-hero-controls {
+        justify-content: center !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-top: 24px !important;
+    }
+    .mt-proof-bar {
+        margin-top: -24px !important;
+        padding-top: 16px !important;
+        padding-bottom: 16px !important;
+    }
+    .mt-proof-card {
+        flex: 0 0 calc(50% - 8px) !important;
+        max-width: calc(50% - 8px) !important;
+        width: calc(50% - 8px) !important;
+        padding: 16px !important;
+    }
+    .mt-proof-metric {
+        border-left: none !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .mt-proof-metric + .mt-proof-metric {
+        border-left: 1px solid var(--mt-line) !important;
+    }
+}
+/* Layanan Ronde 4: header eyebrow + H2 kiri; kanan paragraf + link Semua layanan rata kiri dengan paragraf. Tombol Semua layanan jadi link teks biru tanpa padding tombol. */
+.mt-service-header-grid {
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    gap: 16px !important;
+    align-items: center !important;
+    margin-bottom: 32px !important;
+}
+@media (max-width: 767.98px) {
+    .mt-service-header-grid {
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+    }
+}
+.mt-service-header-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+.mt-service-header-link {
+    background: transparent !important;
+    border: none !important;
+    color: var(--mt-blue) !important;
+    padding: 0 !important;
+    height: auto !important;
+    min-height: auto !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+}
+.mt-service-header-link:hover {
+    color: var(--mt-blue-hover) !important;
+    text-decoration: underline !important;
+}
+.mt-service-header-link .elementor-button-icon {
+    font-size: 14px !important;
+    margin: 0 !important;
+}
+/* Layanan grid Ronde 4: 3 kolom x 2 baris, unggilan span 2 kolom, padding kartu 28px, ikon 48px kotak #EFF6FF radius 10px */
+.mt-service-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 24px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+@media (max-width: 1024.98px) {
+    .mt-service-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+@media (max-width: 767.98px) {
+    .mt-service-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+.mt-service-card {
+    background: var(--mt-white) !important;
+    border: 1px solid var(--mt-line) !important;
+    border-radius: var(--mt-radius-card) !important;
+    padding: 28px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+.mt-service-card.featured {
+    grid-column: span 2 !important;
+    background: #F6F8FB !important;
+    border: 1px solid #BFDBFE !important;
+}
+.mt-service-card-icon {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: var(--mt-radius-icon) !important;
+    background: var(--mt-blue-light) !important;
+    color: var(--mt-blue) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 22px !important;
+    flex-shrink: 0 !important;
+    margin-bottom: 16px !important;
+}
+.mt-service-card-icon i, .mt-service-card-icon svg {
+    color: var(--mt-blue) !important;
+    fill: var(--mt-blue) !important;
+}
+.mt-service-card-title {
+    font-size: 20px !important;
+    line-height: 1.25 !important;
+    font-weight: 700 !important;
+    color: var(--mt-navy) !important;
+    margin: 0 0 12px 0 !important;
+}
+.mt-service-card-desc {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    color: var(--mt-muted) !important;
+    margin: 0 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
+.mt-service-card-link {
+    margin-top: auto !important;
+    padding-top: 16px !important;
+    background: transparent !important;
+    border: none !important;
+    color: var(--mt-blue) !important;
+    padding: 0 !important;
+    height: auto !important;
+    min-height: auto !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+.mt-service-card-link:hover {
+    color: var(--mt-blue-hover) !important;
+    text-decoration: underline !important;
+}
+.mt-service-card-link .elementor-button-icon {
+    font-size: 14px !important;
+    margin: 0 !important;
+}
+/* Produk Ronde 4: kartu seragam ikon->judul->baris merek (min-height 2 baris)->deskripsi->tombol Tanya Harga menempel ke dasar kartu (margin-top:auto). Judul semua kartu sejajar di garis yang sama. */
+.mt-product-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 24px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+@media (max-width: 1024.98px) {
+    .mt-product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+@media (max-width: 767.98px) {
+    .mt-product-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+.mt-product-card {
+    background: var(--mt-white) !important;
+    border: 1px solid var(--mt-line) !important;
+    border-radius: var(--mt-radius-card) !important;
+    padding: 28px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    position: relative !important;
+}
+.mt-product-card-icon {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: var(--mt-radius-icon) !important;
+    background: var(--mt-blue-light) !important;
+    color: var(--mt-blue) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 22px !important;
+    flex-shrink: 0 !important;
+    margin-bottom: 16px !important;
+}
+.mt-product-card-icon i, .mt-product-card-icon svg {
+    color: var(--mt-blue) !important;
+    fill: var(--mt-blue) !important;
+}
+.mt-product-card-title {
+    font-size: 18px !important;
+    line-height: 1.25 !important;
+    font-weight: 700 !important;
+    color: var(--mt-navy) !important;
+    margin: 0 0 8px 0 !important;
+}
+.mt-product-card-brand {
+    font-size: 14px !important;
+    color: var(--mt-muted) !important;
+    min-height: 28px !important;
+    line-height: 1.4 !important;
+    margin: 0 0 12px 0 !important;
+}
+.mt-product-card-desc {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    color: var(--mt-muted) !important;
+    margin: 0 0 16px 0 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
+.mt-product-card-cta {
+    margin-top: auto !important;
+    padding-top: 0 !important;
+}
+.mt-product-card-cta .mt-btn-whatsapp .elementor-button {
+    background-color: #25D366 !important;
+    border-color: #25D366 !important;
+    color: #FFFFFF !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    padding: 0 18px !important;
+    white-space: nowrap !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+}
+.mt-product-card-cta .mt-btn-whatsapp .elementor-button:hover {
+    background-color: #22BF5B !important;
+    border-color: #22BF5B !important;
+    transform: translateY(-1px);
+}
+.mt-product-card-cta .mt-btn-whatsapp .elementor-button-icon {
+    font-size: 16px !important;
+    margin: 0 !important;
+}
+/* Tentang Ronde 4: foto aspect-ratio 4:5, object-fit cover, radius 12px, tinggi sama dengan kolom teks, tidak ada sudut putih/terpotong. Kolom teks sejajar vertikal tengah dengan foto, tepi kiri teks = tepi kiri kolom. */
+.mt-about-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 48px !important;
+    align-items: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+@media (max-width: 1024.98px) {
+    .mt-about-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+    }
+}
+.mt-about-photo-wrap {
+    position: relative !important;
+    border-radius: var(--mt-radius-card) !important;
+    overflow: hidden !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4 / 5 !important;
+    max-height: 600px !important;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06) !important;
+}
+.mt-about-photo-wrap img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: var(--mt-radius-card) !important;
+    display: block !important;
+    background: transparent !important;
+}
+.mt-about-text-col {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    justify-content: center !important;
+    padding: 0 !important;
+}
+.mt-about-text-col > :first-child {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+/* Overlay latar putih tipis untuk foto yang punya area transparan/putih: jangan tahan transparan */
+.mt-about-photo-wrap::after {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: rgba(255,255,255,0.0) !important;
+    pointer-events: none !important;
+    display: none !important;
+}
+.mt-about-photo-wrap.fix-white-bg::after {
+    display: block !important;
+    background: #FFFFFF !important;
+    opacity: 0.98 !important;
+}
+/* Ganti foto Kenworth merah: jika ada foto yang lebih sesuai di assets/uploads (truk niaga di bengkel), ganti via UI Elementor atau generator. Jika tidak ada, crop fokus ke bagian bengkel/mesin dan catat sebagai PLACEHOLDER. */
+.mt-about-photo-wrap.placeholder-check {
+    /* placeholder marker - diganti saat ada foto asli */
+}
+
+/* ==========================================================================
+   SISTEM TOMBOL SINGLE DEFINITION (mt-custom.css) — Ronde 4
+   .mt-btn: inline-flex, align-items center, justify-content center, gap 8px,
+   tinggi 48px, padding 0 22px, white-space nowrap, radius 10px.
+   Ikon Font Awesome 16px dengan gap 8px.
+   Jika widget Elementor tidak punya ikon, hapus slot ikon kosong.
+   Variasi: primer biru, sekunder putih berborder, WhatsApp hijau, derek merah, link teks.
+   ========================================================================== */
+.mt-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    padding: 0 22px !important;
+    white-space: nowrap !important;
+    border-radius: var(--mt-radius-btn) !important;
+    font-family: var(--mt-font-body) !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    line-height: 1 !important;
+    text-decoration: none !important;
+    transition: var(--mt-transition) !important;
+    box-sizing: border-box !important;
+    cursor: pointer !important;
+    border: 1px solid transparent !important;
+}
+.mt-btn:focus-visible {
+    outline: 2px solid var(--mt-blue) !important;
+    outline-offset: 2px !important;
+}
+.mt-btn .elementor-button-icon {
+    font-size: 16px !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+    display: inline-block !important;
+}
+body.elementor-page-59 .elementor-button {
+    border-radius: var(--mt-radius-btn) !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    padding: 0 22px !important;
+    font-family: var(--mt-font-body) !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    transition: var(--mt-transition) !important;
+    box-sizing: border-box !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+}
+/* Nav Link Text (Bukan tombol kotak, tinggi <= 24px sesuai Ronde 4B) */
+body.elementor-page-59 .mt-nav-link .elementor-button,
+body.elementor-page-59 .mt-nav-menu-desktop .elementor-button {
+    background: transparent !important;
+    color: var(--mt-ink) !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    padding: 0 !important;
+    height: 24px !important;
+    min-height: 24px !important;
+    max-height: 24px !important;
+    line-height: 24px !important;
+    border: none !important;
+    border-radius: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+    width: auto !important;
+}
+body.elementor-page-59 .mt-nav-link .elementor-button:hover,
+body.elementor-page-59 .mt-nav-link.is-active .elementor-button,
+body.elementor-page-59 .mt-nav-menu-desktop .elementor-button:hover,
+body.elementor-page-59 .mt-nav-menu-desktop .is-active .elementor-button {
+    color: var(--mt-blue) !important;
+}
+
+/* Tombol Navbar Kanan Login & Register (Tinggi 44px, gap 12px) */
+body.elementor-page-59 .btn-nav-login .elementor-button,
+body.elementor-page-59 .btn-nav-register .elementor-button {
+    height: 44px !important;
+    min-height: 44px !important;
+    max-height: 44px !important;
+    padding: 0 20px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+}
+body.elementor-page-59 .elementor-button:focus-visible {
+    outline: 2px solid var(--mt-blue) !important;
+    outline-offset: 2px !important;
+}
+body.elementor-page-59 .elementor-button .elementor-button-icon {
+    font-size: 16px !important;
+}
+/* Tombol tanpa ikon: hapus margin ikon kosong */
+.mt-btn--no-icon .elementor-button-icon,
+.mt-btn--no-icon .elementor-button-icon::before,
+.mt-btn--no-icon .eicon {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+.mt-btn--no-icon .elementor-button {
+    gap: 0 !important;
+}
+.mt-btn-primary {
+    background-color: var(--mt-blue) !important;
+    color: var(--mt-white) !important;
+    border-color: var(--mt-blue) !important;
+}
+.mt-btn-primary:hover,
+.mt-btn-primary .elementor-button:hover {
+    background-color: var(--mt-blue-hover) !important;
+    border-color: var(--mt-blue-hover) !important;
+    transform: translateY(-1px);
+}
+.mt-btn-secondary {
+    background-color: var(--mt-white) !important;
+    color: var(--mt-navy) !important;
+    border-color: var(--mt-line) !important;
+}
+.mt-btn-secondary:hover,
+.mt-btn-secondary .elementor-button:hover {
+    background-color: var(--mt-surface) !important;
+    border-color: #CBD5E1 !important;
+    color: var(--mt-blue) !important;
+}
+.mt-btn-whatsapp {
+    background-color: #25D366 !important;
+    color: #FFFFFF !important;
+    border-color: #25D366 !important;
+}
+.mt-btn-whatsapp:hover,
+.mt-btn-whatsapp .elementor-button:hover {
+    background-color: #22BF5B !important;
+    border-color: #22BF5B !important;
+    transform: translateY(-1px);
+}
+.mt-btn-emergency {
+    background-color: var(--mt-red) !important;
+    color: var(--mt-white) !important;
+    border-color: var(--mt-red) !important;
+    font-weight: 700 !important;
+}
+.mt-btn-emergency:hover,
+.mt-btn-emergency .elementor-button:hover {
+    background-color: var(--mt-red-hover) !important;
+    border-color: var(--mt-red-hover) !important;
+    transform: translateY(-1px);
+}
+.mt-btn-link {
+    background: transparent !important;
+    border: none !important;
+    color: var(--mt-blue) !important;
+    padding: 0 !important;
+    height: auto !important;
+    min-height: auto !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+}
+.mt-btn-link:hover {
+    color: var(--mt-blue-hover) !important;
+    text-decoration: underline !important;
+}
+.mt-btn-group-responsive {
+    padding: 0 !important;
+    --padding-top: 0px !important;
+    --padding-bottom: 0px !important;
+    --padding-left: 0px !important;
+    --padding-right: 0px !important;
+}
+.mt-btn-group-responsive > .elementor-element {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* ==========================================================================
+   KOMPONEN NAVBAR (BEM) — Ronde 4
+   Brand: ikon truk 36px + dua baris teks (judul 17px bold nowrap, sub 12px abu nowrap),
+   line-height 1.15, sejajar tengah vertikal, tidak menyentuh tepi bar.
+   Bar tinggi 72px.
+   Nav menu desktop: 15px/600, nowrap, gap 28px, tidak ada item patah 2 baris.
+   Kanan: Login (sekunder) + Register (primer), nowrap, gap 12px, tinggi 44px.
+   <=991px: menu desktop & tombol disembunyikan; tampil hamburger 44px di kanan;
+   menu geser drawer full-width di bawah bar; link besar 18px jarak 16px;
+   Login & Register tombol penuh lebar di dasar drawer; tutup saat link diklik.
+   Bar HP hanya brand + hamburger.
+   Sticky + bayangan tipis saat scroll (.is-scrolled via JS ringan).
+   ========================================================================== */
+.mt-utility-bar {
+    display: none !important;
+}
+
+.mt-navbar-bar {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1020 !important;
+    background-color: var(--mt-white) !important;
+    border-bottom: 1px solid var(--mt-line) !important;
+    min-height: 72px !important;
+    height: 72px !important;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03) !important;
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    transition: box-shadow 150ms ease !important;
+}
+.mt-navbar-bar.is-scrolled {
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.08) !important;
+}
+.mt-navbar-inner {
+    min-height: 72px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    gap: 16px !important;
+}
+
+/* Brand Link */
+.mt-brand-link {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    text-decoration: none !important;
+    flex: 0 0 auto !important;
+}
+.mt-brand-icon {
+    font-size: 36px !important;
+    color: var(--mt-blue) !important;
+    line-height: 1 !important;
+    flex: 0 0 36px !important;
+    width: 36px !important;
+    text-align: center !important;
+}
+.mt-brand-text {
+    display: flex !important;
+    flex-direction: column !important;
+    line-height: 1.15 !important;
+    gap: 0 !important;
+}
+.mt-brand-title {
+    font-size: 17px !important;
+    color: var(--mt-navy) !important;
+    font-weight: 700 !important;
+    line-height: 1.15 !important;
+    white-space: nowrap !important;
+    font-family: var(--mt-font-heading) !important;
+}
+.mt-brand-sub {
+    font-size: 12px !important;
+    color: var(--mt-muted) !important;
+    line-height: 1.15 !important;
+    white-space: nowrap !important;
+}
+
+/* Nav Menu Desktop */
+.mt-nav-menu-desktop {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 28px !important;
+}
+.mt-nav-link {
+    text-decoration: none !important;
+    height: 24px !important;
+    min-height: 24px !important;
+    max-height: 24px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.mt-nav-link .elementor-widget-container,
+.mt-nav-link .elementor-button-wrapper {
+    height: 24px !important;
+    min-height: 24px !important;
+    max-height: 24px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.mt-nav-link .elementor-button {
+    background: transparent !important;
+    color: var(--mt-ink) !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    padding: 0 !important;
+    height: 24px !important;
+    min-height: 24px !important;
+    max-height: 24px !important;
+    border: none !important;
+    line-height: 24px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+}
+.mt-nav-link .elementor-button:hover,
+.mt-nav-link.is-active .elementor-button {
+    color: var(--mt-blue) !important;
+}
+
+/* Nav Actions */
+.mt-nav-actions {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex: 0 0 auto !important;
+}
+.btn-nav-login {
+    border-radius: var(--mt-radius-btn) !important;
+}
+.btn-nav-login .elementor-button {
+    background-color: var(--mt-white) !important;
+    color: var(--mt-navy) !important;
+    border: 1px solid var(--mt-line) !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    padding: 0 20px !important;
+    white-space: nowrap !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+}
+.btn-nav-login .elementor-button .elementor-button-icon {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    font-size: 14px !important;
+}
+.btn-nav-login .elementor-button .elementor-button-text {
+    display: inline-flex !important;
+    align-items: center !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+}
+.btn-nav-login .elementor-button:hover {
+    background-color: var(--mt-surface) !important;
+    border-color: #CBD5E1 !important;
+    color: var(--mt-blue) !important;
+}
+.btn-nav-register {
+    border-radius: var(--mt-radius-btn) !important;
+}
+.btn-nav-register .elementor-button {
+    background-color: var(--mt-blue) !important;
+    color: var(--mt-white) !important;
+    border: 1px solid var(--mt-blue) !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    padding: 0 20px !important;
+    white-space: nowrap !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+}
+.btn-nav-register .elementor-button .elementor-button-icon {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    font-size: 14px !important;
+}
+.btn-nav-register .elementor-button .elementor-button-text {
+    display: inline-flex !important;
+    align-items: center !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+}
+.btn-nav-register .elementor-button:hover {
+    background-color: var(--mt-blue-hover) !important;
+    border-color: var(--mt-blue-hover) !important;
+}
+
+/* Hamburger & Drawer (<=991px) */
+.mt-nav-toggle {
+    display: none !important;
+    width: 44px !important;
+    height: 44px !important;
+    border: 1px solid var(--mt-line) !important;
+    border-radius: var(--mt-radius-btn) !important;
+    background: var(--mt-white) !important;
+    color: var(--mt-navy) !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    flex: 0 0 auto !important;
+    transition: border-color 150ms ease !important;
+}
+.mt-nav-toggle:hover {
+    border-color: var(--mt-blue) !important;
+    color: var(--mt-blue) !important;
+}
+.mt-nav-toggle .elementor-button-icon {
+    font-size: 22px !important;
+    margin: 0 !important;
+}
+.mt-nav-drawer {
+    display: none !important;
+    position: fixed !important;
+    top: 72px !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: var(--mt-white) !important;
+    border-bottom: 1px solid var(--mt-line) !important;
+    padding: 16px 20px !important;
+    box-sizing: border-box !important;
+    z-index: 1010 !important;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08) !important;
+}
+.mt-nav-drawer.open {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+}
+.mt-drawer-links {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+}
+.mt-drawer-link .elementor-button {
+    background: transparent !important;
+    color: var(--mt-navy) !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    padding: 0 !important;
+    height: auto !important;
+    min-height: auto !important;
+    border: none !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+    line-height: 1.3 !important;
+    width: 100% !important;
+}
+.mt-drawer-link .elementor-button:hover {
+    color: var(--mt-blue) !important;
+}
+.mt-drawer-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    padding-top: 12px !important;
+    border-top: 1px solid var(--mt-line) !important;
+}
+.mt-drawer-actions .btn-nav-login .elementor-button,
+.mt-drawer-actions .btn-nav-register .elementor-button {
+    width: 100% !important;
+    padding: 0 18px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+}
+.mt-drawer-overlay {
+    display: none !important;
+    position: fixed !important;
+    inset: 0 !important;
+    background: rgba(15, 23, 42, 0.3) !important;
+    z-index: 1005 !important;
+}
+
+/* ==========================================================================
+   HERO SLIDESHOW & PROOF BAR
+   ========================================================================== */
+.mt-hero-slider {
+    position: relative !important;
+    overflow: hidden !important;
+    background-color: var(--mt-white) !important;
+    min-height: auto !important;
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+    width: 100% !important;
+}
+.mt-hero-slide {
+    display: none !important;
+    opacity: 0 !important;
+    transition: opacity 400ms ease-in-out !important;
+    width: 100% !important;
+    padding: 0 !important;
+    min-height: auto !important;
+    height: auto !important;
+}
+.mt-hero-slide.is-active {
+    display: flex !important;
+    opacity: 1 !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    padding: 0 !important;
+    min-height: auto !important;
+    height: auto !important;
+}
+body.elementor-editor-active .mt-hero-slide {
+    display: flex !important;
+    opacity: 1 !important;
+    flex-direction: row !important;
+    position: relative !important;
+    margin-bottom: 48px !important;
+    border-bottom: 2px dashed var(--mt-line) !important;
+    padding-bottom: 32px !important;
+}
+.mt-hero-img-wrap {
+    position: relative !important;
+    border-radius: var(--mt-radius-card) !important;
+    overflow: hidden !important;
+}
+.mt-hero-img-wrap img {
+    border-radius: var(--mt-radius-card) !important;
+    width: 100% !important;
+    height: 430px !important;
+    max-height: 440px !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+.mt-hero-chip {
+    position: absolute !important;
+    bottom: 16px !important;
+    left: 16px !important;
+    background: rgba(11, 27, 51, 0.85) !important;
+    color: #FFFFFF !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    padding: 6px 14px !important;
+    border-radius: 6px !important;
+    backdrop-filter: blur(8px) !important;
+    z-index: 2 !important;
+}
+
+/* Slider Controls */
+.mt-hero-controls {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    margin-top: 28px !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
+.mt-hero-controls.is-centered {
+    justify-content: center !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+.mt-hero-controls > * {
+    flex: 0 0 auto !important;
+}
+.mt-hero-nav-btn {
+    width: 44px !important;
+    height: 44px !important;
+    border: 1px solid var(--mt-line) !important;
+    background: var(--mt-white) !important;
+    border-radius: var(--mt-radius-btn) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    color: var(--mt-navy) !important;
+    font-size: 14px !important;
+    transition: var(--mt-transition) !important;
+}
+.mt-hero-nav-btn:hover {
+    border-color: var(--mt-blue) !important;
+    color: var(--mt-blue) !important;
+}
+.mt-hero-dot {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    background: #CBD5E1 !important;
+    cursor: pointer !important;
+    transition: var(--mt-transition) !important;
+    display: inline-block !important;
+}
+.mt-hero-dot.is-active,
+.mt-hero-dot[aria-current="true"] {
+    background: var(--mt-blue) !important;
+    width: 22px !important;
+    height: 8px !important;
+    border-radius: 4px !important;
+}
+.mt-hero-counter {
+    font-family: var(--mt-font-heading) !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    color: var(--mt-navy) !important;
+    font-variant-numeric: tabular-nums !important;
+}
+
+/* Panel 4 Kotak Produk Slide 2 (Ronde 4B) */
+.mt-hero-products-panel {
+    background-color: var(--mt-surface) !important;
+    border-radius: 16px !important;
+    padding: 24px !important;
+    height: 430px !important;
+    max-height: 440px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-rows: repeat(2, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+}
+.mt-prod-card {
+    background: var(--mt-white) !important;
+    border: 1px solid var(--mt-line) !important;
+    border-radius: 12px !important;
+    padding: 16px 18px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+    transition: var(--mt-transition) !important;
+}
+.mt-prod-card:hover {
+    border-color: var(--mt-blue) !important;
+    transform: translateY(-2px);
+}
+.mt-prod-card-top {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+}
+.mt-prod-icon {
+    font-size: 20px !important;
+    color: var(--mt-blue) !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 8px !important;
+    background: var(--mt-blue-light) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+}
+.mt-prod-name {
+    font-family: var(--mt-font-heading) !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: var(--mt-navy) !important;
+    line-height: 1.2 !important;
+}
+.mt-prod-logos {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin-top: 10px !important;
+}
+.mt-prod-logos img {
+    height: 22px !important;
+    max-height: 22px !important;
+    width: auto !important;
+    object-fit: contain !important;
+    filter: grayscale(1) !important;
+    opacity: 0.75 !important;
+    transition: var(--mt-transition) !important;
+}
+.mt-prod-card:hover .mt-prod-logos img {
+    filter: grayscale(0) !important;
+    opacity: 1 !important;
+}
+
+/* Kesejajaran Tepi 1200px (Brand Left = Hero Left; Register Right = Hero Right) */
+.mt-nav-brand-wrap,
+.mt-nav-brand-wrap > * {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+.mt-hero-slider .mt-container-boxed .e-con,
+.mt-hero-slider .mt-container-boxed .e-con-inner {
+    --padding-left: 0px !important;
+    --padding-right: 0px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+.mt-hero-slide.is-active > :first-child {
+    flex: 55 1 0% !important;
+    min-width: 0 !important;
+    width: auto !important;
+    max-width: none !important;
+}
+.mt-hero-slide.is-active > :last-child {
+    flex: 45 1 0% !important;
+    min-width: 0 !important;
+    width: auto !important;
+    max-width: none !important;
+}
+
+/* Proof Bar — menimpa bagian bawah hero (margin-top -48px), lebar = container, bayangan sangat halus */
+.mt-proof-bar {
+    margin-top: -48px !important;
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+}
+@media (max-width: 767.98px) {
+    .mt-proof-bar {
+        margin-top: -24px !important;
+        padding-top: 16px !important;
+        padding-bottom: 16px !important;
+    }
+    /* HP: proof bar 2x2 */
+    .mt-proof-card {
+        flex: 0 0 calc(50% - 8px) !important;
+        max-width: calc(50% - 8px) !important;
+        width: calc(50% - 8px) !important;
+        padding: 16px !important;
+    }
+    .mt-proof-metric {
+        border-left: none !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .mt-proof-metric + .mt-proof-metric {
+        border-left: 1px solid var(--mt-line) !important;
+    }
+}
+.mt-proof-card {
+    background: var(--mt-white) !important;
+    border: 1px solid var(--mt-line) !important;
+    border-radius: var(--mt-radius-card) !important;
+    box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04) !important;
+    padding: 24px 32px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+.mt-proof-metric {
+    border-left: 1px solid var(--mt-line) !important;
+    padding: 0 24px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+.mt-proof-metric:first-child {
+    border-left: none !important;
+    padding-left: 0 !important;
+}
+.mt-proof-number .elementor-counter-number-wrapper,
+.mt-proof-number .elementor-heading-title {
+    font-size: 36px !important;
+    font-weight: 800 !important;
+    color: var(--mt-navy) !important;
+    font-family: var(--mt-font-heading) !important;
+    font-variant-numeric: tabular-nums !important;
+    line-height: 1.1 !important;
+    text-align: center !important;
+    justify-content: center !important;
+}
+.mt-proof-number .elementor-counter-title,
+.mt-proof-label .elementor-counter-title {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    color: var(--mt-muted) !important;
+    margin-top: 6px !important;
+    text-align: center !important;
+}
+
+/* ==========================================================================
+   KARTU ENTERPRISE, PRINSIPAL, BROWSER MOCKUP, TESTIMONI
+   ========================================================================== */
+.mt-card {
+    background: var(--mt-white) !important;
+    border: 1px solid var(--mt-line) !important;
+    border-radius: var(--mt-radius-card) !important;
+    box-shadow: none !important;
+    transition: var(--mt-transition) !important;
+    overflow: hidden !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+.mt-card:hover {
+    border-color: var(--mt-blue) !important;
+    transform: translateY(-2px) !important;
+}
+.mt-card-body {
+    padding: 28px !important;
+    box-sizing: border-box !important;
+    flex: 1 1 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+}
+.mt-card-img,
+.mt-card-img .elementor-widget-container,
+.mt-card-img img,
+.mt-card-img--featured,
+.mt-card-img--featured img {
+    width: 100% !important;
+    height: 180px !important;
+    max-height: 180px !important;
+    object-fit: cover !important;
+    aspect-ratio: 16 / 10 !important;
+    display: block !important;
+    border-radius: 0 !important;
+}
+.sec-services .mt-card,
+.sec-services-cards .mt-card,
+#service .mt-card,
+.mt-grid-3 > .mt-card,
+.service-bento-featured {
+    height: 515px !important;
+    min-height: 515px !important;
+    max-height: 515px !important;
+    box-sizing: border-box !important;
+}
+.mt-card-footer {
+    margin-top: auto !important;
+    padding-top: 12px !important;
+}
+.mt-card-title {
+    font-size: 20px !important;
+    line-height: 1.25 !important;
+    font-weight: 700 !important;
+    color: var(--mt-navy) !important;
+    margin: 0 !important;
+}
+.mt-card-desc {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    color: var(--mt-muted) !important;
+    margin: 0 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
+.mt-card-brand {
+    font-size: 14px !important;
+    color: var(--mt-muted) !important;
+    min-height: 28px !important;
+    line-height: 1.4 !important;
+}
+.mt-icon-box-48 {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: var(--mt-radius-icon) !important;
+    background-color: var(--mt-blue-light) !important;
+    color: var(--mt-blue) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 22px !important;
+    flex-shrink: 0 !important;
+    margin-bottom: 12px !important;
+}
+.mt-icon-box-48 i, .mt-icon-box-48 svg {
+    color: var(--mt-blue) !important;
+    fill: var(--mt-blue) !important;
+}
+
+.mt-icon-box-44 {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: var(--mt-radius-icon) !important;
+    background-color: var(--mt-blue-light) !important;
+    color: var(--mt-blue) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 20px !important;
+    flex-shrink: 0 !important;
+    margin-bottom: 12px !important;
+}
+.mt-icon-box-44 i, .mt-icon-box-44 svg {
+    color: var(--mt-blue) !important;
+    fill: var(--mt-blue) !important;
+}
+
+/* Merek Prinsipal */
+#principals .mt-row {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+}
+@media (max-width: 767.98px) {
+    #principals .mt-row {
+        gap: 16px 20px !important;
+    }
+    #principals .principal-wall-card {
+        flex: 0 0 calc(33.333% - 16px) !important;
+        max-width: calc(33.333% - 16px) !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    #principals .principal-wall-card img {
+        max-width: 100% !important;
+        height: auto !important;
+        max-height: 28px !important;
+    }
+}
+.mt-principal-strip {
+    display: flex !important;
+    align-items: center !important;
+    gap: 24px !important;
+    padding: 40px 0 !important;
+}
+.mt-principal-strip .mt-principal-item {
+    flex: 0 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: auto !important;
+    height: auto !important;
+}
+.mt-principal-strip img {
+    height: 32px !important;
+    max-height: 32px !important;
+    width: auto !important;
+    max-width: 120px !important;
+    object-fit: contain !important;
+    filter: grayscale(1) !important;
+    opacity: 0.75 !important;
+    transition: var(--mt-transition) !important;
+    margin: 0 auto !important;
+    display: block !important;
+    background: transparent !important;
+}
+.mt-principal-strip img:hover {
+    filter: grayscale(0) !important;
+    opacity: 1 !important;
+}
+.mt-principal-strip img.dunlop {
+    background: transparent !important;
+    filter: grayscale(1) !important;
+}
+.mt-principal-strip img.dunlop:hover {
+    filter: grayscale(0) !important;
+}
+/* Normalisasi ukuran visual: logo tipis/kecil seperti Incoe diberi tinggi 28px atau lebar tetap; GS Astra tidak lebih besar dari yang lain */
+.mt-principal-strip .mt-principal-norm {
+    height: 28px !important;
+    max-height: 28px !important;
+}
+.mt-principal-strip .mt-principal-gs {
+    height: 32px !important;
+    max-height: 32px !important;
+}
+
+/* Browser Mockup Frame untuk Portal Fleet */
+.mt-browser-frame {
+    background: var(--mt-white) !important;
+    border: 1px solid var(--mt-line) !important;
+    border-radius: var(--mt-radius-card) !important;
+    overflow: hidden !important;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06) !important;
+}
+.mt-browser-header {
+    background: #F1F5F9 !important;
+    border-bottom: 1px solid var(--mt-line) !important;
+    height: 36px !important;
+    padding: 0 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+.mt-browser-dot {
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50% !important;
+    display: inline-block !important;
+}
+.mt-browser-dot--red    { background: #EF4444 !important; }
+.mt-browser-dot--yellow { background: #F59E0B !important; }
+.mt-browser-dot--green  { background: #10B981 !important; }
+.mt-browser-title {
+    font-size: 11px !important;
+    color: var(--mt-muted) !important;
+    margin-left: 8px !important;
+}
+.mt-browser-frame img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    object-fit: cover !important;
+}
+
+/* Testimoni */
+.mt-testi-header {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin-bottom: 12px !important;
+}
+.mt-testi-avatar {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50% !important;
+    background: var(--mt-blue-light) !important;
+    color: var(--mt-blue) !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+}
+.mt-testi-meta {
+    display: flex !important;
+    flex-direction: column !important;
+}
+.mt-testi-name {
+    font-weight: 700 !important;
+    color: var(--mt-navy) !important;
+    font-size: 16px !important;
+    line-height: 1.2 !important;
+}
+.mt-testi-role {
+    color: var(--mt-muted) !important;
+    font-size: 13px !important;
+}
+.mt-testi-stars {
+    color: var(--mt-blue) !important;
+    font-size: 16px !important;
+    letter-spacing: 2px !important;
+    margin-bottom: 12px !important;
+}
+.mt-testi-quote-icon {
+    color: #CBD5E1 !important;
+    font-size: 24px !important;
+    margin-right: 6px !important;
+}
+/* Ronde 4: icon kutip 28px biru muda #BFDBFE di pojok kanan atas kartu */
+.mt-testi-card {
+    position: relative !important;
+    background: var(--mt-white) !important;
+    border: 1px solid var(--mt-line) !important;
+    border-radius: var(--mt-radius-card) !important;
+    overflow: hidden !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+.mt-testi-quote-badge {
+    position: absolute !important;
+    top: 12px !important;
+    right: 12px !important;
+    width: 28px !important;
+    height: 28px !important;
+    color: #BFDBFE !important;
+    font-size: 28px !important;
+    line-height: 1 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    pointer-events: none !important;
+}
+/* FAQ Ronde 4: tiap item kartu sendiri, border radius 12px, padding 18px 20px, pertanyaan navy 17px/600, saat terbuka judul biru, ikon +/- di kanan, hilangkan kotak bersudut tajam */
+.mt-faq-item {
+    background: var(--mt-white) !important;
+    border: 1px solid var(--mt-line) !important;
+    border-radius: var(--mt-radius-card) !important;
+    padding: 18px 20px !important;
+    margin-bottom: 12px !important;
+    box-sizing: border-box !important;
+}
+.mt-faq-item:last-child {
+    margin-bottom: 0 !important;
+}
+.mt-faq-question {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    width: 100% !important;
+    text-align: left !important;
+}
+.mt-faq-question-text {
+    font-size: 17px !important;
+    font-weight: 600 !important;
+    color: var(--mt-navy) !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.mt-faq-question.is-open .mt-faq-question-text {
+    color: var(--mt-blue) !important;
+}
+.mt-faq-toggle {
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 50% !important;
+    background: var(--mt-blue-light) !important;
+    color: var(--mt-blue) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 16px !important;
+    flex-shrink: 0 !important;
+    transition: transform 200ms ease !important;
+    border: none !important;
+    background: none !important;
+    padding: 0 !important;
+}
+.mt-faq-toggle .elementor-button-icon {
+    font-size: 16px !important;
+    margin: 0 !important;
+}
+.mt-faq-item.is-open .mt-faq-toggle {
+    transform: rotate(45deg) !important;
+}
+.mt-faq-answer {
+    margin-top: 12px !important;
+    padding-top: 12px !important;
+    border-top: 1px solid var(--mt-line) !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    color: var(--mt-muted) !important;
+}
+.mt-faq-answer p {
+    margin: 0 !important;
+}
+.mt-faq-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+}
+/* CTA penutup Ronde 4: lebar = container, radius 12px, padding 56px; tombol Chat WhatsApp & Register berdampingan di tengah, tanpa slot ikon kosong */
+.mt-cta-closing {
+    background: var(--mt-surface) !important;
+    border-radius: var(--mt-radius-card) !important;
+    padding: 56px !important;
+    box-sizing: border-box !important;
+}
+.mt-cta-closing .mt-container-boxed {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+}
+@media (max-width: 767.98px) {
+    .mt-cta-closing {
+        padding: 40px 20px !important;
+    }
+    .mt-cta-closing .mt-container-boxed {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+    .mt-cta-actions {
+        flex-direction: column !important;
+    }
+    .mt-cta-actions > * {
+        width: 100% !important;
+    }
+}
+.mt-cta-actions {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+}
+.mt-cta-actions > * {
+    flex: 0 0 auto !important;
+}
+.mt-cta-actions .mt-btn--no-icon .elementor-button {
+    gap: 0 !important;
+}
+.mt-cta-title {
+    font-size: clamp(26px, 3vw, 38px) !important;
+    line-height: 1.2 !important;
+    font-weight: 800 !important;
+    color: var(--mt-navy) !important;
+    margin: 0 0 12px 0 !important;
+    text-align: center !important;
+}
+.mt-cta-sub {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    color: var(--mt-muted) !important;
+    margin: 0 0 28px 0 !important;
+    text-align: center !important;
+}
+
+/* Cara Kerja */
+.mt-step-number {
+    font-family: var(--mt-font-heading) !important;
+    font-size: 32px !important;
+    font-weight: 800 !important;
+    color: var(--mt-blue) !important;
+    line-height: 1 !important;
+    margin-bottom: 12px !important;
+}
+.mt-step-card {
+    background: var(--mt-white) !important;
+    border: 1px solid var(--mt-line) !important;
+    border-radius: var(--mt-radius-card) !important;
+    padding: 24px !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    position: relative !important;
+}
+.mt-step-connector {
+    position: absolute !important;
+    top: 50% !important;
+    right: 0 !important;
+    width: 24px !important;
+    height: 2px !important;
+    background: var(--mt-line) !important;
+    transform: translateY(-50%) !important;
+    pointer-events: none !important;
+}
+.mt-step-card:last-child .mt-step-connector {
+    display: none !important;
+}
+/* Derek 24 jam Ronde 4 */
+.mt-derek-band {
+    background: var(--mt-surface) !important;
+    border-top: 1px solid var(--mt-line) !important;
+    border-bottom: 1px solid var(--mt-line) !important;
+    padding: 40px 0 !important;
+}
+.mt-derek-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 48px !important;
+}
+@media (max-width: 991.98px) {
+    .mt-derek-grid {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 32px !important;
+    }
+}
+.mt-derek-left {
+    flex: 0 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+}
+.mt-derek-right {
+    flex: 1 1 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+}
+.mt-derek-phone-title {
+    font-size: 28px !important;
+    font-weight: 800 !important;
+    color: var(--mt-navy) !important;
+    line-height: 1.1 !important;
+    margin: 0 !important;
+}
+.mt-derek-phone-btn {
+    height: 56px !important;
+    min-height: 56px !important;
+    padding: 0 24px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    border-radius: var(--mt-radius-btn) !important;
+    background-color: var(--mt-red) !important;
+    color: var(--mt-white) !important;
+    border: 1px solid var(--mt-red) !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    cursor: pointer !important;
+    transition: var(--mt-transition) !important;
+    box-sizing: border-box !important;
+}
+.mt-derek-phone-btn:hover {
+    background-color: var(--mt-red-hover) !important;
+    border-color: var(--mt-red-hover) !important;
+    transform: translateY(-1px);
+}
+.mt-derek-phone-btn .elementor-button-icon {
+    font-size: 20px !important;
+    margin: 0 !important;
+}
+.mt-derek-item {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+}
+.mt-derek-item-icon {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: var(--mt-radius-icon) !important;
+    background: var(--mt-blue-light) !important;
+    color: var(--mt-blue) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 20px !important;
+    flex-shrink: 0 !important;
+    margin-bottom: 0 !important;
+}
+.mt-derek-item-icon i, .mt-derek-item-icon svg {
+    color: var(--mt-blue) !important;
+    fill: var(--mt-blue) !important;
+}
+.mt-derek-item-title {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: var(--mt-navy) !important;
+    line-height: 1.3 !important;
+    margin: 0 !important;
+}
+.mt-derek-item-desc {
+    font-size: 14px !important;
+    color: var(--mt-muted) !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+}
+
+/* Footer Enterprise Ronde 4 */
+.mt-footer-social {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    border: 1px solid var(--mt-line) !important;
+    background: transparent !important;
+    color: var(--mt-navy) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: var(--mt-transition) !important;
+}
+.mt-footer-social:hover {
+    border-color: var(--mt-blue) !important;
+    color: var(--mt-blue) !important;
+    background: transparent !important;
+}
+.mt-footer-divider {
+    color: #CBD5E1 !important;
+    margin: 0 10px !important;
+}
+.mt-footer-link {
+    color: var(--mt-muted) !important;
+    text-decoration: none !important;
+    transition: color 150ms ease !important;
+}
+.mt-footer-link:hover {
+    color: var(--mt-blue) !important;
+    text-decoration: none !important;
+}
+body.elementor-page-59 a {
+    color: var(--mt-muted) !important;
+    text-decoration: none !important;
+}
+body.elementor-page-59 a:hover {
+    color: var(--mt-blue) !important;
+    text-decoration: none !important;
+}
+body.elementor-page-59 a:-webkit-any-link {
+    color: var(--mt-muted) !important;
+    text-decoration: none !important;
+}
+body.elementor-page-59 a:-webkit-any-link:hover {
+    color: var(--mt-blue) !important;
+    text-decoration: none !important;
+}
+/* Footer 4 kolom: brand | jam buka | layanan kami | alamat & kontak */
+.mt-footer-grid {
+    display: grid !important;
+    grid-template-columns: 30% 22% 22% 26% !important;
+    gap: 32px !important;
+    align-items: start !important;
+}
+@media (max-width: 767.98px) {
+    .mt-footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+    }
+}
+.mt-footer-col-brand {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+}
+.mt-footer-socials {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+}
+.mt-footer-bottom-row {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    padding-top: 24px !important;
+    border-top: 1px solid var(--mt-line) !important;
+    flex-wrap: nowrap !important;
+}
+.mt-footer-bottom-row > * {
+    flex: 0 0 auto !important;
+}
+.mt-footer-bottom-menu {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    flex-wrap: nowrap !important;
+}
+.mt-footer-bottom-menu a,
+.mt-footer-bottom-menu .mt-footer-link {
+    white-space: nowrap !important;
+    font-size: 14px !important;
+    color: var(--mt-muted) !important;
+}
+.mt-footer-bottom-menu a:hover,
+.mt-footer-bottom-menu .mt-footer-link:hover {
+    color: var(--mt-blue) !important;
+}
+
+/* Back-to-top (Ronde 4) */
+.mt-back-to-top {
+    position: fixed !important;
+    bottom: 24px !important;
+    right: 24px !important;
+    z-index: 9997 !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    background: var(--mt-white) !important;
+    border: 1px solid var(--mt-line) !important;
+    color: var(--mt-navy) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08) !important;
+    transition: var(--mt-transition) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(8px) !important;
+}
+.mt-back-to-top.is-visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+}
+.mt-back-to-top:hover {
+    color: var(--mt-blue) !important;
+    border-color: var(--mt-blue) !important;
+}
+.mt-back-to-top i {
+    font-size: 18px !important;
+    margin: 0 !important;
+}
+/* WhatsApp melayang desktop kanan-bawah 24px, di atas back-to-top */
+.floating-wa-btn {
+    z-index: 9998 !important;
+}
+/* HP: sembunyikan back-to-top karena ada bar bawah */
+@media (max-width: 767.98px) {
+    .mt-back-to-top {
+        display: none !important;
+    }
+}
+/* Hapus ruang kosong ~150px di bawah footer: cek margin/padding body, tombol back-to-top, atau elemen tersembunyi */
+body.elementor-page-59 {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+body.elementor-page-59 .elementor {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+body.elementor-page-59 .mt-footer,
+body.elementor-page-59 footer,
+body.elementor-page-59 .site-footer,
+body.elementor-page-59 .elementor-footer {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+/* Hilangkan elemen yang bikin ruang kosong bawah footer: jika ada elemen tersembunyi/overflow, singkirkan */
+.mt-empty-space-guard {
+    display: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    overflow: hidden !important;
+}
+/* Footer 4 kolom: brand | jam buka | layanan kami | alamat & kontak */
+.mt-footer-grid {
+    display: grid !important;
+    grid-template-columns: 30% 22% 22% 26% !important;
+    gap: 32px !important;
+    align-items: start !important;
+}
+@media (max-width: 767.98px) {
+    .mt-footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+    }
+}
+.mt-footer-col-brand {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+}
+.mt-footer-socials {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+}
+.mt-footer-bottom-row {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    padding-top: 24px !important;
+    border-top: 1px solid var(--mt-line) !important;
+    flex-wrap: nowrap !important;
+}
+.mt-footer-bottom-row > * {
+    flex: 0 0 auto !important;
+}
+.mt-footer-bottom-menu {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    flex-wrap: nowrap !important;
+}
+.mt-footer-bottom-menu a,
+.mt-footer-bottom-menu .mt-footer-link {
+    white-space: nowrap !important;
+    font-size: 14px !important;
+    color: var(--mt-muted) !important;
+}
+.mt-footer-bottom-menu a:hover,
+.mt-footer-bottom-menu .mt-footer-link:hover {
+    color: var(--mt-blue) !important;
+}
+
+/* ==========================================================================
+   RESPONSIF BREAKPOINTS (1024, 768, 390)
+   ========================================================================== */
+@media (max-width: 1024.98px) {
+    .mt-grid-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+    .mt-grid-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+    .mt-span-2 {
+        grid-column: span 2 !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .mt-nav-toggle,
+    .mt-nav-toggle-wrap,
+    .mt-nav-drawer,
+    .mt-drawer-wrap,
+    .mt-nav-drawer-overlay,
+    .mt-drawer-overlay {
+        display: none !important;
+    }
+    .mt-navbar-inner {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+    }
+    .mt-navbar-inner > .e-con-inner {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        max-width: 1200px !important;
+        margin: 0 auto !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        box-sizing: border-box !important;
+    }
+    .mt-nav-brand-wrap {
+        flex: 0 0 auto !important;
+        width: auto !important;
+        max-width: none !important;
+        padding: 0 !important;
+    }
+    .mt-nav-menu-desktop {
+        flex: 0 0 auto !important;
+        width: auto !important;
+        max-width: none !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 28px !important;
+        padding: 0 !important;
+    }
+    .mt-nav-actions {
+        flex: 0 0 auto !important;
+        width: auto !important;
+        max-width: none !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 12px !important;
+        padding: 0 !important;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .mt-utility-bar { display: none !important; }
+    .mt-nav-menu-desktop,
+    .mt-nav-actions {
+        display: none !important;
+    }
+    .mt-navbar-inner {
+        min-height: 72px !important;
+    }
+    .mt-navbar-inner > .e-con-inner {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        min-height: 72px !important;
+    }
+    .mt-navbar-inner .mt-nav-brand-wrap {
+        width: auto !important;
+        max-width: none !important;
+        flex: 0 0 auto !important;
+        display: flex !important;
+    }
+    .mt-navbar-inner .mt-nav-toggle-wrap {
+        display: inline-flex !important;
+        width: 44px !important;
+        height: 44px !important;
+        flex: 0 0 44px !important;
+        margin-left: auto !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    .mt-nav-toggle {
+        display: inline-flex !important;
+        width: 44px !important;
+        height: 44px !important;
+        border: 1px solid var(--mt-line) !important;
+        border-radius: var(--mt-radius-btn) !important;
+        background: var(--mt-white) !important;
+        color: var(--mt-navy) !important;
+        align-items: center !important;
+        justify-content: center !important;
+        cursor: pointer !important;
+        font-size: 20px !important;
+        flex: 0 0 auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .mt-nav-toggle:hover {
+        border-color: var(--mt-blue) !important;
+        color: var(--mt-blue) !important;
+    }
+    .mt-nav-drawer {
+        display: none;
+        position: fixed !important;
+        top: 72px !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: var(--mt-white) !important;
+        border-bottom: 1px solid var(--mt-line) !important;
+        padding: 20px 24px !important;
+        box-sizing: border-box !important;
+        z-index: 1010 !important;
+        box-shadow: 0 12px 32px rgba(15, 23, 42, 0.1) !important;
+    }
+    .mt-nav-drawer.open {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+    .mt-drawer-links {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+    }
+    .mt-drawer-link {
+        font-size: 18px !important;
+        font-weight: 600 !important;
+        color: var(--mt-navy) !important;
+        text-decoration: none !important;
+        padding: 4px 0 !important;
+        display: block !important;
+    }
+    .mt-drawer-link:hover {
+        color: var(--mt-blue) !important;
+    }
+    .mt-drawer-actions {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        padding-top: 16px !important;
+        border-top: 1px solid var(--mt-line) !important;
+    }
+    .btn-drawer-login,
+    .btn-drawer-register {
+        width: 100% !important;
+        height: 48px !important;
+        border-radius: var(--mt-radius-btn) !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        font-size: 16px !important;
+        font-weight: 600 !important;
+        text-decoration: none !important;
+    }
+    .btn-drawer-login {
+        background: var(--mt-white) !important;
+        color: var(--mt-navy) !important;
+        border: 1px solid var(--mt-line) !important;
+    }
+    .btn-drawer-register {
+        background: var(--mt-blue) !important;
+        color: var(--mt-white) !important;
+        border: 1px solid var(--mt-blue) !important;
+    }
+    .mt-navbar-inner {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
+    .mt-navbar-inner > .e-con-inner {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
+    .mt-stack-md {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+    .mt-stack-md > .mt-w-22, .mt-stack-md > .mt-w-25, .mt-stack-md > .mt-w-26, .mt-stack-md > .mt-w-28, .mt-stack-md > .mt-w-30,
+    .mt-stack-md > .mt-w-33, .mt-stack-md > .mt-w-35, .mt-stack-md > .mt-w-40, .mt-stack-md > .mt-w-45, .mt-stack-md > .mt-w-50,
+    .mt-stack-md > .mt-w-55, .mt-stack-md > .mt-w-60, .mt-stack-md > .mt-w-65 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+    .mt-hero-slide.is-active {
+        flex-direction: column !important;
+        gap: 32px !important;
+    }
+    .mt-proof-card {
+        flex-wrap: wrap !important;
+        gap: 16px !important;
+    }
+    .mt-proof-metric {
+        width: 45% !important;
+        border-left: none !important;
+        padding: 8px 0 !important;
+    }
+    .mt-grid-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .mt-grid-2, .mt-grid-3, .mt-grid-4,
+    .elementor-element.e-grid.mt-grid-3,
+    .elementor-element.e-grid {
+        grid-template-columns: 100% !important;
+        --grid-template-columns: 100% !important;
+    }
+    .mt-grid-2 > *, .mt-grid-3 > *, .mt-grid-4 > *,
+    .mt-span-2 {
+        grid-column: 1 / -1 !important;
+        grid-row: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    body.elementor-page-59 .elementor-button {
+        width: 100% !important;
+    }
+    .mt-btn-group-responsive {
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+    .mt-proof-metric {
+        width: 100% !important;
+    }
+    body.elementor-page-59 {
+        padding-bottom: 64px !important;
+    }
+    .floating-wa-btn {
+        display: none !important;
+    }
+}
+
+/* ==========================================================================
+   TOMBOL WHATSAPP & BAR KONTAK MOBILE (B6)
+   ========================================================================== */
+.floating-wa-btn {
+    position: fixed !important;
+    bottom: 28px !important;
+    right: 28px !important;
+    z-index: 9999 !important;
+}
+.floating-wa-btn .elementor-button {
+    background-color: #25D366 !important;
+    color: #FFFFFF !important;
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4) !important;
+    border: none !important;
+    padding: 0 !important;
+    transition: transform 200ms ease, box-shadow 200ms ease !important;
+}
+.floating-wa-btn .elementor-button:hover {
+    background-color: #22BF5B !important;
+    transform: scale(1.08) !important;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5) !important;
+}
+.floating-wa-btn .elementor-button-icon {
+    font-size: 32px !important;
+    margin: 0 !important;
+    color: #FFFFFF !important;
+}
+.floating-wa-btn .elementor-button-text {
+    display: none !important;
+}
+
+.mt-btn-wa .elementor-button {
+    background-color: #25D366 !important;
+    border-color: #25D366 !important;
+    color: #FFFFFF !important;
+}
+.mt-btn-wa .elementor-button:hover {
+    background-color: #22BF5B !important;
+    border-color: #22BF5B !important;
+    transform: translateY(-1px);
+}
+
+/* Mobile Fixed Contact Bar */
+.mt-mobile-contact-bar {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 56px !important;
+    background: #FFFFFF !important;
+    border-top: 1px solid var(--mt-line) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-around !important;
+    z-index: 9999 !important;
+    box-shadow: 0 -2px 10px rgba(15, 23, 42, 0.06) !important;
+    padding: 0 16px !important;
+    gap: 12px !important;
+    box-sizing: border-box !important;
+}
+.mt-mobile-contact-btn {
+    flex: 1 !important;
+    height: 40px !important;
+    border-radius: 8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    gap: 8px !important;
+    box-sizing: border-box !important;
+}
+.mt-mobile-contact-btn--wa {
+    background-color: #25D366 !important;
+    color: #FFFFFF !important;
+}
+.mt-mobile-contact-btn--phone {
+    background-color: var(--mt-blue) !important;
+    color: #FFFFFF !important;
+}
+@media (min-width: 768px) {
+    .mt-mobile-contact-bar {
+        display: none !important;
+    }
+}
+
+/* ==========================================================================
+   REVEAL & ACCESSIBILITY FALLBACK (E1 & E2)
+   ========================================================================== */
+body.mt-js .elementor-top-section.mt-reveal,
+body.mt-js .e-con.mt-reveal,
+body.elementor-page-59 .mt-reveal,
+.e-con.mt-reveal,
+.mt-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+}
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

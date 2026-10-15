@@ -1,0 +1,2810 @@
+[
+  {
+    "id": "91850df5",
+    "elType": "container",
+    "isInner": false,
+    "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "css_classes": "navbar navbar-expand-lg bg-white navbar-light shadow-sm sticky-top px-3 px-lg-4 mt-floating-navbar"
+    },
+    "elements": [
+      {
+        "id": "7f770162",
+        "elType": "container",
+        "isInner": true,
+        "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "width": {
+            "unit": "%",
+            "size": 30.0
+          },
+          "css_classes": "navbar-brand-col"
+        },
+        "elements": [
+          {
+            "id": "744f561a",
+            "elType": "widget",
+            "widgetType": "icon-box",
+            "settings": {
+              "selected_icon": {
+                "value": "fas fa-truck",
+                "library": "fa-solid"
+              },
+              "title_text": "MASTER TRUCK",
+              "description_text": "Bengkel Truk KIM III Medan",
+              "title_size": "h5",
+              "position": "left",
+              "position_mobile": "inline-start",
+              "_css_classes": "navbar-brand-widget"
+            },
+            "elements": []
+          },
+          {
+            "id": "6fc9f9ea",
+            "elType": "widget",
+            "widgetType": "button",
+            "settings": {
+              "text": "",
+              "link": {
+                "url": "#",
+                "is_external": "",
+                "nofollow": ""
+              },
+              "align": "right",
+              "selected_icon": {
+                "value": "fas fa-bars",
+                "library": "fa-solid"
+              },
+              "icon_align": "before",
+              "_css_classes": "navbar-toggler"
+            },
+            "elements": []
+          }
+        ]
+      },
+      {
+        "id": "d2911261",
+        "elType": "container",
+        "isInner": true,
+        "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "width": {
+            "unit": "%",
+            "size": 70.0
+          },
+          "css_classes": "navbar-menu-col collapse navbar-collapse"
+        },
+        "elements": [
+          {
+            "id": "4ebcc093",
+            "elType": "container",
+            "isInner": true,
+            "settings": {
+              "content_width": "full",
+              "flex_direction": "row",
+              "css_classes": "navbar-right-inner"
+            },
+            "elements": [
+              {
+                "id": "2fbedc07",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 11.0
+                  }
+                },
+                "elements": [
+                  {
+                    "id": "c49c11c4",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "Beranda",
+                      "link": {
+                        "url": "#header-carousel",
+                        "is_external": "",
+                        "nofollow": ""
+                      },
+                      "align": "center",
+                      "_css_classes": "nav-menu-link nav-link-active"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "2b4e354d",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 11.0
+                  }
+                },
+                "elements": [
+                  {
+                    "id": "800d4fd6",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "Layanan",
+                      "link": {
+                        "url": "#service",
+                        "is_external": "",
+                        "nofollow": ""
+                      },
+                      "align": "center",
+                      "_css_classes": "nav-menu-link"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "c92fab51",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 11.0
+                  }
+                },
+                "elements": [
+                  {
+                    "id": "22a166e6",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "Tentang",
+                      "link": {
+                        "url": "#about",
+                        "is_external": "",
+                        "nofollow": ""
+                      },
+                      "align": "center",
+                      "_css_classes": "nav-menu-link"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "d7807952",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 13.0
+                  }
+                },
+                "elements": [
+                  {
+                    "id": "9583b3a7",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "Cara Kerja",
+                      "link": {
+                        "url": "#cara-kerja",
+                        "is_external": "",
+                        "nofollow": ""
+                      },
+                      "align": "center",
+                      "_css_classes": "nav-menu-link"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "cd39133a",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 11.0
+                  }
+                },
+                "elements": [
+                  {
+                    "id": "34d34ce8",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "FAQ",
+                      "link": {
+                        "url": "#faq",
+                        "is_external": "",
+                        "nofollow": ""
+                      },
+                      "align": "center",
+                      "_css_classes": "nav-menu-link"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "c2c85b09",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 21.0
+                  },
+                  "css_classes": "menu-cta-col"
+                },
+                "elements": [
+                  {
+                    "id": "20a931a5",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "Login Fleet",
+                      "link": {
+                        "url": "http://localhost:3000/#login",
+                        "is_external": "on",
+                        "nofollow": ""
+                      },
+                      "align": "center",
+                      "selected_icon": {
+                        "value": "fas fa-sign-in-alt",
+                        "library": "fa-solid"
+                      },
+                      "icon_align": "before",
+                      "_css_classes": "btn-nav-login"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "33ba24b6",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 22.0
+                  },
+                  "css_classes": "menu-cta-col"
+                },
+                "elements": [
+                  {
+                    "id": "f173b411",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "Daftar Fleet",
+                      "link": {
+                        "url": "http://localhost:3000/#register",
+                        "is_external": "on",
+                        "nofollow": ""
+                      },
+                      "align": "center",
+                      "selected_icon": {
+                        "value": "fas fa-arrow-right",
+                        "library": "fa-solid"
+                      },
+                      "icon_align": "after",
+                      "_css_classes": "btn-nav-register"
+                    },
+                    "elements": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "98cf46e0",
+    "elType": "container",
+    "isInner": false,
+    "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "_element_id": "header-carousel",
+      "css_classes": "container-xxl py-5 mt-hero-slide mt-hero-clean-white",
+      "background_background": "classic",
+      "background_color": "#FFFFFF"
+    },
+    "elements": [
+      {
+        "id": "725e715b",
+        "elType": "container",
+        "isInner": true,
+        "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "width": {
+            "unit": "%",
+            "size": 56.0
+          },
+          "css_classes": "hero-left-col px-4 px-lg-5"
+        },
+        "elements": [
+          {
+            "id": "ecb6ea10",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+              "title": "BENGKEL REKANAN KORPORAT &bull; KIM III MEDAN",
+              "header_size": "p",
+              "align": "left",
+              "_css_classes": "hero-eyebrow-text badge-section-pill"
+            },
+            "elements": []
+          },
+          {
+            "id": "8f57dbc5",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+              "title": "Perawatan Armada Truk <span class=\"hero-brand-highlight\">Terpercaya</span> di Medan",
+              "header_size": "h1",
+              "align": "left",
+              "_css_classes": "hero-title"
+            },
+            "elements": []
+          },
+          {
+            "id": "43a2b753",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+              "editor": "Layanan bengkel spesialis dan distributor resmi suku cadang OEM untuk efisiensi operasional armada bisnis Anda.",
+              "align": "left",
+              "_css_classes": "hero-lead"
+            },
+            "elements": []
+          },
+          {
+            "id": "f73b007a",
+            "elType": "container",
+            "isInner": true,
+            "settings": {
+              "content_width": "full",
+              "flex_direction": "row",
+              "css_classes": "hero-btns-inner mt-4 mb-4"
+            },
+            "elements": [
+              {
+                "id": "913bd2f5",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 50.0
+                  }
+                },
+                "elements": [
+                  {
+                    "id": "55c99569",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "Jadwalkan Servis",
+                      "link": {
+                        "url": "#booking",
+                        "is_external": "",
+                        "nofollow": ""
+                      },
+                      "align": "left",
+                      "selected_icon": {
+                        "value": "fas fa-arrow-right",
+                        "library": "fa-solid"
+                      },
+                      "icon_align": "after",
+                      "_css_classes": "btn-hero-primary"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "ada2e93e",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 50.0
+                  }
+                },
+                "elements": [
+                  {
+                    "id": "aff6a95b",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "Lihat Layanan",
+                      "link": {
+                        "url": "#service",
+                        "is_external": "",
+                        "nofollow": ""
+                      },
+                      "align": "left",
+                      "_css_classes": "btn-hero-secondary"
+                    },
+                    "elements": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "a591c883",
+            "elType": "container",
+            "isInner": true,
+            "settings": {
+              "content_width": "full",
+              "flex_direction": "row",
+              "css_classes": "hero-stats-inner d-none d-md-flex"
+            },
+            "elements": [
+              {
+                "id": "e12f03c7",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 25.0
+                  }
+                },
+                "elements": [
+                  {
+                    "id": "4d6a2f72",
+                    "elType": "widget",
+                    "widgetType": "counter",
+                    "settings": {
+                      "starting_number": 0,
+                      "ending_number": 15,
+                      "prefix": "",
+                      "suffix": "",
+                      "title": "Tahun Pengalaman",
+                      "_css_classes": "hero-counter-item"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "4a33718e",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 25.0
+                  }
+                },
+                "elements": [
+                  {
+                    "id": "2bd81de8",
+                    "elType": "widget",
+                    "widgetType": "counter",
+                    "settings": {
+                      "starting_number": 0,
+                      "ending_number": 120,
+                      "prefix": "",
+                      "suffix": "+",
+                      "title": "Perusahaan Mitra",
+                      "_css_classes": "hero-counter-item"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "6eaa727d",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 25.0
+                  }
+                },
+                "elements": [
+                  {
+                    "id": "8d61bd07",
+                    "elType": "widget",
+                    "widgetType": "counter",
+                    "settings": {
+                      "starting_number": 0,
+                      "ending_number": 2500,
+                      "prefix": "",
+                      "suffix": "",
+                      "title": "Truk per Tahun",
+                      "thousand_separator": "yes",
+                      "thousand_separator_char": ".",
+                      "_css_classes": "hero-counter-item"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "15399fa8",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 25.0
+                  }
+                },
+                "elements": [
+                  {
+                    "id": "97ec7895",
+                    "elType": "widget",
+                    "widgetType": "counter",
+                    "settings": {
+                      "starting_number": 0,
+                      "ending_number": 100,
+                      "prefix": "",
+                      "suffix": "%",
+                      "title": "Suku Cadang OEM",
+                      "_css_classes": "hero-counter-item"
+                    },
+                    "elements": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "0c609634",
+        "elType": "container",
+        "isInner": true,
+        "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "width": {
+            "unit": "%",
+            "size": 44.0
+          },
+          "css_classes": "hero-right-col px-3"
+        },
+        "elements": [
+          {
+            "id": "80dac37b",
+            "elType": "widget",
+            "widgetType": "image",
+            "settings": {
+              "image": {
+                "url": "http://localhost:5000/wp-content/uploads/2026/10/carousel-1.png",
+                "id": 180
+              },
+              "image_size": "full",
+              "align": "center",
+              "_css_classes": "hero-truck-img"
+            },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5456d1d1",
+    "elType": "container",
+    "isInner": false,
+    "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "_element_id": "principals",
+      "css_classes": "container-xxl py-4 sec-principals"
+    },
+    "elements": [
+      {
+        "id": "2377305e",
+        "elType": "container",
+        "isInner": true,
+        "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "width": {
+            "unit": "%",
+            "size": 100.0
+          },
+          "css_classes": "text-center"
+        },
+        "elements": [
+          {
+            "id": "9d5c5ec4",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+              "editor": "<p class='text-muted small text-uppercase fw-bold mb-3' style='letter-spacing: 0.08em;'>Prinsipal Pabrikan &amp; Distributor Resmi</p>",
+              "align": "center"
+            },
+            "elements": []
+          },
+          {
+            "id": "2fad785e",
+            "elType": "container",
+            "isInner": true,
+            "settings": {
+              "content_width": "full",
+              "flex_direction": "row",
+              "css_classes": "sec-principals-wall w-100"
+            },
+            "elements": [
+              {
+                "id": "a13b92bc",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 16.0
+                  },
+                  "css_classes": "principal-wall-card"
+                },
+                "elements": [
+                  {
+                    "id": "398d9bb4",
+                    "elType": "widget",
+                    "widgetType": "image",
+                    "settings": {
+                      "image": {
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/pertamina.png",
+                        "id": 75
+                      },
+                      "image_size": "full",
+                      "align": "center"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "061b692a",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 16.0
+                  },
+                  "css_classes": "principal-wall-card"
+                },
+                "elements": [
+                  {
+                    "id": "7e3143b5",
+                    "elType": "widget",
+                    "widgetType": "image",
+                    "settings": {
+                      "image": {
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/mobil.png",
+                        "id": 77
+                      },
+                      "image_size": "full",
+                      "align": "center"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "eb85437d",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 16.0
+                  },
+                  "css_classes": "principal-wall-card"
+                },
+                "elements": [
+                  {
+                    "id": "7aab28bb",
+                    "elType": "widget",
+                    "widgetType": "image",
+                    "settings": {
+                      "image": {
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/dunlop.png",
+                        "id": 76
+                      },
+                      "image_size": "full",
+                      "align": "center"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "530d6481",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 16.0
+                  },
+                  "css_classes": "principal-wall-card"
+                },
+                "elements": [
+                  {
+                    "id": "489cdddd",
+                    "elType": "widget",
+                    "widgetType": "image",
+                    "settings": {
+                      "image": {
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/gs-astra.png",
+                        "id": 194
+                      },
+                      "image_size": "full",
+                      "align": "center"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "3f9de2fb",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 16.0
+                  },
+                  "css_classes": "principal-wall-card"
+                },
+                "elements": [
+                  {
+                    "id": "72115322",
+                    "elType": "widget",
+                    "widgetType": "image",
+                    "settings": {
+                      "image": {
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/incoe.png",
+                        "id": 195
+                      },
+                      "image_size": "full",
+                      "align": "center"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "a018072c",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 16.0
+                  },
+                  "css_classes": "principal-wall-card"
+                },
+                "elements": [
+                  {
+                    "id": "58f547ea",
+                    "elType": "widget",
+                    "widgetType": "image",
+                    "settings": {
+                      "image": {
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/sakura.png",
+                        "id": 196
+                      },
+                      "image_size": "full",
+                      "align": "center"
+                    },
+                    "elements": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "aac5cf95",
+    "elType": "container",
+    "isInner": false,
+    "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "_element_id": "service",
+      "css_classes": "container-xxl py-5 sec-services"
+    },
+    "elements": [
+      {
+        "id": "c7beec1d",
+        "elType": "container",
+        "isInner": true,
+        "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "width": {
+            "unit": "%",
+            "size": 100.0
+          },
+          "css_classes": "text-center mb-4"
+        },
+        "elements": [
+          {
+            "id": "21b2f899",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+              "title": "LAYANAN PERAWATAN ARMADA",
+              "header_size": "p",
+              "align": "center",
+              "_css_classes": "hero-eyebrow-text badge-section-pill mb-2"
+            },
+            "elements": []
+          },
+          {
+            "id": "9195624e",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+              "title": "Solusi Terintegrasi Perawatan Truk Komersial",
+              "header_size": "h2",
+              "align": "center"
+            },
+            "elements": []
+          },
+          {
+            "id": "8738726b",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+              "editor": "Standar pengerjaan tersertifikasi untuk menekan downtime dan menjaga keandalan armada logistik Anda.",
+              "align": "center",
+              "_css_classes": "text-muted mb-4"
+            },
+            "elements": []
+          },
+          {
+            "id": "ceaf046a",
+            "elType": "container",
+            "isInner": true,
+            "settings": {
+              "content_width": "full",
+              "flex_direction": "row",
+              "css_classes": "sec-services-cards w-100 mt-3"
+            },
+            "elements": [
+              {
+                "id": "1e4fa0a2",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 50.0
+                  },
+                  "css_classes": "service-bento-featured p-4 text-start"
+                },
+                "elements": [
+                  {
+                    "id": "c692c2d2",
+                    "elType": "widget",
+                    "widgetType": "image",
+                    "settings": {
+                      "image": {
+                        "url": "http://localhost:5000/wp-content/uploads/2026/10/service-1.jpg",
+                        "id": 114
+                      },
+                      "image_size": "full",
+                      "align": "center",
+                      "_css_classes": "bento-featured-img"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "b9ab5e6e",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<span class='bento-tag'>PROGRAM UNGGULAN B2B</span>",
+                      "align": "left"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "f0ce3941",
+                    "elType": "widget",
+                    "widgetType": "heading",
+                    "settings": {
+                      "title": "Kontrak Pemeliharaan Armada B2B",
+                      "header_size": "h3",
+                      "align": "left",
+                      "_css_classes": "mt-2 mb-2"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "bf7a710d",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<p class='text-muted mb-3'>Program perawatan armada terjadwal dengan slot antrean prioritas, diagnostik komputer lengkap, dan fasilitas pembayaran tempo 30 hari.</p>",
+                      "align": "left"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "893bc470",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "Selengkapnya",
+                      "link": {
+                        "url": "#booking",
+                        "is_external": "",
+                        "nofollow": ""
+                      },
+                      "align": "left",
+                      "selected_icon": {
+                        "value": "fas fa-arrow-right",
+                        "library": "fa-solid"
+                      },
+                      "icon_align": "after",
+                      "_css_classes": "btn-bento-link"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "d81b3c4d",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 50.0
+                  },
+                  "css_classes": "service-bento-stack text-start"
+                },
+                "elements": [
+                  {
+                    "id": "051d602d",
+                    "elType": "container",
+                    "isInner": true,
+                    "settings": {
+                      "content_width": "full",
+                      "flex_direction": "column"
+                    },
+                    "elements": [
+                      {
+                        "id": "34548e6d",
+                        "elType": "container",
+                        "isInner": true,
+                        "settings": {
+                          "content_width": "full",
+                          "flex_direction": "column",
+                          "width": {
+                            "unit": "%",
+                            "size": 100.0
+                          },
+                          "css_classes": "service-bento-item p-3 mb-3"
+                        },
+                        "elements": [
+                          {
+                            "id": "cf7d9212",
+                            "elType": "widget",
+                            "widgetType": "image",
+                            "settings": {
+                              "image": {
+                                "url": "http://localhost:5000/wp-content/uploads/2026/10/service-2.jpg",
+                                "id": 115
+                              },
+                              "image_size": "full",
+                              "align": "center",
+                              "_css_classes": "bento-small-img"
+                            },
+                            "elements": []
+                          },
+                          {
+                            "id": "ed1c650b",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                              "title": "Overhaul & Kalibrasi Mesin",
+                              "header_size": "h4",
+                              "align": "left",
+                              "_css_classes": "mb-1"
+                            },
+                            "elements": []
+                          },
+                          {
+                            "id": "4611caa7",
+                            "elType": "widget",
+                            "widgetType": "text-editor",
+                            "settings": {
+                              "editor": "<p class='text-muted small mb-2'>Rekondisi mesin diesel total dan kalibrasi injektor presisi bergaransi resmi.</p>",
+                              "align": "left"
+                            },
+                            "elements": []
+                          },
+                          {
+                            "id": "f0a2cadd",
+                            "elType": "widget",
+                            "widgetType": "button",
+                            "settings": {
+                              "text": "Selengkapnya",
+                              "link": {
+                                "url": "#booking",
+                                "is_external": "",
+                                "nofollow": ""
+                              },
+                              "align": "left",
+                              "selected_icon": {
+                                "value": "fas fa-arrow-right",
+                                "library": "fa-solid"
+                              },
+                              "icon_align": "after",
+                              "_css_classes": "btn-bento-link-sm"
+                            },
+                            "elements": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "a0d9d5ed",
+                    "elType": "container",
+                    "isInner": true,
+                    "settings": {
+                      "content_width": "full",
+                      "flex_direction": "column"
+                    },
+                    "elements": [
+                      {
+                        "id": "e6c496bf",
+                        "elType": "container",
+                        "isInner": true,
+                        "settings": {
+                          "content_width": "full",
+                          "flex_direction": "column",
+                          "width": {
+                            "unit": "%",
+                            "size": 100.0
+                          },
+                          "css_classes": "service-bento-item p-3 mb-3"
+                        },
+                        "elements": [
+                          {
+                            "id": "fef6c8fe",
+                            "elType": "widget",
+                            "widgetType": "image",
+                            "settings": {
+                              "image": {
+                                "url": "http://localhost:5000/wp-content/uploads/2026/10/service-3.jpg",
+                                "id": 116
+                              },
+                              "image_size": "full",
+                              "align": "center",
+                              "_css_classes": "bento-small-img"
+                            },
+                            "elements": []
+                          },
+                          {
+                            "id": "bc9ad59a",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                              "title": "Servis Rem Angin & Kaki-Kaki",
+                              "header_size": "h4",
+                              "align": "left",
+                              "_css_classes": "mb-1"
+                            },
+                            "elements": []
+                          },
+                          {
+                            "id": "73c637c0",
+                            "elType": "widget",
+                            "widgetType": "text-editor",
+                            "settings": {
+                              "editor": "<p class='text-muted small mb-2'>Perbaikan kompresor angin, chamber rem, dan suspensi per daun untuk keselamatan armada.</p>",
+                              "align": "left"
+                            },
+                            "elements": []
+                          },
+                          {
+                            "id": "3c7b1d5c",
+                            "elType": "widget",
+                            "widgetType": "button",
+                            "settings": {
+                              "text": "Selengkapnya",
+                              "link": {
+                                "url": "#booking",
+                                "is_external": "",
+                                "nofollow": ""
+                              },
+                              "align": "left",
+                              "selected_icon": {
+                                "value": "fas fa-arrow-right",
+                                "library": "fa-solid"
+                              },
+                              "icon_align": "after",
+                              "_css_classes": "btn-bento-link-sm"
+                            },
+                            "elements": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "cda35821",
+                    "elType": "container",
+                    "isInner": true,
+                    "settings": {
+                      "content_width": "full",
+                      "flex_direction": "column"
+                    },
+                    "elements": [
+                      {
+                        "id": "ea3184f5",
+                        "elType": "container",
+                        "isInner": true,
+                        "settings": {
+                          "content_width": "full",
+                          "flex_direction": "column",
+                          "width": {
+                            "unit": "%",
+                            "size": 100.0
+                          },
+                          "css_classes": "service-bento-item p-3"
+                        },
+                        "elements": [
+                          {
+                            "id": "0b92e4f7",
+                            "elType": "widget",
+                            "widgetType": "image",
+                            "settings": {
+                              "image": {
+                                "url": "http://localhost:5000/wp-content/uploads/2026/10/service-4.jpg",
+                                "id": 117
+                              },
+                              "image_size": "full",
+                              "align": "center",
+                              "_css_classes": "bento-small-img"
+                            },
+                            "elements": []
+                          },
+                          {
+                            "id": "2e067e0a",
+                            "elType": "widget",
+                            "widgetType": "heading",
+                            "settings": {
+                              "title": "Distribusi Pelumas & Ban OEM",
+                              "header_size": "h4",
+                              "align": "left",
+                              "_css_classes": "mb-1"
+                            },
+                            "elements": []
+                          },
+                          {
+                            "id": "1a6873f7",
+                            "elType": "widget",
+                            "widgetType": "text-editor",
+                            "settings": {
+                              "editor": "<p class='text-muted small mb-2'>Pasokan resmi oli Pertamina, Mobil Delvac, dan ban Dunlop dengan harga khusus volume.</p>",
+                              "align": "left"
+                            },
+                            "elements": []
+                          },
+                          {
+                            "id": "fcf0526a",
+                            "elType": "widget",
+                            "widgetType": "button",
+                            "settings": {
+                              "text": "Selengkapnya",
+                              "link": {
+                                "url": "#principals",
+                                "is_external": "",
+                                "nofollow": ""
+                              },
+                              "align": "left",
+                              "selected_icon": {
+                                "value": "fas fa-arrow-right",
+                                "library": "fa-solid"
+                              },
+                              "icon_align": "after",
+                              "_css_classes": "btn-bento-link-sm"
+                            },
+                            "elements": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "b67e462f",
+    "elType": "container",
+    "isInner": false,
+    "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "_element_id": "about",
+      "css_classes": "container-xxl py-5 sec-about"
+    },
+    "elements": [
+      {
+        "id": "af7750e9",
+        "elType": "container",
+        "isInner": true,
+        "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "width": {
+            "unit": "%",
+            "size": 50.0
+          },
+          "css_classes": "about-left-col pe-lg-4"
+        },
+        "elements": [
+          {
+            "id": "be4cefe8",
+            "elType": "widget",
+            "widgetType": "image",
+            "settings": {
+              "image": {
+                "url": "http://localhost:5000/wp-content/uploads/2026/10/about.jpg",
+                "id": 126
+              },
+              "image_size": "full",
+              "align": "center",
+              "_css_classes": "about-img-box"
+            },
+            "elements": []
+          }
+        ]
+      },
+      {
+        "id": "2fd809bc",
+        "elType": "container",
+        "isInner": true,
+        "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "width": {
+            "unit": "%",
+            "size": 50.0
+          },
+          "css_classes": "about-right-col ps-lg-4"
+        },
+        "elements": [
+          {
+            "id": "6415a208",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+              "title": "TENTANG MASTER TRUCK",
+              "header_size": "p",
+              "align": "left",
+              "_css_classes": "hero-eyebrow-text badge-section-pill mb-2"
+            },
+            "elements": []
+          },
+          {
+            "id": "c9a65ecb",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+              "title": "Standar Mutu Bengkel Rekanan Modern",
+              "header_size": "h2",
+              "align": "left",
+              "_css_classes": "mb-3"
+            },
+            "elements": []
+          },
+          {
+            "id": "cbf8143f",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+              "editor": "<p class='text-muted mb-4'>PT Master Truck Indonesia beroperasi strategis di Kawasan Industri Medan III. Kami mengintegrasikan teknisi terlatih, pasokan suku cadang resmi pabrik, dan sistem pemantauan armada digital.</p>",
+              "align": "left"
+            },
+            "elements": []
+          },
+          {
+            "id": "1ad19df0",
+            "elType": "widget",
+            "widgetType": "icon-box",
+            "settings": {
+              "selected_icon": {
+                "value": "fas fa-clipboard-check",
+                "library": "fa-solid"
+              },
+              "title_text": "Inspeksi 30 Titik Digital",
+              "description_text": "Pemeriksaan menyeluruh dari ruang mesin hingga sasis dengan bukti dokumentasi foto sebelum dan sesudah pengerjaan.",
+              "title_size": "h5",
+              "position": "left",
+              "_css_classes": "about-feature-box mb-3"
+            },
+            "elements": []
+          },
+          {
+            "id": "f6bf7252",
+            "elType": "widget",
+            "widgetType": "icon-box",
+            "settings": {
+              "selected_icon": {
+                "value": "fas fa-users-cog",
+                "library": "fa-solid"
+              },
+              "title_text": "Teknisi Bersertifikasi Pabrikan",
+              "description_text": "Tim mekanik berpengalaman belasan tahun dalam menangani mesin diesel, transmisi, dan kalibrasi injektor presisi.",
+              "title_size": "h5",
+              "position": "left",
+              "_css_classes": "about-feature-box mb-3"
+            },
+            "elements": []
+          },
+          {
+            "id": "5e2058c5",
+            "elType": "widget",
+            "widgetType": "icon-box",
+            "settings": {
+              "selected_icon": {
+                "value": "fas fa-shield-alt",
+                "library": "fa-solid"
+              },
+              "title_text": "Jaminan Suku Cadang OEM 100%",
+              "description_text": "Oli, ban, aki, dan filter disalurkan langsung dari prinsipal resmi produsen dengan garansi keaslian terverifikasi.",
+              "title_size": "h5",
+              "position": "left",
+              "_css_classes": "about-feature-box mb-4"
+            },
+            "elements": []
+          },
+          {
+            "id": "c3816423",
+            "elType": "container",
+            "isInner": true,
+            "settings": {
+              "content_width": "full",
+              "flex_direction": "row",
+              "css_classes": "about-btns-inner"
+            },
+            "elements": [
+              {
+                "id": "2e7eb297",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 50.0
+                  }
+                },
+                "elements": [
+                  {
+                    "id": "925c3eb2",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "Konsultasi Rekanan",
+                      "link": {
+                        "url": "#booking",
+                        "is_external": "",
+                        "nofollow": ""
+                      },
+                      "align": "left",
+                      "selected_icon": {
+                        "value": "fas fa-arrow-right",
+                        "library": "fa-solid"
+                      },
+                      "icon_align": "after",
+                      "_css_classes": "btn-hero-primary"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "3621ceb0",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 50.0
+                  }
+                },
+                "elements": [
+                  {
+                    "id": "98f7ac70",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "Lihat Katalog OEM",
+                      "link": {
+                        "url": "#principals",
+                        "is_external": "",
+                        "nofollow": ""
+                      },
+                      "align": "left",
+                      "_css_classes": "btn-hero-secondary"
+                    },
+                    "elements": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "88aacafb",
+    "elType": "container",
+    "isInner": false,
+    "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "_element_id": "booking",
+      "css_classes": "container-fluid py-5 booking-section-wrapper",
+      "background_background": "classic",
+      "background_color": "#F8FAFC"
+    },
+    "elements": [
+      {
+        "id": "be00720c",
+        "elType": "container",
+        "isInner": true,
+        "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "width": {
+            "unit": "%",
+            "size": 100.0
+          },
+          "css_classes": "text-center px-4 py-3"
+        },
+        "elements": [
+          {
+            "id": "13187a7e",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+              "title": "Layanan Derek Truk Cepat 24 Jam Nonstop",
+              "header_size": "h2",
+              "align": "center",
+              "_css_classes": "derek-title mb-2"
+            },
+            "elements": []
+          },
+          {
+            "id": "eda8d2b5",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+              "editor": "<p class='text-muted derek-desc mb-4' style='max-width: 680px; margin: 0 auto;'>Armada derek darurat kami siaga 24 jam untuk evakuasi cepat di Kawasan Industri Medan, Tol Belmera, hingga lintas Sumatera kapan pun Anda membutuhkan bantuan.</p>",
+              "align": "center"
+            },
+            "elements": []
+          },
+          {
+            "id": "38f53946",
+            "elType": "widget",
+            "widgetType": "button",
+            "settings": {
+              "text": "Hubungi Derek Darurat: 0812-3456-7890",
+              "link": {
+                "url": "tel:081234567890",
+                "is_external": "",
+                "nofollow": ""
+              },
+              "align": "center",
+              "selected_icon": {
+                "value": "fas fa-phone-alt",
+                "library": "fa-solid"
+              },
+              "icon_align": "before",
+              "_css_classes": "btn-booking-call"
+            },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "aa38de72",
+    "elType": "container",
+    "isInner": false,
+    "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "_element_id": "cara-kerja",
+      "css_classes": "container-xxl py-5 sec-steps"
+    },
+    "elements": [
+      {
+        "id": "fa2f2a7d",
+        "elType": "container",
+        "isInner": true,
+        "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "width": {
+            "unit": "%",
+            "size": 100.0
+          },
+          "css_classes": "text-center mb-4"
+        },
+        "elements": [
+          {
+            "id": "3c3db3b4",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+              "title": "Proses Kerjasama yang Transparan",
+              "header_size": "h2",
+              "align": "center",
+              "_css_classes": "mb-2"
+            },
+            "elements": []
+          },
+          {
+            "id": "42937ff5",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+              "editor": "<p class='text-muted mb-4'>Empat tahap terstandarisasi dari awal pendaftaran armada hingga kendaraan siap beroperasi kembali.</p>",
+              "align": "center"
+            },
+            "elements": []
+          },
+          {
+            "id": "75382974",
+            "elType": "container",
+            "isInner": true,
+            "settings": {
+              "content_width": "full",
+              "flex_direction": "row",
+              "css_classes": "sec-step-cards w-100 mt-3"
+            },
+            "elements": [
+              {
+                "id": "f15dab1f",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 25.0
+                  },
+                  "css_classes": "step-card p-4 text-start"
+                },
+                "elements": [
+                  {
+                    "id": "8995c968",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<div class='step-number'>01</div>",
+                      "align": "left"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "8a39adac",
+                    "elType": "widget",
+                    "widgetType": "heading",
+                    "settings": {
+                      "title": "Registrasi Armada",
+                      "header_size": "h5",
+                      "align": "left",
+                      "_css_classes": "mb-2"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "c802c874",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<p class='text-muted small mb-0'>Daftarkan data armada perusahaan Anda untuk mendapatkan tarif rekanan dan akun pemantauan.</p>",
+                      "align": "left"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "05169e7f",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 25.0
+                  },
+                  "css_classes": "step-card p-4 text-start"
+                },
+                "elements": [
+                  {
+                    "id": "fdd6c1ef",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<div class='step-number'>02</div>",
+                      "align": "left"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "4687d567",
+                    "elType": "widget",
+                    "widgetType": "heading",
+                    "settings": {
+                      "title": "Inspeksi Awal",
+                      "header_size": "h5",
+                      "align": "left",
+                      "_css_classes": "mb-2"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "468307d6",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<p class='text-muted small mb-0'>Pemeriksaan digital 30 titik untuk mendiagnosis kondisi dan menentukan estimasi pengerjaan.</p>",
+                      "align": "left"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "c22f59ee",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 25.0
+                  },
+                  "css_classes": "step-card p-4 text-start"
+                },
+                "elements": [
+                  {
+                    "id": "0f42d1ba",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<div class='step-number'>03</div>",
+                      "align": "left"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "9c08eb53",
+                    "elType": "widget",
+                    "widgetType": "heading",
+                    "settings": {
+                      "title": "Pengerjaan &amp; OEM",
+                      "header_size": "h5",
+                      "align": "left",
+                      "_css_classes": "mb-2"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "f7292fdc",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<p class='text-muted small mb-0'>Servis presisi oleh teknisi tersertifikasi dengan suku cadang asli bergaransi resmi.</p>",
+                      "align": "left"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "84f7ec6f",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 25.0
+                  },
+                  "css_classes": "step-card p-4 text-start"
+                },
+                "elements": [
+                  {
+                    "id": "1b680f2f",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<div class='step-number'>04</div>",
+                      "align": "left"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "4428d19a",
+                    "elType": "widget",
+                    "widgetType": "heading",
+                    "settings": {
+                      "title": "Pantau &amp; Tempo",
+                      "header_size": "h5",
+                      "align": "left",
+                      "_css_classes": "mb-2"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "66a8cc91",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<p class='text-muted small mb-0'>Pantau hasil pengerjaan online dan selesaikan pembayaran dengan fasilitas tempo 30 hari.</p>",
+                      "align": "left"
+                    },
+                    "elements": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3782679b",
+    "elType": "container",
+    "isInner": false,
+    "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "_element_id": "testimonial",
+      "css_classes": "container-xxl py-5 sec-testimonial"
+    },
+    "elements": [
+      {
+        "id": "111451b5",
+        "elType": "container",
+        "isInner": true,
+        "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "width": {
+            "unit": "%",
+            "size": 100.0
+          },
+          "css_classes": "text-center mb-4"
+        },
+        "elements": [
+          {
+            "id": "a66ced20",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+              "title": "Dipercaya Lebih dari 120 Perusahaan Mitra",
+              "header_size": "h2",
+              "align": "center",
+              "_css_classes": "mb-2"
+            },
+            "elements": []
+          },
+          {
+            "id": "6e4b2e0b",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+              "editor": "<p class='text-muted mb-4'>Testimoni langsung dari para pengelola armada logistik dan transportasi di Sumatera Utara.</p>",
+              "align": "center"
+            },
+            "elements": []
+          },
+          {
+            "id": "932b7cf6",
+            "elType": "container",
+            "isInner": true,
+            "settings": {
+              "content_width": "full",
+              "flex_direction": "row",
+              "css_classes": "sec-testimonial-cards w-100 mt-3"
+            },
+            "elements": [
+              {
+                "id": "692d9695",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 33.0
+                  },
+                  "css_classes": "testimonial-enterprise-card p-4 text-start"
+                },
+                "elements": [
+                  {
+                    "id": "c279edf6",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<div class='testi-initial-circle'>GS</div>",
+                      "align": "left"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "81765cf4",
+                    "elType": "widget",
+                    "widgetType": "heading",
+                    "settings": {
+                      "title": "Gunawan Siregar",
+                      "header_size": "h5",
+                      "align": "left",
+                      "_css_classes": "mb-0 fw-bold"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "6fe67731",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<p class='text-muted small mb-1'>Manajer Operasional — PT Samudera Logistik</p>",
+                      "align": "left"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "50083f7c",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<p class='testimonial-stars mb-2'>★★★★★</p>",
+                      "align": "left"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "3738d6cf",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<p class='testi-quote-text mb-0'>&ldquo;30 trailer kami terawat dengan jadwal teratur. Transparansi foto pengerjaan memudahkan kontrol armada harian.&rdquo;</p>",
+                      "align": "left"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "e1ca287a",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 33.0
+                  },
+                  "css_classes": "testimonial-enterprise-card p-4 text-start"
+                },
+                "elements": [
+                  {
+                    "id": "7740b757",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<div class='testi-initial-circle'>BW</div>",
+                      "align": "left"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "0d41dbd9",
+                    "elType": "widget",
+                    "widgetType": "heading",
+                    "settings": {
+                      "title": "Budi Wicaksono",
+                      "header_size": "h5",
+                      "align": "left",
+                      "_css_classes": "mb-0 fw-bold"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "653c3c61",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<p class='text-muted small mb-1'>Direktur — CV Maju Bersama</p>",
+                      "align": "left"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "9052e983",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<p class='testimonial-stars mb-2'>★★★★★</p>",
+                      "align": "left"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "2d0d0741",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<p class='testi-quote-text mb-0'>&ldquo;Distribusi oli dan ban langsung dari pabrikan menjamin keaslian komponen sekaligus menekan biaya operasional rutin.&rdquo;</p>",
+                      "align": "left"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "c429dc41",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 33.0
+                  },
+                  "css_classes": "testimonial-enterprise-card p-4 text-start"
+                },
+                "elements": [
+                  {
+                    "id": "a38f9074",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<div class='testi-initial-circle'>AF</div>",
+                      "align": "left"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "eab78c9c",
+                    "elType": "widget",
+                    "widgetType": "heading",
+                    "settings": {
+                      "title": "Ahmad Faisal",
+                      "header_size": "h5",
+                      "align": "left",
+                      "_css_classes": "mb-0 fw-bold"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "18c8a4a5",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<p class='text-muted small mb-1'>Pengawas Armada — PT Deli Sawit Makmur</p>",
+                      "align": "left"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "da30c374",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<p class='testimonial-stars mb-2'>★★★★★</p>",
+                      "align": "left"
+                    },
+                    "elements": []
+                  },
+                  {
+                    "id": "febc450f",
+                    "elType": "widget",
+                    "widgetType": "text-editor",
+                    "settings": {
+                      "editor": "<p class='testi-quote-text mb-0'>&ldquo;Respon derek darurat sangat cepat saat armada kami terkendala di Tol Belmera. Penanganan mekaniknya sigap dan tuntas.&rdquo;</p>",
+                      "align": "left"
+                    },
+                    "elements": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "465ca489",
+    "elType": "container",
+    "isInner": false,
+    "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "_element_id": "faq",
+      "css_classes": "container-xxl py-5 sec-faq"
+    },
+    "elements": [
+      {
+        "id": "60ecc559",
+        "elType": "container",
+        "isInner": true,
+        "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "width": {
+            "unit": "%",
+            "size": 35.0
+          },
+          "css_classes": "pe-lg-4"
+        },
+        "elements": [
+          {
+            "id": "44b50faa",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+              "title": "Pertanyaan yang Sering Diajukan",
+              "header_size": "h2",
+              "align": "left",
+              "_css_classes": "mb-3"
+            },
+            "elements": []
+          },
+          {
+            "id": "b4aaecc7",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+              "editor": "<p class='text-muted mb-4'>Informasi penting seputar alur kerjasama, jaminan suku cadang, dan ketentuan fasilitas korporat kami.</p>",
+              "align": "left"
+            },
+            "elements": []
+          },
+          {
+            "id": "62286aec",
+            "elType": "widget",
+            "widgetType": "button",
+            "settings": {
+              "text": "Konsultasi via WhatsApp",
+              "link": {
+                "url": "https://wa.me/6281234567890",
+                "is_external": "on",
+                "nofollow": ""
+              },
+              "align": "left",
+              "selected_icon": {
+                "value": "fab fa-whatsapp",
+                "library": "fa-brands"
+              },
+              "icon_align": "before",
+              "_css_classes": "btn-faq-whatsapp"
+            },
+            "elements": []
+          }
+        ]
+      },
+      {
+        "id": "e6db2062",
+        "elType": "container",
+        "isInner": true,
+        "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "width": {
+            "unit": "%",
+            "size": 65.0
+          },
+          "css_classes": "ps-lg-4"
+        },
+        "elements": [
+          {
+            "id": "04895745",
+            "elType": "widget",
+            "widgetType": "accordion",
+            "settings": {
+              "tabs": [
+                {
+                  "_id": "faq_tab_0",
+                  "tab_title": "Bagaimana sistem pembayaran tempo untuk perusahaan mitra?",
+                  "tab_content": "Fasilitas pembayaran tempo 14–30 hari setelah invoice resmi terbit tersedia untuk seluruh perusahaan yang telah terdaftar sebagai mitra B2B kami."
+                },
+                {
+                  "_id": "faq_tab_1",
+                  "tab_title": "Apakah suku cadang dan pelumas dijamin keasliannya?",
+                  "tab_content": "Semua pelumas Pertamina Lubricants & Mobil Delvac, ban Dunlop, aki GS Astra, dan filter Sakura disalurkan langsung dari distributor resmi pabrikan dengan sertifikat keaslian."
+                },
+                {
+                  "_id": "faq_tab_2",
+                  "tab_title": "Bagaimana cara memantau progres servis truk secara online?",
+                  "tab_content": "Setiap kendaraan yang masuk difoto kondisi sebelum dan sesudahnya, dan perkembangan servis dapat dipantau langsung melalui portal Web Fleet."
+                },
+                {
+                  "_id": "faq_tab_3",
+                  "tab_title": "Berapa lama estimasi waktu respon armada derek 24 jam?",
+                  "tab_content": "Untuk area Kawasan Industri Medan dan Tol Belmera, armada derek kami tiba rata-rata dalam waktu kurang dari 60 menit setelah konfirmasi panggilan."
+                },
+                {
+                  "_id": "faq_tab_4",
+                  "tab_title": "Apakah area bengkel dapat diakses oleh truk trailer besar?",
+                  "tab_content": "Ya, lokasi kami di KIM III berada di jalan utama kawasan industri dengan pintu masuk lebar dan area manuver leluasa untuk trailer kontainer maupun tronton roda 10 ke atas."
+                }
+              ],
+              "_css_classes": "faqAccordion"
+            },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "db690374",
+    "elType": "container",
+    "isInner": false,
+    "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "_element_id": "cta-fleet",
+      "css_classes": "container-xxl py-5"
+    },
+    "elements": [
+      {
+        "id": "ac70e6b7",
+        "elType": "container",
+        "isInner": true,
+        "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "width": {
+            "unit": "%",
+            "size": 100.0
+          },
+          "css_classes": "cta-closing-card p-5 text-center"
+        },
+        "elements": [
+          {
+            "id": "e968a60c",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+              "title": "Tingkatkan Efisiensi dan Durabilitas Armada Anda",
+              "header_size": "h2",
+              "align": "center",
+              "_css_classes": "cta-closing-title mb-3"
+            },
+            "elements": []
+          },
+          {
+            "id": "98376123",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+              "editor": "<p class='text-muted cta-closing-desc mb-4' style='max-width: 640px; margin: 0 auto;'>Bergabunglah bersama 120+ perusahaan logistik yang mempercayakan pemeliharaan armada truk niaganya kepada MASTER TRUCK.</p>",
+              "align": "center"
+            },
+            "elements": []
+          },
+          {
+            "id": "9f2adfec",
+            "elType": "container",
+            "isInner": true,
+            "settings": {
+              "content_width": "full",
+              "flex_direction": "row",
+              "css_classes": "cta-closing-btns"
+            },
+            "elements": [
+              {
+                "id": "5ee13549",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 50.0
+                  }
+                },
+                "elements": [
+                  {
+                    "id": "dcedd5b4",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "Daftar Jadi Mitra Fleet",
+                      "link": {
+                        "url": "http://localhost:3000/#register",
+                        "is_external": "on",
+                        "nofollow": ""
+                      },
+                      "align": "right",
+                      "selected_icon": {
+                        "value": "fas fa-arrow-right",
+                        "library": "fa-solid"
+                      },
+                      "icon_align": "after",
+                      "_css_classes": "btn-hero-primary"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "ebe16b18",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 50.0
+                  }
+                },
+                "elements": [
+                  {
+                    "id": "38c53795",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "Konsultasi Pengadaan via WA",
+                      "link": {
+                        "url": "https://wa.me/6281234567890",
+                        "is_external": "on",
+                        "nofollow": ""
+                      },
+                      "align": "left",
+                      "selected_icon": {
+                        "value": "fab fa-whatsapp",
+                        "library": "fa-brands"
+                      },
+                      "icon_align": "before",
+                      "_css_classes": "btn-hero-secondary"
+                    },
+                    "elements": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2ef3c25b",
+    "elType": "container",
+    "isInner": false,
+    "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "_element_id": "contact",
+      "css_classes": "footer-clean bg-white border-top mt-5 p-0"
+    },
+    "elements": [
+      {
+        "id": "215bdfd4",
+        "elType": "container",
+        "isInner": true,
+        "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "width": {
+            "unit": "%",
+            "size": 30.0
+          },
+          "css_classes": "footer-col-1 p-4"
+        },
+        "elements": [
+          {
+            "id": "c6bb499d",
+            "elType": "widget",
+            "widgetType": "icon-box",
+            "settings": {
+              "selected_icon": {
+                "value": "fas fa-truck",
+                "library": "fa-solid"
+              },
+              "title_text": "MASTER TRUCK",
+              "description_text": "Bengkel Truk KIM III Medan",
+              "title_size": "h5",
+              "position": "left",
+              "_css_classes": "footer-brand"
+            },
+            "elements": []
+          },
+          {
+            "id": "8ba810a5",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+              "editor": "<p class='text-muted small mt-2 mb-3'>Bengkel spesialis perawatan armada truk niaga &amp; distributor resmi suku cadang OEM di Kawasan Industri Medan III.</p>",
+              "align": "left"
+            },
+            "elements": []
+          },
+          {
+            "id": "ff460d61",
+            "elType": "container",
+            "isInner": true,
+            "settings": {
+              "content_width": "full",
+              "flex_direction": "row",
+              "css_classes": "footer-social-inner"
+            },
+            "elements": [
+              {
+                "id": "c519d0a2",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 25.0
+                  }
+                },
+                "elements": [
+                  {
+                    "id": "481a9928",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "",
+                      "link": {
+                        "url": "#",
+                        "is_external": "",
+                        "nofollow": ""
+                      },
+                      "align": "center",
+                      "selected_icon": {
+                        "value": "fab fa-facebook-f",
+                        "library": "fa-brands"
+                      },
+                      "icon_align": "before",
+                      "_css_classes": "btn-footer-social"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "791e58c4",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 25.0
+                  }
+                },
+                "elements": [
+                  {
+                    "id": "41b25a74",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "",
+                      "link": {
+                        "url": "#",
+                        "is_external": "",
+                        "nofollow": ""
+                      },
+                      "align": "center",
+                      "selected_icon": {
+                        "value": "fab fa-instagram",
+                        "library": "fa-brands"
+                      },
+                      "icon_align": "before",
+                      "_css_classes": "btn-footer-social"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "fb3109fd",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 25.0
+                  }
+                },
+                "elements": [
+                  {
+                    "id": "9e79ba70",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "",
+                      "link": {
+                        "url": "#",
+                        "is_external": "",
+                        "nofollow": ""
+                      },
+                      "align": "center",
+                      "selected_icon": {
+                        "value": "fab fa-youtube",
+                        "library": "fa-brands"
+                      },
+                      "icon_align": "before",
+                      "_css_classes": "btn-footer-social"
+                    },
+                    "elements": []
+                  }
+                ]
+              },
+              {
+                "id": "cbb6874f",
+                "elType": "container",
+                "isInner": true,
+                "settings": {
+                  "content_width": "full",
+                  "flex_direction": "column",
+                  "width": {
+                    "unit": "%",
+                    "size": 25.0
+                  }
+                },
+                "elements": [
+                  {
+                    "id": "57566b34",
+                    "elType": "widget",
+                    "widgetType": "button",
+                    "settings": {
+                      "text": "",
+                      "link": {
+                        "url": "https://wa.me/6281234567890",
+                        "is_external": "on",
+                        "nofollow": ""
+                      },
+                      "align": "center",
+                      "selected_icon": {
+                        "value": "fab fa-whatsapp",
+                        "library": "fa-brands"
+                      },
+                      "icon_align": "before",
+                      "_css_classes": "btn-footer-social"
+                    },
+                    "elements": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "12b06f6c",
+        "elType": "container",
+        "isInner": true,
+        "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "width": {
+            "unit": "%",
+            "size": 22.0
+          },
+          "css_classes": "footer-col-2 p-4"
+        },
+        "elements": [
+          {
+            "id": "82d171b9",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+              "title": "Jam Operasional",
+              "header_size": "h6",
+              "align": "left",
+              "_css_classes": "footer-heading mb-3"
+            },
+            "elements": []
+          },
+          {
+            "id": "05c66443",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+              "editor": "<p class='small text-muted mb-2'><strong>Bengkel &amp; Penjualan OEM:</strong><br>Senin – Sabtu: 08.00 – 17.00 WIB</p><p class='small text-muted mb-0'><strong>Derek Truk Darurat:</strong><br><span class='text-primary fw-bold'>24 Jam Nonstop Siaga</span></p>",
+              "align": "left"
+            },
+            "elements": []
+          }
+        ]
+      },
+      {
+        "id": "49561498",
+        "elType": "container",
+        "isInner": true,
+        "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "width": {
+            "unit": "%",
+            "size": 22.0
+          },
+          "css_classes": "footer-col-3 p-4"
+        },
+        "elements": [
+          {
+            "id": "9fc5d31b",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+              "title": "Navigasi Layanan",
+              "header_size": "h6",
+              "align": "left",
+              "_css_classes": "footer-heading mb-3"
+            },
+            "elements": []
+          },
+          {
+            "id": "866f1b78",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+              "editor": "<p class='footer-links-list small mb-0'><a href='#service'>Kontrak Armada B2B</a><br><a href='#service'>Overhaul Mesin Diesel</a><br><a href='#service'>Sistem Rem &amp; Kaki-Kaki</a><br><a href='#principals'>Distributor Suku Cadang</a><br><a href='#booking'>Derek Darurat 24 Jam</a></p>",
+              "align": "left"
+            },
+            "elements": []
+          }
+        ]
+      },
+      {
+        "id": "e4b7f84b",
+        "elType": "container",
+        "isInner": true,
+        "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "width": {
+            "unit": "%",
+            "size": 26.0
+          },
+          "css_classes": "footer-col-4 p-4"
+        },
+        "elements": [
+          {
+            "id": "f12892b9",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+              "title": "Kontak &amp; Alamat",
+              "header_size": "h6",
+              "align": "left",
+              "_css_classes": "footer-heading mb-3"
+            },
+            "elements": []
+          },
+          {
+            "id": "600c6199",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+              "editor": "<p class='small text-muted mb-1'><strong>PT Master Truck Indonesia</strong></p><p class='small text-muted mb-1'>KIM III (Kawasan Industri Medan III), Medan, Sumatera Utara</p><p class='small text-muted mb-1'>Telp: 061-8888-1234 / 0812-3456-7890</p><p class='small text-muted mb-0'>Email: info@mastertruck.co.id</p>",
+              "align": "left"
+            },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c9e60ec5",
+    "elType": "container",
+    "isInner": false,
+    "settings": {
+      "content_width": "full",
+      "flex_direction": "row",
+      "css_classes": "border-top py-3 small text-muted px-4 footer-copyright"
+    },
+    "elements": [
+      {
+        "id": "987c121e",
+        "elType": "container",
+        "isInner": true,
+        "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "width": {
+            "unit": "%",
+            "size": 70.0
+          },
+          "css_classes": "footer-copy-col"
+        },
+        "elements": [
+          {
+            "id": "8def1a72",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+              "editor": "<p class='small text-muted px-4 mb-0'>&copy; 2026 PT Master Truck Indonesia. Seluruh hak cipta dilindungi.</p>",
+              "align": "left"
+            },
+            "elements": []
+          }
+        ]
+      },
+      {
+        "id": "d6fd28c1",
+        "elType": "container",
+        "isInner": true,
+        "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "width": {
+            "unit": "%",
+            "size": 30.0
+          },
+          "css_classes": "footer-menu-col"
+        },
+        "elements": [
+          {
+            "id": "a7621ded",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+              "editor": "<p class='footer-menu-links small px-4 mb-0' style='text-align: right;'><a href='#header-carousel'>Beranda</a> | <a href='#service'>Layanan</a> | <a href='#about'>Tentang</a> | <a href='http://localhost:3000/#login'>Web Fleet</a></p>",
+              "align": "right"
+            },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "f2a8fc6e",
+    "elType": "container",
+    "isInner": false,
+    "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "css_classes": "mt-wa-float-section p-0"
+    },
+    "elements": [
+      {
+        "id": "42640808",
+        "elType": "container",
+        "isInner": true,
+        "settings": {
+          "content_width": "full",
+          "flex_direction": "column",
+          "width": {
+            "unit": "%",
+            "size": 100.0
+          }
+        },
+        "elements": [
+          {
+            "id": "f4548106",
+            "elType": "widget",
+            "widgetType": "button",
+            "settings": {
+              "text": "",
+              "link": {
+                "url": "https://wa.me/6281234567890",
+                "is_external": "on",
+                "nofollow": ""
+              },
+              "align": "center",
+              "selected_icon": {
+                "value": "fab fa-whatsapp",
+                "library": "fa-brands"
+              },
+              "icon_align": "before",
+              "_css_classes": "floating-wa-btn"
+            },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  }
+]
