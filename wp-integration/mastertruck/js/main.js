@@ -286,6 +286,23 @@
                        window.location.search.indexOf('elementor-preview') !== -1;
 
         var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        // REVAMP6m I: matikan animasi masuk untuk screenshot/test otomatis.
+        try {
+            if (window.navigator && window.navigator.webdriver) {
+                document.documentElement.classList.add('no-anim');
+            }
+        } catch (e) {}
+        // REVAMP6m G: pill navbar jadi kaca saat scroll > 24px (tanpa CLS).
+        if (isPage59 && !inEditor) {
+            var mtNavPill = document.querySelector('.navbar-pill');
+            if (mtNavPill) {
+                var mtNavTick = function () {
+                    mtNavPill.classList.toggle('is-scrolled', window.scrollY > 24);
+                };
+                window.addEventListener('scroll', mtNavTick, { passive: true });
+                mtNavTick();
+            }
+        }
         if (isPage59 && !inEditor && !reduce && 'IntersectionObserver' in window) {
             var targets = document.querySelectorAll(
                 'body.elementor-page-59 .elementor-59 > .e-con' +
@@ -309,6 +326,32 @@
                     io.observe(el);
                 });
             }
+        }
+
+        // REVAMP6j E2: di editor Elementor, counter langsung nilai akhir (tanpa animasi).
+        // Widget editor dirender async + animasi counter Elementor menimpa,
+        // jadi snap diulang singkat (hanya mode editor, tanpa efek ke frontend).
+        if (isPage59 && inEditor) {
+            var mtSnapCounters = function () {
+                Array.prototype.forEach.call(document.querySelectorAll('.elementor-counter-number'), function (el) {
+                    var to = el.getAttribute('data-to-value');
+                    if (to === null || to === '') { return; }
+                    var delim = el.getAttribute('data-delimiter') || '';
+                    var out = String(Math.round(parseFloat(to)));
+                    if (delim) {
+                        out = out.replace(/\B(?=(\d{3})+(?!\d))/g, delim);
+                    }
+                    if (el.textContent !== out) { el.textContent = out; }
+                    if (el.getAttribute('data-duration') !== '0') { el.setAttribute('data-duration', '0'); }
+                });
+            };
+            mtSnapCounters();
+            var mtSnapTries = 0;
+            var mtSnapTimer = setInterval(function () {
+                mtSnapCounters();
+                mtSnapTries++;
+                if (mtSnapTries >= 30) { clearInterval(mtSnapTimer); }
+            }, 500);
         }
 
         // 2) Carousel HP: matikan fade tepi kanan saat sudah di ujung scroll
@@ -337,6 +380,17 @@
                 waBtn.setAttribute('aria-label', 'Chat WhatsApp');
                 waBtn.innerHTML = '<i class="fab fa-whatsapp" aria-hidden="true"></i>';
                 document.body.appendChild(waBtn);
+                // REVAMP6j B5: sembunyikan WA saat foto hero tampil agar tak
+                // menutupi pil foto; muncul lagi setelah hero lewat viewport.
+                var mtHeroImg = document.querySelector('.mt-hero-slide .hero-truck-img');
+                if (mtHeroImg && 'IntersectionObserver' in window) {
+                    var mtWaIO = new IntersectionObserver(function (entries) {
+                        entries.forEach(function (en) {
+                            waBtn.classList.toggle('mt-wa-hidden', en.isIntersecting);
+                        });
+                    }, { threshold: 0.15 });
+                    mtWaIO.observe(mtHeroImg);
+                }
             }
 
             // Back to top button (lingkaran 48x48 di atas WA)

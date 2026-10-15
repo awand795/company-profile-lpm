@@ -137,10 +137,11 @@ def typo(g, prefix, size, weight=400, family="Inter", lh=1.65, ls=0.0, color=Non
     return s
 
 def T_H1(color=C["primary"]):
-    # RONDE 8 B1: Baris 1 64px desktop (800) biru primer; tablet 48, mobile 38.
+    # RONDE 8 B1: Baris 1 64px desktop (800) biru primer; tablet 52, mobile 38.
+    # REVAMP6j A2: baris 1 tablet 52px agar seimbang dengan sub 32px satu baris.
     g = {}
     s = typo(g, "typography", 64, 800, "Plus Jakarta Sans", 1.05, -1.5, tglobal="primary")
-    s["typography_font_size_tablet"] = fsize(48)
+    s["typography_font_size_tablet"] = fsize(52)
     s["typography_font_size_mobile"] = fsize(38)
     s["title_color"] = color
     gcol(g, "title_color", "primary")
@@ -550,7 +551,7 @@ hero["elements"] = [inner([
         W_iconbox("fas fa-headset", "Derek siaga 24 jam", "",
                   tag="p", pos="left", cls="hero-card-live hero-chip-pill", tsize=14, dsize=14),
     ], card(bg=C["tint_blue"], radius=28, pad=(8, 8, 8, 8), bordered=False)),
-], css_classes="", direction="row")]
+], css_classes="hero-main-row", direction="row")]
 sections.append(hero)
 
 # ============ 2b. STRIP STATISTIK (full width, pembatas vertikal) ============
@@ -650,10 +651,10 @@ about["elements"] = [inner([
         W_text("<p><strong>PT Master Truck Indonesia</strong> beroperasi di Kawasan Industri Medan III "
                "(KIM III). Kami merawat segala jenis truk dan mesin berat, sekaligus distributor resmi "
                "oli Pertamina, oli Mobil, ban Dunlop, dan aki Incoe/GS Astra.</p>",
-               align="left", size=16),
+               align="left", cls="about-desc", size=16),
         W_iconlist(["Segala varian: tronton, trailer, dump truck, dan mesin berat",
                     "Transparansi penuh: progres servis dan foto sebelum &amp; sesudah",
-                    "Garansi resmi &amp; bayar belakangan, tempo 30 hari"], size=15),
+                    "Garansi resmi &amp; bayar belakangan, tempo 30 hari"], cls="about-checks", size=15),
         # TODO: konfirmasi pemilik — sertifikasi ISO 9001:2015 & SMK3 Kemenaker belum terverifikasi resmi.
         inner([
             col(50, "cert-badge-col", [W_iconbox("fas fa-award", "ISO 9001:2015",
@@ -671,7 +672,7 @@ about["elements"] = [inner([
                                     cls="btn-about-secondary", style_fn=btn_outline)], None),
         ], css_classes="about-btns-inner", direction="row",
             style={"flex_gap": fsize(16), "flex_align_items": "center"}),
-    ], {"flex_gap": fsize(14), "flex_justify_content": "center"}),
+    ], {"flex_gap": fsize(0), "flex_justify_content": "center"}),
 ], css_classes="", direction="row", style={"flex_gap": fsize(36), "flex_align_items": "stretch"})]
 sections.append(about)
 
