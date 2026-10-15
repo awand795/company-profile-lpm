@@ -108,6 +108,13 @@ async function newPage(browser, w, h, url) {
         trustItems: Array.from(document.querySelectorAll('.hero-trust-row .hero-trust-item')).map(R2).map(r => ({ top: Math.round(r.top) })),
         order: { eye: R2(q('.hero-brand-pill')), h1: R2(q('.hero-title')), lead: R2(q('.hero-lead')), btns: R2(q('.hero-btns-inner')), photo: R2(q('.hero-right-col')), trust: R2(q('.hero-trust-row')) },
         wa: R2(q('.floating-wa-btn')),
+        waDisplay: (() => { const w = q('.floating-wa-btn'); return w ? getComputedStyle(w).display : 'ABSENT'; })(),
+        mcta: (() => {
+          const bar = q('.mt-mobile-cta');
+          if (!bar) return null;
+          const btns = Array.from(bar.querySelectorAll('.elementor-button')).map((b) => Math.round(b.getBoundingClientRect().height));
+          return { pos: getComputedStyle(bar).display === 'none' ? 'none' : getComputedStyle(bar).position, btns };
+        })(),
         chips: Array.from(document.querySelectorAll('.hero-chip-pill')).map(el => {
           const t = el.querySelector('.elementor-icon-box-title');
           const b = el.getBoundingClientRect(), pb = el.closest('.hero-right-col').getBoundingClientRect();
@@ -121,7 +128,7 @@ async function newPage(browser, w, h, url) {
     check('390: paragraf center maks 34ch', m.leadAlign === 'center' && parseFloat(m.leadMaxW) / parseFloat(m.leadFs) <= 34.5, m.leadAlign + ' ' + m.leadMaxW);
     check('390: blok keunggulan <=100px', m.trustH <= 100, 'h=' + m.trustH);
     check('390: foto di atas keunggulan, tepi atas <700', m.order.photo.top < 700 && m.order.photo.bottom <= m.order.trust.top + 2, 'photoTop=' + Math.round(m.order.photo.top));
-    check('390: WA 48px kanan-bawah 16px', m.wa && Math.round(m.wa.w) === 48 && Math.round(m.wa.h) === 48, JSON.stringify(m.wa));
+    check('390: WA melayang diganti bar CTA (REVAMP6o C5)', m.waDisplay === 'none' && m.mcta && m.mcta.pos === 'fixed' && m.mcta.btns.length === 2 && m.mcta.btns.every((h) => h === 56), JSON.stringify({ wa: m.waDisplay, mcta: m.mcta }));
     check('390: pil foto 1 baris di dalam foto', m.chips.length === 2 && m.chips.every(c => c.oneLine && c.inside), JSON.stringify(m.chips));
     await ctx.close();
   }

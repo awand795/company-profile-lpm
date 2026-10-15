@@ -247,6 +247,13 @@ def btn_outline():
     s.update(T_BTN()[0])
     return s
 
+def btn_emerald():
+    """REVAMP6o C5: tombol WhatsApp solid emerald (bar CTA mobile)."""
+    s = btn_primary()
+    s.update({"background_color": "#059669", "button_background_hover_color": "#047857",
+              "border_color": "#059669", "button_hover_border_color": "#047857"})
+    return s
+
 def btn_dark():
     s = btn_primary()
     s.update({"background_color": "#1E293B", "button_background_hover_color": "#0F172A",
@@ -1025,6 +1032,22 @@ copyr["elements"] = [inner([
     ], None),
 ], css_classes="", direction="row")]
 sections.append(copyr)
+
+# ============ BAR CTA MOBILE (native container, fixed hanya <=767px) ============
+# REVAMP6o C5: Telepon + WhatsApp 56px; nomor dari konstanta + TODO data asli.
+mcta = el_container("mt-mobile-cta", boxed=1200, bg=C["white"],
+                    style={"padding": px4(10, 16, 10, 16),
+                           "flex_direction": "row", "flex_gap": fsize(12)}, nav="CTA Mobile")
+mcta["elements"] = [inner([
+    col(50, "", [W_button("Telepon", link=f"tel:{PHONE_TEL}", icon="fas fa-phone",
+                          ipos="before", align="center", cls="btn-mcta-call",
+                          style_fn=btn_primary)], None),
+    col(50, "", [W_button("WhatsApp", link=wa_link("Halo%20Master%20Truck,%20saya%20butuh%20bantuan%20armada"),
+                          icon="fab fa-whatsapp", ipos="before", align="center",
+                          cls="btn-mcta-wa", style_fn=btn_emerald, ext=True)], None),
+], css_classes="mt-mobile-cta-row", direction="row",
+    style={"flex_gap": fsize(12), "flex_align_items": "stretch"})]
+sections.append(mcta)
 
 
 # ---- simpan + deploy ----

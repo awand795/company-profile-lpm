@@ -135,6 +135,35 @@ add_action( 'wp_head', function () {
 	}
 }, 1 );
 
+/* REVAMP6o C3: pratinjau bagikan (OG/Twitter) khusus beranda.
+   Tanpa duplikasi bila plugin SEO aktif (cek fungsi/konstanta umum). */
+add_action( 'wp_head', function () {
+	if ( is_admin() || mt_is_elementor_editor_or_preview() ) {
+		return;
+	}
+	if ( ! function_exists( 'is_page' ) || ! is_page( 59 ) ) {
+		return;
+	}
+	if ( function_exists( 'yoast_breadcrumb' ) || defined( 'WPSEO_VERSION' )
+		|| defined( 'RANK_MATH_VERSION' ) || class_exists( 'RankMath' ) ) {
+		return;
+	}
+	$home = home_url( '/' );
+	$og_img = home_url( '/wp-content/uploads/2026/10/mt-og-cover.webp' );
+	$title = 'MASTER TRUCK — Bengkel Truk KIM III Medan';
+	$desc = 'Bengkel khusus truk di Kawasan Industri Medan. Servis rutin, perbaikan mesin, dan sparepart asli, semua beres di satu tempat.';
+	echo '<meta property="og:title" content="' . esc_attr( $title ) . '" />' . "\n";
+	echo '<meta property="og:description" content="' . esc_attr( $desc ) . '" />' . "\n";
+	echo '<meta property="og:type" content="website" />' . "\n";
+	echo '<meta property="og:url" content="' . esc_url( $home ) . '" />' . "\n";
+	echo '<meta property="og:image" content="' . esc_url( $og_img ) . '" />' . "\n";
+	echo '<meta property="og:image:width" content="1200" />' . "\n";
+	echo '<meta property="og:image:height" content="630" />' . "\n";
+	echo '<meta property="og:image:alt" content="' . esc_attr( $title ) . '" />' . "\n";
+	echo '<meta name="twitter:card" content="summary_large_image" />' . "\n";
+	echo '<meta name="theme-color" content="#2563EB" />' . "\n";
+}, 2 );
+
 /* ------------------------------------------------------- topbar di frontend */
 function mt_render_topbar_html() {
 	static $rendered = false;
