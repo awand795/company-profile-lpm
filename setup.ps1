@@ -227,8 +227,7 @@ if ($LASTEXITCODE -ne 0) { Fail "sync-to-wp.ps1 gagal." }
 Write-Step "Flush permalink & regenerasi CSS Elementor"
 if (Invoke-Wp rewrite flush) { Write-Ok "permalink di-flush" }
 foreach ($id in @(59,4,24,25,26,27,28,29,31,32,33,34)) {
-    docker exec $App wp --allow-root --path=/var/www/html post meta delete $id _elementor_css 2>$null | Out-Null
-    docker exec $App wp --allow-root --path=/var/www/html post meta delete $id _elementor_element_cache 2>$null | Out-Null
+    docker exec $App sh -c "wp --allow-root --path=/var/www/html post meta delete $id _elementor_css 2>/dev/null; wp --allow-root --path=/var/www/html post meta delete $id _elementor_element_cache 2>/dev/null; exit 0" | Out-Null
 }
 Write-Ok "cache CSS Elementor dibersihkan"
 docker exec $App wp --allow-root --path=/var/www/html elementor flush-css | Out-Null
