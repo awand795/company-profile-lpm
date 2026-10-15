@@ -103,7 +103,7 @@ if [[ -d wp-content/uploads ]]; then
   docker cp wp-content/uploads/. "$APP:/var/www/html/wp-content/uploads/" || fail "docker cp uploads gagal"
   ok "wp-content/uploads/ ($(find wp-content/uploads -type f | wc -l | tr -d ' ') file)"
 fi
-for plug in mt-topbar mt-booking mt-login; do
+for plug in mt-topbar mt-booking mt-login mt-admin; do
   if [[ -d "wp-content/plugins/$plug" ]]; then
     docker cp "wp-content/plugins/$plug/." "$APP:/var/www/html/wp-content/plugins/$plug/" || fail "docker cp $plug gagal"
     ok "plugins/$plug/"
@@ -188,7 +188,7 @@ for p in "${!PINS[@]}"; do
   $WP plugin activate "$p" >/dev/null 2>&1 && ok "plugin $p aktif" || true
 done
 
-for plug in mt-topbar mt-booking mt-login; do
+for plug in mt-topbar mt-booking mt-login mt-admin; do
   if $WP plugin is-installed "$plug" >/dev/null 2>&1; then
     $WP plugin activate "$plug" >/dev/null 2>&1 || true
     ok "plugin $plug aktif"

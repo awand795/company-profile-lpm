@@ -1,0 +1,380 @@
+/* ============================================================
+   MASTER TRUCK — Admin Bersih (tema LIGHT, tanpa !important)
+   Scope: body.wp-admin di luar editor Elementor & Customizer
+   (dipilih via PHP agar CSS ini tak dimuat di sana).
+   ============================================================ */
+
+body.wp-admin {
+    background-color: #F8FAFC;
+    color: #0F172A;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body.wp-admin h1,
+body.wp-admin h2,
+body.wp-admin h3,
+body.wp-admin .wrap > h1 {
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    color: #0F2A5C;
+}
+
+/* --- Sidebar terang --- */
+body.wp-admin #adminmenuback,
+body.wp-admin #adminmenuwrap,
+body.wp-admin #adminmenu {
+    background-color: #FFFFFF;
+}
+
+body.wp-admin #adminmenu {
+    border-right: 1px solid #E2E8F0;
+}
+
+body.wp-admin #adminmenu a.menu-top {
+    color: #334155;
+}
+
+body.wp-admin #adminmenu .wp-menu-image::before {
+    color: #94A3B8;
+}
+
+body.wp-admin #adminmenu li.menu-top:hover,
+body.wp-admin #adminmenu li.opensub > a.menu-top,
+body.wp-admin #adminmenu li > a.menu-top:focus {
+    background-color: #EFF6FF;
+    color: #0F172A;
+}
+
+body.wp-admin #adminmenu li.wp-has-current-submenu a.wp-has-current-submenu,
+body.wp-admin #adminmenu li.current a.menu-top {
+    background-color: #EFF6FF;
+    color: #2563EB;
+    font-weight: 700;
+    border-radius: 0 12px 12px 0;
+    box-shadow: inset 3px 0 0 #2563EB;
+}
+
+body.wp-admin #adminmenu li.wp-has-current-submenu .wp-menu-image::before,
+body.wp-admin #adminmenu li.current .wp-menu-image::before {
+    color: #2563EB;
+}
+
+body.wp-admin #adminmenu .wp-submenu {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.12);
+    padding: 6px;
+}
+
+body.wp-admin #adminmenu .wp-submenu a {
+    color: #475569;
+    border-radius: 10px;
+}
+
+body.wp-admin #adminmenu .wp-submenu a:hover,
+body.wp-admin #adminmenu .wp-submenu a:focus {
+    background-color: #EFF6FF;
+    color: #2563EB;
+}
+
+body.wp-admin #adminmenu .wp-submenu li.current a {
+    color: #2563EB;
+    font-weight: 700;
+}
+
+body.wp-admin #collapse-button {
+    color: #64748B;
+    border-top: 1px solid #E2E8F0;
+}
+
+body.wp-admin #collapse-button:hover {
+    color: #2563EB;
+}
+
+/* --- Admin bar putih --- */
+body.wp-admin #wpadminbar {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #E2E8F0;
+    height: 32px;
+    color: #334155;
+}
+
+body.wp-admin #wpadminbar .ab-item,
+body.wp-admin #wpadminbar a.ab-item {
+    color: #334155;
+    height: 32px;
+}
+
+body.wp-admin #wpadminbar .ab-icon,
+body.wp-admin #wpadminbar .ab-item::before {
+    color: #64748B;
+}
+
+body.wp-admin #wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item,
+body.wp-admin #wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus {
+    background-color: #EFF6FF;
+    color: #2563EB;
+}
+
+/* --- Tombol --- */
+body.wp-admin .wp-core-ui .button-primary {
+    background-color: #2563EB;
+    border-color: #2563EB;
+    border-radius: 12px;
+    color: #FFFFFF;
+    text-shadow: none;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+body.wp-admin .wp-core-ui .button-primary:hover,
+body.wp-admin .wp-core-ui .button-primary:focus {
+    background-color: #1D4ED8;
+    border-color: #1D4ED8;
+    color: #FFFFFF;
+}
+
+body.wp-admin .wp-core-ui .button-secondary,
+body.wp-admin .wp-core-ui .button {
+    border-color: #2563EB;
+    border-radius: 12px;
+    color: #2563EB;
+    background-color: #FFFFFF;
+}
+
+body.wp-admin .wp-core-ui .button-secondary:hover,
+body.wp-admin .wp-core-ui .button:hover {
+    background-color: #EFF6FF;
+    border-color: #1D4ED8;
+    color: #1D4ED8;
+}
+
+/* --- Input --- */
+body.wp-admin input[type="text"],
+body.wp-admin input[type="password"],
+body.wp-admin input[type="email"],
+body.wp-admin input[type="number"],
+body.wp-admin input[type="search"],
+body.wp-admin input[type="url"],
+body.wp-admin select,
+body.wp-admin textarea {
+    min-height: 40px;
+    border: 1px solid #CBD5E1;
+    border-radius: 12px;
+    color: #0F172A;
+    background-color: #FFFFFF;
+}
+
+body.wp-admin input:focus,
+body.wp-admin select:focus,
+body.wp-admin textarea:focus {
+    border-color: #2563EB;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    outline: none;
+}
+
+/* --- Tabel daftar --- */
+body.wp-admin .widefat thead td,
+body.wp-admin .widefat thead th {
+    background-color: #F8FAFC;
+    color: #475569;
+    font-weight: 600;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+body.wp-admin .widefat tbody tr:hover > td,
+body.wp-admin .widefat tbody tr:hover > th {
+    background-color: #EFF6FF;
+}
+
+body.wp-admin .widefat td,
+body.wp-admin .widefat th {
+    border-top: none;
+    border-bottom: 1px solid #F1F5F9;
+    color: #334155;
+}
+
+body.wp-admin .widefat {
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 16px -4px rgba(15, 23, 42, 0.06);
+}
+
+/* --- Notifikasi kartu strip kiri --- */
+body.wp-admin .notice,
+body.wp-admin div.updated {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-left-width: 4px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px -4px rgba(15, 23, 42, 0.06);
+    color: #0F172A;
+}
+
+body.wp-admin .notice-info,
+body.wp-admin div.updated {
+    border-left-color: #2563EB;
+}
+
+body.wp-admin .notice-success {
+    border-left-color: #059669;
+}
+
+body.wp-admin .notice-warning {
+    border-left-color: #D97706;
+}
+
+body.wp-admin .notice-error {
+    border-left-color: #DC2626;
+}
+
+/* Notifikasi update inti tampil tenang */
+body.wp-admin .update-nag,
+body.wp-admin #update-nag {
+    background-color: #EFF6FF;
+    border: 1px solid #BFDBFE;
+    border-left: 4px solid #2563EB;
+    border-radius: 12px;
+    color: #1E3A8A;
+}
+
+/* --- Kartu dasbor --- */
+body.wp-admin #dashboard-widgets .postbox {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px -4px rgba(15, 23, 42, 0.06);
+}
+
+body.wp-admin #dashboard-widgets .postbox .postbox-header {
+    border-bottom: 1px solid #F1F5F9;
+}
+
+body.wp-admin .mt-dash-welcome h2 {
+    color: #0F2A5C;
+    font-size: 22px;
+    margin: 4px 0 2px;
+}
+
+body.wp-admin .mt-dash-welcome p {
+    color: #475569;
+}
+
+body.wp-admin .mt-dash-quick {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+body.wp-admin .mt-quick-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 8px;
+    border: 1px solid #E2E8F0;
+    border-radius: 14px;
+    color: #0F172A;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    text-align: center;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+body.wp-admin .mt-quick-tile svg {
+    color: #2563EB;
+}
+
+body.wp-admin .mt-quick-tile:hover,
+body.wp-admin .mt-quick-tile:focus {
+    border-color: #93C5FD;
+    background-color: #EFF6FF;
+    color: #1D4ED8;
+}
+
+body.wp-admin .mt-dash-status {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+body.wp-admin .mt-dash-status li {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 13px;
+    color: #475569;
+}
+
+body.wp-admin .mt-dash-status strong {
+    color: #0F172A;
+    text-align: right;
+}
+
+body.wp-admin .mt-dash-status .mt-ok {
+    color: #047857;
+}
+
+body.wp-admin .mt-dash-status .mt-bad,
+body.wp-admin .mt-dash-status .mt-warn {
+    color: #92400E;
+}
+
+body.wp-admin .mt-flushed {
+    color: #047857;
+    font-weight: 600;
+}
+
+body.wp-admin .mt-dash-help {
+    margin: 0 0 8px 18px;
+    color: #475569;
+}
+
+body.wp-admin .mt-dash-help li {
+    margin-bottom: 6px;
+}
+
+/* --- Footer --- */
+body.wp-admin #footer-thankyou {
+    color: #64748B;
+}
+
+body.wp-admin #footer-upgrade {
+    color: #94A3B8;
+}
+
+/* Cadangan: sembunyikan promo Starter Templates/UAE + banner konversi Elementor
+   (opt-out resmi via opsi di PHP utama; banner Elementor hanya bisa
+   dimatikan per-pengguna oleh inti, jadi disembunyikan di sini) */
+body.wp-admin #astra-sites-welcome-notice,
+body.wp-admin #uae-optin-notice,
+body.wp-admin #e-conversion-banner {
+    display: none;
+}
+
+/* --- Responsif: tanpa scroll horizontal, sentuh >=44px --- */@media screen and (max-width: 782px) {
+    body.wp-admin #wpbody-content {
+        overflow-x: hidden;
+    }
+
+    body.wp-admin .mt-dash-quick {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    body.wp-admin #adminmenu a.menu-top {
+        min-height: 44px;
+    }
+
+    body.wp-admin .wp-core-ui .button,
+    body.wp-admin .wp-core-ui .button-primary,
+    body.wp-admin .wp-core-ui .button-secondary {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+}

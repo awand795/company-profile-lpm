@@ -270,6 +270,18 @@ if (Test-Path $loginPlugin) {
     Write-Host "OK  plugins/mt-login/ (WordPress custom login)" -ForegroundColor Green
 }
 
+# --- Plugin admin bersih Master Truck mt-admin ------------------------------
+$adminPlugin = Join-Path $root 'wp-content/plugins/mt-admin'
+if (Test-Path $adminPlugin) {
+    docker cp "$adminPlugin/." "$Container`:/var/www/html/wp-content/plugins/mt-admin/"
+    if ($LASTEXITCODE -ne 0) { throw "docker cp mt-admin gagal" }
+    docker exec $Container chown -R www-data:www-data /var/www/html/wp-content/plugins/mt-admin 2>$null | Out-Null
+    $prevEA = $ErrorActionPreference; $ErrorActionPreference = 'Continue'
+    docker exec $Container wp plugin activate mt-admin --allow-root --path=/var/www/html 2>&1 | Out-Null
+    $ErrorActionPreference = $prevEA
+    Write-Host "OK  plugins/mt-admin/ (dashboard admin bersih)" -ForegroundColor Green
+}
+
 # --- Homepage ID 59 sekarang FULL ELEMENTOR (migrasi 2026-10-07) -----------
 # JANGAN paksa kembali ke template-mastertruck.php — itu menonaktifkan Elementor.
 $curTpl = (docker exec $Container wp post meta get 59 _wp_page_template --allow-root --path=/var/www/html 2>$null | Select-Object -First 1)

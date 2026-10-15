@@ -112,14 +112,14 @@ if (Test-Path 'wp-content/uploads') {
     $n = (Get-ChildItem -Path 'wp-content/uploads' -Recurse -File -Force | Measure-Object).Count
     Write-Ok "wp-content/uploads/ ($n file)"
 }
-foreach ($plug in @('mt-topbar','mt-booking','mt-login')) {
+foreach ($plug in @('mt-topbar','mt-booking','mt-login','mt-admin')) {
     if (Test-Path "wp-content/plugins/$plug") {
         docker cp "wp-content/plugins/$plug/." "${App}:/var/www/html/wp-content/plugins/$plug/"
         if ($LASTEXITCODE -ne 0) { Fail "docker cp $plug gagal" }
         Write-Ok "plugins/$plug/"
     }
 }
-docker exec $App chown -R www-data:www-data /var/www/html/.htaccess /var/www/html/wp-content/uploads /var/www/html/wp-content/plugins/mt-topbar /var/www/html/wp-content/plugins/mt-booking /var/www/html/wp-content/plugins/mt-login | Out-Null
+docker exec $App chown -R www-data:www-data /var/www/html/.htaccess /var/www/html/wp-content/uploads /var/www/html/wp-content/plugins/mt-topbar /var/www/html/wp-content/plugins/mt-booking /var/www/html/wp-content/plugins/mt-login /var/www/html/wp-content/plugins/mt-admin | Out-Null
 
 function Invoke-Wp {
     param([Parameter(ValueFromRemainingArguments = $true)]$CmdArgs)
@@ -209,7 +209,7 @@ foreach ($p in $pins.Keys) {
     if (Invoke-Wp plugin activate $p) { Write-Ok "plugin $p aktif" }
 }
 
-foreach ($plug in @('mt-topbar','mt-booking','mt-login')) {
+foreach ($plug in @('mt-topbar','mt-booking','mt-login','mt-admin')) {
     if (Invoke-Wp plugin is-installed $plug) {
         Invoke-Wp plugin activate $plug | Out-Null
         Write-Ok "plugin $plug aktif"

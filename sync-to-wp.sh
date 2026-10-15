@@ -73,6 +73,16 @@ if [[ -d "$ROOT/wp-content/plugins/mt-topbar" ]]; then
   echo "OK  plugins/mt-topbar/"
 fi
 
+# Plugin admin bersih (diaktifkan setup.sh).
+for plug in mt-booking mt-login mt-admin; do
+  if [[ -d "$ROOT/wp-content/plugins/$plug" ]]; then
+    docker cp "$ROOT/wp-content/plugins/$plug/." "$CONTAINER:/var/www/html/wp-content/plugins/$plug/"
+    docker exec "$CONTAINER" chown -R www-data:www-data "/var/www/html/wp-content/plugins/$plug"
+    docker exec "$CONTAINER" wp plugin activate "$plug" --allow-root --path=/var/www/html >/dev/null 2>&1 || true
+    echo "OK  plugins/$plug/"
+  fi
+done
+
 # Homepage ID 59 sekarang FULL ELEMENTOR (migrasi 2026-10-07).
 # JANGAN paksa kembali ke template-mastertruck.php — itu menonaktifkan Elementor.
 # Pastikan homepage pakai template default + Elementor builder.

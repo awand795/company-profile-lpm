@@ -13,6 +13,7 @@ Setup memakai versi persis ini (`wp plugin install <slug> --version=<v>`).
 | Header Footer Elementor | 2.9.5 |
 | Plugin mt-topbar (kustom) | 1.2.0 |
 | Plugin mt-login (kustom) | 1.0.0 |
+| Plugin mt-admin (kustom) | 1.0.0 |
 | Plugin mt-booking (kustom) | 1.0.0 |
 | Python (tooling) | 3.11 |
 | Pillow | 12.3.0 |

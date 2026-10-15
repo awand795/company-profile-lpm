@@ -1,0 +1,32 @@
+/* Skema warna admin "Master Truck" (dipakai wp_admin_css_color). */
+.admin-color-mastertruck {
+    --base-color: #EFF6FF;
+    --highlight-color: #2563EB;
+    --notification-color: #2563EB;
+    --body-background: #F8FAFC;
+    --link: #2563EB;
+    --link-focus: #1D4ED8;
+    --button-color: #2563EB;
+    --text-color: #0F172A;
+}
+
+#adminmenuback,
+#adminmenuwrap,
+#adminmenu {
+    background-color: #FFFFFF;
+}
+
+#adminmenu a.menu-top {
+    color: #334155;
+}
+
+#wpadminbar {
+    background-color: #FFFFFF;
+    color: #334155;
+}
+
+.wp-core-ui .button-primary {
+    background-color: #2563EB;
+    border-color: #2563EB;
+    color: #FFFFFF;
+}
