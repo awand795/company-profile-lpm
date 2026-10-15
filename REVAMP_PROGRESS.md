@@ -288,6 +288,16 @@ Dokumen ini memantau progres refaktor landing page Beranda (WordPress + Elemento
   - [x] **Verifikasi**: builder ASSERT OK + sync; order 16 section benar; revamp3 32/32 (logo hover + padding 96 lulus), 6j 40/40, editor PASS, stats 15/120+/2.500; login tak berubah; section ronde 14 lain utuh; screenshot `playwright_review/sesudah_revamp6p/` (1440/768/390 + perbandingan vs crop pre-ronde14 identik).
   - [x] **Git**: `cfdb97b` + arsip backup + `0815f49 chore(db)` + tag `ronde14b-done` push OK (tanpa force).
 
+- [x] **REVAMP7 - RONDE 15: Dasbor admin bersih ber-brand (2026-10-15):**
+  - [x] Backup `archive/backups/_backup_revamp7_20261015/`; tag `pre-ronde15` push OK (main bersih). Plugin baru `wp-content/plugins/mt-admin/` (tanpa sentuh inti/tema/plugin lain; nonaktifkan = bawaan kembali).
+  - [x] **A. Visual**: skema `mastertruck` default (pilihan pengguna dihormati); sidebar putih + pil aktif + bar 3px; admin bar putih 32px + ikon MT + Lihat situs; tombol/input/tabel/notifikasi kartu; footer `Master Truck · Panel Pengelola`; versi disembunyikan dari non-admin; logo MT via Site Icon; mobile OK. Tanpa `!important` (0 deklarasi).
+  - [x] **B. Bahasa & menu**: paket id_ID inti+Elementor+Astra + `switch-language`; menu Dasbor, Beranda(→editor 59), Halaman, Media, Pengguna, Tampilan, Pengaturan + Lanjutan; sembunyi Posts/Comments/Astra/Onboarding/Elementor-Home/HFE; arsip PHP dilabel ulang; Mode lanjutan via profil (teruji: semua menu kembali); `MT_ADMIN_SIMPLIFY` default true.
+  - [x] **C. Dasbor**: hapus Quick Draft/News/promo; sambutan + aksi 2×3 + status (cek 127.0.0.1 + Host, cache 10 mnt; tombol Muat Ulang CSS nonce+capability, teruji) + bantuan; status/help di kolom kanan → sambutan+aksi+status terlihat di 1366×640; `docs/PANDUAN-PENGELOLA.md` dibuat.
+  - [x] **D. Redam**: opt-out resmi tracker Elementor + analitik BSF; CSS cadangan untuk 2 promo Astra + banner konversi Elementor (hanya itu yang tak bisa global); Go Pro editor disembunyikan (teruji, 0 error).
+  - [x] **Ukur**: notifikasi terlihat 1 (update inti); EN UI 0 (satu "Comments" hanya isi komentar contoh); konsol 0; PHP warning 0 (debug.log tak terbentuk lalu dikembalikan); kontras 10,35/4,75/5,17; h-scroll 0.
+  - [x] **Fungsional**: Edit Beranda → editor → ubah teks → Update → frontend berubah → dikembalikan (ROUNDTRIP PASS); nonaktifkan plugin = bawaan; frontend/login tak berubah (revamp3 32/32, 6j 40/40, editor PASS; 6j disesuaikan: kunci JED dikecualikan dari pindai).
+  - [x] **Git**: `35c0dbc` (A), `a485aee` (B), `456ec15` (C), `23e1a52` (D) + setup/VERSIONS/README/panduan + dump `database/mt_site.sql` + tag `ronde15-done`.
+
 ---
 
 ## Baseline Temuan Fase 0

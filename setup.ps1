@@ -218,6 +218,14 @@ foreach ($plug in @('mt-topbar','mt-booking','mt-login','mt-admin')) {
     }
 }
 
+# --- 5b. Bahasa Indonesia (paket terjemahan; idempoten) ----------------------
+Write-Step "Paket bahasa Indonesia"
+docker exec $App wp --allow-root --path=/var/www/html language core install id_ID 2>$null | Out-Null
+docker exec $App wp --allow-root --path=/var/www/html language plugin install --all id_ID 2>$null | Out-Null
+docker exec $App wp --allow-root --path=/var/www/html language theme install --all id_ID 2>$null | Out-Null
+docker exec $App wp --allow-root --path=/var/www/html site switch-language id_ID 2>$null | Out-Null
+Write-Ok "id_ID aktif (core/plugin/tema yang tersedia)"
+
 # --- 6. Sinkronisasi template & media ---------------------------------------
 Write-Step "Sinkronisasi wp-integration + media"
 & (Join-Path $root 'sync-to-wp.ps1') -Container $App

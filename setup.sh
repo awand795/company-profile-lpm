@@ -197,6 +197,14 @@ for plug in mt-topbar mt-booking mt-login mt-admin; do
   fi
 done
 
+# --- 5b. Bahasa Indonesia (paket terjemahan; idempoten) ----------------------
+step "Paket bahasa Indonesia"
+docker exec "$APP" wp --allow-root --path=/var/www/html language core install id_ID >/dev/null 2>&1 || true
+docker exec "$APP" wp --allow-root --path=/var/www/html language plugin install --all id_ID >/dev/null 2>&1 || true
+docker exec "$APP" wp --allow-root --path=/var/www/html language theme install --all id_ID >/dev/null 2>&1 || true
+docker exec "$APP" wp --allow-root --path=/var/www/html site switch-language id_ID >/dev/null 2>&1 || true
+ok "id_ID aktif (core/plugin/tema yang tersedia)"
+
 # --- 6. Sinkronisasi template & media ---------------------------------------
 step "Sinkronisasi wp-integration + media"
 bash "$ROOT/sync-to-wp.sh" -c "$APP" || fail "sync-to-wp.sh gagal."

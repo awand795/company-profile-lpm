@@ -137,6 +137,15 @@ Opsi:
 - Skrip me-restore file terlacak, deploy Page 59, sync, flush-css, verifikasi, lalu commit `rollback ke <ref>` + push (tanpa force).
 - Tag penting: `pre-ronde14` (sebelum ronde 14), `ronde14-done` (akhir ronde 14).
 
+### Panel Pengelola (`/wp-admin`)
+Dasbor berbahasa Indonesia untuk pengelola awam (plugin `wp-content/plugins/mt-admin/`):
+menu sederhana (Dasbor, Beranda→editor Elementor, Halaman, Media, Pengguna,
+Tampilan, Pengaturan + grup "Lanjutan"), kartu sambutan, aksi cepat, status
+situs + tombol Muat Ulang CSS, dan panduan `docs/PANDUAN-PENGELOLA.md`.
+Butuh menu lengkap? Profil Anda → centang **Tampilkan semua menu WordPress**.
+Mematikan tampilan kustom: `wp plugin deactivate mt-admin` (atau Plugins →
+nonaktifkan "Master Truck Admin Bersih") — tampilan bawaan kembali seketika.
+
 Skrip juga menyamakan opsi `home`/`siteurl` ke URL yang dipakai, jadi bila Anda menguji di port lain cukup set environment variable (Linux) atau parameter (Windows):
 
 ```bash

@@ -186,7 +186,10 @@ async function newPage(browser, w, h, url) {
       await p.goto(url, { waitUntil: 'networkidle', timeout: 45000 });
       await p.waitForTimeout(800);
       const r = await p.evaluate((pats) => {
-        const html = document.documentElement.innerHTML;
+        // Kunci kamus terjemahan JS inti (JED) bukan teks tampak: keluarkan <script>.
+        const clone = document.documentElement.cloneNode(true);
+        clone.querySelectorAll('script').forEach((s) => s.remove());
+        const html = clone.innerHTML;
         const body = (document.querySelector('#login') || document.body).innerText;
         return { hits: pats.filter(s => html.includes(s)), ph1: (document.getElementById('user_login') || {}).placeholder || null, ph2: (document.getElementById('user_pass') || {}).placeholder || null, backlink: (document.querySelector('#backtoblog a') || {}).textContent || null };
       }, EN);
@@ -208,7 +211,9 @@ async function newPage(browser, w, h, url) {
     await ep.waitForTimeout(1000);
     const err = await ep.evaluate((pats) => {
       const box = document.querySelector('#login_error');
-      const html = document.documentElement.innerHTML;
+      const clone = document.documentElement.cloneNode(true);
+      clone.querySelectorAll('script').forEach((s) => s.remove());
+      const html = clone.innerHTML;
       return { errText: box ? box.innerText : null, hits: pats.filter(s => html.includes(s)) };
     }, EN);
     await ectx.close();
