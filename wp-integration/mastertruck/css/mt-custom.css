@@ -1105,6 +1105,18 @@ body.elementor-page-59 .stitch-navbar.sticky-scrolled {
     background: rgba(255, 255, 255, 0.99);
 }
 
+body.elementor-page-59 .stitch-brand-col .brand-logo-img img {
+    height: 38px;
+    width: auto;
+    max-width: none;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.2s ease;
+}
+body.elementor-page-59 .stitch-brand-col:hover .brand-logo-img img {
+    transform: scale(1.03);
+}
+
 body.elementor-page-59 .stitch-sec-hero > .e-con-inner {
     padding-top: 24px !important;
     padding-bottom: 32px !important;
