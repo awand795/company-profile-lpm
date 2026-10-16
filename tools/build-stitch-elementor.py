@@ -301,55 +301,66 @@ sections = []
 
 # --- 1. TOPBAR & FLOATING NAVBAR ---
 topbar = el_container("stitch-topbar", boxed=1240, bg=C["tertiary"],
-                      style={"padding": px4(8, 20, 8, 20), "flex_direction": "row",
-                             "flex_align_items": "center", "flex_justify_content": "space-between"},
+                      style={"padding": px4(10, 24, 10, 24)},
                       nav="Top Bar")
 topbar["elements"] = [inner([
-    col(50, "", [
-        W_text('<div style="display:flex;align-items:center;gap:16px;color:#bec6e0;font-size:12px;font-weight:600;">'
-               '<span>🚨 <b style="color:#ffdbce;">Hotline 24 Jam:</b> <a href="tel:0812MASTERTRUCK" style="color:#ffffff;text-decoration:none;">0812-MASTER-TRUCK</a></span>'
-               '<span style="color:#757682;">|</span>'
-               '<span>📍 Cikarang &amp; Tanjung Priok</span>'
+    col(55, "topbar-left-col", [
+        W_text('<div style="display:flex;align-items:center;gap:20px;color:#bec6e0;font-size:12px;font-weight:600;letter-spacing:0.2px;">'
+               '<div style="display:inline-flex;align-items:center;gap:6px;">'
+               '<span style="background:#fd651e;color:#ffffff;font-size:10px;font-weight:800;padding:2px 6px;border-radius:4px;letter-spacing:0.5px;">SOS</span>'
+               '<span style="text-transform:uppercase;color:#ffdbce;font-weight:700;">Hotline 24 Jam:</span> '
+               '<a href="tel:0812MASTERTRUCK" style="color:#ffffff;text-decoration:none;font-weight:700;">0812-MASTER-TRUCK</a>'
+               '</div>'
+               '<div style="display:inline-flex;align-items:center;gap:6px;color:#bec6e0;">'
+               '<span>📍</span> <span style="color:#ffffff;">Cikarang &amp; Tanjung Priok</span>'
+               '</div>'
                '</div>')
     ]),
-    col(50, "", [
-        W_text('<div style="display:flex;align-items:center;justify-content:flex-end;gap:16px;color:#bec6e0;font-size:12px;">'
-               '<span>🕒 Senin - Sabtu: 08.00 - 20.00 | Tim Derek &amp; Rescue 24/7</span>'
-               '<span style="color:#757682;">|</span>'
-               '<span style="color:#ffdbce;font-weight:700;">🛡 Standar OEM ISO 9001</span>'
+    col(45, "topbar-right-col", [
+        W_text('<div style="display:flex;align-items:center;justify-content:flex-end;gap:18px;color:#bec6e0;font-size:12px;">'
+               '<div style="display:inline-flex;align-items:center;gap:6px;">'
+               '<span>🕒</span> <span style="color:#ffffff;">Senin – Sabtu: 08.00 – 20.00 | Tim Derek &amp; Rescue 24/7</span>'
+               '</div>'
+               '<div style="border-left:1px solid #384055;padding-left:14px;display:inline-flex;align-items:center;gap:6px;">'
+               '<span style="color:#ffdbce;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;">🛡 Standar OEM ISO 9001</span>'
+               '</div>'
                '</div>')
     ]),
-], css_classes="stitch-topbar-row", direction="row")]
+], css_classes="stitch-topbar-row", direction="row", style={"flex_align_items": "center", "flex_justify_content": "space-between"})]
 sections.append(topbar)
 
 # Navbar
 nav = el_container("stitch-navbar sticky-top", boxed=1240, bg=C["white"],
-                   style={"padding": px4(12, 20, 12, 20), "border_border": "solid",
-                          "border_width": px4(0, 0, 1, 0), "border_color": C["border"],
+                   style={"padding": px4(14, 24, 14, 24), "border_border": "solid",
+                          "border_width": px4(0, 0, 1, 0), "border_color": "#eceef0",
                           "sticky": "top", "sticky_offset": 0, "sticky_on": ["desktop", "tablet", "mobile"]},
                    nav="Navbar")
 nav["elements"] = [inner([
-    col(25, "stitch-brand-col", [
+    # Brand
+    col(28, "stitch-brand-col", [
         W_text('<a href="#" style="display:flex;align-items:center;gap:12px;text-decoration:none;">'
-               '<img src="' + IMG["logo"][0] + '" style="height:32px;width:auto;" alt="Master Truck Logo">'
-               '<div style="display:flex;flex-direction:column;">'
-               '<span style="font-family:Plus Jakarta Sans;font-size:18px;font-weight:800;color:' + C["primary"] + ';letter-spacing:-0.5px;">MASTER TRUCK</span>'
-               '<span style="font-size:11px;color:' + C["text_muted"] + ';text-transform:uppercase;font-weight:600;margin-top:-2px;">Spesialis Truk &amp; Armada Niaga</span>'
+               '<img src="' + IMG["logo"][0] + '" style="height:36px;width:auto;object-fit:contain;" alt="Master Truck Logo">'
+               '<div style="display:flex;flex-direction:column;line-height:1.2;">'
+               '<span style="font-family:Plus Jakarta Sans;font-size:19px;font-weight:800;color:' + C["primary"] + ';letter-spacing:-0.5px;">MASTER TRUCK</span>'
+               '<span style="font-family:Plus Jakarta Sans;font-size:11px;color:' + C["text_muted"] + ';text-transform:uppercase;font-weight:700;letter-spacing:0.3px;">Spesialis Truk &amp; Armada Niaga</span>'
                '</div></a>')
     ]),
-    col(50, "stitch-menu-col", [
-        W_text('<div style="display:flex;align-items:center;justify-content:center;gap:28px;font-family:Plus Jakarta Sans;font-size:14px;font-weight:700;">'
-               '<a href="#layanan" style="color:' + C["text_muted"] + ';text-decoration:none;">Layanan</a>'
-               '<a href="#fleet" style="color:' + C["text_muted"] + ';text-decoration:none;">Paket Fleet</a>'
-               '<a href="#fasilitas" style="color:' + C["text_muted"] + ';text-decoration:none;">Fasilitas</a>'
-               '<a href="#kontak" style="color:' + C["text_muted"] + ';text-decoration:none;">Kontak</a>'
+    # Menu Links
+    col(38, "stitch-menu-col", [
+        W_text('<div style="display:flex;align-items:center;justify-content:center;gap:32px;font-family:Plus Jakarta Sans;font-size:15px;font-weight:700;">'
+               '<a href="#layanan" style="color:#444651;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color=\'#00236f\'" onmouseout="this.style.color=\'#444651\'">Layanan</a>'
+               '<a href="#fleet" style="color:#444651;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color=\'#00236f\'" onmouseout="this.style.color=\'#444651\'">Paket Fleet</a>'
+               '<a href="#fasilitas" style="color:#444651;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color=\'#00236f\'" onmouseout="this.style.color=\'#444651\'">Fasilitas</a>'
+               '<a href="#kontak" style="color:#444651;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color=\'#00236f\'" onmouseout="this.style.color=\'#444651\'">Kontak</a>'
                '</div>')
     ]),
-    col(25, "stitch-cta-col", [
+    # Actions (Masuk, Daftar, Booking Servis Cepat)
+    col(34, "stitch-cta-col", [
         inner([
-            col(None, "", [W_button("Masuk", link="#login", bg="transparent", text_color=C["primary"], radius=8, pad=(10, 14))], None),
-            col(None, "", [W_button("Booking Cepat", link="#quick-booking", icon="fas fa-truck-pickup", bg=C["secondary"], text_color=C["white"], radius=8, pad=(10, 18))], None),
-        ], css_classes="stitch-nav-actions", direction="row", style={"flex_gap": fsize(8), "flex_justify_content": "flex-end"})
+            col(None, "", [W_button("Masuk", link="http://localhost:3000/#login", icon="fas fa-user-circle", ipos="before", bg="transparent", text_color="#444651", radius=10, pad=(10, 16), cls="btn-nav-login")], None),
+            col(None, "", [W_button("Daftar", link="http://localhost:3000/#register", bg="#dce1ff", text_color=C["primary"], radius=10, pad=(10, 18), cls="btn-nav-register")], None),
+            col(None, "", [W_button("Booking Cepat", link="#quick-booking", icon="fas fa-truck-pickup", bg=C["secondary"], text_color=C["white"], radius=10, pad=(10, 18), cls="btn-nav-booking")], None),
+        ], css_classes="stitch-nav-actions", direction="row", style={"flex_gap": fsize(8), "flex_justify_content": "flex-end", "flex_align_items": "center"})
     ]),
 ], css_classes="stitch-nav-row", direction="row", style={"flex_align_items": "center", "flex_justify_content": "space-between"})]
 sections.append(nav)
@@ -357,7 +368,7 @@ sections.append(nav)
 
 # --- 2. SECTION 1: HERO SECTION ---
 hero = el_container("stitch-sec-hero", css_id="header-carousel", boxed=1240, bg=C["white"],
-                    style={"padding": px4(56, 20, 48, 20)}, nav="Hero")
+                    style={"padding": px4(48, 24, 48, 24)}, nav="Hero")
 hero["elements"] = [
     # Top Row: Text (7) vs Visual (5)
     inner([
