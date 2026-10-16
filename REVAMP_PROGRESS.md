@@ -330,6 +330,37 @@ Dokumen ini memantau progres refaktor landing page Beranda (WordPress + Elemento
     - Database dump tersanitasi diekspor ulang ke `database/mt_site.sql`.
     - Git tag `ronde17-done` di-push ke remote.
 
+- [x] **REVAMP10 - RONDE 18: Hero Stitch lebih KEREN (Komposisi, Detail, Gerak) (2026-10-16):**
+  - [x] Backup `archive/backups/_backup_revamp10_20261016/`; git tag `pre-ronde18` ter-push ke GitHub.
+  - [x] **GRUP A (Perbaikan yang mengganggu mata)**:
+    - Badge jadi pil (`.hero-authority-badge`): Lebar fit-content (446px, bukan selebar kolom), `align-self: flex-start`, padding 6×14px, radius 999px, latar `#DCE1FF`, border 1px `#C5CDF5`, font 12px/700, ikon FA `fa-shield-halved` terpasang rapi.
+    - Tombol CTA: Disatukan dalam SATU container row (`.hero-btns-row`) dengan `flex_gap` 14px, lebar fit-content, tinggi presisi 52px (primer: 52px, sekunder: 52px). Tombol sekunder memakai border outline navy 1.5px `#00236f` (latar transparan, hover `#EEF1FF`).
+    - Logo header: Kotak abu-abu `#CFCFCF` dihilangkan menggunakan Pillow alpha flood-fill & anti-aliasing menjadi file transparan PNG & WebP (`stitch_logo_transparan.png`). Diimpor ke Media Library WordPress (Attachment ID 350) dan dipasang sebagai widget `Image` native Elementor dengan alt "Logo Master Truck".
+    - Judul H1: Underline dihapus; diganti dengan oranye polos 900 (`.hero-brand-highlight`) dengan sorotan halus di bawah huruf (pseudo-element tinggi 10px, `rgba(253,101,30,.18)`, radius 4px).
+    - Ikon Font Awesome: Semua emoji (📍 🕒 🛡 🚛 ⏱️ 🏭 📡) diganti ikon FA seragam (`fa-location-dot`, `fa-clock`, `fa-shield-halved`, `fa-truck`, `fa-stopwatch`, `fa-warehouse`, `fa-microchip`). Total emoji tersisa di area hero: **0**.
+  - [x] **GRUP B (Komposisi)**:
+    - Bingkai foto: Radius 24px, border 1px tipis, bayangan berlapis `0 2px 6px rgba(0,34,111,.08), 0 28px 60px rgba(0,34,111,.18)`.
+    - Kartu telematika melayang: Dipindahkan dari bawah foto ke pojok kiri-bawah foto (`position: absolute; bottom: -24px; left: -24px; z-index: 3; width: 320px;`) dengan backdrop blur 8px, background `rgba(255,255,255,.94)`, border 1px `#E2E8F0`, radius 16px. Kolom visual kini hanya setinggi foto sehingga tinggi total hero tetap ramping.
+    - Aksen industrial: Panel navy solid `#00236F` di kanan-bawah foto bergeser 18px (`hero-visual-card-wrap::before`, radius 24px).
+    - Latar hero berlapis: Radial glow navy (kanan-atas), radial glow oranye (kiri-bawah), dan dot pattern 24px dengan radial mask di belakang kolom foto.
+    - Brand chips: Chip `#F2F4F6`, radius 8px, font 12px/700, gap 8px.
+  - [x] **GRUP C (Header, Hierarki, Gerak)**:
+    - Tombol Daftar: Diubah menjadi navy solid `#00236F` dengan padding 8×18px dan hover `#00164E`.
+    - Nav menu: Hover underline oranye 2px meluncur dari kiri (200ms) + focus ring 3px.
+    - Sticky navbar: `backdrop-filter: blur(12px)`, tinggi **59px** (target ≤ 60px).
+    - Tombol CTA utama: Shadow `0 10px 24px rgba(253,101,30,.30)`, hover naik 2px + ikon geser 3px.
+    - Animasi masuk & live dot: `@keyframes heroFadeUp` & `heroScaleIn` dengan stagger transition; titik live telematika berdenyut halus; dinonaktifkan otomatis saat `prefers-reduced-motion: reduce`, editor Elementor aktif, dan automated browser.
+  - [x] **GRUP D (Teks lebih awam)**:
+    - Lead: Diganti menjadi teks ringkas & awam (`Bengkel khusus truk untuk servis rutin, perbaikan mesin diesel, sampai kontrak perawatan armada. Sparepart asli dan mekanik berlisensi pabrikan.`). Teks lama disimpan di builder.
+    - Kartu telematika: `Mesin Dicek Digital`, `Injektor common rail: kondisi optimal`, status `SIAP JALAN`, `< 3 Jam / Servis berkala cepat`, `6 Bulan / Garansi sparepart`.
+    - Tombol sekunder: `Derek & Darurat 24 Jam`.
+  - [x] **Verifikasi & Safety**:
+    - Seluruh metrik jarak ronde 17 TETAP dipertahankan: Topbar **37.59px**, Header **69px** / Sticky **59px**, Selisih foto vs badge **1px**, Bawah tombol CTA di 1366×600 **415.08px** (≤ 560px), H1 **3 baris**.
+    - Editor Elementor Page 59 PASS (12 container terdeteksi dan dapat diedit via iframe).
+    - Screenshot tersimpan di `playwright_review/sesudah_revamp10/` (1366x600, 1440x900, 1024x768, 768x1024, 390x844, hover_cta_primary, hover_nav_menu, sticky_scrolled).
+    - Database dump tersanitasi diekspor ulang ke `database/mt_site.sql`.
+    - Git tag `ronde18-done` di-push ke remote.
+
 ---
 
 ## Baseline Temuan Fase 0
