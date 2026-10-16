@@ -1124,46 +1124,77 @@ body.elementor-page-59 .btn-nav-login .elementor-button:hover {
 }
 
 body.elementor-page-59 .btn-nav-register .elementor-button {
-    background: #dce1ff !important;
-    color: #00236f !important;
-    font-weight: 800 !important;
+    background: #00236f !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
     border-radius: 10px !important;
+    padding: 8px 18px !important;
+    box-shadow: 0 2px 6px rgba(0, 35, 111, 0.2) !important;
     transition: all 0.2s ease !important;
 }
 body.elementor-page-59 .btn-nav-register .elementor-button:hover {
-    background: #c7d2fe !important;
-    color: #00164e !important;
+    background: #00164e !important;
+    color: #ffffff !important;
     transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 35, 111, 0.3) !important;
 }
 
-body.elementor-page-59 .btn-nav-booking .elementor-button {
-    background: #fd651e !important;
-    color: #ffffff !important;
-    font-weight: 800 !important;
-    border-radius: 10px !important;
-    box-shadow: 0 2px 8px rgba(253, 101, 30, 0.25) !important;
-    transition: all 0.2s ease !important;
+/* Nav Menu Links Hover and Active Underline Effect */
+body.elementor-page-59 .stitch-menu-col a {
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.2s ease;
 }
-body.elementor-page-59 .btn-nav-booking .elementor-button:hover {
-    background: #e2520e !important;
-    box-shadow: 0 4px 14px rgba(253, 101, 30, 0.35) !important;
-    transform: translateY(-1px);
+body.elementor-page-59 .stitch-menu-col a:hover {
+    color: #00236f !important;
+}
+body.elementor-page-59 .stitch-menu-col a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #fd651e;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.2s ease;
+    border-radius: 2px;
+    pointer-events: none;
+}
+body.elementor-page-59 .stitch-menu-col a:hover::after,
+body.elementor-page-59 .stitch-menu-col a.nav-link-active::after {
+    transform: scaleX(1);
+}
+body.elementor-page-59 .stitch-menu-col a:focus-visible {
+    outline: 3px solid rgba(0, 35, 111, 0.35);
+    outline-offset: 3px;
+    border-radius: 4px;
 }
 
 /* Hero Section Authority Badge & Headline */
 body.elementor-page-59 .hero-authority-badge {
-    display: inline-block;
-    background: #dce1ff;
+    display: inline-flex !important;
+    align-items: center !important;
+    width: fit-content !important;
+    align-self: flex-start !important;
+    background: #dce1ff !important;
     color: #00236f !important;
-    border-radius: 8px;
-    padding: 6px 14px;
-    font-weight: 800 !important;
-    font-size: 11px !important;
+    border: 1px solid #c5cdf5 !important;
+    border-radius: 999px !important;
+    padding: 6px 14px !important;
+    font-weight: 700 !important;
+    font-size: 12px !important;
     letter-spacing: 0.8px;
     box-shadow: 0 1px 3px rgba(0, 35, 111, 0.06);
+    margin-bottom: 12px !important;
 }
 body.elementor-page-59 .hero-authority-badge .elementor-heading-title {
     color: #00236f !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    margin: 0 !important;
 }
 
 body.elementor-page-59 .hero-title .elementor-heading-title {
@@ -1171,30 +1202,288 @@ body.elementor-page-59 .hero-title .elementor-heading-title {
     word-break: normal;
     overflow-wrap: break-word;
 }
+body.elementor-page-59 .hero-brand-highlight {
+    position: relative;
+    color: #fd651e !important;
+    font-weight: 900 !important;
+    display: inline-block;
+}
+body.elementor-page-59 .hero-brand-highlight::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 100%;
+    height: 10px;
+    background: rgba(253, 101, 30, 0.18);
+    border-radius: 4px;
+    z-index: -1;
+    pointer-events: none;
+}
 
-/* Hero CTAs */
+/* Hero Lead */
+body.elementor-page-59 .hero-lead {
+    font-size: 16px;
+    line-height: 1.55;
+    color: #444651;
+}
+
+/* Hero CTAs Row */
+body.elementor-page-59 .hero-btns-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+}
 body.elementor-page-59 .btn-hero-primary .elementor-button {
     background: #fd651e !important;
     color: #ffffff !important;
     font-weight: 800 !important;
-    box-shadow: 0 4px 14px rgba(253, 101, 30, 0.28) !important;
-    transition: all 0.2s ease !important;
+    min-height: 52px !important;
+    padding: 14px 26px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 24px rgba(253, 101, 30, 0.30) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease !important;
 }
 body.elementor-page-59 .btn-hero-primary .elementor-button:hover {
     background: #e2520e !important;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(253, 101, 30, 0.38) !important;
+    box-shadow: 0 14px 28px rgba(253, 101, 30, 0.40) !important;
+}
+body.elementor-page-59 .btn-hero-primary .elementor-button .elementor-button-icon {
+    transition: transform 0.2s ease;
+}
+body.elementor-page-59 .btn-hero-primary .elementor-button:hover .elementor-button-icon {
+    transform: translateX(3px);
 }
 
 body.elementor-page-59 .btn-hero-secondary .elementor-button {
-    background: #f2f4f6 !important;
+    background: transparent !important;
     color: #00236f !important;
+    border: 1.5px solid #00236f !important;
     font-weight: 800 !important;
-    transition: all 0.2s ease !important;
+    min-height: 52px !important;
+    padding: 14px 24px !important;
+    border-radius: 12px !important;
+    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease !important;
 }
 body.elementor-page-59 .btn-hero-secondary .elementor-button:hover {
-    background: #e6e8ea !important;
+    background: #eef1ff !important;
+    color: #00164e !important;
     transform: translateY(-2px);
+}
+
+/* Supported Brand Chips */
+body.elementor-page-59 .brand-chip {
+    display: inline-block;
+    background: #f2f4f6;
+    color: #222a3e;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    transition: background 0.2s ease;
+}
+body.elementor-page-59 .brand-chip:hover {
+    background: #e2e8f0;
+}
+
+/* Hero Section Layered Background (Radial Glows + Dot Pattern) */
+body.elementor-page-59 .stitch-sec-hero {
+    position: relative;
+    background-color: #ffffff;
+    background-image: 
+        radial-gradient(circle at 92% 15%, rgba(0, 35, 111, 0.06) 0%, transparent 45%),
+        radial-gradient(circle at 8% 85%, rgba(253, 101, 30, 0.05) 0%, transparent 40%);
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+/* Visual Showcase Composition */
+body.elementor-page-59 .hero-visual-card-wrap {
+    position: relative;
+    width: 100%;
+}
+/* Dot Pattern Behind Photo Column */
+body.elementor-page-59 .hero-visual-card-wrap::after {
+    content: "";
+    position: absolute;
+    inset: -20px -20px 20px -20px;
+    background-image: radial-gradient(rgba(0, 35, 111, 0.07) 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
+    z-index: 0;
+    pointer-events: none;
+}
+/* Industrial Navy Accent Panel Shifted 18px Bottom-Right */
+body.elementor-page-59 .hero-visual-card-wrap::before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    right: -18px;
+    bottom: -18px;
+    background: #00236f;
+    border-radius: 24px;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.95;
+}
+
+/* Main Hero Photo */
+body.elementor-page-59 .hero-truck-img {
+    position: relative;
+    z-index: 2;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 34, 111, 0.08), 0 28px 60px rgba(0, 34, 111, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+}
+body.elementor-page-59 .hero-truck-img img {
+    border-radius: 24px;
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Floating Telematics Card */
+body.elementor-page-59 .hero-telematics-card {
+    position: absolute;
+    bottom: -24px;
+    left: -24px;
+    z-index: 3;
+    width: 320px;
+    max-width: 90%;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 14px 16px;
+    box-shadow: 0 10px 30px rgba(0, 35, 111, 0.12), 0 2px 8px rgba(0, 35, 111, 0.04);
+}
+body.elementor-page-59 .telematics-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #e6f7ec;
+    color: #059669;
+    border: 1px solid #a7f3d0;
+    padding: 4px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+body.elementor-page-59 .status-live-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #10b981;
+    animation: statusPulse 2s infinite ease-in-out;
+}
+
+@keyframes statusPulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.4;
+        transform: scale(0.85);
+    }
+}
+
+/* Stagger Entrance Animations */
+@keyframes heroFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes heroScaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+body.elementor-page-59 .hero-authority-badge {
+    animation: heroFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+body.elementor-page-59 .hero-title {
+    animation: heroFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.07s both;
+}
+body.elementor-page-59 .hero-lead {
+    animation: heroFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.14s both;
+}
+body.elementor-page-59 .hero-btns-row {
+    animation: heroFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.21s both;
+}
+body.elementor-page-59 .hero-brands-widget {
+    animation: heroFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
+}
+body.elementor-page-59 .hero-truck-img {
+    animation: heroScaleIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+body.elementor-page-59 .hero-telematics-card {
+    animation: heroFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+}
+
+/* Matikan Animasi saat reduced-motion, editor active, editor preview, atau automated browser */
+@media (prefers-reduced-motion: reduce) {
+    body.elementor-page-59 .hero-authority-badge,
+    body.elementor-page-59 .hero-title,
+    body.elementor-page-59 .hero-lead,
+    body.elementor-page-59 .hero-btns-row,
+    body.elementor-page-59 .hero-brands-widget,
+    body.elementor-page-59 .hero-truck-img,
+    body.elementor-page-59 .hero-telematics-card,
+    body.elementor-page-59 .status-live-dot {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+body.elementor-editor-active .hero-authority-badge,
+body.elementor-editor-active .hero-title,
+body.elementor-editor-active .hero-lead,
+body.elementor-editor-active .hero-btns-row,
+body.elementor-editor-active .hero-brands-widget,
+body.elementor-editor-active .hero-truck-img,
+body.elementor-editor-active .hero-telematics-card,
+body.elementor-editor-active .status-live-dot,
+body.elementor-editor-preview .hero-authority-badge,
+body.elementor-editor-preview .hero-title,
+body.elementor-editor-preview .hero-lead,
+body.elementor-editor-preview .hero-btns-row,
+body.elementor-editor-preview .hero-brands-widget,
+body.elementor-editor-preview .hero-truck-img,
+body.elementor-editor-preview .hero-telematics-card,
+body.elementor-editor-preview .status-live-dot,
+body.is-webdriver .hero-authority-badge,
+body.is-webdriver .hero-title,
+body.is-webdriver .hero-lead,
+body.is-webdriver .hero-btns-row,
+body.is-webdriver .hero-brands-widget,
+body.is-webdriver .hero-truck-img,
+body.is-webdriver .hero-telematics-card,
+body.is-webdriver .status-live-dot {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
 }
 
 /* Responsiveness Target */
@@ -1339,6 +1628,22 @@ body.elementor-page-59 .btn-hero-secondary .elementor-button:hover {
         width: 100% !important;
         text-align: center !important;
         justify-content: center !important;
+    }
+    /* Mobile visual & telematics card adjustment */
+    body.elementor-page-59 .hero-visual-card-wrap::before {
+        top: 10px !important;
+        left: 10px !important;
+        right: -10px !important;
+        bottom: -10px !important;
+    }
+    body.elementor-page-59 .hero-telematics-card {
+        position: relative !important;
+        bottom: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-top: 14px !important;
+        box-sizing: border-box !important;
     }
 }
 
