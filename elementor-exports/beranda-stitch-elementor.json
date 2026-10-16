@@ -1,6 +1,6 @@
 [
   {
-    "id": "36649c28",
+    "id": "d9b8e226",
     "elType": "container",
     "settings": {
       "flex_direction": "column",
@@ -24,7 +24,7 @@
     },
     "elements": [
       {
-        "id": "e8b48388",
+        "id": "3cc009d6",
         "elType": "container",
         "settings": {
           "content_width": "full",
@@ -64,7 +64,7 @@
         },
         "elements": [
           {
-            "id": "3918559d",
+            "id": "a8738040",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -105,10 +105,10 @@
             },
             "elements": [
               {
-                "id": "673f3bad",
+                "id": "898c3530",
                 "elType": "widget",
                 "settings": {
-                  "editor": "<div style=\"display:flex;align-items:center;gap:16px;color:#bec6e0;font-size:12px;font-weight:600;letter-spacing:0.2px;white-space:nowrap;\"><div class=\"topbar-hotline-item\" style=\"display:inline-flex;align-items:center;gap:6px;\"><span style=\"background:#fd651e;color:#ffffff;font-size:10px;font-weight:800;padding:2px 6px;border-radius:4px;letter-spacing:0.5px;\">SOS</span><span style=\"text-transform:uppercase;color:#ffdbce;font-weight:700;\">Hotline 24 Jam:</span> <a href=\"tel:0812MASTERTRUCK\" style=\"color:#ffffff;text-decoration:none;font-weight:700;\">0812-MASTER-TRUCK</a></div><div class=\"topbar-location-item\" style=\"display:inline-flex;align-items:center;gap:6px;color:#bec6e0;\"><i class=\"fas fa-location-dot\" style=\"color:#fd651e;font-size:12px;\"></i> <span style=\"color:#ffffff;\">Medan</span></div></div>",
+                  "editor": "<div style=\"display:flex;align-items:center;gap:16px;color:#bec6e0;font-size:12px;font-weight:600;letter-spacing:0.2px;white-space:nowrap;\"><div class=\"topbar-hotline-item\" style=\"display:inline-flex;align-items:center;gap:6px;\"><span style=\"background:#fd651e;color:#ffffff;font-size:10px;font-weight:800;padding:2px 6px;border-radius:4px;letter-spacing:0.5px;\">SOS</span><span style=\"text-transform:uppercase;color:#ffdbce;font-weight:700;\">Hotline 24 Jam:</span> <a href=\"tel:0812MASTERTRUCK\" style=\"color:#ffffff;text-decoration:none;font-weight:700;\">0812-MASTER-TRUCK</a></div><div class=\"topbar-location-item\" style=\"display:inline-flex;align-items:center;gap:6px;color:#bec6e0;\"><i class=\"fas fa-map-marker-alt\" style=\"color:#fd651e;font-size:12px;\"></i> <span style=\"color:#ffffff;\">Medan</span></div></div>",
                   "align": "left",
                   "typography_typography": "custom",
                   "typography_font_family": "Inter",
@@ -137,7 +137,7 @@
             "isInner": true
           },
           {
-            "id": "54f63112",
+            "id": "69007b2e",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -178,10 +178,10 @@
             },
             "elements": [
               {
-                "id": "96a6be5b",
+                "id": "a082756f",
                 "elType": "widget",
                 "settings": {
-                  "editor": "<div style=\"display:flex;align-items:center;justify-content:flex-end;gap:14px;color:#bec6e0;font-size:12px;white-space:nowrap;\"><div class=\"topbar-hours-item\" style=\"display:inline-flex;align-items:center;gap:6px;\"><i class=\"fas fa-clock\" style=\"color:#bec6e0;font-size:12px;\"></i> <span style=\"color:#ffffff;\">Senin – Sabtu: 08.00 – 20.00 | Tim Derek &amp; Rescue 24/7</span></div><div class=\"topbar-iso-item\" style=\"border-left:1px solid #384055;padding-left:14px;display:inline-flex;align-items:center;gap:6px;\"><i class=\"fas fa-shield-halved\" style=\"color:#fd651e;font-size:12px;\"></i> <span style=\"color:#ffdbce;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;\">Standar OEM ISO 9001</span></div></div>",
+                  "editor": "<div style=\"display:flex;align-items:center;justify-content:flex-end;gap:14px;color:#bec6e0;font-size:12px;white-space:nowrap;\"><div class=\"topbar-hours-item\" style=\"display:inline-flex;align-items:center;gap:6px;\"><i class=\"fas fa-clock\" style=\"color:#bec6e0;font-size:12px;\"></i> <span style=\"color:#ffffff;\">Senin – Sabtu: 08.00 – 20.00 | Tim Derek &amp; Rescue 24/7</span></div><div class=\"topbar-iso-item\" style=\"border-left:1px solid #384055;padding-left:14px;display:inline-flex;align-items:center;gap:6px;\"><i class=\"fas fa-shield-alt\" style=\"color:#fd651e;font-size:12px;\"></i> <span style=\"color:#ffdbce;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;\">Standar OEM ISO 9001</span></div></div>",
                   "align": "left",
                   "typography_typography": "custom",
                   "typography_font_family": "Inter",
@@ -216,7 +216,7 @@
     "isInner": false
   },
   {
-    "id": "8cfb3a8d",
+    "id": "e3816691",
     "elType": "container",
     "settings": {
       "flex_direction": "column",
@@ -257,7 +257,7 @@
     },
     "elements": [
       {
-        "id": "9b7cc005",
+        "id": "85f422f4",
         "elType": "container",
         "settings": {
           "content_width": "full",
@@ -296,7 +296,7 @@
         },
         "elements": [
           {
-            "id": "5224e199",
+            "id": "8cf226c8",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -337,7 +337,7 @@
             },
             "elements": [
               {
-                "id": "90b61819",
+                "id": "75f670f1",
                 "elType": "container",
                 "settings": {
                   "content_width": "full",
@@ -375,7 +375,7 @@
                 },
                 "elements": [
                   {
-                    "id": "67e78970",
+                    "id": "f5bbf012",
                     "elType": "container",
                     "settings": {
                       "content_width": "full",
@@ -416,7 +416,7 @@
                     },
                     "elements": [
                       {
-                        "id": "d0a6257f",
+                        "id": "a6490aab",
                         "elType": "widget",
                         "settings": {
                           "image": {
@@ -442,7 +442,7 @@
                     "isInner": true
                   },
                   {
-                    "id": "770d2556",
+                    "id": "03a2dd65",
                     "elType": "container",
                     "settings": {
                       "content_width": "full",
@@ -479,7 +479,7 @@
                     },
                     "elements": [
                       {
-                        "id": "adf29cf3",
+                        "id": "b8599da4",
                         "elType": "widget",
                         "settings": {
                           "editor": "<a href=\"#\" style=\"text-decoration:none;display:flex;flex-direction:column;line-height:1.2;\"><span style=\"font-family:Plus Jakarta Sans;font-size:19px;font-weight:800;color:#00236f;letter-spacing:-0.5px;\">MASTER TRUCK</span><span style=\"font-family:Plus Jakarta Sans;font-size:11px;color:#444651;text-transform:uppercase;font-weight:700;letter-spacing:0.3px;\">Spesialis Truk &amp; Armada Niaga</span></a>",
@@ -518,7 +518,7 @@
             "isInner": true
           },
           {
-            "id": "993073bc",
+            "id": "f8e4d06f",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -559,7 +559,7 @@
             },
             "elements": [
               {
-                "id": "0136bbfb",
+                "id": "7c3463f7",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style=\"display:flex;align-items:center;justify-content:center;gap:32px;font-family:Plus Jakarta Sans;font-size:15px;font-weight:700;\"><a href=\"#layanan\" style=\"color:#444651;text-decoration:none;transition:color 0.2s;\">Layanan</a><a href=\"#fleet\" style=\"color:#444651;text-decoration:none;transition:color 0.2s;\">Paket Fleet</a><a href=\"#fasilitas\" style=\"color:#444651;text-decoration:none;transition:color 0.2s;\">Fasilitas</a><a href=\"#kontak\" style=\"color:#444651;text-decoration:none;transition:color 0.2s;\">Kontak</a></div>",
@@ -591,7 +591,7 @@
             "isInner": true
           },
           {
-            "id": "7a0942d6",
+            "id": "1556e6f4",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -632,7 +632,7 @@
             },
             "elements": [
               {
-                "id": "eab3d22c",
+                "id": "d23f40b2",
                 "elType": "container",
                 "settings": {
                   "content_width": "full",
@@ -671,7 +671,7 @@
                 },
                 "elements": [
                   {
-                    "id": "fd8869ce",
+                    "id": "b8568a14",
                     "elType": "container",
                     "settings": {
                       "content_width": "full",
@@ -707,7 +707,7 @@
                     },
                     "elements": [
                       {
-                        "id": "f578360c",
+                        "id": "d8078178",
                         "elType": "widget",
                         "settings": {
                           "text": "Masuk",
@@ -768,7 +768,7 @@
                     "isInner": true
                   },
                   {
-                    "id": "9a3898c3",
+                    "id": "e1f2e04a",
                     "elType": "container",
                     "settings": {
                       "content_width": "full",
@@ -804,7 +804,7 @@
                     },
                     "elements": [
                       {
-                        "id": "ee3422f5",
+                        "id": "b134f5e4",
                         "elType": "widget",
                         "settings": {
                           "text": "Daftar",
@@ -834,9 +834,9 @@
                           "button_padding": {
                             "unit": "px",
                             "top": "8",
-                            "right": "18",
+                            "right": "20",
                             "bottom": "8",
-                            "left": "18",
+                            "left": "20",
                             "isLinked": ""
                           },
                           "_margin": {
@@ -868,7 +868,7 @@
     "isInner": false
   },
   {
-    "id": "0ae1e3fd",
+    "id": "33c08c55",
     "elType": "container",
     "settings": {
       "flex_direction": "column",
@@ -893,7 +893,7 @@
     },
     "elements": [
       {
-        "id": "e1235ce6",
+        "id": "9db4a4f7",
         "elType": "container",
         "settings": {
           "content_width": "full",
@@ -931,7 +931,7 @@
         },
         "elements": [
           {
-            "id": "5ac6540e",
+            "id": "242f20ad",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -972,10 +972,10 @@
             },
             "elements": [
               {
-                "id": "c9417c34",
+                "id": "3e0667a6",
                 "elType": "widget",
                 "settings": {
-                  "title": "<i class=\"fas fa-shield-halved\" style=\"color:#00236f;margin-right:8px;font-size:12px;\"></i>BENGKEL REKANAN RESMI &amp; SPESIALIS HEAVY DUTY TRUCK #1",
+                  "title": "<i class=\"fas fa-shield-alt\" style=\"color:#00236f;margin-right:8px;font-size:12px;\"></i>BENGKEL REKANAN RESMI &amp; SPESIALIS HEAVY DUTY TRUCK #1",
                   "header_size": "p",
                   "align": "left",
                   "typography_typography": "custom",
@@ -1008,7 +1008,7 @@
                 "widgetType": "heading"
               },
               {
-                "id": "a92b37e3",
+                "id": "8a8b73e6",
                 "elType": "widget",
                 "settings": {
                   "title": "Solusi Servis &amp; Pemeliharaan Armada Truk Bersama <span class=\"hero-brand-highlight\">MASTER TRUCK</span> <span style=\"color:#00236f;\">Tanpa Downtime</span> Berkepanjangan",
@@ -1044,7 +1044,7 @@
                 "widgetType": "heading"
               },
               {
-                "id": "3d34be0e",
+                "id": "d4c3d789",
                 "elType": "widget",
                 "settings": {
                   "editor": "Bengkel khusus truk untuk servis rutin, perbaikan mesin diesel, sampai kontrak perawatan armada. Sparepart asli dan mekanik berlisensi pabrikan.",
@@ -1074,7 +1074,7 @@
                 "widgetType": "text-editor"
               },
               {
-                "id": "f2f2eaa1",
+                "id": "ff7781a0",
                 "elType": "container",
                 "settings": {
                   "content_width": "full",
@@ -1112,7 +1112,7 @@
                     "unit": "px",
                     "top": "0",
                     "right": "0",
-                    "bottom": "24",
+                    "bottom": "20",
                     "left": "0",
                     "isLinked": ""
                   },
@@ -1121,7 +1121,7 @@
                 },
                 "elements": [
                   {
-                    "id": "742b7fc0",
+                    "id": "d5cddf46",
                     "elType": "widget",
                     "settings": {
                       "text": "Jadwalkan Servis Sekarang",
@@ -1179,7 +1179,7 @@
                     "widgetType": "button"
                   },
                   {
-                    "id": "796f2a0b",
+                    "id": "ccef16bb",
                     "elType": "widget",
                     "settings": {
                       "text": "Derek &amp; Darurat 24 Jam",
@@ -1240,10 +1240,10 @@
                 "isInner": true
               },
               {
-                "id": "1958c1ea",
+                "id": "3bc94663",
                 "elType": "widget",
                 "settings": {
-                  "editor": "<div class=\"hero-brands-block\"><div style=\"font-size:11px;font-weight:700;color:#757682;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;\">Spesialisasi Brand Heavy Duty &amp; Light Commercial:</div><div style=\"display:flex;flex-wrap:wrap;gap:8px;\"><span class=\"brand-chip\">SCANIA</span><span class=\"brand-chip\">VOLVO TRUCKS</span><span class=\"brand-chip\">HINO 500 &amp; 300</span><span class=\"brand-chip\">MITSUBISHI FUSO</span><span class=\"brand-chip\">ISUZU GIGA</span><span class=\"brand-chip\">MERCEDES AXOR</span></div></div>",
+                  "editor": "<div class=\"hero-brands-block\"><div class=\"brand-label\" style=\"font-size:11px;font-weight:700;color:#757682;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;\">Spesialisasi Brand Heavy Duty &amp; Light Commercial:</div><div style=\"display:flex;flex-wrap:wrap;gap:8px;\"><span class=\"brand-chip\">SCANIA</span><span class=\"brand-chip\">VOLVO TRUCKS</span><span class=\"brand-chip\">HINO 500 &amp; 300</span><span class=\"brand-chip\">MITSUBISHI FUSO</span><span class=\"brand-chip\">ISUZU GIGA</span><span class=\"brand-chip\">MERCEDES AXOR</span></div></div>",
                   "align": "left",
                   "typography_typography": "custom",
                   "typography_font_family": "Inter",
@@ -1273,7 +1273,7 @@
             "isInner": true
           },
           {
-            "id": "a225420f",
+            "id": "6bdc2687",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -1314,7 +1314,7 @@
             },
             "elements": [
               {
-                "id": "279cb3c4",
+                "id": "1502de4a",
                 "elType": "container",
                 "settings": {
                   "content_width": "full",
@@ -1351,7 +1351,7 @@
                 },
                 "elements": [
                   {
-                    "id": "bdb009d1",
+                    "id": "136d6582",
                     "elType": "widget",
                     "settings": {
                       "image": {
@@ -1382,10 +1382,10 @@
                     "widgetType": "image"
                   },
                   {
-                    "id": "aae1e6e1",
+                    "id": "ef7c3915",
                     "elType": "widget",
                     "settings": {
-                      "editor": "<div class=\"hero-telematics-inner\"><div style=\"display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;\"><div style=\"display:flex;align-items:center;gap:10px;\"><div style=\"width:34px;height:34px;border-radius:8px;background:#dce1ff;display:flex;align-items:center;justify-content:center;color:#00236f;font-weight:700;\"><i class=\"fas fa-microchip\" style=\"font-size:16px;\"></i></div><div><div style=\"font-family:Plus Jakarta Sans;font-size:13px;font-weight:800;color:#00236f;\">Mesin Dicek Digital</div><div style=\"font-size:11px;color:#444651;\">Injektor common rail: kondisi optimal</div></div></div><span class=\"telematics-status-pill\"><span class=\"status-live-dot\"></span>SIAP JALAN</span></div><div style=\"display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;padding-top:8px;border-top:1px solid #f2f4f6;\"><div style=\"background:#f7f9fb;padding:6px 10px;border-radius:8px;border:1px solid #eceef0;\"><div style=\"font-family:Plus Jakarta Sans;font-size:15px;font-weight:800;color:#00236f;\">&lt; 3 Jam</div><div style=\"font-size:10px;color:#757682;font-weight:600;\">Servis berkala cepat</div></div><div style=\"background:#f7f9fb;padding:6px 10px;border-radius:8px;border:1px solid #eceef0;\"><div style=\"font-family:Plus Jakarta Sans;font-size:15px;font-weight:800;color:#00236f;\">6 Bulan</div><div style=\"font-size:10px;color:#757682;font-weight:600;\">Garansi sparepart</div></div></div></div>",
+                      "editor": "<div class=\"hero-telematics-inner\"><div class=\"telematics-left-block\"><div class=\"telematics-chip-icon\"><i class=\"fas fa-microchip\"></i></div><div class=\"telematics-info\"><div class=\"telematics-title\">Mesin Dicek Digital</div><div class=\"telematics-desc\">Injektor common rail: kondisi optimal</div></div></div><div class=\"telematics-metrics-block\"><div class=\"metric-item\"><div class=\"metric-val\">&lt; 3 Jam</div><div class=\"metric-lbl\">Servis berkala cepat</div></div><div class=\"metric-divider\"></div><div class=\"metric-item\"><div class=\"metric-val\">6 Bulan</div><div class=\"metric-lbl\">Garansi sparepart</div></div></div><div class=\"telematics-status-block\"><span class=\"telematics-status-pill\"><span class=\"status-live-dot\"></span>SIAP JALAN</span></div></div>",
                       "align": "left",
                       "typography_typography": "custom",
                       "typography_font_family": "Inter",
@@ -1421,7 +1421,7 @@
         "isInner": true
       },
       {
-        "id": "35aa7472",
+        "id": "126ac5a7",
         "elType": "container",
         "settings": {
           "content_width": "full",
@@ -1494,7 +1494,7 @@
         },
         "elements": [
           {
-            "id": "ca3d6da6",
+            "id": "b1d54439",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -1545,7 +1545,7 @@
             },
             "elements": [
               {
-                "id": "a75dbeb6",
+                "id": "abeb80f5",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style=\"display:flex;align-items:center;gap:14px;\"><div style=\"width:48px;height:48px;border-radius:12px;background:#dce1ff;color:#00236f;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;\"><i class=\"fas fa-truck\"></i></div><div><div style=\"font-family:Plus Jakarta Sans;font-size:26px;font-weight:800;color:#00236f;line-height:1.2;\">5.200+</div><div style=\"font-family:Inter;font-size:13px;color:#444651;font-weight:500;\">Truk &amp; Trailer Ditangani</div></div></div>",
@@ -1577,7 +1577,7 @@
             "isInner": true
           },
           {
-            "id": "64367b6b",
+            "id": "f43d7560",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -1628,7 +1628,7 @@
             },
             "elements": [
               {
-                "id": "4ae7769e",
+                "id": "d7420840",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style=\"display:flex;align-items:center;gap:14px;\"><div style=\"width:48px;height:48px;border-radius:12px;background:#ffdbce;color:#a73a00;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;\"><i class=\"fas fa-stopwatch\"></i></div><div><div style=\"font-family:Plus Jakarta Sans;font-size:26px;font-weight:800;color:#fd651e;line-height:1.2;\">99.2%</div><div style=\"font-family:Inter;font-size:13px;color:#444651;font-weight:500;\">On-Time Fleet Delivery</div></div></div>",
@@ -1660,7 +1660,7 @@
             "isInner": true
           },
           {
-            "id": "b0464e0e",
+            "id": "96f630f9",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -1711,7 +1711,7 @@
             },
             "elements": [
               {
-                "id": "f39f19f1",
+                "id": "4867c291",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style=\"display:flex;align-items:center;gap:14px;\"><div style=\"width:48px;height:48px;border-radius:12px;background:#dae2fd;color:#222a3e;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;\"><i class=\"fas fa-warehouse\"></i></div><div><div style=\"font-family:Plus Jakarta Sans;font-size:26px;font-weight:800;color:#222a3e;line-height:1.2;\">15+ Bay</div><div style=\"font-family:Inter;font-size:13px;color:#444651;font-weight:500;\">Bengkel Standar ISO 9001</div></div></div>",
@@ -1743,7 +1743,7 @@
             "isInner": true
           },
           {
-            "id": "971d6b28",
+            "id": "63adc82a",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -1784,10 +1784,10 @@
             },
             "elements": [
               {
-                "id": "8b9e84b5",
+                "id": "049dae01",
                 "elType": "widget",
                 "settings": {
-                  "editor": "<div style=\"display:flex;align-items:center;gap:14px;\"><div style=\"width:48px;height:48px;border-radius:12px;background:#dce1ff;color:#00236f;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;\"><i class=\"fas fa-shield-halved\"></i></div><div><div style=\"font-family:Plus Jakarta Sans;font-size:26px;font-weight:800;color:#00236f;line-height:1.2;\">180 Hari</div><div style=\"font-family:Inter;font-size:13px;color:#444651;font-weight:500;\">Garansi Resmi Overhaul</div></div></div>",
+                  "editor": "<div style=\"display:flex;align-items:center;gap:14px;\"><div style=\"width:48px;height:48px;border-radius:12px;background:#dce1ff;color:#00236f;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;\"><i class=\"fas fa-shield-alt\"></i></div><div><div style=\"font-family:Plus Jakarta Sans;font-size:26px;font-weight:800;color:#00236f;line-height:1.2;\">180 Hari</div><div style=\"font-family:Inter;font-size:13px;color:#444651;font-weight:500;\">Garansi Resmi Overhaul</div></div></div>",
                   "align": "left",
                   "typography_typography": "custom",
                   "typography_font_family": "Inter",
@@ -1822,7 +1822,7 @@
     "isInner": false
   },
   {
-    "id": "14bc9882",
+    "id": "360084f1",
     "elType": "container",
     "settings": {
       "flex_direction": "column",
@@ -1847,7 +1847,7 @@
     },
     "elements": [
       {
-        "id": "b949f632",
+        "id": "255736af",
         "elType": "widget",
         "settings": {
           "title": "Kalkulator &amp; Estimasi Servis Cepat",
@@ -1882,7 +1882,7 @@
         "widgetType": "heading"
       },
       {
-        "id": "afad2236",
+        "id": "f421f69a",
         "elType": "widget",
         "settings": {
           "title": "Hitung Estimasi Biaya &amp; Jadwal Perawatan Armada",
@@ -1917,7 +1917,7 @@
         "widgetType": "heading"
       },
       {
-        "id": "facc2db0",
+        "id": "4f6e63b8",
         "elType": "widget",
         "settings": {
           "editor": "Pilih tipe unit dan kebutuhan servis armada Anda untuk estimasi pengerjaan dan alokasi stall bengkel tercepat.",
@@ -1946,7 +1946,7 @@
         "widgetType": "text-editor"
       },
       {
-        "id": "1d457630",
+        "id": "aeca4667",
         "elType": "container",
         "settings": {
           "content_width": "full",
@@ -1983,7 +1983,7 @@
         },
         "elements": [
           {
-            "id": "5c9bfc71",
+            "id": "ba790399",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -2024,7 +2024,7 @@
             },
             "elements": [
               {
-                "id": "e1f98989",
+                "id": "4b99f4eb",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style=\"background:#ffffff;border:1px solid #e2e8f0;border-radius:24px;padding:32px;box-shadow:0 10px 30px rgba(15,23,42,0.05);\"><div style=\"display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:24px;margin-bottom:28px;\"><div><label style=\"display:block;font-family:Plus Jakarta Sans;font-size:14px;font-weight:700;color:#00236f;margin-bottom:8px;\">1. Tipe &amp; Model Kendaraan Niaga</label><select style=\"width:100%;height:48px;padding:0 14px;border:1px solid #cbd5e1;border-radius:12px;font-family:Inter;font-size:15px;background:#f8fafc;\"><option>Tractor Head 6x4 (Scania / Volvo / Hino)</option><option>Rigid Truck 6x2 / 4x2 (Fuso / Isuzu Giga)</option><option>Dump Truck Heavy Duty 8x4</option><option>Light Commercial Truck (Canter / Dutro)</option><option>Chassis Trailer &amp; Tangki Gandeng</option></select></div><div><label style=\"display:block;font-family:Plus Jakarta Sans;font-size:14px;font-weight:700;color:#00236f;margin-bottom:8px;\">2. Kategori Pekerjaan &amp; Keluhan</label><select style=\"width:100%;height:48px;padding:0 14px;border:1px solid #cbd5e1;border-radius:12px;font-family:Inter;font-size:15px;background:#f8fafc;\"><option>Periodic Service (PMP 10k-50k KM) - Fast Stall</option><option>Turun Mesin / Overhaul Diesel Total</option><option>Kalibrasi Injektor Common Rail &amp; Bosh Pump</option><option>Rem Angin, Booster &amp; Sistem Pneumatik</option><option>Overhaul Transmisi &amp; Gardan Belakang</option><option>Spooring 3D Laser &amp; Suspensi Sasis</option></select></div><div><label style=\"display:block;font-family:Plus Jakarta Sans;font-size:14px;font-weight:700;color:#00236f;margin-bottom:8px;\">3. Lokasi Stall &amp; Waktu Kedatangan</label><select style=\"width:100%;height:48px;padding:0 14px;border:1px solid #cbd5e1;border-radius:12px;font-family:Inter;font-size:15px;background:#f8fafc;\"><option>Stall Cikarang Utama - Hari Ini (Prioritas)</option><option>Stall Cikarang Utama - Besok Pagi</option><option>Stall Tanjung Priok (Dekat Pelabuhan) - Hari Ini</option><option>On-Site Service (Mekanik ke Pool Perusahaan)</option></select></div></div><div style=\"display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:20px;border-top:1px solid #e2e8f0;\"><div style=\"font-size:13px;color:#444651;\">⚡ <b style=\"color:#00236f;\">Prioritas Stall Cepat:</b> Booking online mengamankan antrean mekanik tanpa menunggu.</div><a href=\"https://wa.me/6281288881234?text=Halo%20Master%20Truck,%20saya%20ingin%20booking%20jadwal%20servis\" style=\"display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:#fd651e;color:#ffffff;text-decoration:none;border-radius:12px;font-family:Plus Jakarta Sans;font-weight:700;font-size:15px;box-shadow:0 8px 20px rgba(253,101,30,0.3);\">Hitung Estimasi &amp; Booking Sekarang ➔</a></div></div>",
@@ -2062,7 +2062,7 @@
     "isInner": false
   },
   {
-    "id": "5a29c78a",
+    "id": "4a1fb686",
     "elType": "container",
     "settings": {
       "flex_direction": "column",
@@ -2086,7 +2086,7 @@
     },
     "elements": [
       {
-        "id": "226fef60",
+        "id": "94828f73",
         "elType": "widget",
         "settings": {
           "title": "Keunggulan &amp; Standarisasi Bengkel",
@@ -2121,7 +2121,7 @@
         "widgetType": "heading"
       },
       {
-        "id": "00411886",
+        "id": "da5e518d",
         "elType": "widget",
         "settings": {
           "title": "Mengapa 400+ Perusahaan Ekspedisi Mempercayakan Armadanya pada Master Truck?",
@@ -2156,7 +2156,7 @@
         "widgetType": "heading"
       },
       {
-        "id": "93b5fc32",
+        "id": "d477f7b3",
         "elType": "widget",
         "settings": {
           "editor": "Efisiensi operasional bisnis logistik sangat bergantung pada kesiapan armada di jalan raya. Kami menjamin keandalan teknis tertinggi.",
@@ -2185,7 +2185,7 @@
         "widgetType": "text-editor"
       },
       {
-        "id": "5c9d6eba",
+        "id": "5553e9f0",
         "elType": "container",
         "settings": {
           "content_width": "full",
@@ -2222,7 +2222,7 @@
         },
         "elements": [
           {
-            "id": "71ad815a",
+            "id": "0186ad26",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -2283,7 +2283,7 @@
             },
             "elements": [
               {
-                "id": "d47d4783",
+                "id": "850dd628",
                 "elType": "widget",
                 "settings": {
                   "selected_icon": {
@@ -2323,7 +2323,7 @@
             "isInner": true
           },
           {
-            "id": "9dd3b4a0",
+            "id": "9627d9dd",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -2384,7 +2384,7 @@
             },
             "elements": [
               {
-                "id": "b31689ae",
+                "id": "226f5c1f",
                 "elType": "widget",
                 "settings": {
                   "selected_icon": {
@@ -2424,7 +2424,7 @@
             "isInner": true
           },
           {
-            "id": "a71f9bfa",
+            "id": "c3055953",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -2485,7 +2485,7 @@
             },
             "elements": [
               {
-                "id": "bda6517d",
+                "id": "577378b9",
                 "elType": "widget",
                 "settings": {
                   "selected_icon": {
@@ -2525,7 +2525,7 @@
             "isInner": true
           },
           {
-            "id": "1e88764a",
+            "id": "ce225512",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -2586,7 +2586,7 @@
             },
             "elements": [
               {
-                "id": "2509002a",
+                "id": "022aa4fb",
                 "elType": "widget",
                 "settings": {
                   "selected_icon": {
@@ -2632,7 +2632,7 @@
     "isInner": false
   },
   {
-    "id": "d9e0236b",
+    "id": "0e0fe8c3",
     "elType": "container",
     "settings": {
       "flex_direction": "column",
@@ -2657,7 +2657,7 @@
     },
     "elements": [
       {
-        "id": "ba9bae57",
+        "id": "417785a2",
         "elType": "widget",
         "settings": {
           "title": "Cakupan Servis Komprehensif",
@@ -2692,7 +2692,7 @@
         "widgetType": "heading"
       },
       {
-        "id": "986e33ac",
+        "id": "2bbc3a5f",
         "elType": "widget",
         "settings": {
           "title": "Layanan Mekanikal Berat, Kalibrasi Presisi, &amp; Perawatan Berkala",
@@ -2727,7 +2727,7 @@
         "widgetType": "heading"
       },
       {
-        "id": "b67a6dfe",
+        "id": "1d1cf827",
         "elType": "widget",
         "settings": {
           "editor": "Didukung oleh mekanik bersertifikasi dan peralatan berstandar pabrikan untuk memastikan performa puncak armada komersial Anda.",
@@ -2756,7 +2756,7 @@
         "widgetType": "text-editor"
       },
       {
-        "id": "1d86f691",
+        "id": "d2eedc54",
         "elType": "container",
         "settings": {
           "content_width": "full",
@@ -2801,7 +2801,7 @@
         },
         "elements": [
           {
-            "id": "944d6895",
+            "id": "45fb82ad",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -2862,7 +2862,7 @@
             },
             "elements": [
               {
-                "id": "2e88b53d",
+                "id": "79e2baeb",
                 "elType": "widget",
                 "settings": {
                   "selected_icon": {
@@ -2899,7 +2899,7 @@
                 "widgetType": "icon-box"
               },
               {
-                "id": "98b230c7",
+                "id": "043a6815",
                 "elType": "widget",
                 "settings": {
                   "text": "Konsultasi Servis ➔",
@@ -2950,7 +2950,7 @@
             "isInner": true
           },
           {
-            "id": "b728b3fb",
+            "id": "da87e78c",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -3011,7 +3011,7 @@
             },
             "elements": [
               {
-                "id": "5e657157",
+                "id": "ef1c5a2c",
                 "elType": "widget",
                 "settings": {
                   "selected_icon": {
@@ -3048,7 +3048,7 @@
                 "widgetType": "icon-box"
               },
               {
-                "id": "21335b40",
+                "id": "bbcbb6f9",
                 "elType": "widget",
                 "settings": {
                   "text": "Konsultasi Servis ➔",
@@ -3099,7 +3099,7 @@
             "isInner": true
           },
           {
-            "id": "ee522790",
+            "id": "074ed6ea",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -3160,7 +3160,7 @@
             },
             "elements": [
               {
-                "id": "6fd7d256",
+                "id": "e0c66331",
                 "elType": "widget",
                 "settings": {
                   "selected_icon": {
@@ -3197,7 +3197,7 @@
                 "widgetType": "icon-box"
               },
               {
-                "id": "5de34d62",
+                "id": "00d2a18a",
                 "elType": "widget",
                 "settings": {
                   "text": "Konsultasi Servis ➔",
@@ -3251,7 +3251,7 @@
         "isInner": true
       },
       {
-        "id": "d1d18051",
+        "id": "ac4b1f12",
         "elType": "container",
         "settings": {
           "content_width": "full",
@@ -3288,7 +3288,7 @@
         },
         "elements": [
           {
-            "id": "655524bd",
+            "id": "b9a26053",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -3349,7 +3349,7 @@
             },
             "elements": [
               {
-                "id": "ffa66851",
+                "id": "08cd821a",
                 "elType": "widget",
                 "settings": {
                   "selected_icon": {
@@ -3386,7 +3386,7 @@
                 "widgetType": "icon-box"
               },
               {
-                "id": "c3459809",
+                "id": "c5bd5c57",
                 "elType": "widget",
                 "settings": {
                   "text": "Konsultasi Servis ➔",
@@ -3437,7 +3437,7 @@
             "isInner": true
           },
           {
-            "id": "01fa9aeb",
+            "id": "80886711",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -3498,7 +3498,7 @@
             },
             "elements": [
               {
-                "id": "a11b3251",
+                "id": "b7d0529b",
                 "elType": "widget",
                 "settings": {
                   "selected_icon": {
@@ -3535,7 +3535,7 @@
                 "widgetType": "icon-box"
               },
               {
-                "id": "1b3a493c",
+                "id": "704e31eb",
                 "elType": "widget",
                 "settings": {
                   "text": "Konsultasi Servis ➔",
@@ -3586,7 +3586,7 @@
             "isInner": true
           },
           {
-            "id": "9f226937",
+            "id": "6e0271cd",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -3647,7 +3647,7 @@
             },
             "elements": [
               {
-                "id": "b5f72923",
+                "id": "9af00c29",
                 "elType": "widget",
                 "settings": {
                   "selected_icon": {
@@ -3684,7 +3684,7 @@
                 "widgetType": "icon-box"
               },
               {
-                "id": "a560dbb9",
+                "id": "d2e6e364",
                 "elType": "widget",
                 "settings": {
                   "text": "Konsultasi Servis ➔",
@@ -3741,7 +3741,7 @@
     "isInner": false
   },
   {
-    "id": "f9039176",
+    "id": "c4455973",
     "elType": "container",
     "settings": {
       "flex_direction": "column",
@@ -3766,7 +3766,7 @@
     },
     "elements": [
       {
-        "id": "68dcd40c",
+        "id": "53a34c77",
         "elType": "widget",
         "settings": {
           "title": "Solusi Perusahaan Logistik &amp; Tambang",
@@ -3801,7 +3801,7 @@
         "widgetType": "heading"
       },
       {
-        "id": "6b27d852",
+        "id": "360b1aff",
         "elType": "widget",
         "settings": {
           "title": "Kontrak Perawatan Armada (PMP) Terjadwal",
@@ -3836,7 +3836,7 @@
         "widgetType": "heading"
       },
       {
-        "id": "72c023e1",
+        "id": "b489ed9f",
         "elType": "widget",
         "settings": {
           "editor": "Hemat biaya operasional armada hingga 30% dengan skema kontrak pemeliharaan fleet terintegrasi, laporan digital berkala, dan fasilitas pembayaran termin bisnis.",
@@ -3865,7 +3865,7 @@
         "widgetType": "text-editor"
       },
       {
-        "id": "97e85c09",
+        "id": "43603d00",
         "elType": "container",
         "settings": {
           "content_width": "full",
@@ -3903,7 +3903,7 @@
         },
         "elements": [
           {
-            "id": "b10c61d9",
+            "id": "c4f2796e",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -3964,7 +3964,7 @@
             },
             "elements": [
               {
-                "id": "05e1d361",
+                "id": "e83ff721",
                 "elType": "widget",
                 "settings": {
                   "title": "Standard Fleet",
@@ -3999,7 +3999,7 @@
                 "widgetType": "heading"
               },
               {
-                "id": "8a4af0fe",
+                "id": "a9b8768d",
                 "elType": "widget",
                 "settings": {
                   "editor": "<p style='font-size:13px;color:#757682;margin-bottom:16px;'>Untuk UKM logistik dengan armada 5 - 15 unit truk.</p><div style='font-size:14px;color:#191c1e;line-height:1.8;'>✔ Jadwal servis rutin berkala<br>✔ Diskon suku cadang OEM 10%<br>✔ Inspeksi gratis 30 titik kendaraan<br>✔ Laporan rekapitulasi servis bulanan<br>✔ Dedicated customer service</div>",
@@ -4028,7 +4028,7 @@
                 "widgetType": "text-editor"
               },
               {
-                "id": "2a859f7f",
+                "id": "660b1735",
                 "elType": "widget",
                 "settings": {
                   "text": "Pilih Paket Standard",
@@ -4079,7 +4079,7 @@
             "isInner": true
           },
           {
-            "id": "b7a93e8c",
+            "id": "4c6f86a4",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -4148,7 +4148,7 @@
             },
             "elements": [
               {
-                "id": "9fc5e14a",
+                "id": "75b43dec",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style=\"display:inline-block;padding:4px 10px;background:#fd651e;color:#ffffff;border-radius:6px;font-size:11px;font-weight:800;text-transform:uppercase;margin-bottom:8px;\">Paling Populer</div>",
@@ -4177,7 +4177,7 @@
                 "widgetType": "text-editor"
               },
               {
-                "id": "f6ae92c1",
+                "id": "c1a52be3",
                 "elType": "widget",
                 "settings": {
                   "title": "Prime Fleet",
@@ -4212,7 +4212,7 @@
                 "widgetType": "heading"
               },
               {
-                "id": "5327a062",
+                "id": "7626ab42",
                 "elType": "widget",
                 "settings": {
                   "editor": "<p style='font-size:13px;color:#757682;margin-bottom:16px;'>Untuk ekspedisi skala menengah 15 - 50 unit truk.</p><div style='font-size:14px;color:#191c1e;line-height:1.8;font-weight:500;'>✔ <b>Semua fitur Standard Fleet</b><br>✔ Diskon suku cadang OEM 18%<br>✔ Prioritas stall khusus (Zero Queue)<br>✔ Layanan Emergency Rescue &amp; Derek 24/7<br>✔ Dashboard telematics status pengerjaan<br>✔ Garansi pengerjaan overhaul 180 hari</div>",
@@ -4241,7 +4241,7 @@
                 "widgetType": "text-editor"
               },
               {
-                "id": "fffd7567",
+                "id": "e3e5a5c4",
                 "elType": "widget",
                 "settings": {
                   "text": "Daftar Paket Prime Fleet",
@@ -4292,7 +4292,7 @@
             "isInner": true
           },
           {
-            "id": "6d5c555a",
+            "id": "eb1eb005",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -4353,7 +4353,7 @@
             },
             "elements": [
               {
-                "id": "6aca0739",
+                "id": "893c92c4",
                 "elType": "widget",
                 "settings": {
                   "title": "Enterprise Fleet",
@@ -4388,7 +4388,7 @@
                 "widgetType": "heading"
               },
               {
-                "id": "3c51089f",
+                "id": "c4b97ef3",
                 "elType": "widget",
                 "settings": {
                   "editor": "<p style='font-size:13px;color:#757682;margin-bottom:16px;'>Untuk korporasi logistik &amp; tambang > 50 unit truk.</p><div style='font-size:14px;color:#191c1e;line-height:1.8;'>✔ <b>Semua fitur Prime Fleet</b><br>✔ Dedicated On-Site Mekanik di pool<br>✔ Diskon grosir suku cadang volume besar<br>✔ Custom SLA dengan klausul denda downtime<br>✔ Fasilitas termin pembayaran (TOP 45-60 hari)<br>✔ Audit keselamatan berkala bersertifikat</div>",
@@ -4417,7 +4417,7 @@
                 "widgetType": "text-editor"
               },
               {
-                "id": "8250d88d",
+                "id": "72069346",
                 "elType": "widget",
                 "settings": {
                   "text": "Hubungi Key Account ➔",
@@ -4474,7 +4474,7 @@
     "isInner": false
   },
   {
-    "id": "5fa1bbc1",
+    "id": "3db86a28",
     "elType": "container",
     "settings": {
       "flex_direction": "column",
@@ -4499,7 +4499,7 @@
     },
     "elements": [
       {
-        "id": "2a826166",
+        "id": "899cf033",
         "elType": "widget",
         "settings": {
           "title": "Infrastruktur Bengkel Berstandar Internasional",
@@ -4534,7 +4534,7 @@
         "widgetType": "heading"
       },
       {
-        "id": "5976eadc",
+        "id": "c265a97b",
         "elType": "widget",
         "settings": {
           "title": "Fasilitas Bengkel Heavy Duty Terlengkap di Koridor Industri",
@@ -4569,7 +4569,7 @@
         "widgetType": "heading"
       },
       {
-        "id": "93561dea",
+        "id": "aa77d4d1",
         "elType": "widget",
         "settings": {
           "editor": "Dirancang khusus untuk mengakomodasi truk tronton, trailer 40ft, dan alat berat dengan kapasitas hingga 20 unit secara bersamaan.",
@@ -4598,7 +4598,7 @@
         "widgetType": "text-editor"
       },
       {
-        "id": "93f78f2e",
+        "id": "b20cd756",
         "elType": "container",
         "settings": {
           "content_width": "full",
@@ -4643,7 +4643,7 @@
         },
         "elements": [
           {
-            "id": "fb3e2314",
+            "id": "a0ad4774",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -4694,7 +4694,7 @@
             },
             "elements": [
               {
-                "id": "2562bfa6",
+                "id": "63a1cf78",
                 "elType": "widget",
                 "settings": {
                   "image": {
@@ -4724,7 +4724,7 @@
                 "widgetType": "image"
               },
               {
-                "id": "e32805b5",
+                "id": "63270865",
                 "elType": "widget",
                 "settings": {
                   "title": "Pit Servis 20 Meter",
@@ -4759,7 +4759,7 @@
                 "widgetType": "heading"
               },
               {
-                "id": "d4dbd7d2",
+                "id": "4921bdf2",
                 "elType": "widget",
                 "settings": {
                   "editor": "Jalur kolong inspeksi dengan pencahayaan LED intensitas tinggi dan sistem drainase oli otomatis untuk inspeksi cepat gardan &amp; sasis.",
@@ -4791,7 +4791,7 @@
             "isInner": true
           },
           {
-            "id": "6fe3ba04",
+            "id": "09fc666d",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -4842,7 +4842,7 @@
             },
             "elements": [
               {
-                "id": "fc8fa683",
+                "id": "13b75521",
                 "elType": "widget",
                 "settings": {
                   "image": {
@@ -4872,7 +4872,7 @@
                 "widgetType": "image"
               },
               {
-                "id": "13b410e6",
+                "id": "888ba9d9",
                 "elType": "widget",
                 "settings": {
                   "title": "Overhead Crane 10 Ton",
@@ -4907,7 +4907,7 @@
                 "widgetType": "heading"
               },
               {
-                "id": "11f74f8b",
+                "id": "d61e2a57",
                 "elType": "widget",
                 "settings": {
                   "editor": "Derek gantry elektrik berkapasitas angkat 10 ton untuk proses bongkar pasang kabin, transmisi berat, dan engine assembly secara presisi.",
@@ -4939,7 +4939,7 @@
             "isInner": true
           },
           {
-            "id": "82b2403c",
+            "id": "110347bc",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -4990,7 +4990,7 @@
             },
             "elements": [
               {
-                "id": "55c2e936",
+                "id": "5eabad51",
                 "elType": "widget",
                 "settings": {
                   "image": {
@@ -5020,7 +5020,7 @@
                 "widgetType": "image"
               },
               {
-                "id": "6d029b6d",
+                "id": "60ac669f",
                 "elType": "widget",
                 "settings": {
                   "title": "Mesin Spooring 3D Laser",
@@ -5055,7 +5055,7 @@
                 "widgetType": "heading"
               },
               {
-                "id": "b017df0f",
+                "id": "0d86a016",
                 "elType": "widget",
                 "settings": {
                   "editor": "Sistem komputerisasi laser alignment untuk menyelaraskan kelurusan roda kemudi dan drive axle truk gandar ganda agar ban awet merata.",
@@ -5090,7 +5090,7 @@
         "isInner": true
       },
       {
-        "id": "e66d9574",
+        "id": "c9fa6c5d",
         "elType": "container",
         "settings": {
           "content_width": "full",
@@ -5127,7 +5127,7 @@
         },
         "elements": [
           {
-            "id": "b1f028d2",
+            "id": "b30f8f1d",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -5178,7 +5178,7 @@
             },
             "elements": [
               {
-                "id": "1527c097",
+                "id": "ab1020bc",
                 "elType": "widget",
                 "settings": {
                   "image": {
@@ -5208,7 +5208,7 @@
                 "widgetType": "image"
               },
               {
-                "id": "44528c06",
+                "id": "e1d16321",
                 "elType": "widget",
                 "settings": {
                   "title": "Chassis Dyno Test Heavy Duty",
@@ -5243,7 +5243,7 @@
                 "widgetType": "heading"
               },
               {
-                "id": "caad6ffb",
+                "id": "1ab0f8f6",
                 "elType": "widget",
                 "settings": {
                   "editor": "Ruang uji performa dinamometer bertenaga tinggi untuk simulasi beban jalan dan pengujian torsi mesin pasca overhaul sebelum diserahkan.",
@@ -5275,7 +5275,7 @@
             "isInner": true
           },
           {
-            "id": "ce84f389",
+            "id": "ff3fb03e",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -5326,7 +5326,7 @@
             },
             "elements": [
               {
-                "id": "a6385933",
+                "id": "f3ac481e",
                 "elType": "widget",
                 "settings": {
                   "image": {
@@ -5356,7 +5356,7 @@
                 "widgetType": "image"
               },
               {
-                "id": "bd2ab923",
+                "id": "108ba0a6",
                 "elType": "widget",
                 "settings": {
                   "title": "Lab Injektor Ber-AC &amp; Steril",
@@ -5391,7 +5391,7 @@
                 "widgetType": "heading"
               },
               {
-                "id": "02dc658c",
+                "id": "04b193e9",
                 "elType": "widget",
                 "settings": {
                   "editor": "Ruang steril bertekanan positif bebas debu dengan test bench Bosch EPS 708 untuk kalibrasi injektor common rail berstandar mikron.",
@@ -5423,7 +5423,7 @@
             "isInner": true
           },
           {
-            "id": "6959518c",
+            "id": "14d1f7b9",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -5474,7 +5474,7 @@
             },
             "elements": [
               {
-                "id": "3f941fbc",
+                "id": "3d584226",
                 "elType": "widget",
                 "settings": {
                   "image": {
@@ -5504,7 +5504,7 @@
                 "widgetType": "image"
               },
               {
-                "id": "4ee7d70c",
+                "id": "ff969ee3",
                 "elType": "widget",
                 "settings": {
                   "title": "Driver Lounge VIP",
@@ -5539,7 +5539,7 @@
                 "widgetType": "heading"
               },
               {
-                "id": "9b3270a4",
+                "id": "72faf3dd",
                 "elType": "widget",
                 "settings": {
                   "editor": "Ruang istirahat pengemudi ber-AC dengan sofa nyaman, musholla, kamar mandi bersih, Wi-Fi gratis, dan monitor CCTV pantau pengerjaan truk.",
@@ -5577,7 +5577,7 @@
     "isInner": false
   },
   {
-    "id": "00e6149b",
+    "id": "11e51f1b",
     "elType": "container",
     "settings": {
       "flex_direction": "column",
@@ -5601,7 +5601,7 @@
     },
     "elements": [
       {
-        "id": "3754cc2c",
+        "id": "7023b50a",
         "elType": "widget",
         "settings": {
           "title": "Bukti Kemitraan Nyata",
@@ -5636,7 +5636,7 @@
         "widgetType": "heading"
       },
       {
-        "id": "ff4f3827",
+        "id": "47b8c23b",
         "elType": "widget",
         "settings": {
           "title": "Dipercaya oleh Para Pemimpin Industri Ekspedisi &amp; Transportasi",
@@ -5671,7 +5671,7 @@
         "widgetType": "heading"
       },
       {
-        "id": "deda6acc",
+        "id": "ceff0956",
         "elType": "widget",
         "settings": {
           "editor": "Transparansi pengerjaan dan kepastian uptime armada menjadi alasan utama mitra korporat kami bertahan bertahun-tahun.",
@@ -5700,7 +5700,7 @@
         "widgetType": "text-editor"
       },
       {
-        "id": "9a0410c5",
+        "id": "705a1ccf",
         "elType": "container",
         "settings": {
           "content_width": "full",
@@ -5737,7 +5737,7 @@
         },
         "elements": [
           {
-            "id": "46bf1c47",
+            "id": "a285b45e",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -5798,7 +5798,7 @@
             },
             "elements": [
               {
-                "id": "33ed475d",
+                "id": "4deaf400",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style='font-size:24px;color:#fd651e;margin-bottom:8px;'>★★★★★</div><p style='font-size:15px;color:#191c1e;line-height:1.65;font-style:italic;margin-bottom:20px;'>\"Sejak mempercayakan 78 unit trailer kami pada kontrak perawatan Master Truck, angka breakdown armada di jalan turun hingga 85%. Dashboard laporan perawatan digitalnya sangat transparan dan suku cadangnya selalu terbukti original OEM.\"</p><div style='display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid #e2e8f0;'><img src='http://localhost:5000/wp-content/uploads/stitch/stitch_img_9.webp' style='width:48px;height:48px;border-radius:50%;object-fit:cover;'><div><div style='font-family:Plus Jakarta Sans;font-size:15px;font-weight:700;color:#00236f;'>Budi Santoso, S.T.</div><div style='font-size:12px;color:#757682;'>Fleet Manager PT Lintas Samudra Logistik (78 Unit)</div></div></div>",
@@ -5830,7 +5830,7 @@
             "isInner": true
           },
           {
-            "id": "27ca231f",
+            "id": "050593d4",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -5891,7 +5891,7 @@
             },
             "elements": [
               {
-                "id": "c38deeed",
+                "id": "babfc49d",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style='font-size:24px;color:#fd651e;margin-bottom:8px;'>★★★★★</div><p style='font-size:15px;color:#191c1e;line-height:1.65;font-style:italic;margin-bottom:20px;'>\"Waktu adalah uang dalam bisnis kontainer pelabuhan. Master Truck selalu memenuhi janji pengerjaan tepat waktu. Fasilitas pit servis 20 meter dan overhead cranenya sangat profesional, setara bengkel ATPM resmi namun dengan fleksibilitas yang jauh lebih baik.\"</p><div style='display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid #e2e8f0;'><img src='http://localhost:5000/wp-content/uploads/stitch/stitch_img_10.webp' style='width:48px;height:48px;border-radius:50%;object-fit:cover;'><div><div style='font-family:Plus Jakarta Sans;font-size:15px;font-weight:700;color:#00236f;'>Ir. Hendra Wijaya</div><div style='font-size:12px;color:#757682;'>Direktur Ops PT Kencana Trans Mandiri (120 Unit)</div></div></div>",
@@ -5923,7 +5923,7 @@
             "isInner": true
           },
           {
-            "id": "06cac9c4",
+            "id": "725a7eaa",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -5984,7 +5984,7 @@
             },
             "elements": [
               {
-                "id": "2f11ed80",
+                "id": "480b86ab",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style='font-size:24px;color:#fd651e;margin-bottom:8px;'>★★★★★</div><p style='font-size:15px;color:#191c1e;line-height:1.65;font-style:italic;margin-bottom:20px;'>\"Emergency rescue 24 jam Master Truck pernah menyelamatkan armada kami yang patah as roda di tol tengah malam. Dalam 45 menit tim rescue sudah tiba di lokasi dan truk berhasil dievakuasi tanpa muatan terlambat sampai ke gudang klien.\"</p><div style='display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid #e2e8f0;'><img src='http://localhost:5000/wp-content/uploads/stitch/stitch_img_11.webp' style='width:48px;height:48px;border-radius:50%;object-fit:cover;'><div><div style='font-family:Plus Jakarta Sans;font-size:15px;font-weight:700;color:#00236f;'>Sari Anggraini</div><div style='font-size:12px;color:#757682;'>Pemilik PT Berkah Angkutan Nusantara (35 Unit)</div></div></div>",
@@ -6022,7 +6022,7 @@
     "isInner": false
   },
   {
-    "id": "9b0f9cc1",
+    "id": "c446b410",
     "elType": "container",
     "settings": {
       "flex_direction": "column",
@@ -6047,7 +6047,7 @@
     },
     "elements": [
       {
-        "id": "40e07241",
+        "id": "222ea646",
         "elType": "widget",
         "settings": {
           "title": "Tanya Jawab Teknis",
@@ -6082,7 +6082,7 @@
         "widgetType": "heading"
       },
       {
-        "id": "557ce177",
+        "id": "3985a3d0",
         "elType": "widget",
         "settings": {
           "title": "Pertanyaan Populer Seputar Layanan &amp; Kerjasama Fleet",
@@ -6117,7 +6117,7 @@
         "widgetType": "heading"
       },
       {
-        "id": "935146cd",
+        "id": "0d2f601d",
         "elType": "widget",
         "settings": {
           "editor": "Hal-hal teknis dan administratif yang sering ditanyakan oleh pemilik dan manajer operasional armada komersial.",
@@ -6146,7 +6146,7 @@
         "widgetType": "text-editor"
       },
       {
-        "id": "a7b0ef94",
+        "id": "baec4677",
         "elType": "widget",
         "settings": {
           "tabs": [
@@ -6208,7 +6208,7 @@
     "isInner": false
   },
   {
-    "id": "a3084b59",
+    "id": "0e2e3c34",
     "elType": "container",
     "settings": {
       "flex_direction": "column",
@@ -6232,7 +6232,7 @@
     },
     "elements": [
       {
-        "id": "e50d204a",
+        "id": "089bb236",
         "elType": "container",
         "settings": {
           "content_width": "full",
@@ -6269,7 +6269,7 @@
         },
         "elements": [
           {
-            "id": "8c5a67bd",
+            "id": "fe1310d7",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -6309,7 +6309,7 @@
             },
             "elements": [
               {
-                "id": "8f036286",
+                "id": "0080b03f",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style=\"background:linear-gradient(135deg, #00164e 0%, #1e3a8a 100%);border-radius:24px;padding:48px 40px;color:#ffffff;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px;box-shadow:0 20px 48px rgba(0,35,111,0.25);\"><div style=\"max-width:680px;\"><div style=\"display:inline-block;padding:4px 10px;background:#fd651e;color:#ffffff;border-radius:6px;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;\">Hotline Siaga 24/7</div><h2 style=\"font-family:Plus Jakarta Sans;font-size:32px;font-weight:800;color:#ffffff;line-height:1.2;margin:0 0 12px 0;\">Armada Mogok di Jalan atau Perlu Jadwal Servis Rutin?</h2><p style=\"font-size:16px;color:#bec6e0;line-height:1.6;margin:0;\">Tim teknisi spesialis dan armada rescue kami siaga 24 jam melayani kebutuhan armada Anda. Hubungi kami sekarang untuk penanganan cepat atau jadwalkan inspeksi rutin bengkel.</p></div><div style=\"display:flex;flex-direction:column;gap:12px;min-width:240px;\"><a href=\"tel:0812MASTERTRUCK\" style=\"display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;background:#fd651e;color:#ffffff;text-decoration:none;border-radius:12px;font-family:Plus Jakarta Sans;font-weight:800;font-size:16px;box-shadow:0 8px 20px rgba(253,101,30,0.4);\">📞 Hubungi Dispatcher 24 Jam</a><a href=\"#quick-booking\" style=\"display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 28px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.3);color:#ffffff;text-decoration:none;border-radius:12px;font-family:Plus Jakarta Sans;font-weight:700;font-size:15px;\">Jadwalkan Servis Online</a></div></div>",
@@ -6347,7 +6347,7 @@
     "isInner": false
   },
   {
-    "id": "06340ab3",
+    "id": "7ccbd65e",
     "elType": "container",
     "settings": {
       "flex_direction": "column",
@@ -6382,7 +6382,7 @@
     },
     "elements": [
       {
-        "id": "4ab55570",
+        "id": "0d9b334e",
         "elType": "container",
         "settings": {
           "content_width": "full",
@@ -6427,7 +6427,7 @@
         },
         "elements": [
           {
-            "id": "e0e3c4c9",
+            "id": "eff45556",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -6468,7 +6468,7 @@
             },
             "elements": [
               {
-                "id": "a59fedcf",
+                "id": "e6b8bd87",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style=\"margin-bottom:14px;\"><div style=\"font-family:Plus Jakarta Sans;font-size:20px;font-weight:800;color:#00236f;\">MASTER TRUCK</div><div style=\"font-size:12px;color:#757682;font-weight:600;text-transform:uppercase;\">PT Lotus Prima Mandiri</div></div><p style=\"font-size:14px;color:#444651;line-height:1.65;max-width:320px;\">Pusat layanan perbaikan, perawatan preventif, dan rekondisi armada kendaraan komersial terpercaya dengan standar operasional OEM internasional.</p><div style=\"font-size:13px;color:#00236f;font-weight:700;margin-top:16px;\">📞 Hotline: 0812-MASTER-TRUCK / 061-8888-1234<br>✉️ Email: fleet@mastertruck.co.id</div>",
@@ -6500,7 +6500,7 @@
             "isInner": true
           },
           {
-            "id": "e3bfabaf",
+            "id": "1b0626ae",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -6541,7 +6541,7 @@
             },
             "elements": [
               {
-                "id": "77b73cfa",
+                "id": "000ba490",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style=\"font-family:Plus Jakarta Sans;font-size:14px;font-weight:800;color:#00236f;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;\">Layanan Utama</div><div style=\"display:flex;flex-direction:column;gap:8px;font-size:14px;color:#444651;\"><a href=\"#layanan\" style=\"color:#444651;text-decoration:none;\">Overhaul Mesin Diesel</a><a href=\"#layanan\" style=\"color:#444651;text-decoration:none;\">Kalibrasi Injektor Common Rail</a><a href=\"#layanan\" style=\"color:#444651;text-decoration:none;\">Rem Angin &amp; Pneumatik</a><a href=\"#layanan\" style=\"color:#444651;text-decoration:none;\">Transmisi &amp; Gardan Heavy Duty</a><a href=\"#layanan\" style=\"color:#444651;text-decoration:none;\">Spooring 3D Laser Alignment</a></div>",
@@ -6573,7 +6573,7 @@
             "isInner": true
           },
           {
-            "id": "6f977752",
+            "id": "a4dddb88",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -6614,7 +6614,7 @@
             },
             "elements": [
               {
-                "id": "543b3791",
+                "id": "0ff081bc",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style=\"font-family:Plus Jakarta Sans;font-size:14px;font-weight:800;color:#00236f;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;\">Workshop &amp; Pool</div><div style=\"font-size:14px;color:#444651;line-height:1.6;\"><b>Workshop KIM III:</b><br>Kawasan Industri Medan (KIM) III, Jl. Pulau Nias Selatan No. 8, Medan, Sumatera Utara.<br><br><b>Workshop Cikarang:</b><br>Kawasan Industri GIIC Cikarang Pusat, Bekasi, Jawa Barat.</div>",
@@ -6646,7 +6646,7 @@
             "isInner": true
           },
           {
-            "id": "b0280c68",
+            "id": "4d58a18e",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -6687,7 +6687,7 @@
             },
             "elements": [
               {
-                "id": "8ed1ce1e",
+                "id": "baa07c6f",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style=\"font-family:Plus Jakarta Sans;font-size:14px;font-weight:800;color:#00236f;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;\">Standar Mutu</div><div style=\"display:flex;flex-direction:column;gap:8px;font-size:13px;color:#444651;\"><span>🏅 ISO 9001:2015 Certified</span><span>🏅 Sistem Manajemen K3 (SMK3)</span><span>🏅 Certified Bosch Diesel Center</span><span>🏅 Rekanan Asuransi Komersial</span></div>",
@@ -6722,7 +6722,7 @@
         "isInner": true
       },
       {
-        "id": "e7693601",
+        "id": "9930cb01",
         "elType": "widget",
         "settings": {
           "editor": "<div style=\"text-align:center;padding-top:20px;border-top:1px solid #e2e8f0;font-size:13px;color:#757682;\">© 2026 PT Lotus Prima Mandiri · Master Truck. Hak Cipta Dilindungi Undang-Undang.</div>",

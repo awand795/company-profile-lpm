@@ -323,7 +323,7 @@ topbar["elements"] = [inner([
                '<a href="tel:0812MASTERTRUCK" style="color:#ffffff;text-decoration:none;font-weight:700;">0812-MASTER-TRUCK</a>'
                '</div>'
                '<div class="topbar-location-item" style="display:inline-flex;align-items:center;gap:6px;color:#bec6e0;">'
-               '<i class="fas fa-location-dot" style="color:#fd651e;font-size:12px;"></i> <span style="color:#ffffff;">Medan</span>'
+               '<i class="fas fa-map-marker-alt" style="color:#fd651e;font-size:12px;"></i> <span style="color:#ffffff;">Medan</span>'
                '</div>'
                '</div>')
     ]),
@@ -333,7 +333,7 @@ topbar["elements"] = [inner([
                '<i class="fas fa-clock" style="color:#bec6e0;font-size:12px;"></i> <span style="color:#ffffff;">Senin – Sabtu: 08.00 – 20.00 | Tim Derek &amp; Rescue 24/7</span>'
                '</div>'
                '<div class="topbar-iso-item" style="border-left:1px solid #384055;padding-left:14px;display:inline-flex;align-items:center;gap:6px;">'
-               '<i class="fas fa-shield-halved" style="color:#fd651e;font-size:12px;"></i> <span style="color:#ffdbce;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;">Standar OEM ISO 9001</span>'
+               '<i class="fas fa-shield-alt" style="color:#fd651e;font-size:12px;"></i> <span style="color:#ffdbce;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;">Standar OEM ISO 9001</span>'
                '</div>'
                '</div>')
     ]),
@@ -374,7 +374,7 @@ nav["elements"] = [inner([
     col(24, "stitch-cta-col", [
         inner([
             col(None, "", [W_button("Masuk", link="http://localhost:3000/#login", icon="fas fa-user-circle", ipos="before", bg="transparent", text_color="#444651", radius=10, pad=(8, 14), cls="btn-nav-login")], None),
-            col(None, "", [W_button("Daftar", link="http://localhost:3000/#register", bg=C["primary"], text_color=C["white"], radius=10, pad=(8, 18), cls="btn-nav-register")], None),
+            col(None, "", [W_button("Daftar", link="http://localhost:3000/#register", bg=C["primary"], text_color=C["white"], radius=10, pad=(8, 20), cls="btn-nav-register")], None),
         ], css_classes="stitch-nav-actions", direction="row", style={"flex_gap": fsize(10), "flex_justify_content": "flex-end", "flex_align_items": "center"})
     ]),
 ], css_classes="stitch-nav-row", direction="row", style={"padding": px4(4, 0, 4, 0), "flex_align_items": "center", "flex_justify_content": "space-between"})]
@@ -388,7 +388,7 @@ hero["elements"] = [
     inner([
         col(60, "hero-text-col", [
             # Authority Badge
-            W_heading('<i class="fas fa-shield-halved" style="color:#00236f;margin-right:8px;font-size:12px;"></i>BENGKEL REKANAN RESMI &amp; SPESIALIS HEAVY DUTY TRUCK #1',
+            W_heading('<i class="fas fa-shield-alt" style="color:#00236f;margin-right:8px;font-size:12px;"></i>BENGKEL REKANAN RESMI &amp; SPESIALIS HEAVY DUTY TRUCK #1',
                       tag="p", cls="hero-authority-badge", size=12, weight=700, color=C["primary"], ls=0.8,
                       margin=px4(0, 0, 10, 0)),
             # Headline
@@ -412,10 +412,10 @@ hero["elements"] = [
                          bg=C["secondary"], text_color=C["white"], radius=12, pad=(14, 26), cls="btn-hero-primary"),
                 W_button("Derek &amp; Darurat 24 Jam", link="tel:0812MASTERTRUCK", icon="fas fa-phone-alt",
                          bg="transparent", text_color=C["primary"], radius=12, pad=(14, 24), cls="btn-hero-secondary"),
-            ], css_classes="hero-btns-row", direction="row", style={"flex_gap": fsize(14), "margin": px4(0, 0, 24, 0), "flex_align_items": "center", "flex_justify_content": "flex-start"}),
+            ], css_classes="hero-btns-row", direction="row", style={"flex_gap": fsize(14), "margin": px4(0, 0, 20, 0), "flex_align_items": "center", "flex_justify_content": "flex-start"}),
             # Supported Brands
             W_text('<div class="hero-brands-block">'
-                   '<div style="font-size:11px;font-weight:700;color:#757682;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">'
+                   '<div class="brand-label" style="font-size:11px;font-weight:700;color:#757682;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">'
                    'Spesialisasi Brand Heavy Duty &amp; Light Commercial:</div>'
                    '<div style="display:flex;flex-wrap:wrap;gap:8px;">'
                    '<span class="brand-chip">SCANIA</span>'
@@ -427,32 +427,38 @@ hero["elements"] = [
                    '</div></div>', cls="hero-brands-widget", margin=px4(0, 0, 0, 0)),
         ], {"padding": px4(0, 20, 0, 0)}),
 
-        # Visual Showcase Right (Komposisi Foto + Aksen + Kartu Telematika Melayang)
+        # Visual Showcase Right (Komposisi Foto + Aksen + Kartu Telematika Horizontal Menggantung)
         col(40, "hero-visual-col", [
             inner([
                 # Main Photo
                 W_image("hero", alt="Modern commercial truck workshop bay with Scania and Hino trucks", cls="hero-truck-img", radius=24, margin=px4(0, 0, 0, 0)),
-                # Floating Telematics Card
+                # Horizontal Hanging Telematics Card
                 W_text('<div class="hero-telematics-inner">'
-                       '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">'
-                       '<div style="display:flex;align-items:center;gap:10px;">'
-                       '<div style="width:34px;height:34px;border-radius:8px;background:#dce1ff;display:flex;align-items:center;justify-content:center;color:#00236f;font-weight:700;"><i class="fas fa-microchip" style="font-size:16px;"></i></div>'
-                       '<div><div style="font-family:Plus Jakarta Sans;font-size:13px;font-weight:800;color:#00236f;">Mesin Dicek Digital</div>'
-                       '<div style="font-size:11px;color:#444651;">Injektor common rail: kondisi optimal</div></div>'
+                       # Left: Chip Icon + Title & Desc
+                       '<div class="telematics-left-block">'
+                       '<div class="telematics-chip-icon"><i class="fas fa-microchip"></i></div>'
+                       '<div class="telematics-info">'
+                       '<div class="telematics-title">Mesin Dicek Digital</div>'
+                       '<div class="telematics-desc">Injektor common rail: kondisi optimal</div>'
                        '</div>'
+                       '</div>'
+                       # Middle: 2 Micro metrics
+                       '<div class="telematics-metrics-block">'
+                       '<div class="metric-item">'
+                       '<div class="metric-val">&lt; 3 Jam</div>'
+                       '<div class="metric-lbl">Servis berkala cepat</div>'
+                       '</div>'
+                       '<div class="metric-divider"></div>'
+                       '<div class="metric-item">'
+                       '<div class="metric-val">6 Bulan</div>'
+                       '<div class="metric-lbl">Garansi sparepart</div>'
+                       '</div>'
+                       '</div>'
+                       # Right: Status Pill
+                       '<div class="telematics-status-block">'
                        '<span class="telematics-status-pill"><span class="status-live-dot"></span>SIAP JALAN</span>'
                        '</div>'
-                       # 2 Micro metrics
-                       '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;padding-top:8px;border-top:1px solid #f2f4f6;">'
-                       '<div style="background:#f7f9fb;padding:6px 10px;border-radius:8px;border:1px solid #eceef0;">'
-                       '<div style="font-family:Plus Jakarta Sans;font-size:15px;font-weight:800;color:#00236f;">&lt; 3 Jam</div>'
-                       '<div style="font-size:10px;color:#757682;font-weight:600;">Servis berkala cepat</div>'
-                       '</div>'
-                       '<div style="background:#f7f9fb;padding:6px 10px;border-radius:8px;border:1px solid #eceef0;">'
-                       '<div style="font-family:Plus Jakarta Sans;font-size:15px;font-weight:800;color:#00236f;">6 Bulan</div>'
-                       '<div style="font-size:10px;color:#757682;font-weight:600;">Garansi sparepart</div>'
-                       '</div>'
-                       '</div></div>', cls="hero-telematics-card", margin=px4(0, 0, 0, 0)),
+                       '</div>', cls="hero-telematics-card", margin=px4(0, 0, 0, 0)),
             ], css_classes="hero-visual-card-wrap", direction="column", style={"padding": px4(0, 0, 0, 0)})
         ], {"padding": px4(0, 0, 0, 20)}),
     ], css_classes="hero-main-row", direction="row", style={"flex_align_items": "flex-start"}),
@@ -488,7 +494,7 @@ hero["elements"] = [
         ], {"padding": px4(18, 20, 18, 20), "border_border": "solid", "border_width": px4(0, 1, 0, 0), "border_color": C["border"]}),
         col(25, "stat-col", [
             W_text('<div style="display:flex;align-items:center;gap:14px;">'
-                   '<div style="width:48px;height:48px;border-radius:12px;background:#dce1ff;color:#00236f;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;"><i class="fas fa-shield-halved"></i></div>'
+                   '<div style="width:48px;height:48px;border-radius:12px;background:#dce1ff;color:#00236f;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;"><i class="fas fa-shield-alt"></i></div>'
                    '<div>'
                    '<div style="font-family:Plus Jakarta Sans;font-size:26px;font-weight:800;color:#00236f;line-height:1.2;">180 Hari</div>'
                    '<div style="font-family:Inter;font-size:13px;color:#444651;font-weight:500;">Garansi Resmi Overhaul</div>'
