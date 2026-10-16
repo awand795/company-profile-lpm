@@ -110,6 +110,10 @@ def inner(children, css_classes="", direction="row", style=None):
     s = {
         "content_width": "full",
         "flex_direction": direction,
+        "padding": px4(0, 0, 0, 0),
+        "padding_tablet": px4(0, 0, 0, 0),
+        "padding_mobile": px4(0, 0, 0, 0),
+        "flex_gap": fsize(0),
     }
     if css_classes:
         s["css_classes"] = css_classes
@@ -159,6 +163,7 @@ def W_heading(title, tag="h2", align="left", cls="", size=36, weight=700, color=
         "typography_font_weight": str(weight),
         "typography_line_height": {"unit": "em", "size": 1.15},
         "title_color": color,
+        "_margin": margin if margin is not None else px4(0, 0, 0, 0),
     }
     if ls:
         s["typography_letter_spacing"] = {"unit": "px", "size": ls}
@@ -177,6 +182,7 @@ def W_text(html, align="left", cls="", size=16, color=C["text_muted"], margin=No
         "typography_font_size": fsize(size),
         "typography_line_height": {"unit": "em", "size": lh},
         "text_color": color,
+        "_margin": margin if margin is not None else px4(0, 0, 0, 0),
     }
     if cls:
         s["_css_classes"] = cls
@@ -197,6 +203,7 @@ def W_button(text, link="#", icon="", ipos="after", align="left", cls="", bg=C["
         "background_color": bg,
         "border_radius": rad(radius),
         "button_padding": px4(*pad),
+        "_margin": margin if margin is not None else px4(0, 0, 0, 0),
     }
     if icon:
         s["selected_icon"] = {"value": icon, "library": "fa-solid" if "fa-" in icon else "fa-regular"}
@@ -215,6 +222,7 @@ def W_image(key, alt="", cls="", radius=16, height=None):
         "image": {"url": url, "id": aid},
         "image_size": "full",
         "caption_source": "none",
+        "_margin": margin if margin is not None else px4(0, 0, 0, 0),
     }
     if radius:
         s["image_border_radius"] = rad(radius)

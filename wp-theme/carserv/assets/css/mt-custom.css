@@ -1041,6 +1041,16 @@ body.elementor-editor-preview .elementor-59 .mt-mobile-cta{display:block;positio
 /* ============================================================
    STITCH DESIGN SYSTEM ENHANCEMENTS & RESPONSIVENESS
    ============================================================ */
+body.elementor-page-59 .elementor-59 .stitch-topbar,
+body.elementor-page-59 .elementor-59 .stitch-navbar,
+body.elementor-page-59 .elementor-59 .stitch-sec-hero {
+    --kit-widget-spacing: 0px;
+}
+body.elementor-page-59 .elementor-59 .stitch-topbar .elementor-widget,
+body.elementor-page-59 .elementor-59 .stitch-navbar .elementor-widget,
+body.elementor-page-59 .elementor-59 .stitch-sec-hero .elementor-widget {
+    margin-bottom: 0px;
+}
 body.elementor-page-59 .stitch-topbar {
     font-family: 'Inter', sans-serif;
     background-color: #222a3e !important;
