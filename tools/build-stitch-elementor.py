@@ -22,7 +22,7 @@ BASE = f"{SITE_URL}/wp-content/uploads/stitch"
 
 # Image mapping to WordPress Attachment IDs
 IMG = {
-    "logo": (f"{BASE}/stitch_img_1.webp", 338),
+    "logo": (f"{BASE}/stitch_logo_transparan.png", 350),
     "hero": (f"{BASE}/stitch_img_2.webp", 342),
     "fasilitas1": (f"{BASE}/stitch_img_3.webp", 343),
     "fasilitas2": (f"{BASE}/stitch_img_4.webp", 344),
@@ -323,17 +323,17 @@ topbar["elements"] = [inner([
                '<a href="tel:0812MASTERTRUCK" style="color:#ffffff;text-decoration:none;font-weight:700;">0812-MASTER-TRUCK</a>'
                '</div>'
                '<div class="topbar-location-item" style="display:inline-flex;align-items:center;gap:6px;color:#bec6e0;">'
-               '<span>📍</span> <span style="color:#ffffff;">Medan</span>'
+               '<i class="fas fa-location-dot" style="color:#fd651e;font-size:12px;"></i> <span style="color:#ffffff;">Medan</span>'
                '</div>'
                '</div>')
     ]),
     col(60, "topbar-right-col", [
         W_text('<div style="display:flex;align-items:center;justify-content:flex-end;gap:14px;color:#bec6e0;font-size:12px;white-space:nowrap;">'
                '<div class="topbar-hours-item" style="display:inline-flex;align-items:center;gap:6px;">'
-               '<span>🕒</span> <span style="color:#ffffff;">Senin – Sabtu: 08.00 – 20.00 | Tim Derek &amp; Rescue 24/7</span>'
+               '<i class="fas fa-clock" style="color:#bec6e0;font-size:12px;"></i> <span style="color:#ffffff;">Senin – Sabtu: 08.00 – 20.00 | Tim Derek &amp; Rescue 24/7</span>'
                '</div>'
                '<div class="topbar-iso-item" style="border-left:1px solid #384055;padding-left:14px;display:inline-flex;align-items:center;gap:6px;">'
-               '<span style="color:#ffdbce;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;">🛡 Standar OEM ISO 9001</span>'
+               '<i class="fas fa-shield-halved" style="color:#fd651e;font-size:12px;"></i> <span style="color:#ffdbce;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;">Standar OEM ISO 9001</span>'
                '</div>'
                '</div>')
     ]),
@@ -347,29 +347,34 @@ nav = el_container("stitch-navbar sticky-top", boxed=1240, bg=C["white"],
                           "sticky": "top", "sticky_offset": 0, "sticky_on": ["desktop", "tablet", "mobile"]},
                    nav="Navbar")
 nav["elements"] = [inner([
-    # Brand
+    # Brand: Widget Image Native Elementor + Teks Brand
     col(32, "stitch-brand-col", [
-        W_text('<a href="#" style="display:flex;align-items:center;gap:12px;text-decoration:none;">'
-               '<img src="' + IMG["logo"][0] + '" style="height:36px;width:auto;object-fit:contain;" alt="Master Truck Logo">'
-               '<div style="display:flex;flex-direction:column;line-height:1.2;">'
-               '<span style="font-family:Plus Jakarta Sans;font-size:19px;font-weight:800;color:' + C["primary"] + ';letter-spacing:-0.5px;">MASTER TRUCK</span>'
-               '<span style="font-family:Plus Jakarta Sans;font-size:11px;color:' + C["text_muted"] + ';text-transform:uppercase;font-weight:700;letter-spacing:0.3px;">Spesialis Truk &amp; Armada Niaga</span>'
-               '</div></a>')
+        inner([
+            col(None, "brand-logo-container", [
+                W_image("logo", alt="Logo Master Truck", cls="brand-logo-img", radius=0)
+            ], cstyle={"width": {"unit": "px", "size": 42}, "padding": px4(0, 0, 0, 0)}),
+            col(None, "brand-text-container", [
+                W_text('<a href="#" style="text-decoration:none;display:flex;flex-direction:column;line-height:1.2;">'
+                       '<span style="font-family:Plus Jakarta Sans;font-size:19px;font-weight:800;color:' + C["primary"] + ';letter-spacing:-0.5px;">MASTER TRUCK</span>'
+                       '<span style="font-family:Plus Jakarta Sans;font-size:11px;color:' + C["text_muted"] + ';text-transform:uppercase;font-weight:700;letter-spacing:0.3px;">Spesialis Truk &amp; Armada Niaga</span>'
+                       '</a>', cls="brand-text-widget")
+            ], cstyle={"padding": px4(0, 0, 0, 0)}),
+        ], css_classes="stitch-brand-row", direction="row", style={"flex_align_items": "center", "flex_gap": fsize(12), "padding": px4(0, 0, 0, 0)})
     ]),
     # Menu Links
     col(44, "stitch-menu-col", [
         W_text('<div style="display:flex;align-items:center;justify-content:center;gap:32px;font-family:Plus Jakarta Sans;font-size:15px;font-weight:700;">'
-               '<a href="#layanan" style="color:#444651;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color=\'#00236f\'" onmouseout="this.style.color=\'#444651\'">Layanan</a>'
-               '<a href="#fleet" style="color:#444651;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color=\'#00236f\'" onmouseout="this.style.color=\'#444651\'">Paket Fleet</a>'
-               '<a href="#fasilitas" style="color:#444651;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color=\'#00236f\'" onmouseout="this.style.color=\'#444651\'">Fasilitas</a>'
-               '<a href="#kontak" style="color:#444651;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color=\'#00236f\'" onmouseout="this.style.color=\'#444651\'">Kontak</a>'
+               '<a href="#layanan" style="color:#444651;text-decoration:none;transition:color 0.2s;">Layanan</a>'
+               '<a href="#fleet" style="color:#444651;text-decoration:none;transition:color 0.2s;">Paket Fleet</a>'
+               '<a href="#fasilitas" style="color:#444651;text-decoration:none;transition:color 0.2s;">Fasilitas</a>'
+               '<a href="#kontak" style="color:#444651;text-decoration:none;transition:color 0.2s;">Kontak</a>'
                '</div>')
     ]),
     # Actions (Hanya Masuk & Daftar)
     col(24, "stitch-cta-col", [
         inner([
             col(None, "", [W_button("Masuk", link="http://localhost:3000/#login", icon="fas fa-user-circle", ipos="before", bg="transparent", text_color="#444651", radius=10, pad=(8, 14), cls="btn-nav-login")], None),
-            col(None, "", [W_button("Daftar", link="http://localhost:3000/#register", bg="#dce1ff", text_color=C["primary"], radius=10, pad=(8, 18), cls="btn-nav-register")], None),
+            col(None, "", [W_button("Daftar", link="http://localhost:3000/#register", bg=C["primary"], text_color=C["white"], radius=10, pad=(8, 18), cls="btn-nav-register")], None),
         ], css_classes="stitch-nav-actions", direction="row", style={"flex_gap": fsize(10), "flex_justify_content": "flex-end", "flex_align_items": "center"})
     ]),
 ], css_classes="stitch-nav-row", direction="row", style={"padding": px4(4, 0, 4, 0), "flex_align_items": "center", "flex_justify_content": "space-between"})]
@@ -383,67 +388,72 @@ hero["elements"] = [
     inner([
         col(60, "hero-text-col", [
             # Authority Badge
-            W_heading('🛡 BENGKEL REKANAN RESMI &amp; SPESIALIS HEAVY DUTY TRUCK #1',
-                      tag="p", cls="hero-authority-badge", size=11, weight=700, color=C["primary"], ls=0.8,
+            W_heading('<i class="fas fa-shield-halved" style="color:#00236f;margin-right:8px;font-size:12px;"></i>BENGKEL REKANAN RESMI &amp; SPESIALIS HEAVY DUTY TRUCK #1',
+                      tag="p", cls="hero-authority-badge", size=12, weight=700, color=C["primary"], ls=0.8,
                       margin=px4(0, 0, 10, 0)),
             # Headline
             W_heading('Solusi Servis &amp; Pemeliharaan Armada Truk Bersama '
-                      '<span style="color:' + C["secondary"] + ';font-weight:900;text-decoration:underline;text-decoration-color:' + C["secondary"] + ';">MASTER TRUCK</span> '
+                      '<span class="hero-brand-highlight">MASTER TRUCK</span> '
                       '<span style="color:' + C["primary"] + ';">Tanpa Downtime</span> Berkepanjangan',
                       tag="h1", cls="hero-title", size=42, weight=800, color=C["primary"], ls=-1.2,
                       margin=px4(0, 0, 14, 0)),
-            # Description Lead
-            W_text("Pusat rekayasa mekanikal dan perbaikan mesin diesel Euro 4, overhaul transmisi, "
-                   "kalibrasi injektor common rail, hingga kontrak pemeliharaan fleet logistik dengan "
-                   "jaminan 100% suku cadang orisinal OEM dan mekanik berlisensi pabrikan.",
+            # Description Lead (GRUP D1)
+            # versi lama:
+            # "Pusat rekayasa mekanikal dan perbaikan mesin diesel Euro 4, overhaul transmisi, "
+            # "kalibrasi injektor common rail, hingga kontrak pemeliharaan fleet logistik dengan "
+            # "jaminan 100% suku cadang orisinal OEM dan mekanik berlisensi pabrikan."
+            # TODO: konfirmasi pemilik
+            W_text("Bengkel khusus truk untuk servis rutin, perbaikan mesin diesel, sampai kontrak perawatan armada. "
+                   "Sparepart asli dan mekanik berlisensi pabrikan.",
                    cls="hero-lead", size=16, color=C["text_muted"], margin=px4(0, 0, 20, 0), lh=1.55),
-            # Dual CTAs
+            # Dual CTAs: SATU container row tanpa col terpisah
             inner([
-                col(None, "", [W_button("Jadwalkan Servis Sekarang", link="#quick-booking", icon="fas fa-calendar-alt",
-                                        bg=C["secondary"], text_color=C["white"], radius=12, pad=(14, 26), cls="btn-hero-primary")], None),
-                col(None, "", [W_button("Roadside Rescue 24 Jam", link="tel:0812MASTERTRUCK", icon="fas fa-phone-alt",
-                                        bg=C["surface_low"], text_color=C["primary"], radius=12, pad=(14, 24), cls="btn-hero-secondary")], None),
-            ], css_classes="hero-btns-row", direction="row", style={"flex_gap": fsize(14), "margin": px4(0, 0, 24, 0)}),
+                W_button("Jadwalkan Servis Sekarang", link="#quick-booking", icon="fas fa-calendar-alt",
+                         bg=C["secondary"], text_color=C["white"], radius=12, pad=(14, 26), cls="btn-hero-primary"),
+                W_button("Derek &amp; Darurat 24 Jam", link="tel:0812MASTERTRUCK", icon="fas fa-phone-alt",
+                         bg="transparent", text_color=C["primary"], radius=12, pad=(14, 24), cls="btn-hero-secondary"),
+            ], css_classes="hero-btns-row", direction="row", style={"flex_gap": fsize(14), "margin": px4(0, 0, 24, 0), "flex_align_items": "center", "flex_justify_content": "flex-start"}),
             # Supported Brands
             W_text('<div class="hero-brands-block">'
                    '<div style="font-size:11px;font-weight:700;color:#757682;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">'
                    'Spesialisasi Brand Heavy Duty &amp; Light Commercial:</div>'
                    '<div style="display:flex;flex-wrap:wrap;gap:8px;">'
-                   '<span style="padding:4px 10px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">SCANIA</span>'
-                   '<span style="padding:4px 10px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">VOLVO TRUCKS</span>'
-                   '<span style="padding:4px 10px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">HINO 500 &amp; 300</span>'
-                   '<span style="padding:4px 10px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">MITSUBISHI FUSO</span>'
-                   '<span style="padding:4px 10px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">ISUZU GIGA</span>'
-                   '<span style="padding:4px 10px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">MERCEDES AXOR</span>'
+                   '<span class="brand-chip">SCANIA</span>'
+                   '<span class="brand-chip">VOLVO TRUCKS</span>'
+                   '<span class="brand-chip">HINO 500 &amp; 300</span>'
+                   '<span class="brand-chip">MITSUBISHI FUSO</span>'
+                   '<span class="brand-chip">ISUZU GIGA</span>'
+                   '<span class="brand-chip">MERCEDES AXOR</span>'
                    '</div></div>', cls="hero-brands-widget", margin=px4(0, 0, 0, 0)),
         ], {"padding": px4(0, 20, 0, 0)}),
 
-        # Visual Showcase Right
+        # Visual Showcase Right (Komposisi Foto + Aksen + Kartu Telematika Melayang)
         col(40, "hero-visual-col", [
-            # Main Photo
-            W_image("hero", alt="Modern commercial truck workshop bay with Scania and Hino trucks", cls="hero-truck-img", radius=20, margin=px4(0, 0, 0, 0)),
-            # Telematics & Diagnostic Floating Card
-            W_text('<div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:16px;padding:14px 18px;'
-                   'box-shadow:0 12px 32px rgba(15,23,42,0.08);">'
-                   '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">'
-                   '<div style="display:flex;align-items:center;gap:10px;">'
-                   '<div style="width:36px;height:36px;border-radius:8px;background:#dce1ff;display:flex;align-items:center;justify-content:center;color:#00236f;font-weight:700;">📡</div>'
-                   '<div><div style="font-family:Plus Jakarta Sans;font-size:14px;font-weight:800;color:#00236f;">ECU Multi-Bus Telematics</div>'
-                   '<div style="font-size:12px;color:#444651;">Common Rail Injektor: 100% Optimal</div></div>'
-                   '</div>'
-                   '<span style="padding:4px 8px;background:#d1fae5;color:#065f46;border-radius:6px;font-size:11px;font-weight:800;">READY TO HAUL</span>'
-                   '</div>'
-                   # 2 Micro metrics
-                   '<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;padding-top:10px;border-top:1px solid #f2f4f6;">'
-                   '<div style="background:#f7f9fb;padding:8px 12px;border-radius:10px;border:1px solid #eceef0;">'
-                   '<div style="font-family:Plus Jakarta Sans;font-size:17px;font-weight:800;color:#00236f;">&lt; 3 Jam</div>'
-                   '<div style="font-size:11px;color:#757682;font-weight:600;">Fast Periodic Service</div>'
-                   '</div>'
-                   '<div style="background:#f7f9fb;padding:8px 12px;border-radius:10px;border:1px solid #eceef0;">'
-                   '<div style="font-family:Plus Jakarta Sans;font-size:17px;font-weight:800;color:#00236f;">6 Bulan</div>'
-                   '<div style="font-size:11px;color:#757682;font-weight:600;">Garansi Spare Part</div>'
-                   '</div>'
-                   '</div></div>', cls="hero-telematics-card", margin=px4(12, 0, 0, 0)),
+            inner([
+                # Main Photo
+                W_image("hero", alt="Modern commercial truck workshop bay with Scania and Hino trucks", cls="hero-truck-img", radius=24, margin=px4(0, 0, 0, 0)),
+                # Floating Telematics Card
+                W_text('<div class="hero-telematics-inner">'
+                       '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">'
+                       '<div style="display:flex;align-items:center;gap:10px;">'
+                       '<div style="width:34px;height:34px;border-radius:8px;background:#dce1ff;display:flex;align-items:center;justify-content:center;color:#00236f;font-weight:700;"><i class="fas fa-microchip" style="font-size:16px;"></i></div>'
+                       '<div><div style="font-family:Plus Jakarta Sans;font-size:13px;font-weight:800;color:#00236f;">Mesin Dicek Digital</div>'
+                       '<div style="font-size:11px;color:#444651;">Injektor common rail: kondisi optimal</div></div>'
+                       '</div>'
+                       '<span class="telematics-status-pill"><span class="status-live-dot"></span>SIAP JALAN</span>'
+                       '</div>'
+                       # 2 Micro metrics
+                       '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;padding-top:8px;border-top:1px solid #f2f4f6;">'
+                       '<div style="background:#f7f9fb;padding:6px 10px;border-radius:8px;border:1px solid #eceef0;">'
+                       '<div style="font-family:Plus Jakarta Sans;font-size:15px;font-weight:800;color:#00236f;">&lt; 3 Jam</div>'
+                       '<div style="font-size:10px;color:#757682;font-weight:600;">Servis berkala cepat</div>'
+                       '</div>'
+                       '<div style="background:#f7f9fb;padding:6px 10px;border-radius:8px;border:1px solid #eceef0;">'
+                       '<div style="font-family:Plus Jakarta Sans;font-size:15px;font-weight:800;color:#00236f;">6 Bulan</div>'
+                       '<div style="font-size:10px;color:#757682;font-weight:600;">Garansi sparepart</div>'
+                       '</div>'
+                       '</div></div>', cls="hero-telematics-card", margin=px4(0, 0, 0, 0)),
+            ], css_classes="hero-visual-card-wrap", direction="column", style={"padding": px4(0, 0, 0, 0)})
         ], {"padding": px4(0, 0, 0, 20)}),
     ], css_classes="hero-main-row", direction="row", style={"flex_align_items": "flex-start"}),
 
@@ -451,7 +461,7 @@ hero["elements"] = [
     inner([
         col(25, "stat-col", [
             W_text('<div style="display:flex;align-items:center;gap:14px;">'
-                   '<div style="width:48px;height:48px;border-radius:12px;background:#dce1ff;color:#00236f;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">🚛</div>'
+                   '<div style="width:48px;height:48px;border-radius:12px;background:#dce1ff;color:#00236f;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;"><i class="fas fa-truck"></i></div>'
                    '<div>'
                    '<div style="font-family:Plus Jakarta Sans;font-size:26px;font-weight:800;color:#00236f;line-height:1.2;">5.200+</div>'
                    '<div style="font-family:Inter;font-size:13px;color:#444651;font-weight:500;">Truk &amp; Trailer Ditangani</div>'
@@ -460,7 +470,7 @@ hero["elements"] = [
         ], {"padding": px4(18, 20, 18, 20), "border_border": "solid", "border_width": px4(0, 1, 0, 0), "border_color": C["border"]}),
         col(25, "stat-col", [
             W_text('<div style="display:flex;align-items:center;gap:14px;">'
-                   '<div style="width:48px;height:48px;border-radius:12px;background:#ffdbce;color:#a73a00;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">⏱️</div>'
+                   '<div style="width:48px;height:48px;border-radius:12px;background:#ffdbce;color:#a73a00;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;"><i class="fas fa-stopwatch"></i></div>'
                    '<div>'
                    '<div style="font-family:Plus Jakarta Sans;font-size:26px;font-weight:800;color:#fd651e;line-height:1.2;">99.2%</div>'
                    '<div style="font-family:Inter;font-size:13px;color:#444651;font-weight:500;">On-Time Fleet Delivery</div>'
@@ -469,7 +479,7 @@ hero["elements"] = [
         ], {"padding": px4(18, 20, 18, 20), "border_border": "solid", "border_width": px4(0, 1, 0, 0), "border_color": C["border"]}),
         col(25, "stat-col", [
             W_text('<div style="display:flex;align-items:center;gap:14px;">'
-                   '<div style="width:48px;height:48px;border-radius:12px;background:#dae2fd;color:#222a3e;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">🏭</div>'
+                   '<div style="width:48px;height:48px;border-radius:12px;background:#dae2fd;color:#222a3e;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;"><i class="fas fa-warehouse"></i></div>'
                    '<div>'
                    '<div style="font-family:Plus Jakarta Sans;font-size:26px;font-weight:800;color:#222a3e;line-height:1.2;">15+ Bay</div>'
                    '<div style="font-family:Inter;font-size:13px;color:#444651;font-weight:500;">Bengkel Standar ISO 9001</div>'
@@ -478,7 +488,7 @@ hero["elements"] = [
         ], {"padding": px4(18, 20, 18, 20), "border_border": "solid", "border_width": px4(0, 1, 0, 0), "border_color": C["border"]}),
         col(25, "stat-col", [
             W_text('<div style="display:flex;align-items:center;gap:14px;">'
-                   '<div style="width:48px;height:48px;border-radius:12px;background:#dce1ff;color:#00236f;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">🛡️</div>'
+                   '<div style="width:48px;height:48px;border-radius:12px;background:#dce1ff;color:#00236f;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;"><i class="fas fa-shield-halved"></i></div>'
                    '<div>'
                    '<div style="font-family:Plus Jakarta Sans;font-size:26px;font-weight:800;color:#00236f;line-height:1.2;">180 Hari</div>'
                    '<div style="font-family:Inter;font-size:13px;color:#444651;font-weight:500;">Garansi Resmi Overhaul</div>'
