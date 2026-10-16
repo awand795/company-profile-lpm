@@ -299,7 +299,7 @@ def W_accordion(items, cls=""):
 # =====================================================================
 sections = []
 
-# --- 1. TOPBAR & FLOATING NAVBAR ---
+## --- 1. TOPBAR & FLOATING NAVBAR ---
 topbar = el_container("stitch-topbar", boxed=1240, bg=C["tertiary"],
                       style={"padding": px4(10, 24, 10, 24)},
                       nav="Top Bar")
@@ -312,7 +312,7 @@ topbar["elements"] = [inner([
                '<a href="tel:0812MASTERTRUCK" style="color:#ffffff;text-decoration:none;font-weight:700;">0812-MASTER-TRUCK</a>'
                '</div>'
                '<div style="display:inline-flex;align-items:center;gap:6px;color:#bec6e0;">'
-               '<span>📍</span> <span style="color:#ffffff;">Cikarang &amp; Tanjung Priok</span>'
+               '<span>📍</span> <span style="color:#ffffff;">Medan &amp; Tanjung Priok</span>'
                '</div>'
                '</div>')
     ]),
@@ -337,7 +337,7 @@ nav = el_container("stitch-navbar sticky-top", boxed=1240, bg=C["white"],
                    nav="Navbar")
 nav["elements"] = [inner([
     # Brand
-    col(28, "stitch-brand-col", [
+    col(32, "stitch-brand-col", [
         W_text('<a href="#" style="display:flex;align-items:center;gap:12px;text-decoration:none;">'
                '<img src="' + IMG["logo"][0] + '" style="height:36px;width:auto;object-fit:contain;" alt="Master Truck Logo">'
                '<div style="display:flex;flex-direction:column;line-height:1.2;">'
@@ -346,7 +346,7 @@ nav["elements"] = [inner([
                '</div></a>')
     ]),
     # Menu Links
-    col(38, "stitch-menu-col", [
+    col(44, "stitch-menu-col", [
         W_text('<div style="display:flex;align-items:center;justify-content:center;gap:32px;font-family:Plus Jakarta Sans;font-size:15px;font-weight:700;">'
                '<a href="#layanan" style="color:#444651;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color=\'#00236f\'" onmouseout="this.style.color=\'#444651\'">Layanan</a>'
                '<a href="#fleet" style="color:#444651;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color=\'#00236f\'" onmouseout="this.style.color=\'#444651\'">Paket Fleet</a>'
@@ -354,21 +354,19 @@ nav["elements"] = [inner([
                '<a href="#kontak" style="color:#444651;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color=\'#00236f\'" onmouseout="this.style.color=\'#444651\'">Kontak</a>'
                '</div>')
     ]),
-    # Actions (Masuk, Daftar, Booking Servis Cepat)
-    col(34, "stitch-cta-col", [
+    # Actions (Hanya Masuk & Daftar)
+    col(24, "stitch-cta-col", [
         inner([
             col(None, "", [W_button("Masuk", link="http://localhost:3000/#login", icon="fas fa-user-circle", ipos="before", bg="transparent", text_color="#444651", radius=10, pad=(10, 16), cls="btn-nav-login")], None),
-            col(None, "", [W_button("Daftar", link="http://localhost:3000/#register", bg="#dce1ff", text_color=C["primary"], radius=10, pad=(10, 18), cls="btn-nav-register")], None),
-            col(None, "", [W_button("Booking Cepat", link="#quick-booking", icon="fas fa-truck-pickup", bg=C["secondary"], text_color=C["white"], radius=10, pad=(10, 18), cls="btn-nav-booking")], None),
-        ], css_classes="stitch-nav-actions", direction="row", style={"flex_gap": fsize(8), "flex_justify_content": "flex-end", "flex_align_items": "center"})
+            col(None, "", [W_button("Daftar", link="http://localhost:3000/#register", bg="#dce1ff", text_color=C["primary"], radius=10, pad=(10, 20), cls="btn-nav-register")], None),
+        ], css_classes="stitch-nav-actions", direction="row", style={"flex_gap": fsize(10), "flex_justify_content": "flex-end", "flex_align_items": "center"})
     ]),
 ], css_classes="stitch-nav-row", direction="row", style={"flex_align_items": "center", "flex_justify_content": "space-between"})]
 sections.append(nav)
 
-
 # --- 2. SECTION 1: HERO SECTION ---
 hero = el_container("stitch-sec-hero", css_id="header-carousel", boxed=1240, bg=C["white"],
-                    style={"padding": px4(48, 24, 48, 24)}, nav="Hero")
+                    style={"padding": px4(56, 24, 56, 24)}, nav="Hero")
 hero["elements"] = [
     # Top Row: Text (7) vs Visual (5)
     inner([
@@ -394,70 +392,94 @@ hero["elements"] = [
                                         bg=C["secondary"], text_color=C["white"], radius=12, pad=(16, 28), cls="btn-hero-primary")], None),
                 col(None, "", [W_button("Roadside Rescue 24 Jam", link="tel:0812MASTERTRUCK", icon="fas fa-phone-alt",
                                         bg=C["surface_low"], text_color=C["primary"], radius=12, pad=(16, 26), cls="btn-hero-secondary")], None),
-            ], css_classes="hero-btns-row", direction="row", style={"flex_gap": fsize(14), "margin": px4(0, 0, 32, 0)}),
+            ], css_classes="hero-btns-row", direction="row", style={"flex_gap": fsize(16), "margin": px4(0, 0, 36, 0)}),
             # Supported Brands
-            W_text('<div style="margin-top:8px;">'
-                   '<div style="font-size:11px;font-weight:700;color:#757682;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">'
+            W_text('<div style="margin-top:12px;padding-top:8px;">'
+                   '<div style="font-size:11px;font-weight:700;color:#757682;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">'
                    'Spesialisasi Brand Heavy Duty &amp; Light Commercial:</div>'
-                   '<div style="display:flex;flex-wrap:wrap;gap:8px;">'
-                   '<span style="padding:4px 10px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">SCANIA</span>'
-                   '<span style="padding:4px 10px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">VOLVO TRUCKS</span>'
-                   '<span style="padding:4px 10px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">HINO 500 &amp; 300</span>'
-                   '<span style="padding:4px 10px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">MITSUBISHI FUSO</span>'
-                   '<span style="padding:4px 10px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">ISUZU GIGA</span>'
-                   '<span style="padding:4px 10px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">MERCEDES AXOR</span>'
+                   '<div style="display:flex;flex-wrap:wrap;gap:10px;">'
+                   '<span style="padding:6px 12px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">SCANIA</span>'
+                   '<span style="padding:6px 12px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">VOLVO TRUCKS</span>'
+                   '<span style="padding:6px 12px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">HINO 500 &amp; 300</span>'
+                   '<span style="padding:6px 12px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">MITSUBISHI FUSO</span>'
+                   '<span style="padding:6px 12px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">ISUZU GIGA</span>'
+                   '<span style="padding:6px 12px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">MERCEDES AXOR</span>'
                    '</div></div>', cls="hero-brands-widget"),
-        ], {"padding": px4(0, 16, 0, 0)}),
+        ], {"padding": px4(0, 24, 0, 0)}),
 
         # Visual Showcase Right
         col(42, "hero-visual-col", [
             # Main Photo
             W_image("hero", alt="Modern commercial truck workshop bay with Scania and Hino trucks", cls="hero-truck-img", radius=20),
             # Telematics & Diagnostic Floating Card
-            W_text('<div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:16px;padding:14px 18px;'
-                   'box-shadow:0 12px 32px rgba(15,23,42,0.08);margin-top:14px;">'
-                   '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">'
-                   '<div style="display:flex;align-items:center;gap:10px;">'
-                   '<div style="width:36px;height:36px;border-radius:8px;background:#dce1ff;display:flex;align-items:center;justify-content:center;color:#00236f;font-weight:700;">📡</div>'
+            W_text('<div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:16px;padding:16px 20px;'
+                   'box-shadow:0 12px 32px rgba(15,23,42,0.08);margin-top:16px;">'
+                   '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">'
+                   '<div style="display:flex;align-items:center;gap:12px;">'
+                   '<div style="width:38px;height:38px;border-radius:8px;background:#dce1ff;display:flex;align-items:center;justify-content:center;color:#00236f;font-weight:700;">📡</div>'
                    '<div><div style="font-family:Plus Jakarta Sans;font-size:14px;font-weight:800;color:#00236f;">ECU Multi-Bus Telematics</div>'
                    '<div style="font-size:12px;color:#444651;">Common Rail Injektor: 100% Optimal</div></div>'
                    '</div>'
                    '<span style="padding:4px 8px;background:#d1fae5;color:#065f46;border-radius:6px;font-size:11px;font-weight:800;">READY TO HAUL</span>'
                    '</div>'
                    # 2 Micro metrics
-                   '<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid #f2f4f6;">'
-                   '<div style="background:#f7f9fb;padding:8px 12px;border-radius:10px;border:1px solid #eceef0;">'
+                   '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;padding-top:12px;border-top:1px solid #f2f4f6;">'
+                   '<div style="background:#f7f9fb;padding:10px 14px;border-radius:10px;border:1px solid #eceef0;">'
                    '<div style="font-family:Plus Jakarta Sans;font-size:18px;font-weight:800;color:#00236f;">&lt; 3 Jam</div>'
                    '<div style="font-size:11px;color:#757682;font-weight:600;">Fast Periodic Service</div>'
                    '</div>'
-                   '<div style="background:#f7f9fb;padding:8px 12px;border-radius:10px;border:1px solid #eceef0;">'
+                   '<div style="background:#f7f9fb;padding:10px 14px;border-radius:10px;border:1px solid #eceef0;">'
                    '<div style="font-family:Plus Jakarta Sans;font-size:18px;font-weight:800;color:#00236f;">6 Bulan</div>'
                    '<div style="font-size:11px;color:#757682;font-weight:600;">Garansi Spare Part</div>'
                    '</div>'
                    '</div></div>', cls="hero-telematics-card"),
-        ], {"padding": px4(0, 0, 0, 16)}),
+        ], {"padding": px4(0, 0, 0, 24)}),
     ], css_classes="hero-main-row", direction="row", style={"flex_align_items": "center"}),
 
     # Bottom Trust Metric Bar
     inner([
         col(25, "stat-col", [
-            W_counter(5200, "Truk & Trailer Ditangani", suffix="+", size=36, color=C["primary"])
-        ], {"padding": px4(14, 20, 14, 20), "border_border": "solid", "border_width": px4(0, 1, 0, 0), "border_color": C["border"]}),
+            W_text('<div style="display:flex;align-items:center;gap:14px;">'
+                   '<div style="width:48px;height:48px;border-radius:12px;background:#dce1ff;color:#00236f;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">🚛</div>'
+                   '<div>'
+                   '<div style="font-family:Plus Jakarta Sans;font-size:26px;font-weight:800;color:#00236f;line-height:1.2;">5.200+</div>'
+                   '<div style="font-family:Inter;font-size:13px;color:#444651;font-weight:500;">Truk &amp; Trailer Ditangani</div>'
+                   '</div>'
+                   '</div>')
+        ], {"padding": px4(18, 20, 18, 20), "border_border": "solid", "border_width": px4(0, 1, 0, 0), "border_color": C["border"]}),
         col(25, "stat-col", [
-            W_counter(99, "On-Time Fleet Delivery", prefix="", suffix=".2%", size=36, color=C["secondary"])
-        ], {"padding": px4(14, 20, 14, 20), "border_border": "solid", "border_width": px4(0, 1, 0, 0), "border_color": C["border"]}),
+            W_text('<div style="display:flex;align-items:center;gap:14px;">'
+                   '<div style="width:48px;height:48px;border-radius:12px;background:#ffdbce;color:#a73a00;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">⏱️</div>'
+                   '<div>'
+                   '<div style="font-family:Plus Jakarta Sans;font-size:26px;font-weight:800;color:#fd651e;line-height:1.2;">99.2%</div>'
+                   '<div style="font-family:Inter;font-size:13px;color:#444651;font-weight:500;">On-Time Fleet Delivery</div>'
+                   '</div>'
+                   '</div>')
+        ], {"padding": px4(18, 20, 18, 20), "border_border": "solid", "border_width": px4(0, 1, 0, 0), "border_color": C["border"]}),
         col(25, "stat-col", [
-            W_counter(15, "Bengkel Standar ISO 9001", suffix="+ Bay", size=36, color=C["tertiary"])
-        ], {"padding": px4(14, 20, 14, 20), "border_border": "solid", "border_width": px4(0, 1, 0, 0), "border_color": C["border"]}),
+            W_text('<div style="display:flex;align-items:center;gap:14px;">'
+                   '<div style="width:48px;height:48px;border-radius:12px;background:#dae2fd;color:#222a3e;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">🏭</div>'
+                   '<div>'
+                   '<div style="font-family:Plus Jakarta Sans;font-size:26px;font-weight:800;color:#222a3e;line-height:1.2;">15+ Bay</div>'
+                   '<div style="font-family:Inter;font-size:13px;color:#444651;font-weight:500;">Bengkel Standar ISO 9001</div>'
+                   '</div>'
+                   '</div>')
+        ], {"padding": px4(18, 20, 18, 20), "border_border": "solid", "border_width": px4(0, 1, 0, 0), "border_color": C["border"]}),
         col(25, "stat-col", [
-            W_counter(180, "Garansi Resmi Overhaul", suffix=" Hari", size=36, color=C["primary"])
-        ], {"padding": px4(14, 20, 14, 20)}),
+            W_text('<div style="display:flex;align-items:center;gap:14px;">'
+                   '<div style="width:48px;height:48px;border-radius:12px;background:#dce1ff;color:#00236f;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">🛡️</div>'
+                   '<div>'
+                   '<div style="font-family:Plus Jakarta Sans;font-size:26px;font-weight:800;color:#00236f;line-height:1.2;">180 Hari</div>'
+                   '<div style="font-family:Inter;font-size:13px;color:#444651;font-weight:500;">Garansi Resmi Overhaul</div>'
+                   '</div>'
+                   '</div>')
+        ], {"padding": px4(18, 20, 18, 20)}),
     ], css_classes="hero-stats-inner", direction="row",
         style={"background_background": "classic", "background_color": C["white"],
                "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"],
                "border_radius": rad(20), "box_shadow_box_shadow_type": "yes",
                "box_shadow_box_shadow": shadow(0, 12, 32, -8, "rgba(15,23,42,0.06)"),
-               "margin": px4(48, 0, 0, 0)}),
+               "margin": px4(56, 0, 0, 0)}),
 ]
 sections.append(hero)
 
