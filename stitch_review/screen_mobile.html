@@ -1,0 +1,1114 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="id"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>Master Truck - Solusi Servis &amp; Pemeliharaan Armada Truk</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<!-- FontAwesome 6 CDN -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+              950: '#0f172a',
+            },
+            amberOrange: {
+              500: '#f97316',
+              600: '#ea580c',
+              700: '#c2410c',
+            },
+            surface: {
+              DEFAULT: '#f7f9fb',
+              dim: '#d8dadc',
+              container: '#ffffff',
+              low: '#f2f4f6',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="base-styling">
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f7f9fb;
+      color: #1e293b;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style data-purpose="card-elevation">
+    .card-shadow-sm {
+      box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.05), 0 1px 2px -1px rgba(15, 23, 42, 0.05);
+    }
+    .card-shadow-md {
+      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+    }
+    .card-shadow-lg {
+      box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
+    }
+  </style>
+<!-- END: Custom Styles -->
+</head>
+<body class="bg-[#f7f9fb] antialiased text-slate-800 pb-20">
+<!-- BEGIN: TopBar -->
+<aside class="bg-brand-950 text-white text-[11px] py-1.5 px-4 font-medium flex items-center justify-between border-b border-slate-800" data-purpose="emergency-hotline-strip">
+<div class="flex items-center gap-1.5">
+<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+<i class="fa-solid fa-phone text-amberOrange-500 text-[10px]"></i>
+<span class="text-slate-300">Hotline 24 Jam:</span>
+<a class="text-white font-bold tracking-tight" href="tel:081262783788">0812-MASTER-TRUCK</a>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-emerald-500/20 text-emerald-300 text-[10px] px-1.5 py-0.5 rounded font-semibold border border-emerald-500/30">TIM RESCUE ON-SITE</span>
+</div>
+</aside>
+<!-- END: TopBar -->
+<!-- BEGIN: MobileHeader -->
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200">
+<div class="px-4 py-3 flex items-center justify-between">
+<!-- Master Truck Logo & Badging -->
+<a class="flex items-center gap-2.5" href="#">
+<div class="w-9 h-9 rounded-lg bg-brand-900 flex items-center justify-center text-white font-black text-lg shadow-sm border border-brand-800">
+<i class="fa-solid fa-truck-front text-amberOrange-500 text-base"></i>
+</div>
+<div>
+<div class="flex items-center gap-1">
+<span class="font-extrabold text-base tracking-tight text-brand-950 uppercase leading-none">Master Truck</span>
+</div>
+<span class="text-[9.5px] uppercase tracking-wider font-semibold text-slate-400 block leading-tight">Spesialis Heavy Duty &amp; Diesel</span>
+</div>
+</a>
+<!-- Header Action Elements -->
+<div class="flex items-center gap-2">
+<a class="bg-amberOrange-500 hover:bg-amberOrange-600 text-white text-xs font-bold px-3 py-1.5 rounded-md flex items-center gap-1 shadow-sm transition active:scale-95" href="#estimasi">
+<i class="fa-solid fa-calendar-check text-[11px]"></i>
+<span class="">Booking</span>
+</a>
+<button aria-label="Buka Menu" class="w-8 h-8 rounded-md flex items-center justify-center text-slate-700 bg-slate-100 hover:bg-slate-200 active:scale-95" id="menu-toggle-btn" type="button">
+<i class="fa-solid fa-bars text-sm"></i>
+</button>
+</div>
+</div>
+<!-- Collapsible Mobile Navigation Drawer -->
+<nav class="hidden bg-white border-t border-slate-100 px-4 py-3 shadow-lg" id="mobile-menu">
+<div class="flex flex-col gap-2.5 text-sm font-semibold text-slate-700">
+<a class="py-1.5 px-2 hover:bg-slate-50 rounded text-brand-900 flex items-center justify-between" href="#estimasi">
+<span class="">Kalkulator Estimasi Biaya</span>
+<i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
+</a>
+<a class="py-1.5 px-2 hover:bg-slate-50 rounded text-brand-900 flex items-center justify-between" href="#layanan">
+<span class="">Layanan Mekanikal &amp; Overhaul</span>
+<i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
+</a>
+<a class="py-1.5 px-2 hover:bg-slate-50 rounded text-brand-900 flex items-center justify-between" href="#kontrak-pmp">
+<span class="">Kontrak Perawatan Armada (PMP)</span>
+<i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
+</a>
+<a class="py-1.5 px-2 hover:bg-slate-50 rounded text-brand-900 flex items-center justify-between" href="#fasilitas">
+<span class="">Fasilitas Bengkel Koridor Industri</span>
+<i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
+</a>
+<a class="py-1.5 px-2 hover:bg-slate-50 rounded text-brand-900 flex items-center justify-between" href="#faq">
+<span class="">Tanya Jawab Teknis</span>
+<i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
+</a>
+<div class="pt-2 border-t border-slate-100 flex items-center gap-2">
+<a class="flex-1 text-center py-2 bg-slate-100 rounded text-xs font-bold text-slate-800" href="tel:081262783788">
+<i class="fa-solid fa-phone mr-1"></i> Telepon Kantor
+          </a>
+<a class="flex-1 text-center py-2 bg-emerald-600 rounded text-xs font-bold text-white" href="https://wa.me/6281262783788">
+<i class="fa-brands fa-whatsapp mr-1"></i> Chat Mekanik
+          </a>
+</div>
+</div>
+</nav>
+</header>
+<!-- END: MobileHeader -->
+<!-- BEGIN: HeroSection -->
+<section class="pt-4 pb-6 px-4 bg-gradient-to-b from-blue-50/70 via-slate-50 to-white" data-purpose="mobile-hero">
+<!-- Top Pill Badge -->
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-100 border border-blue-200 text-brand-900 text-[11px] font-bold mb-3">
+<span class="w-1.5 h-1.5 rounded-full bg-brand-800"></span>
+      BENGKEL REKAYASA RESMI &amp; SPESIALIS HEAVY DUTY TRUCK #1
+    </div>
+<!-- Main Headline -->
+<h1 class="text-2xl font-extrabold text-brand-950 leading-tight tracking-tight mb-2.5">Solusi Servis &amp; Pemeliharaan Armada Truk Bersama <span class="text-brand-900 bg-brand-50 px-2 py-0.5 rounded border border-brand-200 inline-block font-black shadow-2xs">MASTER TRUCK</span> <span class="text-amberOrange-600 block mt-1">Tanpa Downtime Berkepanjangan</span></h1>
+<!-- Subheadline -->
+<p class="text-xs text-slate-600 leading-relaxed mb-4">
+      Pusat rekayasa mekanikal dan perbaikan mesin diesel Euro 4, overhaul transmisi, kalibrasi injektor common rail, hingga kontrak pemeliharaan fleet logistik dengan jaminan 100% suku cadang orisinil OEM dan mekanik berlisensi pabrikan.
+    </p>
+<!-- Hero CTA Buttons -->
+<div class="flex flex-col gap-2.5 mb-5">
+<a class="w-full bg-amberOrange-500 hover:bg-amberOrange-600 text-white font-bold text-sm py-3 px-4 rounded-lg flex items-center justify-center gap-2 shadow-md active:scale-98 transition" href="#estimasi">
+<i class="fa-solid fa-calendar-days text-base"></i>
+<span class="">Jadwalkan Servis Sekarang</span>
+</a>
+<a class="w-full bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 font-bold text-xs py-2.5 px-4 rounded-lg flex items-center justify-center gap-2 active:scale-98 transition" href="https://wa.me/6281262783788?text=Halo%20Master%20Truck,%20butuh%20bantuan%20roadside%20rescue">
+<i class="fa-solid fa-truck-pickup text-amberOrange-600"></i>
+<span class="">Roadside Rescue 24 Jam</span>
+</a>
+</div>
+<!-- Supported Brands Badge Row -->
+<div class="mb-5">
+<span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1.5">Spesialisasi Brand Heavy Duty &amp; Light Commercial:</span>
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-bold px-2 py-1 rounded shadow-2xs">SCANIA</span>
+<span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-bold px-2 py-1 rounded shadow-2xs">VOLVO TRUCKS</span>
+<span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-bold px-2 py-1 rounded shadow-2xs">HINO 500 &amp; 300</span>
+<span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-bold px-2 py-1 rounded shadow-2xs">MITSUBISHI FUSO</span>
+<span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-bold px-2 py-1 rounded shadow-2xs">ISUZU GIGA</span>
+<span class="bg-white border border-slate-200 text-slate-700 text-[10px] font-bold px-2 py-1 rounded shadow-2xs">MERCEDES AXOR</span>
+</div>
+</div>
+<!-- Visual Banner with Live Diagnostic Card -->
+<div class="relative rounded-xl overflow-hidden border border-slate-200 shadow-md mb-4 bg-slate-900">
+<!-- Main Workshop Image -->
+<img alt="Master Truck Workshop Facility" class="w-full h-48 object-cover opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZkN6FTpOsqrq1hX395N2xY4mr0-tFimvUnvFPtooCR8UvOmdZfa4MrjRluw6VR0u0VSUzabzrXWts0qUlh0n_HXygv5GdIjELJElPFk3bFhyyJQuYI-YmgkTEoA3Jlq2y4CA9Da7aIKGWPzItwdGjPVOt5ghhM_X6Skk1m70v6cH6w8sviS07Ydc8dhDTwfInoMw67FfSogfwoXpkZzNyTX61dAUUn-0OfF6P1hu5CxSMI2v8BT1y">
+<!-- OEM Certified Badge -->
+<div class="absolute top-2.5 right-2.5 bg-slate-900/80 backdrop-blur-sm border border-slate-700 text-white text-[9px] font-bold px-2 py-0.5 rounded flex items-center gap-1">
+<i class="fa-solid fa-certificate text-amberOrange-400"></i>
+<span class="">OEM CERTIFIED FACILITY</span>
+</div>
+<!-- Live Telematics Overlay Widget -->
+<div class="absolute bottom-2.5 left-2.5 right-2.5 bg-white/95 backdrop-blur-md rounded-lg p-2.5 border border-slate-200 shadow-lg flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded bg-brand-50 border border-brand-200 flex items-center justify-center text-brand-900">
+<i class="fa-solid fa-microchip text-xs"></i>
+</div>
+<div>
+<div class="text-[10px] font-bold text-slate-900 leading-tight">ECU Multi-Bus Telematics</div>
+<div class="text-[9px] text-slate-500">Common Rail Injektor: 100% Optimal</div>
+</div>
+</div>
+<span class="bg-emerald-100 text-emerald-800 text-[9px] font-extrabold px-1.5 py-0.5 rounded border border-emerald-300 uppercase">READY TO HAUL</span>
+</div>
+</div>
+<!-- Quick Guarantee Mini Indicators -->
+<div class="grid grid-cols-2 gap-2 text-center">
+<div class="bg-white p-2 rounded-lg border border-slate-200 flex items-center justify-center gap-2">
+<i class="fa-solid fa-clock-rotate-left text-brand-900 text-sm"></i>
+<div class="text-left">
+<div class="text-xs font-bold text-slate-900 leading-none">&lt; 3 Jam</div>
+<div class="text-[9.5px] text-slate-500">Fast Periodic Service</div>
+</div>
+</div>
+<div class="bg-white p-2 rounded-lg border border-slate-200 flex items-center justify-center gap-2">
+<i class="fa-solid fa-shield-check text-amberOrange-600 text-sm"></i>
+<div class="text-left">
+<div class="text-xs font-bold text-slate-900 leading-none">6 Bulan</div>
+<div class="text-[9.5px] text-slate-500">Garansi Spare Part</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: KeyMetricsSection -->
+<section class="px-4 py-3" data-purpose="metrics-grid">
+<div class="grid grid-cols-2 gap-2.5">
+<div class="bg-white p-3 rounded-lg border border-slate-200/90 shadow-2xs">
+<div class="w-7 h-7 rounded-md bg-blue-50 text-brand-900 flex items-center justify-center mb-1.5">
+<i class="fa-solid fa-truck-ramp-box text-xs"></i>
+</div>
+<div class="text-lg font-black text-slate-900 leading-tight">5.200+</div>
+<div class="text-[10px] font-medium text-slate-500">Truk &amp; Trailer Ditangani</div>
+</div>
+<div class="bg-white p-3 rounded-lg border border-slate-200/90 shadow-2xs">
+<div class="w-7 h-7 rounded-md bg-orange-50 text-amberOrange-600 flex items-center justify-center mb-1.5">
+<i class="fa-solid fa-chart-line-up text-xs"></i>
+</div>
+<div class="text-lg font-black text-slate-900 leading-tight">99.2%</div>
+<div class="text-[10px] font-medium text-slate-500">On-Time Fleet Delivery</div>
+</div>
+<div class="bg-white p-3 rounded-lg border border-slate-200/90 shadow-2xs">
+<div class="w-7 h-7 rounded-md bg-indigo-50 text-indigo-700 flex items-center justify-center mb-1.5">
+<i class="fa-solid fa-warehouse text-xs"></i>
+</div>
+<div class="text-lg font-black text-slate-900 leading-tight">15+ Bay</div>
+<div class="text-[10px] font-medium text-slate-500">Bengkel Standar ISO 9001</div>
+</div>
+<div class="bg-white p-3 rounded-lg border border-slate-200/90 shadow-2xs">
+<div class="w-7 h-7 rounded-md bg-emerald-50 text-emerald-700 flex items-center justify-center mb-1.5">
+<i class="fa-solid fa-file-contract text-xs"></i>
+</div>
+<div class="text-lg font-black text-slate-900 leading-tight">180 Hari</div>
+<div class="text-[10px] font-medium text-slate-500">Garansi Resmi Overhaul</div>
+</div>
+</div>
+</section>
+<!-- END: KeyMetricsSection -->
+<!-- BEGIN: CostEstimatorCalculator -->
+<section class="px-4 py-6" data-purpose="cost-calculator-section" id="estimasi">
+<div class="bg-white rounded-xl border border-blue-100 shadow-md p-4">
+<div class="text-center mb-4">
+<span class="bg-blue-100 text-brand-900 text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full tracking-wide">
+          KALKULATOR &amp; ESTIMASI SERVIS CEPAT
+        </span>
+<h2 class="text-lg font-extrabold text-slate-900 mt-1.5">Cek Estimasi Biaya &amp; Jadwal Perbaikan</h2>
+<p class="text-xs text-slate-500 mt-1">Dapatkan transparansi anggaran servis sebelum kendaraan masuk pit bengkel.</p>
+</div>
+<!-- Calculator Form -->
+<form class="space-y-3" id="calc-form" onsubmit="event.preventDefault();">
+<div>
+<label class="block text-[11px] font-bold text-slate-700 mb-1">
+<i class="fa-solid fa-truck text-brand-900 mr-1"></i> Merk &amp; Tipe Kendaraan
+          </label>
+<select class="w-full text-xs font-medium border-slate-300 rounded-lg focus:ring-brand-900 focus:border-brand-900 py-2" id="truck-type-select">
+<option value="hino500">Hino 500 (FG/FL/FM / 300 Dutro)</option>
+<option value="scania">Scania P360 / R580 Heavy Duty</option>
+<option value="fuso">Mitsubishi Fuso Fighter X / Canter</option>
+<option value="isuzu">Isuzu Giga FVR / FVM</option>
+<option value="axor">Mercedes-Benz Axor 2528 C / R</option>
+</select>
+</div>
+<div>
+<label class="block text-[11px] font-bold text-slate-700 mb-1">
+<i class="fa-solid fa-wrench text-brand-900 mr-1"></i> Kategori Pekerjaan
+          </label>
+<select class="w-full text-xs font-medium border-slate-300 rounded-lg focus:ring-brand-900 focus:border-brand-900 py-2" id="service-cat-select">
+<option value="oil">Paket Ganti Oli &amp; Filter Fleet (Fast Bay)</option>
+<option value="brake">Overhaul Sistem Rem Pneumatik (Air Brake)</option>
+<option value="engine">Diagnostik Common Rail &amp; Injektor</option>
+<option value="transmission">Overhaul Transmisi &amp; Gardan Diferensial</option>
+<option value="undercarriage">Laser 3D Spooring &amp; Chasis Alignment</option>
+</select>
+</div>
+<div>
+<label class="block text-[11px] font-bold text-slate-700 mb-1">
+<i class="fa-solid fa-location-dot text-brand-900 mr-1"></i> Pilihan Lokasi Bengkel
+          </label>
+<select class="w-full text-xs font-medium border-slate-300 rounded-lg focus:ring-brand-900 focus:border-brand-900 py-2">
+<option>Workshop Utama Cikarang Barat (Jababeka II)</option>
+<option>Depo &amp; Workshop Tanjung Priok (Jakarta Utara)</option>
+<option>Mobile Service Van (On-Site Pool Armada)</option>
+</select>
+</div>
+<button class="w-full bg-brand-900 hover:bg-brand-950 text-white font-bold text-xs py-2.5 px-4 rounded-lg flex items-center justify-center gap-1.5 transition shadow" id="calc-submit-btn" type="button">
+<i class="fa-solid fa-calculator"></i>
+<span class="">Cek Estimasi Biaya</span>
+</button>
+</form>
+<!-- Calculator Result Card -->
+<div class="mt-4 p-3.5 bg-blue-50/80 border border-blue-200 rounded-xl" id="calc-result">
+<div class="flex items-start gap-2.5">
+<div class="w-6 h-6 rounded-full bg-brand-900 text-white flex items-center justify-center shrink-0 mt-0.5">
+<i class="fa-solid fa-info text-[10px]"></i>
+</div>
+<div>
+<div class="text-xs font-bold text-brand-950" id="result-package-name">Estimasi: Paket Ganti Oli &amp; Filter Fleet Hino 500</div>
+<p class="text-[11px] text-slate-600 mt-0.5" id="result-desc">
+              Durasi pengerjaan: ± 2.5 Jam | Rekomendasi oli sintetik 15W-40 CI-4 + Filter Solar &amp; Oli OEM Hino.
+            </p>
+</div>
+</div>
+<div class="mt-3 pt-3 border-t border-blue-200/80 flex items-center justify-between">
+<div>
+<div class="text-[10px] uppercase font-bold text-slate-500">ESTIMASI MULAI DARI</div>
+<div class="text-base font-black text-amberOrange-600" id="result-price">Rp 1.850.000 <span class="text-[11px] font-normal text-slate-600">/ Unit</span></div>
+</div>
+<a class="bg-amberOrange-500 hover:bg-amberOrange-600 text-white text-xs font-bold px-3 py-2 rounded-lg flex items-center gap-1 shadow-sm transition" href="https://wa.me/6281262783788?text=Halo%20Master%20Truck,%20saya%20ingin%20booking%20slot%20servis">
+<i class="fa-solid fa-check text-[10px]"></i>
+<span class="">Booking Slot Pas</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- END: CostEstimatorCalculator -->
+<!-- BEGIN: WhyUsSection -->
+<section class="px-4 py-6" data-purpose="why-us-reasons">
+<div class="mb-4">
+<span class="text-brand-900 text-[10px] font-bold uppercase tracking-wider block mb-1">
+        STANDAR REKAYASA INDUSTRI KOMERSIAL
+      </span>
+<h2 class="text-xl font-extrabold text-slate-900 tracking-tight">
+        Mengapa 400+ Perusahaan Ekspedisi Mempercayakan Armadanya Kepada Kami?
+      </h2>
+<p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+        Kami menghilangkan tradisi mekanik coba-coba dengan pendekatan diagnosa digital berbasis data pabrikan (*data-driven mechanical engineering*).
+      </p>
+</div>
+<!-- Reason Cards -->
+<div class="space-y-3">
+<!-- Card 1 -->
+<div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-2xs flex items-start gap-3">
+<div class="w-10 h-10 rounded-lg bg-blue-100/70 text-brand-900 flex items-center justify-center shrink-0">
+<i class="fa-solid fa-laptop-code text-base"></i>
+</div>
+<div class="flex-1">
+<h3 class="text-xs font-bold text-slate-900">Teknologi Scanner ECU Terkini</h3>
+<p class="text-[11px] text-slate-600 mt-1 leading-snug">
+            Diagnostik instan multi-brand Scania SDP3, Hino Diagnostic eXplorer, dan Fuso MUT-III. Membaca sensor knocking dan kalibrasi sistem emisi Euro 4 dengan akurasi 100%.
+          </p>
+<div class="mt-2 inline-flex items-center gap-1 text-[10px] font-bold text-brand-800 bg-blue-50 px-2 py-0.5 rounded">
+<i class="fa-solid fa-shield text-[9px]"></i> Standar Kalibrasi OEM
+          </div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-2xs flex items-start gap-3">
+<div class="w-10 h-10 rounded-lg bg-orange-100/70 text-amberOrange-600 flex items-center justify-center shrink-0">
+<i class="fa-solid fa-user-gear text-base"></i>
+</div>
+<div class="flex-1">
+<h3 class="text-xs font-bold text-slate-900">Mekanik Berlisensi Pabrikan</h3>
+<p class="text-[11px] text-slate-600 mt-1 leading-snug">
+            Tim mekanik berpengalaman 10+ tahun, terlatih langsung oleh ATPM resmi spesialis overhaul diesel common rail dan sistem rem pneumatic brake valves terkemuka.
+          </p>
+<div class="mt-2 inline-flex items-center gap-1 text-[10px] font-bold text-amberOrange-700 bg-orange-50 px-2 py-0.5 rounded">
+<i class="fa-solid fa-award text-[9px]"></i> Sertifikasi BNSP &amp; ATPM
+          </div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-2xs flex items-start gap-3">
+<div class="w-10 h-10 rounded-lg bg-emerald-100/70 text-emerald-700 flex items-center justify-center shrink-0">
+<i class="fa-solid fa-boxes-stacked text-base"></i>
+</div>
+<div class="flex-1">
+<h3 class="text-xs font-bold text-slate-900">Ready Stock Spare Part Orisinil</h3>
+<p class="text-[11px] text-slate-600 mt-1 leading-snug">
+            Gudang suku cadang terintegrasi di Cikarang &amp; Priok. Liner kit, piston, kampas kopling heavy duty, hingga air valve kit selalu tersedia tanpa masa indent panjang.
+          </p>
+<div class="mt-2 inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">
+<i class="fa-solid fa-circle-check text-[9px]"></i> Garansi Suku Cadang s/d 6 Bulan
+          </div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-2xs flex items-start gap-3">
+<div class="w-10 h-10 rounded-lg bg-indigo-100/70 text-indigo-700 flex items-center justify-center shrink-0">
+<i class="fa-solid fa-handshake-angle text-base"></i>
+</div>
+<div class="flex-1">
+<h3 class="text-xs font-bold text-slate-900">Dedicated Fleet Account Manager</h3>
+<p class="text-[11px] text-slate-600 mt-1 leading-snug">
+            Satu kontak terdedikasi untuk perusahaan Anda. Dilengkapi rekam jejak digital per nomor polisi truk dan opsi skema pembayaran termin (TOP) fleksibel.
+          </p>
+<div class="mt-2 inline-flex items-center gap-1 text-[10px] font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded">
+<i class="fa-solid fa-receipt text-[9px]"></i> Term of Payment 30 Hari
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: WhyUsSection -->
+<!-- BEGIN: WorkshopServices -->
+<section class="px-4 py-6 bg-slate-100/70" data-purpose="services-showcase" id="layanan">
+<div class="mb-4">
+<span class="bg-amberOrange-500/10 text-amberOrange-600 font-extrabold text-[10px] uppercase px-2 py-0.5 rounded tracking-wide">
+        CAKUPAN SERVIS KOMPREHENSIF
+      </span>
+<h2 class="text-xl font-extrabold text-slate-900 mt-1 leading-snug">
+        Layanan Mekanikal Berat, Kalibrasi Sensor, &amp; Restorasi Armada
+      </h2>
+<p class="text-xs text-slate-600 mt-1 leading-relaxed">
+        Dikerjakan dalam fasilitas inspection bay modern dengan tool pneumatic bertekanan tinggi dan torque wrench terkalibrasi rutin.
+      </p>
+</div>
+<div class="space-y-3.5">
+<!-- Service 1: Overhaul Mesin -->
+<div class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-md bg-blue-50 text-brand-900 flex items-center justify-center font-bold">
+<i class="fa-solid fa-gears text-sm"></i>
+</div>
+<h3 class="text-xs font-bold text-slate-900">Overhaul &amp; Rebuild Mesin Diesel</h3>
+</div>
+<span class="text-[9px] font-bold uppercase bg-blue-100 text-brand-900 px-1.5 py-0.5 rounded">Top Service</span>
+</div>
+<p class="text-[11px] text-slate-600 leading-relaxed mb-2.5">
+          Restorasi performa total mesin diesel Scania PDE/HPI, Mitsubishi 6D16/6M60, Hino J08E, dan Isuzu 6HK1. Termasuk penggantian liner, seher, skir klep, dan balancing kruk as.
+        </p>
+<ul class="text-[10px] space-y-1 text-slate-700 mb-3 font-medium">
+<li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-600"></i> Pengukuran mikrometer cek kompresi presisi</li>
+<li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-600"></i> Dyno test beban pasca assembly</li>
+<li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-600"></i> Garansi 6 bulan bebas rembes &amp; ngebul</li>
+</ul>
+<div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+<span class="text-[10px] text-slate-500 font-medium">Durasi: 4-7 Hari Kerja</span>
+<a class="text-brand-900 font-bold hover:underline flex items-center gap-1 text-[11px]" href="https://wa.me/6281262783788?text=Tanya%20layanan%20overhaul%20mesin%20diesel">
+            Konsultasi <i class="fa-solid fa-arrow-right text-[10px]"></i>
+</a>
+</div>
+</div>
+<!-- Service 2: Rem Pneumatik -->
+<div class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-md bg-orange-50 text-amberOrange-600 flex items-center justify-center font-bold">
+<i class="fa-solid fa-triangle-exclamation text-sm"></i>
+</div>
+<h3 class="text-xs font-bold text-slate-900">Servis Rem Pneumatik (Full Air Brake)</h3>
+</div>
+<span class="text-[9px] font-bold uppercase bg-amber-100 text-amber-900 px-1.5 py-0.5 rounded">Keselamatan</span>
+</div>
+<p class="text-[11px] text-slate-600 leading-relaxed mb-2.5">
+          Pencegahan fatal rem blong pada turunan curam. Servis kompresor udara, air dryer filter, booster rem, relay valve, chamber rem, dan kampas rem heavy duty.
+        </p>
+<ul class="text-[10px] space-y-1 text-slate-700 mb-3 font-medium">
+<li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-600"></i> Uji tekanan psi digital tabung angin</li>
+<li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-600"></i> Bubut tromol presisi truk gandeng</li>
+<li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-600"></i> Penggantian valve anti-locking OEM</li>
+</ul>
+<div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+<span class="text-[10px] text-slate-500 font-medium">Durasi: 4-6 Jam</span>
+<a class="text-brand-900 font-bold hover:underline flex items-center gap-1 text-[11px]" href="https://wa.me/6281262783788?text=Tanya%20servis%20air%20brake">
+            Konsultasi <i class="fa-solid fa-arrow-right text-[10px]"></i>
+</a>
+</div>
+</div>
+<!-- Service 3: Kalibrasi Common Rail -->
+<div class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-md bg-indigo-50 text-indigo-700 flex items-center justify-center font-bold">
+<i class="fa-solid fa-gas-pump text-sm"></i>
+</div>
+<h3 class="text-xs font-bold text-slate-900">Kalibrasi Common Rail &amp; Bosch Pump</h3>
+</div>
+<span class="text-[9px] font-bold uppercase bg-indigo-100 text-indigo-900 px-1.5 py-0.5 rounded">Efisiensi Solar</span>
+</div>
+<p class="text-[11px] text-slate-600 leading-relaxed mb-2.5">
+          Atasi masalah konsumsi solar boros, tenaga loyo, atau asap hitam pekat. Kalibrasi nozzle injektor common rail bertekanan 2.000+ bar dengan test bench komputerisasi.
+        </p>
+<ul class="text-[10px] space-y-1 text-slate-700 mb-3 font-medium">
+<li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-600"></i> Diagnosa debit &amp; sudut semprot nozzle</li>
+<li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-600"></i> Pembersihan ultrasonik komponen injeksi</li>
+<li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-600"></i> Penghematan solar armada s/d 12%</li>
+</ul>
+<div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+<span class="text-[10px] text-slate-500 font-medium">Durasi: 1 Hari Kerja</span>
+<a class="text-brand-900 font-bold hover:underline flex items-center gap-1 text-[11px]" href="https://wa.me/6281262783788?text=Tanya%20kalibrasi%20injektor%20common%20rail">
+            Konsultasi <i class="fa-solid fa-arrow-right text-[10px]"></i>
+</a>
+</div>
+</div>
+<!-- Service 4: Transmisi & Gardan -->
+<div class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-md bg-blue-50 text-brand-900 flex items-center justify-center font-bold">
+<i class="fa-solid fa-arrows-split-up-and-left text-sm"></i>
+</div>
+<h3 class="text-xs font-bold text-slate-900">Transmisi &amp; Gardan (Differential)</h3>
+</div>
+<span class="text-[9px] font-bold uppercase bg-slate-200 text-slate-800 px-1.5 py-0.5 rounded">Drivetrain</span>
+</div>
+<p class="text-[11px] text-slate-600 leading-relaxed mb-2.5">
+          Perbaikan persneling susah masuk, transmisi macet, gardan mendengung saat muatan berat, penggantian gigi sinkronis, pelat kopling, matahari, dan cross joint kopel.
+        </p>
+<div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+<span class="text-[10px] text-slate-500 font-medium">Durasi: 1-3 Hari Kerja</span>
+<a class="text-brand-900 font-bold hover:underline flex items-center gap-1 text-[11px]" href="https://wa.me/6281262783788?text=Tanya%20servis%20transmisi%20dan%20gardan">
+            Konsultasi <i class="fa-solid fa-arrow-right text-[10px]"></i>
+</a>
+</div>
+</div>
+<!-- Service 5: Chasis Alignment & Body -->
+<div class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-md bg-cyan-50 text-cyan-800 flex items-center justify-center font-bold">
+<i class="fa-solid fa-arrows-to-dot text-sm"></i>
+</div>
+<h3 class="text-xs font-bold text-slate-900">Chasis Alignment &amp; Karoseri Truk</h3>
+</div>
+<span class="text-[9px] font-bold uppercase bg-cyan-100 text-cyan-800 px-1.5 py-0.5 rounded">Chasis &amp; Body</span>
+</div>
+<p class="text-[11px] text-slate-600 leading-relaxed mb-2.5">
+          Penarikan dan pelurusan sasis bengkok pasca insiden jalan raya, perbaikan kingpin, spring suspension (per daun), perbaikan engsel bak kontainer, dan pengelasan sasis berstandar keselamatan.
+        </p>
+<div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+<span class="text-[10px] text-slate-500 font-medium">Durasi: Sesuai Inspeksi</span>
+<a class="text-brand-900 font-bold hover:underline flex items-center gap-1 text-[11px]" href="https://wa.me/6281262783788?text=Tanya%20alignment%20chasis%20truk">
+            Konsultasi <i class="fa-solid fa-arrow-right text-[10px]"></i>
+</a>
+</div>
+</div>
+<!-- Service 6: Mobile Service Van -->
+<div class="bg-white rounded-xl border-2 border-amberOrange-500/40 p-4 shadow-sm relative">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-md bg-orange-100 text-amberOrange-600 flex items-center justify-center font-bold">
+<i class="fa-solid fa-truck-medical text-sm"></i>
+</div>
+<h3 class="text-xs font-bold text-slate-900">Mobile Service Van &amp; Derek Heavy Duty</h3>
+</div>
+<span class="text-[9px] font-bold uppercase bg-amberOrange-500 text-white px-2 py-0.5 rounded">SIAGA 24 JAM</span>
+</div>
+<p class="text-[11px] text-slate-600 leading-relaxed mb-2.5">
+          Truk derek boom 25 ton dan armada bengkel berjalan lengkap dengan genset, kompresor, dan diagnostik scanner untuk perbaikan darurat langsung di bahu jalan tol maupun di pool perusahaan Anda.
+        </p>
+<div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+<span class="text-[10px] text-amberOrange-700 font-bold"><i class="fa-solid fa-bolt mr-1"></i> Respon: &lt; 45 Menit</span>
+<a class="text-amberOrange-600 font-extrabold hover:underline flex items-center gap-1 text-[11px]" href="tel:081262783788">
+            Hubungi Rescue <i class="fa-solid fa-phone text-[10px]"></i>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- END: WorkshopServices -->
+<!-- BEGIN: FleetMaintenanceContracts -->
+<section class="px-4 py-6" data-purpose="pricing-contract-plans" id="kontrak-pmp">
+<div class="text-center mb-4">
+<span class="bg-blue-100 text-brand-900 text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full tracking-wide">
+        SOLUSI PERUSAHAAN LOGISTIK &amp; TAMBANG
+      </span>
+<h2 class="text-xl font-extrabold text-slate-900 mt-1">Kontrak Perawatan Armada (PMP) Terjadwal</h2>
+<p class="text-xs text-slate-600 mt-1">Lindungi aset armada Anda dari kerusakan tiba-tiba di tengah rute ekspedisi dengan jaminan ketersediaan mekanik dan sistem tagihan korporasi bulanan.</p>
+</div>
+<!-- Contract Cards Stack -->
+<div class="space-y-4">
+<!-- Tier 1: Bronze Fleet -->
+<div class="bg-white rounded-xl border border-slate-200 p-4 shadow-2xs">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-bold uppercase tracking-wider text-slate-500">Paket Berkala</span>
+<span class="text-[10px] font-bold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">3 - 15 Unit</span>
+</div>
+<h3 class="text-base font-extrabold text-slate-900 mt-1">Bronze Fleet</h3>
+<p class="text-[11px] text-slate-500 mb-3">Sangat ideal untuk ekspedisi skala menengah yang membutuhkan perawatan teratur tanpa repot.</p>
+<div class="mb-3">
+<span class="text-lg font-black text-slate-900">Rp 450.000</span>
+<span class="text-xs text-slate-500">/ unit / bulan (Retainer)</span>
+</div>
+<ul class="text-[11px] space-y-1.5 text-slate-700 mb-4 font-medium">
+<li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-600 text-xs"></i> 1x General Pre-Trip Inspection per bulan</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-600 text-xs"></i> Diskon spare part orisinil 7%</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-600 text-xs"></i> Akses Booking Jalur Cepat (Fast Track Bay)</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-600 text-xs"></i> Invoice Termin TOP 14 Hari</li>
+<li class="flex items-center gap-2 text-slate-400 line-through"><i class="fa-solid fa-circle-xmark text-slate-400 text-xs"></i> Mekanik on-site standby di pool</li>
+</ul>
+<button class="w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold rounded-lg transition" type="button">
+          Pilih Paket Bronze
+        </button>
+</div>
+<!-- Tier 2: Silver Fleet (Featured / Populer) -->
+<div class="bg-white rounded-xl border-2 border-amberOrange-500 p-4 shadow-md relative">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-amberOrange-500 text-white text-[9.5px] font-extrabold uppercase px-3 py-0.5 rounded-full tracking-wider shadow-sm">
+          Pilihan Terfavorit Logistik
+        </div>
+<div class="flex items-center justify-between mt-1">
+<span class="text-[10px] font-bold uppercase tracking-wider text-amberOrange-600">Paket Komprehensif</span>
+<span class="text-[10px] font-bold text-amberOrange-700 bg-amber-50 px-2 py-0.5 rounded">16 - 50 Unit</span>
+</div>
+<h3 class="text-base font-extrabold text-slate-900 mt-1">Silver Fleet</h3>
+<p class="text-[11px] text-slate-500 mb-3">Solusi total manajemen pemeliharaan armada truk cargo, distributor semen, dan FMCG antar-provinsi.</p>
+<div class="mb-3">
+<span class="text-xl font-black text-amberOrange-600">Rp 850.000</span>
+<span class="text-xs text-slate-500">/ unit / bulan (Retainer)</span>
+</div>
+<ul class="text-[11px] space-y-1.5 text-slate-700 mb-4 font-medium">
+<li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-amberOrange-600 text-xs"></i> 2x Inspeksi Lengkap Sistem Rem &amp; ECU / bln</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-amberOrange-600 text-xs"></i> Diskon spare part OEM s/d 12%</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-amberOrange-600 text-xs"></i> Layanan Derek Rescue Gratis 2x / tahun</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-amberOrange-600 text-xs"></i> Invoice Termin TOP 30 Hari</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-amberOrange-600 text-xs"></i> Portal Rekam Jejak Digital Armada Online</li>
+</ul>
+<button class="w-full py-2.5 bg-amberOrange-500 hover:bg-amberOrange-600 text-white text-xs font-bold rounded-lg shadow-sm transition" type="button">
+          Daftarkan Armada Silver
+        </button>
+</div>
+<!-- Tier 3: Gold Enterprise -->
+<div class="bg-brand-950 rounded-xl border border-slate-800 p-4 text-white shadow-md">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-bold uppercase tracking-wider text-amberOrange-400">Skala Korporat Besar</span>
+<span class="text-[10px] font-bold text-white bg-slate-800 px-2 py-0.5 rounded">50+ Unit</span>
+</div>
+<h3 class="text-base font-extrabold text-white mt-1">Gold Enterprise</h3>
+<p class="text-[11px] text-slate-300 mb-3">Pengelolaan armada terpadu dengan penempatan teknisi standby permanen langsung di pool customer.</p>
+<div class="mb-3">
+<span class="text-base font-extrabold text-amberOrange-400">Kustom Sesuai SLA</span>
+<span class="text-xs text-slate-400">(Dedicated Contract)</span>
+</div>
+<ul class="text-[11px] space-y-1.5 text-slate-200 mb-4 font-medium">
+<li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400 text-xs"></i> Penempatan Mekanik Standby di Pool Klien</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400 text-xs"></i> Konsinyasi Stok Spare Part Kritis di Lokasi Anda</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400 text-xs"></i> Emergency Roadside Response Prioritas &lt; 30 Menit</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400 text-xs"></i> Invoice Termin TOP 45 Hari + Jaminan SLA 99.5%</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400 text-xs"></i> Monthly Review Bersama Tim Engineering ATPM</li>
+</ul>
+<button class="w-full py-2.5 bg-brand-900 hover:bg-brand-800 text-white text-xs font-bold rounded-lg border border-brand-700 transition" type="button">
+          Hubungi Head of Corporate Fleet
+        </button>
+</div>
+</div>
+</section>
+<!-- END: FleetMaintenanceContracts -->
+<!-- BEGIN: WorkshopFacilities -->
+<section class="px-4 py-6 bg-slate-50" data-purpose="workshop-facilities-grid" id="fasilitas">
+<div class="mb-4">
+<div class="flex items-center justify-between">
+<span class="text-brand-900 text-[10px] font-bold uppercase tracking-wider block">INFRASTRUKTUR BERSTANDAR INTERNASIONAL</span>
+</div>
+<h2 class="text-xl font-extrabold text-slate-900 mt-1">Fasilitas Bengkel Heavy Duty Terlengkap di Koridor Industri</h2>
+<p class="text-xs text-slate-600 mt-1">Dirancang khusus untuk manuver tronton 10 roda, dump truck, trailer peti kemas 40ft, dan truk tangki bervolume besar.</p>
+</div>
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Facility 1 -->
+<div class="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-2xs">
+<div class="relative h-28 bg-slate-800">
+<img alt="Inspection Pit 20 Meter" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQOmB3cQIOP2s6wniNgHcyz6dBC6rzMzGosf1PaXFRvCzU2ZJDgx4tMtG3fRiIPZvHQmLh16LJnZf4Dm_zGCTjbS29wk8C0dLlT6naPoAYjQxZvZQ-8JK-uAlSNgiMXpXvMmacItjFO20paJZxnomw29lNJSOvDQncjck0iTb3Zmb3u8lntoPTlNenpjdGY5QT07DJ3p9H1kmkfH9nYXki0CJA2bhNK-XO_vWOYVoWS_seGf03ucJp">
+<span class="absolute bottom-1.5 left-1.5 bg-slate-900/80 text-white text-[9px] font-semibold px-1.5 py-0.5 rounded">Bay Kapasitas Gandeng</span>
+</div>
+<div class="p-2.5">
+<h3 class="text-xs font-bold text-slate-900">Inspection Pit 20 Meter</h3>
+<p class="text-[10px] text-slate-500 mt-1 leading-snug">Lubang kolong berstandar keselamatan tinggi memudahkan inspeksi undercarriage, gardan ganda, dan sasis trailer tanpa resiko dongkrak miring.</p>
+</div>
+</div>
+<!-- Facility 2 -->
+<div class="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-2xs">
+<div class="relative h-28 bg-slate-800">
+<img alt="Overhead Crane 10 Ton" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVuVZ87gOYyM18bumGQEWgE7chlKnVcIhfQcscTvd3GULofsS4ZzZmJD82QoIpNBPfv5I7T3UfswbD0-UgbyaRkaMymlKYL2FvIEl_gJAwkfy7KFpHXxntD-etUv3yvR6a6kmkivGPcaPqFrOVYB3d1W3cu9trSVtd5q-MrYhlZmHlE8LRA5IPnbFqlfpMxPDQfskeyeOAu7a4ZD2L_oAz9BuxhW30M9E73Ce8_JZ1wkQujK8h6_5T">
+<span class="absolute bottom-1.5 left-1.5 bg-slate-900/80 text-white text-[9px] font-semibold px-1.5 py-0.5 rounded">Heavy Lifting</span>
+</div>
+<div class="p-2.5">
+<h3 class="text-xs font-bold text-slate-900">Overhead Crane 10 Ton</h3>
+<p class="text-[10px] text-slate-500 mt-1 leading-snug">Derek gantung elektrik memudahkan pengangkatan blok mesin diesel berat, transmisi 16-speed, dan diferensial dengan aman tanpa merusak bodi kabin.</p>
+</div>
+</div>
+<!-- Facility 3 -->
+<div class="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-2xs">
+<div class="relative h-28 bg-slate-800">
+<img alt="Wheel Alignment 3D Laser" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByfH89kE3YTqQSYY09pLE1cAcYzIeTqLP2UOFo2ZGEiOjLEjL5-QjdiDQAODGm4e7Gu9ogredC3yU321OscZDhbCIiBKAS1rutSkWpn5Ib9OZ1q5tOC9CcbUk4xYpHorKrd6ry-VX01fzUSxgHyL0qgFwi2GL8JTxk9KaxFaCWyCBM0yB-IvrGIi_Hqgd_fwKBFVmlZJmbd7Jkeyk0ux-k8Fa7j8XnhDbfXxPAL7ted40-i-dsjxYD">
+<span class="absolute bottom-1.5 left-1.5 bg-slate-900/80 text-white text-[9px] font-semibold px-1.5 py-0.5 rounded">Presisi Sensor 3D</span>
+</div>
+<div class="p-2.5">
+<h3 class="text-xs font-bold text-slate-900">Wheel Alignment 3D Laser</h3>
+<p class="text-[10px] text-slate-500 mt-1 leading-snug">Penyelarasan sudut camber, caster, dan toe roda truk multi-axis. Mengurangi keausan ban tidak merata hingga 40% dan menghemat konsumsi bahan bakar.</p>
+</div>
+</div>
+<!-- Facility 4 -->
+<div class="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-2xs">
+<div class="relative h-28 bg-slate-800">
+<img alt="Dyno Test Mesin Diesel" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcVq_KyNz8p7Pw6GKXb_ZApfzJYcgzjIvMKxXUgnrE6YpEm701FTTQbKVMxhT30z5-_8DIVaPDVxA0JWLxWGb5iVUZOFjSmr_kmigPO1gDL1-FERPD1Q31VeWAwL6bUiSPnskb6Tw6_qPjd47dFq2BN0-kUZRGEhbjfYT8IUQIQ2jlLCO1yPwLwS5kM5Dzy8LIQos7OLXSu0eL__1TzZxMxB_x8FoezbotBQROOw5tPwIGhaXNakjo">
+<span class="absolute bottom-1.5 left-1.5 bg-slate-900/80 text-white text-[9px] font-semibold px-1.5 py-0.5 rounded">Torsi &amp; Horsepower</span>
+</div>
+<div class="p-2.5">
+<h3 class="text-xs font-bold text-slate-900">Dyno Test Mesin Diesel</h3>
+<p class="text-[10px] text-slate-500 mt-1 leading-snug">Fasilitas pengujian tenaga dan torsi mesin diesel pasca overhaul sebelum unit dikirimkan kembali ke customer untuk memastikan output tenaga optimal 100%.</p>
+</div>
+</div>
+<!-- Facility 5 -->
+<div class="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-2xs">
+<div class="relative h-28 bg-slate-800">
+<img alt="Laboratorium Uji Injektor Common Rail" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKF8QIAbgn8uE_DRoB9ClfkBiKoBp3Q4vz107zUQXLLTBBfMk7zOY_K_oVpIroRLsKemo2dILQwMrKnS-2I004NHo9w6hXB1NzQ33cYZS0ctA6tXGMCqgB65vojVr7pG9sF9wO7t99sIGf3slffOknhqNFQd9SdlxxKWuUBB92deVCb3djIAtzYyDRbqxwBbx881jcBTUaoi9MTs1fLY6zMXcriDQAjz6oOZakfY5m6N34sWuQ9pQy">
+<span class="absolute bottom-1.5 left-1.5 bg-slate-900/80 text-white text-[9px] font-semibold px-1.5 py-0.5 rounded">Steril &amp; Presisi</span>
+</div>
+<div class="p-2.5">
+<h3 class="text-xs font-bold text-slate-900">Laboratorium Uji Injektor</h3>
+<p class="text-[10px] text-slate-500 mt-1 leading-snug">Ruang kalibrasi ber-AC steril bebas debu untuk memastikan komponen pompa injeksi dan sensor bahan bakar Euro 4 terhindar dari kontaminasi partikel mikro.</p>
+</div>
+</div>
+<!-- Facility 6 -->
+<div class="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-2xs">
+<div class="relative h-28 bg-slate-800">
+<img alt="Driver Lounge Ber-AC &amp; Istirahat" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhZWWEWVp4i3wKZdiRqOn7TWDLhc9xnBn8ticRIjU5NCFTDy7_1K2M6_ZNCYrm885BlvRTBLZQ7Vz5l1RhqORnQhd7DKdrd5woma7weQ_xcxDylJJZnqKVvDAk8qFrS8zsgItBpUl5z1YEwqINL6Wv9ul2KYmfH_Q5Th6GomHqF9Ru6OhzW7CAr6LocfJVuQ3p6Wa1F_gShw0xs_GeJoiKu85mQeDAhH1xIMY-8ZBZpkFoZBXcelTN">
+<span class="absolute bottom-1.5 left-1.5 bg-slate-900/80 text-white text-[9px] font-semibold px-1.5 py-0.5 rounded">Kenyamanan Supir</span>
+</div>
+<div class="p-2.5">
+<h3 class="text-xs font-bold text-slate-900">Driver Lounge Ber-AC</h3>
+<p class="text-[10px] text-slate-500 mt-1 leading-snug">Ruang tunggu istirahat nyaman untuk kru pengemudi armada logistik selama masa servis kilat: Wi-Fi cepat, kamar mandi bersih, kopi gratis, dan mushola.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: WorkshopFacilities -->
+<!-- BEGIN: TestimonialsSection -->
+<section class="px-4 py-6" data-purpose="customer-social-proof">
+<div class="text-center mb-4">
+<span class="bg-orange-100 text-amberOrange-700 text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full tracking-wide">
+        BUKTI KEMITRAAN NYATA
+      </span>
+<h2 class="text-xl font-extrabold text-slate-900 mt-1">Dipercaya oleh Para Pemimpin Industri Ekspedisi &amp; Transportasi</h2>
+<p class="text-xs text-slate-600 mt-1">Dengarkan penuturan langsung dari Manajer Armada dan Direktur Operasional yang mengandalkan Master Truck setiap hari.</p>
+</div>
+<!-- Testimonials Slider / Scrollable Column -->
+<div class="space-y-3">
+<!-- Testimonial 1 -->
+<div class="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
+<div class="flex items-center gap-1 text-amberOrange-500 text-xs mb-2">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+</div>
+<p class="text-xs text-slate-700 italic leading-relaxed mb-3">
+          "Kami mengoperasikan 42 unit Hino 500 tronton untuk distribusi material konstruksi di Jawa Barat. Sejak bermitra dengan Master Truck melalui paket Silver Fleet, angka downtime mendadak kami turun lebih dari 65%. Transparansi estimasi biaya dan laporan servis digitalnya sangat memudahkan rekonsiliasi keuangan kantor kami."
+        </p>
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-slate-200 border border-slate-300 flex items-center justify-center font-bold text-slate-700 text-xs">
+            HG
+          </div>
+<div>
+<div class="text-xs font-bold text-slate-900 leading-tight">Hendra Gunawan, S.T.</div>
+<div class="text-[10px] text-slate-500">Fleet Operations Head – PT Trans Logistik Nusantara</div>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
+<div class="flex items-center gap-1 text-amberOrange-500 text-xs mb-2">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+</div>
+<p class="text-xs text-slate-700 italic leading-relaxed mb-3">
+          "Truk tangki curah semen kami memerlukan standar rem udara dan mesin yang tanpa kompromi saat melibas rute pegunungan. Teknisi Master Truck di Cikarang paham betul seluk beluk sistem pengereman pneumatik Scania dan Mercedes Axor. Derek 24 jam mereka juga pernah menyelamatkan armada kami di Tol Cipali tepat waktu!"
+        </p>
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-slate-200 border border-slate-300 flex items-center justify-center font-bold text-slate-700 text-xs">
+            SP
+          </div>
+<div>
+<div class="text-xs font-bold text-slate-900 leading-tight">Ir. Suryo Prasetyo</div>
+<div class="text-[10px] text-slate-500">Direktur Transportasi – Semen Perkasa Logistik</div>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
+<div class="flex items-center gap-1 text-amberOrange-500 text-xs mb-2">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+</div>
+<p class="text-xs text-slate-700 italic leading-relaxed mb-3">
+          "Armada lintas Jawa-Sumatra kami sering bermasalah dengan sistem common rail karena kualitas bahan bakar di jalur rute. Layanan kalibrasi injektor bergaransi di bengkel Tanjung Priok Master Truck berhasil memulihkan tenaga mesin Isuzu Giga kami seketika. Suku cadang selalu genuine dan mekanik sangat informatif."
+        </p>
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-slate-200 border border-slate-300 flex items-center justify-center font-bold text-slate-700 text-xs">
+            DA
+          </div>
+<div>
+<div class="text-xs font-bold text-slate-900 leading-tight">Dewi Anggraini</div>
+<div class="text-[10px] text-slate-500">Managing Partner – Andalas Express Cargo</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: TestimonialsSection -->
+<!-- BEGIN: FAQSection -->
+<section class="px-4 py-6 bg-slate-100/70" data-purpose="faq-accordion-section" id="faq">
+<div class="text-center mb-4">
+<span class="text-brand-900 text-[10px] font-bold uppercase tracking-wider block">TANYA JAWAB TEKNIS</span>
+<h2 class="text-xl font-extrabold text-slate-900 mt-1">Pertanyaan Seputar Layanan &amp; Kerjasama Bengkel</h2>
+<p class="text-xs text-slate-600 mt-1">Informasi lengkap seputar jaminan garansi perbaikan, persyaratan pembayaran korporasi, hingga cakupan area derek darurat.</p>
+</div>
+<!-- Accordion Items -->
+<div class="space-y-2.5">
+<!-- FAQ 1 -->
+<div class="bg-white rounded-lg border border-slate-200 p-3 shadow-2xs">
+<button class="faq-btn w-full text-left flex items-center justify-between font-bold text-xs text-slate-900 gap-2" type="button">
+<span class="">Berapa lama garansi yang diberikan untuk pekerjaan overhaul mesin diesel?</span>
+<i class="fa-solid fa-chevron-down text-slate-400 text-xs transition-transform duration-200"></i>
+</button>
+<div class="faq-content hidden pt-2 text-[11px] text-slate-600 leading-relaxed border-t border-slate-100 mt-2">
+          Kami memberikan garansi tertulis hingga 6 bulan (atau setara 50.000 km) untuk seluruh pengerjaan General Overhaul Mesin Diesel dengan penggantian suku cadang orisinil OEM. Garansi mencakup kebocoran kompresi, kebocoran seal oli, dan kestabilan performa mesin pasca dyno test.
+        </div>
+</div>
+<!-- FAQ 2 -->
+<div class="bg-white rounded-lg border border-slate-200 p-3 shadow-2xs">
+<button class="faq-btn w-full text-left flex items-center justify-between font-bold text-xs text-slate-900 gap-2" type="button">
+<span class="">Bagaimana skema pembayaran termin (Term of Payment) untuk perusahaan logistik?</span>
+<i class="fa-solid fa-chevron-down text-slate-400 text-xs transition-transform duration-200"></i>
+</button>
+<div class="faq-content hidden pt-2 text-[11px] text-slate-600 leading-relaxed border-t border-slate-100 mt-2">
+          Bagi korporasi atau badan usaha ekspedisi (PT/CV), kami menyediakan fasilitas Term of Payment (TOP) 14 hingga 45 hari kalender setelah kelengkapan dokumen SPK, BAP pekerjaan bengkel, dan faktur pajak diserahterimakan secara sah.
+        </div>
+</div>
+<!-- FAQ 3 -->
+<div class="bg-white rounded-lg border border-slate-200 p-3 shadow-2xs">
+<button class="faq-btn w-full text-left flex items-center justify-between font-bold text-xs text-slate-900 gap-2" type="button">
+<span class="">Apakah melayani panggilan darurat / service van ke lokasi truk mogok di jalan tol?</span>
+<i class="fa-solid fa-chevron-down text-slate-400 text-xs transition-transform duration-200"></i>
+</button>
+<div class="faq-content hidden pt-2 text-[11px] text-slate-600 leading-relaxed border-t border-slate-100 mt-2">
+          Ya, tim Roadside Rescue kami siap 24 jam dengan armada Service Van dan truk derek heavy boom 25 ton di koridor Tol Jakarta-Cikampek, Cipularang, Tol Layang MBZ, Lingkar Luar (JORR), serta kawasan pelabuhan Tanjung Priok dengan respon rata-rata &lt; 45 menit.
+        </div>
+</div>
+<!-- FAQ 4 -->
+<div class="bg-white rounded-lg border border-slate-200 p-3 shadow-2xs">
+<button class="faq-btn w-full text-left flex items-center justify-between font-bold text-xs text-slate-900 gap-2" type="button">
+<span class="">Apakah spare part yang digunakan selalu orisinil (Genuine Parts)?</span>
+<i class="fa-solid fa-chevron-down text-slate-400 text-xs transition-transform duration-200"></i>
+</button>
+<div class="faq-content hidden pt-2 text-[11px] text-slate-600 leading-relaxed border-t border-slate-100 mt-2">
+          Semua komponen kritis (piston, liner, injektor, valve, master rem, seal) dijamin 100% Genuine OEM langsung dari distributor resmi. Kami juga menyediakan alternatif suku cadang OEM Tier-1 berlisensi dengan persetujuan tertulis PIC Fleet Management Anda.
+        </div>
+</div>
+<!-- FAQ 5 -->
+<div class="bg-white rounded-lg border border-slate-200 p-3 shadow-2xs">
+<button class="faq-btn w-full text-left flex items-center justify-between font-bold text-xs text-slate-900 gap-2" type="button">
+<span class="">Bagaimana prosedur booking servis cepat agar tidak mengantre di bengkel?</span>
+<i class="fa-solid fa-chevron-down text-slate-400 text-xs transition-transform duration-200"></i>
+</button>
+<div class="faq-content hidden pt-2 text-[11px] text-slate-600 leading-relaxed border-t border-slate-100 mt-2">
+          Anda dapat menggunakan formulir kalkulator servis di atas atau mengirimkan foto STNK/nomor polisi truk beserta keluhan teknis melalui WhatsApp resmi kami. Tim service advisor kami akan langsung memesankan stall pit kerja khusus (Fast Track Bay).
+        </div>
+</div>
+</div>
+</section>
+<!-- END: FAQSection -->
+<!-- BEGIN: BottomEmergencyBanner -->
+<section class="px-4 py-6" data-purpose="bottom-cta-banner">
+<div class="bg-brand-950 text-white rounded-2xl p-5 border border-slate-800 shadow-xl relative overflow-hidden">
+<!-- Decorative Backdrop Graphic -->
+<div class="absolute -right-8 -bottom-8 opacity-10 text-white text-9xl">
+<i class="fa-solid fa-truck"></i>
+</div>
+<div class="relative z-10">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-amberOrange-500/20 text-amberOrange-400 text-[10px] font-extrabold uppercase border border-amberOrange-500/30 mb-2">
+<i class="fa-solid fa-triangle-exclamation"></i> RESPON DARURAT &amp; RESERVASI SERVIS TERPADU
+        </span>
+<h2 class="text-lg font-black tracking-tight leading-snug">
+          Armada Mogok di Jalan atau Perlu Jadwal Servis Rutin?
+        </h2>
+<p class="text-xs text-slate-300 mt-2 leading-relaxed">
+          Tim mekanik spesialis dan unit mobil derek siaga siap diberangkatkan dalam 15 menit. Dapatkan konsultasi teknis gratis dan estimasi biaya tanpa biaya tersembunyi.
+        </p>
+<!-- CTA Buttons -->
+<div class="mt-4 flex flex-col gap-2">
+<a class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs py-3 px-4 rounded-lg flex items-center justify-center gap-2 shadow-md transition" href="https://wa.me/6281262783788?text=Halo%20Master%20Truck,%20mohon%20bantuan%20segera">
+<i class="fa-brands fa-whatsapp text-sm"></i>
+<span class="">WhatsApp Mekanik Cepat</span>
+</a>
+<a class="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-bold text-xs py-2.5 px-4 rounded-lg flex items-center justify-center gap-2 transition" href="tel:081262783788">
+<i class="fa-solid fa-phone text-xs text-amberOrange-400"></i>
+<span class="">Hotline Derek 24 Jam: 0812 - MASTER - TRUCK</span>
+</a>
+</div>
+<!-- Trust Badges -->
+<div class="mt-4 pt-3 border-t border-slate-800/80 grid grid-cols-2 gap-2 text-[10px] text-slate-300">
+<div class="flex items-center gap-1.5">
+<i class="fa-solid fa-clock text-amberOrange-400"></i>
+<span class="">Senin - Sabtu: 08.00 - 20.00 WIB</span>
+</div>
+<div class="flex items-center gap-1.5">
+<i class="fa-solid fa-location-pin text-amberOrange-400"></i>
+<span class="">Cikarang &amp; Tanjung Priok</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: BottomEmergencyBanner -->
+<!-- BEGIN: MobileFooter -->
+<footer class="bg-white border-t border-slate-200 px-4 pt-6 pb-24 text-slate-600 text-xs" data-purpose="site-footer">
+<div class="space-y-5">
+<!-- Brand & Description -->
+<div>
+<div class="flex items-center gap-2 mb-2">
+<div class="w-7 h-7 rounded bg-brand-900 flex items-center justify-center text-white font-black text-sm">
+<i class="fa-solid fa-truck-front text-amberOrange-500 text-xs"></i>
+</div>
+<span class="font-black text-sm text-brand-950 uppercase">MASTER TRUCK</span>
+</div>
+<p class="text-[11px] leading-relaxed text-slate-500">
+          Penyedia solusi rekayasa mekanikal, overhaul diesel terstandar OEM, dan manajemen pemeliharaan armada truk niaga komersial terpercaya di koridor industri nasional.
+        </p>
+<div class="mt-2 text-[10px] font-bold text-slate-700 flex items-center gap-3">
+<span class=""><i class="fa-solid fa-certificate text-emerald-600 mr-1"></i>ISO 9001:2015</span>
+<span class=""><i class="fa-solid fa-shield-check text-brand-900 mr-1"></i>OEM Certified</span>
+</div>
+</div>
+<!-- Workshop Addresses -->
+<div class="space-y-3 pt-3 border-t border-slate-100">
+<div>
+<h4 class="font-bold text-slate-900 text-xs mb-1 flex items-center gap-1.5">
+<i class="fa-solid fa-building text-brand-900"></i> Workshop Pusat Cikarang
+          </h4>
+<p class="text-[11px] text-slate-500 leading-snug">
+            Jl. Industri Selatan Blok JJ No. 12, Kawasan Industri Jababeka II, Cikarang, Bekasi
+          </p>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 text-xs mb-1 flex items-center gap-1.5">
+<i class="fa-solid fa-anchor text-brand-900"></i> Depo Logistik Tanjung Priok
+          </h4>
+<p class="text-[11px] text-slate-500 leading-snug">
+            Jl. Raya Pelabuhan No. 88, Tanjung Priok, Jakarta Utara
+          </p>
+</div>
+</div>
+<!-- Service Scope List -->
+<div class="pt-3 border-t border-slate-100">
+<h4 class="font-bold text-slate-900 text-xs mb-2">Garansi &amp; Layanan</h4>
+<div class="grid grid-cols-2 gap-1 text-[11px] text-slate-600">
+<span class="flex items-center gap-1"><i class="fa-solid fa-check text-emerald-600 text-[9px]"></i> Overhaul Mesin Euro 4</span>
+<span class="flex items-center gap-1"><i class="fa-solid fa-check text-emerald-600 text-[9px]"></i> Scanner ECU Multi-Brand</span>
+<span class="flex items-center gap-1"><i class="fa-solid fa-check text-emerald-600 text-[9px]"></i> Kalibrasi Rem Angin</span>
+<span class="flex items-center gap-1"><i class="fa-solid fa-check text-emerald-600 text-[9px]"></i> Kontrak Servis Armada</span>
+<span class="flex items-center gap-1"><i class="fa-solid fa-check text-emerald-600 text-[9px]"></i> Derek Cepat 24 Jam</span>
+<span class="flex items-center gap-1"><i class="fa-solid fa-check text-emerald-600 text-[9px]"></i> Suku Cadang Orisinil</span>
+</div>
+</div>
+<!-- Copyright & Legal -->
+<div class="pt-4 border-t border-slate-200 text-center text-[10px] text-slate-400">
+<p class="">© 2025 PT Master Truck Indonesia. Hak Cipta Dilindungi Undang-Undang.</p>
+<div class="flex justify-center gap-3 mt-1.5 font-medium">
+<a class="hover:underline" href="#">Syarat &amp; Ketentuan Servis</a>
+<span class="">•</span>
+<a class="hover:underline" href="#">Kebijakan Privasi</a>
+<span class="">•</span>
+<a class="hover:underline" href="#">Pusat Bantuan</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: MobileFooter -->
+<!-- BEGIN: StickyBottomActionBar -->
+<div class="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-slate-200 px-3 py-2 shadow-2xl flex items-center justify-between gap-2 max-w-lg mx-auto" data-purpose="floating-emergency-bar">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center shrink-0">
+<i class="fa-solid fa-truck-pickup text-sm"></i>
+</div>
+<div class="leading-tight">
+<div class="text-[11px] font-extrabold text-slate-900">Kendaraan Mogok?</div>
+<div class="text-[9.5px] text-slate-500">Derek tol &amp; industri &lt; 45 mnt</div>
+</div>
+</div>
+<div class="flex items-center gap-1.5 shrink-0">
+<a class="bg-amberOrange-500 hover:bg-amberOrange-600 text-white font-extrabold text-xs px-3.5 py-2 rounded-lg flex items-center gap-1.5 shadow-sm active:scale-95 transition" href="tel:081262783788">
+<i class="fa-solid fa-phone text-[11px]"></i>
+<span class="">Hubungi Derek</span>
+</a>
+<a aria-label="Chat WhatsApp" class="bg-emerald-600 hover:bg-emerald-700 text-white p-2 rounded-lg flex items-center justify-center active:scale-95 transition" href="https://wa.me/6281262783788">
+<i class="fa-brands fa-whatsapp text-base"></i>
+</a>
+</div>
+</div>
+<!-- END: StickyBottomActionBar -->
+<!-- BEGIN: ScriptHandlers -->
+<script data-purpose="mobile-navigation-toggle">
+    document.addEventListener('DOMContentLoaded', function () {
+      const menuBtn = document.getElementById('menu-toggle-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', function () {
+          mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close menu when clicking nav links
+        mobileMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+          });
+        });
+      }
+    });
+  </script>
+<script data-purpose="faq-accordion-behavior">
+    document.addEventListener('DOMContentLoaded', function () {
+      const faqButtons = document.querySelectorAll('.faq-btn');
+
+      faqButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+          const content = this.nextElementSibling;
+          const icon = this.querySelector('i');
+          const isHidden = content.classList.contains('hidden');
+
+          // Close all FAQ items
+          document.querySelectorAll('.faq-content').forEach(item => item.classList.add('hidden'));
+          document.querySelectorAll('.faq-btn i').forEach(i => i.classList.remove('rotate-180'));
+
+          if (isHidden) {
+            content.classList.remove('hidden');
+            icon.classList.add('rotate-180');
+          }
+        });
+      });
+    });
+  </script>
+<script data-purpose="cost-calculator-dynamic-update">
+    document.addEventListener('DOMContentLoaded', function () {
+      const truckSelect = document.getElementById('truck-type-select');
+      const catSelect = document.getElementById('service-cat-select');
+      const calcBtn = document.getElementById('calc-submit-btn');
+      const pkgNameEl = document.getElementById('result-package-name');
+      const descEl = document.getElementById('result-desc');
+      const priceEl = document.getElementById('result-price');
+
+      const serviceData = {
+        oil: {
+          title: "Paket Ganti Oli & Filter Fleet",
+          desc: "Durasi: ± 2.5 Jam | Rekomendasi oli sintetik 15W-40 CI-4 + Filter Solar & Oli OEM.",
+          price: "Rp 1.850.000"
+        },
+        brake: {
+          title: "Overhaul Rem Pneumatik (Air Brake)",
+          desc: "Durasi: ± 5 Jam | Servis kompresor angin, chamber rem, relay valve & kampas rem heavy duty.",
+          price: "Rp 2.450.000"
+        },
+        engine: {
+          title: "Diagnostik & Kalibrasi Common Rail",
+          desc: "Durasi: 1 Hari Kerja | Uji test bench sensor tekanan, pembersihan ultrasonik & nozel bahan bakar.",
+          price: "Rp 3.200.000"
+        },
+        transmission: {
+          title: "Servis Transmisi & Gardan Diferensial",
+          desc: "Durasi: 2 Hari Kerja | Penggantian bearing gardan, sinkronis gigi, dan pelat kopling OEM.",
+          price: "Rp 4.750.000"
+        },
+        undercarriage: {
+          title: "Spooring 3D Laser & Chasis Alignment",
+          desc: "Durasi: ± 3 Jam | Penyelarasan sudut toe/camber multi-axis & uji kelurusan sasis trailer.",
+          price: "Rp 1.250.000"
+        }
+      };
+
+      function updateCalculation() {
+        const selectedCat = catSelect.value;
+        const truckText = truckSelect.options[truckSelect.selectedIndex].text.split('(')[0].trim();
+        const data = serviceData[selectedCat] || serviceData['oil'];
+
+        pkgNameEl.textContent = `Estimasi: ${data.title} (${truckText})`;
+        descEl.textContent = data.desc;
+        priceEl.innerHTML = `${data.price} <span class="text-[11px] font-normal text-slate-600">/ Unit</span>`;
+      }
+
+      if (calcBtn) {
+        calcBtn.addEventListener('click', updateCalculation);
+      }
+      if (truckSelect) {
+        truckSelect.addEventListener('change', updateCalculation);
+      }
+      if (catSelect) {
+        catSelect.addEventListener('change', updateCalculation);
+      }
+    });
+  </script>
+<!-- END: ScriptHandlers -->
+
+
+</body></html>
