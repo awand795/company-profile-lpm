@@ -1045,6 +1045,14 @@ body.elementor-page-59 .stitch-topbar {
     font-family: 'Inter', sans-serif;
     background-color: #222a3e !important;
 }
+body.elementor-page-59 .stitch-topbar > .e-con-inner {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+}
+body.elementor-page-59 .stitch-topbar-row {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
 body.elementor-page-59 .stitch-topbar a {
     transition: color 0.2s ease;
 }
@@ -1058,9 +1066,21 @@ body.elementor-page-59 .stitch-navbar {
     transition: all 0.25s ease;
     border-bottom: 1px solid #eef0f3;
 }
+body.elementor-page-59 .stitch-navbar > .e-con-inner {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+}
+body.elementor-page-59 .stitch-navbar-row {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
 body.elementor-page-59 .stitch-navbar.sticky-scrolled {
     box-shadow: 0 4px 20px rgba(0, 35, 111, 0.06);
     background: rgba(255, 255, 255, 0.99);
+}
+
+body.elementor-page-59 .stitch-sec-hero > .e-con-inner {
+    padding-top: 24px !important;
 }
 
 /* Nav Actions Styling */

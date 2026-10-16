@@ -301,18 +301,18 @@ sections = []
 
 ## --- 1. TOPBAR & FLOATING NAVBAR ---
 topbar = el_container("stitch-topbar", boxed=1240, bg=C["tertiary"],
-                      style={"padding": px4(10, 24, 10, 24)},
+                      style={"padding": px4(4, 24, 4, 24)},
                       nav="Top Bar")
 topbar["elements"] = [inner([
     col(55, "topbar-left-col", [
-        W_text('<div style="display:flex;align-items:center;gap:20px;color:#bec6e0;font-size:12px;font-weight:600;letter-spacing:0.2px;">'
+        W_text('<div style="display:flex;align-items:center;gap:16px;color:#bec6e0;font-size:12px;font-weight:600;letter-spacing:0.2px;">'
                '<div style="display:inline-flex;align-items:center;gap:6px;">'
                '<span style="background:#fd651e;color:#ffffff;font-size:10px;font-weight:800;padding:2px 6px;border-radius:4px;letter-spacing:0.5px;">SOS</span>'
                '<span style="text-transform:uppercase;color:#ffdbce;font-weight:700;">Hotline 24 Jam:</span> '
                '<a href="tel:0812MASTERTRUCK" style="color:#ffffff;text-decoration:none;font-weight:700;">0812-MASTER-TRUCK</a>'
                '</div>'
                '<div style="display:inline-flex;align-items:center;gap:6px;color:#bec6e0;">'
-               '<span>📍</span> <span style="color:#ffffff;">Medan &amp; Tanjung Priok</span>'
+               '<span>📍</span> <span style="color:#ffffff;">Medan</span>'
                '</div>'
                '</div>')
     ]),
@@ -326,12 +326,12 @@ topbar["elements"] = [inner([
                '</div>'
                '</div>')
     ]),
-], css_classes="stitch-topbar-row", direction="row", style={"flex_align_items": "center", "flex_justify_content": "space-between"})]
+], css_classes="stitch-topbar-row", direction="row", style={"padding": px4(2, 0, 2, 0), "flex_align_items": "center", "flex_justify_content": "space-between"})]
 sections.append(topbar)
 
 # Navbar
 nav = el_container("stitch-navbar sticky-top", boxed=1240, bg=C["white"],
-                   style={"padding": px4(14, 24, 14, 24), "border_border": "solid",
+                   style={"padding": px4(8, 24, 8, 24), "border_border": "solid",
                           "border_width": px4(0, 0, 1, 0), "border_color": "#eceef0",
                           "sticky": "top", "sticky_offset": 0, "sticky_on": ["desktop", "tablet", "mobile"]},
                    nav="Navbar")
@@ -357,35 +357,35 @@ nav["elements"] = [inner([
     # Actions (Hanya Masuk & Daftar)
     col(24, "stitch-cta-col", [
         inner([
-            col(None, "", [W_button("Masuk", link="http://localhost:3000/#login", icon="fas fa-user-circle", ipos="before", bg="transparent", text_color="#444651", radius=10, pad=(10, 16), cls="btn-nav-login")], None),
-            col(None, "", [W_button("Daftar", link="http://localhost:3000/#register", bg="#dce1ff", text_color=C["primary"], radius=10, pad=(10, 20), cls="btn-nav-register")], None),
+            col(None, "", [W_button("Masuk", link="http://localhost:3000/#login", icon="fas fa-user-circle", ipos="before", bg="transparent", text_color="#444651", radius=10, pad=(8, 14), cls="btn-nav-login")], None),
+            col(None, "", [W_button("Daftar", link="http://localhost:3000/#register", bg="#dce1ff", text_color=C["primary"], radius=10, pad=(8, 18), cls="btn-nav-register")], None),
         ], css_classes="stitch-nav-actions", direction="row", style={"flex_gap": fsize(10), "flex_justify_content": "flex-end", "flex_align_items": "center"})
     ]),
-], css_classes="stitch-nav-row", direction="row", style={"flex_align_items": "center", "flex_justify_content": "space-between"})]
+], css_classes="stitch-nav-row", direction="row", style={"padding": px4(4, 0, 4, 0), "flex_align_items": "center", "flex_justify_content": "space-between"})]
 sections.append(nav)
 
 # --- 2. SECTION 1: HERO SECTION ---
 hero = el_container("stitch-sec-hero", css_id="header-carousel", boxed=1240, bg=C["white"],
-                    style={"padding": px4(56, 24, 56, 24)}, nav="Hero")
+                    style={"padding": px4(28, 24, 40, 24)}, nav="Hero")
 hero["elements"] = [
     # Top Row: Text (7) vs Visual (5)
     inner([
         col(58, "hero-text-col", [
             # Authority Badge
             W_heading('🛡 BENGKEL REKANAN RESMI &amp; SPESIALIS HEAVY DUTY TRUCK #1',
-                      tag="p", cls="hero-authority-badge", size=12, weight=700, color=C["primary"], ls=0.8,
-                      margin=px4(0, 0, 14, 0)),
+                      tag="p", cls="hero-authority-badge", size=11, weight=700, color=C["primary"], ls=0.8,
+                      margin=px4(0, 0, 10, 0)),
             # Headline
             W_heading('Solusi Servis &amp; Pemeliharaan Armada Truk Bersama '
                       '<span style="color:' + C["secondary"] + ';font-weight:900;text-decoration:underline;text-decoration-color:' + C["secondary"] + ';">MASTER TRUCK</span> '
                       '<span style="color:' + C["primary"] + ';">Tanpa Downtime</span> Berkepanjangan',
-                      tag="h1", cls="hero-title", size=48, weight=800, color=C["primary"], ls=-1.5,
-                      margin=px4(0, 0, 20, 0)),
+                      tag="h1", cls="hero-title", size=44, weight=800, color=C["primary"], ls=-1.2,
+                      margin=px4(0, 0, 14, 0)),
             # Description Lead
             W_text("Pusat rekayasa mekanikal dan perbaikan mesin diesel Euro 4, overhaul transmisi, "
                    "kalibrasi injektor common rail, hingga kontrak pemeliharaan fleet logistik dengan "
                    "jaminan 100% suku cadang orisinal OEM dan mekanik berlisensi pabrikan.",
-                   cls="hero-lead", size=17, color=C["text_muted"], margin=px4(0, 0, 28, 0), lh=1.65),
+                   cls="hero-lead", size=16, color=C["text_muted"], margin=px4(0, 0, 20, 0), lh=1.6),
             # Dual CTAs
             inner([
                 col(None, "", [W_button("Jadwalkan Servis Sekarang", link="#quick-booking", icon="fas fa-calendar-alt",
