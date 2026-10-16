@@ -298,6 +298,38 @@ Dokumen ini memantau progres refaktor landing page Beranda (WordPress + Elemento
   - [x] **Fungsional**: Edit Beranda → editor → ubah teks → Update → frontend berubah → dikembalikan (ROUNDTRIP PASS); nonaktifkan plugin = bawaan; frontend/login tak berubah (revamp3 32/32, 6j 40/40, editor PASS; 6j disesuaikan: kunci JED dikecualikan dari pindai).
   - [x] **Git**: `35c0dbc` (A), `a485aee` (B), `456ec15` (C), `23e1a52` (D) + setup/VERSIONS/README/panduan + dump `database/mt_site.sql` + tag `ronde15-done`.
 
+- [x] **REVAMP9 - RONDE 17: Rapatkan topbar, header, dan hero (2026-10-16):**
+  - [x] Backup `archive/backups/_backup_revamp9_20261016_ronde17/`; git tag `pre-ronde17` ter-push ke GitHub.
+  - [x] **GRUP A (Akar Masalah Global)**:
+    - `inner()` dan `col()`: default `padding = px4(0, 0, 0, 0)` dan `flex_gap = 0` di `tools/build-stitch-elementor.py`.
+    - Widget margins: `W_heading`, `W_text`, `W_button`, `W_image` default `_margin = px4(0, 0, 0, 0)`.
+    - CSS scoped reset: `--kit-widget-spacing: 0px` dan margin widget bawah 0 pada `.stitch-topbar`, `.stitch-navbar`, `.stitch-sec-hero`.
+    - Commit: `4dc6285` (`feat(ronde17-a)`).
+  - [x] **GRUP B (Topbar & Header)**:
+    - Topbar tinggi total **37.59px** (target ≤ 40px), padding vertikal 4px, `white-space: nowrap`, `flex-wrap: nowrap`, font 12px.
+    - Lokasi: Menghapus "Tanjung Priok" dan mengganti menjadi "Medan" saja.
+    - Kolom topbar: 40% kiri / 60% kanan. Pada layar < 1200px, item `STANDAR OEM ISO 9001` disembunyikan.
+    - Header tinggi total **69px** (target ≤ 72px), logo 36px, padding vertikal 8px, border bawah 1px, semua item rata vertikal tengah.
+    - Sticky Navbar: Saat scroll > 24px (`.sticky-scrolled`), header mengecil halus ke **59px** (target ≤ 60px) dengan transisi 200ms tanpa loncatan layout (CLS 0). Topbar ikut scroll hilang.
+    - Admin bar: Offset sticky header `top: 32px` (desktop) dan `top: 46px` (mobile).
+    - Commit: `392554c` (`feat(ronde17-b)`).
+  - [x] **GRUP C (Hero: Jarak, Perataan, Tinggi)**:
+    - Jarak header → hero: Padding atas hero **24px** (desktop) dan 16px (mobile). Padding bawah hero 32px.
+    - Perataan atas: `hero-main-row` memakai `flex_align_items = flex-start`. Tepi atas foto bengkel sejajar dengan tepi atas badge (selisih **0px**, target ≤ 8px).
+    - Judul H1: 3 baris di 1366px dengan `text-wrap: balance` (tanpa kata yatim). Font H1 42px.
+    - Rapat vertikal: Badge → H1 10px, H1 → lead 14px, lead → tombol 20px, tombol → brand 20px, margin bawah tombol 24px.
+    - Viewport 1366×600: Badge, H1, lead, dan tombol CTA terlihat utuh tanpa scroll (bawah tombol di **415.53px**, target ≤ 560px).
+    - Jarak foto → kartu telematika: **12px** pas. Margin atas baris statistik **24px**.
+    - Tablet & Mobile: Topbar mobile **24px** (target ≤ 36px, hanya hotline), header mobile **59px** (target ≤ 64px, menu tautan disembunyikan agar tetap 1 baris), tombol CTA terlihat di layar pertama 390×844 (**175.31px**).
+    - Horizontal scroll: 0 (false).
+    - Commit: `f815808` (`feat(ronde17-c)`).
+  - [x] **Verifikasi & Safety**:
+    - Editor Elementor Page 59 PASS (12 container Stitch terdeteksi dan dapat diedit via iframe).
+    - Halaman login (`/wp-login.php`) dan admin dashboard (`/wp-admin/`) aman dan tidak berubah.
+    - Screenshot tersimpan di `playwright_review/sesudah_revamp9/` (1366x600, 1440x900, 1024x768, 768x1024, 390x844, sticky_scrolled, editor_elementor).
+    - Database dump tersanitasi diekspor ulang ke `database/mt_site.sql`.
+    - Git tag `ronde17-done` di-push ke remote.
+
 ---
 
 ## Baseline Temuan Fase 0

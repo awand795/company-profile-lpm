@@ -22,14 +22,14 @@ Desain korporat modern **MASTER TRUCK**:
 
 | Ingin mengubah | Caranya |
 | --- | --- |
-| **Semua teks & layout Beranda** | **Pages → Beranda (ID 59) → Edit with Elementor** → klik teks/gambar/tombol/kartu → **Update**. Seluruh section terstruktur dalam Flexbox Container: Topbar, Navbar, Hero, Features, About, Counter, Layanan, Principals, Booking/Derek 24 Jam, Team, Testimonial, FAQ (Accordion), dan Footer. |
-| **Regenerasi Beranda Container** | `python tools/build-beranda-elementor.py` → membangun dan mendeploy langsung ke Page ID 59 di container `lpm-wp-app`. |
+| **Semua teks & layout Beranda** | **Pages → Beranda (ID 59) → Edit with Elementor** → klik teks/gambar/tombol/kartu → **Update**. Seluruh section terstruktur dalam Flexbox Container: Topbar, Navbar, Hero, Estimator Biaya, Keunggulan, Layanan, Fleet, Fasilitas, Testimonial, FAQ, CTA, dan Footer. |
+| **Regenerasi Beranda Container** | `python tools/build-stitch-elementor.py` → membangun dan mendeploy langsung ke Page ID 59 di container `lpm-wp-app`. |
 | **Ganti foto** (hero, layanan, team, testimoni) | Klik Image widget → **Choose Image → Replace** (Media Library sudah berisi gambar relevan). |
-| **Warna brand** | Elementor → **Site Settings → Global Colors**: Primary `#2563EB`, Navy `#0F2A5C`, Text Dark `#0F172A`, Text Muted `#475569`, Surface Slate `#F8FAFC`. |
-| **Font situs** | Elementor → **Site Settings → Global Typography**: Primary (Plus Jakarta Sans 700), Body Text (Inter 400). |
-| **Header/Footer** | Modular di dalam canvas beranda dan terdaftar di **Appearance → Header Footer Builder**. |
+| **Warna brand** | Elementor → **Site Settings → Global Colors**: Primary `#00236f`, Secondary `#fd651e`, Tertiary `#222a3e`. |
+| **Font situs** | Elementor → **Site Settings → Global Typography**: Primary (Plus Jakarta Sans 800), Body Text (Inter 500/600). |
+| **Header/Footer** | 100% Native Container Elementor Canvas di Page ID 59. |
 | **Form Booking WA** | Bagian Derek / Booking → tombol WhatsApp mengarah langsung ke CS bengkel. |
-| **Backup Elementor Beranda** | `elementor-exports/beranda-elementor-php11.json` (100% Flexbox Container). |
+| **Backup Elementor Beranda** | `elementor-exports/beranda-stitch-elementor.json` (100% Flexbox Container). |
 
 > Custom CSS tersimpan di tabel `wp_posts` (`post_type=custom_css`), bagian blok `MT FASE 4` berisi token radius/shadow, tombol pill, kartu statistik, highlight, dan polish mobile.
 
