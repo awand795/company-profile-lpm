@@ -1112,6 +1112,12 @@ body.elementor-page-59 .stitch-sec-hero > .e-con-inner {
 
 /* Nav Actions Styling */
 body.elementor-page-59 .btn-nav-login .elementor-button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    padding: 0 16px !important;
     background: transparent !important;
     color: #444651 !important;
     font-weight: 700 !important;
@@ -1124,19 +1130,24 @@ body.elementor-page-59 .btn-nav-login .elementor-button:hover {
 }
 
 body.elementor-page-59 .btn-nav-register .elementor-button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    padding: 0 20px !important;
     background: #00236f !important;
     color: #ffffff !important;
     font-weight: 700 !important;
     border-radius: 10px !important;
-    padding: 8px 18px !important;
-    box-shadow: 0 2px 6px rgba(0, 35, 111, 0.2) !important;
+    box-shadow: 0 6px 14px rgba(0, 35, 111, 0.18) !important;
     transition: all 0.2s ease !important;
 }
 body.elementor-page-59 .btn-nav-register .elementor-button:hover {
     background: #00164e !important;
     color: #ffffff !important;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 35, 111, 0.3) !important;
+    box-shadow: 0 8px 18px rgba(0, 35, 111, 0.25) !important;
 }
 
 /* Nav Menu Links Hover and Active Underline Effect */
@@ -1172,6 +1183,23 @@ body.elementor-page-59 .stitch-menu-col a:focus-visible {
     border-radius: 4px;
 }
 
+/* Hero Section Spacing Rules (Ronde 18b Presisi) */
+body.elementor-page-59 .elementor-59 .stitch-sec-hero .hero-authority-badge.elementor-widget {
+    margin-bottom: 10px !important;
+}
+body.elementor-page-59 .elementor-59 .stitch-sec-hero .hero-title.elementor-widget {
+    margin-bottom: 14px !important;
+}
+body.elementor-page-59 .elementor-59 .stitch-sec-hero .hero-lead.elementor-widget {
+    margin-bottom: 20px !important;
+}
+body.elementor-page-59 .elementor-59 .stitch-sec-hero .hero-btns-row {
+    margin-bottom: 20px !important;
+}
+body.elementor-page-59 .elementor-59 .stitch-sec-hero .hero-brands-block .brand-label {
+    margin-bottom: 10px !important;
+}
+
 /* Hero Section Authority Badge & Headline */
 body.elementor-page-59 .hero-authority-badge {
     display: inline-flex !important;
@@ -1187,7 +1215,6 @@ body.elementor-page-59 .hero-authority-badge {
     font-size: 12px !important;
     letter-spacing: 0.8px;
     box-shadow: 0 1px 3px rgba(0, 35, 111, 0.06);
-    margin-bottom: 12px !important;
 }
 body.elementor-page-59 .hero-authority-badge .elementor-heading-title {
     color: #00236f !important;
@@ -1233,7 +1260,6 @@ body.elementor-page-59 .hero-btns-row {
     display: flex;
     align-items: center;
     gap: 14px;
-    margin-bottom: 24px;
 }
 body.elementor-page-59 .btn-hero-primary .elementor-button {
     background: #fd651e !important;
@@ -1349,39 +1375,139 @@ body.elementor-page-59 .hero-truck-img img {
     object-fit: cover;
 }
 
-/* Floating Telematics Card */
+/* Horizontal Hanging Telematics Card (Ronde 18b: overlap 14px, tidak menutupi subjek) */
 body.elementor-page-59 .hero-telematics-card {
     position: absolute;
-    bottom: -24px;
-    left: -24px;
+    bottom: -60px;
+    right: 0;
     z-index: 3;
-    width: 320px;
-    max-width: 90%;
-    background: rgba(255, 255, 255, 0.94);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    width: calc(100% - 40px);
+    max-width: 440px;
+    min-height: 74px;
+    max-height: 88px;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: 1px solid #e2e8f0;
     border-radius: 16px;
-    padding: 14px 16px;
+    padding: 10px 14px;
     box-shadow: 0 10px 30px rgba(0, 35, 111, 0.12), 0 2px 8px rgba(0, 35, 111, 0.04);
+    box-sizing: border-box;
 }
+
+body.elementor-page-59 .hero-telematics-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    height: 100%;
+}
+
+body.elementor-page-59 .telematics-left-block {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    flex-shrink: 1;
+}
+
+body.elementor-page-59 .telematics-chip-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: #dce1ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00236f;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+body.elementor-page-59 .telematics-info {
+    min-width: 0;
+}
+
+body.elementor-page-59 .telematics-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    color: #00236f;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+body.elementor-page-59 .telematics-desc {
+    font-size: 11px;
+    color: #444651;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body.elementor-page-59 .telematics-metrics-block {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 10px;
+    background: #f7f9fb;
+    border-radius: 8px;
+    border: 1px solid #eceef0;
+    flex-shrink: 0;
+}
+
+body.elementor-page-59 .telematics-metrics-block .metric-item {
+    text-align: center;
+    white-space: nowrap;
+}
+
+body.elementor-page-59 .telematics-metrics-block .metric-val {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    color: #00236f;
+    line-height: 1.1;
+}
+
+body.elementor-page-59 .telematics-metrics-block .metric-lbl {
+    font-size: 9px;
+    color: #757682;
+    font-weight: 600;
+    line-height: 1;
+}
+
+body.elementor-page-59 .telematics-metrics-block .metric-divider {
+    width: 1px;
+    height: 20px;
+    background: #dce1ff;
+}
+
+body.elementor-page-59 .telematics-status-block {
+    flex-shrink: 0;
+}
+
 body.elementor-page-59 .telematics-status-pill {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
     background: #e6f7ec;
     color: #059669;
     border: 1px solid #a7f3d0;
-    padding: 4px 8px;
+    height: 26px;
+    padding: 0 10px;
     border-radius: 999px;
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 0.5px;
+    white-space: nowrap;
 }
+
 body.elementor-page-59 .status-live-dot {
     display: inline-block;
-    width: 7px;
-    height: 7px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background: #10b981;
     animation: statusPulse 2s infinite ease-in-out;
@@ -1639,15 +1765,47 @@ body.is-webdriver .status-live-dot {
     body.elementor-page-59 .hero-telematics-card {
         position: relative !important;
         bottom: auto !important;
-        left: auto !important;
+        right: auto !important;
         width: 100% !important;
         max-width: 100% !important;
+        min-height: auto !important;
+        max-height: none !important;
         margin-top: 14px !important;
+        padding: 12px !important;
         box-sizing: border-box !important;
+    }
+    body.elementor-page-59 .hero-telematics-inner {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 10px !important;
+    }
+    body.elementor-page-59 .telematics-left-block {
+        justify-content: space-between !important;
+    }
+    body.elementor-page-59 .telematics-status-block {
+        position: absolute !important;
+        top: 12px !important;
+        right: 12px !important;
+    }
+    body.elementor-page-59 .telematics-metrics-block {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    body.elementor-page-59 .telematics-metrics-block .metric-divider {
+        display: none !important;
     }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
+    body.elementor-page-59 .hero-telematics-card {
+        position: absolute !important;
+        bottom: -50px !important;
+        right: 0 !important;
+        width: calc(100% - 20px) !important;
+        max-width: 100% !important;
+    }
     body.elementor-page-59 .keunggulan-grid-row,
     body.elementor-page-59 .layanan-grid-row,
     body.elementor-page-59 .fasilitas-grid-row {
