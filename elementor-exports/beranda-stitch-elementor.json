@@ -1,6 +1,6 @@
 [
   {
-    "id": "e1024aa7",
+    "id": "7ff86f2b",
     "elType": "container",
     "settings": {
       "flex_direction": "column",
@@ -24,42 +24,91 @@
     },
     "elements": [
       {
-        "id": "a8b1d229",
+        "id": "d7b78070",
         "elType": "container",
         "settings": {
           "content_width": "full",
           "flex_direction": "row",
-          "css_classes": "stitch-topbar-row",
           "padding": {
             "unit": "px",
-            "top": "2",
+            "top": "0",
             "right": "0",
-            "bottom": "2",
+            "bottom": "0",
             "left": "0",
             "isLinked": ""
           },
+          "padding_tablet": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_mobile": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "flex_gap": {
+            "unit": "px",
+            "size": 0
+          },
+          "css_classes": "stitch-topbar-row",
           "flex_align_items": "center",
-          "flex_justify_content": "space-between"
+          "flex_justify_content": "space-between",
+          "flex_wrap": "nowrap"
         },
         "elements": [
           {
-            "id": "e2d392cc",
+            "id": "6cfad2dc",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
+              "padding": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
               "width": {
                 "unit": "%",
-                "size": 55
+                "size": 40
               },
               "css_classes": "topbar-left-col"
             },
             "elements": [
               {
-                "id": "b031da81",
+                "id": "2ec0a5ad",
                 "elType": "widget",
                 "settings": {
-                  "editor": "<div style=\"display:flex;align-items:center;gap:16px;color:#bec6e0;font-size:12px;font-weight:600;letter-spacing:0.2px;\"><div style=\"display:inline-flex;align-items:center;gap:6px;\"><span style=\"background:#fd651e;color:#ffffff;font-size:10px;font-weight:800;padding:2px 6px;border-radius:4px;letter-spacing:0.5px;\">SOS</span><span style=\"text-transform:uppercase;color:#ffdbce;font-weight:700;\">Hotline 24 Jam:</span> <a href=\"tel:0812MASTERTRUCK\" style=\"color:#ffffff;text-decoration:none;font-weight:700;\">0812-MASTER-TRUCK</a></div><div style=\"display:inline-flex;align-items:center;gap:6px;color:#bec6e0;\"><span>📍</span> <span style=\"color:#ffffff;\">Medan</span></div></div>",
+                  "editor": "<div style=\"display:flex;align-items:center;gap:16px;color:#bec6e0;font-size:12px;font-weight:600;letter-spacing:0.2px;white-space:nowrap;\"><div class=\"topbar-hotline-item\" style=\"display:inline-flex;align-items:center;gap:6px;\"><span style=\"background:#fd651e;color:#ffffff;font-size:10px;font-weight:800;padding:2px 6px;border-radius:4px;letter-spacing:0.5px;\">SOS</span><span style=\"text-transform:uppercase;color:#ffdbce;font-weight:700;\">Hotline 24 Jam:</span> <a href=\"tel:0812MASTERTRUCK\" style=\"color:#ffffff;text-decoration:none;font-weight:700;\">0812-MASTER-TRUCK</a></div><div class=\"topbar-location-item\" style=\"display:inline-flex;align-items:center;gap:6px;color:#bec6e0;\"><span>📍</span> <span style=\"color:#ffffff;\">Medan</span></div></div>",
                   "align": "left",
                   "typography_typography": "custom",
                   "typography_font_family": "Inter",
@@ -71,7 +120,15 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#444651"
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
                 },
                 "elements": [],
                 "widgetType": "text-editor"
@@ -80,23 +137,51 @@
             "isInner": true
           },
           {
-            "id": "a87f5a65",
+            "id": "6a8e139f",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
+              "padding": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
               "width": {
                 "unit": "%",
-                "size": 45
+                "size": 60
               },
               "css_classes": "topbar-right-col"
             },
             "elements": [
               {
-                "id": "00325d14",
+                "id": "b0ec382e",
                 "elType": "widget",
                 "settings": {
-                  "editor": "<div style=\"display:flex;align-items:center;justify-content:flex-end;gap:18px;color:#bec6e0;font-size:12px;\"><div style=\"display:inline-flex;align-items:center;gap:6px;\"><span>🕒</span> <span style=\"color:#ffffff;\">Senin – Sabtu: 08.00 – 20.00 | Tim Derek &amp; Rescue 24/7</span></div><div style=\"border-left:1px solid #384055;padding-left:14px;display:inline-flex;align-items:center;gap:6px;\"><span style=\"color:#ffdbce;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;\">🛡 Standar OEM ISO 9001</span></div></div>",
+                  "editor": "<div style=\"display:flex;align-items:center;justify-content:flex-end;gap:14px;color:#bec6e0;font-size:12px;white-space:nowrap;\"><div class=\"topbar-hours-item\" style=\"display:inline-flex;align-items:center;gap:6px;\"><span>🕒</span> <span style=\"color:#ffffff;\">Senin – Sabtu: 08.00 – 20.00 | Tim Derek &amp; Rescue 24/7</span></div><div class=\"topbar-iso-item\" style=\"border-left:1px solid #384055;padding-left:14px;display:inline-flex;align-items:center;gap:6px;\"><span style=\"color:#ffdbce;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;\">🛡 Standar OEM ISO 9001</span></div></div>",
                   "align": "left",
                   "typography_typography": "custom",
                   "typography_font_family": "Inter",
@@ -108,7 +193,15 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#444651"
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
                 },
                 "elements": [],
                 "widgetType": "text-editor"
@@ -123,7 +216,7 @@
     "isInner": false
   },
   {
-    "id": "4688e3bf",
+    "id": "0ed81692",
     "elType": "container",
     "settings": {
       "flex_direction": "column",
@@ -164,12 +257,11 @@
     },
     "elements": [
       {
-        "id": "e96357e9",
+        "id": "5178b452",
         "elType": "container",
         "settings": {
           "content_width": "full",
           "flex_direction": "row",
-          "css_classes": "stitch-nav-row",
           "padding": {
             "unit": "px",
             "top": "4",
@@ -178,16 +270,65 @@
             "left": "0",
             "isLinked": ""
           },
+          "padding_tablet": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_mobile": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "flex_gap": {
+            "unit": "px",
+            "size": 0
+          },
+          "css_classes": "stitch-nav-row",
           "flex_align_items": "center",
           "flex_justify_content": "space-between"
         },
         "elements": [
           {
-            "id": "135bfc72",
+            "id": "fd4627d3",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
+              "padding": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
               "width": {
                 "unit": "%",
                 "size": 32
@@ -196,7 +337,7 @@
             },
             "elements": [
               {
-                "id": "c30b9958",
+                "id": "81c8304a",
                 "elType": "widget",
                 "settings": {
                   "editor": "<a href=\"#\" style=\"display:flex;align-items:center;gap:12px;text-decoration:none;\"><img src=\"http://localhost:5000/wp-content/uploads/stitch/stitch_img_1.webp\" style=\"height:36px;width:auto;object-fit:contain;\" alt=\"Master Truck Logo\"><div style=\"display:flex;flex-direction:column;line-height:1.2;\"><span style=\"font-family:Plus Jakarta Sans;font-size:19px;font-weight:800;color:#00236f;letter-spacing:-0.5px;\">MASTER TRUCK</span><span style=\"font-family:Plus Jakarta Sans;font-size:11px;color:#444651;text-transform:uppercase;font-weight:700;letter-spacing:0.3px;\">Spesialis Truk &amp; Armada Niaga</span></div></a>",
@@ -211,7 +352,15 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#444651"
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
                 },
                 "elements": [],
                 "widgetType": "text-editor"
@@ -220,11 +369,39 @@
             "isInner": true
           },
           {
-            "id": "344232a7",
+            "id": "2b6fc768",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
+              "padding": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
               "width": {
                 "unit": "%",
                 "size": 44
@@ -233,7 +410,7 @@
             },
             "elements": [
               {
-                "id": "90c1abea",
+                "id": "dba4d6c5",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style=\"display:flex;align-items:center;justify-content:center;gap:32px;font-family:Plus Jakarta Sans;font-size:15px;font-weight:700;\"><a href=\"#layanan\" style=\"color:#444651;text-decoration:none;transition:color 0.2s;\" onmouseover=\"this.style.color='#00236f'\" onmouseout=\"this.style.color='#444651'\">Layanan</a><a href=\"#fleet\" style=\"color:#444651;text-decoration:none;transition:color 0.2s;\" onmouseover=\"this.style.color='#00236f'\" onmouseout=\"this.style.color='#444651'\">Paket Fleet</a><a href=\"#fasilitas\" style=\"color:#444651;text-decoration:none;transition:color 0.2s;\" onmouseover=\"this.style.color='#00236f'\" onmouseout=\"this.style.color='#444651'\">Fasilitas</a><a href=\"#kontak\" style=\"color:#444651;text-decoration:none;transition:color 0.2s;\" onmouseover=\"this.style.color='#00236f'\" onmouseout=\"this.style.color='#444651'\">Kontak</a></div>",
@@ -248,7 +425,15 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#444651"
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
                 },
                 "elements": [],
                 "widgetType": "text-editor"
@@ -257,11 +442,39 @@
             "isInner": true
           },
           {
-            "id": "18ca0f5b",
+            "id": "646e113c",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
+              "padding": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
               "width": {
                 "unit": "%",
                 "size": 24
@@ -270,30 +483,82 @@
             },
             "elements": [
               {
-                "id": "e9955381",
+                "id": "995da1f7",
                 "elType": "container",
                 "settings": {
                   "content_width": "full",
                   "flex_direction": "row",
-                  "css_classes": "stitch-nav-actions",
+                  "padding": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  },
+                  "padding_tablet": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  },
+                  "padding_mobile": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  },
                   "flex_gap": {
                     "unit": "px",
                     "size": 10
                   },
+                  "css_classes": "stitch-nav-actions",
                   "flex_justify_content": "flex-end",
                   "flex_align_items": "center"
                 },
                 "elements": [
                   {
-                    "id": "3cb1d8c8",
+                    "id": "56ea566b",
                     "elType": "container",
                     "settings": {
                       "content_width": "full",
-                      "flex_direction": "column"
+                      "flex_direction": "column",
+                      "padding": {
+                        "unit": "px",
+                        "top": "0",
+                        "right": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "isLinked": ""
+                      },
+                      "padding_tablet": {
+                        "unit": "px",
+                        "top": "0",
+                        "right": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "isLinked": ""
+                      },
+                      "padding_mobile": {
+                        "unit": "px",
+                        "top": "0",
+                        "right": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "isLinked": ""
+                      },
+                      "flex_gap": {
+                        "unit": "px",
+                        "size": 0
+                      }
                     },
                     "elements": [
                       {
-                        "id": "0b3f64d4",
+                        "id": "4f7f7852",
                         "elType": "widget",
                         "settings": {
                           "text": "Masuk",
@@ -328,6 +593,14 @@
                             "left": "14",
                             "isLinked": ""
                           },
+                          "_margin": {
+                            "unit": "px",
+                            "top": "0",
+                            "right": "0",
+                            "bottom": "0",
+                            "left": "0",
+                            "isLinked": ""
+                          },
                           "selected_icon": {
                             "value": "fas fa-user-circle",
                             "library": "fa-solid"
@@ -346,15 +619,43 @@
                     "isInner": true
                   },
                   {
-                    "id": "4ab10730",
+                    "id": "25d54e4e",
                     "elType": "container",
                     "settings": {
                       "content_width": "full",
-                      "flex_direction": "column"
+                      "flex_direction": "column",
+                      "padding": {
+                        "unit": "px",
+                        "top": "0",
+                        "right": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "isLinked": ""
+                      },
+                      "padding_tablet": {
+                        "unit": "px",
+                        "top": "0",
+                        "right": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "isLinked": ""
+                      },
+                      "padding_mobile": {
+                        "unit": "px",
+                        "top": "0",
+                        "right": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "isLinked": ""
+                      },
+                      "flex_gap": {
+                        "unit": "px",
+                        "size": 0
+                      }
                     },
                     "elements": [
                       {
-                        "id": "24b0c93e",
+                        "id": "65d2f8a3",
                         "elType": "widget",
                         "settings": {
                           "text": "Daftar",
@@ -389,6 +690,14 @@
                             "left": "18",
                             "isLinked": ""
                           },
+                          "_margin": {
+                            "unit": "px",
+                            "top": "0",
+                            "right": "0",
+                            "bottom": "0",
+                            "left": "0",
+                            "isLinked": ""
+                          },
                           "_css_classes": "btn-nav-register"
                         },
                         "elements": [],
@@ -410,7 +719,7 @@
     "isInner": false
   },
   {
-    "id": "bf662210",
+    "id": "159837b2",
     "elType": "container",
     "settings": {
       "flex_direction": "column",
@@ -426,47 +735,95 @@
       "background_color": "#ffffff",
       "padding": {
         "unit": "px",
-        "top": "28",
+        "top": "24",
         "right": "24",
-        "bottom": "40",
+        "bottom": "32",
         "left": "24",
         "isLinked": ""
       }
     },
     "elements": [
       {
-        "id": "17d0f70c",
+        "id": "ce4b362b",
         "elType": "container",
         "settings": {
           "content_width": "full",
           "flex_direction": "row",
+          "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_tablet": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_mobile": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "flex_gap": {
+            "unit": "px",
+            "size": 0
+          },
           "css_classes": "hero-main-row",
-          "flex_align_items": "center"
+          "flex_align_items": "flex-start"
         },
         "elements": [
           {
-            "id": "a9084421",
+            "id": "45a1dbe4",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "width": {
-                "unit": "%",
-                "size": 58
-              },
-              "css_classes": "hero-text-col",
               "padding": {
                 "unit": "px",
                 "top": "0",
-                "right": "24",
+                "right": "20",
                 "bottom": "0",
                 "left": "0",
                 "isLinked": ""
-              }
+              },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 60
+              },
+              "css_classes": "hero-text-col"
             },
             "elements": [
               {
-                "id": "1efd9014",
+                "id": "15f7e28c",
                 "elType": "widget",
                 "settings": {
                   "title": "🛡 BENGKEL REKANAN RESMI &amp; SPESIALIS HEAVY DUTY TRUCK #1",
@@ -484,11 +841,6 @@
                     "size": 1.15
                   },
                   "title_color": "#00236f",
-                  "typography_letter_spacing": {
-                    "unit": "px",
-                    "size": 0.8
-                  },
-                  "_css_classes": "hero-authority-badge",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -496,13 +848,18 @@
                     "bottom": "10",
                     "left": "0",
                     "isLinked": ""
-                  }
+                  },
+                  "typography_letter_spacing": {
+                    "unit": "px",
+                    "size": 0.8
+                  },
+                  "_css_classes": "hero-authority-badge"
                 },
                 "elements": [],
                 "widgetType": "heading"
               },
               {
-                "id": "2b3e872b",
+                "id": "7983f8b3",
                 "elType": "widget",
                 "settings": {
                   "title": "Solusi Servis &amp; Pemeliharaan Armada Truk Bersama <span style=\"color:#fd651e;font-weight:900;text-decoration:underline;text-decoration-color:#fd651e;\">MASTER TRUCK</span> <span style=\"color:#00236f;\">Tanpa Downtime</span> Berkepanjangan",
@@ -512,7 +869,7 @@
                   "typography_font_family": "Plus Jakarta Sans",
                   "typography_font_size": {
                     "unit": "px",
-                    "size": 44
+                    "size": 42
                   },
                   "typography_font_weight": "800",
                   "typography_line_height": {
@@ -520,11 +877,6 @@
                     "size": 1.15
                   },
                   "title_color": "#00236f",
-                  "typography_letter_spacing": {
-                    "unit": "px",
-                    "size": -1.2
-                  },
-                  "_css_classes": "hero-title",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -532,13 +884,18 @@
                     "bottom": "14",
                     "left": "0",
                     "isLinked": ""
-                  }
+                  },
+                  "typography_letter_spacing": {
+                    "unit": "px",
+                    "size": -1.2
+                  },
+                  "_css_classes": "hero-title"
                 },
                 "elements": [],
                 "widgetType": "heading"
               },
               {
-                "id": "95602a47",
+                "id": "b83f820f",
                 "elType": "widget",
                 "settings": {
                   "editor": "Pusat rekayasa mekanikal dan perbaikan mesin diesel Euro 4, overhaul transmisi, kalibrasi injektor common rail, hingga kontrak pemeliharaan fleet logistik dengan jaminan 100% suku cadang orisinal OEM dan mekanik berlisensi pabrikan.",
@@ -551,10 +908,9 @@
                   },
                   "typography_line_height": {
                     "unit": "em",
-                    "size": 1.6
+                    "size": 1.55
                   },
                   "text_color": "#444651",
-                  "_css_classes": "hero-lead",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -562,42 +918,95 @@
                     "bottom": "20",
                     "left": "0",
                     "isLinked": ""
-                  }
+                  },
+                  "_css_classes": "hero-lead"
                 },
                 "elements": [],
                 "widgetType": "text-editor"
               },
               {
-                "id": "e243a476",
+                "id": "9a3db558",
                 "elType": "container",
                 "settings": {
                   "content_width": "full",
                   "flex_direction": "row",
-                  "css_classes": "hero-btns-row",
+                  "padding": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  },
+                  "padding_tablet": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  },
+                  "padding_mobile": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  },
                   "flex_gap": {
                     "unit": "px",
-                    "size": 16
+                    "size": 14
                   },
+                  "css_classes": "hero-btns-row",
                   "margin": {
                     "unit": "px",
                     "top": "0",
                     "right": "0",
-                    "bottom": "36",
+                    "bottom": "24",
                     "left": "0",
                     "isLinked": ""
                   }
                 },
                 "elements": [
                   {
-                    "id": "d1d6bfbe",
+                    "id": "5a6f1560",
                     "elType": "container",
                     "settings": {
                       "content_width": "full",
-                      "flex_direction": "column"
+                      "flex_direction": "column",
+                      "padding": {
+                        "unit": "px",
+                        "top": "0",
+                        "right": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "isLinked": ""
+                      },
+                      "padding_tablet": {
+                        "unit": "px",
+                        "top": "0",
+                        "right": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "isLinked": ""
+                      },
+                      "padding_mobile": {
+                        "unit": "px",
+                        "top": "0",
+                        "right": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "isLinked": ""
+                      },
+                      "flex_gap": {
+                        "unit": "px",
+                        "size": 0
+                      }
                     },
                     "elements": [
                       {
-                        "id": "b28f5018",
+                        "id": "8a814998",
                         "elType": "widget",
                         "settings": {
                           "text": "Jadwalkan Servis Sekarang",
@@ -626,10 +1035,18 @@
                           },
                           "button_padding": {
                             "unit": "px",
-                            "top": "16",
-                            "right": "28",
-                            "bottom": "16",
-                            "left": "28",
+                            "top": "14",
+                            "right": "26",
+                            "bottom": "14",
+                            "left": "26",
+                            "isLinked": ""
+                          },
+                          "_margin": {
+                            "unit": "px",
+                            "top": "0",
+                            "right": "0",
+                            "bottom": "0",
+                            "left": "0",
                             "isLinked": ""
                           },
                           "selected_icon": {
@@ -650,15 +1067,43 @@
                     "isInner": true
                   },
                   {
-                    "id": "df9446ed",
+                    "id": "d2f3e46f",
                     "elType": "container",
                     "settings": {
                       "content_width": "full",
-                      "flex_direction": "column"
+                      "flex_direction": "column",
+                      "padding": {
+                        "unit": "px",
+                        "top": "0",
+                        "right": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "isLinked": ""
+                      },
+                      "padding_tablet": {
+                        "unit": "px",
+                        "top": "0",
+                        "right": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "isLinked": ""
+                      },
+                      "padding_mobile": {
+                        "unit": "px",
+                        "top": "0",
+                        "right": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "isLinked": ""
+                      },
+                      "flex_gap": {
+                        "unit": "px",
+                        "size": 0
+                      }
                     },
                     "elements": [
                       {
-                        "id": "a6dce58e",
+                        "id": "ab184339",
                         "elType": "widget",
                         "settings": {
                           "text": "Roadside Rescue 24 Jam",
@@ -687,10 +1132,18 @@
                           },
                           "button_padding": {
                             "unit": "px",
-                            "top": "16",
-                            "right": "26",
-                            "bottom": "16",
-                            "left": "26",
+                            "top": "14",
+                            "right": "24",
+                            "bottom": "14",
+                            "left": "24",
+                            "isLinked": ""
+                          },
+                          "_margin": {
+                            "unit": "px",
+                            "top": "0",
+                            "right": "0",
+                            "bottom": "0",
+                            "left": "0",
                             "isLinked": ""
                           },
                           "selected_icon": {
@@ -714,10 +1167,10 @@
                 "isInner": true
               },
               {
-                "id": "dd64a03f",
+                "id": "331679df",
                 "elType": "widget",
                 "settings": {
-                  "editor": "<div style=\"margin-top:12px;padding-top:8px;\"><div style=\"font-size:11px;font-weight:700;color:#757682;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;\">Spesialisasi Brand Heavy Duty &amp; Light Commercial:</div><div style=\"display:flex;flex-wrap:wrap;gap:10px;\"><span style=\"padding:6px 12px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;\">SCANIA</span><span style=\"padding:6px 12px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;\">VOLVO TRUCKS</span><span style=\"padding:6px 12px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;\">HINO 500 &amp; 300</span><span style=\"padding:6px 12px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;\">MITSUBISHI FUSO</span><span style=\"padding:6px 12px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;\">ISUZU GIGA</span><span style=\"padding:6px 12px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;\">MERCEDES AXOR</span></div></div>",
+                  "editor": "<div class=\"hero-brands-block\"><div style=\"font-size:11px;font-weight:700;color:#757682;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;\">Spesialisasi Brand Heavy Duty &amp; Light Commercial:</div><div style=\"display:flex;flex-wrap:wrap;gap:8px;\"><span style=\"padding:4px 10px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;\">SCANIA</span><span style=\"padding:4px 10px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;\">VOLVO TRUCKS</span><span style=\"padding:4px 10px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;\">HINO 500 &amp; 300</span><span style=\"padding:4px 10px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;\">MITSUBISHI FUSO</span><span style=\"padding:4px 10px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;\">ISUZU GIGA</span><span style=\"padding:4px 10px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;\">MERCEDES AXOR</span></div></div>",
                   "align": "left",
                   "typography_typography": "custom",
                   "typography_font_family": "Inter",
@@ -730,6 +1183,14 @@
                     "size": 1.6
                   },
                   "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  },
                   "_css_classes": "hero-brands-widget"
                 },
                 "elements": [],
@@ -739,28 +1200,48 @@
             "isInner": true
           },
           {
-            "id": "ff77dcf8",
+            "id": "d28200e5",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "width": {
-                "unit": "%",
-                "size": 42
-              },
-              "css_classes": "hero-visual-col",
               "padding": {
                 "unit": "px",
                 "top": "0",
                 "right": "0",
                 "bottom": "0",
-                "left": "24",
+                "left": "20",
                 "isLinked": ""
-              }
+              },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 40
+              },
+              "css_classes": "hero-visual-col"
             },
             "elements": [
               {
-                "id": "eba540bb",
+                "id": "62d10c48",
                 "elType": "widget",
                 "settings": {
                   "image": {
@@ -769,6 +1250,14 @@
                   },
                   "image_size": "full",
                   "caption_source": "none",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  },
                   "image_border_radius": {
                     "unit": "px",
                     "top": "20",
@@ -783,10 +1272,10 @@
                 "widgetType": "image"
               },
               {
-                "id": "418a7227",
+                "id": "105ba24a",
                 "elType": "widget",
                 "settings": {
-                  "editor": "<div style=\"background:#ffffff;border:1px solid #e2e8f0;border-radius:16px;padding:16px 20px;box-shadow:0 12px 32px rgba(15,23,42,0.08);margin-top:16px;\"><div style=\"display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;\"><div style=\"display:flex;align-items:center;gap:12px;\"><div style=\"width:38px;height:38px;border-radius:8px;background:#dce1ff;display:flex;align-items:center;justify-content:center;color:#00236f;font-weight:700;\">📡</div><div><div style=\"font-family:Plus Jakarta Sans;font-size:14px;font-weight:800;color:#00236f;\">ECU Multi-Bus Telematics</div><div style=\"font-size:12px;color:#444651;\">Common Rail Injektor: 100% Optimal</div></div></div><span style=\"padding:4px 8px;background:#d1fae5;color:#065f46;border-radius:6px;font-size:11px;font-weight:800;\">READY TO HAUL</span></div><div style=\"display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;padding-top:12px;border-top:1px solid #f2f4f6;\"><div style=\"background:#f7f9fb;padding:10px 14px;border-radius:10px;border:1px solid #eceef0;\"><div style=\"font-family:Plus Jakarta Sans;font-size:18px;font-weight:800;color:#00236f;\">&lt; 3 Jam</div><div style=\"font-size:11px;color:#757682;font-weight:600;\">Fast Periodic Service</div></div><div style=\"background:#f7f9fb;padding:10px 14px;border-radius:10px;border:1px solid #eceef0;\"><div style=\"font-family:Plus Jakarta Sans;font-size:18px;font-weight:800;color:#00236f;\">6 Bulan</div><div style=\"font-size:11px;color:#757682;font-weight:600;\">Garansi Spare Part</div></div></div></div>",
+                  "editor": "<div style=\"background:#ffffff;border:1px solid #e2e8f0;border-radius:16px;padding:14px 18px;box-shadow:0 12px 32px rgba(15,23,42,0.08);\"><div style=\"display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;\"><div style=\"display:flex;align-items:center;gap:10px;\"><div style=\"width:36px;height:36px;border-radius:8px;background:#dce1ff;display:flex;align-items:center;justify-content:center;color:#00236f;font-weight:700;\">📡</div><div><div style=\"font-family:Plus Jakarta Sans;font-size:14px;font-weight:800;color:#00236f;\">ECU Multi-Bus Telematics</div><div style=\"font-size:12px;color:#444651;\">Common Rail Injektor: 100% Optimal</div></div></div><span style=\"padding:4px 8px;background:#d1fae5;color:#065f46;border-radius:6px;font-size:11px;font-weight:800;\">READY TO HAUL</span></div><div style=\"display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;padding-top:10px;border-top:1px solid #f2f4f6;\"><div style=\"background:#f7f9fb;padding:8px 12px;border-radius:10px;border:1px solid #eceef0;\"><div style=\"font-family:Plus Jakarta Sans;font-size:17px;font-weight:800;color:#00236f;\">&lt; 3 Jam</div><div style=\"font-size:11px;color:#757682;font-weight:600;\">Fast Periodic Service</div></div><div style=\"background:#f7f9fb;padding:8px 12px;border-radius:10px;border:1px solid #eceef0;\"><div style=\"font-family:Plus Jakarta Sans;font-size:17px;font-weight:800;color:#00236f;\">6 Bulan</div><div style=\"font-size:11px;color:#757682;font-weight:600;\">Garansi Spare Part</div></div></div></div>",
                   "align": "left",
                   "typography_typography": "custom",
                   "typography_font_family": "Inter",
@@ -799,6 +1288,14 @@
                     "size": 1.6
                   },
                   "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "12",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  },
                   "_css_classes": "hero-telematics-card"
                 },
                 "elements": [],
@@ -811,11 +1308,39 @@
         "isInner": true
       },
       {
-        "id": "21072a13",
+        "id": "77edd3b8",
         "elType": "container",
         "settings": {
           "content_width": "full",
           "flex_direction": "row",
+          "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_tablet": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_mobile": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "flex_gap": {
+            "unit": "px",
+            "size": 0
+          },
           "css_classes": "hero-stats-inner",
           "background_background": "classic",
           "background_color": "#ffffff",
@@ -847,7 +1372,7 @@
           },
           "margin": {
             "unit": "px",
-            "top": "56",
+            "top": "24",
             "right": "0",
             "bottom": "0",
             "left": "0",
@@ -856,16 +1381,11 @@
         },
         "elements": [
           {
-            "id": "50ce1025",
+            "id": "6d36d192",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "width": {
-                "unit": "%",
-                "size": 25
-              },
-              "css_classes": "stat-col",
               "padding": {
                 "unit": "px",
                 "top": "18",
@@ -874,6 +1394,31 @@
                 "left": "20",
                 "isLinked": ""
               },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 25
+              },
+              "css_classes": "stat-col",
               "border_border": "solid",
               "border_width": {
                 "unit": "px",
@@ -887,7 +1432,7 @@
             },
             "elements": [
               {
-                "id": "5e1b7b6c",
+                "id": "cb047401",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style=\"display:flex;align-items:center;gap:14px;\"><div style=\"width:48px;height:48px;border-radius:12px;background:#dce1ff;color:#00236f;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;\">🚛</div><div><div style=\"font-family:Plus Jakarta Sans;font-size:26px;font-weight:800;color:#00236f;line-height:1.2;\">5.200+</div><div style=\"font-family:Inter;font-size:13px;color:#444651;font-weight:500;\">Truk &amp; Trailer Ditangani</div></div></div>",
@@ -902,7 +1447,15 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#444651"
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
                 },
                 "elements": [],
                 "widgetType": "text-editor"
@@ -911,16 +1464,11 @@
             "isInner": true
           },
           {
-            "id": "4d9ae656",
+            "id": "ccb34be5",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "width": {
-                "unit": "%",
-                "size": 25
-              },
-              "css_classes": "stat-col",
               "padding": {
                 "unit": "px",
                 "top": "18",
@@ -929,6 +1477,31 @@
                 "left": "20",
                 "isLinked": ""
               },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 25
+              },
+              "css_classes": "stat-col",
               "border_border": "solid",
               "border_width": {
                 "unit": "px",
@@ -942,7 +1515,7 @@
             },
             "elements": [
               {
-                "id": "0f862180",
+                "id": "64a06a07",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style=\"display:flex;align-items:center;gap:14px;\"><div style=\"width:48px;height:48px;border-radius:12px;background:#ffdbce;color:#a73a00;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;\">⏱️</div><div><div style=\"font-family:Plus Jakarta Sans;font-size:26px;font-weight:800;color:#fd651e;line-height:1.2;\">99.2%</div><div style=\"font-family:Inter;font-size:13px;color:#444651;font-weight:500;\">On-Time Fleet Delivery</div></div></div>",
@@ -957,7 +1530,15 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#444651"
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
                 },
                 "elements": [],
                 "widgetType": "text-editor"
@@ -966,16 +1547,11 @@
             "isInner": true
           },
           {
-            "id": "da7023dc",
+            "id": "6c8c01c3",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "width": {
-                "unit": "%",
-                "size": 25
-              },
-              "css_classes": "stat-col",
               "padding": {
                 "unit": "px",
                 "top": "18",
@@ -984,6 +1560,31 @@
                 "left": "20",
                 "isLinked": ""
               },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 25
+              },
+              "css_classes": "stat-col",
               "border_border": "solid",
               "border_width": {
                 "unit": "px",
@@ -997,7 +1598,7 @@
             },
             "elements": [
               {
-                "id": "5c28b124",
+                "id": "f9fac1a1",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style=\"display:flex;align-items:center;gap:14px;\"><div style=\"width:48px;height:48px;border-radius:12px;background:#dae2fd;color:#222a3e;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;\">🏭</div><div><div style=\"font-family:Plus Jakarta Sans;font-size:26px;font-weight:800;color:#222a3e;line-height:1.2;\">15+ Bay</div><div style=\"font-family:Inter;font-size:13px;color:#444651;font-weight:500;\">Bengkel Standar ISO 9001</div></div></div>",
@@ -1012,7 +1613,15 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#444651"
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
                 },
                 "elements": [],
                 "widgetType": "text-editor"
@@ -1021,28 +1630,48 @@
             "isInner": true
           },
           {
-            "id": "3e848121",
+            "id": "660fad99",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
+              "padding": {
+                "unit": "px",
+                "top": "14",
+                "right": "20",
+                "bottom": "14",
+                "left": "20",
+                "isLinked": ""
+              },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
               "width": {
                 "unit": "%",
                 "size": 25
               },
-              "css_classes": "stat-col",
-              "padding": {
-                "unit": "px",
-                "top": "18",
-                "right": "20",
-                "bottom": "18",
-                "left": "20",
-                "isLinked": ""
-              }
+              "css_classes": "stat-col"
             },
             "elements": [
               {
-                "id": "3735d84b",
+                "id": "0794d367",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style=\"display:flex;align-items:center;gap:14px;\"><div style=\"width:48px;height:48px;border-radius:12px;background:#dce1ff;color:#00236f;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;\">🛡️</div><div><div style=\"font-family:Plus Jakarta Sans;font-size:26px;font-weight:800;color:#00236f;line-height:1.2;\">180 Hari</div><div style=\"font-family:Inter;font-size:13px;color:#444651;font-weight:500;\">Garansi Resmi Overhaul</div></div></div>",
@@ -1057,7 +1686,15 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#444651"
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
                 },
                 "elements": [],
                 "widgetType": "text-editor"
@@ -1072,7 +1709,7 @@
     "isInner": false
   },
   {
-    "id": "939e584b",
+    "id": "eb82e240",
     "elType": "container",
     "settings": {
       "flex_direction": "column",
@@ -1097,7 +1734,7 @@
     },
     "elements": [
       {
-        "id": "89b66ae5",
+        "id": "6edcfa09",
         "elType": "widget",
         "settings": {
           "title": "Kalkulator &amp; Estimasi Servis Cepat",
@@ -1115,6 +1752,14 @@
             "size": 1.15
           },
           "title_color": "#fd651e",
+          "_margin": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
           "typography_letter_spacing": {
             "unit": "px",
             "size": 1.0
@@ -1124,7 +1769,7 @@
         "widgetType": "heading"
       },
       {
-        "id": "5869bcb0",
+        "id": "fd39bb2a",
         "elType": "widget",
         "settings": {
           "title": "Hitung Estimasi Biaya &amp; Jadwal Perawatan Armada",
@@ -1142,10 +1787,6 @@
             "size": 1.15
           },
           "title_color": "#00236f",
-          "typography_letter_spacing": {
-            "unit": "px",
-            "size": -0.8
-          },
           "_margin": {
             "unit": "px",
             "top": "6",
@@ -1153,13 +1794,17 @@
             "bottom": "12",
             "left": "0",
             "isLinked": ""
+          },
+          "typography_letter_spacing": {
+            "unit": "px",
+            "size": -0.8
           }
         },
         "elements": [],
         "widgetType": "heading"
       },
       {
-        "id": "d37d2a38",
+        "id": "17099912",
         "elType": "widget",
         "settings": {
           "editor": "Pilih tipe unit dan kebutuhan servis armada Anda untuk estimasi pengerjaan dan alokasi stall bengkel tercepat.",
@@ -1188,20 +1833,76 @@
         "widgetType": "text-editor"
       },
       {
-        "id": "5ef1a0ce",
+        "id": "d9fac5e4",
         "elType": "container",
         "settings": {
           "content_width": "full",
           "flex_direction": "row",
+          "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_tablet": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_mobile": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "flex_gap": {
+            "unit": "px",
+            "size": 0
+          },
           "css_classes": "booking-form-row"
         },
         "elements": [
           {
-            "id": "57978883",
+            "id": "3837faff",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
+              "padding": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
               "width": {
                 "unit": "%",
                 "size": 100
@@ -1210,7 +1911,7 @@
             },
             "elements": [
               {
-                "id": "f00a06f3",
+                "id": "dfe74ec8",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style=\"background:#ffffff;border:1px solid #e2e8f0;border-radius:24px;padding:32px;box-shadow:0 10px 30px rgba(15,23,42,0.05);\"><div style=\"display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:24px;margin-bottom:28px;\"><div><label style=\"display:block;font-family:Plus Jakarta Sans;font-size:14px;font-weight:700;color:#00236f;margin-bottom:8px;\">1. Tipe &amp; Model Kendaraan Niaga</label><select style=\"width:100%;height:48px;padding:0 14px;border:1px solid #cbd5e1;border-radius:12px;font-family:Inter;font-size:15px;background:#f8fafc;\"><option>Tractor Head 6x4 (Scania / Volvo / Hino)</option><option>Rigid Truck 6x2 / 4x2 (Fuso / Isuzu Giga)</option><option>Dump Truck Heavy Duty 8x4</option><option>Light Commercial Truck (Canter / Dutro)</option><option>Chassis Trailer &amp; Tangki Gandeng</option></select></div><div><label style=\"display:block;font-family:Plus Jakarta Sans;font-size:14px;font-weight:700;color:#00236f;margin-bottom:8px;\">2. Kategori Pekerjaan &amp; Keluhan</label><select style=\"width:100%;height:48px;padding:0 14px;border:1px solid #cbd5e1;border-radius:12px;font-family:Inter;font-size:15px;background:#f8fafc;\"><option>Periodic Service (PMP 10k-50k KM) - Fast Stall</option><option>Turun Mesin / Overhaul Diesel Total</option><option>Kalibrasi Injektor Common Rail &amp; Bosh Pump</option><option>Rem Angin, Booster &amp; Sistem Pneumatik</option><option>Overhaul Transmisi &amp; Gardan Belakang</option><option>Spooring 3D Laser &amp; Suspensi Sasis</option></select></div><div><label style=\"display:block;font-family:Plus Jakarta Sans;font-size:14px;font-weight:700;color:#00236f;margin-bottom:8px;\">3. Lokasi Stall &amp; Waktu Kedatangan</label><select style=\"width:100%;height:48px;padding:0 14px;border:1px solid #cbd5e1;border-radius:12px;font-family:Inter;font-size:15px;background:#f8fafc;\"><option>Stall Cikarang Utama - Hari Ini (Prioritas)</option><option>Stall Cikarang Utama - Besok Pagi</option><option>Stall Tanjung Priok (Dekat Pelabuhan) - Hari Ini</option><option>On-Site Service (Mekanik ke Pool Perusahaan)</option></select></div></div><div style=\"display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:20px;border-top:1px solid #e2e8f0;\"><div style=\"font-size:13px;color:#444651;\">⚡ <b style=\"color:#00236f;\">Prioritas Stall Cepat:</b> Booking online mengamankan antrean mekanik tanpa menunggu.</div><a href=\"https://wa.me/6281288881234?text=Halo%20Master%20Truck,%20saya%20ingin%20booking%20jadwal%20servis\" style=\"display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:#fd651e;color:#ffffff;text-decoration:none;border-radius:12px;font-family:Plus Jakarta Sans;font-weight:700;font-size:15px;box-shadow:0 8px 20px rgba(253,101,30,0.3);\">Hitung Estimasi &amp; Booking Sekarang ➔</a></div></div>",
@@ -1225,7 +1926,15 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#444651"
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
                 },
                 "elements": [],
                 "widgetType": "text-editor"
@@ -1240,7 +1949,7 @@
     "isInner": false
   },
   {
-    "id": "49bd76ae",
+    "id": "a0af8b67",
     "elType": "container",
     "settings": {
       "flex_direction": "column",
@@ -1264,7 +1973,7 @@
     },
     "elements": [
       {
-        "id": "215c6a66",
+        "id": "f6a31ac0",
         "elType": "widget",
         "settings": {
           "title": "Keunggulan &amp; Standarisasi Bengkel",
@@ -1282,6 +1991,14 @@
             "size": 1.15
           },
           "title_color": "#fd651e",
+          "_margin": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
           "typography_letter_spacing": {
             "unit": "px",
             "size": 1.0
@@ -1291,7 +2008,7 @@
         "widgetType": "heading"
       },
       {
-        "id": "f74bb861",
+        "id": "e0bedb0b",
         "elType": "widget",
         "settings": {
           "title": "Mengapa 400+ Perusahaan Ekspedisi Mempercayakan Armadanya pada Master Truck?",
@@ -1309,10 +2026,6 @@
             "size": 1.15
           },
           "title_color": "#00236f",
-          "typography_letter_spacing": {
-            "unit": "px",
-            "size": -0.8
-          },
           "_margin": {
             "unit": "px",
             "top": "6",
@@ -1320,13 +2033,17 @@
             "bottom": "14",
             "left": "0",
             "isLinked": ""
+          },
+          "typography_letter_spacing": {
+            "unit": "px",
+            "size": -0.8
           }
         },
         "elements": [],
         "widgetType": "heading"
       },
       {
-        "id": "e6e789b0",
+        "id": "4dbd152e",
         "elType": "widget",
         "settings": {
           "editor": "Efisiensi operasional bisnis logistik sangat bergantung pada kesiapan armada di jalan raya. Kami menjamin keandalan teknis tertinggi.",
@@ -1355,29 +2072,48 @@
         "widgetType": "text-editor"
       },
       {
-        "id": "28f9d3ad",
+        "id": "37f5e552",
         "elType": "container",
         "settings": {
           "content_width": "full",
           "flex_direction": "row",
-          "css_classes": "features-grid-row",
+          "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_tablet": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_mobile": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
           "flex_gap": {
             "unit": "px",
             "size": 20
-          }
+          },
+          "css_classes": "features-grid-row"
         },
         "elements": [
           {
-            "id": "911466eb",
+            "id": "90547e4d",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "width": {
-                "unit": "%",
-                "size": 25
-              },
-              "css_classes": "feat-bento-col",
               "padding": {
                 "unit": "px",
                 "top": "24",
@@ -1386,6 +2122,31 @@
                 "left": "20",
                 "isLinked": ""
               },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 25
+              },
+              "css_classes": "feat-bento-col",
               "background_background": "classic",
               "background_color": "#f7f9fb",
               "border_border": "solid",
@@ -1409,7 +2170,7 @@
             },
             "elements": [
               {
-                "id": "0e557c72",
+                "id": "c9b08f0b",
                 "elType": "widget",
                 "settings": {
                   "selected_icon": {
@@ -1449,16 +2210,11 @@
             "isInner": true
           },
           {
-            "id": "6b07ca28",
+            "id": "d7ad1c2e",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "width": {
-                "unit": "%",
-                "size": 25
-              },
-              "css_classes": "feat-bento-col",
               "padding": {
                 "unit": "px",
                 "top": "24",
@@ -1467,6 +2223,31 @@
                 "left": "20",
                 "isLinked": ""
               },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 25
+              },
+              "css_classes": "feat-bento-col",
               "background_background": "classic",
               "background_color": "#f7f9fb",
               "border_border": "solid",
@@ -1490,7 +2271,7 @@
             },
             "elements": [
               {
-                "id": "639d387a",
+                "id": "23e6d792",
                 "elType": "widget",
                 "settings": {
                   "selected_icon": {
@@ -1530,16 +2311,11 @@
             "isInner": true
           },
           {
-            "id": "bbe20a5d",
+            "id": "b09608aa",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "width": {
-                "unit": "%",
-                "size": 25
-              },
-              "css_classes": "feat-bento-col",
               "padding": {
                 "unit": "px",
                 "top": "24",
@@ -1548,6 +2324,31 @@
                 "left": "20",
                 "isLinked": ""
               },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 25
+              },
+              "css_classes": "feat-bento-col",
               "background_background": "classic",
               "background_color": "#f7f9fb",
               "border_border": "solid",
@@ -1571,7 +2372,7 @@
             },
             "elements": [
               {
-                "id": "56b9ffef",
+                "id": "03da666d",
                 "elType": "widget",
                 "settings": {
                   "selected_icon": {
@@ -1611,16 +2412,11 @@
             "isInner": true
           },
           {
-            "id": "8663d878",
+            "id": "c094967b",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "width": {
-                "unit": "%",
-                "size": 25
-              },
-              "css_classes": "feat-bento-col",
               "padding": {
                 "unit": "px",
                 "top": "24",
@@ -1629,6 +2425,31 @@
                 "left": "20",
                 "isLinked": ""
               },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 25
+              },
+              "css_classes": "feat-bento-col",
               "background_background": "classic",
               "background_color": "#f7f9fb",
               "border_border": "solid",
@@ -1652,7 +2473,7 @@
             },
             "elements": [
               {
-                "id": "57ebd279",
+                "id": "e1d39db8",
                 "elType": "widget",
                 "settings": {
                   "selected_icon": {
@@ -1698,7 +2519,7 @@
     "isInner": false
   },
   {
-    "id": "c5e81918",
+    "id": "43b0b7f7",
     "elType": "container",
     "settings": {
       "flex_direction": "column",
@@ -1723,7 +2544,7 @@
     },
     "elements": [
       {
-        "id": "53755af8",
+        "id": "b692708e",
         "elType": "widget",
         "settings": {
           "title": "Cakupan Servis Komprehensif",
@@ -1741,6 +2562,14 @@
             "size": 1.15
           },
           "title_color": "#fd651e",
+          "_margin": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
           "typography_letter_spacing": {
             "unit": "px",
             "size": 1.0
@@ -1750,7 +2579,7 @@
         "widgetType": "heading"
       },
       {
-        "id": "50a3a5b2",
+        "id": "8d6f73f3",
         "elType": "widget",
         "settings": {
           "title": "Layanan Mekanikal Berat, Kalibrasi Presisi, &amp; Perawatan Berkala",
@@ -1768,10 +2597,6 @@
             "size": 1.15
           },
           "title_color": "#00236f",
-          "typography_letter_spacing": {
-            "unit": "px",
-            "size": -0.8
-          },
           "_margin": {
             "unit": "px",
             "top": "6",
@@ -1779,13 +2604,17 @@
             "bottom": "14",
             "left": "0",
             "isLinked": ""
+          },
+          "typography_letter_spacing": {
+            "unit": "px",
+            "size": -0.8
           }
         },
         "elements": [],
         "widgetType": "heading"
       },
       {
-        "id": "24e13edd",
+        "id": "26113d00",
         "elType": "widget",
         "settings": {
           "editor": "Didukung oleh mekanik bersertifikasi dan peralatan berstandar pabrikan untuk memastikan performa puncak armada komersial Anda.",
@@ -1814,16 +2643,40 @@
         "widgetType": "text-editor"
       },
       {
-        "id": "0787e09b",
+        "id": "296318a3",
         "elType": "container",
         "settings": {
           "content_width": "full",
           "flex_direction": "row",
-          "css_classes": "services-row-1",
+          "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_tablet": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_mobile": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
           "flex_gap": {
             "unit": "px",
             "size": 20
           },
+          "css_classes": "services-row-1",
           "margin": {
             "unit": "px",
             "top": "0",
@@ -1835,16 +2688,11 @@
         },
         "elements": [
           {
-            "id": "593d12b3",
+            "id": "97c56ce3",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "width": {
-                "unit": "%",
-                "size": 33
-              },
-              "css_classes": "svc-card-col",
               "padding": {
                 "unit": "px",
                 "top": "28",
@@ -1853,6 +2701,31 @@
                 "left": "24",
                 "isLinked": ""
               },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 33
+              },
+              "css_classes": "svc-card-col",
               "background_background": "classic",
               "background_color": "#ffffff",
               "border_border": "solid",
@@ -1876,7 +2749,7 @@
             },
             "elements": [
               {
-                "id": "fc52fd6f",
+                "id": "93aea625",
                 "elType": "widget",
                 "settings": {
                   "selected_icon": {
@@ -1913,7 +2786,7 @@
                 "widgetType": "icon-box"
               },
               {
-                "id": "bac3eb31",
+                "id": "86cfd5cb",
                 "elType": "widget",
                 "settings": {
                   "text": "Konsultasi Servis ➔",
@@ -1947,6 +2820,14 @@
                     "bottom": "0",
                     "left": "0",
                     "isLinked": ""
+                  },
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
                   }
                 },
                 "elements": [],
@@ -1956,16 +2837,11 @@
             "isInner": true
           },
           {
-            "id": "6230019a",
+            "id": "00fc44be",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "width": {
-                "unit": "%",
-                "size": 33
-              },
-              "css_classes": "svc-card-col",
               "padding": {
                 "unit": "px",
                 "top": "28",
@@ -1974,6 +2850,31 @@
                 "left": "24",
                 "isLinked": ""
               },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 33
+              },
+              "css_classes": "svc-card-col",
               "background_background": "classic",
               "background_color": "#ffffff",
               "border_border": "solid",
@@ -1997,7 +2898,7 @@
             },
             "elements": [
               {
-                "id": "6e5a63b5",
+                "id": "66ab7d10",
                 "elType": "widget",
                 "settings": {
                   "selected_icon": {
@@ -2034,7 +2935,7 @@
                 "widgetType": "icon-box"
               },
               {
-                "id": "29bc19dd",
+                "id": "24ad27ce",
                 "elType": "widget",
                 "settings": {
                   "text": "Konsultasi Servis ➔",
@@ -2068,6 +2969,14 @@
                     "bottom": "0",
                     "left": "0",
                     "isLinked": ""
+                  },
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
                   }
                 },
                 "elements": [],
@@ -2077,16 +2986,11 @@
             "isInner": true
           },
           {
-            "id": "5595704f",
+            "id": "cd588eeb",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "width": {
-                "unit": "%",
-                "size": 33
-              },
-              "css_classes": "svc-card-col",
               "padding": {
                 "unit": "px",
                 "top": "28",
@@ -2095,6 +2999,31 @@
                 "left": "24",
                 "isLinked": ""
               },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 33
+              },
+              "css_classes": "svc-card-col",
               "background_background": "classic",
               "background_color": "#ffffff",
               "border_border": "solid",
@@ -2118,7 +3047,7 @@
             },
             "elements": [
               {
-                "id": "12d5c4d9",
+                "id": "65d00a31",
                 "elType": "widget",
                 "settings": {
                   "selected_icon": {
@@ -2155,7 +3084,7 @@
                 "widgetType": "icon-box"
               },
               {
-                "id": "57c66f44",
+                "id": "e6faa8b2",
                 "elType": "widget",
                 "settings": {
                   "text": "Konsultasi Servis ➔",
@@ -2189,6 +3118,14 @@
                     "bottom": "0",
                     "left": "0",
                     "isLinked": ""
+                  },
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
                   }
                 },
                 "elements": [],
@@ -2201,29 +3138,48 @@
         "isInner": true
       },
       {
-        "id": "94b4b1e5",
+        "id": "d811ac24",
         "elType": "container",
         "settings": {
           "content_width": "full",
           "flex_direction": "row",
-          "css_classes": "services-row-2",
+          "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_tablet": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_mobile": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
           "flex_gap": {
             "unit": "px",
             "size": 20
-          }
+          },
+          "css_classes": "services-row-2"
         },
         "elements": [
           {
-            "id": "ce0228c8",
+            "id": "a600dbdf",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "width": {
-                "unit": "%",
-                "size": 33
-              },
-              "css_classes": "svc-card-col",
               "padding": {
                 "unit": "px",
                 "top": "28",
@@ -2232,6 +3188,31 @@
                 "left": "24",
                 "isLinked": ""
               },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 33
+              },
+              "css_classes": "svc-card-col",
               "background_background": "classic",
               "background_color": "#ffffff",
               "border_border": "solid",
@@ -2255,7 +3236,7 @@
             },
             "elements": [
               {
-                "id": "28206445",
+                "id": "e7620de4",
                 "elType": "widget",
                 "settings": {
                   "selected_icon": {
@@ -2292,7 +3273,7 @@
                 "widgetType": "icon-box"
               },
               {
-                "id": "d054d55f",
+                "id": "6f30048e",
                 "elType": "widget",
                 "settings": {
                   "text": "Konsultasi Servis ➔",
@@ -2326,6 +3307,14 @@
                     "bottom": "0",
                     "left": "0",
                     "isLinked": ""
+                  },
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
                   }
                 },
                 "elements": [],
@@ -2335,16 +3324,11 @@
             "isInner": true
           },
           {
-            "id": "5661078d",
+            "id": "66efa544",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "width": {
-                "unit": "%",
-                "size": 33
-              },
-              "css_classes": "svc-card-col",
               "padding": {
                 "unit": "px",
                 "top": "28",
@@ -2353,6 +3337,31 @@
                 "left": "24",
                 "isLinked": ""
               },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 33
+              },
+              "css_classes": "svc-card-col",
               "background_background": "classic",
               "background_color": "#ffffff",
               "border_border": "solid",
@@ -2376,7 +3385,7 @@
             },
             "elements": [
               {
-                "id": "95991dd6",
+                "id": "6502131c",
                 "elType": "widget",
                 "settings": {
                   "selected_icon": {
@@ -2413,7 +3422,7 @@
                 "widgetType": "icon-box"
               },
               {
-                "id": "ee3d5b99",
+                "id": "7a68af02",
                 "elType": "widget",
                 "settings": {
                   "text": "Konsultasi Servis ➔",
@@ -2447,6 +3456,14 @@
                     "bottom": "0",
                     "left": "0",
                     "isLinked": ""
+                  },
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
                   }
                 },
                 "elements": [],
@@ -2456,16 +3473,11 @@
             "isInner": true
           },
           {
-            "id": "d570796e",
+            "id": "cdf336f8",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "width": {
-                "unit": "%",
-                "size": 33
-              },
-              "css_classes": "svc-card-col",
               "padding": {
                 "unit": "px",
                 "top": "28",
@@ -2474,6 +3486,31 @@
                 "left": "24",
                 "isLinked": ""
               },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 33
+              },
+              "css_classes": "svc-card-col",
               "background_background": "classic",
               "background_color": "#ffffff",
               "border_border": "solid",
@@ -2497,7 +3534,7 @@
             },
             "elements": [
               {
-                "id": "4d6a27c2",
+                "id": "e97c40c1",
                 "elType": "widget",
                 "settings": {
                   "selected_icon": {
@@ -2534,7 +3571,7 @@
                 "widgetType": "icon-box"
               },
               {
-                "id": "6bdc1baa",
+                "id": "4804b7bb",
                 "elType": "widget",
                 "settings": {
                   "text": "Konsultasi Servis ➔",
@@ -2568,6 +3605,14 @@
                     "bottom": "0",
                     "left": "0",
                     "isLinked": ""
+                  },
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
                   }
                 },
                 "elements": [],
@@ -2583,7 +3628,7 @@
     "isInner": false
   },
   {
-    "id": "81a1a518",
+    "id": "2ddf000a",
     "elType": "container",
     "settings": {
       "flex_direction": "column",
@@ -2608,7 +3653,7 @@
     },
     "elements": [
       {
-        "id": "02405bbe",
+        "id": "093b2c81",
         "elType": "widget",
         "settings": {
           "title": "Solusi Perusahaan Logistik &amp; Tambang",
@@ -2626,6 +3671,14 @@
             "size": 1.15
           },
           "title_color": "#00236f",
+          "_margin": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
           "typography_letter_spacing": {
             "unit": "px",
             "size": 1.0
@@ -2635,7 +3688,7 @@
         "widgetType": "heading"
       },
       {
-        "id": "a54d31b1",
+        "id": "d06fce76",
         "elType": "widget",
         "settings": {
           "title": "Kontrak Perawatan Armada (PMP) Terjadwal",
@@ -2653,10 +3706,6 @@
             "size": 1.15
           },
           "title_color": "#00236f",
-          "typography_letter_spacing": {
-            "unit": "px",
-            "size": -0.8
-          },
           "_margin": {
             "unit": "px",
             "top": "6",
@@ -2664,13 +3713,17 @@
             "bottom": "14",
             "left": "0",
             "isLinked": ""
+          },
+          "typography_letter_spacing": {
+            "unit": "px",
+            "size": -0.8
           }
         },
         "elements": [],
         "widgetType": "heading"
       },
       {
-        "id": "f5619324",
+        "id": "2670dc5d",
         "elType": "widget",
         "settings": {
           "editor": "Hemat biaya operasional armada hingga 30% dengan skema kontrak pemeliharaan fleet terintegrasi, laporan digital berkala, dan fasilitas pembayaran termin bisnis.",
@@ -2699,30 +3752,49 @@
         "widgetType": "text-editor"
       },
       {
-        "id": "98f8eb8d",
+        "id": "be169ee1",
         "elType": "container",
         "settings": {
           "content_width": "full",
           "flex_direction": "row",
-          "css_classes": "fleet-pricing-row",
+          "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_tablet": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_mobile": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
           "flex_gap": {
             "unit": "px",
             "size": 20
           },
+          "css_classes": "fleet-pricing-row",
           "flex_align_items": "stretch"
         },
         "elements": [
           {
-            "id": "f425f126",
+            "id": "97abf382",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "width": {
-                "unit": "%",
-                "size": 33
-              },
-              "css_classes": "fleet-tier-col",
               "padding": {
                 "unit": "px",
                 "top": "32",
@@ -2731,6 +3803,31 @@
                 "left": "24",
                 "isLinked": ""
               },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 33
+              },
+              "css_classes": "fleet-tier-col",
               "background_background": "classic",
               "background_color": "#ffffff",
               "border_border": "solid",
@@ -2754,7 +3851,7 @@
             },
             "elements": [
               {
-                "id": "796c00e2",
+                "id": "86c605bb",
                 "elType": "widget",
                 "settings": {
                   "title": "Standard Fleet",
@@ -2772,10 +3869,6 @@
                     "size": 1.15
                   },
                   "title_color": "#00236f",
-                  "typography_letter_spacing": {
-                    "unit": "px",
-                    "size": -0.5
-                  },
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -2783,13 +3876,17 @@
                     "bottom": "6",
                     "left": "0",
                     "isLinked": ""
+                  },
+                  "typography_letter_spacing": {
+                    "unit": "px",
+                    "size": -0.5
                   }
                 },
                 "elements": [],
                 "widgetType": "heading"
               },
               {
-                "id": "dc68ceb9",
+                "id": "4f91317a",
                 "elType": "widget",
                 "settings": {
                   "editor": "<p style='font-size:13px;color:#757682;margin-bottom:16px;'>Untuk UKM logistik dengan armada 5 - 15 unit truk.</p><div style='font-size:14px;color:#191c1e;line-height:1.8;'>✔ Jadwal servis rutin berkala<br>✔ Diskon suku cadang OEM 10%<br>✔ Inspeksi gratis 30 titik kendaraan<br>✔ Laporan rekapitulasi servis bulanan<br>✔ Dedicated customer service</div>",
@@ -2818,7 +3915,7 @@
                 "widgetType": "text-editor"
               },
               {
-                "id": "7037119a",
+                "id": "1b599a7f",
                 "elType": "widget",
                 "settings": {
                   "text": "Pilih Paket Standard",
@@ -2852,6 +3949,14 @@
                     "bottom": "12",
                     "left": "20",
                     "isLinked": ""
+                  },
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
                   }
                 },
                 "elements": [],
@@ -2861,16 +3966,11 @@
             "isInner": true
           },
           {
-            "id": "d89539d5",
+            "id": "9d32922e",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "width": {
-                "unit": "%",
-                "size": 34
-              },
-              "css_classes": "fleet-tier-col featured",
               "padding": {
                 "unit": "px",
                 "top": "32",
@@ -2879,6 +3979,31 @@
                 "left": "24",
                 "isLinked": ""
               },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 34
+              },
+              "css_classes": "fleet-tier-col featured",
               "background_background": "classic",
               "background_color": "#ffffff",
               "border_border": "solid",
@@ -2910,7 +4035,7 @@
             },
             "elements": [
               {
-                "id": "78a95774",
+                "id": "02b647c1",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style=\"display:inline-block;padding:4px 10px;background:#fd651e;color:#ffffff;border-radius:6px;font-size:11px;font-weight:800;text-transform:uppercase;margin-bottom:8px;\">Paling Populer</div>",
@@ -2925,13 +4050,21 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#444651"
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
                 },
                 "elements": [],
                 "widgetType": "text-editor"
               },
               {
-                "id": "31c0a753",
+                "id": "afb638e3",
                 "elType": "widget",
                 "settings": {
                   "title": "Prime Fleet",
@@ -2949,10 +4082,6 @@
                     "size": 1.15
                   },
                   "title_color": "#00236f",
-                  "typography_letter_spacing": {
-                    "unit": "px",
-                    "size": -0.5
-                  },
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -2960,13 +4089,17 @@
                     "bottom": "6",
                     "left": "0",
                     "isLinked": ""
+                  },
+                  "typography_letter_spacing": {
+                    "unit": "px",
+                    "size": -0.5
                   }
                 },
                 "elements": [],
                 "widgetType": "heading"
               },
               {
-                "id": "c1841311",
+                "id": "92921dd0",
                 "elType": "widget",
                 "settings": {
                   "editor": "<p style='font-size:13px;color:#757682;margin-bottom:16px;'>Untuk ekspedisi skala menengah 15 - 50 unit truk.</p><div style='font-size:14px;color:#191c1e;line-height:1.8;font-weight:500;'>✔ <b>Semua fitur Standard Fleet</b><br>✔ Diskon suku cadang OEM 18%<br>✔ Prioritas stall khusus (Zero Queue)<br>✔ Layanan Emergency Rescue &amp; Derek 24/7<br>✔ Dashboard telematics status pengerjaan<br>✔ Garansi pengerjaan overhaul 180 hari</div>",
@@ -2995,7 +4128,7 @@
                 "widgetType": "text-editor"
               },
               {
-                "id": "0bd9c834",
+                "id": "61924a01",
                 "elType": "widget",
                 "settings": {
                   "text": "Daftar Paket Prime Fleet",
@@ -3029,6 +4162,14 @@
                     "bottom": "14",
                     "left": "24",
                     "isLinked": ""
+                  },
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
                   }
                 },
                 "elements": [],
@@ -3038,16 +4179,11 @@
             "isInner": true
           },
           {
-            "id": "d5a0bbbd",
+            "id": "b57f72ce",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "width": {
-                "unit": "%",
-                "size": 33
-              },
-              "css_classes": "fleet-tier-col",
               "padding": {
                 "unit": "px",
                 "top": "32",
@@ -3056,6 +4192,31 @@
                 "left": "24",
                 "isLinked": ""
               },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 33
+              },
+              "css_classes": "fleet-tier-col",
               "background_background": "classic",
               "background_color": "#ffffff",
               "border_border": "solid",
@@ -3079,7 +4240,7 @@
             },
             "elements": [
               {
-                "id": "fdcf8b3d",
+                "id": "328ac765",
                 "elType": "widget",
                 "settings": {
                   "title": "Enterprise Fleet",
@@ -3097,10 +4258,6 @@
                     "size": 1.15
                   },
                   "title_color": "#00236f",
-                  "typography_letter_spacing": {
-                    "unit": "px",
-                    "size": -0.5
-                  },
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -3108,13 +4265,17 @@
                     "bottom": "6",
                     "left": "0",
                     "isLinked": ""
+                  },
+                  "typography_letter_spacing": {
+                    "unit": "px",
+                    "size": -0.5
                   }
                 },
                 "elements": [],
                 "widgetType": "heading"
               },
               {
-                "id": "84f08ac5",
+                "id": "8e2a46f3",
                 "elType": "widget",
                 "settings": {
                   "editor": "<p style='font-size:13px;color:#757682;margin-bottom:16px;'>Untuk korporasi logistik &amp; tambang > 50 unit truk.</p><div style='font-size:14px;color:#191c1e;line-height:1.8;'>✔ <b>Semua fitur Prime Fleet</b><br>✔ Dedicated On-Site Mekanik di pool<br>✔ Diskon grosir suku cadang volume besar<br>✔ Custom SLA dengan klausul denda downtime<br>✔ Fasilitas termin pembayaran (TOP 45-60 hari)<br>✔ Audit keselamatan berkala bersertifikat</div>",
@@ -3143,7 +4304,7 @@
                 "widgetType": "text-editor"
               },
               {
-                "id": "6d8aa9a3",
+                "id": "e8c8282c",
                 "elType": "widget",
                 "settings": {
                   "text": "Hubungi Key Account ➔",
@@ -3177,6 +4338,14 @@
                     "bottom": "12",
                     "left": "20",
                     "isLinked": ""
+                  },
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
                   }
                 },
                 "elements": [],
@@ -3192,7 +4361,7 @@
     "isInner": false
   },
   {
-    "id": "179ebeef",
+    "id": "42f78223",
     "elType": "container",
     "settings": {
       "flex_direction": "column",
@@ -3217,7 +4386,7 @@
     },
     "elements": [
       {
-        "id": "89efe180",
+        "id": "25b89b1b",
         "elType": "widget",
         "settings": {
           "title": "Infrastruktur Bengkel Berstandar Internasional",
@@ -3235,6 +4404,14 @@
             "size": 1.15
           },
           "title_color": "#fd651e",
+          "_margin": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
           "typography_letter_spacing": {
             "unit": "px",
             "size": 1.0
@@ -3244,7 +4421,7 @@
         "widgetType": "heading"
       },
       {
-        "id": "89f2c4db",
+        "id": "36d31ed8",
         "elType": "widget",
         "settings": {
           "title": "Fasilitas Bengkel Heavy Duty Terlengkap di Koridor Industri",
@@ -3262,10 +4439,6 @@
             "size": 1.15
           },
           "title_color": "#00236f",
-          "typography_letter_spacing": {
-            "unit": "px",
-            "size": -0.8
-          },
           "_margin": {
             "unit": "px",
             "top": "6",
@@ -3273,13 +4446,17 @@
             "bottom": "14",
             "left": "0",
             "isLinked": ""
+          },
+          "typography_letter_spacing": {
+            "unit": "px",
+            "size": -0.8
           }
         },
         "elements": [],
         "widgetType": "heading"
       },
       {
-        "id": "1f6f99ca",
+        "id": "7ec5e1de",
         "elType": "widget",
         "settings": {
           "editor": "Dirancang khusus untuk mengakomodasi truk tronton, trailer 40ft, dan alat berat dengan kapasitas hingga 20 unit secara bersamaan.",
@@ -3308,16 +4485,40 @@
         "widgetType": "text-editor"
       },
       {
-        "id": "1f23af67",
+        "id": "a9133c76",
         "elType": "container",
         "settings": {
           "content_width": "full",
           "flex_direction": "row",
-          "css_classes": "fac-row-1",
+          "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_tablet": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_mobile": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
           "flex_gap": {
             "unit": "px",
             "size": 20
           },
+          "css_classes": "fac-row-1",
           "margin": {
             "unit": "px",
             "top": "0",
@@ -3329,16 +4530,11 @@
         },
         "elements": [
           {
-            "id": "a174ce87",
+            "id": "ff1e873b",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "width": {
-                "unit": "%",
-                "size": 33
-              },
-              "css_classes": "fac-card-col",
               "padding": {
                 "unit": "px",
                 "top": "16",
@@ -3347,6 +4543,31 @@
                 "left": "16",
                 "isLinked": ""
               },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 33
+              },
+              "css_classes": "fac-card-col",
               "background_background": "classic",
               "background_color": "#ffffff",
               "border_radius": {
@@ -3360,7 +4581,7 @@
             },
             "elements": [
               {
-                "id": "cafb772c",
+                "id": "e607bad5",
                 "elType": "widget",
                 "settings": {
                   "image": {
@@ -3369,6 +4590,14 @@
                   },
                   "image_size": "full",
                   "caption_source": "none",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  },
                   "image_border_radius": {
                     "unit": "px",
                     "top": "16",
@@ -3382,7 +4611,7 @@
                 "widgetType": "image"
               },
               {
-                "id": "ec0b612a",
+                "id": "c9b434fb",
                 "elType": "widget",
                 "settings": {
                   "title": "Pit Servis 20 Meter",
@@ -3400,10 +4629,6 @@
                     "size": 1.15
                   },
                   "title_color": "#00236f",
-                  "typography_letter_spacing": {
-                    "unit": "px",
-                    "size": -0.5
-                  },
                   "_margin": {
                     "unit": "px",
                     "top": "12",
@@ -3411,13 +4636,17 @@
                     "bottom": "4",
                     "left": "0",
                     "isLinked": ""
+                  },
+                  "typography_letter_spacing": {
+                    "unit": "px",
+                    "size": -0.5
                   }
                 },
                 "elements": [],
                 "widgetType": "heading"
               },
               {
-                "id": "44c4ce4f",
+                "id": "da46a257",
                 "elType": "widget",
                 "settings": {
                   "editor": "Jalur kolong inspeksi dengan pencahayaan LED intensitas tinggi dan sistem drainase oli otomatis untuk inspeksi cepat gardan &amp; sasis.",
@@ -3432,7 +4661,15 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#444651"
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
                 },
                 "elements": [],
                 "widgetType": "text-editor"
@@ -3441,16 +4678,11 @@
             "isInner": true
           },
           {
-            "id": "0f17a26b",
+            "id": "cac3bb49",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "width": {
-                "unit": "%",
-                "size": 33
-              },
-              "css_classes": "fac-card-col",
               "padding": {
                 "unit": "px",
                 "top": "16",
@@ -3459,6 +4691,31 @@
                 "left": "16",
                 "isLinked": ""
               },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 33
+              },
+              "css_classes": "fac-card-col",
               "background_background": "classic",
               "background_color": "#ffffff",
               "border_radius": {
@@ -3472,7 +4729,7 @@
             },
             "elements": [
               {
-                "id": "4147b017",
+                "id": "2ac34b02",
                 "elType": "widget",
                 "settings": {
                   "image": {
@@ -3481,6 +4738,14 @@
                   },
                   "image_size": "full",
                   "caption_source": "none",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  },
                   "image_border_radius": {
                     "unit": "px",
                     "top": "16",
@@ -3494,7 +4759,7 @@
                 "widgetType": "image"
               },
               {
-                "id": "e3dab49d",
+                "id": "b709e3e3",
                 "elType": "widget",
                 "settings": {
                   "title": "Overhead Crane 10 Ton",
@@ -3512,10 +4777,6 @@
                     "size": 1.15
                   },
                   "title_color": "#00236f",
-                  "typography_letter_spacing": {
-                    "unit": "px",
-                    "size": -0.5
-                  },
                   "_margin": {
                     "unit": "px",
                     "top": "12",
@@ -3523,13 +4784,17 @@
                     "bottom": "4",
                     "left": "0",
                     "isLinked": ""
+                  },
+                  "typography_letter_spacing": {
+                    "unit": "px",
+                    "size": -0.5
                   }
                 },
                 "elements": [],
                 "widgetType": "heading"
               },
               {
-                "id": "f3fd9d61",
+                "id": "adb09aee",
                 "elType": "widget",
                 "settings": {
                   "editor": "Derek gantry elektrik berkapasitas angkat 10 ton untuk proses bongkar pasang kabin, transmisi berat, dan engine assembly secara presisi.",
@@ -3544,7 +4809,15 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#444651"
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
                 },
                 "elements": [],
                 "widgetType": "text-editor"
@@ -3553,16 +4826,11 @@
             "isInner": true
           },
           {
-            "id": "dd1c3d6e",
+            "id": "b0e7d751",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "width": {
-                "unit": "%",
-                "size": 33
-              },
-              "css_classes": "fac-card-col",
               "padding": {
                 "unit": "px",
                 "top": "16",
@@ -3571,6 +4839,31 @@
                 "left": "16",
                 "isLinked": ""
               },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 33
+              },
+              "css_classes": "fac-card-col",
               "background_background": "classic",
               "background_color": "#ffffff",
               "border_radius": {
@@ -3584,7 +4877,7 @@
             },
             "elements": [
               {
-                "id": "11e9347e",
+                "id": "7dee0356",
                 "elType": "widget",
                 "settings": {
                   "image": {
@@ -3593,6 +4886,14 @@
                   },
                   "image_size": "full",
                   "caption_source": "none",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  },
                   "image_border_radius": {
                     "unit": "px",
                     "top": "16",
@@ -3606,7 +4907,7 @@
                 "widgetType": "image"
               },
               {
-                "id": "ad711b61",
+                "id": "abd62581",
                 "elType": "widget",
                 "settings": {
                   "title": "Mesin Spooring 3D Laser",
@@ -3624,10 +4925,6 @@
                     "size": 1.15
                   },
                   "title_color": "#00236f",
-                  "typography_letter_spacing": {
-                    "unit": "px",
-                    "size": -0.5
-                  },
                   "_margin": {
                     "unit": "px",
                     "top": "12",
@@ -3635,13 +4932,17 @@
                     "bottom": "4",
                     "left": "0",
                     "isLinked": ""
+                  },
+                  "typography_letter_spacing": {
+                    "unit": "px",
+                    "size": -0.5
                   }
                 },
                 "elements": [],
                 "widgetType": "heading"
               },
               {
-                "id": "ad891403",
+                "id": "f97b9ca9",
                 "elType": "widget",
                 "settings": {
                   "editor": "Sistem komputerisasi laser alignment untuk menyelaraskan kelurusan roda kemudi dan drive axle truk gandar ganda agar ban awet merata.",
@@ -3656,7 +4957,15 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#444651"
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
                 },
                 "elements": [],
                 "widgetType": "text-editor"
@@ -3668,29 +4977,48 @@
         "isInner": true
       },
       {
-        "id": "72e2b6a3",
+        "id": "81731277",
         "elType": "container",
         "settings": {
           "content_width": "full",
           "flex_direction": "row",
-          "css_classes": "fac-row-2",
+          "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_tablet": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_mobile": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
           "flex_gap": {
             "unit": "px",
             "size": 20
-          }
+          },
+          "css_classes": "fac-row-2"
         },
         "elements": [
           {
-            "id": "9305616e",
+            "id": "799aaa26",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "width": {
-                "unit": "%",
-                "size": 33
-              },
-              "css_classes": "fac-card-col",
               "padding": {
                 "unit": "px",
                 "top": "16",
@@ -3699,6 +5027,31 @@
                 "left": "16",
                 "isLinked": ""
               },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 33
+              },
+              "css_classes": "fac-card-col",
               "background_background": "classic",
               "background_color": "#ffffff",
               "border_radius": {
@@ -3712,7 +5065,7 @@
             },
             "elements": [
               {
-                "id": "69b4b049",
+                "id": "1ba9b492",
                 "elType": "widget",
                 "settings": {
                   "image": {
@@ -3721,6 +5074,14 @@
                   },
                   "image_size": "full",
                   "caption_source": "none",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  },
                   "image_border_radius": {
                     "unit": "px",
                     "top": "16",
@@ -3734,7 +5095,7 @@
                 "widgetType": "image"
               },
               {
-                "id": "095112a4",
+                "id": "a246a2c0",
                 "elType": "widget",
                 "settings": {
                   "title": "Chassis Dyno Test Heavy Duty",
@@ -3752,10 +5113,6 @@
                     "size": 1.15
                   },
                   "title_color": "#00236f",
-                  "typography_letter_spacing": {
-                    "unit": "px",
-                    "size": -0.5
-                  },
                   "_margin": {
                     "unit": "px",
                     "top": "12",
@@ -3763,13 +5120,17 @@
                     "bottom": "4",
                     "left": "0",
                     "isLinked": ""
+                  },
+                  "typography_letter_spacing": {
+                    "unit": "px",
+                    "size": -0.5
                   }
                 },
                 "elements": [],
                 "widgetType": "heading"
               },
               {
-                "id": "8e876cf5",
+                "id": "b5af0c41",
                 "elType": "widget",
                 "settings": {
                   "editor": "Ruang uji performa dinamometer bertenaga tinggi untuk simulasi beban jalan dan pengujian torsi mesin pasca overhaul sebelum diserahkan.",
@@ -3784,7 +5145,15 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#444651"
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
                 },
                 "elements": [],
                 "widgetType": "text-editor"
@@ -3793,16 +5162,11 @@
             "isInner": true
           },
           {
-            "id": "d3b721ae",
+            "id": "5033eca7",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "width": {
-                "unit": "%",
-                "size": 33
-              },
-              "css_classes": "fac-card-col",
               "padding": {
                 "unit": "px",
                 "top": "16",
@@ -3811,6 +5175,31 @@
                 "left": "16",
                 "isLinked": ""
               },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 33
+              },
+              "css_classes": "fac-card-col",
               "background_background": "classic",
               "background_color": "#ffffff",
               "border_radius": {
@@ -3824,7 +5213,7 @@
             },
             "elements": [
               {
-                "id": "e231056c",
+                "id": "a819d287",
                 "elType": "widget",
                 "settings": {
                   "image": {
@@ -3833,6 +5222,14 @@
                   },
                   "image_size": "full",
                   "caption_source": "none",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  },
                   "image_border_radius": {
                     "unit": "px",
                     "top": "16",
@@ -3846,7 +5243,7 @@
                 "widgetType": "image"
               },
               {
-                "id": "91a8bc23",
+                "id": "3a99b809",
                 "elType": "widget",
                 "settings": {
                   "title": "Lab Injektor Ber-AC &amp; Steril",
@@ -3864,10 +5261,6 @@
                     "size": 1.15
                   },
                   "title_color": "#00236f",
-                  "typography_letter_spacing": {
-                    "unit": "px",
-                    "size": -0.5
-                  },
                   "_margin": {
                     "unit": "px",
                     "top": "12",
@@ -3875,13 +5268,17 @@
                     "bottom": "4",
                     "left": "0",
                     "isLinked": ""
+                  },
+                  "typography_letter_spacing": {
+                    "unit": "px",
+                    "size": -0.5
                   }
                 },
                 "elements": [],
                 "widgetType": "heading"
               },
               {
-                "id": "2ceb0891",
+                "id": "4575a276",
                 "elType": "widget",
                 "settings": {
                   "editor": "Ruang steril bertekanan positif bebas debu dengan test bench Bosch EPS 708 untuk kalibrasi injektor common rail berstandar mikron.",
@@ -3896,7 +5293,15 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#444651"
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
                 },
                 "elements": [],
                 "widgetType": "text-editor"
@@ -3905,16 +5310,11 @@
             "isInner": true
           },
           {
-            "id": "1a85827b",
+            "id": "d462b3ef",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "width": {
-                "unit": "%",
-                "size": 33
-              },
-              "css_classes": "fac-card-col",
               "padding": {
                 "unit": "px",
                 "top": "16",
@@ -3923,6 +5323,31 @@
                 "left": "16",
                 "isLinked": ""
               },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 33
+              },
+              "css_classes": "fac-card-col",
               "background_background": "classic",
               "background_color": "#ffffff",
               "border_radius": {
@@ -3936,7 +5361,7 @@
             },
             "elements": [
               {
-                "id": "7b3858c2",
+                "id": "849b533e",
                 "elType": "widget",
                 "settings": {
                   "image": {
@@ -3945,6 +5370,14 @@
                   },
                   "image_size": "full",
                   "caption_source": "none",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  },
                   "image_border_radius": {
                     "unit": "px",
                     "top": "16",
@@ -3958,7 +5391,7 @@
                 "widgetType": "image"
               },
               {
-                "id": "2c230e07",
+                "id": "683b6c18",
                 "elType": "widget",
                 "settings": {
                   "title": "Driver Lounge VIP",
@@ -3976,10 +5409,6 @@
                     "size": 1.15
                   },
                   "title_color": "#00236f",
-                  "typography_letter_spacing": {
-                    "unit": "px",
-                    "size": -0.5
-                  },
                   "_margin": {
                     "unit": "px",
                     "top": "12",
@@ -3987,13 +5416,17 @@
                     "bottom": "4",
                     "left": "0",
                     "isLinked": ""
+                  },
+                  "typography_letter_spacing": {
+                    "unit": "px",
+                    "size": -0.5
                   }
                 },
                 "elements": [],
                 "widgetType": "heading"
               },
               {
-                "id": "44545bea",
+                "id": "87195471",
                 "elType": "widget",
                 "settings": {
                   "editor": "Ruang istirahat pengemudi ber-AC dengan sofa nyaman, musholla, kamar mandi bersih, Wi-Fi gratis, dan monitor CCTV pantau pengerjaan truk.",
@@ -4008,7 +5441,15 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#444651"
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
                 },
                 "elements": [],
                 "widgetType": "text-editor"
@@ -4023,7 +5464,7 @@
     "isInner": false
   },
   {
-    "id": "2506a03a",
+    "id": "d4cb3a42",
     "elType": "container",
     "settings": {
       "flex_direction": "column",
@@ -4047,7 +5488,7 @@
     },
     "elements": [
       {
-        "id": "8da269ea",
+        "id": "7d80ba8b",
         "elType": "widget",
         "settings": {
           "title": "Bukti Kemitraan Nyata",
@@ -4065,6 +5506,14 @@
             "size": 1.15
           },
           "title_color": "#00236f",
+          "_margin": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
           "typography_letter_spacing": {
             "unit": "px",
             "size": 1.0
@@ -4074,7 +5523,7 @@
         "widgetType": "heading"
       },
       {
-        "id": "d7510cc6",
+        "id": "80406544",
         "elType": "widget",
         "settings": {
           "title": "Dipercaya oleh Para Pemimpin Industri Ekspedisi &amp; Transportasi",
@@ -4092,10 +5541,6 @@
             "size": 1.15
           },
           "title_color": "#00236f",
-          "typography_letter_spacing": {
-            "unit": "px",
-            "size": -0.8
-          },
           "_margin": {
             "unit": "px",
             "top": "6",
@@ -4103,13 +5548,17 @@
             "bottom": "14",
             "left": "0",
             "isLinked": ""
+          },
+          "typography_letter_spacing": {
+            "unit": "px",
+            "size": -0.8
           }
         },
         "elements": [],
         "widgetType": "heading"
       },
       {
-        "id": "e822aced",
+        "id": "c278b66b",
         "elType": "widget",
         "settings": {
           "editor": "Transparansi pengerjaan dan kepastian uptime armada menjadi alasan utama mitra korporat kami bertahan bertahun-tahun.",
@@ -4138,29 +5587,48 @@
         "widgetType": "text-editor"
       },
       {
-        "id": "708d73b8",
+        "id": "d9ada702",
         "elType": "container",
         "settings": {
           "content_width": "full",
           "flex_direction": "row",
-          "css_classes": "testimonials-row",
+          "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_tablet": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_mobile": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
           "flex_gap": {
             "unit": "px",
             "size": 20
-          }
+          },
+          "css_classes": "testimonials-row"
         },
         "elements": [
           {
-            "id": "5c9d283c",
+            "id": "c7c31c92",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "width": {
-                "unit": "%",
-                "size": 33
-              },
-              "css_classes": "testi-card-col",
               "padding": {
                 "unit": "px",
                 "top": "28",
@@ -4169,6 +5637,31 @@
                 "left": "24",
                 "isLinked": ""
               },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 33
+              },
+              "css_classes": "testi-card-col",
               "background_background": "classic",
               "background_color": "#f7f9fb",
               "border_border": "solid",
@@ -4192,7 +5685,7 @@
             },
             "elements": [
               {
-                "id": "07d859bf",
+                "id": "d0c6872d",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style='font-size:24px;color:#fd651e;margin-bottom:8px;'>★★★★★</div><p style='font-size:15px;color:#191c1e;line-height:1.65;font-style:italic;margin-bottom:20px;'>\"Sejak mempercayakan 78 unit trailer kami pada kontrak perawatan Master Truck, angka breakdown armada di jalan turun hingga 85%. Dashboard laporan perawatan digitalnya sangat transparan dan suku cadangnya selalu terbukti original OEM.\"</p><div style='display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid #e2e8f0;'><img src='http://localhost:5000/wp-content/uploads/stitch/stitch_img_9.webp' style='width:48px;height:48px;border-radius:50%;object-fit:cover;'><div><div style='font-family:Plus Jakarta Sans;font-size:15px;font-weight:700;color:#00236f;'>Budi Santoso, S.T.</div><div style='font-size:12px;color:#757682;'>Fleet Manager PT Lintas Samudra Logistik (78 Unit)</div></div></div>",
@@ -4207,7 +5700,15 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#444651"
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
                 },
                 "elements": [],
                 "widgetType": "text-editor"
@@ -4216,16 +5717,11 @@
             "isInner": true
           },
           {
-            "id": "a15ba56f",
+            "id": "5bb09cc7",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "width": {
-                "unit": "%",
-                "size": 33
-              },
-              "css_classes": "testi-card-col",
               "padding": {
                 "unit": "px",
                 "top": "28",
@@ -4234,6 +5730,31 @@
                 "left": "24",
                 "isLinked": ""
               },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 33
+              },
+              "css_classes": "testi-card-col",
               "background_background": "classic",
               "background_color": "#f7f9fb",
               "border_border": "solid",
@@ -4257,7 +5778,7 @@
             },
             "elements": [
               {
-                "id": "d43858fa",
+                "id": "9b1d45e8",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style='font-size:24px;color:#fd651e;margin-bottom:8px;'>★★★★★</div><p style='font-size:15px;color:#191c1e;line-height:1.65;font-style:italic;margin-bottom:20px;'>\"Waktu adalah uang dalam bisnis kontainer pelabuhan. Master Truck selalu memenuhi janji pengerjaan tepat waktu. Fasilitas pit servis 20 meter dan overhead cranenya sangat profesional, setara bengkel ATPM resmi namun dengan fleksibilitas yang jauh lebih baik.\"</p><div style='display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid #e2e8f0;'><img src='http://localhost:5000/wp-content/uploads/stitch/stitch_img_10.webp' style='width:48px;height:48px;border-radius:50%;object-fit:cover;'><div><div style='font-family:Plus Jakarta Sans;font-size:15px;font-weight:700;color:#00236f;'>Ir. Hendra Wijaya</div><div style='font-size:12px;color:#757682;'>Direktur Ops PT Kencana Trans Mandiri (120 Unit)</div></div></div>",
@@ -4272,7 +5793,15 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#444651"
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
                 },
                 "elements": [],
                 "widgetType": "text-editor"
@@ -4281,16 +5810,11 @@
             "isInner": true
           },
           {
-            "id": "997f1c31",
+            "id": "7eb5884b",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
-              "width": {
-                "unit": "%",
-                "size": 33
-              },
-              "css_classes": "testi-card-col",
               "padding": {
                 "unit": "px",
                 "top": "28",
@@ -4299,6 +5823,31 @@
                 "left": "24",
                 "isLinked": ""
               },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 33
+              },
+              "css_classes": "testi-card-col",
               "background_background": "classic",
               "background_color": "#f7f9fb",
               "border_border": "solid",
@@ -4322,7 +5871,7 @@
             },
             "elements": [
               {
-                "id": "e391a261",
+                "id": "b29012a5",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style='font-size:24px;color:#fd651e;margin-bottom:8px;'>★★★★★</div><p style='font-size:15px;color:#191c1e;line-height:1.65;font-style:italic;margin-bottom:20px;'>\"Emergency rescue 24 jam Master Truck pernah menyelamatkan armada kami yang patah as roda di tol tengah malam. Dalam 45 menit tim rescue sudah tiba di lokasi dan truk berhasil dievakuasi tanpa muatan terlambat sampai ke gudang klien.\"</p><div style='display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid #e2e8f0;'><img src='http://localhost:5000/wp-content/uploads/stitch/stitch_img_11.webp' style='width:48px;height:48px;border-radius:50%;object-fit:cover;'><div><div style='font-family:Plus Jakarta Sans;font-size:15px;font-weight:700;color:#00236f;'>Sari Anggraini</div><div style='font-size:12px;color:#757682;'>Pemilik PT Berkah Angkutan Nusantara (35 Unit)</div></div></div>",
@@ -4337,7 +5886,15 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#444651"
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
                 },
                 "elements": [],
                 "widgetType": "text-editor"
@@ -4352,7 +5909,7 @@
     "isInner": false
   },
   {
-    "id": "a79fa8fd",
+    "id": "1dd72ee2",
     "elType": "container",
     "settings": {
       "flex_direction": "column",
@@ -4377,7 +5934,7 @@
     },
     "elements": [
       {
-        "id": "6fe8379b",
+        "id": "ae1ad8ab",
         "elType": "widget",
         "settings": {
           "title": "Tanya Jawab Teknis",
@@ -4395,6 +5952,14 @@
             "size": 1.15
           },
           "title_color": "#fd651e",
+          "_margin": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
           "typography_letter_spacing": {
             "unit": "px",
             "size": 1.0
@@ -4404,7 +5969,7 @@
         "widgetType": "heading"
       },
       {
-        "id": "8a9921e4",
+        "id": "d3603668",
         "elType": "widget",
         "settings": {
           "title": "Pertanyaan Populer Seputar Layanan &amp; Kerjasama Fleet",
@@ -4422,10 +5987,6 @@
             "size": 1.15
           },
           "title_color": "#00236f",
-          "typography_letter_spacing": {
-            "unit": "px",
-            "size": -0.8
-          },
           "_margin": {
             "unit": "px",
             "top": "6",
@@ -4433,13 +5994,17 @@
             "bottom": "14",
             "left": "0",
             "isLinked": ""
+          },
+          "typography_letter_spacing": {
+            "unit": "px",
+            "size": -0.8
           }
         },
         "elements": [],
         "widgetType": "heading"
       },
       {
-        "id": "8e285322",
+        "id": "df4d7e75",
         "elType": "widget",
         "settings": {
           "editor": "Hal-hal teknis dan administratif yang sering ditanyakan oleh pemilik dan manajer operasional armada komersial.",
@@ -4468,7 +6033,7 @@
         "widgetType": "text-editor"
       },
       {
-        "id": "f7488e4b",
+        "id": "d98ce508",
         "elType": "widget",
         "settings": {
           "tabs": [
@@ -4530,7 +6095,7 @@
     "isInner": false
   },
   {
-    "id": "ea68fdd8",
+    "id": "b1aecebc",
     "elType": "container",
     "settings": {
       "flex_direction": "column",
@@ -4554,20 +6119,76 @@
     },
     "elements": [
       {
-        "id": "a7adac04",
+        "id": "8acbcf02",
         "elType": "container",
         "settings": {
           "content_width": "full",
           "flex_direction": "row",
+          "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_tablet": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_mobile": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "flex_gap": {
+            "unit": "px",
+            "size": 0
+          },
           "css_classes": "final-banner-row"
         },
         "elements": [
           {
-            "id": "d9806e15",
+            "id": "2ed37bda",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
+              "padding": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
               "width": {
                 "unit": "%",
                 "size": 100
@@ -4575,7 +6196,7 @@
             },
             "elements": [
               {
-                "id": "ec7e42cb",
+                "id": "dc4fd28b",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style=\"background:linear-gradient(135deg, #00164e 0%, #1e3a8a 100%);border-radius:24px;padding:48px 40px;color:#ffffff;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px;box-shadow:0 20px 48px rgba(0,35,111,0.25);\"><div style=\"max-width:680px;\"><div style=\"display:inline-block;padding:4px 10px;background:#fd651e;color:#ffffff;border-radius:6px;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;\">Hotline Siaga 24/7</div><h2 style=\"font-family:Plus Jakarta Sans;font-size:32px;font-weight:800;color:#ffffff;line-height:1.2;margin:0 0 12px 0;\">Armada Mogok di Jalan atau Perlu Jadwal Servis Rutin?</h2><p style=\"font-size:16px;color:#bec6e0;line-height:1.6;margin:0;\">Tim teknisi spesialis dan armada rescue kami siaga 24 jam melayani kebutuhan armada Anda. Hubungi kami sekarang untuk penanganan cepat atau jadwalkan inspeksi rutin bengkel.</p></div><div style=\"display:flex;flex-direction:column;gap:12px;min-width:240px;\"><a href=\"tel:0812MASTERTRUCK\" style=\"display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;background:#fd651e;color:#ffffff;text-decoration:none;border-radius:12px;font-family:Plus Jakarta Sans;font-weight:800;font-size:16px;box-shadow:0 8px 20px rgba(253,101,30,0.4);\">📞 Hubungi Dispatcher 24 Jam</a><a href=\"#quick-booking\" style=\"display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 28px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.3);color:#ffffff;text-decoration:none;border-radius:12px;font-family:Plus Jakarta Sans;font-weight:700;font-size:15px;\">Jadwalkan Servis Online</a></div></div>",
@@ -4590,7 +6211,15 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#444651"
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
                 },
                 "elements": [],
                 "widgetType": "text-editor"
@@ -4605,7 +6234,7 @@
     "isInner": false
   },
   {
-    "id": "2a664a7d",
+    "id": "0ee5022a",
     "elType": "container",
     "settings": {
       "flex_direction": "column",
@@ -4640,16 +6269,40 @@
     },
     "elements": [
       {
-        "id": "a9bec4ab",
+        "id": "a6b8c0e1",
         "elType": "container",
         "settings": {
           "content_width": "full",
           "flex_direction": "row",
-          "css_classes": "footer-main-row",
+          "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_tablet": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_mobile": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
           "flex_gap": {
             "unit": "px",
             "size": 20
           },
+          "css_classes": "footer-main-row",
           "margin": {
             "unit": "px",
             "top": "0",
@@ -4661,11 +6314,39 @@
         },
         "elements": [
           {
-            "id": "1d4f4d65",
+            "id": "19086573",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
+              "padding": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
               "width": {
                 "unit": "%",
                 "size": 35
@@ -4674,7 +6355,7 @@
             },
             "elements": [
               {
-                "id": "5fb9998a",
+                "id": "8e6ad040",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style=\"margin-bottom:14px;\"><div style=\"font-family:Plus Jakarta Sans;font-size:20px;font-weight:800;color:#00236f;\">MASTER TRUCK</div><div style=\"font-size:12px;color:#757682;font-weight:600;text-transform:uppercase;\">PT Lotus Prima Mandiri</div></div><p style=\"font-size:14px;color:#444651;line-height:1.65;max-width:320px;\">Pusat layanan perbaikan, perawatan preventif, dan rekondisi armada kendaraan komersial terpercaya dengan standar operasional OEM internasional.</p><div style=\"font-size:13px;color:#00236f;font-weight:700;margin-top:16px;\">📞 Hotline: 0812-MASTER-TRUCK / 061-8888-1234<br>✉️ Email: fleet@mastertruck.co.id</div>",
@@ -4689,7 +6370,15 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#444651"
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
                 },
                 "elements": [],
                 "widgetType": "text-editor"
@@ -4698,11 +6387,39 @@
             "isInner": true
           },
           {
-            "id": "fb750f02",
+            "id": "a4f99189",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
+              "padding": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
               "width": {
                 "unit": "%",
                 "size": 20
@@ -4711,7 +6428,7 @@
             },
             "elements": [
               {
-                "id": "a907ad51",
+                "id": "10589f21",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style=\"font-family:Plus Jakarta Sans;font-size:14px;font-weight:800;color:#00236f;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;\">Layanan Utama</div><div style=\"display:flex;flex-direction:column;gap:8px;font-size:14px;color:#444651;\"><a href=\"#layanan\" style=\"color:#444651;text-decoration:none;\">Overhaul Mesin Diesel</a><a href=\"#layanan\" style=\"color:#444651;text-decoration:none;\">Kalibrasi Injektor Common Rail</a><a href=\"#layanan\" style=\"color:#444651;text-decoration:none;\">Rem Angin &amp; Pneumatik</a><a href=\"#layanan\" style=\"color:#444651;text-decoration:none;\">Transmisi &amp; Gardan Heavy Duty</a><a href=\"#layanan\" style=\"color:#444651;text-decoration:none;\">Spooring 3D Laser Alignment</a></div>",
@@ -4726,7 +6443,15 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#444651"
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
                 },
                 "elements": [],
                 "widgetType": "text-editor"
@@ -4735,11 +6460,39 @@
             "isInner": true
           },
           {
-            "id": "186f4a1d",
+            "id": "6abeac99",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
+              "padding": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
               "width": {
                 "unit": "%",
                 "size": 25
@@ -4748,7 +6501,7 @@
             },
             "elements": [
               {
-                "id": "5a1a61ea",
+                "id": "c76f918a",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style=\"font-family:Plus Jakarta Sans;font-size:14px;font-weight:800;color:#00236f;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;\">Workshop &amp; Pool</div><div style=\"font-size:14px;color:#444651;line-height:1.6;\"><b>Workshop KIM III:</b><br>Kawasan Industri Medan (KIM) III, Jl. Pulau Nias Selatan No. 8, Medan, Sumatera Utara.<br><br><b>Workshop Cikarang:</b><br>Kawasan Industri GIIC Cikarang Pusat, Bekasi, Jawa Barat.</div>",
@@ -4763,7 +6516,15 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#444651"
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
                 },
                 "elements": [],
                 "widgetType": "text-editor"
@@ -4772,11 +6533,39 @@
             "isInner": true
           },
           {
-            "id": "a753189a",
+            "id": "4ac63dfc",
             "elType": "container",
             "settings": {
               "content_width": "full",
               "flex_direction": "column",
+              "padding": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
               "width": {
                 "unit": "%",
                 "size": 20
@@ -4785,7 +6574,7 @@
             },
             "elements": [
               {
-                "id": "df69317c",
+                "id": "84cacf72",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div style=\"font-family:Plus Jakarta Sans;font-size:14px;font-weight:800;color:#00236f;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;\">Standar Mutu</div><div style=\"display:flex;flex-direction:column;gap:8px;font-size:13px;color:#444651;\"><span>🏅 ISO 9001:2015 Certified</span><span>🏅 Sistem Manajemen K3 (SMK3)</span><span>🏅 Certified Bosch Diesel Center</span><span>🏅 Rekanan Asuransi Komersial</span></div>",
@@ -4800,7 +6589,15 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#444651"
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
                 },
                 "elements": [],
                 "widgetType": "text-editor"
@@ -4812,7 +6609,7 @@
         "isInner": true
       },
       {
-        "id": "8793f5bc",
+        "id": "26c41f1d",
         "elType": "widget",
         "settings": {
           "editor": "<div style=\"text-align:center;padding-top:20px;border-top:1px solid #e2e8f0;font-size:13px;color:#757682;\">© 2026 PT Lotus Prima Mandiri · Master Truck. Hak Cipta Dilindungi Undang-Undang.</div>",
@@ -4827,7 +6624,15 @@
             "unit": "em",
             "size": 1.6
           },
-          "text_color": "#444651"
+          "text_color": "#444651",
+          "_margin": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          }
         },
         "elements": [],
         "widgetType": "text-editor"

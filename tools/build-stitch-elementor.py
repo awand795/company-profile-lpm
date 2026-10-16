@@ -128,7 +128,14 @@ def inner(children, css_classes="", direction="row", style=None):
     }
 
 def col(size, cls, widgets, cstyle=None):
-    s = {"content_width": "full", "flex_direction": "column"}
+    s = {
+        "content_width": "full",
+        "flex_direction": "column",
+        "padding": px4(0, 0, 0, 0),
+        "padding_tablet": px4(0, 0, 0, 0),
+        "padding_mobile": px4(0, 0, 0, 0),
+        "flex_gap": fsize(0),
+    }
     if size:
         s["width"] = {"unit": "%", "size": size}
     if cls:
@@ -169,8 +176,6 @@ def W_heading(title, tag="h2", align="left", cls="", size=36, weight=700, color=
         s["typography_letter_spacing"] = {"unit": "px", "size": ls}
     if cls:
         s["_css_classes"] = cls
-    if margin:
-        s["_margin"] = margin
     return W("heading", s)
 
 def W_text(html, align="left", cls="", size=16, color=C["text_muted"], margin=None, lh=1.6):
@@ -186,11 +191,9 @@ def W_text(html, align="left", cls="", size=16, color=C["text_muted"], margin=No
     }
     if cls:
         s["_css_classes"] = cls
-    if margin:
-        s["_margin"] = margin
     return W("text-editor", s)
 
-def W_button(text, link="#", icon="", ipos="after", align="left", cls="", bg=C["primary"], text_color=C["white"], radius=12, pad=(14, 24, 14, 24)):
+def W_button(text, link="#", icon="", ipos="after", align="left", cls="", bg=C["primary"], text_color=C["white"], radius=12, pad=(14, 24, 14, 24), margin=None):
     s = {
         "text": text,
         "link": {"url": link, "is_external": "", "nofollow": ""},
@@ -213,7 +216,7 @@ def W_button(text, link="#", icon="", ipos="after", align="left", cls="", bg=C["
         s["_css_classes"] = cls
     return W("button", s)
 
-def W_image(key, alt="", cls="", radius=16, height=None):
+def W_image(key, alt="", cls="", radius=16, height=None, margin=None):
     if key in IMG:
         url, aid = IMG[key]
     else:
@@ -374,11 +377,11 @@ sections.append(nav)
 
 # --- 2. SECTION 1: HERO SECTION ---
 hero = el_container("stitch-sec-hero", css_id="header-carousel", boxed=1240, bg=C["white"],
-                    style={"padding": px4(28, 24, 40, 24)}, nav="Hero")
+                    style={"padding": px4(24, 24, 32, 24)}, nav="Hero")
 hero["elements"] = [
-    # Top Row: Text (7) vs Visual (5)
+    # Top Row: Text (60%) vs Visual (40%)
     inner([
-        col(58, "hero-text-col", [
+        col(60, "hero-text-col", [
             # Authority Badge
             W_heading('🛡 BENGKEL REKANAN RESMI &amp; SPESIALIS HEAVY DUTY TRUCK #1',
                       tag="p", cls="hero-authority-badge", size=11, weight=700, color=C["primary"], ls=0.8,
@@ -387,62 +390,62 @@ hero["elements"] = [
             W_heading('Solusi Servis &amp; Pemeliharaan Armada Truk Bersama '
                       '<span style="color:' + C["secondary"] + ';font-weight:900;text-decoration:underline;text-decoration-color:' + C["secondary"] + ';">MASTER TRUCK</span> '
                       '<span style="color:' + C["primary"] + ';">Tanpa Downtime</span> Berkepanjangan',
-                      tag="h1", cls="hero-title", size=44, weight=800, color=C["primary"], ls=-1.2,
+                      tag="h1", cls="hero-title", size=42, weight=800, color=C["primary"], ls=-1.2,
                       margin=px4(0, 0, 14, 0)),
             # Description Lead
             W_text("Pusat rekayasa mekanikal dan perbaikan mesin diesel Euro 4, overhaul transmisi, "
                    "kalibrasi injektor common rail, hingga kontrak pemeliharaan fleet logistik dengan "
                    "jaminan 100% suku cadang orisinal OEM dan mekanik berlisensi pabrikan.",
-                   cls="hero-lead", size=16, color=C["text_muted"], margin=px4(0, 0, 20, 0), lh=1.6),
+                   cls="hero-lead", size=16, color=C["text_muted"], margin=px4(0, 0, 20, 0), lh=1.55),
             # Dual CTAs
             inner([
                 col(None, "", [W_button("Jadwalkan Servis Sekarang", link="#quick-booking", icon="fas fa-calendar-alt",
-                                        bg=C["secondary"], text_color=C["white"], radius=12, pad=(16, 28), cls="btn-hero-primary")], None),
+                                        bg=C["secondary"], text_color=C["white"], radius=12, pad=(14, 26), cls="btn-hero-primary")], None),
                 col(None, "", [W_button("Roadside Rescue 24 Jam", link="tel:0812MASTERTRUCK", icon="fas fa-phone-alt",
-                                        bg=C["surface_low"], text_color=C["primary"], radius=12, pad=(16, 26), cls="btn-hero-secondary")], None),
-            ], css_classes="hero-btns-row", direction="row", style={"flex_gap": fsize(16), "margin": px4(0, 0, 36, 0)}),
+                                        bg=C["surface_low"], text_color=C["primary"], radius=12, pad=(14, 24), cls="btn-hero-secondary")], None),
+            ], css_classes="hero-btns-row", direction="row", style={"flex_gap": fsize(14), "margin": px4(0, 0, 24, 0)}),
             # Supported Brands
-            W_text('<div style="margin-top:12px;padding-top:8px;">'
-                   '<div style="font-size:11px;font-weight:700;color:#757682;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">'
+            W_text('<div class="hero-brands-block">'
+                   '<div style="font-size:11px;font-weight:700;color:#757682;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">'
                    'Spesialisasi Brand Heavy Duty &amp; Light Commercial:</div>'
-                   '<div style="display:flex;flex-wrap:wrap;gap:10px;">'
-                   '<span style="padding:6px 12px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">SCANIA</span>'
-                   '<span style="padding:6px 12px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">VOLVO TRUCKS</span>'
-                   '<span style="padding:6px 12px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">HINO 500 &amp; 300</span>'
-                   '<span style="padding:6px 12px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">MITSUBISHI FUSO</span>'
-                   '<span style="padding:6px 12px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">ISUZU GIGA</span>'
-                   '<span style="padding:6px 12px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">MERCEDES AXOR</span>'
-                   '</div></div>', cls="hero-brands-widget"),
-        ], {"padding": px4(0, 24, 0, 0)}),
+                   '<div style="display:flex;flex-wrap:wrap;gap:8px;">'
+                   '<span style="padding:4px 10px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">SCANIA</span>'
+                   '<span style="padding:4px 10px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">VOLVO TRUCKS</span>'
+                   '<span style="padding:4px 10px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">HINO 500 &amp; 300</span>'
+                   '<span style="padding:4px 10px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">MITSUBISHI FUSO</span>'
+                   '<span style="padding:4px 10px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">ISUZU GIGA</span>'
+                   '<span style="padding:4px 10px;background:#eceef0;border-radius:6px;font-size:12px;font-weight:700;color:#222a3e;">MERCEDES AXOR</span>'
+                   '</div></div>', cls="hero-brands-widget", margin=px4(0, 0, 0, 0)),
+        ], {"padding": px4(0, 20, 0, 0)}),
 
         # Visual Showcase Right
-        col(42, "hero-visual-col", [
+        col(40, "hero-visual-col", [
             # Main Photo
-            W_image("hero", alt="Modern commercial truck workshop bay with Scania and Hino trucks", cls="hero-truck-img", radius=20),
+            W_image("hero", alt="Modern commercial truck workshop bay with Scania and Hino trucks", cls="hero-truck-img", radius=20, margin=px4(0, 0, 0, 0)),
             # Telematics & Diagnostic Floating Card
-            W_text('<div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:16px;padding:16px 20px;'
-                   'box-shadow:0 12px 32px rgba(15,23,42,0.08);margin-top:16px;">'
-                   '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">'
-                   '<div style="display:flex;align-items:center;gap:12px;">'
-                   '<div style="width:38px;height:38px;border-radius:8px;background:#dce1ff;display:flex;align-items:center;justify-content:center;color:#00236f;font-weight:700;">📡</div>'
+            W_text('<div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:16px;padding:14px 18px;'
+                   'box-shadow:0 12px 32px rgba(15,23,42,0.08);">'
+                   '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">'
+                   '<div style="display:flex;align-items:center;gap:10px;">'
+                   '<div style="width:36px;height:36px;border-radius:8px;background:#dce1ff;display:flex;align-items:center;justify-content:center;color:#00236f;font-weight:700;">📡</div>'
                    '<div><div style="font-family:Plus Jakarta Sans;font-size:14px;font-weight:800;color:#00236f;">ECU Multi-Bus Telematics</div>'
                    '<div style="font-size:12px;color:#444651;">Common Rail Injektor: 100% Optimal</div></div>'
                    '</div>'
                    '<span style="padding:4px 8px;background:#d1fae5;color:#065f46;border-radius:6px;font-size:11px;font-weight:800;">READY TO HAUL</span>'
                    '</div>'
                    # 2 Micro metrics
-                   '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;padding-top:12px;border-top:1px solid #f2f4f6;">'
-                   '<div style="background:#f7f9fb;padding:10px 14px;border-radius:10px;border:1px solid #eceef0;">'
-                   '<div style="font-family:Plus Jakarta Sans;font-size:18px;font-weight:800;color:#00236f;">&lt; 3 Jam</div>'
+                   '<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;padding-top:10px;border-top:1px solid #f2f4f6;">'
+                   '<div style="background:#f7f9fb;padding:8px 12px;border-radius:10px;border:1px solid #eceef0;">'
+                   '<div style="font-family:Plus Jakarta Sans;font-size:17px;font-weight:800;color:#00236f;">&lt; 3 Jam</div>'
                    '<div style="font-size:11px;color:#757682;font-weight:600;">Fast Periodic Service</div>'
                    '</div>'
-                   '<div style="background:#f7f9fb;padding:10px 14px;border-radius:10px;border:1px solid #eceef0;">'
-                   '<div style="font-family:Plus Jakarta Sans;font-size:18px;font-weight:800;color:#00236f;">6 Bulan</div>'
+                   '<div style="background:#f7f9fb;padding:8px 12px;border-radius:10px;border:1px solid #eceef0;">'
+                   '<div style="font-family:Plus Jakarta Sans;font-size:17px;font-weight:800;color:#00236f;">6 Bulan</div>'
                    '<div style="font-size:11px;color:#757682;font-weight:600;">Garansi Spare Part</div>'
                    '</div>'
-                   '</div></div>', cls="hero-telematics-card"),
-        ], {"padding": px4(0, 0, 0, 24)}),
-    ], css_classes="hero-main-row", direction="row", style={"flex_align_items": "center"}),
+                   '</div></div>', cls="hero-telematics-card", margin=px4(12, 0, 0, 0)),
+        ], {"padding": px4(0, 0, 0, 20)}),
+    ], css_classes="hero-main-row", direction="row", style={"flex_align_items": "flex-start"}),
 
     # Bottom Trust Metric Bar
     inner([
@@ -481,13 +484,13 @@ hero["elements"] = [
                    '<div style="font-family:Inter;font-size:13px;color:#444651;font-weight:500;">Garansi Resmi Overhaul</div>'
                    '</div>'
                    '</div>')
-        ], {"padding": px4(18, 20, 18, 20)}),
+        ], {"padding": px4(14, 20, 14, 20)}),
     ], css_classes="hero-stats-inner", direction="row",
         style={"background_background": "classic", "background_color": C["white"],
                "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"],
                "border_radius": rad(20), "box_shadow_box_shadow_type": "yes",
                "box_shadow_box_shadow": shadow(0, 12, 32, -8, "rgba(15,23,42,0.06)"),
-               "margin": px4(56, 0, 0, 0)}),
+               "margin": px4(24, 0, 0, 0)}),
 ]
 sections.append(hero)
 

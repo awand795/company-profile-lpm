@@ -1051,6 +1051,7 @@ body.elementor-page-59 .elementor-59 .stitch-navbar .elementor-widget,
 body.elementor-page-59 .elementor-59 .stitch-sec-hero .elementor-widget {
     margin-bottom: 0px;
 }
+
 body.elementor-page-59 .stitch-topbar {
     font-family: 'Inter', sans-serif;
     background-color: #222a3e !important;
@@ -1106,6 +1107,7 @@ body.elementor-page-59 .stitch-navbar.sticky-scrolled {
 
 body.elementor-page-59 .stitch-sec-hero > .e-con-inner {
     padding-top: 24px !important;
+    padding-bottom: 32px !important;
 }
 
 /* Nav Actions Styling */
@@ -1148,7 +1150,7 @@ body.elementor-page-59 .btn-nav-booking .elementor-button:hover {
     transform: translateY(-1px);
 }
 
-/* Hero Section Authority Badge */
+/* Hero Section Authority Badge & Headline */
 body.elementor-page-59 .hero-authority-badge {
     display: inline-block;
     background: #dce1ff;
@@ -1162,6 +1164,12 @@ body.elementor-page-59 .hero-authority-badge {
 }
 body.elementor-page-59 .hero-authority-badge .elementor-heading-title {
     color: #00236f !important;
+}
+
+body.elementor-page-59 .hero-title .elementor-heading-title {
+    text-wrap: balance;
+    word-break: normal;
+    overflow-wrap: break-word;
 }
 
 /* Hero CTAs */
@@ -1189,22 +1197,47 @@ body.elementor-page-59 .btn-hero-secondary .elementor-button:hover {
     transform: translateY(-2px);
 }
 
-@media (max-width: 991.98px) {
-    body.elementor-page-59 .stitch-topbar {
+/* Responsiveness Target */
+@media (max-width: 1199.98px) {
+    body.elementor-page-59 .topbar-iso-item {
         display: none !important;
     }
-    body.elementor-page-59 .stitch-navbar-row {
-        flex-direction: column !important;
+}
+
+@media (max-width: 991.98px) {
+    /* Header di tablet & mobile: sembunyikan menu tautan agar tetap 1 baris <= 64px */
+    body.elementor-page-59 .stitch-menu-col {
+        display: none !important;
+    }
+    body.elementor-page-59 .stitch-nav-row {
+        flex-direction: row !important;
         align-items: center !important;
-        gap: 16px !important;
+        justify-content: space-between !important;
+        flex-wrap: nowrap !important;
+        gap: 0 !important;
     }
-    body.elementor-page-59 .stitch-hero-row {
+    body.elementor-page-59 .stitch-brand-col {
+        width: auto !important;
+        max-width: 60% !important;
+    }
+    body.elementor-page-59 .stitch-cta-col {
+        width: auto !important;
+    }
+    body.elementor-page-59 .stitch-nav-actions {
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        gap: 8px !important;
+    }
+    body.elementor-page-59 .hero-main-row {
         flex-direction: column !important;
     }
-    body.elementor-page-59 .stitch-hero-left,
-    body.elementor-page-59 .stitch-hero-right {
+    body.elementor-page-59 .hero-text-col,
+    body.elementor-page-59 .hero-visual-col {
         width: 100% !important;
         max-width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
     body.elementor-page-59 .stitch-counter-bar > .e-con-inner {
         flex-wrap: wrap !important;
@@ -1233,6 +1266,82 @@ body.elementor-page-59 .btn-hero-secondary .elementor-button:hover {
         gap: 20px !important;
     }
 }
+
+@media (max-width: 767.98px) {
+    /* Topbar mobile: <= 36px, hanya hotline */
+    body.elementor-page-59 .stitch-topbar {
+        display: block !important;
+        padding-top: 2px !important;
+        padding-bottom: 2px !important;
+        max-height: 36px !important;
+        overflow: hidden !important;
+    }
+    body.elementor-page-59 .stitch-topbar > .e-con-inner {
+        padding: 2px 12px !important;
+        max-height: 34px !important;
+    }
+    body.elementor-page-59 .stitch-topbar-row {
+        justify-content: center !important;
+        align-items: center !important;
+        max-height: 32px !important;
+    }
+    body.elementor-page-59 .topbar-left-col {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+    body.elementor-page-59 .topbar-left-col > div,
+    body.elementor-page-59 .topbar-left-col .elementor-widget-container,
+    body.elementor-page-59 .topbar-left-col .elementor-widget-container > div {
+        justify-content: center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        line-height: 1.2 !important;
+    }
+    body.elementor-page-59 .topbar-right-col,
+    body.elementor-page-59 .topbar-location-item {
+        display: none !important;
+    }
+    /* Header mobile <= 64px */
+    body.elementor-page-59 .stitch-navbar > .e-con-inner {
+        padding-top: 6px !important;
+        padding-bottom: 6px !important;
+    }
+    body.elementor-page-59 .stitch-brand-col img {
+        height: 30px !important;
+    }
+    body.elementor-page-59 .stitch-brand-col span:first-child {
+        font-size: 16px !important;
+    }
+    body.elementor-page-59 .stitch-brand-col span:last-child {
+        font-size: 9px !important;
+    }
+    body.elementor-page-59 .stitch-cta-col .elementor-button {
+        padding: 6px 10px !important;
+        font-size: 12px !important;
+    }
+    /* Hero mobile: padding atas 16px */
+    body.elementor-page-59 .stitch-sec-hero > .e-con-inner {
+        padding-top: 16px !important;
+        padding-bottom: 24px !important;
+    }
+    body.elementor-page-59 .hero-title .elementor-heading-title {
+        font-size: 28px !important;
+        line-height: 1.2 !important;
+    }
+    body.elementor-page-59 .hero-btns-row {
+        flex-direction: column !important;
+        gap: 10px !important;
+        margin-bottom: 20px !important;
+    }
+    body.elementor-page-59 .hero-btns-row .elementor-button {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+    }
+}
+
 @media (min-width: 768px) and (max-width: 1024px) {
     body.elementor-page-59 .keunggulan-grid-row,
     body.elementor-page-59 .layanan-grid-row,
