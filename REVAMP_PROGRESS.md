@@ -361,6 +361,35 @@ Dokumen ini memantau progres refaktor landing page Beranda (WordPress + Elemento
     - Database dump tersanitasi diekspor ulang ke `database/mt_site.sql`.
     - Git tag `ronde18-done` di-push ke remote.
 
+- [x] **REVAMP10b - RONDE 18b: Kartu Hero Menggantung, Jarak Teks Presisi, & Ikon FA5 (2026-10-16):**
+  - [x] Backup `archive/backups/_backup_revamp10b_20261016/`; git tag `pre-ronde18b` ter-push ke GitHub.
+  - [x] **GRUP A (Kartu Telematika Tidak Menutupi Foto)**:
+    - Format kartu diubah menjadi horizontal satu baris menggantung di bawah foto (`bottom: -60px; right: 0; width: calc(100% - 40px); max-width: 440px;`).
+    - Overlap ke foto terukur hanya **4.62%** (target ≤ 6%), hanya menutupi area lantai bengkel tanpa menyentuh mekanik maupun bodi truk.
+    - Tinggi kartu ramping **74px** (target ≤ 88px).
+    - Pil status `SIAP JALAN`: tinggi **26px**, padding 0 10px, font 11px/800, `white-space: nowrap` (1 baris utuh), titik live dot 6px.
+    - Responsif: Tablet kartu lebar penuh di bawah foto (overlap 18px); Mobile kartu tertumpuk rapi dengan 2 kolom metrik dan status pill di kanan-atas.
+  - [x] **GRUP B (Jarak Teks Hero Presisi)**:
+    - Mengembalikan jarak teks yang tertutup reset zero:
+      - Badge → H1: **10px**
+      - H1 → Lead: **14px**
+      - Lead → Tombol CTA: **20px**
+      - Tombol CTA → Label Brand: **20px**
+      - Label Brand → Brand Chip: **10px**
+    - Posisi bawah tombol CTA di 1366×600: **445.81px** (target ≤ 560px, terlihat utuh tanpa scroll).
+  - [x] **GRUP C (Ikon FA5 & Tombol Daftar)**:
+    - Ikon diganti ke class Font Awesome 5 resmi (`fa-map-marker-alt`, `fa-shield-alt`, `fa-clock`, `fa-microchip`, `fa-truck`, `fa-stopwatch`, `fa-warehouse`).
+    - Total ikon gagal render: **0** (seluruh 9 ikon terverifikasi render glyph dengan lebar > 0).
+    - Tombol Daftar: `display: inline-flex; align-items: center; justify-content: center; height: 40px; padding: 0 20px;`, teks tepat di tengah vertikal, bayangan lembut `0 6px 14px rgba(0,35,111,.18)`. Tombol Masuk ikut diselaraskan setinggi 40px.
+    - Topbar: Semua 4 item teks berada dalam 1 baris utuh dengan ikon sejajar vertikal.
+  - [x] **Verifikasi & Safety**:
+    - Seluruh pengujian Playwright PASS (1366x600, 1440x900, 1024, 768, 390).
+    - Editor Elementor Page 59 PASS (12 container terdeteksi dan dapat diedit via iframe).
+    - Halaman login (`/wp-login.php`) dan admin dashboard tetap aman tanpa perubahan.
+    - Screenshot tersimpan di `playwright_review/sesudah_revamp10b/`.
+    - Database dump tersanitasi diekspor ulang ke `database/mt_site.sql`.
+    - Git tag `ronde18b-done` di-push ke remote.
+
 ---
 
 ## Baseline Temuan Fase 0
