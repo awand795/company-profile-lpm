@@ -22,7 +22,7 @@ BASE = f"{SITE_URL}/wp-content/uploads/stitch"
 
 # Image mapping to WordPress Attachment IDs
 IMG = {
-    "logo": (f"{BASE}/stitch_logo_transparan.png", 350),
+    "logo": (f"{BASE}/stitch_logo_transparan.png", 351),
     "hero": (f"{BASE}/stitch_img_2.webp", 342),
     "fasilitas1": (f"{BASE}/stitch_img_3.webp", 343),
     "fasilitas2": (f"{BASE}/stitch_img_4.webp", 344),
@@ -352,14 +352,14 @@ nav["elements"] = [inner([
         inner([
             col(None, "brand-logo-container", [
                 W_image("logo", alt="Logo Master Truck", cls="brand-logo-img", radius=0)
-            ], cstyle={"width": {"unit": "px", "size": 42}, "padding": px4(0, 0, 0, 0)}),
+            ], cstyle={"width": {"unit": "px", "size": 72}, "padding": px4(0, 0, 0, 0)}),
             col(None, "brand-text-container", [
                 W_text('<a href="#" style="text-decoration:none;display:flex;flex-direction:column;line-height:1.2;">'
                        '<span style="font-family:Plus Jakarta Sans;font-size:19px;font-weight:800;color:' + C["primary"] + ';letter-spacing:-0.5px;">MASTER TRUCK</span>'
                        '<span style="font-family:Plus Jakarta Sans;font-size:11px;color:' + C["text_muted"] + ';text-transform:uppercase;font-weight:700;letter-spacing:0.3px;">Spesialis Truk &amp; Armada Niaga</span>'
                        '</a>', cls="brand-text-widget")
             ], cstyle={"padding": px4(0, 0, 0, 0)}),
-        ], css_classes="stitch-brand-row", direction="row", style={"flex_align_items": "center", "flex_gap": fsize(12), "padding": px4(0, 0, 0, 0)})
+        ], css_classes="stitch-brand-row", direction="row", style={"flex_align_items": "center", "flex_gap": fsize(14), "padding": px4(0, 0, 0, 0)})
     ]),
     # Menu Links
     col(44, "stitch-menu-col", [
