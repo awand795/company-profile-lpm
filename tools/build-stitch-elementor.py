@@ -312,29 +312,29 @@ topbar = el_container("stitch-topbar", boxed=1240, bg=C["tertiary"],
                       style={"padding": px4(4, 24, 4, 24)},
                       nav="Top Bar")
 topbar["elements"] = [inner([
-    col(55, "topbar-left-col", [
-        W_text('<div style="display:flex;align-items:center;gap:16px;color:#bec6e0;font-size:12px;font-weight:600;letter-spacing:0.2px;">'
-               '<div style="display:inline-flex;align-items:center;gap:6px;">'
+    col(40, "topbar-left-col", [
+        W_text('<div style="display:flex;align-items:center;gap:16px;color:#bec6e0;font-size:12px;font-weight:600;letter-spacing:0.2px;white-space:nowrap;">'
+               '<div class="topbar-hotline-item" style="display:inline-flex;align-items:center;gap:6px;">'
                '<span style="background:#fd651e;color:#ffffff;font-size:10px;font-weight:800;padding:2px 6px;border-radius:4px;letter-spacing:0.5px;">SOS</span>'
                '<span style="text-transform:uppercase;color:#ffdbce;font-weight:700;">Hotline 24 Jam:</span> '
                '<a href="tel:0812MASTERTRUCK" style="color:#ffffff;text-decoration:none;font-weight:700;">0812-MASTER-TRUCK</a>'
                '</div>'
-               '<div style="display:inline-flex;align-items:center;gap:6px;color:#bec6e0;">'
+               '<div class="topbar-location-item" style="display:inline-flex;align-items:center;gap:6px;color:#bec6e0;">'
                '<span>📍</span> <span style="color:#ffffff;">Medan</span>'
                '</div>'
                '</div>')
     ]),
-    col(45, "topbar-right-col", [
-        W_text('<div style="display:flex;align-items:center;justify-content:flex-end;gap:18px;color:#bec6e0;font-size:12px;">'
-               '<div style="display:inline-flex;align-items:center;gap:6px;">'
+    col(60, "topbar-right-col", [
+        W_text('<div style="display:flex;align-items:center;justify-content:flex-end;gap:14px;color:#bec6e0;font-size:12px;white-space:nowrap;">'
+               '<div class="topbar-hours-item" style="display:inline-flex;align-items:center;gap:6px;">'
                '<span>🕒</span> <span style="color:#ffffff;">Senin – Sabtu: 08.00 – 20.00 | Tim Derek &amp; Rescue 24/7</span>'
                '</div>'
-               '<div style="border-left:1px solid #384055;padding-left:14px;display:inline-flex;align-items:center;gap:6px;">'
+               '<div class="topbar-iso-item" style="border-left:1px solid #384055;padding-left:14px;display:inline-flex;align-items:center;gap:6px;">'
                '<span style="color:#ffdbce;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;">🛡 Standar OEM ISO 9001</span>'
                '</div>'
                '</div>')
     ]),
-], css_classes="stitch-topbar-row", direction="row", style={"padding": px4(2, 0, 2, 0), "flex_align_items": "center", "flex_justify_content": "space-between"})]
+], css_classes="stitch-topbar-row", direction="row", style={"padding": px4(0, 0, 0, 0), "flex_align_items": "center", "flex_justify_content": "space-between", "flex_wrap": "nowrap"})]
 sections.append(topbar)
 
 # Navbar

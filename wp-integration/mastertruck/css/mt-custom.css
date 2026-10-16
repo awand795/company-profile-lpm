@@ -1062,6 +1062,7 @@ body.elementor-page-59 .stitch-topbar > .e-con-inner {
 body.elementor-page-59 .stitch-topbar-row {
     padding-top: 0px !important;
     padding-bottom: 0px !important;
+    flex-wrap: nowrap !important;
 }
 body.elementor-page-59 .stitch-topbar a {
     transition: color 0.2s ease;
@@ -1070,22 +1071,36 @@ body.elementor-page-59 .stitch-topbar a:hover {
     color: #fd651e !important;
 }
 
-body.elementor-page-59 .stitch-navbar {
+/* Sticky Navbar & Scrolled Header */
+body.elementor-page-59 .stitch-navbar.sticky-top {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1020 !important;
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(12px);
-    transition: all 0.25s ease;
-    border-bottom: 1px solid #eef0f3;
+    -webkit-backdrop-filter: blur(12px);
+    transition: padding 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    border-bottom: 1px solid #eceef0;
+}
+body.admin-bar.elementor-page-59 .stitch-navbar.sticky-top {
+    top: 32px !important;
+}
+@media (max-width: 782px) {
+    body.admin-bar.elementor-page-59 .stitch-navbar.sticky-top {
+        top: 46px !important;
+    }
 }
 body.elementor-page-59 .stitch-navbar > .e-con-inner {
     padding-top: 8px !important;
     padding-bottom: 8px !important;
+    transition: padding 0.2s ease;
 }
-body.elementor-page-59 .stitch-navbar-row {
-    padding-top: 0px !important;
-    padding-bottom: 0px !important;
+body.elementor-page-59 .stitch-navbar.sticky-scrolled > .e-con-inner {
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
 }
 body.elementor-page-59 .stitch-navbar.sticky-scrolled {
-    box-shadow: 0 4px 20px rgba(0, 35, 111, 0.06);
+    box-shadow: 0 4px 20px rgba(0, 35, 111, 0.08);
     background: rgba(255, 255, 255, 0.99);
 }
 
