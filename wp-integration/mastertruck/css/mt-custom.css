@@ -1382,19 +1382,14 @@ body.elementor-page-59 .brand-label {
 }
 body.elementor-page-59 .brand-chips-row {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap !important;
     gap: 8px;
     align-items: center;
-}
-@media (max-width: 1180px) {
-    body.elementor-page-59 .brand-chips-row {
-        flex-wrap: wrap !important;
-        gap: 8px;
-    }
+    max-width: 100% !important;
+    box-sizing: border-box;
 }
 @media (max-width: 767.98px) {
     body.elementor-page-59 .brand-chips-row {
-        flex-wrap: wrap !important;
         justify-content: center !important;
         gap: 6px !important;
     }
@@ -1428,6 +1423,11 @@ body.elementor-page-59 .brand-chip:hover {
     border-color: #cbd5e1;
 }
 
+body.elementor-page-59 .hero-text-col {
+    position: relative;
+    z-index: 2;
+}
+
 /* Hero Section Layered Background: gradien lembut #FFFFFF -> #F4F7FF + 1 glow navy <=6% kanan-atas + 1 glow oranye <=4% kiri-bawah */
 body.elementor-page-59 .stitch-sec-hero {
     position: relative;
@@ -1457,17 +1457,17 @@ body.elementor-page-59 .hero-visual-card-wrap::after {
     z-index: 0;
     pointer-events: none;
 }
-/* Panel Dekoratif di Belakang Foto: ring/panel tint #E8ECFF offset 14px, border 1px #DBEAFE, radius 34px */
+/* Panel Dekoratif di Belakang Foto: ring/panel tint #E8ECFF z-index 0 di bawah, tidak menjorok ke kolom teks */
 body.elementor-page-59 .hero-visual-card-wrap::before {
     content: "";
     position: absolute;
-    inset: -14px;
+    inset: -10px -10px -10px 0px;
     background: #e8ecff;
     border: 1px solid #dbeafe;
     border-radius: 34px;
-    z-index: 1;
+    z-index: 0;
     pointer-events: none;
-    opacity: 0.9;
+    opacity: 0.85;
 }
 
 /* Main Hero Photo (Foto Dominan: Tinggi 360px desktop, Radius 28px, object-position menampilkan seluruh truk & montir) */

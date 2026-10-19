@@ -510,7 +510,42 @@ Dokumen ini memantau progres refaktor landing page Beranda (WordPress + Elemento
       - Horizontal overflow: **0** (320px–1920px)
     - Screenshot tersimpan di `playwright_review/sesudah_revamp11c/` (1366x600, 1366x768, 1440x900, 1920x1080, 1024x768, 768x1024, 390x844, crop_header_nav_actions, crop_hero_telematics, hover_cta_primary, sticky_scrolled, sebelum_1366x600).
     - Database dump tersanitasi diekspor ke `database/mt_site.sql`.
-    - Git tag `ronde19c-done` siap di-push ke remote.
+    - Git tag `ronde19c-done` ter-push ke GitHub.
+- [x] **REVAMP11d - RONDE 19d: Rapikan 2 Cacat Hero (2026-10-19):**
+  - [x] Backup `archive/backups/_backup_revamp11d_20261019/`; git tag `pre-ronde19d` ter-push ke GitHub.
+  - [x] **Perbaikan 1 (Chip Merek "MERCEDES AXOR" Tidak Terpotong)**:
+    - Masalah sebelumnya: Di 1366px, 6 chip merek jika di-render 1 baris (`flex-wrap: nowrap`) memiliki lebar total ~649px, sementara lebar kolom teks adalah 576px. Chip ke-6 ("MERCEDES AXOR") menjorok 48px keluar ke kolom visual dan terpotong di bawah panel foto (`inset: -14px`, `z-index: 1`).
+    - Solusi:
+      - Atur `.brand-chips-row` dengan `flex-wrap: wrap !important`, `max-width: 100% !important`, `box-sizing: border-box`.
+      - Atur `.hero-text-col` dengan `position: relative; z-index: 2;` sehingga jika ada elemen yang mendekati batas, tetap berada di atas latar belakang foto.
+      - Sesuaikan bingkai foto `.hero-visual-card-wrap::before` menjadi `inset: -10px -10px -10px 0px; z-index: 0;` sehingga tidak menjorok ke kiri masuk ke kolom teks.
+    - Hasil pengukuran terverifikasi:
+      - Bounding box chip "MERCEDES AXOR": `left: 63.2px`, `right: 185.3px`, `bottom: 539.0px` (berada di baris kedua kolom teks, 100% di dalam kolom kiri `textColRight: 683.0px`).
+      - Overlap dengan kolom visual / panel foto: **0px** (`lastChipOverlapVisual: false`).
+      - Jarak batas bawah chip (539.0px) ke strip statistik (604.0px): **65px** (target ≥ 24px).
+      - Bawah tombol CTA tetap di **411px** (target ≤ 470px).
+  - [x] **Perbaikan 2 (Spasi Sebelum Koma Judul "Cepat ,")**:
+    - Masalah sebelumnya: Teks HTML atau rendering inline menyisakan spasi antara "Cepat" dan koma.
+    - Solusi & Verifikasi:
+      - Memastikan string H1 persis `Servis Truk Cepat,<br>Armada Anda <span class="hero-brand-highlight">Tetap Jalan</span>`.
+      - Memeriksa via Playwright Range text node:
+        - Bounding box kata "Cepat" dan tanda koma "," diukur pada desktop (1366px) dan mobile (390px).
+        - Jarak horizontal dari akhir kata "Cepat" ke tanda koma: **0.0px** (desktop & mobile).
+        - Karakter whitespace antara "Cepat" dan koma: **0**.
+  - [x] **Verifikasi & Safety**:
+    - Builder ASSERT render PASS (100%).
+    - `tests/verify-editor-health.cjs` PASS (12 container terdeteksi, iframe preview memuat navbar & hero, 0 error).
+    - `tests/test-ronde19d-verify.cjs` PASS:
+      - Comma distance to "Cepat": **0.0px** (Desktop & Mobile)
+      - Last chip is inside text col: **true** (right: 185.3px vs colRight: 683.0px)
+      - Last chip overlaps visual col: **false**
+      - CTA bottom at 1366×600 / 1366×768: **411px** (target ≤ 470px)
+      - Chip bottom to stats distance: **65px** (target ≥ 24px)
+      - CLS: **0.0132** (target ≈ 0)
+      - Horizontal overflow: **0** across 320px–1920px
+    - Screenshot tersimpan di `playwright_review/sesudah_revamp11d/` (`1366x600.png`, `1366x768.png`, `1024x768.png`, `390x844.png`, `crop_brand_chips.png`, `crop_title_comma.png`, `sebelum_1366x600.png`).
+    - Database dump tersanitasi diekspor ke `database/mt_site.sql`.
+    - Git tag `ronde19d-done` siap di-push ke remote.
 
 ---
 
