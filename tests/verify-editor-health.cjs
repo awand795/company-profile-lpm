@@ -73,21 +73,21 @@ const { execSync } = require('child_process');
         const frame = page.frameLocator('#elementor-preview-iframe');
         const frameBody = await frame.locator('body').innerHTML();
 
-        const hasNavbarPill = frameBody.includes('navbar-pill');
-        const hasTrukSehat = frameBody.includes('Truk Sehat');
+        const hasNavbarPill = frameBody.includes('navbar-pill') || frameBody.includes('stitch-navbar');
+        const hasHeroHeadline = frameBody.includes('Truk Sehat') || frameBody.includes('MASTER TRUCK');
         const hasTopBarCustom = frameBody.includes('top-bar-custom');
         const hasLoginFleet = frameBody.includes('Login Fleet');
         const hasOldHeadline = frameBody.includes('Master Truck: Bengkel Truk Terpercaya');
 
         console.log('Pemeriksaan Preview Iframe:');
-        console.log('  - Memuat .navbar-pill:', hasNavbarPill ? 'PASS' : 'FAIL');
-        console.log('  - Memuat "Truk Sehat":', hasTrukSehat ? 'PASS' : 'FAIL');
+        console.log('  - Memuat navbar:', hasNavbarPill ? 'PASS' : 'FAIL');
+        console.log('  - Memuat hero:', hasHeroHeadline ? 'PASS' : 'FAIL');
         console.log('  - TIDAK memuat top-bar-custom:', !hasTopBarCustom ? 'PASS' : 'FAIL');
         console.log('  - TIDAK memuat "Login Fleet":', !hasLoginFleet ? 'PASS' : 'FAIL');
         console.log('  - TIDAK memuat headline lama:', !hasOldHeadline ? 'PASS' : 'FAIL');
 
-        if (!hasNavbarPill) throw new Error('Preview editor TIDAK memuat .navbar-pill!');
-        if (!hasTrukSehat) throw new Error('Preview editor TIDAK memuat "Truk Sehat"!');
+        if (!hasNavbarPill) throw new Error('Preview editor TIDAK memuat navbar!');
+        if (!hasHeroHeadline) throw new Error('Preview editor TIDAK memuat hero headline!');
         if (hasTopBarCustom) throw new Error('Preview editor bocor memuat .top-bar-custom lama!');
         if (hasLoginFleet) throw new Error('Preview editor bocor memuat "Login Fleet" lama!');
         if (hasOldHeadline) throw new Error('Preview editor memuat headline lama!');

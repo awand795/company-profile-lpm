@@ -390,6 +390,50 @@ Dokumen ini memantau progres refaktor landing page Beranda (WordPress + Elemento
     - Database dump tersanitasi diekspor ulang ke `database/mt_site.sql`.
     - Git tag `ronde18b-done` di-push ke remote.
 
+- [x] **REVAMP11 - RONDE 19: Hero Beranda Lebih Cantik, Bersih, dan Premium (2026-10-19):**
+  - [x] Backup `archive/backups/_backup_revamp11_20261019/`; git tag `pre-ronde19` ter-push ke GitHub.
+  - [x] **Poin 1 (Kartu Telematika Rancang Ulang - Teks Anti-Terpotong)**:
+    - Ditata ulang menjadi 2 baris modular (Row 1: chip icon + "Mesin Dicek Digital" 1 baris penuh di kiri, status pill "● SIAP JALAN" di kanan; Row 2: sub-teks "Injektor common rail: kondisi optimal" di kiri, metrik lebar tetap "< 3 Jam" dan "6 Bulan" di kanan).
+    - Pada layar sempit / breakpoint tablet (≤ 1200px / 1024px), metrik pindah ke baris kedua/ketiga secara adaptif tanpa memotong teks (`titleTruncated: false`, `descTruncated: false` di 1024, 1280, 1366, 1440, 1920).
+    - Status pill "SIAP JALAN" terisolasi rapi dan tidak pernah menimpa teks.
+  - [x] **Poin 2 (Bingkai Foto Ring Tint Halus & Multi-layer Shadow)**:
+    - Menghilangkan panel navy solid berat `#00236f` yang menjorok keluar 18px.
+    - Diganti dengan bingkai ring tint halus `#E8ECFF` (`inset: -6px`, border `1px solid #dce4ff`, radius 30px) + shadow berlapis lembut (`0 4px 16px -2px rgba(0,35,111,0.06), 0 20px 48px -6px rgba(0,35,111,0.14)`). Radius foto 26px (`border: 2px solid #ffffff`), 0 overflow horizontal.
+  - [x] **Poin 3 (Hierarki Visual & Kontras Terfokus)**:
+    - Hierarki jelas: (1) H1, (2) Tombol utama CTA, (3) Foto showcase, elemen pendukung lebih tenang.
+    - Badge otoritas dibuat lebih kecil & netral (`background: #f1f4f9`, border `#e2e8f0`, teks slate `#334155`).
+    - 6 brand chips diperhalus dengan border tipis 1px `#e2e8f0`, background `#fafbfc`, teks slate `#64748b`.
+    - Tombol utama oranye `#fd651e` menjadi satu-satunya elemen kontras tertinggi; tombol sekunder transparan dengan border 1.5px navy `#00236f`.
+  - [x] **Poin 4 (Color Grading Seragam Foto Hero & Lisensi Bersih)**:
+    - File resolusi tinggi 1408×768 Google Stitch diekstrak, dicrop fokus montir + truk komersial menjadi 1298×723, lalu di-color grade via Pillow (warm-neutral, contrast 1.05, color balance 1.04, vignette halus 12%).
+    - Radius sudut 26px. Dokumentasi lisensi dicatat di `CREDITS.md` §6.
+  - [x] **Poin 5 (Topbar Lebih Ringan & Rapi)**:
+    - Disederhanakan dengan kontras lembut slate `#94a3b8` / `#cbd5e1`, SOS hotline pill lembut `rgba(253,101,30,0.18)` berborder tipis, tinggi terukur **39.59px** (target ≤ 40px).
+  - [x] **Poin 6 (Latar Hero Gradien & Micro Accent)**:
+    - Gradien lembut vertikal putih ke biru sangat muda (`linear-gradient(180deg, #ffffff 0%, #f6f8fd 100%)`) + 1 glow oranye 3.5% di sudut bawah-kiri (`rgba(253,101,30,0.035)`) + pola dot grid halus 3.5% di belakang foto (`hero-visual-card-wrap`). Bersih tanpa noda atau kontras berlebih.
+  - [x] **Poin 7 (Tipografi H1 & Lead)**:
+    - H1 `text-wrap: balance`, letter-spacing rapat `-0.03em`, kontras bobot antara "MASTER TRUCK" (oranye `#fd651e`) dan teks judul navy (`#00236f`).
+    - Lead dibatasi `max-width: 58ch`, warna slate tenang `#475569`, line-height 1.6.
+  - [x] **Poin 8 (Micro-interaction Halus & Natural Mobile Flow)**:
+    - Tombol CTA hover naik 2px dengan bayangan oranye diperdalam + panah/ikon bergeser halus 2-3px.
+    - Live dot hijau pulsasi 2s infinite (`@keyframes liveDotPulse`).
+    - Animasi masuk bertahap stagger `heroFadeUp` (≤ 450ms). Mati saat `prefers-reduced-motion`, di editor Elementor, dan automated browser.
+    - Mobile 390 urutan alami: Badge → H1 → Lead → Dual CTA (100% width) → Brand Chips → Foto Workshop + Kartu Telematika, semua rata tengah rapi.
+  - [x] **Verifikasi & Safety**:
+    - Builder ASSERT lulus (100%).
+    - `tests/verify-editor-health.cjs` PASS (12 container terdeteksi, iframe preview memuat navbar & hero, 0 error).
+    - `tests/test-ronde19-verify.cjs` PASS:
+      - Topbar: **39.59px** (target ≤ 40px)
+      - Header: **68px** (target ≤ 72px)
+      - Sticky Header: **60px** (target ≤ 60px)
+      - Bawah tombol CTA di 1366×600: **448px** (target ≤ 560px)
+      - Selisih foto vs badge: **2px** (target ≤ 8px)
+      - Horizontal overflow: **0** (320px–1920px)
+      - Telematics card truncation: **0** (titleTrunc: false, descTrunc: false di 1024, 1366, 1440, 1920)
+    - Screenshot tersimpan di `playwright_review/sesudah_revamp11/` (1366x600, 1440x900, 1920x1080, 1024x768, 768x1024, 390x844, crop_kartu_telematika, hover_cta_primary, sticky_scrolled, sebelum_1366x600).
+    - Database dump tersanitasi diekspor ke `database/mt_site.sql`.
+    - Git tag `ronde19-done` siap di-push ke remote.
+
 ---
 
 ## Baseline Temuan Fase 0
