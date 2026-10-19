@@ -434,6 +434,43 @@ Dokumen ini memantau progres refaktor landing page Beranda (WordPress + Elemento
     - Database dump tersanitasi diekspor ke `database/mt_site.sql`.
     - Git tag `ronde19-done` siap di-push ke remote.
 
+- [x] **REVAMP11b - RONDE 19b: Rapatkan Tombol Masuk/Daftar & Hero Lebih "Wah" (2026-10-19):**
+  - [x] Backup `archive/backups/_backup_revamp11b_20261019/`; git tag `pre-ronde19b` ter-push ke GitHub.
+  - [x] **Grup A (Header: Masuk & Daftar Rapat ≤ 12px)**:
+    - Tombol "Masuk" dan "Daftar" dibungkus dalam SATU container row (`.stitch-nav-actions.nav-actions`) tanpa kolom perantara, `gap: 10px`, rata kanan, `align-items: center`.
+    - Struktur header terbagi menjadi 3 kelompok bersih: `[Logo]` — `[Menu: Layanan, Paket Fleet, Fasilitas, Kontak]` — `[.nav-actions: Masuk (ghost) + Daftar (navy pill)]`.
+    - Tinggi Masuk dan Daftar presisi sama: **40px**. Masuk = ghost pill tanpa border (ikon + teks, hover tint `#EEF1FF`), Daftar = solid navy pill (`#00236f`, bayangan lembut).
+    - Jarak antara Masuk dan Daftar terukur presisi via Playwright `boundingBox`: **10px** (target ≤ 12px).
+    - Mobile 390: hanya tombol Daftar yang tampil di satu baris bersama logo, tinggi header mobile **64px** (target ≤ 64px).
+    - Tinggi header desktop **68px** (≤ 72px) dan sticky scrolled **60px** (≤ 60px).
+  - [x] **Grup B (Hero: Komposisi Lebih Kuat & Dominan)**:
+    - **Foto Lebih Dominan**: Kolom visual diperbesar menjadi **51%** (teks 49%), tinggi desktop foto **410px** (target 400–440px), `object-fit: cover` dengan `object-position: 45% center` menampilkan kedua truk (Scania & Hino) beserta kedua mekanik tanpa terpotong di tepi kanan. Radius **28px**.
+    - **Kartu Telematika Rata Kiri-Bawah**: Lebar ramping **410px** (target ≤ 420px), diposisikan rata ke kiri-bawah (`left: 14px; right: auto;`), overlap ke foto hanya **5.12%** (**21px**, target ≤ 6%), lantai bengkel di kanan terbuka leluasa. Teks judul *"Mesin Dicek Digital"* dan sub-teks *"Injektor common rail: kondisi optimal"* 100% utuh tanpa terpotong (`titleTruncated: false`, `descTruncated: false`). Pil *"SIAP JALAN"* 1 baris utuh.
+    - **Judul H1**: Teks tetap sama, skala diturunkan menjadi **40px** desktop, `max-width: 640px` (3 baris rapi dan seimbang), kontras bobot antara navy 700 dan *"MASTER TRUCK"* 800 oranye (`#fd651e`), `text-wrap: balance`.
+    - **Chip Merek Tenang**: Label 12px uppercase abu, 6 chip dengan outline tipis 1px `#E2E8F0` tanpa latar putih tebal, tinggi **30px**, font 12px/600, jarak lega 10px, hover berubah menjadi tint navy 6% (`rgba(0,35,111,0.06)`).
+    - **Latar Hero Bertingkat**: Gradien lembut `#FFFFFF → #F4F7FF` + 1 glow navy 5% di kanan-atas di belakang foto + 1 glow oranye 3.5% di kiri-bawah + dot-grid 24px halus opasitas 3.5% dengan mask radial.
+    - **Panel Dekoratif**: Bingkai ring/panel tint `#E8ECFF` offset 14px (`inset: -14px`), border 1px `#DBEAFE`, radius 34px.
+    - **Ritme Spacing**: Eyebrow → H1 12px, H1 → Lead 16px, Lead → CTA 24px, CTA → Label Brand 28px, Jarak ke strip bawah hero **52px** (target ≥ 48px).
+    - **Motion Halus**: Fade-up bertahap ≤ 450ms, hover CTA naik 2px + ikon kalender geser 3px, live dot hijau denyut 2s. Dinonaktifkan otomatis saat `prefers-reduced-motion`, di editor Elementor, dan automated testing.
+  - [x] **Verifikasi & Safety**:
+    - Builder ASSERT render PASS (100%).
+    - `tests/verify-editor-health.cjs` PASS (12 container terdeteksi, iframe preview memuat navbar & hero, 0 error).
+    - `tests/test-ronde19b-verify.cjs` PASS:
+      - Jarak Masuk – Daftar: **10px** (target ≤ 12px)
+      - Tinggi Masuk & Daftar: **40px** & **40px**
+      - Topbar: **39.59px** (target ≤ 40px)
+      - Header: **68px** (target ≤ 72px)
+      - Sticky Header: **60px** (target ≤ 60px)
+      - Bawah tombol CTA di 1366×600: **499px** (target ≤ 560px)
+      - Selisih foto vs badge: **0px** (target ≤ 8px)
+      - Lebar kartu telematika: **410px** (target ≤ 420px)
+      - Overlap kartu ke foto: **5.12%** / **21px** (target ≤ 6%)
+      - Horizontal overflow: **0** (320px–1920px)
+      - Telematics card truncation: **0** (titleTrunc: false, descTrunc: false)
+    - Screenshot tersimpan di `playwright_review/sesudah_revamp11b/` (1366x600, 1440x900, 1920x1080, 1024x768, 768x1024, 390x844, crop_header_nav_actions, crop_kartu_telematika, hover_cta_primary, sticky_scrolled, sebelum_1366x600).
+    - Database dump tersanitasi diekspor ke `database/mt_site.sql`.
+    - Git tag `ronde19b-done` siap di-push ke remote.
+
 ---
 
 ## Baseline Temuan Fase 0
