@@ -316,24 +316,24 @@ topbar = el_container("stitch-topbar", boxed=1240, bg=C["tertiary"],
                       nav="Top Bar")
 topbar["elements"] = [inner([
     col(40, "topbar-left-col", [
-        W_text('<div style="display:flex;align-items:center;gap:16px;color:#bec6e0;font-size:12px;font-weight:600;letter-spacing:0.2px;white-space:nowrap;">'
+        W_text('<div style="display:flex;align-items:center;gap:16px;color:#94a3b8;font-size:12px;font-weight:600;letter-spacing:0.2px;white-space:nowrap;">'
                '<div class="topbar-hotline-item" style="display:inline-flex;align-items:center;gap:6px;">'
-               '<span style="background:#fd651e;color:#ffffff;font-size:10px;font-weight:800;padding:2px 6px;border-radius:4px;letter-spacing:0.5px;">SOS</span>'
-               '<span style="text-transform:uppercase;color:#ffdbce;font-weight:700;">Hotline 24 Jam:</span> '
+               '<span style="background:rgba(253,101,30,0.18);color:#fd651e;border:1px solid rgba(253,101,30,0.35);font-size:10px;font-weight:800;padding:2px 7px;border-radius:999px;letter-spacing:0.5px;">SOS</span>'
+               '<span style="text-transform:uppercase;color:#cbd5e1;font-weight:700;">Hotline 24 Jam:</span> '
                '<a href="tel:0812MASTERTRUCK" style="color:#ffffff;text-decoration:none;font-weight:700;">0812-MASTER-TRUCK</a>'
                '</div>'
-               '<div class="topbar-location-item" style="display:inline-flex;align-items:center;gap:6px;color:#bec6e0;">'
-               '<i class="fas fa-map-marker-alt" style="color:#fd651e;font-size:12px;"></i> <span style="color:#ffffff;">Medan</span>'
+               '<div class="topbar-location-item" style="display:inline-flex;align-items:center;gap:6px;color:#94a3b8;">'
+               '<i class="fas fa-map-marker-alt" style="color:#fd651e;font-size:11px;"></i> <span style="color:#e2e8f0;">Medan</span>'
                '</div>'
                '</div>')
     ]),
     col(60, "topbar-right-col", [
-        W_text('<div style="display:flex;align-items:center;justify-content:flex-end;gap:14px;color:#bec6e0;font-size:12px;white-space:nowrap;">'
+        W_text('<div style="display:flex;align-items:center;justify-content:flex-end;gap:16px;color:#94a3b8;font-size:12px;white-space:nowrap;">'
                '<div class="topbar-hours-item" style="display:inline-flex;align-items:center;gap:6px;">'
-               '<i class="fas fa-clock" style="color:#bec6e0;font-size:12px;"></i> <span style="color:#ffffff;">Senin – Sabtu: 08.00 – 20.00 | Tim Derek &amp; Rescue 24/7</span>'
+               '<i class="fas fa-clock" style="color:#94a3b8;font-size:11px;"></i> <span style="color:#e2e8f0;">Senin – Sabtu: 08.00 – 20.00 | Tim Derek &amp; Rescue 24/7</span>'
                '</div>'
-               '<div class="topbar-iso-item" style="border-left:1px solid #384055;padding-left:14px;display:inline-flex;align-items:center;gap:6px;">'
-               '<i class="fas fa-shield-alt" style="color:#fd651e;font-size:12px;"></i> <span style="color:#ffdbce;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;">Standar OEM ISO 9001</span>'
+               '<div class="topbar-iso-item" style="border-left:1px solid rgba(255,255,255,0.12);padding-left:14px;display:inline-flex;align-items:center;gap:6px;">'
+               '<i class="fas fa-shield-alt" style="color:#fd651e;font-size:11px;"></i> <span style="color:#cbd5e1;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;">Standar OEM ISO 9001</span>'
                '</div>'
                '</div>')
     ]),
@@ -341,7 +341,7 @@ topbar["elements"] = [inner([
 sections.append(topbar)
 
 # Navbar
-nav = el_container("stitch-navbar sticky-top", boxed=1240, bg=C["white"],
+nav = el_container("stitch-navbar sticky-top navbar-pill", boxed=1240, bg=C["white"],
                    style={"padding": px4(8, 24, 8, 24), "border_border": "solid",
                           "border_width": px4(0, 0, 1, 0), "border_color": "#eceef0",
                           "sticky": "top", "sticky_offset": 0, "sticky_on": ["desktop", "tablet", "mobile"]},
@@ -388,14 +388,14 @@ hero["elements"] = [
     inner([
         col(60, "hero-text-col", [
             # Authority Badge
-            W_heading('<i class="fas fa-shield-alt" style="color:#00236f;margin-right:8px;font-size:12px;"></i>BENGKEL REKANAN RESMI &amp; SPESIALIS HEAVY DUTY TRUCK #1',
+            W_heading('<i class="fas fa-shield-alt" style="color:#00236f;margin-right:6px;font-size:11px;"></i>BENGKEL REKANAN RESMI &amp; SPESIALIS HEAVY DUTY TRUCK #1',
                       tag="p", cls="hero-authority-badge", size=12, weight=700, color=C["primary"], ls=0.8,
                       margin=px4(0, 0, 10, 0)),
             # Headline
             W_heading('Solusi Servis &amp; Pemeliharaan Armada Truk Bersama '
                       '<span class="hero-brand-highlight">MASTER TRUCK</span> '
                       '<span style="color:' + C["primary"] + ';">Tanpa Downtime</span> Berkepanjangan',
-                      tag="h1", cls="hero-title", size=42, weight=800, color=C["primary"], ls=-1.2,
+                      tag="h1", cls="hero-title", size=42, weight=700, color=C["primary"], ls=-0.8,
                       margin=px4(0, 0, 14, 0)),
             # Description Lead (GRUP D1)
             # versi lama:
@@ -431,18 +431,22 @@ hero["elements"] = [
         col(40, "hero-visual-col", [
             inner([
                 # Main Photo
-                W_image("hero", alt="Modern commercial truck workshop bay with Scania and Hino trucks", cls="hero-truck-img", radius=24, margin=px4(0, 0, 0, 0)),
-                # Horizontal Hanging Telematics Card
+                W_image("hero", alt="Modern commercial truck workshop bay with Scania and Hino trucks", cls="hero-truck-img", radius=26, margin=px4(0, 0, 0, 0)),
+                # Horizontal Hanging Telematics Card (Ronde 19: Rancang ulang agar teks tidak pernah terpotong)
                 W_text('<div class="hero-telematics-inner">'
-                       # Left: Chip Icon + Title & Desc
-                       '<div class="telematics-left-block">'
+                       # Row 1: Left (Icon + Title 1 baris penuh) | Right (Status Pill SIAP JALAN)
+                       '<div class="telematics-row-top">'
+                       '<div class="telematics-heading-wrap">'
                        '<div class="telematics-chip-icon"><i class="fas fa-microchip"></i></div>'
-                       '<div class="telematics-info">'
                        '<div class="telematics-title">Mesin Dicek Digital</div>'
+                       '</div>'
+                       '<div class="telematics-status-block">'
+                       '<span class="telematics-status-pill"><span class="status-live-dot"></span>SIAP JALAN</span>'
+                       '</div>'
+                       '</div>'
+                       # Row 2: Left (Sub-text deskripsi) | Right (Metrik tetap)
+                       '<div class="telematics-row-bottom">'
                        '<div class="telematics-desc">Injektor common rail: kondisi optimal</div>'
-                       '</div>'
-                       '</div>'
-                       # Middle: 2 Micro metrics
                        '<div class="telematics-metrics-block">'
                        '<div class="metric-item">'
                        '<div class="metric-val">&lt; 3 Jam</div>'
@@ -454,9 +458,6 @@ hero["elements"] = [
                        '<div class="metric-lbl">Garansi sparepart</div>'
                        '</div>'
                        '</div>'
-                       # Right: Status Pill
-                       '<div class="telematics-status-block">'
-                       '<span class="telematics-status-pill"><span class="status-live-dot"></span>SIAP JALAN</span>'
                        '</div>'
                        '</div>', cls="hero-telematics-card", margin=px4(0, 0, 0, 0)),
             ], css_classes="hero-visual-card-wrap", direction="column", style={"padding": px4(0, 0, 0, 0)})

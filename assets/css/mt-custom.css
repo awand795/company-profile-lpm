@@ -28,7 +28,7 @@ body.elementor-page-59 .elementor-59 .btn-booking-call .elementor-button::after{
 
 /* 3. Aksen satu kata pada H1 (Elementor tak bisa mewarnai sebagian heading) */
 
-body.elementor-page-59 .elementor-59 .hero-brand-highlight{color:#2563EB}
+body.elementor-page-59 .elementor-59 .hero-brand-highlight{color:#fd651e}
 
 /* 3b. Eyebrow uppercase + garis aksen (widget Heading Free tak punya text-transform) */
 
@@ -895,17 +895,17 @@ body.elementor-page-59 .elementor-59 .hero-card-live .elementor-icon-box-title::
 @keyframes mtDotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.65;transform:scale(.8)}}
 @media (max-width:767.98px){body.elementor-page-59 .elementor-59 .hero-chip-pill{animation:none}}
 
-/* --- BENTO-E. Tombol Hero: Solid Biru Presisi + Kartu Putih Sekunder (Bebas Gradasi) --- */
-body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button{background-color:#2563EB;background-image:none;box-shadow:0 8px 20px -4px rgba(37,99,235,.35);border:0;border-radius:999px;transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease}
-body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button:hover{background-color:#1D4ED8;transform:translateY(-2px);box-shadow:0 12px 26px -4px rgba(37,99,235,.45)}
+/* --- BENTO-E. Tombol Hero: Solid Oranye Presisi + Outline Navy Sekunder --- */
+body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button{background-color:#fd651e;background-image:none;color:#ffffff;box-shadow:0 10px 24px -2px rgba(253,101,30,.32);border:0;border-radius:12px;font-weight:700;transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease}
+body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button:hover{background-color:#e2520e;transform:translateY(-2px);box-shadow:0 14px 28px -2px rgba(253,101,30,.40)}
 body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button:hover .elementor-button-icon{transform:translateX(3px)}
 body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button .elementor-button-icon{transition:transform .2s ease}
 body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button:active{transform:translateY(1px)}
-body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button:focus-visible{outline:3px solid rgba(37,99,235,.35);outline-offset:2px}
+body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button:focus-visible{outline:3px solid rgba(253,101,30,.35);outline-offset:2px}
 
-body.elementor-page-59 .elementor-59 .btn-hero-secondary .elementor-button{background-color:#FFFFFF;border:1px solid #CBD5E1;border-radius:999px;color:#0F172A;box-shadow:0 1px 3px rgba(15,23,42,.05);transition:transform .2s ease,background-color .2s ease,border-color .2s ease,box-shadow .2s ease}
-body.elementor-page-59 .elementor-59 .btn-hero-secondary .elementor-button:hover{background-color:#F8FAFC;border-color:#94A3B8;color:#0F172A;transform:translateY(-2px);box-shadow:0 6px 16px -2px rgba(15,23,42,.08)}
-body.elementor-page-59 .elementor-59 .btn-hero-secondary .elementor-button .elementor-button-icon{color:#2563EB}
+body.elementor-page-59 .elementor-59 .btn-hero-secondary .elementor-button{background-color:transparent;border:1.5px solid #00236f;border-radius:12px;color:#00236f;font-weight:700;box-shadow:none;transition:transform .2s ease,background-color .2s ease,color .2s ease}
+body.elementor-page-59 .elementor-59 .btn-hero-secondary .elementor-button:hover{background-color:rgba(0,35,111,.04);color:#00164e;transform:translateY(-2px)}
+body.elementor-page-59 .elementor-59 .btn-hero-secondary .elementor-button .elementor-button-icon{color:#00236f}
 
 /* --- BENTO-F. Trust Badges: Bento Cards Dock Terpadu dengan Aksen Solid Tematik --- */
 @media (min-width:1024px){
@@ -1096,13 +1096,15 @@ body.elementor-page-59 .stitch-navbar > .e-con-inner {
     padding-bottom: 8px !important;
     transition: padding 0.2s ease;
 }
-body.elementor-page-59 .stitch-navbar.sticky-scrolled > .e-con-inner {
-    padding-top: 3px !important;
-    padding-bottom: 3px !important;
-}
 body.elementor-page-59 .stitch-navbar.sticky-scrolled {
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
     box-shadow: 0 4px 20px rgba(0, 35, 111, 0.08);
     background: rgba(255, 255, 255, 0.99);
+}
+body.elementor-page-59 .stitch-navbar.sticky-scrolled > .e-con-inner {
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
 }
 
 body.elementor-page-59 .stitch-brand-col .brand-logo-img img {
@@ -1212,128 +1214,166 @@ body.elementor-page-59 .elementor-59 .stitch-sec-hero .hero-brands-block .brand-
     margin-bottom: 10px !important;
 }
 
-/* Hero Section Authority Badge & Headline */
+/* Hero Section Authority Badge & Headline (Ronde 19: Lebih netral, hierarki jelas) */
 body.elementor-page-59 .hero-authority-badge {
-    display: inline-flex !important;
-    align-items: center !important;
-    width: fit-content !important;
-    align-self: flex-start !important;
-    background: #dce1ff !important;
-    color: #00236f !important;
-    border: 1px solid #c5cdf5 !important;
-    border-radius: 999px !important;
-    padding: 6px 14px !important;
-    font-weight: 700 !important;
-    font-size: 12px !important;
-    letter-spacing: 0.8px;
-    box-shadow: 0 1px 3px rgba(0, 35, 111, 0.06);
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    max-width: 100%;
+    align-self: flex-start;
+    background: #f1f4f9;
+    color: #334155;
+    border: 1px solid #e2e8f0;
+    border-radius: 999px;
+    padding: 5px 12px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
 }
 body.elementor-page-59 .hero-authority-badge .elementor-heading-title {
-    color: #00236f !important;
-    font-size: 12px !important;
-    font-weight: 700 !important;
-    line-height: 1 !important;
-    margin: 0 !important;
+    color: #334155;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    line-height: 1;
+    margin: 0;
+}
+body.elementor-page-59 .hero-authority-badge .elementor-heading-title i {
+    color: #00236f;
+    font-size: 11px;
+    margin-right: 6px;
 }
 
 body.elementor-page-59 .hero-title .elementor-heading-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.18;
+    letter-spacing: -0.8px;
+    color: #00236f;
     text-wrap: balance;
     word-break: normal;
     overflow-wrap: break-word;
 }
-body.elementor-page-59 .hero-brand-highlight {
+body.elementor-page-59 .elementor-59 .hero-brand-highlight {
     position: relative;
-    color: #fd651e !important;
-    font-weight: 900 !important;
+    color: #fd651e;
+    font-weight: 900;
+    letter-spacing: -0.5px;
     display: inline-block;
 }
-body.elementor-page-59 .hero-brand-highlight::after {
+body.elementor-page-59 .elementor-59 .hero-brand-highlight::after {
     content: "";
     position: absolute;
     left: 0;
     bottom: 2px;
     width: 100%;
-    height: 10px;
-    background: rgba(253, 101, 30, 0.18);
+    height: 8px;
+    background: rgba(253, 101, 30, 0.15);
     border-radius: 4px;
     z-index: -1;
     pointer-events: none;
 }
 
-/* Hero Lead */
+/* Hero Lead (≤ 60ch, warna slate) */
 body.elementor-page-59 .hero-lead {
     font-size: 16px;
-    line-height: 1.55;
-    color: #444651;
+    line-height: 1.6;
+    color: #475569;
+}
+body.elementor-page-59 .hero-lead .elementor-widget-container {
+    max-width: 58ch;
 }
 
-/* Hero CTAs Row */
+/* Hero CTAs Row (Hierarki: Tombol utama satu-satunya paling kontras, tombol sekunder outline navy) */
 body.elementor-page-59 .hero-btns-row {
     display: flex;
     align-items: center;
     gap: 14px;
 }
-body.elementor-page-59 .btn-hero-primary .elementor-button {
-    background: #fd651e !important;
-    color: #ffffff !important;
-    font-weight: 800 !important;
-    min-height: 52px !important;
-    padding: 14px 26px !important;
-    border-radius: 12px !important;
-    box-shadow: 0 10px 24px rgba(253, 101, 30, 0.30) !important;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease !important;
+body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button {
+    background-color: #fd651e;
+    color: #ffffff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    min-height: 52px;
+    padding: 14px 26px;
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 10px 24px -2px rgba(253, 101, 30, 0.32);
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, background 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
-body.elementor-page-59 .btn-hero-primary .elementor-button:hover {
-    background: #e2520e !important;
+body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button:hover {
+    background-color: #e2520e;
     transform: translateY(-2px);
-    box-shadow: 0 14px 28px rgba(253, 101, 30, 0.40) !important;
+    box-shadow: 0 14px 28px -2px rgba(253, 101, 30, 0.40);
 }
-body.elementor-page-59 .btn-hero-primary .elementor-button .elementor-button-icon {
-    transition: transform 0.2s ease;
+body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button .elementor-button-icon {
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
-body.elementor-page-59 .btn-hero-primary .elementor-button:hover .elementor-button-icon {
+body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button:hover .elementor-button-icon {
     transform: translateX(3px);
 }
 
-body.elementor-page-59 .btn-hero-secondary .elementor-button {
-    background: transparent !important;
-    color: #00236f !important;
-    border: 1.5px solid #00236f !important;
-    font-weight: 800 !important;
-    min-height: 52px !important;
-    padding: 14px 24px !important;
-    border-radius: 12px !important;
-    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease !important;
+body.elementor-page-59 .elementor-59 .btn-hero-secondary .elementor-button {
+    background-color: transparent;
+    color: #00236f;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    border: 1.5px solid #00236f;
+    font-weight: 700;
+    font-size: 15px;
+    min-height: 52px;
+    padding: 14px 24px;
+    border-radius: 12px;
+    box-shadow: none;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
-body.elementor-page-59 .btn-hero-secondary .elementor-button:hover {
-    background: #eef1ff !important;
-    color: #00164e !important;
+body.elementor-page-59 .elementor-59 .btn-hero-secondary .elementor-button:hover {
+    background-color: rgba(0, 35, 111, 0.04);
+    color: #00164e;
     transform: translateY(-2px);
 }
 
-/* Supported Brand Chips */
+/* Supported Brand Chips (Lebih kalem, outline tipis/abu) */
+body.elementor-page-59 .brand-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 8px;
+}
 body.elementor-page-59 .brand-chip {
     display: inline-block;
-    background: #f2f4f6;
-    color: #222a3e;
-    font-size: 12px;
-    font-weight: 700;
-    padding: 5px 10px;
-    border-radius: 8px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: #fafbfc;
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    padding: 4px 10px;
+    border-radius: 6px;
     border: 1px solid #e2e8f0;
-    transition: background 0.2s ease;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 body.elementor-page-59 .brand-chip:hover {
-    background: #e2e8f0;
+    background: #f1f5f9;
+    color: #1e293b;
+    border-color: #cbd5e1;
 }
 
-/* Hero Section Layered Background (Radial Glows + Dot Pattern) */
+/* Hero Section Layered Background: gradien lembut putih→biru sangat muda + 1 glow oranye ≤5% */
 body.elementor-page-59 .stitch-sec-hero {
     position: relative;
     background-color: #ffffff;
     background-image: 
-        radial-gradient(circle at 92% 15%, rgba(0, 35, 111, 0.06) 0%, transparent 45%),
-        radial-gradient(circle at 8% 85%, rgba(253, 101, 30, 0.05) 0%, transparent 40%);
+        radial-gradient(circle at 8% 85%, rgba(253, 101, 30, 0.035) 0%, transparent 35%),
+        linear-gradient(180deg, #ffffff 0%, #f6f8fd 100%);
     background-repeat: no-repeat;
     overflow: hidden;
 }
@@ -1343,41 +1383,39 @@ body.elementor-page-59 .hero-visual-card-wrap {
     position: relative;
     width: 100%;
 }
-/* Dot Pattern Behind Photo Column */
+/* Dot Pattern Behind Photo Column: halus ≤ 4%, mask radial */
 body.elementor-page-59 .hero-visual-card-wrap::after {
     content: "";
     position: absolute;
-    inset: -20px -20px 20px -20px;
-    background-image: radial-gradient(rgba(0, 35, 111, 0.07) 1.5px, transparent 1.5px);
-    background-size: 24px 24px;
+    inset: -16px -16px 16px -16px;
+    background-image: radial-gradient(rgba(0, 35, 111, 0.035) 1.2px, transparent 1.2px);
+    background-size: 20px 20px;
     mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
     -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
     z-index: 0;
     pointer-events: none;
 }
-/* Industrial Navy Accent Panel Shifted 18px Bottom-Right */
+/* Bingkai Halus (Ring Tint #E8ECFF + Shadow Berlapis Lembut) */
 body.elementor-page-59 .hero-visual-card-wrap::before {
     content: "";
     position: absolute;
-    top: 18px;
-    left: 18px;
-    right: -18px;
-    bottom: -18px;
-    background: #00236f;
-    border-radius: 24px;
+    inset: -6px;
+    background: #e8ecff;
+    border: 1px solid #dce4ff;
+    border-radius: 30px;
     z-index: 1;
     pointer-events: none;
-    opacity: 0.95;
+    opacity: 0.85;
 }
 
-/* Main Hero Photo */
+/* Main Hero Photo (Subjek Fokus, Radius 24-28px, Shadow Berlapis) */
 body.elementor-page-59 .hero-truck-img {
     position: relative;
     z-index: 2;
-    border-radius: 24px;
+    border-radius: 26px;
     overflow: hidden;
-    box-shadow: 0 2px 6px rgba(0, 34, 111, 0.08), 0 28px 60px rgba(0, 34, 111, 0.18);
-    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 0 4px 16px -2px rgba(0, 35, 111, 0.06), 0 20px 48px -6px rgba(0, 35, 111, 0.14);
+    border: 2px solid #ffffff;
 }
 body.elementor-page-59 .hero-truck-img img {
     border-radius: 24px;
@@ -1387,127 +1425,77 @@ body.elementor-page-59 .hero-truck-img img {
     object-fit: cover;
 }
 
-/* Horizontal Hanging Telematics Card (Ronde 18b: overlap 14px, tidak menutupi subjek) */
+/* Horizontal Hanging Telematics Card (Ronde 19: Rancang ulang agar teks tidak pernah terpotong) */
 body.elementor-page-59 .hero-telematics-card {
     position: absolute;
-    bottom: -60px;
+    bottom: -56px;
     right: 0;
     z-index: 3;
-    width: calc(100% - 40px);
-    max-width: 440px;
-    min-height: 74px;
-    max-height: 88px;
+    width: 100%;
+    max-width: 470px;
     background: rgba(255, 255, 255, 0.96);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid #e2e8f0;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(226, 232, 240, 0.9);
     border-radius: 16px;
-    padding: 10px 14px;
-    box-shadow: 0 10px 30px rgba(0, 35, 111, 0.12), 0 2px 8px rgba(0, 35, 111, 0.04);
+    padding: 12px 16px;
+    box-shadow: 0 10px 32px rgba(0, 35, 111, 0.10), 0 2px 8px rgba(0, 35, 111, 0.04);
     box-sizing: border-box;
 }
 
 body.elementor-page-59 .hero-telematics-inner {
     display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+/* Baris 1: Judul 1 baris penuh di kiri, status SIAP JALAN di kanan */
+body.elementor-page-59 .telematics-row-top {
+    display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
     width: 100%;
-    height: 100%;
 }
-
-body.elementor-page-59 .telematics-left-block {
+body.elementor-page-59 .telematics-heading-wrap {
     display: flex;
     align-items: center;
     gap: 10px;
     min-width: 0;
-    flex-shrink: 1;
+    flex: 1;
 }
-
 body.elementor-page-59 .telematics-chip-icon {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     border-radius: 8px;
-    background: #dce1ff;
+    background: #eef2ff;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #00236f;
-    font-size: 16px;
+    font-size: 14px;
     flex-shrink: 0;
 }
-
-body.elementor-page-59 .telematics-info {
-    min-width: 0;
-}
-
 body.elementor-page-59 .telematics-title {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 800;
     color: #00236f;
     line-height: 1.2;
     white-space: nowrap;
 }
-
-body.elementor-page-59 .telematics-desc {
-    font-size: 11px;
-    color: #444651;
-    line-height: 1.2;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-body.elementor-page-59 .telematics-metrics-block {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 4px 10px;
-    background: #f7f9fb;
-    border-radius: 8px;
-    border: 1px solid #eceef0;
-    flex-shrink: 0;
-}
-
-body.elementor-page-59 .telematics-metrics-block .metric-item {
-    text-align: center;
-    white-space: nowrap;
-}
-
-body.elementor-page-59 .telematics-metrics-block .metric-val {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 800;
-    color: #00236f;
-    line-height: 1.1;
-}
-
-body.elementor-page-59 .telematics-metrics-block .metric-lbl {
-    font-size: 9px;
-    color: #757682;
-    font-weight: 600;
-    line-height: 1;
-}
-
-body.elementor-page-59 .telematics-metrics-block .metric-divider {
-    width: 1px;
-    height: 20px;
-    background: #dce1ff;
-}
-
 body.elementor-page-59 .telematics-status-block {
     flex-shrink: 0;
 }
-
 body.elementor-page-59 .telematics-status-pill {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
-    background: #e6f7ec;
+    gap: 6px;
+    background: #ecfdf5;
     color: #059669;
     border: 1px solid #a7f3d0;
-    height: 26px;
+    height: 24px;
     padding: 0 10px;
     border-radius: 999px;
     font-size: 11px;
@@ -1515,32 +1503,84 @@ body.elementor-page-59 .telematics-status-pill {
     letter-spacing: 0.5px;
     white-space: nowrap;
 }
-
 body.elementor-page-59 .status-live-dot {
     display: inline-block;
     width: 6px;
     height: 6px;
     border-radius: 50%;
     background: #10b981;
-    animation: statusPulse 2s infinite ease-in-out;
+    animation: liveDotPulse 2s infinite ease-in-out;
 }
 
-@keyframes statusPulse {
+@keyframes liveDotPulse {
     0%, 100% {
-        opacity: 1;
         transform: scale(1);
+        opacity: 1;
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
     }
     50% {
-        opacity: 0.4;
-        transform: scale(0.85);
+        transform: scale(1.15);
+        opacity: 0.8;
+        box-shadow: 0 0 0 4px rgba(16, 185, 129, 0);
     }
 }
 
-/* Stagger Entrance Animations */
+/* Baris 2: Sub-teks tidak terpotong di kiri, metrik di kanan lebar tetap */
+body.elementor-page-59 .telematics-row-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+}
+body.elementor-page-59 .telematics-desc {
+    font-size: 11.5px;
+    color: #64748b;
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+    min-width: 0;
+}
+body.elementor-page-59 .telematics-metrics-block {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 10px;
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    flex-shrink: 0;
+}
+body.elementor-page-59 .telematics-metrics-block .metric-item {
+    text-align: center;
+    white-space: nowrap;
+}
+body.elementor-page-59 .telematics-metrics-block .metric-val {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    color: #00236f;
+    line-height: 1.1;
+}
+body.elementor-page-59 .telematics-metrics-block .metric-lbl {
+    font-size: 9px;
+    color: #64748b;
+    font-weight: 600;
+    line-height: 1;
+}
+body.elementor-page-59 .telematics-metrics-block .metric-divider {
+    width: 1px;
+    height: 18px;
+    background: #cbd5e1;
+}
+
+/* Stagger Entrance Animations (≤ 500ms) */
 @keyframes heroFadeUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(12px);
     }
     to {
         opacity: 1;
@@ -1559,25 +1599,25 @@ body.elementor-page-59 .status-live-dot {
 }
 
 body.elementor-page-59 .hero-authority-badge {
-    animation: heroFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: heroFadeUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 body.elementor-page-59 .hero-title {
-    animation: heroFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.07s both;
+    animation: heroFadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
 }
 body.elementor-page-59 .hero-lead {
-    animation: heroFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.14s both;
+    animation: heroFadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.10s both;
 }
 body.elementor-page-59 .hero-btns-row {
-    animation: heroFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.21s both;
+    animation: heroFadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
 }
 body.elementor-page-59 .hero-brands-widget {
-    animation: heroFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
+    animation: heroFadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.20s both;
 }
-body.elementor-page-59 .hero-truck-img {
-    animation: heroScaleIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+body.elementor-page-59 .hero-visual-card-wrap {
+    animation: heroScaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
 }
 body.elementor-page-59 .hero-telematics-card {
-    animation: heroFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+    animation: heroFadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
 }
 
 /* Matikan Animasi saat reduced-motion, editor active, editor preview, atau automated browser */
@@ -1629,6 +1669,18 @@ body.is-webdriver .status-live-dot {
     body.elementor-page-59 .topbar-iso-item {
         display: none !important;
     }
+    body.elementor-page-59 .telematics-row-bottom {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 6px !important;
+    }
+    body.elementor-page-59 .telematics-desc {
+        white-space: normal !important;
+        width: 100% !important;
+    }
+    body.elementor-page-59 .telematics-metrics-block {
+        align-self: flex-end !important;
+    }
 }
 
 @media (max-width: 991.98px) {
@@ -1666,6 +1718,11 @@ body.is-webdriver .status-live-dot {
         padding-left: 0 !important;
         padding-right: 0 !important;
     }
+    body.elementor-page-59 .stitch-sec-hero .hero-authority-badge { order: 1 !important; }
+    body.elementor-page-59 .stitch-sec-hero .hero-title { order: 2 !important; }
+    body.elementor-page-59 .stitch-sec-hero .hero-lead { order: 3 !important; }
+    body.elementor-page-59 .stitch-sec-hero .hero-btns-row { order: 4 !important; }
+    body.elementor-page-59 .stitch-sec-hero .hero-brands-widget { order: 5 !important; }
     body.elementor-page-59 .stitch-counter-bar > .e-con-inner {
         flex-wrap: wrap !important;
         justify-content: center !important;
@@ -1753,26 +1810,65 @@ body.is-webdriver .status-live-dot {
         padding-top: 16px !important;
         padding-bottom: 24px !important;
     }
-    body.elementor-page-59 .hero-title .elementor-heading-title {
+    /* Natural Stacking Order & Center Alignment on Mobile (Ronde 19) */
+    body.elementor-page-59 .stitch-sec-hero .hero-authority-badge {
+        order: 1 !important;
+        align-self: center !important;
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    body.elementor-page-59 .stitch-sec-hero .hero-authority-badge .elementor-heading-title {
+        text-align: center !important;
+    }
+    body.elementor-page-59 .stitch-sec-hero .hero-title {
+        order: 2 !important;
+        text-align: center !important;
+    }
+    body.elementor-page-59 .stitch-sec-hero .hero-title .elementor-heading-title {
         font-size: 28px !important;
         line-height: 1.2 !important;
+        text-align: center !important;
     }
-    body.elementor-page-59 .hero-btns-row {
+    body.elementor-page-59 .stitch-sec-hero .hero-lead {
+        order: 3 !important;
+        text-align: center !important;
+    }
+    body.elementor-page-59 .stitch-sec-hero .hero-lead .elementor-widget-container {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: center !important;
+    }
+    body.elementor-page-59 .stitch-sec-hero .hero-btns-row {
+        order: 4 !important;
         flex-direction: column !important;
         gap: 10px !important;
         margin-bottom: 20px !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
-    body.elementor-page-59 .hero-btns-row .elementor-button {
+    body.elementor-page-59 .stitch-sec-hero .hero-btns-row .elementor-button {
         width: 100% !important;
         text-align: center !important;
         justify-content: center !important;
     }
+    body.elementor-page-59 .stitch-sec-hero .hero-brands-widget {
+        order: 5 !important;
+        text-align: center !important;
+    }
+    body.elementor-page-59 .stitch-sec-hero .hero-brands-block {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    body.elementor-page-59 .stitch-sec-hero .hero-brands-block > div:last-child {
+        justify-content: center !important;
+    }
     /* Mobile visual & telematics card adjustment */
     body.elementor-page-59 .hero-visual-card-wrap::before {
-        top: 10px !important;
-        left: 10px !important;
-        right: -10px !important;
-        bottom: -10px !important;
+        inset: -4px !important;
+        border-radius: 26px !important;
     }
     body.elementor-page-59 .hero-telematics-card {
         position: relative !important;
@@ -1783,7 +1879,7 @@ body.is-webdriver .status-live-dot {
         min-height: auto !important;
         max-height: none !important;
         margin-top: 14px !important;
-        padding: 12px !important;
+        padding: 12px 14px !important;
         box-sizing: border-box !important;
     }
     body.elementor-page-59 .hero-telematics-inner {
@@ -1791,13 +1887,20 @@ body.is-webdriver .status-live-dot {
         align-items: stretch !important;
         gap: 10px !important;
     }
-    body.elementor-page-59 .telematics-left-block {
+    body.elementor-page-59 .telematics-row-top {
+        display: flex !important;
+        align-items: center !important;
         justify-content: space-between !important;
+        gap: 8px !important;
     }
-    body.elementor-page-59 .telematics-status-block {
-        position: absolute !important;
-        top: 12px !important;
-        right: 12px !important;
+    body.elementor-page-59 .telematics-row-bottom {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 8px !important;
+    }
+    body.elementor-page-59 .telematics-desc {
+        white-space: normal !important;
+        text-align: left !important;
     }
     body.elementor-page-59 .telematics-metrics-block {
         display: grid !important;
@@ -1815,7 +1918,7 @@ body.is-webdriver .status-live-dot {
         position: absolute !important;
         bottom: -50px !important;
         right: 0 !important;
-        width: calc(100% - 20px) !important;
+        width: 100% !important;
         max-width: 100% !important;
     }
     body.elementor-page-59 .keunggulan-grid-row,
@@ -1830,3 +1933,15 @@ body.is-webdriver .status-live-dot {
         flex: 0 0 calc(50% - 16px) !important;
     }
 }
+
+@media (max-width: 360px) {
+    body.elementor-page-59 .topbar-hotline-item {
+        font-size: 10px !important;
+        letter-spacing: 0 !important;
+    }
+    body.elementor-page-59 select,
+    body.elementor-page-59 input {
+        max-width: 100% !important;
+    }
+}
+
