@@ -196,20 +196,39 @@ add_action( 'admin_menu', function () {
 	// Terjemahkan & rapikan submenu Rank Math untuk pengelola
 	if ( isset( $submenu['rank-math'] ) ) {
 		foreach ( $submenu['rank-math'] as $k => $item ) {
+			$slug = isset( $item[2] ) ? (string) $item[2] : '';
+
+			// RONDE 20b: menu "AI Link Genius" tidak diperlukan pengelola (semua mode).
+			if ( 'rank-math-links-page' === $slug ) {
+				unset( $submenu['rank-math'][ $k ] );
+				continue;
+			}
+			// RONDE 20b: promo upsell "Unlock PRO" (tautan ke halaman harga Rank Math).
+			if ( false !== strpos( $slug, 'rankmath.com/pricing' ) ) {
+				unset( $submenu['rank-math'][ $k ] );
+				continue;
+			}
+			// Tautan bantuan luar: label disederhanakan (tetap berfungsi).
+			if ( false !== strpos( $slug, 'rankmath.com/kb' ) ) {
+				$submenu['rank-math'][ $k ][0] = 'Bantuan';
+				$submenu['rank-math'][ $k ][3] = 'Bantuan';
+				continue;
+			}
+
 			if ( ! mt_admin_is_advanced() ) {
 				// Sembunyikan menu rumit (Status, Tools, Analytics, dsb) di mode sederhana
-				if ( in_array( $item[2], array( 'rank-math-status', 'rank-math-analytics', 'rank-math-help', 'rank-math-content-ai', 'rank-math-instant-indexing' ), true ) ) {
+				if ( in_array( $slug, array( 'rank-math-status', 'rank-math-analytics', 'rank-math-help', 'rank-math-content-ai', 'rank-math-instant-indexing' ), true ) ) {
 					unset( $submenu['rank-math'][ $k ] );
 					continue;
 				}
 			}
-			if ( 'rank-math' === $item[2] ) {
+			if ( 'rank-math' === $slug ) {
 				$submenu['rank-math'][ $k ][0] = 'Ringkasan SEO';
-			} elseif ( 'rank-math-options-titles' === $item[2] ) {
+			} elseif ( 'rank-math-options-titles' === $slug ) {
 				$submenu['rank-math'][ $k ][0] = 'Judul & Meta (Google)';
-			} elseif ( 'rank-math-options-sitemap' === $item[2] ) {
+			} elseif ( 'rank-math-options-sitemap' === $slug ) {
 				$submenu['rank-math'][ $k ][0] = 'Peta Situs (Sitemap)';
-			} elseif ( 'rank-math-options-general' === $item[2] ) {
+			} elseif ( 'rank-math-options-general' === $slug ) {
 				$submenu['rank-math'][ $k ][0] = 'Pengaturan Umum';
 			}
 		}
@@ -338,10 +357,16 @@ add_action( 'wp_dashboard_setup', function () {
 	wp_add_dashboard_widget( 'mt_admin_quick', 'Aksi Cepat', 'mt_admin_quick_box' );
 	wp_add_dashboard_widget( 'mt_admin_status', 'Status Situs', 'mt_admin_status_box', null, null, 'side' );
 	wp_add_dashboard_widget( 'mt_admin_help', 'Bantuan Singkat', 'mt_admin_help_box', null, null, 'side' );
+
+	// RONDE 20b: kartu Skor SEO (khusus pengelola dengan hak kelola penuh).
+	if ( current_user_can( 'manage_options' ) ) {
+		wp_add_dashboard_widget( 'mt_admin_seo', 'Skor SEO (Rank Math)', 'mt_admin_seo_box' );
+		wp_add_dashboard_widget( 'mt_admin_seo_tips', 'Cara Naikkan Skor', 'mt_admin_seo_tips_box', null, null, 'side' );
+	}
 }, 5 );
 
 add_action( 'wp_dashboard_setup', function () {
-	// Sambutan + aksi + status + bantuan paling atas (jalan paling akhir).
+	// Sambutan + skor SEO + aksi + status + bantuan paling atas (jalan paling akhir).
 	global $wp_meta_boxes;
 	foreach ( array( 'normal', 'side' ) as $ctx ) {
 		if ( ! isset( $wp_meta_boxes['dashboard'][ $ctx ]['core'] ) ) {
@@ -349,7 +374,7 @@ add_action( 'wp_dashboard_setup', function () {
 		}
 		$core = $wp_meta_boxes['dashboard'][ $ctx ]['core'];
 		$first = array();
-		foreach ( array( 'mt_admin_welcome', 'mt_admin_quick', 'mt_admin_status', 'mt_admin_help' ) as $id ) {
+		foreach ( array( 'mt_admin_seo', 'mt_admin_seo_tips', 'mt_admin_welcome', 'mt_admin_quick', 'mt_admin_status', 'mt_admin_help' ) as $id ) {
 			if ( isset( $core[ $id ] ) ) {
 				$first[ $id ] = $core[ $id ];
 				unset( $core[ $id ] );
@@ -503,5 +528,536 @@ add_action( 'elementor/editor/after_enqueue_styles', function () {
 	wp_add_inline_style(
 		'elementor-editor',
 		'#elementor-go-pro,.elementor-panel-footer-sub-menu-item-go-pro,.e-notice--upsale,.elementor-nerd-box,.elementor-panel-info{display:none}'
+		// RONDE 20b: promo upsell Rank Math di panel SEO editor Elementor.
+		. '#elementor-panel .components-notice.is-warning:has(a[href*="rankmath.com"]),#elementor-panel .rank-math-unlock-pro-box,#elementor-panel .rank-math-pro-badge{display:none}'
 	);
 } );
+
+/* ============================================================
+ * RONDE 20b: Kartu "Skor SEO" dasbor + rapikan menu/promo Rank Math
+ * Semua bersifat baca-saja terhadap data Rank Math (meta/opsi).
+ * Nonaktifkan mt-admin = tampilan bawaan kembali.
+ * ============================================================ */
+
+/** ID halaman depan (Beranda) untuk pemeriksaan. */
+function mt_admin_seo_home_id() {
+	$front = (int) get_option( 'page_on_front' );
+	return $front ? $front : 59;
+}
+
+/**
+ * Ambil HTML beranda + status sitemap dari dalam container (tanpa request eksternal).
+ */
+function mt_admin_seo_fetch() {
+	$home  = home_url( '/' );
+	$parts = function_exists( 'wp_parse_url' ) ? wp_parse_url( $home ) : parse_url( $home );
+	$host  = isset( $parts['host'] ) ? $parts['host'] : 'localhost';
+	if ( isset( $parts['port'] ) ) {
+		$host .= ':' . $parts['port'];
+	}
+	$headers = array( 'Host' => $host );
+
+	$out   = array( 'body' => '', 'home_code' => 0, 'sitemap_code' => 0 );
+	$r     = wp_remote_get( 'http://127.0.0.1/', array( 'timeout' => 15, 'headers' => $headers, 'redirection' => 5 ) );
+	if ( ! is_wp_error( $r ) ) {
+		$out['home_code'] = (int) wp_remote_retrieve_response_code( $r );
+		$out['body']      = (string) wp_remote_retrieve_body( $r );
+	}
+	$s   = wp_remote_get( 'http://127.0.0.1/sitemap_index.xml', array( 'timeout' => 15, 'headers' => $headers, 'redirection' => 5 ) );
+	$out['sitemap_code'] = is_wp_error( $s ) ? 0 : (int) wp_remote_retrieve_response_code( $s );
+
+	return $out;
+}
+
+/**
+ * Susun daftar periksa "Siap tayang di Google" (baca-saja) + skor Rank Math.
+ * Hasil di-cache 10 menit (transient) seperti kartu Status Situs.
+ */
+function mt_admin_seo_build() {
+	$cached = get_transient( 'mt_admin_seo_check' );
+	if ( is_array( $cached ) && isset( $cached['checks'], $cached['score'] ) ) {
+		return $cached;
+	}
+
+	$home_id = mt_admin_seo_home_id();
+	$fetch   = mt_admin_seo_fetch();
+	$html    = $fetch['body'];
+	$checks  = array();
+
+	// 1. Judul Google (SEO Title).
+	$meta_title = trim( (string) get_post_meta( $home_id, 'rank_math_title', true ) );
+	$fallback   = ( '' === $meta_title );
+	$title      = $fallback ? get_the_title( $home_id ) : $meta_title;
+	$title      = html_entity_decode( (string) $title, ENT_QUOTES, 'UTF-8' );
+	$len        = function_exists( 'mb_strlen' ) ? mb_strlen( $title ) : strlen( $title );
+	$checks[]   = array(
+		'key'       => 'title',
+		'label'     => 'Judul Google (SEO Title)',
+		'ok'        => ( '' !== $title && $len <= 60 ),
+		'todo'      => false,
+		'detail'    => sprintf(
+			'%s (%d/60 karakter).%s',
+			'' !== $title ? '“' . $title . '”' : 'Belum diisi',
+			$len,
+			$fallback ? ' Judul otomatis, sebaiknya diisi sendiri.' : ''
+		),
+		'tips'      => 'Judul yang muncul di Google. Buka halaman di editor, ubah kolom SEO Title, lalu klik Update.',
+		'action'    => 'Ubah di editor',
+		'href'      => admin_url( MT_ADMIN_EDITOR_URL ),
+		'priority'  => 1,
+	);
+
+	// 2. Deskripsi Google (SEO Description).
+	$desc    = trim( (string) get_post_meta( $home_id, 'rank_math_description', true ) );
+	$desc    = html_entity_decode( $desc, ENT_QUOTES, 'UTF-8' );
+	$desc_len = function_exists( 'mb_strlen' ) ? mb_strlen( $desc ) : strlen( $desc );
+	$checks[] = array(
+		'key'      => 'description',
+		'label'    => 'Deskripsi Google (SEO Description)',
+		'ok'       => ( '' !== $desc && $desc_len <= 155 ),
+		'todo'     => false,
+		'detail'   => '' === $desc
+			? 'Belum diisi. Google akan mengambil teks acak dari halaman.'
+			: sprintf( 'Terisi, %d dari maksimal 155 karakter.', $desc_len ),
+		'tips'     => 'Ringkasan singkat yang dibaca orang di Google. Isi di editor (kolom SEO Description), maksimal 155 karakter.',
+		'action'   => 'Ubah di editor',
+		'href'     => admin_url( MT_ADMIN_EDITOR_URL ),
+		'priority' => 2,
+	);
+
+	// 3. Kata kunci utama.
+	$kw    = trim( (string) get_post_meta( $home_id, 'rank_math_focus_keyword', true ) );
+	$checks[] = array(
+		'key'      => 'keyword',
+		'label'    => 'Kata kunci utama terisi',
+		'ok'       => ( '' !== $kw ),
+		'todo'     => false,
+		'detail'   => '' === $kw
+			? 'Belum diisi. Rank Math tidak bisa menilai halaman tanpa kata kunci.'
+			: sprintf( '“%s” — kata yang ingin ditemukan di Google.', $kw ),
+		'tips'     => 'Tentukan kata yang diketik orang (mis. “bengkel truk Medan”) di kolom Focus Keyword pada editor.',
+		'action'   => 'Isi di editor',
+		'href'     => admin_url( MT_ADMIN_EDITOR_URL ),
+		'priority' => 3,
+	);
+
+	// 4. Peta situs (sitemap) aktif.
+	$modules   = (array) get_option( 'rank_math_modules', array() );
+	$mod_on    = in_array( 'sitemap', $modules, true );
+	$sitemap_ok = $mod_on && 200 === (int) $fetch['sitemap_code'];
+	$checks[]  = array(
+		'key'      => 'sitemap',
+		'label'    => 'Peta situs (sitemap) aktif',
+		'ok'       => $sitemap_ok,
+		'todo'     => false,
+		'detail'   => ! $mod_on
+			? 'Modul Sitemap belum aktif di Pengaturan SEO.'
+			: sprintf( 'Sitemap aktif; /sitemap_index.xml membalas HTTP %d.', (int) $fetch['sitemap_code'] ),
+		'tips'     => 'Peta situs membantu Google menemukan semua halaman. Buka Pengaturan SEO → Peta Situs bila belum aktif.',
+		'action'   => 'Buka Peta Situs',
+		'href'     => admin_url( 'admin.php?page=rank-math-options-sitemap' ),
+		'priority' => 4,
+	);
+
+	// 5. Mesin pencari diizinkan (blog_public).
+	$public  = (int) get_option( 'blog_public', 1 );
+	$checks[] = array(
+		'key'      => 'indexing',
+		'label'    => 'Mesin pencari diizinkan mengindeks situs',
+		'ok'       => ( 1 === $public ),
+		'todo'     => false,
+		'detail'   => 1 === $public
+			? 'Situs terbuka untuk Google (settingan “Diskorskan” tidak aktif).'
+			: 'Diblokir dari Google. Di komputer lokal hal ini NORMAL; saat sudah live, matikan di Pengaturan → Pembacaan.',
+		'tips'     => 'Bila situs sudah live dan tetap diblokir, Google tidak akan menampilkan halaman Anda sama sekali.',
+		'action'   => 'Buka Pengaturan Pembacaan',
+		'href'     => admin_url( 'options-reading.php' ),
+		'priority' => 5,
+	);
+
+	// 6. Data bisnis lokal (schema) aktif + nama/alamat/telepon.
+	$titles_opt = (array) get_option( 'rank-math-options-titles', array() );
+	$kg_name    = trim( (string) ( $titles_opt['knowledgegraph_name'] ?? '' ) );
+	$addr       = isset( $titles_opt['local_address'] ) && is_array( $titles_opt['local_address'] ) ? $titles_opt['local_address'] : array();
+	$addr_line  = trim( (string) ( $addr['street'] ?? '' ) . ' ' . (string) ( $addr['locality'] ?? '' ) );
+	$phone      = trim( (string) ( $titles_opt['local_phone'] ?? '' ) );
+	$local_on   = in_array( 'local-seo', $modules, true );
+	$local_ok   = $local_on && '' !== $kg_name && '' !== $addr_line && '' !== $phone;
+	$local_todo = $local_on && '' !== $kg_name && '' !== $addr_line && '' === $phone;
+	$local_det  = '';
+	if ( ! $local_on ) {
+		$local_det = 'Modul Local SEO belum aktif; data bisnis tidak terkirim ke Google.';
+	} elseif ( '' === $kg_name || '' === $addr_line ) {
+		$local_det = 'Nama/alamat bisnis belum lengkap di Pengaturan SEO → Local SEO.';
+	} elseif ( '' === $phone ) {
+		$local_det = 'Nama & alamat terisi; telepon: TODO konfirmasi pemilik.';
+	} else {
+		$local_det = 'Nama, alamat, dan telepon sudah terisi lengkap.';
+	}
+	$checks[] = array(
+		'key'      => 'local',
+		'label'    => 'Data bisnis lokal (schema) terisi',
+		'ok'       => $local_ok,
+		'todo'     => $local_todo,
+		'detail'   => $local_det,
+		'tips'     => 'Data ini membuat Google menampilkan alamat & jam buka bisnis Anda. Isi di Pengaturan SEO → Judul & Meta → Local SEO.',
+		'action'   => 'Buka Local SEO',
+		'href'     => admin_url( 'admin.php?page=rank-math-options-titles' ),
+		'priority' => 6,
+	);
+
+	// 7. Semua gambar di Beranda punya teks alt.
+	$imgs = array();
+	if ( preg_match_all( '/<img\b[^>]*>/i', $html, $m ) ) {
+		$imgs = $m[0];
+	}
+	$with_alt = 0;
+	foreach ( $imgs as $tag ) {
+		if ( preg_match( '/\balt\s*=\s*([\'\"])(.*?)\1/i', $tag, $a ) && '' !== trim( $a[2] ) ) {
+			$with_alt++;
+		}
+	}
+	$total_img = count( $imgs );
+	$checks[]  = array(
+		'key'      => 'alt',
+		'label'    => 'Semua gambar Beranda punya teks alt',
+		'ok'       => ( $total_img > 0 && $with_alt === $total_img ),
+		'todo'     => false,
+		'detail'   => $total_img
+			? sprintf( '%d dari %d gambar di halaman Beranda sudah punya teks alt.', $with_alt, $total_img )
+			: 'Halaman Beranda tidak termuat untuk diperiksa (ulangi pemeriksaan).',
+		'tips'     => 'Teks alt membantu Google “melihat” gambar dan pembaca layar. Ubah lewat Media → gambar → Kolom “Teks Alternatif”.',
+		'action'   => 'Buka Media',
+		'href'     => admin_url( 'upload.php' ),
+		'priority' => 7,
+	);
+
+	// 8. Tepat 1 H1 di Beranda.
+	$h1 = preg_match_all( '/<h1\b[^>]*>/i', $html, $mh );
+	$h1 = (int) $h1;
+	$checks[] = array(
+		'key'      => 'h1',
+		'label'    => 'Tepat 1 judul utama (H1) di Beranda',
+		'ok'       => ( 1 === $h1 ),
+		'todo'     => false,
+		'detail'   => sprintf( 'Halaman Beranda memiliki %d judul utama (H1); idealnya tepat 1.', $h1 ),
+		'tips'     => 'Terlalu banyak H1 membingungkan Google. Periksa judul besar di editor Beranda.',
+		'action'   => 'Periksa di editor',
+		'href'     => admin_url( MT_ADMIN_EDITOR_URL ),
+		'priority' => 8,
+	);
+
+	// Skor Rank Math (dihitung Rank Math saat halaman disimpan).
+	$score_raw = get_post_meta( $home_id, 'rank_math_seo_score', true );
+	$score     = ( '' === $score_raw || null === $score_raw ) ? null : (int) $score_raw;
+
+	// Ringkasan per halaman publik (baca-saja).
+	$pages = array();
+	foreach ( get_posts( array( 'post_type' => 'page', 'post_status' => 'publish', 'numberposts' => 20, 'orderby' => 'menu_order ID', 'order' => 'ASC' ) ) as $p ) {
+		$praw = get_post_meta( $p->ID, 'rank_math_seo_score', true );
+		$pages[] = array(
+			'id'    => $p->ID,
+			'title' => $p->post_title,
+			'score' => ( '' === $praw || null === $praw ) ? null : (int) $praw,
+			'home'  => ( $p->ID === $home_id ),
+		);
+	}
+
+	$data = array(
+		'built'   => time(),
+		'checks'  => $checks,
+		'score'   => $score,
+		'home_id' => $home_id,
+		'pages'   => $pages,
+	);
+	set_transient( 'mt_admin_seo_check', $data, 10 * MINUTE_IN_SECONDS );
+
+	return $data;
+}
+
+/** Label status sebuah item pemeriksaan. */
+function mt_admin_seo_state( $check ) {
+	if ( ! empty( $check['todo'] ) ) {
+		return array( 'is-todo', 'Perlu konfirmasi' );
+	}
+	return ! empty( $check['ok'] ) ? array( 'is-ok', 'Lolos' ) : array( 'is-bad', 'Belum lolos' );
+}
+
+/** Cincin skor SVG (hijau >= 80, oranye 50-79, merah < 50). */
+function mt_admin_seo_ring( $score ) {
+	$radius = 48;
+	$circ   = 2 * M_PI * $radius;
+	if ( null === $score ) {
+		return '<div class="mt-seo-ring-wrap lvl-none">'
+			. '<svg class="mt-seo-ring" viewBox="0 0 120 120" role="img" aria-label="Skor belum dihitung">'
+			. '<circle class="mt-ring-bg" cx="60" cy="60" r="' . $radius . '" />'
+			. '<text class="mt-ring-text" x="60" y="66" text-anchor="middle">–</text>'
+			. '</svg></div>';
+	}
+	$score  = max( 0, min( 100, (int) $score ) );
+	$lvl    = $score >= 80 ? 'lvl-green' : ( $score >= 50 ? 'lvl-orange' : 'lvl-red' );
+	$offset = $circ * ( 1 - $score / 100 );
+	return '<div class="mt-seo-ring-wrap ' . $lvl . '">'
+		. '<svg class="mt-seo-ring" viewBox="0 0 120 120" role="img" aria-label="Skor ' . $score . ' dari 100">'
+		. '<circle class="mt-ring-bg" cx="60" cy="60" r="' . $radius . '" />'
+		. '<circle class="mt-ring-fg" cx="60" cy="60" r="' . $radius . '" stroke-dasharray="' . round( $circ, 2 ) . '" stroke-dashoffset="' . round( $offset, 2 ) . '" transform="rotate(-90 60 60)" />'
+		. '<text class="mt-ring-text" x="60" y="68" text-anchor="middle">' . $score . '</text>'
+		. '</svg></div>';
+}
+
+/** Kartu utama: Skor SEO + daftar periksa "Siap tayang di Google". */
+function mt_admin_seo_box() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+	$d     = mt_admin_seo_build();
+	$score = $d['score'];
+
+	if ( null === $score ) {
+		$level_text = 'Belum dihitung';
+		$level_cls  = 'lvl-none';
+		$hint       = 'Buka halaman di editor lalu klik Update; skor akan muncul di sini.';
+	} elseif ( $score >= 80 ) {
+		$level_text = 'Bagus';
+		$level_cls  = 'lvl-green';
+		$hint       = '';
+	} elseif ( $score >= 50 ) {
+		$level_text = 'Cukup';
+		$level_cls  = 'lvl-orange';
+		$hint       = '';
+	} else {
+		$level_text = 'Perlu diperbaiki';
+		$level_cls  = 'lvl-red';
+		$hint       = '';
+	}
+
+	$edit    = esc_url( admin_url( MT_ADMIN_EDITOR_URL ) );
+	$recheck = esc_url( wp_nonce_url( admin_url( 'admin-post.php?action=mt_admin_recheck_seo' ), 'mt_admin_recheck_seo' ) );
+	$stamp   = get_transient( 'mt_admin_seo_check' );
+	$built   = is_array( $stamp ) && isset( $stamp['built'] ) ? (int) $stamp['built'] : 0;
+
+	echo '<div class="mt-seo-wrap">';
+
+	echo '<div class="mt-seo-top">';
+	echo '<div class="mt-seo-score">' . mt_admin_seo_ring( $score )
+		. '<div class="mt-seo-score-meta">'
+		. '<span class="mt-seo-score-label">Skor Rank Math (0–100)</span>'
+		. '<strong class="mt-seo-level ' . $level_cls . '">' . esc_html( $level_text ) . '</strong>'
+		. ( $hint ? '<p class="mt-seo-hint">' . esc_html( $hint ) . '</p>' : '' )
+		. '<p class="mt-seo-note">Angka ini dihitung Rank Math atas isi halaman Anda — bukan jaminan peringkat Google.</p>'
+		. '</div></div>';
+
+	echo '<div class="mt-seo-actions">'
+		. '<a class="button button-primary" href="' . $edit . '">Perbaiki di editor</a>'
+		. '<a class="button" href="' . $recheck . '">Periksa Ulang</a>'
+		. '<p class="mt-seo-stamp">Terakhir diperiksa: ' . ( $built ? esc_html( date_i18n( 'd M Y H:i', $built ) ) : '-' ) . ' · hasil disimpan 10 menit.</p>'
+		. '</div>';
+	echo '</div>'; // .mt-seo-top
+
+	echo '<h3 class="mt-seo-subtitle">Siap tayang di Google</h3>';
+	echo '<ul class="mt-seo-list">';
+	foreach ( (array) $d['checks'] as $check ) {
+		list( $cls, $state ) = mt_admin_seo_state( $check );
+		echo '<li class="mt-seo-item ' . $cls . '">'
+			. '<span class="mt-seo-mark" aria-hidden="true">' . ( 'is-ok' === $cls ? '✓' : ( 'is-todo' === $cls ? '!' : '✕' ) ) . '</span>'
+			. '<div class="mt-seo-item-body">'
+			. '<strong>' . esc_html( $check['label'] ) . '</strong>'
+			. '<span class="mt-seo-pill">' . esc_html( $state ) . '</span>'
+			. '<p>' . esc_html( $check['detail'] ) . '</p>'
+			. '</div></li>';
+	}
+	echo '</ul>';
+
+	// Ringkasan skor per halaman publik (baca-saja).
+	if ( ! empty( $d['pages'] ) ) {
+		echo '<div class="mt-seo-pages"><span class="mt-seo-pages-title">Skor per halaman:</span>';
+		foreach ( $d['pages'] as $pg ) {
+			$cls = 'none';
+			$txt = 'belum dihitung';
+			if ( null !== $pg['score'] ) {
+				$cls = $pg['score'] >= 80 ? 'green' : ( $pg['score'] >= 50 ? 'orange' : 'red' );
+				$txt = (string) $pg['score'];
+			}
+			echo '<span class="mt-seo-chip c-' . $cls . '" title="' . esc_attr( $pg['title'] ) . '">'
+				. esc_html( $pg['title'] ) . ' <strong>' . esc_html( $txt ) . '</strong></span>';
+		}
+		echo '</div>';
+	}
+
+	echo '<p class="mt-seo-disclaimer">Statistik pengunjung &amp; posisi Google baru tersedia setelah situs live dan dihubungkan ke Google Search Console.</p>';
+	echo '</div>'; // .mt-seo-wrap
+}
+
+/** Kartu sampingan: 3 saran teratas untuk menaikkan skor. */
+function mt_admin_seo_tips_box() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+	$d       = mt_admin_seo_build();
+	$failing = array();
+	foreach ( (array) $d['checks'] as $check ) {
+		if ( empty( $check['ok'] ) ) {
+			$failing[] = $check;
+		}
+	}
+	usort(
+		$failing,
+		function ( $a, $b ) {
+			return ( $a['priority'] ?? 0 ) <=> ( $b['priority'] ?? 0 );
+		}
+	);
+
+	if ( empty( $failing ) ) {
+		echo '<p class="mt-tips-ok">Semua pemeriksaan lolos — pertahankan. Setelah mengubah halaman, tekan <strong>Periksa Ulang</strong> di kartu Skor SEO.</p>';
+		return;
+	}
+
+	echo '<ol class="mt-tips">';
+	$i = 1;
+	foreach ( array_slice( $failing, 0, 3 ) as $check ) {
+		echo '<li>'
+			. '<strong>' . $i . '. ' . esc_html( $check['label'] ) . '</strong>'
+			. '<span>' . esc_html( $check['tips'] ) . '</span>'
+			. '<a class="button button-small" href="' . esc_url( $check['href'] ) . '">' . esc_html( $check['action'] ) . '</a>'
+			. '</li>';
+		$i++;
+	}
+	echo '</ol>';
+}
+
+/** Tombol "Periksa Ulang": nonce + capability manage_options. */
+add_action( 'admin_post_mt_admin_recheck_seo', function () {
+	if ( ! current_user_can( 'manage_options' ) || ! check_admin_referer( 'mt_admin_recheck_seo' ) ) {
+		wp_die( 'Akses ditolak.' );
+	}
+	delete_transient( 'mt_admin_seo_check' );
+	wp_safe_redirect( admin_url( 'index.php#mt_admin_seo' ) );
+	exit;
+} );
+
+/* --- RONDE 20b: rapikan Rank Math (baca-saja + filter resmi) --- */
+
+// 1. Kartu modul promo AI & PRO di halaman Modul disembunyikan lewat CSS bertema
+//    (lihat mt-admin.css, scoped body.rank-math-page) — filter resmi `rank_math/modules`
+//    TIDAK dipakai karena modul `content-ai`/`ai-visibility` wajib tetap ada di array
+//    (Rank Math membaca kunci tersebut langsung, memicu PHP warning bila dihapus).
+
+// 2. Notifikasi promo Rank Math (mis. upsell PRO / free trial) tidak ditampilkan.
+//    Filter resmi wp-helpers: cukup kembalikan HTML kosong untuk notifikasi promo.
+add_filter( 'wp_helpers_notifications_render', function ( $output, $message, $options ) {
+	$id      = is_array( $options ) && isset( $options['id'] ) ? (string) $options['id'] : '';
+	$promo   = array( 'rank_math_pro_notice', 'rank_math_content_ai_notice', 'rank_math_ai_trial_notice', 'rank_math_upgrade_notice' );
+	$message = (string) $message;
+	if ( in_array( $id, $promo, true ) ) {
+		return '';
+	}
+	if ( preg_match( '/Rank Your Content With the Power of PRO|Unlock PRO|Take SEO to the Next Level|Free 15-day|free trial/i', $message ) ) {
+		return '';
+	}
+	return $output;
+}, 10, 3 );
+
+// 3. Terjemahan label utama Rank Math (domain seo-by-rank-math).
+add_filter( 'gettext', function ( $translated, $text, $domain ) {
+	if ( 'seo-by-rank-math' !== $domain || $translated !== $text ) {
+		return $translated;
+	}
+	static $map = array(
+		// Navigasi & tab dasbor Rank Math.
+		'Modules'              => 'Modul',
+		'Help'                 => 'Bantuan',
+		'Help & Support'       => 'Bantuan & Dukungan',
+		'Setup Wizard'         => 'Panduan Pengaturan',
+		'Import & Export'      => 'Impor & Ekspor',
+		'MCP Setup'            => 'Pengaturan MCP',
+		'Dashboard'            => 'Ringkasan',
+		'Easy Mode'            => 'Mode Mudah',
+		'Advanced Mode'        => 'Mode Lanjutan',
+		'Save Changes'         => 'Simpan Perubahan',
+		'Settings'             => 'Pengaturan',
+		'Rank Math'            => 'Rank Math SEO',
+		'Rank Math Overview'   => 'Ringkasan Rank Math',
+		// Kartu modul yang tampil di halaman Modul.
+		'Local SEO'                       => 'SEO Lokal',
+		'Schema (Structured Data)'         => 'Skema (Data Terstruktur)',
+		'Image SEO'                       => 'SEO Gambar',
+		'Link Counter'                    => 'Penghitung Tautan',
+		'SEO Analyzer'                    => 'Analisis Situs (SEO)',
+		'Analytics'                       => 'Analitik',
+		'404 Monitor'                     => 'Monitor 404',
+		'Redirections'                    => 'Arahkan Ulang',
+		'Role Manager'                    => 'Manajer Peran',
+		'Instant Indexing'                => 'Pengindeksan Instan',
+		'Robots.txt'                      => 'Robots.txt',
+		'Database Tools'                  => 'Alat Basis Data',
+		'Version Control'                 => 'Kontrol Versi',
+		'Status'                          => 'Status',
+		'Link Suggestion'                 => 'Saran Tautan',
+		// Kata umum di panel pengaturan.
+		'Save Settings'        => 'Simpan Pengaturan',
+		'Save Changes'         => 'Simpan Perubahan',
+		'General'              => 'Umum',
+		'Global Meta'          => 'Meta Global',
+		'Homepage'             => 'Beranda',
+		'Post Types'           => 'Jenis Tulisan',
+		'Taxonomies'           => 'Taksonomi',
+		'Social Meta'          => 'Meta Sosial',
+		'Local SEO'            => 'SEO Lokal',
+		'Author Archives'      => 'Arsip Penulis',
+		'Pages'                => 'Halaman',
+		'Links'                => 'Tautan',
+		'Images'               => 'Gambar',
+		'Videos'               => 'Video',
+		'News'                 => 'Berita',
+		'Advanced'             => 'Lanjutan',
+		'Basic'                => 'Dasar',
+	);
+	return isset( $map[ $text ] ) ? $map[ $text ] : $translated;
+}, 20, 3 );
+
+// 4. Terjemahan label tab yang dirender JavaScript (wp.i18n) di dasbor Rank Math.
+add_action( 'admin_enqueue_scripts', function () {
+	foreach ( array( 'rank-math-dashboard', 'rank-math-modules' ) as $handle ) {
+		if ( wp_script_is( $handle, 'registered' ) ) {
+			wp_set_script_translations( $handle, 'seo-by-rank-math' );
+		}
+	}
+}, 100 );
+
+add_filter( 'pre_load_script_translations', function ( $translations, $file, $handle, $domain ) {
+	if ( 'seo-by-rank-math' !== $domain ) {
+		return $translations;
+	}
+	static $map = null;
+	if ( null === $map ) {
+		$php_map = array(
+			'Modules'           => 'Modul',
+			'Help'              => 'Bantuan',
+			'Setup Wizard'      => 'Panduan Pengaturan',
+			'Import & Export'   => 'Impor & Ekspor',
+			'MCP Setup'         => 'Pengaturan MCP',
+			'Dashboard'         => 'Ringkasan',
+			'Save Changes'      => 'Simpan Perubahan',
+			'Settings'          => 'Pengaturan',
+			'Next steps…'   => 'Langkah berikutnya…',
+			'Upgrade to PRO'    => 'Tingkatkan ke PRO',
+			'Product Support'   => 'Dukungan Produk',
+			'Ticket Support'    => 'Tiket Dukungan',
+			'Online Documentation' => 'Dokumentasi Daring',
+			'Affiliate Program' => 'Program Afiliasi',
+			'SEO Care'          => 'Perawatan SEO',
+			'Account'           => 'Akun',
+			'Connected'         => 'Terhubung',
+			'Not Connected'     => 'Tidak Terhubung',
+			'Connect Now'       => 'Hubungkan Sekarang',
+			'New!'              => 'BARU!',
+		);
+		$messages = array( '' => array( 'domain' => 'seo-by-rank-math', 'lang' => 'id' ) );
+		foreach ( $php_map as $k => $v ) {
+			$messages[ $k ] = array( $v );
+		}
+		$map = wp_json_encode( array( 'locale_data' => array( 'messages' => $messages ) ) );
+	}
+	return $map;
+}, 10, 4 );
+
