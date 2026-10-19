@@ -177,7 +177,7 @@ fi
 $WP theme activate astra >/dev/null 2>&1 || true
 $WP theme is-active astra >/dev/null 2>&1 && ok "theme astra aktif" || true
 
-declare -A PINS=( [elementor]=4.3.4 [astra-sites]=4.7.8 [header-footer-elementor]=2.9.5 )
+declare -A PINS=( [elementor]=4.3.4 [astra-sites]=4.7.8 [header-footer-elementor]=2.9.5 [seo-by-rank-math]=1.0.280 )
 for p in "${!PINS[@]}"; do
   if $WP plugin is-installed "$p" >/dev/null 2>&1; then
     ok "plugin $p sudah terpasang"
@@ -187,6 +187,7 @@ for p in "${!PINS[@]}"; do
   fi
   $WP plugin activate "$p" >/dev/null 2>&1 && ok "plugin $p aktif" || true
 done
+$WP option update rank_math_registration_skip 1 >/dev/null 2>&1 || true
 
 for plug in mt-topbar mt-booking mt-login mt-admin; do
   if $WP plugin is-installed "$plug" >/dev/null 2>&1; then

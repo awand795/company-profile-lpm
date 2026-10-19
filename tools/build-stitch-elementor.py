@@ -812,7 +812,7 @@ sec_testi["elements"] = [
                    'Dashboard laporan perawatan digitalnya sangat transparan dan suku cadangnya selalu terbukti original OEM.\"'
                    "</p>"
                    "<div style='display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid #e2e8f0;'>"
-                   "<img src='" + IMG["testi1"][0] + "' style='width:48px;height:48px;border-radius:50%;object-fit:cover;'>"
+                   "<img src='" + IMG["testi1"][0] + "' alt='Budi Santoso - Fleet Manager PT Lintas Samudra Logistik' style='width:48px;height:48px;border-radius:50%;object-fit:cover;'>"
                    "<div><div style='font-family:Plus Jakarta Sans;font-size:15px;font-weight:700;color:#00236f;'>Budi Santoso, S.T.</div>"
                    "<div style='font-size:12px;color:#757682;'>Fleet Manager PT Lintas Samudra Logistik (78 Unit)</div></div>"
                    "</div>")
@@ -826,7 +826,7 @@ sec_testi["elements"] = [
                    'Fasilitas pit servis 20 meter dan overhead cranenya sangat profesional, setara bengkel ATPM resmi namun dengan fleksibilitas yang jauh lebih baik.\"'
                    "</p>"
                    "<div style='display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid #e2e8f0;'>"
-                   "<img src='" + IMG["testi2"][0] + "' style='width:48px;height:48px;border-radius:50%;object-fit:cover;'>"
+                   "<img src='" + IMG["testi2"][0] + "' alt='Ir. Hendra Wijaya - Direktur Ops PT Kencana Trans Mandiri' style='width:48px;height:48px;border-radius:50%;object-fit:cover;'>"
                    "<div><div style='font-family:Plus Jakarta Sans;font-size:15px;font-weight:700;color:#00236f;'>Ir. Hendra Wijaya</div>"
                    "<div style='font-size:12px;color:#757682;'>Direktur Ops PT Kencana Trans Mandiri (120 Unit)</div></div>"
                    "</div>")
@@ -840,7 +840,7 @@ sec_testi["elements"] = [
                    'Dalam 45 menit tim rescue sudah tiba di lokasi dan truk berhasil dievakuasi tanpa muatan terlambat sampai ke gudang klien.\"'
                    "</p>"
                    "<div style='display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid #e2e8f0;'>"
-                   "<img src='" + IMG["testi3"][0] + "' style='width:48px;height:48px;border-radius:50%;object-fit:cover;'>"
+                   "<img src='" + IMG["testi3"][0] + "' alt='Sari Anggraini - Pemilik PT Berkah Angkutan Nusantara' style='width:48px;height:48px;border-radius:50%;object-fit:cover;'>"
                    "<div><div style='font-family:Plus Jakarta Sans;font-size:15px;font-weight:700;color:#00236f;'>Sari Anggraini</div>"
                    "<div style='font-size:12px;color:#757682;'>Pemilik PT Berkah Angkutan Nusantara (35 Unit)</div></div>"
                    "</div>")

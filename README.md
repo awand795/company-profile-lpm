@@ -166,6 +166,27 @@ Setelah mengubah template/aset/media, jalankan salah satu:
 .\sync-to-wp.ps1
 ```
 
+## 🌐 Daftar Periksa Peluncuran Produksi (Go-Live & SEO Checklist)
+
+Website di lingkungan lokal (`http://localhost:5000`) secara alami belum diindeks oleh mesin pencari. Saat website dipindahkan ke server produksi / hosting live, lakukan langkah-langkah berikut:
+
+- [ ] **Domain & SSL/HTTPS**: Pastikan domain resmi aktif (contoh: `https://mastertruk.co.id`) dan sertifikat SSL/HTTPS terpasang dengan pengalihan otomatis HTTP ke HTTPS.
+- [ ] **Sinkronisasi URL WordPress**: Pastikan opsi `siteurl` dan `home` di **Pengaturan → Umum** mengarah ke URL domain HTTPS final.
+- [ ] **Buka Akses Mesin Pencari**:
+  - Masuk ke `/wp-admin/` → buka menu **Pengaturan → Membaca**.
+  - Pastikan centang pada **"Halangi mesin pencari mengindeks situs ini" (Discourage search engines)** dalam keadaan **TIDAK DICENTANG (OFF)**.
+- [ ] **Peta Situs (XML Sitemap)**:
+  - Akses `https://domain-anda.com/sitemap_index.xml` dan pastikan berstatus HTTP 200 dengan daftar `page-sitemap.xml`.
+  - Daftarkan URL sitemap tersebut ke **Google Search Console** (GSC).
+- [ ] **Google Business Profile (GBP)**:
+  - Daftarkan / klaim profil bisnis **PT MASTER TRUCK INDONESIA** di Google Business Profile.
+  - Pastikan Nama (`Master Truck`), Alamat (`KIM III Medan`), Jam Operasional (`Senin–Sabtu 08.00–20.00`), dan Nomor Telepon persis sama dengan yang tertera di schema website.
+- [ ] **Kredensial & Tracking ID (Search Console / Analytics)**:
+  - Masukkan ID Google Search Console / Google Analytics pada tempat input yang telah disediakan di **Pengaturan SEO → Pengaturan Umum → Webmaster Tools**.
+  - *Catatan:* Jangan pernah memasukkan ID pelacak atau token autentikasi di dalam berkas kode repositori Git.
+
+---
+
 ## 🔐 Integrasi Portal Web Fleet
 - **Login Web Fleet** → `http://localhost:3000/#login`
 - **Pendaftaran Mitra Baru** → `http://localhost:3000/#register`
@@ -173,3 +194,4 @@ Setelah mengubah template/aset/media, jalankan salah satu:
 ---
 
 &copy; 2026 PT MASTER TRUCK INDONESIA. Theme based on CarServ by HTML Codex & ThemeWagon.
+

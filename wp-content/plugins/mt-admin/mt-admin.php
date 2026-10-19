@@ -186,6 +186,33 @@ add_action( 'admin_menu', function () {
 		if ( isset( $m[2] ) && 'edit.php?post_type=page' === $m[2] ) {
 			$menu[ $k ][0] = 'Halaman';
 		}
+		// RONDE 20: Sederhanakan label menu Rank Math untuk pengelola awam
+		if ( isset( $m[2] ) && 'rank-math' === $m[2] ) {
+			$menu[ $k ][0] = 'Pengaturan SEO';
+			$menu[ $k ][3] = 'Pengaturan SEO';
+		}
+	}
+
+	// Terjemahkan & rapikan submenu Rank Math untuk pengelola
+	if ( isset( $submenu['rank-math'] ) ) {
+		foreach ( $submenu['rank-math'] as $k => $item ) {
+			if ( ! mt_admin_is_advanced() ) {
+				// Sembunyikan menu rumit (Status, Tools, Analytics, dsb) di mode sederhana
+				if ( in_array( $item[2], array( 'rank-math-status', 'rank-math-analytics', 'rank-math-help', 'rank-math-content-ai', 'rank-math-instant-indexing' ), true ) ) {
+					unset( $submenu['rank-math'][ $k ] );
+					continue;
+				}
+			}
+			if ( 'rank-math' === $item[2] ) {
+				$submenu['rank-math'][ $k ][0] = 'Ringkasan SEO';
+			} elseif ( 'rank-math-options-titles' === $item[2] ) {
+				$submenu['rank-math'][ $k ][0] = 'Judul & Meta (Google)';
+			} elseif ( 'rank-math-options-sitemap' === $item[2] ) {
+				$submenu['rank-math'][ $k ][0] = 'Peta Situs (Sitemap)';
+			} elseif ( 'rank-math-options-general' === $item[2] ) {
+				$submenu['rank-math'][ $k ][0] = 'Pengaturan Umum';
+			}
+		}
 	}
 }, 999 );
 
@@ -204,7 +231,7 @@ add_action( 'admin_menu', function () {
 	remove_menu_page( 'ultimate-addons' ); // UAE alias (bila ada)
 }, 999 );
 
-// Urutan: Dasbor, Edit Beranda, Halaman, Media, Pengguna, Tampilan, Pengaturan, [label LANJUTAN], Landing Page (Arsip PHP), Plugin, Peralatan, (menu lain bila Mode lanjutan aktif)
+// Urutan: Dasbor, Edit Beranda, Halaman, Media, Pengguna, Tampilan, Pengaturan SEO, Pengaturan, [label LANJUTAN], Landing Page (Arsip PHP), Plugin, Peralatan, (menu lain bila Mode lanjutan aktif)
 add_filter( 'custom_menu_order', '__return_true' );
 add_filter( 'menu_order', function ( $order ) {
 	if ( ! $order ) {
@@ -217,6 +244,7 @@ add_filter( 'menu_order', function ( $order ) {
 		'upload.php',
 		'users.php',
 		'themes.php',
+		'rank-math',
 		'options-general.php',
 		'separator-mt-lanjutan',
 		'mt-landing-editor',
@@ -394,6 +422,9 @@ function mt_admin_status_box() {
 		echo '<li class="mt-warn">Situs tidak termuat sempurna. Saran: tekan "Muat Ulang CSS" di bawah. Bila masih gagal, hubungi pengembang.</li>';
 	}
 	echo '<li><span>Terakhir diubah</span><strong>' . esc_html( $mod ? "$mod · $author" : '-' ) . '</strong></li>';
+	$blog_public = (int) get_option( 'blog_public', 1 );
+	$indexing_html = $blog_public ? '<strong class="mt-ok">Diizinkan (publik)</strong>' : '<strong class="mt-warn">Diblokir (noindex)</strong>';
+	echo '<li><span>Mesin pencari</span>' . $indexing_html . '</li>';
 	echo '<li><span>WordPress / Elementor / PHP</span><strong>' . esc_html( $wp_version . ' / ' . ( defined( 'ELEMENTOR_VERSION' ) ? ELEMENTOR_VERSION : '-' ) . ' / ' . PHP_MAJOR_VERSION . '.' . PHP_MINOR_VERSION ) . '</strong></li>';
 	echo '<li><span>Pembaruan tersedia</span><strong>' . esc_html( (string) $total_upd ) . ' (info saja)</strong></li>';
 	echo '</ul><p><a class="button" href="' . $url . '">Muat Ulang CSS Elementor</a></p>';

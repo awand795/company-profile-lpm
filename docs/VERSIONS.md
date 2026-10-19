@@ -11,6 +11,7 @@ Setup memakai versi persis ini (`wp plugin install <slug> --version=<v>`).
 | Elementor (free) | 4.3.4 |
 | Astra Sites | 4.7.8 |
 | Header Footer Elementor | 2.9.5 |
+| Rank Math SEO (free) | 1.0.280 |
 | Plugin mt-topbar (kustom) | 1.2.0 |
 | Plugin mt-login (kustom) | 1.0.0 |
 | Plugin mt-admin (kustom) | 1.0.0 |

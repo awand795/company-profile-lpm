@@ -60,3 +60,26 @@ Menu di bilah sisi kiri sengaja disederhanakan agar tidak membingungkan dan foku
 2. Gulir ke bagian **Mode Lanjutan Master Truck**.
 3. Centang opsi **Tampilkan semua menu WordPress**, lalu klik **Perbarui Profil**.
 
+---
+
+## 6. Mengubah Judul & Deskripsi Pencarian Google (SEO)
+
+Anda dapat dengan mudah mengatur bagaimana website Master Truck muncul di hasil pencarian Google dan saat dibagikan ke WhatsApp atau media sosial:
+
+### Cara Praktis: Dari Editor Beranda (Elementor)
+1. Di Dasbor, klik menu **Edit Beranda** (membuka editor Elementor Page 59).
+2. Di pojok kiri atas panel Elementor, klik tab/ikon **SEO** (logo Rank Math berikon grafik naik).
+3. Klik tombol biru **Edit Snippet**:
+   - **Title (Judul Google)**: Ketik judul tampilan di Google (disarankan maksimal 60 karakter agar tidak terpotong di hasil pencarian). Contoh: `Bengkel Truk Medan - Servis & Perawatan | Master Truck`.
+   - **Permalink (Alamat URL)**: Untuk Beranda, biarkan default tetap garis miring `/`.
+   - **Description (Deskripsi Singkat)**: Ketik rangkuman 1–2 kalimat tentang bengkel (maksimal 155 karakter). Masukkan ajakan bertindak seperti "Hubungi derek 24 jam" atau "Jadwalkan servis armada".
+4. Kotak **Preview Snippet** di atasnya akan langsung memperlihatkan simulasi tampilan website Anda di Google pada layar HP dan Komputer!
+5. Tab **Social** (di samping General): Anda juga bisa melihat dan mengganti pratinjau kartu gambar saat tautan website dibagikan ke Facebook atau WhatsApp.
+6. Setelah selesai, tutup jendela snippet lalu klik tombol hijau **Update** di pojok kiri bawah panel Elementor.
+
+### Cara Melalui Menu Admin (Pengaturan SEO)
+1. Di sidebar kiri admin, buka menu **Pengaturan SEO** → pilih **Judul & Meta (Google)**.
+2. Pada bagian **Local SEO**: Anda bisa memastikan Nama Bisnis, Logo, dan Jam Operasional (Senin–Sabtu 08.00–20.00) sudah sesuai.
+3. Klik tombol biru **Save Changes** di bagian bawah untuk menyimpan.
+
+

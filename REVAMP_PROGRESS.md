@@ -547,6 +547,58 @@ Dokumen ini memantau progres refaktor landing page Beranda (WordPress + Elemento
     - Database dump tersanitasi diekspor ke `database/mt_site.sql`.
     - Git tag `ronde19d-done` siap di-push ke remote.
 
+- [x] **REVAMP12 - RONDE 20: SEO WordPress & Schema Bisnis Lokal (2026-10-19):**
+  - [x] Backup `archive/backups/_backup_revamp12_20261019/`; git tag `pre-ronde20` ter-push ke GitHub.
+  - [x] **A. Pasang & Pin Plugin Rank Math SEO**:
+    - Terpasang plugin `seo-by-rank-math` v1.0.280 (versi stabil gratis dari WordPress.org) di container `lpm-wp-app`.
+    - Dipin di `docs/VERSIONS.md`, `setup.sh`, `setup.ps1` agar identik di server atau laptop baru.
+    - Setup mode manual mandiri: `rank_math_registration_skip = 1` tanpa akun eksternal wajib, tracking/analitik pihak ketiga nonaktif (`usage_tracking = off`), iklan promo/Content-AI dinonaktifkan.
+    - De-duplikasi tag meta: tag deskripsi, canonical, Open Graph, dan Twitter card manual di `mt-topbar.php` dinonaktifkan otomatis saat Rank Math aktif (`class_exists('RankMath')`).
+    - Tag `<meta name="theme-color" content="#00236f">` dan `<link rel="preload">` dipertahankan utuh di `mt-topbar.php`.
+    - Verifikasi curl audit membuktikan tepat 1x `<title>`, 1x `meta description`, 1x `canonical`, 1x `theme-color`, 1x `og:title`, 1x `og:description`, 1x `og:image`, 1x `twitter:card`, 1x `schema.org` graph.
+  - [x] **B. Pengaturan Inti SEO (Rank Math)**:
+    - Tipe Situs: Local Business (`AutoRepair`). Nama: `Master Truck`, Legal Name: `PT Master Truck Indonesia`.
+    - Logo bisnis: ID 350 (`stitch_logo_transparan.png`). Default social share image: ID 320 (`mt-og-cover.webp`, 1200×630). Twitter Card: `summary_large_image`.
+    - Peta Situs XML aktif di `/sitemap_index.xml` (menyajikan `page-sitemap.xml` yang memuat Halaman publik).
+    - Halaman non-publik / draft / arsip (ID 13, 30, 218, 219, 2) diset `noindex, nofollow`.
+    - `robots.txt` menyertakan direktif Sitemap dan tidak memblokir direktori `/wp-content/uploads/`.
+    - Halaman Beranda (Page ID 59):
+      - SEO Title: `Bengkel Truk Medan - Servis & Perawatan | Master Truck` (54 karakter, target ≤ 60).
+      - Meta Description: `Bengkel truk Medan spesialis armada niaga KIM III. Servis cepat, kalibrasi mesin diesel, overhaul & derek 24 jam. Jadwalkan servis armada Anda!` (144 karakter, target ≤ 155, memuat keyword target & CTA).
+      - Focus Keyword: `bengkel truk Medan`.
+      - H1: Tepat 1x `<h1>` pada hero, section berikutnya menggunakan hirarki semantik `<h2>`/`<h3>`.
+      - Alt text gambar: 100% terisi (11 dari 11 gambar beranda memiliki teks alt deskriptif & relevan, 0 missing, 0 empty).
+  - [x] **C. Schema Terstruktur (JSON-LD)**:
+    - Entitas `AutoRepair` / `LocalBusiness`:
+      - `@type`: `["AutoRepair", "LocalBusiness"]`
+      - `name`: `Master Truck`
+      - `legalName`: `PT Master Truck Indonesia`
+      - `areaServed`: `Medan`
+      - `address`: Kawasan Industri Modern (KIM) III, Medan, Sumatera Utara
+      - `openingHoursSpecification`: Senin–Sabtu 08:00–20:00
+      - `priceRange`: `$$`
+      - Data belum pasti (nomor telepon WhatsApp resmi/hotline darurat, kav/blok presisi, klaim sertifikasi ISO/SMK3) ditandai `# TODO: konfirmasi pemilik` dan TIDAK dimasukkan ke schema live.
+      - Tanpa rating/review fiktif.
+    - Entitas `FAQPage`:
+      - 5 pertanyaan & jawaban yang sama persis dengan akordeon FAQ Beranda disertakan dalam graph JSON-LD.
+    - Snippet default `Article` dihapus dari Beranda melalui filter hook `rank_math/json_ld`.
+  - [x] **D. Kenyamanan Pengelola Awam di Dasbor**:
+    - Panel Rank Math terintegrasi di editor Elementor Page 59, dapat dibuka tanpa error JavaScript.
+    - Struktur menu admin WordPress (`mt-admin`):
+      - Ditambahkan menu ringkas "Pengaturan SEO" dengan submenu yang disederhanakan: "Ringkasan SEO", "Judul & Meta (Google)", "Peta Situs (Sitemap)", "Pengaturan Umum".
+      - Menu lanjutan yang membingungkan disembunyikan dalam mode standar.
+      - Ditambahkan kartu status indeks mesin pencari di dashboard utama `mt-admin` (`Mesin pencari: Diizinkan (publik)` sesuai nilai `blog_public`).
+  - [x] **E. Dokumentasi & Panduan**:
+    - Bagian 6 ditambahkan ke `docs/PANDUAN-PENGELOLA.md`: "Mengubah Judul & Deskripsi Pencarian Google (SEO)" langkah demi langkah dengan panduan praktis.
+    - Checklist pra-produksi & go-live ditambahkan ke `README.md` (termasuk verifikasi Google Search Console, Google Business Profile, dan URL produksi).
+  - [x] **Verifikasi & Safety**:
+    - Test suite `tests/test-ronde20-verify.cjs`: **35 / 35 PASS (100%)**.
+    - Regression test `tests/test-ronde19d-verify.cjs`: **PASS (100%)** (hero visual & layout tidak bergeser, comma distance 0px, CTA bottom 411px, CLS 0.0132, 0 h-scroll).
+    - Editor health `tests/verify-editor-health.cjs`: **PASS** (12 containers, 0 console errors).
+    - Screenshot tersimpan di `playwright_review/sesudah_revamp12/` (`1366x768.png`, `390x844.png`).
+    - Database dump tersanitasi diekspor ke `database/mt_site.sql`.
+    - Git tag `ronde20-done` siap di-push ke remote.
+
 ---
 
 ## Baseline Temuan Fase 0

@@ -198,7 +198,7 @@ if (Invoke-Wp theme is-installed astra) {
 Invoke-Wp theme activate astra | Out-Null
 if (Invoke-Wp theme is-active astra) { Write-Ok "theme astra aktif" }
 
-$pins = @{ 'elementor' = '4.3.4'; 'astra-sites' = '4.7.8'; 'header-footer-elementor' = '2.9.5' }
+$pins = @{ 'elementor' = '4.3.4'; 'astra-sites' = '4.7.8'; 'header-footer-elementor' = '2.9.5'; 'seo-by-rank-math' = '1.0.280' }
 foreach ($p in $pins.Keys) {
     if (Invoke-Wp plugin is-installed $p) {
         Write-Ok "plugin $p sudah terpasang"
@@ -208,6 +208,7 @@ foreach ($p in $pins.Keys) {
     }
     if (Invoke-Wp plugin activate $p) { Write-Ok "plugin $p aktif" }
 }
+Invoke-Wp option update rank_math_registration_skip 1 | Out-Null
 
 foreach ($plug in @('mt-topbar','mt-booking','mt-login','mt-admin')) {
     if (Invoke-Wp plugin is-installed $plug) {

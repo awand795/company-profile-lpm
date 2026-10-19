@@ -130,13 +130,18 @@ add_action( 'wp_head', function () {
 		return;
 	}
 	if ( function_exists( 'is_page' ) && is_page( 59 ) ) {
-		echo '<meta name="description" content="PT Master Truck Indonesia — bengkel spesialis truk niaga & distributor resmi Pertamina, Mobil Delvac, Dunlop, GS Astra di KIM III Medan. Servis armada, overhaul, derek 24 jam." />' . "\n";
+		// Deskripsi manual hanya dikeluarkan bila plugin SEO TIDAK aktif (mencegah duplikasi).
+		if ( ! defined( 'RANK_MATH_VERSION' ) && ! class_exists( 'RankMath' ) ) {
+			echo '<meta name="description" content="PT Master Truck Indonesia — bengkel spesialis truk niaga & distributor resmi Pertamina, Mobil Delvac, Dunlop, GS Astra di KIM III Medan. Servis armada, overhaul, derek 24 jam." />' . "\n";
+		}
 		echo '<link rel="preload" as="image" href="/wp-content/uploads/2026/10/mt6-hero-terang.webp" fetchpriority="high" />' . "\n";
 	}
+	// Meta theme-color selalu dikeluarkan tepat 1x
+	echo '<meta name="theme-color" content="#00236f" />' . "\n";
 }, 1 );
 
-/* REVAMP6o C3: pratinjau bagikan (OG/Twitter) khusus beranda.
-   Tanpa duplikasi bila plugin SEO aktif (cek fungsi/konstanta umum). */
+/* REVAMP6o C3: pratinjau bagikan (OG/Twitter) khusus beranda bila plugin SEO tidak aktif.
+   Tanpa duplikasi bila plugin SEO aktif (Rank Math atau Yoast). */
 add_action( 'wp_head', function () {
 	if ( is_admin() || mt_is_elementor_editor_or_preview() ) {
 		return;
@@ -161,8 +166,136 @@ add_action( 'wp_head', function () {
 	echo '<meta property="og:image:height" content="630" />' . "\n";
 	echo '<meta property="og:image:alt" content="' . esc_attr( $title ) . '" />' . "\n";
 	echo '<meta name="twitter:card" content="summary_large_image" />' . "\n";
-	echo '<meta name="theme-color" content="#2563EB" />' . "\n";
 }, 2 );
+
+/* RONDE 20: Schema JSON-LD terintegrasi Rank Math (LocalBusiness/AutoRepair & FAQPage) */
+add_filter( 'rank_math/json_ld', function( $data, $jsonld ) {
+	if ( is_admin() ) {
+		return $data;
+	}
+
+	$home      = home_url( '/' );
+	$logo_url  = home_url( '/wp-content/uploads/2026/10/stitch_logo_transparan.png' );
+	$image_url = home_url( '/wp-content/uploads/2026/10/mt-og-cover.webp' );
+
+	// 1. AutoRepair / LocalBusiness Entity
+	$local_business = array(
+		'@type'                     => array( 'AutoRepair', 'LocalBusiness' ),
+		'@id'                       => home_url( '/#localbusiness' ),
+		'name'                      => 'Master Truck',
+		'legalName'                 => 'PT Master Truck Indonesia',
+		'url'                       => $home,
+		'logo'                      => array(
+			'@type'      => 'ImageObject',
+			'@id'        => home_url( '/#logo' ),
+			'url'        => $logo_url,
+			'contentUrl' => $logo_url,
+			'caption'    => 'Master Truck',
+			'inLanguage' => 'id',
+		),
+		'image'                     => array(
+			'@type'      => 'ImageObject',
+			'@id'        => $image_url,
+			'url'        => $image_url,
+			'caption'    => 'Bengkel Truk Medan - Master Truck KIM III',
+			'inLanguage' => 'id',
+		),
+		'description'               => 'Bengkel spesialis truk niaga, kalibrasi mesin diesel, overhaul, dan penyedia suku cadang OEM di KIM III Medan.',
+		'priceRange'                => '$$',
+		'areaServed'                => array(
+			'@type' => 'City',
+			'name'  => 'Medan',
+		),
+		'address'                   => array(
+			'@type'           => 'PostalAddress',
+			'streetAddress'   => 'Kawasan Industri Medan (KIM) III', // # TODO: konfirmasi pemilik — alamat jalan lengkap (nomor kaveling/blok)
+			'addressLocality' => 'Medan',
+			'addressRegion'   => 'Sumatera Utara',
+			'postalCode'      => '20242',
+			'addressCountry'  => 'ID',
+		),
+		'openingHoursSpecification' => array(
+			array(
+				'@type'     => 'OpeningHoursSpecification',
+				'dayOfWeek' => array( 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ),
+				'opens'     => '08:00',
+				'closes'    => '20:00',
+			),
+		),
+		// # TODO: konfirmasi pemilik — nomor telepon resmi belum dikonfirmasi, kosongkan agar tidak memuat klaim palsu
+	);
+
+	// Bila konstanta PHONE_TEL sudah dikonfirmasi pemilik di masa depan:
+	if ( defined( 'PHONE_TEL' ) && PHONE_TEL && strpos( PHONE_TEL, 'TODO' ) === false ) {
+		$local_business['telephone'] = PHONE_TEL;
+	}
+
+	// Masukkan ke graph
+	$data['local_business'] = $local_business;
+	if ( isset( $data['publisher'] ) ) {
+		$data['publisher'] = array( '@id' => home_url( '/#localbusiness' ) );
+	}
+
+	// Khusus Beranda (Page 59): hapus Article snippet dan tambahkan FAQPage
+	if ( ( function_exists( 'is_front_page' ) && is_front_page() ) || ( function_exists( 'is_page' ) && is_page( 59 ) ) ) {
+		foreach ( $data as $k => $v ) {
+			if ( isset( $v['@type'] ) && 'Article' === $v['@type'] ) {
+				unset( $data[ $k ] );
+			}
+		}
+
+		// 2. FAQPage Entity
+		$data['faq'] = array(
+			'@type'      => 'FAQPage',
+			'@id'        => home_url( '/#faq' ),
+			'mainEntity' => array(
+				array(
+					'@type'          => 'Question',
+					'name'           => 'Apakah Master Truck melayani servis panggilan atau darurat di jalan (Roadside Assistance)?',
+					'acceptedAnswer' => array(
+						'@type' => 'Answer',
+						'text'  => 'Ya, kami memiliki armada mobil bengkel keliling (Mobile Service Unit) dan truk derek underlift 25 ton yang beroperasi 24 jam setiap hari untuk evakuasi darurat, perbaikan ban, kelistrikan, serta masalah angin rem di wilayah Jabodetabek, Cikarang, Karawang, hingga jalur tol Trans-Jawa.',
+					),
+				),
+				array(
+					'@type'          => 'Question',
+					'name'           => 'Apa saja merek truk niaga yang dapat ditangani oleh bengkel Master Truck?',
+					'acceptedAnswer' => array(
+						'@type' => 'Answer',
+						'text'  => 'Bengkel kami menangani seluruh brand truk heavy duty dan medium commercial ternama, termasuk Scania, Volvo Trucks, Hino (500 & 300 series), Mitsubishi Fuso, Isuzu Giga/Elf, Mercedes-Benz Axor, MAN, dan UD Trucks Quester dengan scanner diagnostik resmi.',
+					),
+				),
+				array(
+					'@type'          => 'Question',
+					'name'           => 'Bagaimana jaminan keaslian suku cadang dan garansi pengerjaan overhaul?',
+					'acceptedAnswer' => array(
+						'@type' => 'Answer',
+						'text'  => 'Kami memberikan jaminan 100% suku cadang orisinal OEM langsung dari distributor resmi. Untuk pengerjaan overhaul total mesin dan transmisi, kami memberikan garansi resmi pengerjaan hingga 180 hari atau 50.000 KM dengan sertifikat garansi tertulis.',
+					),
+				),
+				array(
+					'@type'          => 'Question',
+					'name'           => 'Bagaimana skema kerjasama Kontrak Pemeliharaan Armada (PMP) untuk perusahaan logistik?',
+					'acceptedAnswer' => array(
+						'@type' => 'Answer',
+						'text'  => 'Kami menyediakan kontrak perawatan fleksibel bulanan maupun tahunan. Perusahaan Anda akan mendapatkan alokasi stall prioritas (Zero Queue), diskon suku cadang hingga 18%, laporan digital inspeksi terintegrasi, serta fleksibilitas pembayaran termin bisnis (TOP 30-60 hari) setelah proses verifikasi kredit selesai.',
+					),
+				),
+				array(
+					'@type'          => 'Question',
+					'name'           => 'Apakah bengkel Master Truck memiliki fasilitas penyimpanan atau pool aman untuk truk yang menginap?',
+					'acceptedAnswer' => array(
+						'@type' => 'Answer',
+						'text'  => 'Ya, area workshop kami seluas lebih dari 8.000 m² dilengkapi sistem pengamanan 24 jam dengan petugas sekuriti, CCTV aktif di setiap stall dan sudut area parkir, serta asuransi perlindungan unit selama kendaraan berada di dalam area bengkel kami.',
+					),
+				),
+			),
+		);
+	}
+
+	return $data;
+}, 99, 2 );
+
 
 /* ------------------------------------------------------- topbar di frontend */
 function mt_render_topbar_html() {
