@@ -469,7 +469,48 @@ Dokumen ini memantau progres refaktor landing page Beranda (WordPress + Elemento
       - Telematics card truncation: **0** (titleTrunc: false, descTrunc: false)
     - Screenshot tersimpan di `playwright_review/sesudah_revamp11b/` (1366x600, 1440x900, 1920x1080, 1024x768, 768x1024, 390x844, crop_header_nav_actions, crop_kartu_telematika, hover_cta_primary, sticky_scrolled, sebelum_1366x600).
     - Database dump tersanitasi diekspor ke `database/mt_site.sql`.
-    - Git tag `ronde19b-done` siap di-push ke remote.
+- [x] **REVAMP11c - RONDE 19c: Judul Hero Dipersingkat & Hero Muat di Layar Pertama (2026-10-19):**
+  - [x] Backup `archive/backups/_backup_revamp11c_20261019/`; git tag `pre-ronde19c` ter-push ke GitHub.
+  - [x] **Grup A (Judul Ringkas - Pengecualian Resmi Pemilik)**:
+    - Judul lama (*"Solusi Servis & Pemeliharaan Armada Truk Bersama MASTER TRUCK Tanpa Downtime Berkepanjangan"*, 58 karakter, 4 baris) disimpan di builder comment (`# TEKS LAMA: ...`).
+    - Diganti dengan versi ringkas presisi 2 baris:
+      - Baris 1: `Servis Truk Cepat,`
+      - Baris 2: `Armada Anda <span class="hero-brand-highlight">Tetap Jalan</span>`
+    - Hanya *"Tetap Jalan"* yang berwarna oranye `#fd651e` (Global Secondary) dengan highlight halus di bawah huruf; sisanya navy `#00236f`, bobot 800.
+    - Tetap SATU widget Heading native Elementor (`<br>` + `<span class="hero-brand-highlight">`) sehingga bisa diedit langsung dari panel Elementor.
+    - Tipografi: 48px desktop (≥1280), 40px laptop (1024–1279), 34px tablet (768–1023), 30px mobile (≤767); `line-height: 1.1`, `letter-spacing: -0.02em`, `text-wrap: balance`. 0 kata yatim, persis 2 baris di 1024px–1920px (mobile 390px 2 baris).
+    - Lead paragraf dipertahankan utuh, lebar maksimal `520px`.
+  - [x] **Grup B (Hero Muat di Layar Pertama / Above The Fold di 1366×600 & 1366×768)**:
+    - **Bawah Tombol CTA**: Turun dari ±620px (lama) menjadi **411px** (target ≤ 460px di 1366×600) — menyisakan 189px ruang sebelum lipatan layar!
+    - **Foto Hero Dominan**: Tinggi desktop **360px** (target 340–380px), kolom 50%, `object-position: 45% center` menampilkan kedua truk dan montir utuh tanpa terpotong. Radius **28px**.
+    - **Kartu Telematika 1 Baris Ringkas**:
+      - Struktur satu baris horizontal: `[Icon] Mesin Dicek Digital [SIAP JALAN]` di kiri, `< 3 Jam Servis berkala | 6 Bulan Garansi sparepart` di kanan.
+      - Posisi: `bottom: -32px; left: 14px; max-width: 500px;`, overlap ke foto hanya **5.0%** (**18px**, target ≤ 6%).
+      - Seluruh kartu tampak utuh di 1366×600 dengan batas bawah di **524px** (76px sebelum lipatan 600px).
+      - Jarak horizontal/vertikal ke tombol WhatsApp melayang: **86px** (target ≥ 16px, 0 tabrakan).
+    - **Chip Merek 1 Baris**: 6 chip merek tersusun rapi dalam 1 baris di 1366px, tinggi 30px, font 11.5px/600, outline tipis `#E2E8F0`. Batas bawah chip di **501px** (99px sebelum lipatan 600px).
+    - **Ritme Spacing Presisi**: Eyebrow → H1 12px, H1 → Lead 14px, Lead → CTA 20px, CTA → Label Brand 24px, Label → Chip 10px, Padding atas hero **24px**.
+    - **Header Masuk & Daftar**: Jarak Masuk – Daftar tetap rapat di **10px** (target ≤ 12px).
+  - [x] **Verifikasi & Safety**:
+    - Builder ASSERT render PASS (100%).
+    - `tests/verify-editor-health.cjs` PASS (12 container terdeteksi, iframe preview memuat navbar & judul baru "Servis Truk Cepat", 0 error).
+    - `tests/test-ronde19c-verify.cjs` PASS:
+      - Bawah CTA di 1366×600: **411px** (target ≤ 460px)
+      - Bawah Kartu di 1366×600: **524px** (target < 600px)
+      - Bawah Chip di 1366×600: **501px** (target < 600px)
+      - Overlap Kartu ke Foto: **5.0%** / **18px** (target ≤ 6%)
+      - Jarak Masuk – Daftar: **10px** (target ≤ 12px)
+      - Jarak Kartu ke Tombol WA: **86px** (target ≥ 16px)
+      - Selisih Foto vs Badge: **0px** (target ≤ 8px)
+      - H1 lines di 1920, 1440, 1366, 1024, 768: **2 baris** (target ≤ 2)
+      - H1 lines di 390: **2 baris** (target ≤ 3)
+      - Topbar: **40px** (target ≤ 40px)
+      - Header: **68px** (target ≤ 72px)
+      - Sticky Header: **60px** (target ≤ 60px)
+      - Horizontal overflow: **0** (320px–1920px)
+    - Screenshot tersimpan di `playwright_review/sesudah_revamp11c/` (1366x600, 1366x768, 1440x900, 1920x1080, 1024x768, 768x1024, 390x844, crop_header_nav_actions, crop_hero_telematics, hover_cta_primary, sticky_scrolled, sebelum_1366x600).
+    - Database dump tersanitasi diekspor ke `database/mt_site.sql`.
+    - Git tag `ronde19c-done` siap di-push ke remote.
 
 ---
 

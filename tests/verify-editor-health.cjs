@@ -74,7 +74,9 @@ const { execSync } = require('child_process');
         const frameBody = await frame.locator('body').innerHTML();
 
         const hasNavbarPill = frameBody.includes('navbar-pill') || frameBody.includes('stitch-navbar');
-        const hasHeroHeadline = frameBody.includes('Truk Sehat') || frameBody.includes('MASTER TRUCK');
+        // RONDE 19c: Judul hero dipersingkat dari "Solusi Servis & Pemeliharaan Armada Truk Bersama MASTER TRUCK..."
+        // menjadi "Servis Truk Cepat, Armada Anda Tetap Jalan" atas permintaan pemilik bengkel.
+        const hasHeroHeadline = frameBody.includes('Truk Sehat') || frameBody.includes('MASTER TRUCK') || frameBody.includes('Servis Truk Cepat');
         const hasTopBarCustom = frameBody.includes('top-bar-custom');
         const hasLoginFleet = frameBody.includes('Login Fleet');
         const hasOldHeadline = frameBody.includes('Master Truck: Bengkel Truk Terpercaya');

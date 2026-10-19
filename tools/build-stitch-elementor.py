@@ -381,23 +381,23 @@ nav["elements"] = [inner([
 sections.append(nav)
 
 # --- 2. SECTION 1: HERO SECTION ---
+# Ronde 19c: padding atas 24px, ritme presisi, hero muat ATF 1366x600 & 1366x768
 hero = el_container("stitch-sec-hero", css_id="header-carousel", boxed=1240, bg=C["white"],
-                    style={"padding": px4(28, 24, 52, 24)}, nav="Hero")
+                    style={"padding": px4(24, 24, 40, 24)}, nav="Hero")
 hero["elements"] = [
-    # Top Row: Text (49%) vs Visual (51%)
+    # Top Row: Text (50%) vs Visual (50%)
     inner([
-        col(49, "hero-text-col", [
-            # Authority Badge (Eyebrow)
+        col(50, "hero-text-col", [
+            # Authority Badge (Eyebrow) -> margin-bottom: 12px
             W_heading('<i class="fas fa-shield-alt" style="color:#00236f;margin-right:6px;font-size:11px;"></i>BENGKEL REKANAN RESMI &amp; SPESIALIS HEAVY DUTY TRUCK #1',
                       tag="p", cls="hero-authority-badge", size=12, weight=700, color=C["primary"], ls=0.8,
                       margin=px4(0, 0, 12, 0)),
-            # Headline (skala ±40px, bobot kontras, text-wrap:balance, maks ±640px)
-            W_heading('Solusi Servis &amp; Pemeliharaan Armada Truk Bersama '
-                      '<span class="hero-brand-highlight" style="font-weight:800;color:#fd651e;">MASTER TRUCK</span> '
-                      '<span style="font-weight:700;color:' + C["primary"] + ';">Tanpa Downtime</span> Berkepanjangan',
-                      tag="h1", cls="hero-title", size=40, weight=700, color=C["primary"], ls=-0.8,
-                      margin=px4(0, 0, 16, 0)),
-            # Description Lead (GRUP D1)
+            # Headline (Ronde 19c: Ringkas 2 baris, H1 48px desktop / 40px laptop, "Tetap Jalan" oranye highlight)
+            # TEKS LAMA: Solusi Servis & Pemeliharaan Armada Truk Bersama MASTER TRUCK Tanpa Downtime Berkepanjangan
+            W_heading('Servis Truk Cepat,<br>Armada Anda <span class="hero-brand-highlight">Tetap Jalan</span>',
+                      tag="h1", cls="hero-title", size=48, weight=800, color=C["primary"], ls=-0.8,
+                      margin=px4(0, 0, 14, 0)),
+            # Description Lead (lebar maks 520px) -> margin-bottom: 20px
             # versi lama:
             # "Pusat rekayasa mekanikal dan perbaikan mesin diesel Euro 4, overhaul transmisi, "
             # "kalibrasi injektor common rail, hingga kontrak pemeliharaan fleet logistik dengan "
@@ -405,19 +405,19 @@ hero["elements"] = [
             # TODO: konfirmasi pemilik
             W_text("Bengkel khusus truk untuk servis rutin, perbaikan mesin diesel, sampai kontrak perawatan armada. "
                    "Sparepart asli dan mekanik berlisensi pabrikan.",
-                   cls="hero-lead", size=16, color=C["text_muted"], margin=px4(0, 0, 24, 0), lh=1.55),
-            # Dual CTAs: SATU container row tanpa col terpisah
+                   cls="hero-lead", size=16, color=C["text_muted"], margin=px4(0, 0, 20, 0), lh=1.55),
+            # Dual CTAs: SATU container row tanpa col terpisah -> margin-bottom: 24px
             inner([
                 W_button("Jadwalkan Servis Sekarang", link="#quick-booking", icon="fas fa-calendar-alt",
-                         bg=C["secondary"], text_color=C["white"], radius=12, pad=(14, 26), cls="btn-hero-primary"),
+                         bg=C["secondary"], text_color=C["white"], radius=12, pad=(13, 26), cls="btn-hero-primary"),
                 W_button("Derek &amp; Darurat 24 Jam", link="tel:0812MASTERTRUCK", icon="fas fa-phone-alt",
-                         bg="transparent", text_color=C["primary"], radius=12, pad=(14, 24), cls="btn-hero-secondary"),
-            ], css_classes="hero-btns-row", direction="row", style={"flex_gap": fsize(14), "margin": px4(0, 0, 28, 0), "flex_align_items": "center", "flex_justify_content": "flex-start"}),
-            # Supported Brands (baris tenang: label 12px uppercase abu, chip outline tipis 1px)
+                         bg="transparent", text_color=C["primary"], radius=12, pad=(13, 24), cls="btn-hero-secondary"),
+            ], css_classes="hero-btns-row", direction="row", style={"flex_gap": fsize(14), "margin": px4(0, 0, 24, 0), "flex_align_items": "center", "flex_justify_content": "flex-start"}),
+            # Supported Brands (1 baris 6 chip outline tipis, label 12px) -> label margin 10px
             W_text('<div class="hero-brands-block">'
-                   '<div class="brand-label" style="font-size:12px;font-weight:700;color:#757682;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">'
+                   '<div class="brand-label" style="font-size:12px;font-weight:700;color:#757682;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">'
                    'Spesialisasi Brand Heavy Duty &amp; Light Commercial:</div>'
-                   '<div style="display:flex;flex-wrap:wrap;gap:10px;">'
+                   '<div class="brand-chips-row">'
                    '<span class="brand-chip">SCANIA</span>'
                    '<span class="brand-chip">VOLVO TRUCKS</span>'
                    '<span class="brand-chip">HINO 500 &amp; 300</span>'
@@ -425,32 +425,26 @@ hero["elements"] = [
                    '<span class="brand-chip">ISUZU GIGA</span>'
                    '<span class="brand-chip">MERCEDES AXOR</span>'
                    '</div></div>', cls="hero-brands-widget", margin=px4(0, 0, 0, 0)),
-        ], {"padding": px4(0, 24, 0, 0)}),
+        ], {"padding": px4(0, 20, 0, 0)}),
 
-        # Visual Showcase Right (51% lebar, foto dominan 400-440px + kartu telematika rata kiri-bawah overlap <= 6%)
-        col(51, "hero-visual-col", [
+        # Visual Showcase Right (50% lebar, foto dominan 360px + kartu telematika 1 baris ringkas overlap <= 6%)
+        col(50, "hero-visual-col", [
             inner([
                 # Main Photo
                 W_image("hero", alt="Modern commercial truck workshop bay with Scania and Hino trucks", cls="hero-truck-img", radius=28, margin=px4(0, 0, 0, 0)),
-                # Horizontal Hanging Telematics Card (Ronde 19b: lebar <= 420px, rata kiri-bawah, overlap <= 6%)
-                W_text('<div class="hero-telematics-inner">'
-                       # Row 1: Left (Icon + Title 1 baris penuh) | Right (Status Pill SIAP JALAN)
-                       '<div class="telematics-row-top">'
-                       '<div class="telematics-heading-wrap">'
+                # Horizontal Hanging Telematics Card (Ronde 19c: 1 baris ringkas, overlap <= 6%, tidak tabrak WA)
+                W_text('<div class="hero-telematics-compact">'
+                       '<div class="telematics-left-block">'
                        '<div class="telematics-chip-icon"><i class="fas fa-microchip"></i></div>'
+                       '<div class="telematics-title-group">'
                        '<div class="telematics-title">Mesin Dicek Digital</div>'
-                       '</div>'
-                       '<div class="telematics-status-block">'
                        '<span class="telematics-status-pill"><span class="status-live-dot"></span>SIAP JALAN</span>'
                        '</div>'
                        '</div>'
-                       # Row 2: Left (Sub-text deskripsi) | Right (Metrik tetap)
-                       '<div class="telematics-row-bottom">'
-                       '<div class="telematics-desc">Injektor common rail: kondisi optimal</div>'
                        '<div class="telematics-metrics-block">'
                        '<div class="metric-item">'
                        '<div class="metric-val">&lt; 3 Jam</div>'
-                       '<div class="metric-lbl">Servis berkala cepat</div>'
+                       '<div class="metric-lbl">Servis berkala</div>'
                        '</div>'
                        '<div class="metric-divider"></div>'
                        '<div class="metric-item">'
@@ -458,7 +452,7 @@ hero["elements"] = [
                        '<div class="metric-lbl">Garansi sparepart</div>'
                        '</div>'
                        '</div>'
-                       '</div>'
+                       '<div class="telematics-desc" style="display:none;">Injektor common rail: kondisi optimal</div>'
                        '</div>', cls="hero-telematics-card", margin=px4(0, 0, 0, 0)),
             ], css_classes="hero-visual-card-wrap", direction="column", style={"padding": px4(0, 0, 0, 0)})
         ], {"padding": px4(0, 0, 0, 20)}),
