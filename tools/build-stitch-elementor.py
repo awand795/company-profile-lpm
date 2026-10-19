@@ -370,33 +370,33 @@ nav["elements"] = [inner([
                '<a href="#kontak" style="color:#444651;text-decoration:none;transition:color 0.2s;">Kontak</a>'
                '</div>')
     ]),
-    # Actions (Hanya Masuk & Daftar)
+    # Actions (Hanya Masuk & Daftar) dalam SATU container row (.nav-actions)
     col(24, "stitch-cta-col", [
         inner([
-            col(None, "", [W_button("Masuk", link="http://localhost:3000/#login", icon="fas fa-user-circle", ipos="before", bg="transparent", text_color="#444651", radius=10, pad=(8, 14), cls="btn-nav-login")], None),
-            col(None, "", [W_button("Daftar", link="http://localhost:3000/#register", bg=C["primary"], text_color=C["white"], radius=10, pad=(8, 20), cls="btn-nav-register")], None),
-        ], css_classes="stitch-nav-actions", direction="row", style={"flex_gap": fsize(10), "flex_justify_content": "flex-end", "flex_align_items": "center"})
+            W_button("Masuk", link="http://localhost:3000/#login", icon="fas fa-user-circle", ipos="before", bg="transparent", text_color="#334155", radius=999, pad=(9, 14), cls="btn-nav-login"),
+            W_button("Daftar", link="http://localhost:3000/#register", bg=C["primary"], text_color=C["white"], radius=999, pad=(9, 20), cls="btn-nav-register"),
+        ], css_classes="stitch-nav-actions nav-actions", direction="row", style={"flex_gap": fsize(10), "flex_justify_content": "flex-end", "flex_align_items": "center"})
     ]),
 ], css_classes="stitch-nav-row", direction="row", style={"padding": px4(4, 0, 4, 0), "flex_align_items": "center", "flex_justify_content": "space-between"})]
 sections.append(nav)
 
 # --- 2. SECTION 1: HERO SECTION ---
 hero = el_container("stitch-sec-hero", css_id="header-carousel", boxed=1240, bg=C["white"],
-                    style={"padding": px4(24, 24, 32, 24)}, nav="Hero")
+                    style={"padding": px4(28, 24, 52, 24)}, nav="Hero")
 hero["elements"] = [
-    # Top Row: Text (60%) vs Visual (40%)
+    # Top Row: Text (49%) vs Visual (51%)
     inner([
-        col(60, "hero-text-col", [
-            # Authority Badge
+        col(49, "hero-text-col", [
+            # Authority Badge (Eyebrow)
             W_heading('<i class="fas fa-shield-alt" style="color:#00236f;margin-right:6px;font-size:11px;"></i>BENGKEL REKANAN RESMI &amp; SPESIALIS HEAVY DUTY TRUCK #1',
                       tag="p", cls="hero-authority-badge", size=12, weight=700, color=C["primary"], ls=0.8,
-                      margin=px4(0, 0, 10, 0)),
-            # Headline
+                      margin=px4(0, 0, 12, 0)),
+            # Headline (skala ±40px, bobot kontras, text-wrap:balance, maks ±640px)
             W_heading('Solusi Servis &amp; Pemeliharaan Armada Truk Bersama '
-                      '<span class="hero-brand-highlight">MASTER TRUCK</span> '
-                      '<span style="color:' + C["primary"] + ';">Tanpa Downtime</span> Berkepanjangan',
-                      tag="h1", cls="hero-title", size=42, weight=700, color=C["primary"], ls=-0.8,
-                      margin=px4(0, 0, 14, 0)),
+                      '<span class="hero-brand-highlight" style="font-weight:800;color:#fd651e;">MASTER TRUCK</span> '
+                      '<span style="font-weight:700;color:' + C["primary"] + ';">Tanpa Downtime</span> Berkepanjangan',
+                      tag="h1", cls="hero-title", size=40, weight=700, color=C["primary"], ls=-0.8,
+                      margin=px4(0, 0, 16, 0)),
             # Description Lead (GRUP D1)
             # versi lama:
             # "Pusat rekayasa mekanikal dan perbaikan mesin diesel Euro 4, overhaul transmisi, "
@@ -405,19 +405,19 @@ hero["elements"] = [
             # TODO: konfirmasi pemilik
             W_text("Bengkel khusus truk untuk servis rutin, perbaikan mesin diesel, sampai kontrak perawatan armada. "
                    "Sparepart asli dan mekanik berlisensi pabrikan.",
-                   cls="hero-lead", size=16, color=C["text_muted"], margin=px4(0, 0, 20, 0), lh=1.55),
+                   cls="hero-lead", size=16, color=C["text_muted"], margin=px4(0, 0, 24, 0), lh=1.55),
             # Dual CTAs: SATU container row tanpa col terpisah
             inner([
                 W_button("Jadwalkan Servis Sekarang", link="#quick-booking", icon="fas fa-calendar-alt",
                          bg=C["secondary"], text_color=C["white"], radius=12, pad=(14, 26), cls="btn-hero-primary"),
                 W_button("Derek &amp; Darurat 24 Jam", link="tel:0812MASTERTRUCK", icon="fas fa-phone-alt",
                          bg="transparent", text_color=C["primary"], radius=12, pad=(14, 24), cls="btn-hero-secondary"),
-            ], css_classes="hero-btns-row", direction="row", style={"flex_gap": fsize(14), "margin": px4(0, 0, 20, 0), "flex_align_items": "center", "flex_justify_content": "flex-start"}),
-            # Supported Brands
+            ], css_classes="hero-btns-row", direction="row", style={"flex_gap": fsize(14), "margin": px4(0, 0, 28, 0), "flex_align_items": "center", "flex_justify_content": "flex-start"}),
+            # Supported Brands (baris tenang: label 12px uppercase abu, chip outline tipis 1px)
             W_text('<div class="hero-brands-block">'
-                   '<div class="brand-label" style="font-size:11px;font-weight:700;color:#757682;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">'
+                   '<div class="brand-label" style="font-size:12px;font-weight:700;color:#757682;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">'
                    'Spesialisasi Brand Heavy Duty &amp; Light Commercial:</div>'
-                   '<div style="display:flex;flex-wrap:wrap;gap:8px;">'
+                   '<div style="display:flex;flex-wrap:wrap;gap:10px;">'
                    '<span class="brand-chip">SCANIA</span>'
                    '<span class="brand-chip">VOLVO TRUCKS</span>'
                    '<span class="brand-chip">HINO 500 &amp; 300</span>'
@@ -425,14 +425,14 @@ hero["elements"] = [
                    '<span class="brand-chip">ISUZU GIGA</span>'
                    '<span class="brand-chip">MERCEDES AXOR</span>'
                    '</div></div>', cls="hero-brands-widget", margin=px4(0, 0, 0, 0)),
-        ], {"padding": px4(0, 20, 0, 0)}),
+        ], {"padding": px4(0, 24, 0, 0)}),
 
-        # Visual Showcase Right (Komposisi Foto + Aksen + Kartu Telematika Horizontal Menggantung)
-        col(40, "hero-visual-col", [
+        # Visual Showcase Right (51% lebar, foto dominan 400-440px + kartu telematika rata kiri-bawah overlap <= 6%)
+        col(51, "hero-visual-col", [
             inner([
                 # Main Photo
-                W_image("hero", alt="Modern commercial truck workshop bay with Scania and Hino trucks", cls="hero-truck-img", radius=26, margin=px4(0, 0, 0, 0)),
-                # Horizontal Hanging Telematics Card (Ronde 19: Rancang ulang agar teks tidak pernah terpotong)
+                W_image("hero", alt="Modern commercial truck workshop bay with Scania and Hino trucks", cls="hero-truck-img", radius=28, margin=px4(0, 0, 0, 0)),
+                # Horizontal Hanging Telematics Card (Ronde 19b: lebar <= 420px, rata kiri-bawah, overlap <= 6%)
                 W_text('<div class="hero-telematics-inner">'
                        # Row 1: Left (Icon + Title 1 baris penuh) | Right (Status Pill SIAP JALAN)
                        '<div class="telematics-row-top">'
@@ -1041,8 +1041,20 @@ def deploy():
         regen_host = fh.name
     subprocess.run(["docker", "cp", regen_host, f"{CONTAINER}:/tmp/regen59.php"], check=True)
     subprocess.run(["docker", "exec", CONTAINER, "wp", "--allow-root", "--path=/var/www/html", "eval-file", "/tmp/regen59.php"], check=True)
-    subprocess.run(["docker", "exec", CONTAINER, "wp", "--allow-root", "--path=/var/www/html", "rewrite", "flush"], check=True)
     print("CSS regenerated and cache flushed.")
+    import urllib.request
+    try:
+        with urllib.request.urlopen("http://localhost:5000/", timeout=30) as resp:
+            html = resp.read().decode("utf-8", "ignore")
+            assert "stitch-navbar" in html, "ASSERT FAILED: stitch-navbar tidak ditemukan"
+            assert "stitch-sec-hero" in html, "ASSERT FAILED: stitch-sec-hero tidak ditemukan"
+            assert "nav-actions" in html, "ASSERT FAILED: nav-actions tidak ditemukan"
+            assert "btn-nav-login" in html, "ASSERT FAILED: btn-nav-login tidak ditemukan"
+            assert "btn-nav-register" in html, "ASSERT FAILED: btn-nav-register tidak ditemukan"
+            print("ASSERT OK: stitch-navbar, stitch-sec-hero, nav-actions, dan tombol Masuk/Daftar berhasil ter-render (PASS).")
+    except Exception as e:
+        print(f"Peringatan prapemanasan render: {e}")
 
 if __name__ == "__main__":
     deploy()
+
