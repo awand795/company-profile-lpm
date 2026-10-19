@@ -88,5 +88,15 @@ Semua foto di bawah diunduh dari **Pexels** (lisensi: gratis untuk penggunaan ko
 | `mt6-svc1-armada.webp` | 245 | Layanan 01 B2B REVAMP6c (deretan armada dari udara) | https://www.pexels.com/photo/33623771/ | abdo alshreef | Pexels License |
 | `mt6-svc5-derek.webp` | 246 | Layanan 05 derek REVAMP6c (ruas jalan + kerucut pengaman) | https://www.pexels.com/photo/31802586/ | Kontributor Pexels (tak teridentifikasi) | Pexels License |
 
+---
+
+### 6. Foto REVAMP11 (RONDE 19) — Hero Bengkel Modern High-Res
+* **`wp-content/uploads/stitch/stitch_img_2.webp`**
+  - Deskripsi: Bengkel perawatan armada truk modern dengan 2 mekanik bersertifikasi dan 2 unit truk niaga heavy-duty (Scania & Hino) di atas hydraulic lift, dilengkapi peralatan diagnostik digital terpadu.
+  - Penggunaan: Foto utama Hero Section (`.hero-truck-img`).
+  - Pemrosesan: Sumber high-res Google Stitch (1408×768), di-crop presisi (1298×723) agar montir & truk menjadi titik fokus utama, color grading via Pillow (hangat-netral + kontras lembut + vignette tipis), WebP q88.
+  - Status Lisensi: Google Stitch Project Asset / Commercial Mockup License.
+
 > [!NOTE]
 > Foto tim memakai aktivitas bengkel **tanpa wajah** + label jabatan generik, dan testimoni memakai nama/perusahaan generik — keduanya **TODO: ganti foto & data asli** sebelum peluncuran publik.
+
