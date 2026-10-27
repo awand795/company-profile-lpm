@@ -153,20 +153,21 @@
         });
     }
 
-    // Section Active Scrollspy via IntersectionObserver
-    // Nav Elementor = widget .nav-menu-link (bukan .nav-link bootstrap),
-    // href dibaca dari tombol di dalamnya.
+    // Set alt text for images missing alt (accessibility fix)
     $(document).ready(function () {
-        const sections = document.querySelectorAll('#header-carousel, #about, #service, #principals, #testimonial, #faq, #contact');
-        const navWidgets = document.querySelectorAll('.navbar-right-inner .nav-menu-link');
+        // Skip images that already have alt text
+        $('img').each(function () {            var $img = $(this);            if (!$img.attr('alt') || $img.attr('alt').trim() === '') {                // Set alt based on image source or position                var src = $img.attr('src') || '';                if (src.includes('mastertruck_official_logo')) {                    $img.attr('alt', 'Logo Master Truck');                } else if (src.includes('stitch_img') && src.includes('.webp')) {                    $img.attr('alt', 'Gambar layanan bengkel Master Truck');                }            }        });    });
+    // Ronde 23: section & nav sesuai markup Stitch live (id & kelas aktual).
+    $(document).ready(function () {
+        const sections = document.querySelectorAll('#header-carousel, #layanan, #fleet, #fasilitas, #faq, #kontak');
+        const navWidgets = document.querySelectorAll('.stitch-menu-panel a');
 
         function setActive(id) {
-            navWidgets.forEach(function (widget) {
-                const a = widget.querySelector('a');
-                if (a && a.getAttribute('href') === '#' + id) {
-                    widget.classList.add('nav-link-active');
+            navWidgets.forEach(function (a) {
+                if (a.getAttribute('href') === '#' + id) {
+                    a.classList.add('nav-link-active');
                 } else {
-                    widget.classList.remove('nav-link-active');
+                    a.classList.remove('nav-link-active');
                 }
             });
         }

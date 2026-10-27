@@ -137,7 +137,7 @@ add_action( 'wp_head', function () {
 		echo '<link rel="preload" as="image" href="/wp-content/uploads/stitch/stitch_img_2.webp" fetchpriority="high" />' . "\n";
 	}
 	// Meta theme-color selalu dikeluarkan tepat 1x
-	echo '<meta name="theme-color" content="#090909" />' . "\n";
+	echo '<meta name="theme-color" content="#0B0C10" />' . "\n";
 }, 1 );
 
 /* REVAMP6o C3: pratinjau bagikan (OG/Twitter) khusus beranda bila plugin SEO tidak aktif.
