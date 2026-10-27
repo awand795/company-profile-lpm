@@ -802,3 +802,52 @@ hover link footer & tombol melayang yang memakai `#2563EB` sesuai spek 11.2/11.5
 | `mastertruck.css` | 3.266 baris, 318 `!important` | Minimal token / font |
 | Test Suite Status | 31 PASS / 0 FAIL | Seluruh assertion PASS |
 | DB vs Export | 100% Identik (16 root elements) | 100% Flexbox Container |
+
+---
+
+# RONDE 23 (REVAMP16) — Tema Terang Selaras Logo (2026-10-27)
+
+## Ringkasan
+Beranda Page 59 diganti dari tema hitam-emas ke **tema terang** (hitam-perak-emas hemat
+sesuai logo): tombol/judul Ink #0B0C10, emas #C69A43/#8A5F12 HANYA garis-ikon-tint
+(bukan teks), latar section putih/#F7F8FA/#F1F3F5, WA tetap #25D366. Global Colors
+Elementor diisi otomatis saat deploy (KIT_COLORS_PHP); widget utama dipasang __globals__
+via helper grole()/dd_globals(), fallback hex tetap ada. 100% tetap editable di Elementor.
+
+## Yang diubah (grup)
+- 	ools/build-stitch-elementor.py — palet TOK/C+GLO baru, topbar/nav/hero/booking/fleet/
+  fasilitas/testimoni/CTA/footer lestari terang, eyebrow → teks gelap, label booking Ink,
+  deploy_kit: Hukum palet terang (0 teks emas, 0 gradasi emas, 0 warna lama).
+- ssets/css/mt-custom.css (+ mirror wp-integration, wp-theme/carserv) — token :root
+  peran baru, tombol utama solid Ink, topbar tint, pil nav aktif, chip brand outline perak,
+  panel hero tint, dots perak, kartu putih + border, footer terang, fokus ring Navy 2px.
+- ssets/js/main.js (+ mirror) — selector scrollspy disesuaikan markup Stitch live
+  (#header-carousel, #layanan, #fleet, #fasilitas, #faq, #kontak; nav .stitch-menu-panel a),
+  perilaku asli dipertahankan, bukan ganti warna.
+- wp-content/plugins/mt-topbar/mt-topbar.php — hanya theme-color #0B0C10;
+  copy/schema/SEO tidak disentuh.
+- Global Colors kit ID 4: system primary/secondary/text/accent + custom r23* (7 slot).
+
+## Yang sengaja TIDAK diubah
+Copy & angka klaim, urutan section, URL, SITE_DATA/CLAIMS, SEO/schema FAQPage/LocalBusiness,
+mt-login/mt-admin, logo, isi elementor-exports (ditimpa otomatis oleh builder, bukan manual).
+
+## Hasil test (semua PASS)
+- verify-stitch 41/41 · verify-layout 41/41 · verify-editor-health LULUS
+- test-ronde19d LULUS · test-ronde20 35/35 · **test-ronde23 (baru): 19/19**
+  (0 teks emas, 0 background-clip:text, kontras ≥4,5 di 1440 & 390 — tombol WA brand
+  dikecualikan sesuai keputusan WA #25D366 — topbar/header/footer terang, tombol utama
+  Ink+putih, pil nav aktif tint, tanpa h-scroll 1920/1366×600/768/390)
+
+## Screenshot
+playwright_review/sebelum_ronde23/ (20 file, tema emas) dan
+playwright_review/sesudah_ronde23/ (20 file, tema terang) — 5 viewport
+(1440, 1366×600, 1024, 768, 390) + crop 15 section di 1440.
+
+## Catatan kecil
+- Ekspektasi test ronde-20 FAQ diselaraskan ke pertanyaan resmi schema (bahasa Indonesia);
+  schema/copy tidak diubah.
+- Kontras {muted} #6B7280 di atas tint/surface terukur 4.35 < 4.5: eyebrow & paragraf
+  intro/lokasi yang berada di latar tint menggunkan teks gelap #3F4651 (tetap token).
+- Teks brand nav di layar ≤375px dikecilkan ke 12px (fix h-scroll 320px; !important lama
+  pada rule 16px dihilangkan agar bisa diganti).

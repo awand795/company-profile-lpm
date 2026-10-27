@@ -5,7 +5,7 @@ Landing page **MASTER TRUCK** — Bengkel spesialis perawatan truk niaga & alat 
 ## 🎨 Theme & Desain
 
 Desain korporat modern **MASTER TRUCK**:
-- **Warna Utama**: Primary Blue (`#2563EB`) & Navy Korporat (`#0F2A5C`), Latar Slate (`#F8FAFC`), Border (`#E2E8F0`)
+- **Warna Utama (Ronde 23 — tema terang selaras logo)**: Ink `#0B0C10` (tombol/judul), Emas aksen `#C69A43` hanya garis/ikon/tint `#FBF4E1` (tidak pernah warna teks), Emas tua `#8A5F12` (ikon di latar terang), Surface `#F7F8FA`, Tint `#F1F3F5`, Border `#E3E6EA`, Teks isi `#3F4651` — detail: `docs/AUDIT-WARNA-RONDE23.md`.
 - **Font**: **Plus Jakarta Sans** (Heading/Tombol) & **Inter** (Body text) — self-hosted dari `assets/css/fonts.css`
 - **Arsitektur**: **Elementor Flexbox Container (100% Native Widgets & Controls)**. Semua bagian halaman dapat diedit langsung via sidebar visual Elementor tanpa ketergantungan class bridge lama.
 
@@ -25,7 +25,7 @@ Desain korporat modern **MASTER TRUCK**:
 | **Semua teks & layout Beranda** | **Pages → Beranda (ID 59) → Edit with Elementor** → klik teks/gambar/tombol/kartu → **Update**. Seluruh section terstruktur dalam Flexbox Container: Topbar, Navbar, Hero, Estimator Biaya, Keunggulan, Layanan, Fleet, Fasilitas, Testimonial, FAQ, CTA, dan Footer. |
 | **Regenerasi Beranda Container** | `python tools/build-stitch-elementor.py` → membangun dan mendeploy langsung ke Page ID 59 di container `lpm-wp-app`. |
 | **Ganti foto** (hero, layanan, team, testimoni) | Klik Image widget → **Choose Image → Replace** (Media Library sudah berisi gambar relevan). |
-| **Warna brand** | Elementor → **Site Settings → Global Colors**: Primary `#00236f`, Secondary `#fd651e`, Tertiary `#222a3e`. |
+| **Warna brand** | Elementor → **Site Settings → Global Colors** — langkah rondu 23: (1) buka **Site Settings → Global Colors**, (2) slot **Primary** = `#0B0C10` (Ink) dan **Secondary** = `#8A5F12` (Emas tua ikon), slot Text = `#3F4651`, Accent = `#0F1B33` (Navy fokus), (3) slot custom `r23muted/r23surface/r23tint/r23border/r23silver/r23gold/r23goldtint` untuk warna cadangan; semua elemen Beranda sudah menempel ke slot ini lewat `__globals__` sehingga 1 perubahan slot langsung mengubah seluruh halaman. Minimal: cukup ubah **Primary** dan **Secondary**. |
 | **Font situs** | Elementor → **Site Settings → Global Typography**: Primary (Plus Jakarta Sans 800), Body Text (Inter 500/600). |
 | **Header/Footer** | 100% Native Container Elementor Canvas di Page ID 59. |
 | **Form Booking WA** | Bagian Derek / Booking → tombol WhatsApp mengarah langsung ke CS bengkel. |
