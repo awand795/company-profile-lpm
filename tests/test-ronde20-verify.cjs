@@ -122,7 +122,9 @@ async function verifyRonde20() {
       const qList = faqEntity.mainEntity || [];
       assert('FAQPage memuat 5 pertanyaan resmi', qList.length === 5, `Got ${qList.length}`);
       const firstQ = qList[0] || {};
-      assert('Pertanyaan 1 sesuai teks halaman', (firstQ.name || '').includes('Roadside Assistance'));
+      // Ekspektasi diselaraskan dengan schema FAQPage resmi di wp-content/plugins/mt-topbar/mt-topbar.php
+      // (ronde 23: pertanyaan resmi berbahasa Indonesia; schema tidak boleh diubah).
+      assert('Pertanyaan 1 sesuai teks halaman', (firstQ.name || '').includes('servis panggilan atau darurat di jalan'));
     }
   }
 
