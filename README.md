@@ -18,7 +18,7 @@ Desain korporat modern **MASTER TRUCK**:
 >
 > ⛔ **APA YANG TIDAK BOLEH DIEDIT MANUAL:**
 > - **JANGAN** mengedit template PHP lama (`wp-integration/template-mastertruck.php` atau `template-bizniz.php`). Halaman-halaman lama tersebut telah diarsipkan (`draft`) dan homepage resmi sepenuhnya menggunakan Elementor Page 59 (`elementor_canvas`).
-> - **JANGAN** mengedit berkas ekspor JSON Elementor (`elementor-exports/*.json`) secara manual lewat text editor. Berkas tersebut dihasilkan secara otomatis oleh generator `tools/build-beranda-elementor.py`.
+> - **JANGAN** mengedit berkas ekspor JSON Elementor (`elementor-exports/*.json`) secara manual lewat text editor. Berkas tersebut dihasilkan secara otomatis oleh generator `tools/build-stitch-elementor.py` (generator lama `build-beranda-elementor.py` disimpan di `tools/legacy/`).
 
 | Ingin mengubah | Caranya |
 | --- | --- |
@@ -127,7 +127,7 @@ Opsi:
 ### Lanjut di laptop lain (AI agent)
 1. `git clone` + `setup` seperti di atas; kata sandi admin diisi saat prompt (tidak disimpan di repo).
 2. Buka editor: `/wp-admin/` → Pages → Beranda → **Edit with Elementor** (Page ID 59).
-3. Menjalankan test: `cd tests && npm install` (sekali), lalu `node verify-revamp3.cjs`, `node verify-revamp6j.cjs`, `node verify-editor-health.cjs`.
+3. Menjalankan test: `cd tests && npm install` (sekali), lalu `node verify-revamp3.cjs`, `node verify-revamp6j.cjs`, `node verify-editor-health.cjs`, `node verify-stitch.cjs` (regresi desain Stitch).
 4. Memakai AI agent: suruh baca `REVAMP_PROGRESS.md` (blok ronde terakhir) + `docs/prompts/` sebagai konteks.
 5. Menarik perubahan: `git pull origin main`. Membawa pulang hasil kerja: `tools/export-dump-sanitized.ps1` (atau `.sh`), commit, push.
 6. File lokal yang tidak ikut Git (tetap di mesin masing-masing): `.env`, `wp-config.php`, `_backup_lokal_tidak_di_git/`, `playwright_review/`, `scratch/`.
@@ -135,7 +135,8 @@ Opsi:
 ### Backup & Rollback
 - Rollback seluruh ronde/grup ke tag atau commit: `tools/rollback.ps1 -To pre-ronde14` (tambah `-RestoreDb` bila database ikut dikembalikan, `-WhatIf` untuk pratinjau). Versi bash: `tools/rollback.sh <ref> [--restore-db] [--whatif]`.
 - Skrip me-restore file terlacak, deploy Page 59, sync, flush-css, verifikasi, lalu commit `rollback ke <ref>` + push (tanpa force).
-- Tag penting: `pre-ronde14` (sebelum ronde 14), `ronde14-done` (akhir ronde 14).
+- Tag penting: `pre-ronde14` (sebelum ronde 14), `ronde14-done` (akhir ronde 14), `pre-ronde21` (sebelum ronde 21), `ronde21-done` (akhir ronde 21).
+- Data perusahaan/klaim yang belum dipastikan tercatat di `docs/DATA-PEMILIK.md` (penanda `TODO: konfirmasi pemilik` di `tools/build-stitch-elementor.py`).
 
 ### Panel Pengelola (`/wp-admin`)
 Dasbor berbahasa Indonesia untuk pengelola awam (plugin `wp-content/plugins/mt-admin/`):

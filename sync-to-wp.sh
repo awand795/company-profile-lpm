@@ -7,6 +7,12 @@
 #   ./sync-to-wp.sh -c lotus-wp-app -t astra
 set -euo pipefail
 
+# Ronde 4: di Git Bash (Windows) MSYS mengonversi argumen absolut yang diawali
+# "/" menjadi jalur Windows (mis. /var/www/... -> C:/Program Files/Git/var/www/...).
+# Kecualikan jalur container (/var/...); jalur sumber repo tetap dikonversi
+# agar docker cp di Windows tetap menemukan file.
+export MSYS2_ARG_CONV_EXCL="/var"
+
 CONTAINER="lpm-wp-app"
 THEME=""
 LEGACY_TEMPLATE=false
@@ -25,7 +31,9 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SRC="$ROOT/wp-integration"
 [[ -d "$SRC" ]] || { echo "Folder wp-integration tidak ditemukan di $SRC" >&2; exit 1; }
 
-if ! docker ps --filter "name=^/${CONTAINER}$" --format '{{.Names}}' | grep -q .; then
+# Catatan Ronde 4: filter `name=` pada Docker versi ini tidak lagi memasukkan
+# awalan "/" pada nama kontainer — pola lama `^/nama$` selalu kosong.
+if ! docker ps --filter "name=^/?${CONTAINER}$" --format '{{.Names}}' | grep -q .; then
   echo "Container '$CONTAINER' tidak berjalan. Jalankan dulu: docker compose up -d" >&2
   exit 1
 fi
@@ -54,15 +62,22 @@ if [[ "$LEGACY_TEMPLATE" = true ]]; then
   fi
 fi
 docker exec "$CONTAINER" mkdir -p "$THEME_PATH/mastertruck"
-docker cp "$SRC/mastertruck/." "$CONTAINER:$THEME_PATH/mastertruck/"
-echo "OK  mastertruck/"
+# Ronde 4: `docker cp src/. dest` ternyata menyalin FOLDER src ke dalam dest
+# (menghasilkan mastertruck/mastertruck/), sehingga file yang dimuat halaman
+# tidak pernah ter-update. Salin file per file agar isi ikut terbarui.
+while IFS= read -r rel; do
+  [[ -n "$rel" ]] || continue
+  docker exec "$CONTAINER" mkdir -p "$THEME_PATH/mastertruck/$(dirname "$rel")"
+  docker cp "$SRC/mastertruck/$rel" "$CONTAINER:$THEME_PATH/mastertruck/$rel"
+done < <(cd "$SRC/mastertruck" && find . -type f | sed 's|^./||')
+echo "OK  mastertruck/ (file per file)"
 docker exec "$CONTAINER" chown -R www-data:www-data \
   "$THEME_PATH/mastertruck" "$THEME_PATH/template-mastertruck.php" "$THEME_PATH/template-bizniz.php" 2>/dev/null || true
 
 # Media (slide hero, logo merek, avatar) — opsional bila folder belum ada.
 if [[ -d "$ROOT/wp-content/uploads" ]]; then
   docker cp "$ROOT/wp-content/uploads/." "$CONTAINER:/var/www/html/wp-content/uploads/"
-  docker exec "$CONTAINER" chown -R www-data:www-data /var/www/html/wp-content/uploads
+  docker exec "$CONTAINER" chown -R www-data:www-data /var/www/html/wp-content/uploads || true
   echo "OK  wp-content/uploads/ ($(find "$ROOT/wp-content/uploads" -type f | wc -l | tr -d ' ') file)"
 fi
 

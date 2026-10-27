@@ -4,4 +4,11 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
-python3 tools/export-dump-sanitized.py --dbcontainer "${1:-lpm-wp-db}" --out "${2:-database/mt_site.sql}"
+# Ronde 4: di Git Bash (Windows) `python3` bisa jadi alias toko Microsoft yang
+# selalu gagal — pakai `python` bila tersedia dan berfungsi.
+PY=python3
+if command -v python >/dev/null 2>&1 && python --version >/dev/null 2>&1; then
+  PY=python
+fi
+echo "interpreter: $PY"
+"$PY" tools/export-dump-sanitized.py --dbcontainer "${1:-lpm-wp-db}" --out "${2:-database/mt_site.sql}"

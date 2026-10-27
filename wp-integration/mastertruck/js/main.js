@@ -233,6 +233,86 @@
         $(document).on('keydown', function (e) { if (e.key === 'Escape') { closeNav(); } });
     });
 
+    // ===== RONDE 21 (2c): hamburger menu mobile navbar Stitch =====
+    // Tombol .stitch-nav-burger hanya tampil <= 991px (lihat mt-custom.css).
+    $(document).ready(function () {
+        var burger = document.querySelector('.stitch-nav-burger');
+        var menuCol = document.querySelector('.stitch-menu-col');
+        if (!burger || !menuCol) { return; }
+
+        // Ronde 4 (1.3): <= 991px tombol Masuk/Daftar dipindahkan JS ke dalam
+        // drawer (di dasar panel, selebar panel); >= 992px kembali ke bar.
+        function placeNavActions() {
+            var cta = document.querySelector('.stitch-nav-row > .stitch-cta-col') ||
+                      document.querySelector('.stitch-menu-panel > .stitch-cta-col');
+            var panel = document.querySelector('.stitch-menu-panel');
+            var row = document.querySelector('.stitch-nav-row');
+            if (!cta || !panel || !row) { return; }
+            if (window.innerWidth <= 991) {
+                if (cta.parentElement !== panel) { panel.appendChild(cta); }
+            } else if (cta.parentElement !== row) {
+                var menu = document.querySelector('.stitch-menu-col');
+                if (menu && menu.nextSibling) { row.insertBefore(cta, menu.nextSibling); }
+                else { row.appendChild(cta); }
+            }
+        }
+        placeNavActions();
+        window.addEventListener('resize', placeNavActions);
+        function closeMenu() {
+            menuCol.classList.remove('is-open');
+            burger.setAttribute('aria-expanded', 'false');
+        }
+        burger.addEventListener('click', function (e) {
+            e.preventDefault();
+            var open = menuCol.classList.toggle('is-open');
+            burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        // Klik tautan di panel: tutup panel, biarkan browser menggulir ke tujuan.
+        menuCol.addEventListener('click', function (e) {
+            var link = e.target && e.target.closest ? e.target.closest('a') : null;
+            if (link) { closeMenu(); }
+        });
+        document.addEventListener('click', function (e) {
+            if (!menuCol.contains(e.target)) { closeMenu(); }
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') { closeMenu(); }
+        });
+    });
+
+    // ===== RONDE 21 (2a): form booking -> pesan WhatsApp (tanpa pustaka) =====
+    // URL dibangun dari 3 dropdown + atribut data-wa pada tombol (diisi builder).
+    // window.MTBooking.url() dipakai tests/verify-stitch.cjs untuk menguji URL
+    // tanpa benar-benar mengirim pesan.
+    function mtBookingUrl() {
+        var btn = document.getElementById('mt-booking-wa');
+        if (!btn) { return null; }
+        var wa = btn.getAttribute('data-wa') || '';
+        function val(id) {
+            var el = document.getElementById(id);
+            return el ? el.value : '';
+        }
+        var msg = 'Halo Master Truck, saya ingin jadwal servis.\n' +
+            'Unit: ' + val('mt-booking-unit') + '\n' +
+            'Kebutuhan: ' + val('mt-booking-need') + '\n' +
+            'Waktu: ' + val('mt-booking-time');
+        return 'https://wa.me/' + wa + '?text=' + encodeURIComponent(msg);
+    }
+    window.MTBooking = { url: mtBookingUrl };
+
+    $(document).ready(function () {
+        var form = document.getElementById('mt-booking-form');
+        var btn = document.getElementById('mt-booking-wa');
+        if (!form || !btn) { return; }
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var url = mtBookingUrl();
+            if (!url) { return; }
+            btn.href = url;
+            window.open(url, '_blank', 'noopener');
+        });
+    });
+
     // Hero 2-Slide Transition di Frontend (Elementor Native Sections)
     $(document).ready(function () {
         const $slides = $('.mt-hero-slide-item');
@@ -371,9 +451,13 @@
         // 3) Back-to-top & Floating WhatsApp (hanya homepage, di luar Elementor editor)
         if (isPage59 && !inEditor) {
             // Floating WhatsApp button
-            if (!document.querySelector('.floating-wa-btn')) {
+            // RONDE 21: nomor WA diambil dari builder (data-wa di tombol booking)
+            // agar tidak ada nomor karangan di main.js.
+            var mtWaSrc = document.getElementById('mt-booking-wa');
+            var mtWaNumber = mtWaSrc ? (mtWaSrc.getAttribute('data-wa') || '') : '';
+            if (!document.querySelector('.floating-wa-btn') && mtWaNumber) {
                 var waBtn = document.createElement('a');
-                waBtn.href = 'https://wa.me/6281234567890?text=Halo%20Master%20Truck,%20saya%20butuh%20bantuan%20armada';
+                waBtn.href = 'https://wa.me/' + mtWaNumber + '?text=' + encodeURIComponent('Halo Master Truck, saya butuh bantuan untuk armada saya.');
                 waBtn.target = '_blank';
                 waBtn.rel = 'noopener noreferrer';
                 waBtn.className = 'floating-wa-btn';

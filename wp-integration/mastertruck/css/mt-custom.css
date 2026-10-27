@@ -22,23 +22,13 @@ body.elementor-page-59 .elementor-59 .mt-reveal.is-inview{opacity:1;transform:no
 
 @keyframes mtCallRing{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.35);opacity:0}}
 
-body.elementor-page-59 .elementor-59 .btn-booking-call .elementor-button{animation:mtCallPulse 2.4s ease-in-out infinite;position:relative}
-
-body.elementor-page-59 .elementor-59 .btn-booking-call .elementor-button::after{content:"";position:absolute;inset:-3px;border:1.5px solid rgba(37,99,235,.35);border-radius:9999px;animation:mtCallRing 2.4s ease-out infinite;pointer-events:none}
-
 /* 3. Aksen satu kata pada H1 (Elementor tak bisa mewarnai sebagian heading) */
 
 body.elementor-page-59 .elementor-59 .hero-brand-highlight{color:#fd651e}
 
 /* 3b. Eyebrow uppercase + garis aksen (widget Heading Free tak punya text-transform) */
 
-body.elementor-page-59 .elementor-59 .badge-section-pill .elementor-heading-title{text-transform:uppercase}
-
-body.elementor-page-59 .elementor-59 .badge-section-pill .elementor-heading-title::before{content:"";display:inline-block;width:22px;height:2px;border:0;background:#2563EB;border-radius:2px;vertical-align:middle;margin-right:10px}
-
 /* 4. Status aktif link nav: pil tint (JS scrollspy menambah .nav-link-active) */
-
-body.elementor-page-59 .elementor-59 .nav-menu-link .elementor-button{padding:8px 14px}
 
 body.elementor-page-59 .elementor-59 .nav-menu-link.nav-link-active .elementor-button{background:#EFF6FF;border-radius:999px;color:#2563EB;font-weight:600}
 
@@ -56,12 +46,7 @@ body.elementor-page-59 .elementor-59 .nav-menu-link .elementor-button:focus-visi
 
 /* 5. Hamburger: sembunyi di desktop, ikon jadi X saat panel terbuka */
 
-body.elementor-page-59 .elementor-59 .navbar .navbar-toggler{display:none}
-
-@media (max-width:991.98px){body.elementor-page-59 .elementor-59 .navbar .navbar-toggler{display:inline-flex}
-
-body.elementor-page-59 .elementor-59 .navbar .navbar-menu-col{display:none}
-
+@media (max-width:991.98px){
 body.elementor-page-59 .elementor-59 .navbar .navbar-menu-col.show{display:flex}}
 
 body.elementor-page-59 .elementor-59 .navbar .navbar-toggler[aria-expanded="true"] .elementor-button-icon svg{opacity:0}
@@ -70,9 +55,7 @@ body.elementor-page-59 .elementor-59 .navbar .navbar-toggler[aria-expanded="true
 
 /* 6. Karosel geser di HP (Elementor tak punya scroll-snap responsif) */
 
-@media (max-width:767.98px){body.elementor-page-59 .elementor-59 .sec-services-cards,body.elementor-page-59 .elementor-59 .sec-team-cards,body.elementor-page-59 .elementor-59 .sec-testimonial-cards{flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none}body.elementor-page-59 .elementor-59 .sec-services-cards>.e-con-inner,body.elementor-page-59 .elementor-59 .sec-team-cards>.e-con-inner,body.elementor-page-59 .elementor-59 .sec-testimonial-cards>.e-con-inner{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
-
-body.elementor-page-59 .elementor-59 .sec-services-cards .service-grid-card,body.elementor-page-59 .elementor-59 .sec-team-cards .team-enterprise-card,body.elementor-page-59 .elementor-59 .sec-testimonial-cards .testimonial-enterprise-card{flex:0 0 84%;scroll-snap-align:start}}
+@media (max-width:767.98px){}
 
 /* 7. Offset anchor di bawah navbar (JS main.js mengandalkan 118px) */
 
@@ -134,12 +117,7 @@ body.elementor-editor-preview #header-carousel{background-color:#FFFFFF}
 body.elementor-page-59 .elementor-59 a:focus-visible,body.elementor-page-59 .elementor-59 button:focus-visible{outline:3px solid #93C5FD;outline-offset:2px}
 
 @media (prefers-reduced-motion:reduce){body.elementor-page-59 .elementor-59 .mt-reveal{opacity:1;transform:none;transition:none}
-
-body.elementor-page-59 .elementor-59 .btn-booking-call .elementor-button,body.elementor-page-59 .elementor-59 .btn-booking-call .elementor-button::after{animation:none}
-
-body.elementor-page-59 .elementor-59 .logo-marquee-track,body.elementor-page-59 .elementor-59 .hero-card-live::after{animation:none}}
-
-
+}
 
 /* ============================================================
 
@@ -149,327 +127,76 @@ body.elementor-page-59 .elementor-59 .logo-marquee-track,body.elementor-page-59 
 
    ============================================================ */
 
-
-
 /* --- A. Chip ikon seragam (brand, fitur, langkah, sertifikat, derek) --- */
-
-body.elementor-page-59 .elementor-59 .navbar-brand-widget .elementor-icon-box-icon .elementor-icon,
-
-body.elementor-page-59 .elementor-59 .footer-brand .elementor-icon-box-icon .elementor-icon,
-
-body.elementor-page-59 .elementor-59 .feature-strip-widget .elementor-icon-box-icon .elementor-icon,
-
-body.elementor-page-59 .elementor-59 .step-card .elementor-icon-box-icon .elementor-icon,
-
-body.elementor-page-59 .elementor-59 .derek-stat-card .elementor-icon-box-icon .elementor-icon,
-
-body.elementor-page-59 .elementor-59 .cert-badge-card .elementor-icon-box-icon .elementor-icon,
-
-body.elementor-page-59 .elementor-59 .about-exp-float-card .elementor-icon-box-icon .elementor-icon{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:16px;background:#EFF6FF;color:#2563EB;font-size:20px;transition:transform .3s cubic-bezier(.16,1,.3,1)}
-
-body.elementor-page-59 .elementor-59 .navbar-brand-widget .elementor-icon-box-icon .elementor-icon{width:44px;height:44px;border-radius:14px;font-size:18px}
-
-body.elementor-page-59 .elementor-59 .navbar-brand-widget .elementor-icon-box-title{font-weight:800;letter-spacing:-.2px}
-
-body.elementor-page-59 .elementor-59 .footer-brand .elementor-icon-box-icon .elementor-icon{width:56px;height:56px;font-size:22px}
-
-body.elementor-page-59 .elementor-59 .feature-card-featured .feature-strip-widget .elementor-icon-box-icon .elementor-icon{background:#FFFFFF;color:#2563EB;box-shadow:0 10px 24px -10px rgba(37,99,235,.5)}
 
 /* teks ikon-box rata kiri di kartu fitur & sertifikat (default-nya center) */
 
-body.elementor-page-59 .elementor-59 .feature-strip-widget .elementor-icon-box-wrapper,
-
-body.elementor-page-59 .elementor-59 .cert-badge-card .elementor-icon-box-wrapper,
-
-body.elementor-page-59 .elementor-59 .about-exp-float-card .elementor-icon-box-wrapper{text-align:left}
-
-
-
 /* --- B. Navbar: menu & label --- */
 
-body.elementor-page-59 .elementor-59 .nav-menu-link .elementor-button{transition:background .2s ease,color .2s ease}
-
-body.elementor-page-59 .elementor-59 .nav-menu-link .elementor-button:hover{background:#F1F5F9}
-
-body.elementor-page-59 .elementor-59 .navbar-brand-col .elementor-icon-box-description{color:#64748B}
-
-@media (max-width:991.98px){body.elementor-page-59 .elementor-59 .navbar-brand-widget .elementor-icon-box-wrapper{flex-direction:row;align-items:center;gap:10px}
-
-body.elementor-page-59 .elementor-59 .navbar-brand-col .elementor-icon-box-description{display:none}
-
-body.elementor-page-59 .elementor-59 .navbar-brand-col{display:flex;align-items:center;justify-content:space-between;flex-direction:row}}
-
-
+@media (max-width:991.98px){}
 
 /* --- C. Hero: dekorasi blob, foto cover, pemisah statistik --- */
 
-body.elementor-page-59 .elementor-59 .hero-left-col{flex:0 0 52%;max-width:52%;position:relative;z-index:2}
+@media (max-width:1023.98px){}
 
-body.elementor-page-59 .elementor-59 .hero-right-col{flex:0 0 48%;max-width:540px;margin-left:auto;position:relative;z-index:1;min-width:0;align-self:flex-start;display:flex;flex-direction:column;justify-content:flex-start}
+@media (max-width:767.98px){}
 
-body.elementor-page-59 .elementor-59 .hero-right-col::before{content:"";position:absolute;top:-26px;right:-8px;width:210px;height:210px;border:0;border-radius:50%;background:radial-gradient(circle at 32% 32%,rgba(37,99,235,.16),rgba(37,99,235,0) 70%);pointer-events:none;z-index:0}
-
-body.elementor-page-59 .elementor-59 .mt-hero-slide .hero-truck-img{position:relative;z-index:1;width:100%}
-
-body.elementor-page-59 .elementor-59 .mt-hero-slide .hero-truck-img img{width:100%;height:clamp(320px,48vh,420px);object-fit:cover;object-position:60% 40%;border-radius:24px;display:block}
-
-@media (max-width:1023.98px){body.elementor-page-59 .elementor-59 .hero-left-col,body.elementor-page-59 .elementor-59 .hero-right-col{flex:1 1 100%;max-width:100%}body.elementor-page-59 .elementor-59 .mt-hero-slide .hero-truck-img img{height:340px}}
-
-@media (max-width:767.98px){body.elementor-page-59 .elementor-59 .mt-hero-slide .hero-truck-img img{height:280px}}
-
-@media (min-width:768px){body.elementor-page-59 .elementor-59 .hero-stats-inner .hero-counter-item+.hero-counter-item{border-left:1px solid #E2E8F0;padding-left:28px}}
+@media (min-width:768px){}
 
 @media (max-width:560px){body.elementor-page-59 .elementor-59 .hero-stats-inner{flex-direction:column;gap:14px;align-items:flex-start}}
 
-
-
 /* --- D. Label & marquee logo prinsipal --- */
 
-body.elementor-page-59 .elementor-59 .logo-strip-label p{text-transform:uppercase;letter-spacing:1.6px;font-size:12px}
-
-body.elementor-page-59 .elementor-59 .logo-marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,0),#000 10%,#000 90%,rgba(0,0,0,0));mask-image:linear-gradient(90deg,rgba(0,0,0,0),#000 10%,#000 90%,rgba(0,0,0,0))}
-
-body.elementor-page-59 .elementor-59 .logo-marquee-track{flex:0 0 auto;align-items:center;animation:mtMarquee 38s linear infinite;will-change:transform}
-
-body.elementor-page-59 .elementor-59 .logo-marquee:hover .logo-marquee-track{animation-play-state:paused}
-
-body.elementor-page-59 .elementor-59 .logo-marquee .principal-wall-card{padding:6px 0}
-
-body.elementor-page-59 .elementor-59 .logo-marquee .principal-wall-card img{width:auto;max-width:128px;height:auto;max-height:40px;object-fit:contain}
-
 @keyframes mtMarquee{from{transform:translateX(0)}to{transform:translateX(calc(-100% - 64px))}}
-
-
 
 /* --- E. Kartu: bayangan lembut + angkat saat hover (tak ada kontrol hover
 
        container di Elementor Free) --- */
 
-body.elementor-page-59 .elementor-59 .service-grid-card,
-
-body.elementor-page-59 .elementor-59 .feature-col-1,
-
-body.elementor-page-59 .elementor-59 .feature-col-2,
-
-body.elementor-page-59 .elementor-59 .feature-col-3,
-
-body.elementor-page-59 .elementor-59 .feature-col-4,
-
-body.elementor-page-59 .elementor-59 .step-col,
-
-body.elementor-page-59 .elementor-59 .principal-wall-card,
-
-body.elementor-page-59 .elementor-59 .team-enterprise-card,
-
-body.elementor-page-59 .elementor-59 .testimonial-enterprise-card,
-
-body.elementor-page-59 .elementor-59 .cert-badge-card{transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s cubic-bezier(.16,1,.3,1),border-color .3s ease}
-
 @media (hover:hover) and (min-width:1024px){
-
-body.elementor-page-59 .elementor-59 .service-grid-card:hover,
-
-body.elementor-page-59 .elementor-59 .feature-col-1:hover,
-
-body.elementor-page-59 .elementor-59 .feature-col-2:hover,
-
-body.elementor-page-59 .elementor-59 .feature-col-3:hover,
-
-body.elementor-page-59 .elementor-59 .feature-col-4:hover,
-
-body.elementor-page-59 .elementor-59 .step-col:hover,
-
-body.elementor-page-59 .elementor-59 .sec-principals .principal-wall-card:hover,
-
-body.elementor-page-59 .elementor-59 .team-enterprise-card:hover,
-
-body.elementor-page-59 .elementor-59 .testimonial-enterprise-card:hover{transform:translateY(-6px);box-shadow:0 22px 44px -16px rgba(15,23,42,.18);border-color:#CBD5E1}}
-
-
+}
 
 /* --- F. Tentang: tinggi foto mengikuti teks & sejajar, chip 15 Tahun pil ramping --- */
 
-body.elementor-page-59 .elementor-59 .about-left-col{position:relative;display:flex;flex-direction:column;align-self:stretch}
-
-body.elementor-page-59 .elementor-59 .about-left-col .about-img-box{height:100%;width:100%}
-
-body.elementor-page-59 .elementor-59 .about-left-col .about-img-box .elementor-widget-container,
-
-body.elementor-page-59 .elementor-59 .about-left-col .about-img-box img{height:100%;min-height:420px;max-height:520px;width:100%;object-fit:cover;display:block;border-radius:24px}
-
-body.elementor-page-59 .elementor-59 .about-right-col{display:flex;flex-direction:column;justify-content:center;gap:0;--gap:0;--widgets-spacing:0}
-
-body.elementor-page-59 .elementor-59 .about-exp-chip{position:absolute;left:14px;bottom:14px;z-index:2;max-width:calc(100% - 28px)}
-
-body.elementor-page-59 .elementor-59 .about-chip-pill{display:inline-flex;align-items:center;height:46px;padding:8px 16px;border-radius:999px;background:rgba(255,255,255,.98);border:1px solid #E2E8F0;box-shadow:0 10px 25px -5px rgba(15,23,42,.12);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-sizing:border-box}
-
-body.elementor-page-59 .elementor-59 .about-chip-pill .elementor-icon-box-wrapper{display:flex;flex-direction:row;align-items:center;gap:8px;text-align:left;margin:0}
-
-body.elementor-page-59 .elementor-59 .about-chip-pill .elementor-icon-box-icon{margin:0}
-
-body.elementor-page-59 .elementor-59 .about-chip-pill .elementor-icon-box-icon .elementor-icon{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#EFF6FF;color:#2563EB;font-size:13px;flex:0 0 auto}
-
-body.elementor-page-59 .elementor-59 .about-chip-pill .elementor-icon-box-title{margin:0;font-size:14px;font-weight:700;color:#0F172A;white-space:nowrap;line-height:1.2}
-
-body.elementor-page-59 .elementor-59 .about-chip-pill .elementor-icon-box-description{display:none}
-
-body.elementor-page-59 .elementor-59 .sec-cert-badges{display:flex;flex-direction:row;gap:16px;align-items:stretch}
-
-body.elementor-page-59 .elementor-59 .sec-cert-badges .cert-badge-col{flex:1 1 50%;display:flex;flex-direction:column}
-
-body.elementor-page-59 .elementor-59 .sec-cert-badges .cert-badge-col>.e-con-inner{height:100%;display:flex;flex-direction:column;justify-content:center}
-
-
-
 /* --- G. Layanan: nomor pil, gambar seragam --- */
 
-body.elementor-page-59 .elementor-59 .svc-num p{display:inline-block;margin:0;padding:5px 13px;border-radius:999px;background:#EFF6FF;color:#2563EB;font-weight:700;letter-spacing:.6px}
-
-body.elementor-page-59 .elementor-59 .svc-img img{width:100%;height:190px;object-fit:cover;display:block}
-
-body.elementor-page-59 .elementor-59 .service-card-featured .svc-img img{height:320px}
-
-@media (max-width:767.98px){body.elementor-page-59 .elementor-59 .svc-img img{height:170px}
-
-body.elementor-page-59 .elementor-59 .service-card-featured .svc-img img{height:220px}}
-
-
+@media (max-width:767.98px){}
 
 /* --- H. Cara kerja: kartu seragam, baris atas ikon + nomor, konektor desktop --- */
 
-body.elementor-page-59 .elementor-59 .sec-steps-cards{display:flex;flex-direction:row;align-items:stretch}
-
-body.elementor-page-59 .elementor-59 .sec-steps-cards .step-col{position:relative;overflow:visible;display:flex;flex-direction:column;height:auto;align-self:stretch}
-
-body.elementor-page-59 .elementor-59 .sec-steps-cards .step-col>.e-con-inner{height:100%;display:flex;flex-direction:column;justify-content:flex-start}
-
-body.elementor-page-59 .elementor-59 .step-top-row{width:100%;display:flex;flex-direction:row;justify-content:space-between;align-items:center;margin-bottom:16px}
-
-body.elementor-page-59 .elementor-59 .step-top-row .step-icon-col,body.elementor-page-59 .elementor-59 .step-top-row .step-num-col{width:auto;flex:0 0 auto}
-
-body.elementor-page-59 .elementor-59 .step-chip-icon{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:14px;background:#EFF6FF;color:#2563EB;font-size:20px}
-
-body.elementor-page-59 .elementor-59 .step-num-big{font-family:"Plus Jakarta Sans",sans-serif;font-size:32px;font-weight:800;line-height:1;color:#BFDBFE;display:inline-block}
-
-body.elementor-page-59 .elementor-59 .step-title{margin:0 0 10px 0}
-
-body.elementor-page-59 .elementor-59 .step-title .elementor-heading-title{font-family:"Plus Jakarta Sans",sans-serif;font-size:20px;font-weight:700;color:#0F172A;line-height:1.35;margin:0}
-
-body.elementor-page-59 .elementor-59 .step-desc{margin:0;width:100%}
-
-body.elementor-page-59 .elementor-59 .step-desc p{font-size:15px;line-height:1.6;color:#64748B;margin:0}
-
 @media (min-width:1024px){
-
-body.elementor-page-59 .elementor-59 .sec-steps-cards .step-col:not(:last-child)::after{content:"›";position:absolute;right:-26px;top:34px;width:28px;height:28px;border-radius:50%;background:#FFFFFF;border:1px solid #DBEAFE;box-shadow:0 2px 6px rgba(15,23,42,.06);color:#2563EB;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:16px;font-weight:700;line-height:26px;text-align:center;z-index:5;pointer-events:none}
 
 }
 
 @media (min-width:768px) and (max-width:1023.98px){
 
-body.elementor-page-59 .elementor-59 .sec-steps-cards{flex-wrap:wrap;gap:20px}
-
-body.elementor-page-59 .elementor-59 .sec-steps-cards>.step-col{flex:0 0 calc(50% - 10px);width:calc(50% - 10px)}
-
-body.elementor-page-59 .elementor-59 .sec-steps-cards .step-col::after{display:none}
-
 }
 
 @media (max-width:767.98px){
 
-body.elementor-page-59 .elementor-59 .sec-steps-cards{flex-direction:column;gap:16px}
-
-body.elementor-page-59 .elementor-59 .sec-steps-cards>.step-col{width:100%;flex:1 1 100%}
-
-body.elementor-page-59 .elementor-59 .sec-steps-cards .step-col::after{display:none}
-
-body.elementor-page-59 .elementor-59 .sec-steps-cards::before{display:none}
-
 }
-
-
 
 /* --- I. Prinsipal: logo proporsional --- */
 
-body.elementor-page-59 .elementor-59 .sec-principals .principal-wall-card img{width:auto;max-width:100%;height:auto;max-height:46px;object-fit:contain;margin:0 auto;display:block}
-
-body.elementor-page-59 .elementor-59 .sec-principals .principal-wall-card .elementor-widget-image{text-align:center}
-
-
-
 /* --- J. Tim: foto seragam + zoom halus --- */
 
-body.elementor-page-59 .elementor-59 .team-img img{width:100%;height:270px;object-fit:cover;display:block;transition:transform .45s cubic-bezier(.16,1,.3,1)}
+@media (max-width:767.98px){}
 
-@media (max-width:767.98px){body.elementor-page-59 .elementor-59 .team-img img{height:230px}}
-
-@media (hover:hover){body.elementor-page-59 .elementor-59 .team-enterprise-card:hover .team-img img{transform:scale(1.04)}}
-
-
+@media (hover:hover){}
 
 /* --- K. Testimoni: tanda kutip dekoratif besar --- */
 
-body.elementor-page-59 .elementor-59 .testimonial-featured{position:relative;overflow:hidden}
-
-body.elementor-page-59 .elementor-59 .testimonial-featured::before{content:"\201D";left:auto;top:6px;right:28px;width:auto;border:0;z-index:0;font-family:Georgia,"Times New Roman",serif;font-size:130px;line-height:1;color:#DBEAFE;pointer-events:none}
-
-body.elementor-page-59 .elementor-59 .testimonial-featured>*{position:relative;z-index:1}
-
 /* isi kartu testimoni rata atas & kiri; tinggi disamakan baris */
-
-body.elementor-page-59 .elementor-59 .sec-testimonial-cards .testimonial-enterprise-card{display:flex;flex-direction:column;justify-content:flex-start}
 
 /* nama pada kartu testimoni kecil jangan patah */
 
-body.elementor-page-59 .elementor-59 .sec-testimonial-cards .testi-name .elementor-heading-title{font-size:17px}
-
-
-
 /* --- L. Lead & CTA penutup --- */
 
-body.elementor-page-59 .elementor-59 .sec-lead{max-width:760px}
-
-body.elementor-page-59 .elementor-59 .steps-lead,
-
-body.elementor-page-59 .elementor-59 .cta-lead{max-width:640px;margin-left:auto;margin-right:auto}
-
-body.elementor-page-59 .elementor-59 .cta-band-card{position:relative;overflow:hidden}
-
-body.elementor-page-59 .elementor-59 .cta-band-card::before{content:"";position:absolute;top:-90px;left:-60px;width:270px;height:270px;border:0;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.15),rgba(37,99,235,0) 70%);pointer-events:none}
-
-body.elementor-page-59 .elementor-59 .cta-band-card::after{content:"";position:absolute;right:-70px;bottom:-100px;width:300px;height:300px;border:0;border-radius:50%;background:radial-gradient(circle,rgba(5,150,105,.12),rgba(5,150,105,0) 70%);pointer-events:none}
-
-body.elementor-page-59 .elementor-59 .cta-band-card>*{position:relative;z-index:1}
-
-body.elementor-page-59 .elementor-59 .cta-btns-inner{max-width:600px;margin:10px auto 0}
-
-@media (max-width:767.98px){body.elementor-page-59 .elementor-59 .cta-btns-inner{flex-direction:column;gap:14px}
-
-body.elementor-page-59 .elementor-59 .cta-btns-inner .elementor-button{width:100%}}
-
-
+@media (max-width:767.98px){}
 
 /* --- M. Footer: judul label huruf besar, tautan rapi --- */
 
-body.elementor-page-59 .elementor-59 .footer-heading .elementor-heading-title{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:#64748B;font-weight:700}
-
-body.elementor-page-59 .elementor-59 .footer-links-list p{margin:0 0 10px}
-
-body.elementor-page-59 .elementor-59 .footer-links-list a,body.elementor-page-59 .elementor-59 .footer-menu-links a{transition:color .2s ease}
-
-body.elementor-page-59 .elementor-59 .footer-links-list a:hover{color:#1D4ED8;text-decoration:underline}
-
-
-
 /* --- N. FAQ: interaksi halus --- */
-
-body.elementor-page-59 .elementor-59 .faqAccordion .elementor-accordion-item{transition:border-color .25s ease,box-shadow .25s ease}
-
-body.elementor-page-59 .elementor-59 .faqAccordion .elementor-accordion-item:hover{border-color:#CBD5E1}
-
-body.elementor-page-59 .elementor-59 .faqAccordion .elementor-accordion-icon{color:#2563EB}
-
-
 
 /* ============================================================
 
@@ -477,39 +204,13 @@ body.elementor-page-59 .elementor-59 .faqAccordion .elementor-accordion-icon{col
 
    ============================================================ */
 
-
-
 /* --- R6-A. Navbar pill flex: tengah max 1200 + gutter 16 (tanpa full-bleed) --- */
-
-body.elementor-page-59 .elementor-59 .mt-floating-navbar{width:calc(100% - 32px);max-width:1200px;margin-left:auto;margin-right:auto}
 
 body.elementor-page-59 .elementor-59 .navbar-pill{min-height:68px;justify-content:space-between;align-items:center}
 
-body.elementor-page-59 .elementor-59 .navbar-brand-col{flex:0 0 auto;min-width:0}
-
-body.elementor-page-59 .elementor-59 .navbar-menu-col{flex:1 1 auto;min-width:0}
-
-body.elementor-page-59 .elementor-59 .navbar-pill .navbar-brand-col,
-
-body.elementor-page-59 .elementor-59 .navbar-pill .navbar-menu-col,
-
-body.elementor-page-59 .elementor-59 .navbar-pill .navbar-right-inner,
-
-body.elementor-page-59 .elementor-59 .navbar-pill .navbar-cta-row{width:auto}
-
 /* menu di tengah sisa ruang, CTA rapat kanan */
 
-body.elementor-page-59 .elementor-59 .navbar-right-inner{flex:1 1 auto;min-width:0;justify-content:center}
-
-body.elementor-page-59 .elementor-59 .navbar-cta-row{flex:0 0 auto;justify-content:flex-end}
-
 /* brand rapat & rata vertikal (judul ke tagline <= 2px) */
-
-body.elementor-page-59 .elementor-59 .navbar-brand-widget .elementor-icon-box-wrapper{align-items:center}
-
-body.elementor-page-59 .elementor-59 .navbar-brand-widget .elementor-icon-box-title{margin:0 0 2px}
-
-body.elementor-page-59 .elementor-59 .navbar-brand-widget .elementor-icon-box-description{margin:0;line-height:1.3;white-space:nowrap}
 
 body.elementor-page-59 .elementor-59 .btn-nav-login .elementor-button,
 
@@ -518,157 +219,33 @@ body.elementor-page-59 .elementor-59 .btn-nav-register .elementor-button{min-hei
 @media (max-width:991.98px){
 
 body.elementor-page-59 .elementor-59 .navbar-pill{border-radius:24px;flex-wrap:wrap}
-
-body.elementor-page-59 .elementor-59 .navbar-brand-col{flex:1 1 100%;padding:0;column-gap:8px}
-
-body.elementor-page-59 .elementor-59 .navbar-brand-widget{flex:1 1 auto;min-width:0}
-
-body.elementor-page-59 .elementor-59 .navbar-brand-col .navbar-toggler{flex:0 0 auto;margin-left:auto}
-
-body.elementor-page-59 .elementor-59 .navbar-menu-col{flex:1 1 100%;flex-direction:column;align-items:stretch;background:#FFFFFF;border:1px solid #E2E8F0;border-radius:20px;padding:12px;margin-top:8px;box-shadow:0 18px 36px -16px rgba(15,23,42,.18)}
-
-body.elementor-page-59 .elementor-59 .navbar-right-inner{flex-direction:column;align-items:stretch}
-
-body.elementor-page-59 .elementor-59 .navbar-cta-row{flex-direction:column;align-items:stretch}
-
-body.elementor-page-59 .elementor-59 .navbar-cta-row .elementor-button{width:100%}}
-
-
+}
 
 /* --- R6-B. Hero: CTA row kiri, trust row, jarak rapat & chip ramping --- */
 
-body.elementor-page-59 .elementor-59 .hero-btns-inner{justify-content:flex-start;flex-wrap:wrap}
-
-body.elementor-page-59 .elementor-59 .hero-trust-row{justify-content:flex-start;flex-wrap:wrap}
-
-body.elementor-page-59 .elementor-59 .hero-left-col{--widgets-spacing:0px;gap:0}
-
-body.elementor-page-59 .elementor-59 .hero-left-col .elementor-widget{margin:0}
-
-body.elementor-page-59 .elementor-59 .hero-left-col .hero-brand-pill{margin-bottom:12px}
-
-body.elementor-page-59 .elementor-59 .hero-left-col .hero-brand-pill .elementor-heading-title{margin:0}
-
-body.elementor-page-59 .elementor-59 .hero-left-col .hero-title{margin-bottom:18px}
-
-body.elementor-page-59 .elementor-59 .hero-left-col .hero-title .elementor-heading-title{font-size:64px;font-weight:800;color:#2563EB;line-height:1.05;letter-spacing:-1.5px;margin:0}
-
-body.elementor-page-59 .elementor-59 .hero-left-col .hero-title .hero-h1-sub{font-size:40px;font-weight:700;color:#0F172A;line-height:1.05;letter-spacing:-1px;display:block;margin-top:2px}
-
 @media (max-width:1023.98px){
-body.elementor-page-59 .elementor-59 .hero-left-col .hero-title .elementor-heading-title{font-size:52px}
-body.elementor-page-59 .elementor-59 .hero-left-col .hero-title .hero-h1-sub{font-size:32px}
 }
 
-body.elementor-page-59 .elementor-59 .hero-left-col .hero-lead{margin-bottom:24px;max-width:520px}
-
-body.elementor-page-59 .elementor-59 .hero-left-col .hero-lead p{margin:0;line-height:1.55}
-
-body.elementor-page-59 .elementor-59 .hero-left-col .hero-btns-inner{margin-bottom:28px}
-
 /* Section Header Rhythm & Card spacing (Round 8 B3) */
-body.elementor-page-59 .elementor-59 .badge-section-pill{margin-bottom:12px}
-body.elementor-page-59 .elementor-59 .badge-section-pill .elementor-heading-title{margin:0}
-body.elementor-page-59 .elementor-59 .sec-features .elementor-widget-heading:not(.badge-section-pill),
-body.elementor-page-59 .elementor-59 .sec-services .elementor-widget-heading:not(.badge-section-pill),
-body.elementor-page-59 .elementor-59 .sec-steps .elementor-widget-heading:not(.badge-section-pill),
-body.elementor-page-59 .elementor-59 .sec-partners .elementor-widget-heading:not(.badge-section-pill),
-body.elementor-page-59 .elementor-59 .sec-team .elementor-widget-heading:not(.badge-section-pill),
-body.elementor-page-59 .elementor-59 .sec-testimonials .elementor-widget-heading:not(.badge-section-pill),
-body.elementor-page-59 .elementor-59 .sec-faq .elementor-widget-heading:not(.badge-section-pill){margin-bottom:12px}
-body.elementor-page-59 .elementor-59 .sec-lead{margin-bottom:28px}
 body.elementor-page-59 .elementor-59 .elementor-widget-icon-box .elementor-icon-box-title{margin-bottom:6px}
-body.elementor-page-59 .elementor-59 .feature-photo-title{margin-bottom:6px}
 
 @media (min-width:1024px){
-
-body.elementor-page-59 .elementor-59 .hero-trust-row{flex-wrap:nowrap;gap:28px}}
-
-body.elementor-page-59 .elementor-59 .hero-trust-item .elementor-icon-box-title{font-size:15px;font-weight:600}
+}
 
 @media (min-width:1024px){
-
-body.elementor-page-59 .elementor-59 .hero-btns-inner .e-child,
-
-body.elementor-page-59 .elementor-59 .hero-trust-row .e-child,
-
-body.elementor-page-59 .elementor-59 .about-btns-inner .e-child,
-
-body.elementor-page-59 .elementor-59 .booking-cta-btns .e-child,
-
-body.elementor-page-59 .elementor-59 .cta-btns-inner .e-child,
-
-body.elementor-page-59 .elementor-59 .navbar-right-inner .e-child,
-
-body.elementor-page-59 .elementor-59 .navbar-cta-row .e-child{width:auto}}
-
-body.elementor-page-59 .elementor-59 .hero-trust-item .elementor-icon-box-icon .elementor-icon{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:12px;background:#EFF6FF;color:#2563EB;font-size:15px;flex:0 0 auto}
+}
 
 /* RONDE 7 A4: Chip melayang tetap ramping di dalam tepi foto */
-
-body.elementor-page-59 .elementor-59 .hero-chip-pill{position:absolute;z-index:3;display:inline-flex;align-items:center;height:46px;padding:8px 16px;border-radius:999px;background:rgba(255,255,255,.98);border:1px solid #E2E8F0;box-shadow:0 10px 25px -5px rgba(15,23,42,.12);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);max-width:240px;box-sizing:border-box}
-
-body.elementor-page-59 .elementor-59 .hero-card-sla{top:14px;left:14px}
-
-body.elementor-page-59 .elementor-59 .hero-card-live{top:auto;bottom:14px;right:14px}
-
-body.elementor-page-59 .elementor-59 .hero-chip-pill .elementor-icon-box-wrapper{display:flex;flex-direction:row;align-items:center;gap:8px;text-align:left;margin:0}
-
-body.elementor-page-59 .elementor-59 .hero-chip-pill .elementor-icon-box-icon{margin:0}
-
-body.elementor-page-59 .elementor-59 .hero-chip-pill .elementor-icon-box-icon .elementor-icon{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#EFF6FF;color:#2563EB;font-size:13px;flex:0 0 auto}
-
-body.elementor-page-59 .elementor-59 .hero-chip-pill .elementor-icon-box-title{margin:0;font-size:14px;font-weight:700;color:#0F172A;white-space:nowrap;line-height:1.2}
-
-body.elementor-page-59 .elementor-59 .hero-chip-pill .elementor-icon-box-description{display:none}
-
-body.elementor-page-59 .elementor-59 .hero-card-live .elementor-icon-box-title::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#10B981;box-shadow:0 0 0 3px rgba(16,185,129,.25);margin-right:8px;vertical-align:middle}
 
 /* RONDE 7 B: Hero mobile rata TENGAH */
 
 @media (max-width:767.98px){
 
-body.elementor-page-59 .elementor-59 .hero-left-col{text-align:center;display:flex;flex-direction:column;align-items:center}
-
-body.elementor-page-59 .elementor-59 .hero-left-col .elementor-heading-title,
-
-body.elementor-page-59 .elementor-59 .hero-left-col .hero-lead p{text-align:center}
-
-body.elementor-page-59 .elementor-59 .hero-left-col .hero-title .elementor-heading-title{font-size:38px}
-
-body.elementor-page-59 .elementor-59 .hero-left-col .hero-title .hero-h1-sub{font-size:26px;margin-top:2px}
-
-body.elementor-page-59 .elementor-59 .hero-btns-inner{flex-direction:column;align-items:center;width:100%}
-
-body.elementor-page-59 .elementor-59 .hero-btns-inner .elementor-button{width:100%;max-width:340px}
-
-body.elementor-page-59 .elementor-59 .hero-trust-row{flex-direction:row;justify-content:center;gap:12px;width:100%}
-
-body.elementor-page-59 .elementor-59 .hero-trust-item{flex:1 1 0;text-align:center}
-
-body.elementor-page-59 .elementor-59 .hero-trust-item .elementor-icon-box-wrapper{flex-direction:column;align-items:center;text-align:center;gap:6px}
-
-body.elementor-page-59 .elementor-59 .hero-trust-item .elementor-icon-box-title{font-size:13px;line-height:1.25}
-
-body.elementor-page-59 .elementor-59 .hero-card-sla{top:10px;left:10px}
-
-body.elementor-page-59 .elementor-59 .hero-card-live{top:auto;bottom:10px;right:10px}
-
 body.elementor-page-59 .elementor-59 .navbar-pill{max-height:64px;padding:6px 16px}
-
-body.elementor-page-59 .elementor-59 .navbar-brand-col{display:flex;align-items:center;min-height:48px}
-
-body.elementor-page-59 .elementor-59 .navbar-brand-widget .elementor-icon-box-wrapper{align-items:center}
 
 }
 
-
-
 /* --- R6-C. Paragraf maksimal 62ch --- */
-
-body.elementor-page-59 .elementor-59 .sec-lead{max-width:62ch}
-
-
 
 /* ============================================================
 
@@ -676,115 +253,40 @@ body.elementor-page-59 .elementor-59 .sec-lead{max-width:62ch}
 
    ============================================================ */
 
-
-
 /* --- R6c-P3. Baris trust hero: rata tengah vertikal, judul-deskripsi rapat --- */
-
-body.elementor-page-59 .elementor-59 .hero-trust-row .elementor-icon-box-wrapper{align-items:center}
-
-body.elementor-page-59 .elementor-59 .hero-trust-item .elementor-icon-box-title{margin:0 0 2px}
-
-body.elementor-page-59 .elementor-59 .hero-trust-item .elementor-icon-box-description{margin:0}
-
-
 
 /* --- R6c-P4. Kartu foto unggulan: foto 240px + badge "30" + kolom setara --- */
 
-body.elementor-page-59 .elementor-59 .feature-card-featured{position:relative;overflow:hidden}
-
-body.elementor-page-59 .elementor-59 .feature-photo-img img{width:100%;height:240px;object-fit:cover;display:block}
-
-body.elementor-page-59 .elementor-59 .feature-photo-badge{position:absolute;top:16px;left:16px;z-index:2}
-
-body.elementor-page-59 .elementor-59 .feature-photo-badge p{display:inline-block;margin:0;padding:7px 16px;border-radius:999px;background:#FFFFFF;color:#2563EB;font-weight:700;box-shadow:0 10px 24px -10px rgba(15,23,42,.35)}
-
-body.elementor-page-59 .elementor-59 .feature-stack-col .feature-stack-row{flex:1 1 auto}
-
-body.elementor-page-59 .elementor-59 .feature-strip-widget .elementor-icon-box-description,
-
-body.elementor-page-59 .elementor-59 .step-card .elementor-icon-box-description{line-height:1.6}
-
 @media (max-width:1023.98px){
-
-body.elementor-page-59 .elementor-59 .sec-features-bento{flex-direction:column}
-
-body.elementor-page-59 .elementor-59 .sec-features-bento>.e-child{width:100%}}
-
-
+}
 
 /* --- R6c-P5. Avatar testimoni: kotak 60px bulat sempurna --- */
 
-body.elementor-page-59 .elementor-59 .testimonial-avatar-wrap .elementor-widget-image{width:60px;flex:0 0 auto}
-
-body.elementor-page-59 .elementor-59 .testimonial-avatar-wrap .elementor-widget-image img{width:60px;height:60px;aspect-ratio:1/1;object-fit:cover;border-radius:50%}
-
-
-
 /* --- R6c-P7. Tombol kartu layanan menempel bawah (sejajar); kolom Tentang dipusatkan --- */
 
-body.elementor-page-59 .elementor-59 .service-grid-card .btn-service-action{margin-top:auto}
-
 @media (min-width:1024px){
-
-body.elementor-page-59 .elementor-59 .about-right-col{justify-content:center}}
-
-
+}
 
 /* --- R6-D. Strip statistik mobile: pembatas jadi horizontal --- */
 
 @media (max-width:767.98px){
-
-body.elementor-page-59 .elementor-59 .hero-stats-strip .fact-col{border-right:none;border-bottom:1px solid #E2E8F0}
-
-body.elementor-page-59 .elementor-59 .hero-stats-strip .fact-col:last-child{border-bottom:none}}
-
-
+}
 
 /* --- R6-E. Timeline connector moved to section H --- */
-
-
 
 /* --- R6-F. Foto tim rasio 4:5 seragam (padding-top trick: kotak selalu
 
    dicadangkan sebelum gambar dimuat -> nol layout-shift, anti overflow) --- */
 
-body.elementor-page-59 .elementor-59 .team-img{position:relative;width:100%;padding-top:125%;overflow:hidden}
-
-body.elementor-page-59 .elementor-59 .team-img img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block}
-
-
-
 /* --- R6-G. Testimoni: avatar rata vertikal --- */
-
-body.elementor-page-59 .elementor-59 .testimonial-avatar-wrap{align-items:center}
-
-
 
 /* --- R6-H. FAQ: jarak antar item --- */
 
-body.elementor-page-59 .elementor-59 .faqAccordion .elementor-accordion-item{margin-bottom:12px}
-
-body.elementor-page-59 .elementor-59 .faqAccordion .elementor-accordion-item:last-child{margin-bottom:0}
-
-
-
 /* --- R6-I. CTA band: gradasi lembut biru-hijau (tetap light) --- */
-
-body.elementor-page-59 .elementor-59 .cta-band-card{background:linear-gradient(135deg,#EFF6FF 0%,#EAF2FF 55%,#ECFDF5 100%)}
-
-
 
 /* --- R6-J. Baris tombol wrap rapi di layar kecil --- */
 
 @media (max-width:767.98px){
-
-body.elementor-page-59 .elementor-59 .about-btns-inner,
-
-body.elementor-page-59 .elementor-59 .booking-cta-btns{flex-direction:column;align-items:stretch}
-
-body.elementor-page-59 .elementor-59 .about-btns-inner .elementor-button,
-
-body.elementor-page-59 .elementor-59 .booking-cta-btns .elementor-button{width:100%}
 }
 /* ============================================================
    REVAMP6j - RONDE 10: hero tablet & mobile, pil Tentang (10-2026)
@@ -798,60 +300,24 @@ body.elementor-page-59 .elementor-59 .booking-cta-btns .elementor-button{width:1
    di antara tombol dan keunggulan; DOM tidak berubah (desktop aman). */
 @media (min-width:768px) and (max-width:1023.98px){
 body.elementor-page-59 .elementor-59 .hero-main-row{flex-direction:column;align-items:center}
-body.elementor-page-59 .elementor-59 .hero-left-col{display:contents}
-body.elementor-page-59 .elementor-59 .hero-brand-pill{order:1}
 body.elementor-page-59 .elementor-59 .hero-title{order:2}
 body.elementor-page-59 .elementor-59 .hero-lead{order:3}
-body.elementor-page-59 .elementor-59 .hero-btns-inner{order:4}
-body.elementor-page-59 .elementor-59 .hero-right-col{order:5;flex:0 0 auto;align-self:center;width:100%;max-width:640px;margin-left:auto;margin-right:auto}
-body.elementor-page-59 .elementor-59 .hero-trust-row{order:6}
-body.elementor-page-59 .elementor-59 .hero-left-col .hero-brand-pill .elementor-heading-title,
-body.elementor-page-59 .elementor-59 .hero-left-col .hero-title .elementor-heading-title{text-align:center}
-body.elementor-page-59 .elementor-59 .hero-left-col .hero-lead{max-width:56ch;margin-left:auto;margin-right:auto;text-align:center}
-body.elementor-page-59 .elementor-59 .hero-left-col .hero-title .hero-h1-sub{white-space:nowrap}
-body.elementor-page-59 .elementor-59 .hero-btns-inner{flex-wrap:nowrap;gap:12px;justify-content:center}
-body.elementor-page-59 .elementor-59 .hero-btns-inner .elementor-button{width:auto}
-body.elementor-page-59 .elementor-59 .hero-trust-row{flex-wrap:nowrap;gap:24px;justify-content:center;margin-top:28px}
-body.elementor-page-59 .elementor-59 .hero-trust-row .elementor-icon-box-wrapper{align-items:center}
-body.elementor-page-59 .elementor-59 .mt-hero-slide .hero-truck-img img{height:340px}
 }
 
 /* --- J-B. Hero MOBILE <=767: urutan & perataan tengah ---
    Urutan visual sama; keunggulan 3 kolom di bawah foto. */
 @media (max-width:767.98px){
 body.elementor-page-59 .elementor-59 .hero-main-row{flex-direction:column;align-items:center}
-body.elementor-page-59 .elementor-59 .hero-left-col{display:contents}
-body.elementor-page-59 .elementor-59 .hero-brand-pill{order:1}
 body.elementor-page-59 .elementor-59 .hero-title{order:2}
 body.elementor-page-59 .elementor-59 .hero-lead{order:3}
-body.elementor-page-59 .elementor-59 .hero-btns-inner{order:4}
-body.elementor-page-59 .elementor-59 .hero-right-col{order:5;flex:0 0 auto;align-self:center;width:100%}
-body.elementor-page-59 .elementor-59 .hero-trust-row{order:6}
-body.elementor-page-59 .elementor-59 .hero-left-col .hero-lead{max-width:34ch;margin-left:auto;margin-right:auto;text-align:center}
-body.elementor-page-59 .elementor-59 .hero-trust-row{flex-direction:row;flex-wrap:nowrap;justify-content:center;margin-top:28px}
-body.elementor-page-59 .elementor-59 .hero-trust-item{flex:1 1 0;min-width:0;text-align:center}
-body.elementor-page-59 .elementor-59 .hero-trust-item .elementor-icon-box-wrapper{flex-direction:column;align-items:center;text-align:center;gap:8px}
-body.elementor-page-59 .elementor-59 .hero-trust-item .elementor-icon-box-icon{margin:0}
-body.elementor-page-59 .elementor-59 .hero-trust-item .elementor-icon-box-title{font-size:14px;line-height:1.4;text-align:center}
-body.elementor-page-59 .elementor-59 .hero-chip-pill{padding:8px 12px;max-width:calc(100% - 20px)}
-body.elementor-page-59 .elementor-59 .hero-chip-pill .elementor-icon-box-title{font-size:13px;white-space:nowrap}
 /* Navbar mobile: ikon + MASTER TRUCK sejajar tengah, jarak 12px.
    Pill dikunci <=64px (min-height desktop 68px dinetralkan di mobile). */
 body.elementor-page-59 .elementor-59 .navbar-pill{min-height:0}
-body.elementor-page-59 .elementor-59 .navbar-brand-widget .elementor-icon-box-wrapper{display:flex;flex-direction:row;align-items:center;gap:12px}
-body.elementor-page-59 .elementor-59 .navbar-brand-widget .elementor-icon-box-icon{margin:0;flex:0 0 auto}
-body.elementor-page-59 .elementor-59 .navbar-brand-widget .elementor-icon-box-content{display:flex;align-items:center;min-width:0}
-body.elementor-page-59 .elementor-59 .navbar-brand-widget .elementor-icon-box-title{margin:0;line-height:1.2}
 }
 
 /* --- J-C. Pil "15 Tahun": ramping mengikuti isi (maks 260px) --- */
-body.elementor-page-59 .elementor-59 .about-exp-chip{left:16px;bottom:16px}
-body.elementor-page-59 .elementor-59 .about-chip-pill{width:max-content;max-width:260px}
 
 /* --- J-D. Ritme vertikal Tentang: paragraf > senarai 20, senarai > kartu 24, kartu > tombol 24 --- */
-body.elementor-page-59 .elementor-59 .about-right-col .about-desc{margin-bottom:20px}
-body.elementor-page-59 .elementor-59 .about-right-col .about-checks{margin-bottom:24px}
-body.elementor-page-59 .elementor-59 .about-right-col .sec-cert-badges{margin-bottom:24px}
 
 /* ============================================================
    REVAMP6m - RONDE 13: hero premium simple (10-2026)
@@ -867,33 +333,15 @@ body.elementor-page-59 .elementor-59 .about-right-col .sec-cert-badges{margin-bo
    ============================================================ */
 
 /* --- BENTO-A. Latar Hero Putih Murni dengan Grid Presisi Mikro (Tanpa Gradasi) --- */
-body.elementor-page-59 .elementor-59 .mt-hero-slide{position:relative;background-color:#FFFFFF;background-image:radial-gradient(#E2E8F0 1px,transparent 1px);background-size:28px 28px;overflow:hidden}
-body.elementor-page-59 .elementor-59 .mt-hero-slide::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 90% 70% at 50% 30%,rgba(255,255,255,0.85) 0%,#FFFFFF 90%);pointer-events:none;z-index:0}
-body.elementor-page-59 .elementor-59 .mt-hero-slide::after{display:none}
-body.elementor-page-59 .elementor-59 .mt-hero-slide>*{position:relative;z-index:1}
-body.elementor-page-59 .elementor-59 .hero-right-col::before{display:none}
 
 /* --- BENTO-B. Tipografi & Eyebrow Badge Presisi --- */
-body.elementor-page-59 .elementor-59 .hero-left-col .hero-title .elementor-heading-title{letter-spacing:-.035em}
-body.elementor-page-59 .elementor-59 .hero-left-col .hero-title .hero-h1-sub{letter-spacing:-.02em}
-body.elementor-page-59 .elementor-59 .hero-left-col .hero-brand-pill .elementor-heading-title{display:inline-flex;align-items:center;gap:8px;background:#FFFFFF;border:1px solid #E2E8F0;border-radius:999px;padding:6px 14px;font-size:13px;font-weight:600;color:#1E293B;box-shadow:0 1px 3px rgba(15,23,42,.04);max-height:34px;box-sizing:border-box;transition:border-color .2s ease,box-shadow .2s ease}
-body.elementor-page-59 .elementor-59 .hero-left-col .hero-brand-pill .elementor-heading-title::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#2563EB;box-shadow:0 0 0 3px rgba(37,99,235,.18);flex:0 0 auto}
 
 /* --- BENTO-C. Frame Foto Arsitektural Bezel Putih Solid (Foto Alami Tanpa Overlay) --- */
-body.elementor-page-59 .elementor-59 .hero-right-col{position:relative;background:#FFFFFF;border:1px solid #E2E8F0;border-radius:28px;padding:8px;box-shadow:0 1px 3px rgba(15,23,42,.04),0 20px 48px -12px rgba(15,23,42,.08);box-sizing:border-box}
-body.elementor-page-59 .elementor-59 .hero-right-col::after{display:none}
-body.elementor-page-59 .elementor-59 .mt-hero-slide .hero-truck-img{position:relative;overflow:hidden;border-radius:22px}
-body.elementor-page-59 .elementor-59 .mt-hero-slide .hero-truck-img img{border:1px solid rgba(226,232,240,.7);border-radius:22px;box-shadow:none;display:block;width:100%;object-fit:cover}
-body.elementor-page-59 .elementor-59 .mt-hero-slide .hero-truck-img::before{display:none}
 
 /* --- BENTO-D. Floating Chips Status Presisi Solid --- */
-body.elementor-page-59 .elementor-59 .hero-chip-pill{background:#FFFFFF;border:1px solid #E2E8F0;border-radius:12px;padding:8px 14px;box-shadow:0 8px 24px -4px rgba(15,23,42,.10),0 2px 4px rgba(15,23,42,.04);color:#0F172A;font-weight:600;font-size:13px;animation:mtChipFloat 6s ease-in-out infinite alternate}
-body.elementor-page-59 .elementor-59 .hero-chip-pill .elementor-icon-box-icon .elementor-icon{color:#2563EB;font-size:14px}
-body.elementor-page-59 .elementor-59 .hero-card-live{animation-delay:3s}
-body.elementor-page-59 .elementor-59 .hero-card-live .elementor-icon-box-title::before{animation:mtDotPulse 2.4s ease-in-out infinite}
 @keyframes mtChipFloat{from{transform:translateY(0)}to{transform:translateY(-5px)}}
 @keyframes mtDotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.65;transform:scale(.8)}}
-@media (max-width:767.98px){body.elementor-page-59 .elementor-59 .hero-chip-pill{animation:none}}
+@media (max-width:767.98px){}
 
 /* --- BENTO-E. Tombol Hero: Solid Oranye Presisi + Outline Navy Sekunder --- */
 body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button{background-color:#fd651e;background-image:none;color:#ffffff;box-shadow:0 10px 24px -2px rgba(253,101,30,.32);border:0;border-radius:12px;font-weight:700;transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease}
@@ -909,53 +357,28 @@ body.elementor-page-59 .elementor-59 .btn-hero-secondary .elementor-button .elem
 
 /* --- BENTO-F. Trust Badges: Bento Cards Dock Terpadu dengan Aksen Solid Tematik --- */
 @media (min-width:1024px){
-body.elementor-page-59 .elementor-59 .hero-trust-row{display:flex;flex-direction:row;align-items:center;flex-wrap:nowrap;gap:8px;background:#FFFFFF;border:1px solid #E2E8F0;border-radius:18px;padding:6px 12px;box-shadow:0 1px 3px rgba(15,23,42,.04),0 8px 24px -10px rgba(15,23,42,.06);width:fit-content;box-sizing:border-box}
-body.elementor-page-59 .elementor-59 .hero-trust-item{flex:0 0 auto;padding:6px 12px;border-radius:12px;transition:background-color .2s ease}
-body.elementor-page-59 .elementor-59 .hero-trust-item:hover{background-color:#F8FAFC}
-body.elementor-page-59 .elementor-59 .hero-trust-row .hero-trust-item+.hero-trust-item{border-left:1px solid #E2E8F0;padding-left:14px}
 }
 @media (min-width:768px) and (max-width:1023.98px){
-body.elementor-page-59 .elementor-59 .hero-trust-row{display:flex;flex-direction:row;justify-content:center;align-items:center;flex-wrap:nowrap;gap:6px;background:#FFFFFF;border:1px solid #E2E8F0;border-radius:16px;padding:6px 12px;box-shadow:0 1px 3px rgba(15,23,42,.04);width:fit-content;margin-left:auto;margin-right:auto;box-sizing:border-box}
-body.elementor-page-59 .elementor-59 .hero-trust-item{flex:0 0 auto;padding:4px 8px}
-body.elementor-page-59 .elementor-59 .hero-trust-row .hero-trust-item+.hero-trust-item{border-left:1px solid #E2E8F0;padding-left:10px}
 }
 @media (max-width:767.98px){
-body.elementor-page-59 .elementor-59 .hero-trust-row{display:flex;flex-direction:row;justify-content:center;align-items:center;flex-wrap:nowrap;gap:4px;background:#FFFFFF;border:1px solid #E2E8F0;border-radius:14px;padding:6px 8px;box-shadow:0 1px 3px rgba(15,23,42,.04);width:100%;max-width:360px;margin-left:auto;margin-right:auto;box-sizing:border-box}
-body.elementor-page-59 .elementor-59 .hero-trust-item{flex:1 1 0;min-width:0;padding:2px 4px}
-body.elementor-page-59 .elementor-59 .hero-trust-row .hero-trust-item+.hero-trust-item{border-left:1px solid #E2E8F0;padding-left:6px}
-body.elementor-page-59 .elementor-59 .hero-trust-item .elementor-icon-box-title{font-size:11.5px;letter-spacing:-0.2px}
 }
-body.elementor-page-59 .elementor-59 .hero-trust-item .elementor-icon-box-wrapper{display:flex;align-items:center;gap:8px}
-body.elementor-page-59 .elementor-59 .hero-trust-item .elementor-icon-box-icon{margin:0;flex:0 0 auto}
-body.elementor-page-59 .elementor-59 .hero-trust-item .elementor-icon-box-icon .elementor-icon{width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:#EFF6FF;border:1px solid #DBEAFE;color:#2563EB;font-size:13px}
 /* Aksen Solid Tematik: Garansi Pengerjaan dengan Emerald Segar */
-body.elementor-page-59 .elementor-59 .hero-trust-row > :nth-child(2) .elementor-icon,
-body.elementor-page-59 .elementor-59 .hero-trust-row .hero-trust-item .elementor-icon:has(.fa-shield-alt){background:#ECFDF5;border:1px solid #A7F3D0;color:#059669}
-body.elementor-page-59 .elementor-59 .hero-trust-row > :nth-child(2) .fa-shield-alt,
-body.elementor-page-59 .elementor-59 .hero-trust-row .hero-trust-item .fa-shield-alt{color:#059669}
-body.elementor-page-59 .elementor-59 .hero-trust-item .elementor-icon-box-title{font-size:13.5px;font-weight:600;color:#0F172A;margin:0;white-space:nowrap}
 
 /* --- BENTO-G. Navbar Kaca saat Scroll --- */
-@media (min-width:992px){body.elementor-page-59 .elementor-59 .mt-floating-navbar{min-height:80px}}
+@media (min-width:992px){}
 body.elementor-page-59 .elementor-59 .navbar-pill{transition:background-color .2s ease,box-shadow .2s ease,padding .2s ease}
 body.elementor-page-59 .elementor-59 .navbar-pill.is-scrolled{background:rgba(255,255,255,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 14px 30px -12px rgba(15,23,42,.15);padding-top:5px;padding-bottom:5px;min-height:60px}
 
 /* --- BENTO-H. Strip Statistik: Bento Dock Melayang --- */
 @media (min-width:1024px){
-body.elementor-page-59 .elementor-59 .mt-hero-slide{padding-bottom:84px}
-body.elementor-page-59 .elementor-59 .hero-stats-strip{position:relative;z-index:2;margin-top:-40px;background:transparent;border:0}
 body.elementor-page-59 .elementor-59 .hero-stats-inner{background:#FFFFFF;border:1px solid #E2E8F0;border-radius:24px;box-shadow:0 1px 3px rgba(15,23,42,.04),0 20px 48px -12px rgba(15,23,42,.07);padding:20px 28px}
 }
 
 /* --- M-I. Animasi masuk sekali (CSS murni; mati bila perlu) --- */
 @keyframes mtFadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @keyframes mtFadeZoom{from{opacity:0;transform:scale(.98)}to{opacity:1;transform:scale(1)}}
-body.elementor-page-59 .elementor-59 .hero-brand-pill{animation:mtFadeUp .5s ease-out both}
 body.elementor-page-59 .elementor-59 .hero-title{animation:mtFadeUp .5s ease-out 70ms both}
 body.elementor-page-59 .elementor-59 .hero-lead{animation:mtFadeUp .5s ease-out 140ms both}
-body.elementor-page-59 .elementor-59 .hero-btns-inner{animation:mtFadeUp .5s ease-out 210ms both}
-body.elementor-page-59 .elementor-59 .hero-trust-row{animation:mtFadeUp .5s ease-out 280ms both}
-body.elementor-page-59 .elementor-59 .hero-right-col{animation:mtFadeZoom .6s ease-out 140ms both}
 html.no-anim body.elementor-page-59 .elementor-59 .hero-brand-pill,
 html.no-anim body.elementor-page-59 .elementor-59 .hero-title,
 html.no-anim body.elementor-page-59 .elementor-59 .hero-lead,
@@ -993,15 +416,9 @@ body.elementor-editor-preview .elementor-59 .hero-chip-pill{animation:none;opaci
    Baris abu-abu B1 dihapus. Kartu: logo asli berwarna, kotak logo
    seragam agar nama sejajar; tablet 3 kolom, mobile 2 kolom.
    ============================================================ */
-body.elementor-page-59 .elementor-59 .sec-principals .principal-wall-card .elementor-widget-image{min-height:60px;display:flex;align-items:center;justify-content:center}
-body.elementor-page-59 .elementor-59 .sec-principals .principal-wall-card .elementor-widget-image img{filter:none;opacity:1}
 @media (min-width:768px) and (max-width:1023.98px){
-body.elementor-page-59 .elementor-59 .sec-principals-wall{flex-wrap:wrap}
-body.elementor-page-59 .elementor-59 .sec-principals-wall>.principal-wall-card{flex:0 0 calc(33.333% - 14px);width:calc(33.333% - 14px)}
 }
 @media (max-width:767.98px){
-body.elementor-page-59 .elementor-59 .sec-principals-wall{flex-wrap:wrap;justify-content:center}
-body.elementor-page-59 .elementor-59 .sec-principals-wall>.principal-wall-card{flex:0 0 calc(50% - 10px);width:calc(50% - 10px);text-align:center}
 }
 
 /* ============================================================
@@ -1012,14 +429,6 @@ body.elementor-page-59 .elementor-59 .sec-principals-wall>.principal-wall-card{f
 /* --- O-C1. Token desain + hover kartu seragam --- */
 body.elementor-page-59{--mt-radius-card:24px;--mt-radius-pill:999px;--mt-border:#E2E8F0;--mt-shadow-sm:0 1px 2px rgba(15,23,42,.04);--mt-shadow-md:0 10px 24px -10px rgba(15,23,42,.12);--mt-shadow-lg:0 24px 60px rgba(15,42,92,.12)}
 @media (hover:hover){
-body.elementor-page-59 .elementor-59 .service-grid-card:hover,
-body.elementor-page-59 .elementor-59 .feature-col-1:hover,
-body.elementor-page-59 .elementor-59 .feature-col-2:hover,
-body.elementor-page-59 .elementor-59 .feature-col-3:hover,
-body.elementor-page-59 .elementor-59 .feature-col-4:hover,
-body.elementor-page-59 .elementor-59 .step-col:hover,
-body.elementor-page-59 .elementor-59 .team-enterprise-card:hover,
-body.elementor-page-59 .elementor-59 .testimonial-enterprise-card:hover{transform:translateY(-4px);box-shadow:var(--mt-shadow-sm),var(--mt-shadow-lg);border-color:#CBD5E1}
 }
 
 /* --- O-C2. Scroll halus (mati saat reduced-motion; margin anchor tetap 118px teruji) --- */
@@ -1027,11 +436,7 @@ html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
 /* --- O-C5. Bar CTA mobile: fixed hanya <=767px, statis di editor --- */
-body.elementor-page-59 .elementor-59 .mt-mobile-cta{display:none}
 @media (max-width:767.98px){
-body.elementor-page-59 .elementor-59 .mt-mobile-cta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:1021;background:rgba(255,255,255,.96);border-top:1px solid #E2E8F0;box-shadow:0 -8px 24px rgba(15,23,42,.08);padding-bottom:env(safe-area-inset-bottom)}
-body.elementor-page-59 .elementor-59 .mt-mobile-cta .mt-mobile-cta-row{flex-wrap:nowrap;gap:12px}
-body.elementor-page-59 .elementor-59 .mt-mobile-cta .elementor-button{min-height:56px;width:100%}
 body.elementor-page-59{padding-bottom:76px}
 body.elementor-page-59 .floating-wa-btn{display:none}
 }
@@ -1310,9 +715,6 @@ body.elementor-page-59 .hero-lead {
     font-size: 16px;
     line-height: 1.55;
     color: #475569;
-}
-body.elementor-page-59 .hero-lead .elementor-widget-container {
-    max-width: 520px !important;
 }
 
 /* Hero CTAs Row (Hierarki: Tombol utama satu-satunya paling kontras, tombol sekunder outline navy) */
@@ -1713,12 +1115,7 @@ body.is-webdriver .status-live-dot {
     body.elementor-page-59 .topbar-iso-item {
         display: none !important;
     }
-    body.elementor-page-59 .telematics-row-bottom {
-        flex-direction: column !important;
-        align-items: stretch !important;
-        gap: 6px !important;
-    }
-    body.elementor-page-59 .telematics-desc {
+        body.elementor-page-59 .telematics-desc {
         white-space: normal !important;
         width: 100% !important;
     }
@@ -1728,23 +1125,33 @@ body.is-webdriver .status-live-dot {
 }
 
 @media (max-width: 991.98px) {
-    /* Header di tablet & mobile: sembunyikan menu tautan agar tetap 1 baris <= 64px */
+    /* RONDE 21 (2c): menu mobile — baris header hanya berisi logo, tombol
+       Masuk/Daftar, dan tombol hamburger. Daftar tautan tampil sebagai panel
+       dropdown saat hamburger diklik (lihat blok "RONDE 21" di akhir berkas). */
     body.elementor-page-59 .stitch-menu-col {
-        display: none !important;
+        display: flex !important;
+        width: auto !important;
+        max-width: none !important;
+        flex: 0 0 auto;
+        order: 5;
+        position: relative;
+        justify-content: flex-end;
     }
     body.elementor-page-59 .stitch-nav-row {
         flex-direction: row !important;
         align-items: center !important;
-        justify-content: space-between !important;
+        justify-content: flex-start !important;
         flex-wrap: nowrap !important;
         gap: 0 !important;
     }
     body.elementor-page-59 .stitch-brand-col {
         width: auto !important;
         max-width: 60% !important;
+        margin-right: auto;
     }
     body.elementor-page-59 .stitch-cta-col {
         width: auto !important;
+        order: 4;
     }
     body.elementor-page-59 .stitch-nav-actions {
         flex-direction: row !important;
@@ -1767,20 +1174,7 @@ body.is-webdriver .status-live-dot {
     body.elementor-page-59 .stitch-sec-hero .hero-lead { order: 3 !important; }
     body.elementor-page-59 .stitch-sec-hero .hero-btns-row { order: 4 !important; }
     body.elementor-page-59 .stitch-sec-hero .hero-brands-widget { order: 5 !important; }
-    body.elementor-page-59 .stitch-counter-bar > .e-con-inner {
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-        gap: 20px !important;
-    }
-    body.elementor-page-59 .stitch-counter-item {
-        flex: 0 0 calc(50% - 16px) !important;
-        border-right: none !important;
-        text-align: center !important;
-    }
-    body.elementor-page-59 .estimator-form-row {
-        flex-direction: column !important;
-    }
-    body.elementor-page-59 .keunggulan-grid-row,
+                body.elementor-page-59 .keunggulan-grid-row,
     body.elementor-page-59 .layanan-grid-row,
     body.elementor-page-59 .fleet-grid-row,
     body.elementor-page-59 .fasilitas-grid-row,
@@ -1788,12 +1182,7 @@ body.is-webdriver .status-live-dot {
     body.elementor-page-59 .footer-main-row {
         flex-direction: column !important;
     }
-    body.elementor-page-59 .stitch-cta-row {
-        flex-direction: column !important;
-        text-align: center !important;
-        gap: 20px !important;
     }
-}
 
 @media (max-width: 767.98px) {
     /* Topbar mobile: <= 36px, hanya hotline */
@@ -1898,12 +1287,7 @@ body.is-webdriver .status-live-dot {
         order: 3 !important;
         text-align: center !important;
     }
-    body.elementor-page-59 .stitch-sec-hero .hero-lead .elementor-widget-container {
-        margin-left: auto !important;
-        margin-right: auto !important;
-        text-align: center !important;
-    }
-    body.elementor-page-59 .stitch-sec-hero .hero-btns-row {
+        body.elementor-page-59 .stitch-sec-hero .hero-btns-row {
         order: 4 !important;
         flex-direction: column !important;
         gap: 10px !important;
@@ -1978,28 +1362,10 @@ body.is-webdriver .status-live-dot {
         width: calc(100% - 20px) !important;
         max-width: 440px !important;
     }
-    body.elementor-page-59 .keunggulan-grid-row,
-    body.elementor-page-59 .layanan-grid-row,
-    body.elementor-page-59 .fasilitas-grid-row {
-        flex-direction: row !important;
-        flex-wrap: wrap !important;
-    }
-    body.elementor-page-59 .keunggulan-grid-row > div,
-    body.elementor-page-59 .layanan-grid-row > div,
-    body.elementor-page-59 .fasilitas-grid-row > div {
-        flex: 0 0 calc(50% - 16px) !important;
-    }
-}
+        }
 
 @media (max-width: 480px) {
-    body.elementor-page-59 .booking-form-box div[style*="padding:32px"],
-    body.elementor-page-59 .booking-form-box div[style*="padding: 32px"] {
-        padding: 16px 14px !important;
-    }
-    body.elementor-page-59 .booking-form-box div[style*="minmax"] {
-        grid-template-columns: 1fr !important;
-    }
-}
+        }
 
 @media (max-width: 360px) {
     body.elementor-page-59 .topbar-hotline-item {
@@ -2012,3 +1378,638 @@ body.is-webdriver .status-live-dot {
     }
 }
 
+/* ====================================================================
+   RONDE 21 (REVAMP13) — menu mobile, widget native baru, footer & lokasi
+   ==================================================================== */
+
+/* 1. Menu navigasi: panel tautan + hamburger (2c) */
+body.elementor-page-59 .stitch-menu-col {
+    position: relative;
+}
+body.elementor-page-59 .stitch-menu-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+}
+body.elementor-page-59 .stitch-menu-panel a {
+    color: #444651;
+    text-decoration: none;
+}
+body.elementor-page-59 .stitch-nav-burger {
+    display: none;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    background: #FFFFFF;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+}
+body.elementor-page-59 .stitch-nav-burger span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    border-radius: 2px;
+    background: #00236f;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+body.elementor-page-59 .stitch-nav-burger:focus-visible {
+    outline: 3px solid rgba(0, 35, 111, 0.35);
+    outline-offset: 2px;
+}
+body.elementor-page-59 .stitch-nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+body.elementor-page-59 .stitch-nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+body.elementor-page-59 .stitch-nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 991.98px) {
+    body.elementor-page-59 .stitch-nav-burger {
+        display: flex;
+    }
+    body.elementor-page-59 .stitch-menu-panel {
+        display: none;
+        position: absolute;
+        top: calc(100% + 10px);
+        right: 0;
+        min-width: 240px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        padding: 12px;
+        background: #FFFFFF;
+        border: 1px solid #E2E8F0;
+        border-radius: 16px;
+        box-shadow: 0 18px 36px -16px rgba(15, 23, 42, 0.18);
+        z-index: 40;
+    }
+    body.elementor-page-59 .stitch-menu-col.is-open .stitch-menu-panel {
+        display: flex;
+    }
+    body.elementor-page-59 .stitch-menu-panel a {
+        display: flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 8px 12px;
+        border-radius: 10px;
+    }
+    body.elementor-page-59 .stitch-menu-panel a:hover {
+        background: #EEF1FF;
+    }
+}
+
+/* 2. Statistik hero: widget Counter menaruh judul di atas angka -> dibalik
+      agar tampil seperti desain (angka besar di atas, label di bawah). */
+body.elementor-page-59 .stat-text-col .elementor-counter {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+}
+body.elementor-page-59 .stat-text-col .elementor-counter-title {
+    margin-top: 2px;
+    font-size: 14px;
+}
+/* Angka + akhiran ("5.200+", "99,2%") harus rapat tanpa spasi:
+   flex mengabaikan whitespace antar span di template Elementor. */
+body.elementor-page-59 .stat-text-col .elementor-counter-number-wrapper {
+    display: inline-flex;
+    align-items: baseline;
+}
+body.elementor-page-59 .stat-item .elementor-icon-wrapper {
+    display: block;
+    flex: 0 0 auto;
+}
+body.elementor-page-59 .step-icon .elementor-icon-wrapper {
+    display: block;
+}
+
+/* 3. Form booking (Ronde 21 2a: kelas pengganti inline style) */
+body.elementor-page-59 .booking-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+}
+body.elementor-page-59 .booking-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 28px;
+}
+body.elementor-page-59 .booking-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+}
+body.elementor-page-59 .booking-card select:focus-visible,
+body.elementor-page-59 .booking-card a:focus-visible {
+    outline: 3px solid rgba(0, 35, 111, 0.35);
+    outline-offset: 2px;
+}
+@media (max-width: 767.98px) {
+    body.elementor-page-59 .booking-card { padding: 20px 16px; }
+    body.elementor-page-59 .booking-grid { grid-template-columns: 1fr; }
+    body.elementor-page-59 .booking-actions { flex-direction: column; align-items: stretch; }
+    body.elementor-page-59 .booking-actions .btn-booking-wa { width: 100%; }
+}
+
+/* 4. Baris logo merek (4c) */
+body.elementor-page-59 .brand-logo-row-img img {
+    max-height: 44px;
+    width: auto;
+    object-fit: contain;
+}
+@media (max-width: 991.98px) {
+    body.elementor-page-59 .brand-logos-row {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    body.elementor-page-59 .brand-logo-col {
+        flex: 0 0 calc(33.333% - 12px);
+    }
+}
+
+/* 5. Banner CTA akhir (3c: container native + chip + tombol) */
+body.elementor-page-59 .cta-chip .elementor-heading-title {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #fd651e;
+    border-radius: 6px;
+    text-transform: uppercase;
+}
+body.elementor-page-59 .final-banner-btns .elementor-button {
+    width: 100%;
+    justify-content: center;
+}
+@media (max-width: 767.98px) {
+    body.elementor-page-59 .final-banner { padding: 32px 20px; }
+    body.elementor-page-59 .final-banner-text { max-width: 100%; }
+    body.elementor-page-59 .final-banner-btns { width: 100%; }
+}
+
+/* 6. Lokasi & jam buka (4d) */
+body.elementor-page-59 .location-cta-col .elementor-button {
+    width: 100%;
+    justify-content: center;
+}
+@media (max-width: 991.98px) {
+    body.elementor-page-59 .location-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    body.elementor-page-59 .location-info-col {
+        width: 100%;
+        padding-right: 0;
+    }
+    body.elementor-page-59 .location-cta-col {
+        width: 100%;
+    }
+}
+@media (max-width: 767.98px) {
+    body.elementor-page-59 .workflow-row {
+        flex-direction: column;
+    }
+}
+
+/* 7. Footer native (3c) */
+body.elementor-page-59 .footer-col-title .elementor-heading-title {
+    text-transform: uppercase;
+}
+body.elementor-page-59 .footer-brand-name .elementor-heading-title {
+    line-height: 1.2;
+}
+body.elementor-page-59 .footer-company {
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+body.elementor-page-59 .footer-contact {
+    font-weight: 600;
+}
+body.elementor-page-59 .footer-contact i {
+    color: #fd651e;
+    margin-right: 6px;
+}
+body.elementor-page-59 .footer-contact a {
+    color: #00236f;
+    text-decoration: none;
+}
+body.elementor-page-59 .footer-contact a:hover {
+    text-decoration: underline;
+}
+body.elementor-page-59 .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+body.elementor-page-59 .footer-links a {
+    color: #444651;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+body.elementor-page-59 .footer-links a:hover {
+    color: #00236f;
+}
+body.elementor-page-59 .footer-links a:focus-visible,
+body.elementor-page-59 .footer-contact a:focus-visible {
+    outline: 3px solid rgba(0, 35, 111, 0.35);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+
+/* ============================================================
+   RONDE 4 (2026-10-27) — "Rapikan total"
+   Sistem tombol, navbar & drawer, logo merek, cara kerja,
+   testimoni, FAQ, CTA penutup, footer, tombol melayang.
+   Native Elementor, tanpa inline style baru, tanpa Bootstrap.
+   ============================================================ */
+
+/* --- 2. Sistem tombol: SATU definisi .mt-btn (spek 2.1) --- */
+body.elementor-page-59 .mt-btn .elementor-button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    padding: 0 22px !important;
+    white-space: nowrap !important;
+    border-radius: 10px !important;
+}
+body.elementor-page-59 .mt-btn .elementor-button .elementor-button-icon {
+    margin: 0 !important;
+    font-size: 16px !important;
+}
+/* --- 1.2 Varian navigasi: tinggi 44px, gap 12px, nowrap --- */
+body.elementor-page-59 .stitch-nav-actions {
+    gap: 12px !important;
+}
+body.elementor-page-59 .btn-nav-login .elementor-button,
+body.elementor-page-59 .btn-nav-register .elementor-button {
+    height: 44px !important;
+    min-height: 44px !important;
+    max-height: 44px !important;
+    white-space: nowrap !important;
+}
+
+/* --- 1.2 Menu desktop: 15px/600, nowrap, tinggi link <= 24px --- */
+body.elementor-page-59 .stitch-menu-panel {
+    gap: 28px;
+    font-weight: 600;
+}
+body.elementor-page-59 .stitch-menu-panel a {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.2;
+    padding-bottom: 4px;
+    white-space: nowrap;
+}
+
+/* --- 1.1 Brand: ikon 36px + dua baris teks nowrap, line-height 1.15 --- */
+body.elementor-page-59 .brand-text-link {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+    text-decoration: none;
+    white-space: nowrap;
+}
+body.elementor-page-59 .brand-title {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    color: #00236f;
+    letter-spacing: -0.4px;
+    white-space: nowrap;
+}
+body.elementor-page-59 .brand-sub {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+body.elementor-page-59 .stitch-brand-col .brand-logo-img img {
+    height: 36px;
+}
+
+/* --- 1.3 <= 991px: bar hanya brand + hamburger; drawer penuh lebar
+       dengan link 18px dan Masuk/Daftar selebar drawer di dasar --- */
+@media (max-width: 991.98px) {
+    body.elementor-page-59 .stitch-menu-col {
+        position: static !important;
+    }
+    /* widget pembungkus burger+panel ikut statis supaya panel menempel ke bar
+       (bukan ke widget selebar tombol hamburger). */
+    body.elementor-page-59 .stitch-menu-col .elementor-widget {
+        position: static !important;
+    }
+    /* .e-con-inner & nav-row juga positioned -> statis agar panel selebar bar */
+    body.elementor-page-59 .stitch-navbar > .e-con-inner,
+    body.elementor-page-59 .stitch-nav-row {
+        position: static !important;
+    }
+    body.elementor-page-59 .stitch-nav-row > .stitch-cta-col {
+        display: none !important;
+    }
+    body.elementor-page-59 .stitch-menu-panel {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        min-width: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+        padding: 18px 20px 22px;
+        font-size: 18px;
+        font-weight: 600;
+        background: #ffffff;
+        border: 0;
+        border-radius: 0 0 16px 16px;
+        box-shadow: 0 18px 36px -16px rgba(15, 23, 42, 0.18);
+        z-index: 60;
+    }
+    body.elementor-page-59 .stitch-menu-col.is-open .stitch-menu-panel {
+        display: flex;
+    }
+    body.elementor-page-59 .stitch-menu-panel a {
+        display: flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 6px 10px;
+        font-size: 18px;
+        line-height: 1.3;
+        border-radius: 10px;
+    }
+    body.elementor-page-59 .stitch-menu-panel .stitch-cta-col {
+        display: flex !important;
+        width: 100% !important;
+        margin-top: 2px;
+    }
+    body.elementor-page-59 .stitch-menu-panel .stitch-nav-actions,
+    body.elementor-page-59 .stitch-menu-panel .nav-actions {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+        width: 100% !important;
+    }
+    body.elementor-page-59 .stitch-menu-panel .btn-nav-login {
+        display: block !important;
+    }
+    body.elementor-page-59 .stitch-menu-panel .stitch-nav-actions .mt-btn .elementor-button {
+        width: 100% !important;
+        height: 48px !important;
+        min-height: 48px !important;
+        font-size: 15px !important;
+    }
+}
+
+/* Ronde 4 (1.4): bar sticky tetap <= 60px dengan tombol nav 44px —
+   padding atas/bawah .e-con-inner diniolkan saat sudah di-scroll. */
+body.elementor-page-59 .stitch-navbar.sticky-scrolled > .e-con-inner {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* --- 8.1 Logo merek seragam: tinggi maks 32px, kotak & jarak sama --- */
+body.elementor-page-59 .brand-logo-row-img img {
+    height: 32px;
+    max-height: 32px;
+    width: 100%;
+    object-fit: contain;
+}
+
+/* --- 10.1 Cara Kerja: garis penghubung tipis antar kartu (desktop) --- */
+@media (min-width: 992px) {
+    body.elementor-page-59 .workflow-row .step-card {
+        position: relative;
+    }
+    body.elementor-page-59 .workflow-row .step-card:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -20px;
+        width: 20px;
+        height: 1px;
+        background: #BFDBFE;
+    }
+}
+
+/* --- 10.2 Testimoni: ikon kutip 28px #BFDBFE pojok kanan atas,
+       kutipan 17px line-height 1.6 --- */
+body.elementor-page-59 .testi-card-col {
+    position: relative;
+}
+body.elementor-page-59 .testi-card-col::after {
+    content: "\f10e";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 28px;
+    line-height: 1;
+    color: #BFDBFE;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    pointer-events: none;
+}
+body.elementor-page-59 .testi-card-col p {
+    font-size: 17px !important;
+    line-height: 1.6 !important;
+}
+
+/* --- 10.3 FAQ: kartu sendiri, border #E2E8F0, radius 12, jarak 12,
+       padding 18x20, judul navy 17px/600, ikon +/- di kanan --- */
+body.elementor-page-59 .faq-accordion-box .elementor-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border: 0 !important;
+    background: transparent !important;
+}
+body.elementor-page-59 .faq-accordion-box .elementor-accordion-item {
+    background: #ffffff;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 0 !important;
+}
+body.elementor-page-59 .faq-accordion-box .elementor-tab-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 18px 20px !important;
+    margin: 0 !important;
+}
+body.elementor-page-59 .faq-accordion-box .elementor-accordion-title {
+    flex: 1;
+    font-size: 17px;
+    font-weight: 600;
+    color: #0F2A5C;
+}
+body.elementor-page-59 .faq-accordion-box .elementor-accordion-icon {
+    order: 2;
+    margin: 0 !important;
+}
+body.elementor-page-59 .faq-accordion-box .elementor-tab-content {
+    padding: 0 20px 18px !important;
+    margin: 0 !important;
+}
+
+/* --- 10.4 CTA penutup: dua tombol berdampingan mengikuti isi --- */
+body.elementor-page-59 .final-banner-btns .elementor-button {
+    width: auto !important;
+    justify-content: center !important;
+}
+@media (max-width: 767.98px) {
+    body.elementor-page-59 .final-banner-btns .elementor-button {
+        width: 100% !important;
+    }
+}
+
+/* --- 11.1 Footer: 4 lingkaran 40px outline, gap 12, hover aksen --- */
+body.elementor-page-59 .footer-social {
+    display: flex;
+    gap: 12px;
+}
+body.elementor-page-59 .footer-social a {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #E2E8F0;
+    border-radius: 50%;
+    background: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #00236f;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+body.elementor-page-59 .footer-social a:hover {
+    background: #2563EB;
+    border-color: #2563EB;
+    color: #ffffff;
+}
+body.elementor-page-59 .footer-social i {
+    font-size: 16px;
+    margin: 0;
+}
+/* --- 11.2 Link footer slate #475569, hover biru #2563EB, tanpa garis bawah --- */
+body.elementor-page-59 .footer-links a,
+body.elementor-page-59 .footer-contact a,
+body.elementor-page-59 .footer-menu a {
+    color: #475569 !important;
+    text-decoration: none !important;
+}
+body.elementor-page-59 .footer-links a:hover,
+body.elementor-page-59 .footer-contact a:hover,
+body.elementor-page-59 .footer-menu a:hover {
+    color: #2563EB !important;
+    text-decoration: none !important;
+}
+/* --- 11.3 Baris bawah: copyright kiri + menu kanan, satu baris --- */
+body.elementor-page-59 .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 20px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #E2E8F0;
+    font-size: 14px;
+    color: #757682;
+}
+body.elementor-page-59 .footer-menu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+}
+body.elementor-page-59 .footer-menu-sep {
+    color: #CBD5E1;
+}
+
+/* --- 11.5 Tombol melayang: back-to-top 44px putih berborder di atas
+       WhatsApp 48px; kanan-bawah 24px --- */
+body.elementor-page-59 .mt-back-top {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    right: 24px;
+    bottom: 84px;
+    background: #ffffff;
+    color: #00236f;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 10px 24px -8px rgba(15, 23, 42, 0.28);
+}
+body.elementor-page-59 .mt-back-top:hover {
+    background: #2563EB;
+    border-color: #2563EB;
+    color: #ffffff;
+}
+body.elementor-page-59 .floating-wa-btn {
+    right: 24px;
+    bottom: 24px;
+}
+/* --- 11.4 <= 767px: tanpa bar CTA bawah di halaman ini -> ruang cadangan
+       76px di bawah footer dihapus; WA melayang tetap tampil --- */
+@media (max-width: 767.98px) {
+    body.elementor-page-59 {
+        padding-bottom: 0;
+    }
+    body.elementor-page-59 .floating-wa-btn {
+        display: grid !important;
+    }
+}
+@media (max-width: 991.98px) {
+    body.elementor-page-59 .mt-back-top {
+        display: none !important;
+    }
+}
+
+/* --- 4.x Kartu telematika: pil status tak boleh terpotong (768: "SIA")
+       judul+pill boleh turun baris bila ruang sempit --- */
+body.elementor-page-59 .telematics-title-group {
+    flex-wrap: wrap;
+}
+body.elementor-page-59 .telematics-status-pill {
+    flex: 0 0 auto;
+}
+
+/* --- 2.2 Tombol booking WhatsApp: nowrap (tak patah), radius tombol 10 --- */
+body.elementor-page-59 .btn-booking-wa {
+    white-space: nowrap !important;
+    border-radius: 10px !important;
+}
+@media (max-width: 767.98px) {
+    body.elementor-page-59 .btn-booking-wa {
+        font-size: 14px !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+}
+
+/* --- 4.4 Hero HP: padding atas 24px --- */
+@media (max-width: 767.98px) {
+    body.elementor-page-59 .stitch-sec-hero > .e-con-inner {
+        padding-top: 24px !important;
+        padding-bottom: 24px !important;
+    }
+}

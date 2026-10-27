@@ -6,18 +6,138 @@ Membangun ulang Page 59 Beranda dengan desain 1:1 dari Google Stitch (Project 69
 Semua elemen dapat diedit langsung di Elementor UI.
 """
 
+import argparse
+import hashlib
 import json
 import os
 import re
 import secrets
 import subprocess
+import sys
 import tempfile
+import urllib.parse
 import urllib.request
+from datetime import datetime
 from pathlib import Path
 
 CONTAINER = "lpm-wp-app"
 PAGE_ID = 59
-SITE_URL = "http://localhost:5000"
+
+# =====================================================================
+# SITE_DATA — SATU SUMBER KEBENARAN DATA PERUSAHAAN (Ronde 21)
+# Semua teks/tautan di halaman wajib mengambil nilai dari blok ini.
+# Nilai yang BELUM pasti diberi penanda `TODO: konfirmasi pemilik`
+# dan dicatat dalam tabel di docs/DATA-PEMILIK.md.
+# =====================================================================
+SITE_URL = os.environ.get("MT_SITE_URL", "http://localhost:5000")
+
+# NAMA PT: masih ada 2 kandidat di repo ("PT Lotus Prima Mandiri" di footer
+# lama vs "PT Master Truck Indonesia" di README & schema SEO).
+# Sementara SEMUA tempat memakai nilai di bawah ini.
+# TODO: konfirmasi pemilik — nama PT resmi.
+COMPANY_NAME = "PT Master Truck Indonesia"
+BRAND = "Master Truck"
+
+# TODO: konfirmasi pemilik — nomor telepon & WhatsApp resmi.
+# PHONE_TEL sengaja DIKOSONGKAN selama nomor asli belum ada: tel_link()
+# mengarahkan tombol telepon ke WhatsApp supaya tidak ada tautan `tel:`
+# palsu yang tidak bisa dihubungi.
+PHONE_DISPLAY = "0812-MASTER-TRUCK"          # placeholder, tampil di topbar
+PHONE_TEL = ""                                # format +62… (kosong = belum ada)
+LANDLINE_DISPLAY = "061-8888-1234"           # TODO: konfirmasi pemilik
+WA_NUMBER = "6281288881234"                  # format 62… tanpa tanda +
+EMAIL = "fleet@mastertruck.co.id"            # TODO: konfirmasi pemilik
+ADDRESS = "Kawasan Industri Medan (KIM) III, Medan, Sumatera Utara"
+ADDRESS_DETAIL = ""                          # TODO: konfirmasi pemilik — nama jalan & nomor
+HOURS = "Senin – Sabtu: 08.00 – 20.00"
+HOURS_TOWING = "Derek & bantuan darurat: 24 jam"
+AREA = "Medan dan sekitarnya"                # TODO: konfirmasi pemilik — detail wilayah layanan
+
+# TODO: konfirmasi pemilik — URL portal armada (Masuk/Daftar) di produksi.
+# Nilai default sengaja BUKAN localhost:3000 supaya tidak ada URL pengembangan
+# asing di HTML (Ronde 21 butir 7). Portal lokal tetap bisa dipakai saat build:
+#   MT_FLEET_URL=http://localhost:3000 python tools/build-stitch-elementor.py
+FLEET_URL = os.environ.get("MT_FLEET_URL", SITE_URL)
+LOGIN_URL = f"{FLEET_URL.rstrip('/')}/#login"
+REGISTER_URL = f"{FLEET_URL.rstrip('/')}/#register"
+
+# TODO: konfirmasi pemilik — halaman Kebijakan Privasi (post ID 3) masih DRAFT.
+# Isi URL-nya SETELAH halaman itu diterbitkan; kosong = tautan tidak ditampilkan
+# (aturan Ronde 21 4e: tanpa halaman baru yang kosong).
+PRIVACY_URL = os.environ.get("MT_PRIVACY_URL", "")
+
+MAPS_URL = ("https://www.google.com/maps/search/?api=1&query="
+            + urllib.parse.quote(f"{ADDRESS}"))
+
+
+# =====================================================================
+# CLAIMS — SEMUA KLAIM ANGKA/PENGHARGAAN DI HALAMAN (Ronde 21 butir 1d).
+# Nilai TIDAK diubah; dikumpulkan di sini agar mudah diganti satu tempat,
+# ditandai TODO, dan didaftarkan di docs/DATA-PEMILIK.md.
+# =====================================================================
+CLAIMS = {
+    "truk_ditangani":     "5.200+",      # TODO: konfirmasi pemilik
+    "on_time":            "99,2%",       # TODO: konfirmasi pemilik (format id)
+    "jumlah_bay":         "15+",         # TODO: konfirmasi pemilik
+    "perusahaan_mitra":   "400+",        # TODO: konfirmasi pemilik
+    "hemat_biaya":        "30%",         # TODO: konfirmasi pemilik
+    "diskon_standard":    "10%",         # TODO: konfirmasi pemilik
+    "diskon_prime":       "18%",         # TODO: konfirmasi pemilik
+    "garansi_overhaul":   "180 Hari",    # TODO: konfirmasi pemilik
+    "garansi_km":         "50.000 KM",   # TODO: konfirmasi pemilik
+    "inspeksi_poin":      "30",          # TODO: konfirmasi pemilik
+    "poin_inspeksi_45":   "45",          # TODO: konfirmasi pemilik
+    "luas_bengkel":       "8.000 m²",    # TODO: konfirmasi pemilik
+    "derek_ton":          "25 ton",      # TODO: konfirmasi pemilik
+    "waktu_tiba_derek":   "45 menit",    # TODO: konfirmasi pemilik
+    "iso9001":            "ISO 9001:2015",  # TODO: konfirmasi pemilik
+    "smk3":               "Sistem Manajemen K3 (SMK3)",  # TODO: konfirmasi pemilik
+    "crane_ton":          "10 ton",      # TODO: konfirmasi pemilik
+    "pit_servis":         "20 Meter",    # TODO: konfirmasi pemilik
+    "tekanan_injektor":   "2.500 bar",   # TODO: konfirmasi pemilik
+    "jam_telematika":     "< 3 Jam",     # TODO: konfirmasi pemilik
+    "garansi_sparepart":  "6 Bulan",     # TODO: konfirmasi pemilik
+}
+
+# =====================================================================
+# FLAG KONTEN — pemilik bisa mematikan sebelum situs tayang.
+# =====================================================================
+SHOW_TESTIMONIALS = True    # default True; matikan bila testimoni asli belum ada
+SHOW_BRAND_LOGOS = True     # default True (logo sudah pernah tayang di ronde lalu);
+                            # set False bila izin pemakaian logo merek belum ada.
+                            # TODO: konfirmasi pemilik — izin penggunaan logo merek.
+
+
+# TODO: konfirmasi pemilik — daftar klaim/konten yang berisiko bila tak terbukti
+# (didiskusikan di laporan Ronde 21, terkumpul di docs/DATA-PEMILIK.md):
+RISKY_CLAIMS = [
+    'hero: "BENGKEL REKANAN RESMI & SPESIALIS HEAVY DUTY TRUCK #1"',
+    'topbar: "Standar OEM ISO 9001"',
+    'footer (lama): "Certified Bosch Diesel Center"',
+    'footer (lama): "Rekanan Asuransi Komersial"',
+    'testimoni (lama): "setara bengkel ATPM resmi"',
+    'fitur (lama): "scanner resmi Scania SDP3, Hino DX3, dan Volvo Tech Tool"',
+    'fitur (lama): nama principal Bosch, Denso, Wabco, Sakura, Pertamina Lubricants',
+]
+
+
+def wa_link(text: str) -> str:
+    """Tautan wa.me yang dibangun dari WA_NUMBER; pesan di-URL-encode."""
+    return f"https://wa.me/{WA_NUMBER}?text={urllib.parse.quote(text)}"
+
+
+# Pesan default tombol telepon (dipakai saat nomor asli belum ada).
+WA_DEFAULT_TEXT = "Halo Master Truck, saya butuh bantuan untuk armada saya."
+
+
+def tel_link(text: str = WA_DEFAULT_TEXT) -> str:
+    """`tel:` hanya bila PHONE_TEL valid (+62…); selain itu ke WhatsApp.
+    TODO: konfirmasi pemilik — nomor telepon asli."""
+    if PHONE_TEL and PHONE_TEL.startswith("+62") and PHONE_TEL[3:].isdigit():
+        return "tel:" + PHONE_TEL
+    return wa_link(text)
+
+
 BASE = f"{SITE_URL}/wp-content/uploads/stitch"
 
 # Image mapping to WordPress Attachment IDs
@@ -34,6 +154,15 @@ IMG = {
     "testi2": (f"{BASE}/stitch_img_10.webp", 339),
     "testi3": (f"{BASE}/stitch_img_11.webp", 340),
     "mekanik": (f"{BASE}/stitch_img_12.webp", 341),
+    # Ronde 21 4c: 6 logo merek PNG dari Media Library (asli, sudah terunggah).
+    # Catatan: lampiran 127-132 menunjuk berkas .svg yang TIDAK ada di server
+    # (pindah ke folder brands/), jadi dipakai lampiran PNG yang filenya nyata.
+    "brand_pertamina": (f"{SITE_URL}/wp-content/uploads/2026/10/pertamina-300x70.png", 191),
+    "brand_mobil": (f"{SITE_URL}/wp-content/uploads/2026/10/mobil-300x225.png", 189),
+    "brand_dunlop": (f"{SITE_URL}/wp-content/uploads/2026/10/dunlop-300x167.png", 183),
+    "brand_gs_astra": (f"{SITE_URL}/wp-content/uploads/2026/10/gs-astra.png", 194),
+    "brand_incoe": (f"{SITE_URL}/wp-content/uploads/2026/10/incoe.png", 195),
+    "brand_sakura": (f"{SITE_URL}/wp-content/uploads/2026/10/sakura.png", 196),
 }
 
 # Color Palette dari Stitch
@@ -193,7 +322,7 @@ def W_text(html, align="left", cls="", size=16, color=C["text_muted"], margin=No
         s["_css_classes"] = cls
     return W("text-editor", s)
 
-def W_button(text, link="#", icon="", ipos="after", align="left", cls="", bg=C["primary"], text_color=C["white"], radius=12, pad=(14, 24, 14, 24), margin=None):
+def W_button(text, link="#", icon="", ipos="after", align="left", cls="", bg=C["primary"], text_color=C["white"], radius=12, pad=(14, 24, 14, 24), margin=None, border=None, border_width=1):
     s = {
         "text": text,
         "link": {"url": link, "is_external": "", "nofollow": ""},
@@ -209,11 +338,25 @@ def W_button(text, link="#", icon="", ipos="after", align="left", cls="", bg=C["
         "_margin": margin if margin is not None else px4(0, 0, 0, 0),
     }
     if icon:
-        s["selected_icon"] = {"value": icon, "library": "fa-solid" if "fa-" in icon else "fa-regular"}
+        if icon.startswith("fab"):
+            lib = "fa-brands"
+        elif icon.startswith("fas"):
+            lib = "fa-solid"
+        else:
+            lib = "fa-solid"
+        s["selected_icon"] = {"value": icon, "library": lib}
         s["icon_align"] = ipos
         s["icon_indent"] = fsize(8)
+    if border:
+        s["border_border"] = "solid"
+        s["border_width"] = px4(border_width, border_width, border_width, border_width)
+        s["border_color"] = border
+        s["border_radius"] = rad(radius)
     if cls:
         s["_css_classes"] = cls
+    # Ronde 4 (2.1): satu kelas dasar .mt-btn untuk SEMUA tombol —
+    # tinggi 48, ikon 16, gap 8, nowrap, radius 10 (lihat mt-custom.css).
+    s["_css_classes"] = ((s.get("_css_classes") or "") + " mt-btn").strip()
     return W("button", s)
 
 def W_image(key, alt="", cls="", radius=16, height=None, margin=None):
@@ -233,25 +376,38 @@ def W_image(key, alt="", cls="", radius=16, height=None, margin=None):
         s["_css_classes"] = cls
     return W("image", s)
 
-def W_counter(num, title, suffix="", cls="", prefix="", size=36, color=C["primary"]):
+def W_counter(num, title, suffix="", cls="", prefix="", size=26, color=None, decimals=0, duration=1):
+    """Widget Counter native Elementor (Ronde 21 3c).
+    duration=1 -> angka langsung final (tanpa animasi angka, CLS tetap 0).
+    thousand_separator_char '.' (format angka Indonesia)."""
     s = {
-        "starting_number": 0,
+        # starting = ending: angka final sudah ada di HTML (tanpa animasi angka,
+        # CLS 0, dan teks tetap benar bila JS tak jalan).
+        "starting_number": num,
         "ending_number": num,
-        "duration": 2000,
+        "duration": duration,
         "thousand_separator": "yes",
         "thousand_separator_char": ".",
         "title": title,
-        "typography_typography": "custom",
-        "typography_font_family": "Plus Jakarta Sans",
-        "typography_font_size": fsize(size),
-        "typography_font_weight": "800",
-        "number_color": color,
+        # title_tag "p": hindari lompatan hierarki heading (h1 -> h4) di hero.
+        "title_tag": "p",
+        "number_color": color or C["primary"],
         "title_color": C["text_muted"],
-        "title_typography_typography": "custom",
-        "title_typography_font_family": "Inter",
-        "title_typography_font_size": fsize(14),
-        "title_typography_font_weight": "500",
+        "typography_number_typography": "custom",
+        "typography_number_font_family": "Plus Jakarta Sans",
+        "typography_number_font_size": fsize(size),
+        "typography_number_font_weight": "800",
+        "typography_number_line_height": {"unit": "em", "size": 1.2},
+        "typography_title_typography": "custom",
+        "typography_title_font_family": "Inter",
+        "typography_title_font_size": fsize(14),
+        "typography_title_font_weight": "500",
+        "typography_title_line_height": {"unit": "em", "size": 1.35},
+        "_margin": px4(0, 0, 0, 0),
     }
+    if decimals:
+        s["decimal_places"] = decimals
+        s["decimal_separator"] = ","
     if prefix:
         s["prefix"] = prefix
     if suffix:
@@ -259,6 +415,53 @@ def W_counter(num, title, suffix="", cls="", prefix="", size=36, color=C["primar
     if cls:
         s["_css_classes"] = cls
     return W("counter", s)
+
+
+def W_icon(icon, cls="", size=24, pad=12, radius=12, bg="#E8ECFF", color=None,
+           align="left"):
+    """Widget Icon native Elementor — kotak tint seragam (Ronde 21 3c):
+    latar #E8ECFF + ikon navy; oranye hanya untuk tombol CTA."""
+    s = {
+        "selected_icon": {"value": icon, "library": "fa-solid"},
+        "view": "framed",
+        "primary_color": color or C["primary"],
+        "secondary_color": bg,
+        "align": align,
+        "size": fsize(size),
+        "icon_padding": fsize(pad),
+        "border_radius": rad(radius),
+        "border_width": px4(0, 0, 0, 0),
+        "_margin": px4(0, 0, 0, 0),
+    }
+    if cls:
+        s["_css_classes"] = cls
+    return W("icon", s)
+
+
+def W_iconlist(items, cls="", icon="fas fa-check", color=None, size=15,
+               text_color=None):
+    """Widget Icon List native Elementor (pengganti daftar ber-emoji ✔).
+    items: daftar teks; ikon FA5 (default centang) — tanpa emoji."""
+    s = {
+        "icon_list": [
+            {"text": t, "selected_icon": {"value": icon, "library": "fa-solid"},
+             "_id": hashlib.sha1(t.encode("utf-8")).hexdigest()[:7]}
+            for t in items
+        ],
+        "selected_icon": {"value": icon, "library": "fa-solid"},
+        "icon_color": color or C["primary"],
+        "icon_size": fsize(14),
+        "text_color": text_color or C["text_dark"],
+        "text_typography_typography": "custom",
+        "text_typography_font_family": "Inter",
+        "text_typography_font_size": fsize(size),
+        "text_typography_line_height": {"unit": "em", "size": 1.7},
+        "space_between": {"unit": "px", "size": 8},
+        "_margin": px4(0, 0, 0, 0),
+    }
+    if cls:
+        s["_css_classes"] = cls
+    return W("icon-list", s)
 
 def W_iconbox(icon, title, desc="", tag="h3", pos="top", cls="", tsize=18, dsize=14, icolor=C["primary"], tcolor=C["text_dark"]):
     s = {
@@ -286,8 +489,11 @@ def W_iconbox(icon, title, desc="", tag="h3", pos="top", cls="", tsize=18, dsize
 def W_accordion(items, cls=""):
     s = {
         "tabs": [{"tab_title": it["title"], "tab_content": it["content"]} for it in items],
-        "icon": {"value": "fas fa-chevron-down", "library": "fa-solid"},
-        "icon_active": {"value": "fas fa-chevron-up", "library": "fa-solid"},
+        # Ronde 4 (10.3): ikon +/- native Elementor. Kunci LAMA ("icon") berupa
+        # string; kalau dikasih dict, PHP mencetak "Array" -> ikon hilang.
+        # Pakai kunci baru selected_icon / selected_active_icon.
+        "selected_icon": {"value": "fas fa-plus", "library": "fa-solid"},
+        "selected_active_icon": {"value": "fas fa-minus", "library": "fa-solid"},
         "title_typography_typography": "custom",
         "title_typography_font_family": "Plus Jakarta Sans",
         "title_typography_font_size": fsize(17),
@@ -320,7 +526,9 @@ topbar["elements"] = [inner([
                '<div class="topbar-hotline-item" style="display:inline-flex;align-items:center;gap:6px;">'
                '<span style="background:rgba(253,101,30,0.18);color:#fd651e;border:1px solid rgba(253,101,30,0.35);font-size:10px;font-weight:800;padding:2px 7px;border-radius:999px;letter-spacing:0.5px;">SOS</span>'
                '<span style="text-transform:uppercase;color:#cbd5e1;font-weight:700;">Hotline 24 Jam:</span> '
-               '<a href="tel:0812MASTERTRUCK" style="color:#ffffff;text-decoration:none;font-weight:700;">0812-MASTER-TRUCK</a>'
+               # TODO: konfirmasi pemilik — "0812-MASTER-TRUCK" masih placeholder.
+               # Karena nomor asli belum ada, tautan diarahkan ke WhatsApp (bukan tel: palsu).
+               '<a href="' + tel_link() + '" style="color:#ffffff;text-decoration:none;font-weight:700;">' + PHONE_DISPLAY + '</a>'
                '</div>'
                '<div class="topbar-location-item" style="display:inline-flex;align-items:center;gap:6px;color:#94a3b8;">'
                '<i class="fas fa-map-marker-alt" style="color:#fd651e;font-size:11px;"></i> <span style="color:#e2e8f0;">Medan</span>'
@@ -330,10 +538,11 @@ topbar["elements"] = [inner([
     col(60, "topbar-right-col", [
         W_text('<div style="display:flex;align-items:center;justify-content:flex-end;gap:16px;color:#94a3b8;font-size:12px;white-space:nowrap;">'
                '<div class="topbar-hours-item" style="display:inline-flex;align-items:center;gap:6px;">'
-               '<i class="fas fa-clock" style="color:#94a3b8;font-size:11px;"></i> <span style="color:#e2e8f0;">Senin – Sabtu: 08.00 – 20.00 | Tim Derek &amp; Rescue 24/7</span>'
+               '<i class="fas fa-clock" style="color:#94a3b8;font-size:11px;"></i> <span style="color:#e2e8f0;">' + HOURS + ' | Derek &amp; bantuan darurat 24 jam</span>'
                '</div>'
                '<div class="topbar-iso-item" style="border-left:1px solid rgba(255,255,255,0.12);padding-left:14px;display:inline-flex;align-items:center;gap:6px;">'
-               '<i class="fas fa-shield-alt" style="color:#fd651e;font-size:11px;"></i> <span style="color:#cbd5e1;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;">Standar OEM ISO 9001</span>'
+               # TODO: konfirmasi pemilik — klaim ISO 9001 harus punya sertifikat aktif.
+               '<i class="fas fa-shield-alt" style="color:#fd651e;font-size:11px;"></i> <span style="color:#cbd5e1;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;">Standar ' + CLAIMS["iso9001"] + '</span>'
                '</div>'
                '</div>')
     ]),
@@ -354,34 +563,63 @@ nav["elements"] = [inner([
                 W_image("logo", alt="Logo Master Truck", cls="brand-logo-img", radius=0)
             ], cstyle={"width": {"unit": "px", "size": 72}, "padding": px4(0, 0, 0, 0)}),
             col(None, "brand-text-container", [
-                W_text('<a href="#" style="text-decoration:none;display:flex;flex-direction:column;line-height:1.2;">'
-                       '<span style="font-family:Plus Jakarta Sans;font-size:19px;font-weight:800;color:' + C["primary"] + ';letter-spacing:-0.5px;">MASTER TRUCK</span>'
-                       '<span style="font-family:Plus Jakarta Sans;font-size:11px;color:' + C["text_muted"] + ';text-transform:uppercase;font-weight:700;letter-spacing:0.3px;">Spesialis Truk &amp; Armada Niaga</span>'
+                # Ronde 4 (1.1): judul 17px bold + sub 12px abu, dua baris nowrap,
+                # line-height 1.15 — style pindah ke mt-custom.css (tanpa inline style).
+                W_text('<a href="#header-carousel" class="brand-text-link">'
+                       '<span class="brand-title">MASTER TRUCK</span>'
+                       '<span class="brand-sub">Spesialis Truk &amp; Armada Niaga</span>'
                        '</a>', cls="brand-text-widget")
             ], cstyle={"padding": px4(0, 0, 0, 0)}),
         ], css_classes="stitch-brand-row", direction="row", style={"flex_align_items": "center", "flex_gap": fsize(14), "padding": px4(0, 0, 0, 0)})
     ]),
-    # Menu Links
+    # Menu Links (desktop identik; mobile ditampilkan lewat tombol hamburger)
     col(44, "stitch-menu-col", [
-        W_text('<div style="display:flex;align-items:center;justify-content:center;gap:32px;font-family:Plus Jakarta Sans;font-size:15px;font-weight:700;">'
-               '<a href="#layanan" style="color:#444651;text-decoration:none;transition:color 0.2s;">Layanan</a>'
-               '<a href="#fleet" style="color:#444651;text-decoration:none;transition:color 0.2s;">Paket Fleet</a>'
-               '<a href="#fasilitas" style="color:#444651;text-decoration:none;transition:color 0.2s;">Fasilitas</a>'
-               '<a href="#kontak" style="color:#444651;text-decoration:none;transition:color 0.2s;">Kontak</a>'
-               '</div>')
+        W_text('<button class="stitch-nav-burger" type="button" aria-label="Buka menu navigasi" '
+               'aria-expanded="false" aria-controls="stitch-menu-panel">'
+               '<span></span><span></span><span></span></button>'
+               '<nav class="stitch-menu-panel" id="stitch-menu-panel" aria-label="Menu utama">'
+               # Ronde 4 (1.2): tepat 6 item, semuanya nowrap & menunjuk section nyata.
+               '<a href="#header-carousel">Beranda</a>'
+               '<a href="#layanan">Layanan</a>'
+               '<a href="#fleet">Paket Fleet</a>'
+               '<a href="#fasilitas">Fasilitas</a>'
+               '<a href="#faq">Pertanyaan Umum</a>'
+               '<a href="#kontak">Kontak</a>'
+               '</nav>')
     ]),
     # Actions (Hanya Masuk & Daftar) dalam SATU container row (.nav-actions)
     col(24, "stitch-cta-col", [
         inner([
-            W_button("Masuk", link="http://localhost:3000/#login", icon="fas fa-user-circle", ipos="before", bg="transparent", text_color="#334155", radius=999, pad=(9, 14), cls="btn-nav-login"),
-            W_button("Daftar", link="http://localhost:3000/#register", bg=C["primary"], text_color=C["white"], radius=999, pad=(9, 20), cls="btn-nav-register"),
-        ], css_classes="stitch-nav-actions nav-actions", direction="row", style={"flex_gap": fsize(10), "flex_justify_content": "flex-end", "flex_align_items": "center"})
+            # TODO: konfirmasi pemilik — URL portal armada (FLEET_URL) di produksi.
+            W_button("Masuk", link=LOGIN_URL, icon="fas fa-user-circle", ipos="before", bg="transparent", text_color="#334155", radius=999, pad=(9, 14), cls="btn-nav-login"),
+            W_button("Daftar", link=REGISTER_URL, bg=C["primary"], text_color=C["white"], radius=999, pad=(9, 20), cls="btn-nav-register"),
+        ], css_classes="stitch-nav-actions nav-actions", direction="row", style={"flex_gap": fsize(12), "flex_justify_content": "flex-end", "flex_align_items": "center"})
     ]),
 ], css_classes="stitch-nav-row", direction="row", style={"padding": px4(4, 0, 4, 0), "flex_align_items": "center", "flex_justify_content": "space-between"})]
 sections.append(nav)
 
 # --- 2. SECTION 1: HERO SECTION ---
 # Ronde 19c: padding atas 24px, ritme presisi, hero muat ATF 1366x600 & 1366x768
+
+# Kartu statistik hero (Ronde 21 3c): kolom berisi widget Icon + Counter native.
+def stat_col(icon, num, suffix, label, decimals=0, border=True):
+    cstyle = {"padding": px4(18, 20, 18, 20) if border else px4(14, 20, 14, 20)}
+    if border:
+        cstyle.update({"border_border": "solid", "border_width": px4(0, 1, 0, 0),
+                       "border_color": C["border"]})
+    return col(25, "stat-col", [
+        inner([
+            W_icon(icon, cls="stat-icon"),
+            inner([
+                W_counter(num, label, suffix=suffix, cls="stat-number",
+                          decimals=decimals, color=C["primary"]),
+            ], css_classes="stat-text-col", direction="column",
+               style={"flex_gap": fsize(0)}),
+        ], css_classes="stat-item", direction="row",
+           style={"flex_gap": fsize(14), "flex_align_items": "center"}),
+    ], cstyle)
+
+
 hero = el_container("stitch-sec-hero", css_id="header-carousel", boxed=1240, bg=C["white"],
                     style={"padding": px4(24, 24, 40, 24)}, nav="Hero")
 hero["elements"] = [
@@ -410,7 +648,8 @@ hero["elements"] = [
             inner([
                 W_button("Jadwalkan Servis Sekarang", link="#quick-booking", icon="fas fa-calendar-alt",
                          bg=C["secondary"], text_color=C["white"], radius=12, pad=(13, 26), cls="btn-hero-primary"),
-                W_button("Derek &amp; Darurat 24 Jam", link="tel:0812MASTERTRUCK", icon="fas fa-phone-alt",
+                # TODO: konfirmasi pemilik — nomor telepon asli; sementara diarahkan ke WhatsApp.
+                W_button("Derek &amp; Darurat 24 Jam", link=tel_link("Halo Master Truck, saya butuh bantuan derek/dermaga darurat."), icon="fas fa-phone-alt",
                          bg="transparent", text_color=C["primary"], radius=12, pad=(13, 24), cls="btn-hero-secondary"),
             ], css_classes="hero-btns-row", direction="row", style={"flex_gap": fsize(14), "margin": px4(0, 0, 24, 0), "flex_align_items": "center", "flex_justify_content": "flex-start"}),
             # Supported Brands (1 baris 6 chip outline tipis, label 12px) -> label margin 10px
@@ -431,7 +670,7 @@ hero["elements"] = [
         col(50, "hero-visual-col", [
             inner([
                 # Main Photo
-                W_image("hero", alt="Modern commercial truck workshop bay with Scania and Hino trucks", cls="hero-truck-img", radius=28, margin=px4(0, 0, 0, 0)),
+                W_image("hero", alt="Dua truk niaga sedang masuk ke dalam bengkel Master Truck, diperiksa dua montir berseragam", cls="hero-truck-img", radius=28, margin=px4(0, 0, 0, 0)),
                 # Horizontal Hanging Telematics Card (Ronde 19c: 1 baris ringkas, overlap <= 6%, tidak tabrak WA)
                 W_text('<div class="hero-telematics-compact">'
                        '<div class="telematics-left-block">'
@@ -443,13 +682,13 @@ hero["elements"] = [
                        '</div>'
                        '<div class="telematics-metrics-block">'
                        '<div class="metric-item">'
-                       '<div class="metric-val">&lt; 3 Jam</div>'
+                       '<div class="metric-val">' + CLAIMS["jam_telematika"] + '</div>'
                        '<div class="metric-lbl">Servis berkala</div>'
                        '</div>'
                        '<div class="metric-divider"></div>'
                        '<div class="metric-item">'
-                       '<div class="metric-val">6 Bulan</div>'
-                       '<div class="metric-lbl">Garansi sparepart</div>'
+                       '<div class="metric-val">' + CLAIMS["garansi_sparepart"] + '</div>'
+                       '<div class="metric-lbl">Garansi suku cadang asli</div>'
                        '</div>'
                        '</div>'
                        '<div class="telematics-desc" style="display:none;">Injektor common rail: kondisi optimal</div>'
@@ -458,44 +697,15 @@ hero["elements"] = [
         ], {"padding": px4(0, 0, 0, 20)}),
     ], css_classes="hero-main-row", direction="row", style={"flex_align_items": "flex-start"}),
 
-    # Bottom Trust Metric Bar
+    # Bottom Trust Metric Bar — Ronde 21 3c: widget Icon + Counter NATIVE,
+    # 4 kartu seragam (ikon tint navy #E8ECFF + ikon navy; oranye hanya CTA).
+    # Semua angka diambil dari CLAIMS (semuanya TODO: konfirmasi pemilik).
     inner([
-        col(25, "stat-col", [
-            W_text('<div style="display:flex;align-items:center;gap:14px;">'
-                   '<div style="width:48px;height:48px;border-radius:12px;background:#dce1ff;color:#00236f;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;"><i class="fas fa-truck"></i></div>'
-                   '<div>'
-                   '<div style="font-family:Plus Jakarta Sans;font-size:26px;font-weight:800;color:#00236f;line-height:1.2;">5.200+</div>'
-                   '<div style="font-family:Inter;font-size:13px;color:#444651;font-weight:500;">Truk &amp; Trailer Ditangani</div>'
-                   '</div>'
-                   '</div>')
-        ], {"padding": px4(18, 20, 18, 20), "border_border": "solid", "border_width": px4(0, 1, 0, 0), "border_color": C["border"]}),
-        col(25, "stat-col", [
-            W_text('<div style="display:flex;align-items:center;gap:14px;">'
-                   '<div style="width:48px;height:48px;border-radius:12px;background:#ffdbce;color:#a73a00;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;"><i class="fas fa-stopwatch"></i></div>'
-                   '<div>'
-                   '<div style="font-family:Plus Jakarta Sans;font-size:26px;font-weight:800;color:#fd651e;line-height:1.2;">99.2%</div>'
-                   '<div style="font-family:Inter;font-size:13px;color:#444651;font-weight:500;">On-Time Fleet Delivery</div>'
-                   '</div>'
-                   '</div>')
-        ], {"padding": px4(18, 20, 18, 20), "border_border": "solid", "border_width": px4(0, 1, 0, 0), "border_color": C["border"]}),
-        col(25, "stat-col", [
-            W_text('<div style="display:flex;align-items:center;gap:14px;">'
-                   '<div style="width:48px;height:48px;border-radius:12px;background:#dae2fd;color:#222a3e;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;"><i class="fas fa-warehouse"></i></div>'
-                   '<div>'
-                   '<div style="font-family:Plus Jakarta Sans;font-size:26px;font-weight:800;color:#222a3e;line-height:1.2;">15+ Bay</div>'
-                   '<div style="font-family:Inter;font-size:13px;color:#444651;font-weight:500;">Bengkel Standar ISO 9001</div>'
-                   '</div>'
-                   '</div>')
-        ], {"padding": px4(18, 20, 18, 20), "border_border": "solid", "border_width": px4(0, 1, 0, 0), "border_color": C["border"]}),
-        col(25, "stat-col", [
-            W_text('<div style="display:flex;align-items:center;gap:14px;">'
-                   '<div style="width:48px;height:48px;border-radius:12px;background:#dce1ff;color:#00236f;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;"><i class="fas fa-shield-alt"></i></div>'
-                   '<div>'
-                   '<div style="font-family:Plus Jakarta Sans;font-size:26px;font-weight:800;color:#00236f;line-height:1.2;">180 Hari</div>'
-                   '<div style="font-family:Inter;font-size:13px;color:#444651;font-weight:500;">Garansi Resmi Overhaul</div>'
-                   '</div>'
-                   '</div>')
-        ], {"padding": px4(14, 20, 14, 20)}),
+        stat_col("fas fa-truck", 5200, "+", "Truk &amp; Trailer Ditangani"),
+        # 99,2% : widget Counter Elementor tak punya desimal -> angka 99 + akhiran ",2%"
+        stat_col("fas fa-stopwatch", 99, ",2%", "Selesai Tepat Waktu"),
+        stat_col("fas fa-warehouse", 15, "+ Bay", "Bengkel Standar " + CLAIMS["iso9001"]),
+        stat_col("fas fa-shield-alt", 180, " Hari", "Garansi Resmi Overhaul", border=False),
     ], css_classes="hero-stats-inner", direction="row",
         style={"background_background": "classic", "background_color": C["white"],
                "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"],
@@ -509,67 +719,81 @@ sections.append(hero)
 # --- 3. SECTION 2: INTERACTIVE QUICK BOOKING & ESTIMATOR WIDGET ---
 sec_book = el_container("stitch-sec-booking", css_id="quick-booking", boxed=1240, bg=C["surface_low"],
                         style={"padding": px4(64, 20, 64, 20)}, nav="Booking Estimator")
+# Pesan default (dipakai bila JS belum aktif) — Ronde 21 2a.
+BOOKING_DEFAULT_TEXT = "Halo Master Truck, saya ingin jadwal servis."
+
+# Formulir booking: 3 dropdown terhubung label-for/id, tombol ber-aria-label,
+# opsi default valid, konteks Medan/KIM III (tanpa Cikarang/Priok).
+# JS di assets/js/main.js menyusun pesan WhatsApp dari ketiga pilihan ini.
+BOOKING_FORM_HTML = (
+    # Kelas CSS (.booking-card/.booking-grid/.booking-actions) disediakan di
+    # mt-custom.css agar padding responsif tak perlu inline style/!important.
+    '<form id="mt-booking-form" class="booking-card">'
+    '<div class="booking-grid">'
+    # Input 1
+    '<div>'
+    '<label for="mt-booking-unit" style="display:block;font-family:Plus Jakarta Sans;font-size:14px;font-weight:700;color:#00236f;margin-bottom:8px;">'
+    '1. Tipe truk Anda</label>'
+    '<select id="mt-booking-unit" name="unit" style="width:100%;height:48px;padding:0 14px;border:1px solid #cbd5e1;border-radius:12px;font-family:Inter;font-size:15px;background:#f8fafc;">'
+    '<option>Truk trailer / tractor head (Scania, Volvo, Hino)</option>'
+    '<option>Truk box, tangki, atau gandeng (Fuso, Isuzu Giga)</option>'
+    '<option>Truk dump / tronton</option>'
+    '<option>Truk ringan (Canter, Dutro, Elf)</option>'
+    '<option>Lainnya / belum yakin</option>'
+    '</select>'
+    '</div>'
+    # Input 2
+    '<div>'
+    '<label for="mt-booking-need" style="display:block;font-family:Plus Jakarta Sans;font-size:14px;font-weight:700;color:#00236f;margin-bottom:8px;">'
+    '2. Kebutuhan servis</label>'
+    '<select id="mt-booking-need" name="need" style="width:100%;height:48px;padding:0 14px;border:1px solid #cbd5e1;border-radius:12px;font-family:Inter;font-size:15px;background:#f8fafc;">'
+    '<option>Servis rutin &amp; ganti oli</option>'
+    '<option>Turun mesin / overhaul</option>'
+    '<option>Servis rem, kaki-kaki &amp; suspensi</option>'
+    '<option>Kalibrasi injektor &amp; pompa solar</option>'
+    '<option>Perbaikan kelistrikan &amp; AC</option>'
+    '<option>Derek &amp; bantuan darurat</option>'
+    '<option>Lainnya</option>'
+    '</select>'
+    '</div>'
+    # Input 3 — konteks Medan / KIM III
+    '<div>'
+    '<label for="mt-booking-time" style="display:block;font-family:Plus Jakarta Sans;font-size:14px;font-weight:700;color:#00236f;margin-bottom:8px;">'
+    '3. Waktu kedatangan</label>'
+    '<select id="mt-booking-time" name="time" style="width:100%;height:48px;padding:0 14px;border:1px solid #cbd5e1;border-radius:12px;font-family:Inter;font-size:15px;background:#f8fafc;">'
+    '<option>Bengkel KIM III Medan — hari ini</option>'
+    '<option>Bengkel KIM III Medan — besok</option>'
+    '<option>Bengkel KIM III Medan — pekan ini</option>'
+    '<option>Ditangani di lokasi armada Anda (Medan sekitarnya)</option>'
+    '</select>'
+    '</div>'
+    '</div>'
+    # Action Button Row
+    '<div class="booking-actions">'
+    '<div style="font-size:14px;color:#444651;display:flex;align-items:center;gap:8px;max-width:46ch;">'
+    '<i class="fas fa-info-circle" style="color:#00236f;" aria-hidden="true"></i>'
+    '<span>Pesan dibuka lewat WhatsApp, lalu dikonfirmasi oleh tim kami sebelum servis dimulai.</span>'
+    '</div>'
+    # href awal = fallback tanpa JS; JS menggantinya dengan pesan berisi 3 pilihan.
+    '<a id="mt-booking-wa" class="btn-booking-wa" href="' + wa_link(BOOKING_DEFAULT_TEXT) + '" '
+    'data-wa="' + WA_NUMBER + '" target="_blank" rel="noopener" '
+    'aria-label="Kirim permintaan jadwal servis via WhatsApp" '
+    'style="display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:14px 28px;background:#fd651e;color:#ffffff;'
+    'text-decoration:none;border-radius:12px;font-family:Plus Jakarta Sans;font-weight:700;font-size:15px;box-shadow:0 8px 20px rgba(253,101,30,0.3);">'
+    '<i class="fab fa-whatsapp" aria-hidden="true"></i>Kirim Permintaan Jadwal via WhatsApp</a>'
+    '</div></form>'
+)
+
 sec_book["elements"] = [
-    # Header
-    W_heading("Kalkulator &amp; Estimasi Servis Cepat", tag="p", align="center", size=13, weight=700, color=C["secondary"], ls=1.0),
-    W_heading("Hitung Estimasi Biaya &amp; Jadwal Perawatan Armada", tag="h2", align="center", size=34, weight=800, color=C["primary"], ls=-0.8, margin=px4(6, 0, 12, 0)),
-    W_text("Pilih tipe unit dan kebutuhan servis armada Anda untuk estimasi pengerjaan dan alokasi stall bengkel tercepat.",
+    # Header (widget native)
+    W_heading("JADWAL SERVIS ONLINE", tag="p", align="center", size=13, weight=700, color=C["secondary"], ls=1.0),
+    W_heading("Pesan Jadwal Servis Anda", tag="h2", align="center", size=34, weight=800, color=C["primary"], ls=-0.8, margin=px4(6, 0, 12, 0)),
+    W_text("Pilih tipe truk, kebutuhan servis, dan waktu kedatangan. Setelah dikirim, kami hubungi Anda lewat WhatsApp untuk mengonfirmasi jadwal.",
            align="center", size=16, color=C["text_muted"], margin=px4(0, 0, 40, 0)),
-    # Form Card
+    # Form Card (select boleh tetap HTML widget — teks judul & label di atas widget native)
     inner([
         col(100, "booking-form-box", [
-            W_text(
-                '<div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:24px;padding:32px;'
-                'box-shadow:0 10px 30px rgba(15,23,42,0.05);">'
-                '<div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:24px;margin-bottom:28px;">'
-                # Input 1
-                '<div>'
-                '<label style="display:block;font-family:Plus Jakarta Sans;font-size:14px;font-weight:700;color:#00236f;margin-bottom:8px;">'
-                '1. Tipe &amp; Model Kendaraan Niaga</label>'
-                '<select style="width:100%;height:48px;padding:0 14px;border:1px solid #cbd5e1;border-radius:12px;font-family:Inter;font-size:15px;background:#f8fafc;">'
-                '<option>Tractor Head 6x4 (Scania / Volvo / Hino)</option>'
-                '<option>Rigid Truck 6x2 / 4x2 (Fuso / Isuzu Giga)</option>'
-                '<option>Dump Truck Heavy Duty 8x4</option>'
-                '<option>Light Commercial Truck (Canter / Dutro)</option>'
-                '<option>Chassis Trailer &amp; Tangki Gandeng</option>'
-                '</select>'
-                '</div>'
-                # Input 2
-                '<div>'
-                '<label style="display:block;font-family:Plus Jakarta Sans;font-size:14px;font-weight:700;color:#00236f;margin-bottom:8px;">'
-                '2. Kategori Pekerjaan &amp; Keluhan</label>'
-                '<select style="width:100%;height:48px;padding:0 14px;border:1px solid #cbd5e1;border-radius:12px;font-family:Inter;font-size:15px;background:#f8fafc;">'
-                '<option>Periodic Service (PMP 10k-50k KM) - Fast Stall</option>'
-                '<option>Turun Mesin / Overhaul Diesel Total</option>'
-                '<option>Kalibrasi Injektor Common Rail &amp; Bosh Pump</option>'
-                '<option>Rem Angin, Booster &amp; Sistem Pneumatik</option>'
-                '<option>Overhaul Transmisi &amp; Gardan Belakang</option>'
-                '<option>Spooring 3D Laser &amp; Suspensi Sasis</option>'
-                '</select>'
-                '</div>'
-                # Input 3
-                '<div>'
-                '<label style="display:block;font-family:Plus Jakarta Sans;font-size:14px;font-weight:700;color:#00236f;margin-bottom:8px;">'
-                '3. Lokasi Stall &amp; Waktu Kedatangan</label>'
-                '<select style="width:100%;height:48px;padding:0 14px;border:1px solid #cbd5e1;border-radius:12px;font-family:Inter;font-size:15px;background:#f8fafc;">'
-                '<option>Stall Cikarang Utama - Hari Ini (Prioritas)</option>'
-                '<option>Stall Cikarang Utama - Besok Pagi</option>'
-                '<option>Stall Tanjung Priok (Dekat Pelabuhan) - Hari Ini</option>'
-                '<option>On-Site Service (Mekanik ke Pool Perusahaan)</option>'
-                '</select>'
-                '</div>'
-                '</div>'
-                # Action Button Row
-                '<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:20px;border-top:1px solid #e2e8f0;">'
-                '<div style="font-size:13px;color:#444651;">'
-                '⚡ <b style="color:#00236f;">Prioritas Stall Cepat:</b> Booking online mengamankan antrean mekanik tanpa menunggu.'
-                '</div>'
-                '<a href="https://wa.me/6281288881234?text=Halo%20Master%20Truck,%20saya%20ingin%20booking%20jadwal%20servis" '
-                'style="display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:#fd651e;color:#ffffff;'
-                'text-decoration:none;border-radius:12px;font-family:Plus Jakarta Sans;font-weight:700;font-size:15px;box-shadow:0 8px 20px rgba(253,101,30,0.3);">'
-                'Hitung Estimasi &amp; Booking Sekarang ➔</a>'
-                '</div></div>'
-            )
+            W_text(BOOKING_FORM_HTML)
         ])
     ], css_classes="booking-form-row", direction="row")
 ]
@@ -581,34 +805,41 @@ sec_feat = el_container("stitch-sec-features", boxed=1240, bg=C["white"],
                         style={"padding": px4(72, 20, 72, 20)}, nav="Keunggulan")
 sec_feat["elements"] = [
     # Header
-    W_heading("Keunggulan &amp; Standarisasi Bengkel", tag="p", align="center", size=13, weight=700, color=C["secondary"], ls=1.0),
-    W_heading("Mengapa 400+ Perusahaan Ekspedisi Mempercayakan Armadanya pada Master Truck?",
+    W_heading("KENAPA PILIH MASTER TRUCK", tag="p", align="center", size=13, weight=700, color=C["secondary"], ls=1.0),
+    # Ronde 21 4a: judul ≤ 8 kata, bahasa awam (angka "400+" pindah ke CLAIMS).
+    W_heading("Kenapa Pilih Master Truck?",
               tag="h2", align="center", size=34, weight=800, color=C["primary"], ls=-0.8, margin=px4(6, 0, 14, 0)),
-    W_text("Efisiensi operasional bisnis logistik sangat bergantung pada kesiapan armada di jalan raya. Kami menjamin keandalan teknis tertinggi.",
+    W_text("Kami merawat armada Anda dengan cara yang jelas dan teratur, supaya truk lebih jarang mogok dan biaya lebih mudah dihitung.",
            align="center", size=16, color=C["text_muted"], margin=px4(0, 0, 48, 0)),
     # 4 Bento Cards
     inner([
         col(25, "feat-bento-col", [
-            W_iconbox("fas fa-laptop-code", "Diagnostik Komputer Mutakhir",
-                      "Pemindaian akurat kerusakan sistem kelistrikan, ECU, dan sensor gas buang menggunakan scanner resmi Scania SDP3, Hino DX3, dan Volvo Tech Tool.",
+            # TODO: konfirmasi pemilik — klaim "scanner resmi Scania SDP3 / Hino DX3 /
+            # Volvo Tech Tool" dihapus dari teks (berisiko bila tak terbukti); lihat
+            # RISKY_CLAIMS & docs/DATA-PEMILIK.md.
+            W_iconbox("fas fa-laptop-code", "Diagnostik Komputer Modern",
+                      "Pemindaian akurat kerusakan sistem kelistrikan, mesin, dan sensor gas buang memakai alat diagnostik yang sesuai merek truk Anda.",
                       cls="feat-card-box", tsize=18, dsize=14, icolor=C["primary"])
         ], {"padding": px4(24, 20, 24, 20), "background_background": "classic", "background_color": C["surface"],
             "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"], "border_radius": rad(18)}),
         col(25, "feat-bento-col", [
-            W_iconbox("fas fa-shield-alt", "Suku Cadang Orisinal OEM",
-                      "Garansi keaslian 100% komponen suku cadang dari principal resmi (Bosch, Denso, Wabco, Sakura, Pertamina Lubricants) bersertifikat pabrik.",
+            # TODO: konfirmasi pemilik — nama pemasok (principal) & angka 100%.
+            W_iconbox("fas fa-shield-alt", "Suku Cadang Asli",
+                      "Jaminan keaslian 100% suku cadang dari pemasok resmi (Bosch, Denso, Wabco, Sakura, Pertamina Lubricants).",
                       cls="feat-card-box", tsize=18, dsize=14, icolor=C["secondary"])
         ], {"padding": px4(24, 20, 24, 20), "background_background": "classic", "background_color": C["surface"],
             "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"], "border_radius": rad(18)}),
         col(25, "feat-bento-col", [
-            W_iconbox("fas fa-truck-pickup", "Fasilitas Derek Heavy Duty 24/7",
-                      "Unit derek underlift 25 ton siaga penuh untuk evakuasi cepat truk trailer dan gandengan yang mengalami insiden di jalur tol & arteri.",
+            # TODO: konfirmasi pemilik — kapasitas derek 25 ton.
+            W_iconbox("fas fa-truck-pickup", "Derek &amp; Bantuan Darurat 24 Jam",
+                      "Unit derek " + CLAIMS["derek_ton"] + " siaga 24 jam untuk menolong truk trailer dan truk gandeng yang mengalami insiden di jalan.",
                       cls="feat-card-box", tsize=18, dsize=14, icolor=C["tertiary"])
         ], {"padding": px4(24, 20, 24, 20), "background_background": "classic", "background_color": C["surface"],
             "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"], "border_radius": rad(18)}),
         col(25, "feat-bento-col", [
-            W_iconbox("fas fa-stopwatch", "SLA &amp; On-Time Performance",
-                      "Komitmen kepastian waktu pengerjaan dengan jaminan denda downtime armada apabila pekerjaan melebihi estimasi waktu yang disepakati.",
+            # TODO: konfirmasi pemilik — ketentuan denda keterlambatan.
+            W_iconbox("fas fa-stopwatch", "Kepastian Waktu Selesai",
+                      "Waktu pengerjaan disepakati di awal. Bila pekerjaan melebihi waktu yang disepakati, ada ketentuan denda keterlambatan.",
                       cls="feat-card-box", tsize=18, dsize=14, icolor=C["emerald"])
         ], {"padding": px4(24, 20, 24, 20), "background_background": "classic", "background_color": C["surface"],
             "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"], "border_radius": rad(18)}),
@@ -621,33 +852,35 @@ sections.append(sec_feat)
 sec_svc = el_container("stitch-sec-services", css_id="layanan", boxed=1240, bg=C["surface_low"],
                        style={"padding": px4(72, 20, 72, 20)}, nav="Layanan")
 sec_svc["elements"] = [
-    W_heading("Cakupan Servis Komprehensif", tag="p", align="center", size=13, weight=700, color=C["secondary"], ls=1.0),
-    W_heading("Layanan Mekanikal Berat, Kalibrasi Presisi, &amp; Perawatan Berkala",
+    W_heading("LAYANAN KAMI", tag="p", align="center", size=13, weight=700, color=C["secondary"], ls=1.0),
+    # Ronde 21 4a: judul ≤ 8 kata + bahasa awam, deskripsi ≤ 2 baris.
+    W_heading("Layanan Kami",
               tag="h2", align="center", size=34, weight=800, color=C["primary"], ls=-0.8, margin=px4(6, 0, 14, 0)),
-    W_text("Didukung oleh mekanik bersertifikasi dan peralatan berstandar pabrikan untuk memastikan performa puncak armada komersial Anda.",
+    W_text("Dikerjakan montir berpengalaman dengan peralatan bengkel truk. Semua pekerjaan dijelaskan dulu sebelum dimulai.",
            align="center", size=16, color=C["text_muted"], margin=px4(0, 0, 48, 0)),
 
     # Row 1 (3 Services)
     inner([
         col(33, "svc-card-col", [
-            W_iconbox("fas fa-cogs", "Overhaul Mesin Diesel Berat",
-                      "Rekondisi total mesin diesel heavy duty (Scania DC13, Hino J08E, Fuso 6D16). Pengerjaan boring blok, ganti liner, piston, crankshaft, dan kalibrasi kompresi pabrikan.",
+            W_iconbox("fas fa-cogs", "Turun Mesin &amp; Perbaikan Besar",
+                      "Perbaikan menyeluruh mesin diesel truk: boring blok, ganti liner, piston, sampai penyetelan kompresi.",
                       cls="svc-box", tsize=18, dsize=14, icolor=C["primary"]),
-            W_button("Konsultasi Servis ➔", link="#quick-booking", bg="transparent", text_color=C["primary"], pad=(8, 0, 0, 0))
+            W_button("Konsultasi Servis", link="#quick-booking", icon="fas fa-arrow-right", bg="transparent", text_color=C["primary"], pad=(8, 0, 0, 0))
         ], {"padding": px4(28, 24, 24, 24), "background_background": "classic", "background_color": C["white"],
             "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"], "border_radius": rad(18)}),
         col(33, "svc-card-col", [
-            W_iconbox("fas fa-tachometer-alt", "Kalibrasi Injektor &amp; Common Rail",
-                      "Kalibrasi injektor bertekanan ultra-tinggi hingga 2.500 bar pada mesin diesel modern Euro 4 & Euro 5. Mengoptimalkan konsumsi BBM dan menekan emisi gas buang.",
+            W_iconbox("fas fa-tachometer-alt", "Kalibrasi Injektor &amp; Pompa Solar",
+                      # TODO: konfirmasi pemilik — angka tekanan 2.500 bar & klaim bahan bakar lebih hemat.
+                      "Kalibrasi injektor bertekanan tinggi hingga " + CLAIMS["tekanan_injektor"] + " untuk mesin truk generasi baru, supaya bahan bakar terpakai hemat dan gas buang lebih bersih.",
                       cls="svc-box", tsize=18, dsize=14, icolor=C["secondary"]),
-            W_button("Konsultasi Servis ➔", link="#quick-booking", bg="transparent", text_color=C["secondary"], pad=(8, 0, 0, 0))
+            W_button("Konsultasi Servis", link="#quick-booking", icon="fas fa-arrow-right", bg="transparent", text_color=C["secondary"], pad=(8, 0, 0, 0))
         ], {"padding": px4(28, 24, 24, 24), "background_background": "classic", "background_color": C["white"],
             "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"], "border_radius": rad(18)}),
         col(33, "svc-card-col", [
-            W_iconbox("fas fa-compress-arrows-alt", "Kalibrasi Rem Angin &amp; Sasis",
-                      "Servis komprehensif sistem pneumatic brake (ABS/EBS), perbaikan kompresor udara, booster chamber, penggantian lining rem, serta penguatan per sasis.",
+            W_iconbox("fas fa-compress-arrows-alt", "Servis Rem &amp; Kaki-Kaki",
+                      "Perbaikan sistem rem angin (termasuk ABS/EBS), kompresor udara, kampas rem, sampai per sasis supaya muatan terasa aman di jalan.",
                       cls="svc-box", tsize=18, dsize=14, icolor=C["primary"]),
-            W_button("Konsultasi Servis ➔", link="#quick-booking", bg="transparent", text_color=C["primary"], pad=(8, 0, 0, 0))
+            W_button("Konsultasi Servis", link="#quick-booking", icon="fas fa-arrow-right", bg="transparent", text_color=C["primary"], pad=(8, 0, 0, 0))
         ], {"padding": px4(28, 24, 24, 24), "background_background": "classic", "background_color": C["white"],
             "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"], "border_radius": rad(18)}),
     ], css_classes="services-row-1", direction="row", style={"flex_gap": fsize(20), "margin": px4(0, 0, 20, 0)}),
@@ -656,23 +889,24 @@ sec_svc["elements"] = [
     inner([
         col(33, "svc-card-col", [
             W_iconbox("fas fa-tools", "Perbaikan Transmisi &amp; Gardan",
-                      "Pembongkaran, perbaikan sinkronizer, penggantian gear set transmisi manual/otomatis (ZF, Eaton Fuller), dan penyetelan backlash differensial gardan.",
+                      "Bongkar pasang transmisi manual atau otomatis, ganti set gigi, dan penyetelan gardan belakang supaya tenaga tersalur halus.",
                       cls="svc-box", tsize=18, dsize=14, icolor=C["tertiary"]),
-            W_button("Konsultasi Servis ➔", link="#quick-booking", bg="transparent", text_color=C["tertiary"], pad=(8, 0, 0, 0))
+            W_button("Konsultasi Servis", link="#quick-booking", icon="fas fa-arrow-right", bg="transparent", text_color=C["tertiary"], pad=(8, 0, 0, 0))
         ], {"padding": px4(28, 24, 24, 24), "background_background": "classic", "background_color": C["white"],
             "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"], "border_radius": rad(18)}),
         col(33, "svc-card-col", [
-            W_iconbox("fas fa-bolt", "Kelistrikan &amp; Wiring Harness",
-                      "Perbaikan jalur wiring harness, alternator, starter motor 24V, perbaikan modul ECU, alternator pengisian aki, serta kalibrasi lampu hazard trailer.",
+            W_iconbox("fas fa-bolt", "Kelistrikan &amp; AC Truk",
+                      "Perbaikan jalur kabel, alternator, starter 24 volt, modul mesin, aki, sampai penyetelan lampu truk dan trailer.",
                       cls="svc-box", tsize=18, dsize=14, icolor=C["primary"]),
-            W_button("Konsultasi Servis ➔", link="#quick-booking", bg="transparent", text_color=C["primary"], pad=(8, 0, 0, 0))
+            W_button("Konsultasi Servis", link="#quick-booking", icon="fas fa-arrow-right", bg="transparent", text_color=C["primary"], pad=(8, 0, 0, 0))
         ], {"padding": px4(28, 24, 24, 24), "background_background": "classic", "background_color": C["white"],
             "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"], "border_radius": rad(18)}),
         col(33, "svc-card-col", [
-            W_iconbox("fas fa-oil-can", "Servis Cepat &amp; Preventive PMP",
-                      "Paket perawatan berkala terjadwal 10.000 - 50.000 KM. Ganti oli mesin, filter oli, filter solar, kuras tangki, grease sasis, dan 45 poin inspeksi keselamatan.",
+            W_iconbox("fas fa-oil-can", "Servis Rutin &amp; Perawatan Berkala",
+                      # TODO: konfirmasi pemilik — interval 10.000–50.000 km & 45 titik pengecekan.
+                      "Ganti oli dan filter tiap 10.000–50.000 km, kuras tangki, pelumasan sasis, dan pengecekan " + CLAIMS["poin_inspeksi_45"] + " titik keselamatan.",
                       cls="svc-box", tsize=18, dsize=14, icolor=C["secondary"]),
-            W_button("Konsultasi Servis ➔", link="#quick-booking", bg="transparent", text_color=C["secondary"], pad=(8, 0, 0, 0))
+            W_button("Konsultasi Servis", link="#quick-booking", icon="fas fa-arrow-right", bg="transparent", text_color=C["secondary"], pad=(8, 0, 0, 0))
         ], {"padding": px4(28, 24, 24, 24), "background_background": "classic", "background_color": C["white"],
             "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"], "border_radius": rad(18)}),
     ], css_classes="services-row-2", direction="row", style={"flex_gap": fsize(20)})
@@ -684,58 +918,65 @@ sections.append(sec_svc)
 sec_fleet = el_container("stitch-sec-fleet", css_id="fleet", boxed=1240, bg=C["white"],
                          style={"padding": px4(72, 20, 72, 20)}, nav="Paket Fleet")
 sec_fleet["elements"] = [
-    W_heading("Solusi Perusahaan Logistik &amp; Tambang", tag="p", align="center", size=13, weight=700, color=C["primary"], ls=1.0),
-    W_heading("Kontrak Perawatan Armada (PMP) Terjadwal", tag="h2", align="center", size=34, weight=800, color=C["primary"], ls=-0.8, margin=px4(6, 0, 14, 0)),
-    W_text("Hemat biaya operasional armada hingga 30% dengan skema kontrak pemeliharaan fleet terintegrasi, laporan digital berkala, dan fasilitas pembayaran termin bisnis.",
+    W_heading("UNTUK PERUSAHAAN &amp; ARMADA", tag="p", align="center", size=13, weight=700, color=C["primary"], ls=1.0),
+    # Ronde 21 4a: judul ≤ 8 kata, bahasa awam (PMP -> "Paket Perawatan Armada").
+    W_heading("Paket Perawatan Armada", tag="h2", align="center", size=34, weight=800, color=C["primary"], ls=-0.8, margin=px4(6, 0, 14, 0)),
+    # TODO: konfirmasi pemilik — klaim hemat 30%, diskon 10%/18%, termin bisnis.
+    W_text("Perawatan armada terjadwal dengan biaya lebih terkendali — hemat biaya operasional hingga " + CLAIMS["hemat_biaya"] + ", lengkap dengan laporan berkala dan pembayaran termin.",
            align="center", size=16, color=C["text_muted"], margin=px4(0, 0, 48, 0)),
     # 3 Pricing Cards
     inner([
-        # Tier 1
+        # Tier 1 — nama paket lama: "Standard Fleet"
         col(33, "fleet-tier-col", [
-            W_heading("Standard Fleet", tag="h3", size=22, weight=800, color=C["primary"], margin=px4(0, 0, 6, 0)),
-            W_text("<p style='font-size:13px;color:#757682;margin-bottom:16px;'>Untuk UKM logistik dengan armada 5 - 15 unit truk.</p>"
-                   "<div style='font-size:14px;color:#191c1e;line-height:1.8;'>"
-                   "✔ Jadwal servis rutin berkala<br>"
-                   "✔ Diskon suku cadang OEM 10%<br>"
-                   "✔ Inspeksi gratis 30 titik kendaraan<br>"
-                   "✔ Laporan rekapitulasi servis bulanan<br>"
-                   "✔ Dedicated customer service"
-                   "</div>", margin=px4(0, 0, 24, 0)),
-            W_button("Pilih Paket Standard", link="#quick-booking", bg=C["surface_low"], text_color=C["primary"], radius=10, pad=(12, 20))
+            W_heading("Paket Dasar", tag="h3", size=22, weight=800, color=C["primary"], margin=px4(0, 0, 6, 0)),
+            W_text("<p style='font-size:14px;color:#757682;margin-bottom:16px;'>Untuk perusahaan kecil dengan armada 5–15 unit truk.</p>", margin=px4(0, 0, 12, 0)),
+            # Ronde 21 3c: daftar jadi widget Icon List native (ikon FA, bukan emoji ✔)
+            # TODO: konfirmasi pemilik — diskon 10% & pengecekan 30 titik.
+            W_iconlist([
+                "Jadwal servis rutin berkala",
+                "Diskon suku cadang " + CLAIMS["diskon_standard"],
+                "Pengecekan gratis " + CLAIMS["inspeksi_poin"] + " titik kendaraan",
+                "Laporan servis dirangkum tiap bulan",
+                "Petugas layanan khusus untuk perusahaan Anda",
+            ], cls="fleet-feature-list"),
+            W_button("Pilih Paket Dasar", link="#quick-booking", bg=C["surface_low"], text_color=C["primary"], radius=10, pad=(12, 20), margin=px4(24, 0, 0, 0))
         ], {"padding": px4(32, 24, 28, 24), "background_background": "classic", "background_color": C["white"],
             "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"], "border_radius": rad(20)}),
 
-        # Tier 2 (Featured / Populer)
+        # Tier 2 (Featured / Populer) — nama paket lama: "Prime Fleet"
         col(34, "fleet-tier-col featured", [
-            W_text('<div style="display:inline-block;padding:4px 10px;background:#fd651e;color:#ffffff;border-radius:6px;font-size:11px;font-weight:800;text-transform:uppercase;margin-bottom:8px;">Paling Populer</div>'),
-            W_heading("Prime Fleet", tag="h3", size=24, weight=800, color=C["primary"], margin=px4(0, 0, 6, 0)),
-            W_text("<p style='font-size:13px;color:#757682;margin-bottom:16px;'>Untuk ekspedisi skala menengah 15 - 50 unit truk.</p>"
-                   "<div style='font-size:14px;color:#191c1e;line-height:1.8;font-weight:500;'>"
-                   "✔ <b>Semua fitur Standard Fleet</b><br>"
-                   "✔ Diskon suku cadang OEM 18%<br>"
-                   "✔ Prioritas stall khusus (Zero Queue)<br>"
-                   "✔ Layanan Emergency Rescue &amp; Derek 24/7<br>"
-                   "✔ Dashboard telematics status pengerjaan<br>"
-                   "✔ Garansi pengerjaan overhaul 180 hari"
-                   "</div>", margin=px4(0, 0, 24, 0)),
-            W_button("Daftar Paket Prime Fleet", link="#quick-booking", bg=C["secondary"], text_color=C["white"], radius=10, pad=(14, 24))
+            # TODO: konfirmasi pemilik — label "Paling Populer" (bukti popularitas).
+            W_text('<div style="display:inline-block;padding:4px 10px;background:#fd651e;color:#ffffff;border-radius:6px;font-size:12px;font-weight:800;text-transform:uppercase;margin-bottom:8px;">Paling Populer</div>'),
+            W_heading("Paket Utama", tag="h3", size=24, weight=800, color=C["primary"], margin=px4(0, 0, 6, 0)),
+            W_text("<p style='font-size:14px;color:#757682;margin-bottom:16px;'>Untuk perusahaan menengah dengan armada 15–50 unit truk.</p>", margin=px4(0, 0, 12, 0)),
+            # TODO: konfirmasi pemilik — diskon 18%, garansi 180 hari.
+            W_iconlist([
+                "<b>Semua isi Paket Dasar</b>",
+                "Diskon suku cadang " + CLAIMS["diskon_prime"],
+                "Jadwal servis tanpa antre (slot khusus)",
+                "Layanan derek &amp; bantuan darurat 24 jam",
+                "Pantau status pengerjaan lewat laporan digital",
+                "Garansi pengerjaan turun mesin " + CLAIMS["garansi_overhaul"],
+            ], cls="fleet-feature-list"),
+            W_button("Pilih Paket Utama", link="#quick-booking", bg=C["secondary"], text_color=C["white"], radius=10, pad=(14, 24), margin=px4(24, 0, 0, 0))
         ], {"padding": px4(32, 24, 28, 24), "background_background": "classic", "background_color": C["white"],
             "border_border": "solid", "border_width": px4(2, 2, 2, 2), "border_color": C["secondary"], "border_radius": rad(20),
             "box_shadow_box_shadow_type": "yes", "box_shadow_box_shadow": shadow(0, 16, 40, -10, "rgba(253,101,30,0.15)")}),
 
-        # Tier 3
+        # Tier 3 — nama paket lama: "Enterprise Fleet"
         col(33, "fleet-tier-col", [
-            W_heading("Enterprise Fleet", tag="h3", size=22, weight=800, color=C["primary"], margin=px4(0, 0, 6, 0)),
-            W_text("<p style='font-size:13px;color:#757682;margin-bottom:16px;'>Untuk korporasi logistik &amp; tambang > 50 unit truk.</p>"
-                   "<div style='font-size:14px;color:#191c1e;line-height:1.8;'>"
-                   "✔ <b>Semua fitur Prime Fleet</b><br>"
-                   "✔ Dedicated On-Site Mekanik di pool<br>"
-                   "✔ Diskon grosir suku cadang volume besar<br>"
-                   "✔ Custom SLA dengan klausul denda downtime<br>"
-                   "✔ Fasilitas termin pembayaran (TOP 45-60 hari)<br>"
-                   "✔ Audit keselamatan berkala bersertifikat"
-                   "</div>", margin=px4(0, 0, 24, 0)),
-            W_button("Hubungi Key Account ➔", link="#quick-booking", bg=C["primary"], text_color=C["white"], radius=10, pad=(12, 20))
+            W_heading("Paket Korporat", tag="h3", size=22, weight=800, color=C["primary"], margin=px4(0, 0, 6, 0)),
+            W_text("<p style='font-size:14px;color:#757682;margin-bottom:16px;'>Untuk perusahaan besar dengan armada lebih dari 50 unit truk.</p>", margin=px4(0, 0, 12, 0)),
+            # TODO: konfirmasi pemilik — denda keterlambatan, termin 45–60 hari.
+            W_iconlist([
+                "<b>Semua isi Paket Utama</b>",
+                "Montir datang ke pool armada Anda",
+                "Diskon suku cadang untuk pembelian besar",
+                "Kesepakatan waktu pengerjaan dengan denda keterlambatan",
+                "Pembayaran termin 45–60 hari",
+                "Pengecekan keselamatan berkala",
+            ], cls="fleet-feature-list"),
+            W_button("Tanya Paket Korporat", link="#quick-booking", icon="fas fa-arrow-right", bg=C["primary"], text_color=C["white"], radius=10, pad=(12, 20), margin=px4(24, 0, 0, 0))
         ], {"padding": px4(32, 24, 28, 24), "background_background": "classic", "background_color": C["white"],
             "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"], "border_radius": rad(20)}),
     ], css_classes="fleet-pricing-row", direction="row", style={"flex_gap": fsize(20), "flex_align_items": "stretch"})
@@ -743,230 +984,486 @@ sec_fleet["elements"] = [
 sections.append(sec_fleet)
 
 
+# --- 6b. SECTION: CARA KERJA (Ronde 21 4b) ---
+# 4 langkah memakai teks Ronde 5 (tanpa klaim baru).
+sec_work = el_container("stitch-sec-workflow", css_id="cara-kerja", boxed=1240, bg=C["surface_low"],
+                        style={"padding": px4(72, 20, 72, 20)}, nav="Cara Kerja")
+
+
+def step_card(no, icon, title, desc):
+    return col(25, "step-card", [
+        W_text('<span style="display:inline-block;font-size:12px;font-weight:800;letter-spacing:1px;'
+               'text-transform:uppercase;color:#757682;">Langkah ' + no + '</span>', margin=px4(0, 0, 10, 0)),
+        W_icon(icon, cls="step-icon", size=22, pad=13),
+        W_heading(title, tag="h3", size=18, weight=700, color=C["primary"], margin=px4(14, 0, 6, 0)),
+        W_text(desc, size=15, color=C["text_muted"], margin=px4(0, 0, 0, 0)),
+    ], {"padding": px4(24, 20, 24, 20), "background_background": "classic", "background_color": C["white"],
+        "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"],
+        "border_radius": rad(18)})
+
+
+sec_work["elements"] = [
+    W_heading("CARA KERJA", tag="p", align="center", size=13, weight=700, color=C["secondary"], ls=1.0),
+    W_heading("Cara Kerja Bengkel Kami", tag="h2", align="center", size=34, weight=800,
+              color=C["primary"], ls=-0.8, margin=px4(6, 0, 14, 0)),
+    W_text("Empat langkah sederhana, dari pemesanan jadwal sampai truk kembali ke tangan Anda.",
+           align="center", size=16, color=C["text_muted"], margin=px4(0, 0, 48, 0)),
+    inner([
+        step_card("1", "fas fa-calendar-check", "Pesan Jadwal",
+                  "Pilih jadwal lewat formulir atau WhatsApp. Kami balas untuk mengonfirmasi hari dan jamnya."),
+        step_card("2", "fas fa-search", "Dicek Teliti",
+                  "Truk diperiksa menyeluruh dulu. Hasilnya kami jelaskan ke Anda sebelum pekerjaan dimulai."),
+        step_card("3", "fas fa-tools", "Dikerjakan",
+                  "Setelah Anda setuju, montir mengerjakan servisnya. Bila ada tambahan pekerjaan, kami kabari dulu."),
+        step_card("4", "fas fa-truck-pickup", "Truk Diserahkan",
+                  "Truk dicoba jalan dulu, lalu diserahkan kembali ke Anda lengkap dengan rincian pekerjaan."),
+    ], css_classes="workflow-row", direction="row", style={"flex_gap": fsize(20)})
+]
+sections.append(sec_work)
+
+
 # --- 7. SECTION 6: SHOWCASE FASILITAS BENGKEL MODERN ---
 sec_fac = el_container("stitch-sec-facilities", css_id="fasilitas", boxed=1240, bg=C["surface_low"],
                        style={"padding": px4(72, 20, 72, 20)}, nav="Fasilitas")
 sec_fac["elements"] = [
-    W_heading("Infrastruktur Bengkel Berstandar Internasional", tag="p", align="center", size=13, weight=700, color=C["secondary"], ls=1.0),
-    W_heading("Fasilitas Bengkel Heavy Duty Terlengkap di Koridor Industri",
+    W_heading("FASILITAS BENGKEL", tag="p", align="center", size=13, weight=700, color=C["secondary"], ls=1.0),
+    # Ronde 21 4a: judul ≤ 8 kata, tanpa jargon.
+    W_heading("Fasilitas Bengkel",
               tag="h2", align="center", size=34, weight=800, color=C["primary"], ls=-0.8, margin=px4(6, 0, 14, 0)),
-    W_text("Dirancang khusus untuk mengakomodasi truk tronton, trailer 40ft, dan alat berat dengan kapasitas hingga 20 unit secara bersamaan.",
+    # TODO: konfirmasi pemilik — kapasitas hingga 20 unit bersamaan.
+    W_text("Dirancang untuk truk besar dan trailer, dengan kapasitas hingga 20 unit dikerjakan bersamaan.",
            align="center", size=16, color=C["text_muted"], margin=px4(0, 0, 48, 0)),
 
     # Row 1 (3 Photos)
     inner([
         col(33, "fac-card-col", [
-            W_image("fasilitas1", alt="Pit Servis 20 Meter", radius=16),
+            W_image("fasilitas1", alt="Jalur servis kolong dengan pencahayaan terang", radius=16),
             W_heading("Pit Servis 20 Meter", tag="h3", size=18, weight=700, color=C["primary"], margin=px4(12, 0, 4, 0)),
-            W_text("Jalur kolong inspeksi dengan pencahayaan LED intensitas tinggi dan sistem drainase oli otomatis untuk inspeksi cepat gardan &amp; sasis.", size=13)
+            # TODO: konfirmasi pemilik — panjang pit 20 meter.
+            W_text("Jalur kolong untuk memeriksa gardan dan sasis, dengan lampu terang dan saluran oli tertutup.", size=14)
         ], {"padding": px4(16, 16, 18, 16), "background_background": "classic", "background_color": C["white"], "border_radius": rad(18)}),
         col(33, "fac-card-col", [
-            W_image("fasilitas2", alt="Overhead Crane 10 Ton", radius=16),
+            W_image("fasilitas2", alt="Derek gantung 10 ton di area bengkel", radius=16),
             W_heading("Overhead Crane 10 Ton", tag="h3", size=18, weight=700, color=C["primary"], margin=px4(12, 0, 4, 0)),
-            W_text("Derek gantry elektrik berkapasitas angkat 10 ton untuk proses bongkar pasang kabin, transmisi berat, dan engine assembly secara presisi.", size=13)
+            # TODO: konfirmasi pemilik — kapasitas angkat 10 ton.
+            W_text("Derek gantung untuk mengangkat komponen berat seperti kabin, transmisi, dan mesin dengan aman.", size=14)
         ], {"padding": px4(16, 16, 18, 16), "background_background": "classic", "background_color": C["white"], "border_radius": rad(18)}),
         col(33, "fac-card-col", [
-            W_image("fasilitas3", alt="Mesin Spooring 3D Laser", radius=16),
+            W_image("fasilitas3", alt="Mesin spooring laser 3D untuk truk", radius=16),
             W_heading("Mesin Spooring 3D Laser", tag="h3", size=18, weight=700, color=C["primary"], margin=px4(12, 0, 4, 0)),
-            W_text("Sistem komputerisasi laser alignment untuk menyelaraskan kelurusan roda kemudi dan drive axle truk gandar ganda agar ban awet merata.", size=13)
+            W_text("Menyetel kelurusan roda dan as roda truk memakai laser, supaya ban aus merata dan kemudi nyaman.", size=14)
         ], {"padding": px4(16, 16, 18, 16), "background_background": "classic", "background_color": C["white"], "border_radius": rad(18)}),
     ], css_classes="fac-row-1", direction="row", style={"flex_gap": fsize(20), "margin": px4(0, 0, 20, 0)}),
 
     # Row 2 (3 Photos)
     inner([
         col(33, "fac-card-col", [
-            W_image("fasilitas4", alt="Chassis Dyno Test Heavy Duty", radius=16),
-            W_heading("Chassis Dyno Test Heavy Duty", tag="h3", size=18, weight=700, color=C["primary"], margin=px4(12, 0, 4, 0)),
-            W_text("Ruang uji performa dinamometer bertenaga tinggi untuk simulasi beban jalan dan pengujian torsi mesin pasca overhaul sebelum diserahkan.", size=13)
+            W_image("fasilitas4", alt="Ruang uji performa dynometer truk", radius=16),
+            W_heading("Uji Performa Dynometer", tag="h3", size=18, weight=700, color=C["primary"], margin=px4(12, 0, 4, 0)),
+            W_text("Mengukur tenaga mesin dan putaran roda di tempat, untuk memastikan truk sehat sebelum diserahkan.", size=14)
         ], {"padding": px4(16, 16, 18, 16), "background_background": "classic", "background_color": C["white"], "border_radius": rad(18)}),
         col(33, "fac-card-col", [
-            W_image("fasilitas5", alt="Lab Injektor Ber-AC & Bertekanan", radius=16),
-            W_heading("Lab Injektor Ber-AC &amp; Steril", tag="h3", size=18, weight=700, color=C["primary"], margin=px4(12, 0, 4, 0)),
-            W_text("Ruang steril bertekanan positif bebas debu dengan test bench Bosch EPS 708 untuk kalibrasi injektor common rail berstandar mikron.", size=13)
+            W_image("fasilitas5", alt="Ruang kalibrasi injektor bertekanan", radius=16),
+            W_heading("Ruang Kalibrasi Injektor", tag="h3", size=18, weight=700, color=C["primary"], margin=px4(12, 0, 4, 0)),
+            # TODO: konfirmasi pemilik — merek alat uji (Bosch EPS 708).
+            W_text("Ruang bersih bebas debu untuk menguji dan menyetel injektor common rail supaya menyembur rata.", size=14)
         ], {"padding": px4(16, 16, 18, 16), "background_background": "classic", "background_color": C["white"], "border_radius": rad(18)}),
         col(33, "fac-card-col", [
-            W_image("fasilitas6", alt="Driver Lounge VIP", radius=16),
-            W_heading("Driver Lounge VIP", tag="h3", size=18, weight=700, color=C["primary"], margin=px4(12, 0, 4, 0)),
-            W_text("Ruang istirahat pengemudi ber-AC dengan sofa nyaman, musholla, kamar mandi bersih, Wi-Fi gratis, dan monitor CCTV pantau pengerjaan truk.", size=13)
+            W_image("fasilitas6", alt="Ruang istirahat pengemudi di bengkel", radius=16),
+            W_heading("Ruang Istirahat Pengemudi", tag="h3", size=18, weight=700, color=C["primary"], margin=px4(12, 0, 4, 0)),
+            W_text("Ruang istirahat ber-AC dengan kursi nyaman, tempat salat, kamar mandi bersih, dan layar pantau pengerjaan truk.", size=14)
         ], {"padding": px4(16, 16, 18, 16), "background_background": "classic", "background_color": C["white"], "border_radius": rad(18)}),
     ], css_classes="fac-row-2", direction="row", style={"flex_gap": fsize(20)})
 ]
 sections.append(sec_fac)
 
 
-# --- 8. SECTION 7: TESTIMONI KLIEN & MITRA EKSPEDISI LOGISTIK ---
+# --- 6c. SECTION: MEREK RESMI YANG KAMI PAKAI (Ronde 21 4c) ---
+# 6 logo PNG asli dari Media Library (sudah terunggah sejak ronde lalu).
+# Tampil hanya bila SHOW_BRAND_LOGOS=True.
+# TODO: konfirmasi pemilik — izin penggunaan logo merek.
+sec_brand = el_container("stitch-sec-brands", css_id="merek", boxed=1240, bg=C["white"],
+                         style={"padding": px4(56, 20, 56, 20)}, nav="Merek Resmi")
+BRAND_LOGO_ITEMS = [
+    ("brand_pertamina", "Logo Pertamina Lubricants"),
+    ("brand_mobil", "Logo pelumas Mobil Delvac"),
+    ("brand_dunlop", "Logo ban Dunlop"),
+    ("brand_gs_astra", "Logo aki GS Astra"),
+    ("brand_incoe", "Logo aki Incoe"),
+    ("brand_sakura", "Logo filter Sakura"),
+]
+sec_brand["elements"] = [
+    W_heading("MEREK RESMI", tag="p", align="center", size=13, weight=700, color=C["primary"], ls=1.0),
+    W_heading("Merek Resmi yang Kami Pakai", tag="h2", align="center", size=34, weight=800,
+              color=C["primary"], ls=-0.8, margin=px4(6, 0, 14, 0)),
+    W_text("Suku cadang, pelumas, ban, dan aki yang kami pasang berasal dari merek berikut.",
+           align="center", size=16, color=C["text_muted"], margin=px4(0, 0, 32, 0)),
+    inner([
+        col(16, "brand-logo-col", [W_image(k, alt=alt, cls="brand-logo-row-img", radius=0)])
+        for k, alt in BRAND_LOGO_ITEMS
+    ], css_classes="brand-logos-row", direction="row",
+       style={"flex_gap": fsize(16), "flex_align_items": "center",
+              "flex_justify_content": "space-between"}),
+]
+if SHOW_BRAND_LOGOS:
+    sections.append(sec_brand)
+
+
+# --- 8. SECTION 7: TESTIMONI (Ronde 21 1e: PLACEHOLDER) ---
+# Testimoni LAMA berisi nama, jabatan, perusahaan, dan jumlah unit yang karangan.
+# Semuanya diganti placeholder: tanpa nama lengkap, tanpa angka spesifik,
+# avatar inisial. TODO: konfirmasi pemilik — ganti dengan testimoni asli +
+# izin tertulis, atau matikan SHOW_TESTIMONIALS sebelum situs tayang.
 sec_testi = el_container("stitch-sec-testimonials", boxed=1240, bg=C["white"],
                          style={"padding": px4(72, 20, 72, 20)}, nav="Testimoni")
+
+
+def testi_card(quote, initials, name, role):
+    """Satu kartu testimoni placeholder (ikon bintang FA5, avatar inisial)."""
+    stars = "".join('<i class="fas fa-star" aria-hidden="true"></i>' for _ in range(5))
+    return col(33, "testi-card-col", [
+        W_text("<div style='font-size:16px;color:#fd651e;margin-bottom:10px;' role=\"img\" "
+               "aria-label=\"Nilai 5 dari 5\">" + stars + "</div>"
+               "<p style='font-size:15px;color:#191c1e;line-height:1.65;font-style:italic;margin-bottom:20px;'>"
+               "&ldquo;" + quote + "&rdquo;</p>"
+               "<div style='display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid #e2e8f0;'>"
+               # Avatar inisial (bukan foto orang yang tidak dikenal, tanpa simbol bintang)
+               "<div aria-hidden=\"true\" style='width:48px;height:48px;flex:0 0 48px;border-radius:50%;background:#E8ECFF;"
+               "color:#00236f;display:flex;align-items:center;justify-content:center;font-family:Plus Jakarta Sans;"
+               "font-size:15px;font-weight:800;letter-spacing:0.5px;' >" + initials + "</div>"
+               "<div><div style='font-family:Plus Jakarta Sans;font-size:15px;font-weight:700;color:#00236f;'>" + name + "</div>"
+               "<div style='font-size:14px;color:#757682;'>" + role + "</div></div>"
+               "</div>")
+    ], {"padding": px4(28, 24, 24, 24), "background_background": "classic", "background_color": C["surface"],
+        "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"], "border_radius": rad(20)})
+
+
 sec_testi["elements"] = [
-    W_heading("Bukti Kemitraan Nyata", tag="p", align="center", size=13, weight=700, color=C["primary"], ls=1.0),
-    W_heading("Dipercaya oleh Para Pemimpin Industri Ekspedisi &amp; Transportasi",
+    W_heading("TESTIMONI PELANGGAN", tag="p", align="center", size=13, weight=700, color=C["primary"], ls=1.0),
+    # Ronde 21 4a: judul ≤ 8 kata.
+    W_heading("Kata Pelanggan",
               tag="h2", align="center", size=34, weight=800, color=C["primary"], ls=-0.8, margin=px4(6, 0, 14, 0)),
-    W_text("Transparansi pengerjaan dan kepastian uptime armada menjadi alasan utama mitra korporat kami bertahan bertahun-tahun.",
+    W_text("Cerita singkat dari pelanggan yang merawat armadanya bersama kami.",
            align="center", size=16, color=C["text_muted"], margin=px4(0, 0, 48, 0)),
-    # 3 Testimonial Cards
+    # 3 Kartu Testimoni Placeholder
     inner([
-        col(33, "testi-card-col", [
-            W_text("<div style='font-size:24px;color:#fd651e;margin-bottom:8px;'>★★★★★</div>"
-                   "<p style='font-size:15px;color:#191c1e;line-height:1.65;font-style:italic;margin-bottom:20px;'>"
-                   '\"Sejak mempercayakan 78 unit trailer kami pada kontrak perawatan Master Truck, angka breakdown armada di jalan turun hingga 85%. '
-                   'Dashboard laporan perawatan digitalnya sangat transparan dan suku cadangnya selalu terbukti original OEM.\"'
-                   "</p>"
-                   "<div style='display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid #e2e8f0;'>"
-                   "<img src='" + IMG["testi1"][0] + "' alt='Budi Santoso - Fleet Manager PT Lintas Samudra Logistik' style='width:48px;height:48px;border-radius:50%;object-fit:cover;'>"
-                   "<div><div style='font-family:Plus Jakarta Sans;font-size:15px;font-weight:700;color:#00236f;'>Budi Santoso, S.T.</div>"
-                   "<div style='font-size:12px;color:#757682;'>Fleet Manager PT Lintas Samudra Logistik (78 Unit)</div></div>"
-                   "</div>")
-        ], {"padding": px4(28, 24, 24, 24), "background_background": "classic", "background_color": C["surface"],
-            "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"], "border_radius": rad(20)}),
-
-        col(33, "testi-card-col", [
-            W_text("<div style='font-size:24px;color:#fd651e;margin-bottom:8px;'>★★★★★</div>"
-                   "<p style='font-size:15px;color:#191c1e;line-height:1.65;font-style:italic;margin-bottom:20px;'>"
-                   '\"Waktu adalah uang dalam bisnis kontainer pelabuhan. Master Truck selalu memenuhi janji pengerjaan tepat waktu. '
-                   'Fasilitas pit servis 20 meter dan overhead cranenya sangat profesional, setara bengkel ATPM resmi namun dengan fleksibilitas yang jauh lebih baik.\"'
-                   "</p>"
-                   "<div style='display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid #e2e8f0;'>"
-                   "<img src='" + IMG["testi2"][0] + "' alt='Ir. Hendra Wijaya - Direktur Ops PT Kencana Trans Mandiri' style='width:48px;height:48px;border-radius:50%;object-fit:cover;'>"
-                   "<div><div style='font-family:Plus Jakarta Sans;font-size:15px;font-weight:700;color:#00236f;'>Ir. Hendra Wijaya</div>"
-                   "<div style='font-size:12px;color:#757682;'>Direktur Ops PT Kencana Trans Mandiri (120 Unit)</div></div>"
-                   "</div>")
-        ], {"padding": px4(28, 24, 24, 24), "background_background": "classic", "background_color": C["surface"],
-            "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"], "border_radius": rad(20)}),
-
-        col(33, "testi-card-col", [
-            W_text("<div style='font-size:24px;color:#fd651e;margin-bottom:8px;'>★★★★★</div>"
-                   "<p style='font-size:15px;color:#191c1e;line-height:1.65;font-style:italic;margin-bottom:20px;'>"
-                   '\"Emergency rescue 24 jam Master Truck pernah menyelamatkan armada kami yang patah as roda di tol tengah malam. '
-                   'Dalam 45 menit tim rescue sudah tiba di lokasi dan truk berhasil dievakuasi tanpa muatan terlambat sampai ke gudang klien.\"'
-                   "</p>"
-                   "<div style='display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid #e2e8f0;'>"
-                   "<img src='" + IMG["testi3"][0] + "' alt='Sari Anggraini - Pemilik PT Berkah Angkutan Nusantara' style='width:48px;height:48px;border-radius:50%;object-fit:cover;'>"
-                   "<div><div style='font-family:Plus Jakarta Sans;font-size:15px;font-weight:700;color:#00236f;'>Sari Anggraini</div>"
-                   "<div style='font-size:12px;color:#757682;'>Pemilik PT Berkah Angkutan Nusantara (35 Unit)</div></div>"
-                   "</div>")
-        ], {"padding": px4(28, 24, 24, 24), "background_background": "classic", "background_color": C["surface"],
-            "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"], "border_radius": rad(20)}),
+        testi_card(
+            "Sejak armada kami dirawat di sini, truk lebih jarang mogok di jalan. "
+            "Pekerjaannya dijelaskan dulu sebelum dimulai, jadi jadwal operasional kami tidak terganggu.",
+            "PA", "Pelanggan armada ekspedisi", "Contoh testimoni — akan diganti testimoni asli"),
+        testi_card(
+            "Laporan pengerjaannya jelas dan suku cadangnya terasa asli. "
+            "Kalau ada pertanyaan, pihak bengkel cepat menjawab.",
+            "PT", "Pelanggan perusahaan transportasi", "Contoh testimoni — akan diganti testimoni asli"),
+        testi_card(
+            "Truk kami pernah mogok malam hari dan tim derek datang menolong. "
+            "Truk bisa kembali jalan tanpa menunggu lama.",
+            "PU", "Pelanggan usaha pengiriman", "Contoh testimoni — akan diganti testimoni asli"),
     ], css_classes="testimonials-row", direction="row", style={"flex_gap": fsize(20)})
 ]
-sections.append(sec_testi)
+# Ronde 21 1e: flag pemilik — set False untuk menyembunyikan testimoni placeholder.
+if SHOW_TESTIMONIALS:
+    sections.append(sec_testi)
 
 
 # --- 9. SECTION 8: FAQ ACCORDION ---
-sec_faq = el_container("stitch-sec-faq", css_id="faq", boxed=960, bg=C["surface_low"],
+sec_faq = el_container("stitch-sec-faq", css_id="faq", boxed=1240, bg=C["surface_low"],
                        style={"padding": px4(72, 20, 72, 20)}, nav="FAQ")
 sec_faq["elements"] = [
-    W_heading("Tanya Jawab Teknis", tag="p", align="center", size=13, weight=700, color=C["secondary"], ls=1.0),
-    W_heading("Pertanyaan Populer Seputar Layanan &amp; Kerjasama Fleet",
+    W_heading("PERTANYAAN UMUM", tag="p", align="center", size=13, weight=700, color=C["secondary"], ls=1.0),
+    # Ronde 21 4a: judul ≤ 8 kata, bahasa awam.
+    W_heading("Pertanyaan Umum",
               tag="h2", align="center", size=32, weight=800, color=C["primary"], ls=-0.8, margin=px4(6, 0, 14, 0)),
-    W_text("Hal-hal teknis dan administratif yang sering ditanyakan oleh pemilik dan manajer operasional armada komersial.",
+    W_text("Pertanyaan yang paling sering ditanyakan calon pelanggan sebelum servis.",
            align="center", size=16, color=C["text_muted"], margin=px4(0, 0, 40, 0)),
+    # Teks FAQ di bawah ini SAMA dengan skema FAQPage di mt-topbar.php.
     W_accordion([
-        {"title": "Apakah Master Truck melayani servis panggilan atau darurat di jalan (Roadside Assistance)?",
-         "content": "Ya, kami memiliki armada mobil bengkel keliling (Mobile Service Unit) dan truk derek underlift 25 ton yang beroperasi 24 jam setiap hari untuk evakuasi darurat, perbaikan ban, kelistrikan, serta masalah angin rem di wilayah Jabodetabek, Cikarang, Karawang, hingga jalur tol Trans-Jawa."},
-        {"title": "Apa saja merek truk niaga yang dapat ditangani oleh bengkel Master Truck?",
-         "content": "Bengkel kami menangani seluruh brand truk heavy duty dan medium commercial ternama, termasuk Scania, Volvo Trucks, Hino (500 & 300 series), Mitsubishi Fuso, Isuzu Giga/Elf, Mercedes-Benz Axor, MAN, dan UD Trucks Quester dengan scanner diagnostik resmi."},
-        {"title": "Bagaimana jaminan keaslian suku cadang dan garansi pengerjaan overhaul?",
-         "content": "Kami memberikan jaminan 100% suku cadang orisinal OEM langsung dari distributor resmi. Untuk pengerjaan overhaul total mesin dan transmisi, kami memberikan garansi resmi pengerjaan hingga 180 hari atau 50.000 KM dengan sertifikat garansi tertulis."},
-        {"title": "Bagaimana skema kerjasama Kontrak Pemeliharaan Armada (PMP) untuk perusahaan logistik?",
-         "content": "Kami menyediakan kontrak perawatan fleksibel bulanan maupun tahunan. Perusahaan Anda akan mendapatkan alokasi stall prioritas (Zero Queue), diskon suku cadang hingga 18%, laporan digital inspeksi terintegrasi, serta fleksibilitas pembayaran termin bisnis (TOP 30-60 hari) setelah proses verifikasi kredit selesai."},
-        {"title": "Apakah bengkel Master Truck memiliki fasilitas penyimpanan atau pool aman untuk truk yang menginap?",
-         "content": "Ya, area workshop kami seluas lebih dari 8.000 m² dilengkapi sistem pengamanan 24 jam dengan petugas sekuriti, CCTV aktif di setiap stall dan sudut area parkir, serta asuransi perlindungan unit selama kendaraan berada di dalam area bengkel kami."}
+        {"title": "Apakah Master Truck melayani servis panggilan atau darurat di jalan?",
+         # TODO: konfirmasi pemilik — kapasitas derek & cakupan wilayah layanan.
+         "content": "Ya. Kami memiliki mobil bengkel keliling dan truk derek " + CLAIMS["derek_ton"] +
+                    " yang siaga 24 jam untuk evakuasi truk, perbaikan ban, kelistrikan, dan rem angin "
+                    "di Medan dan sekitarnya."},
+        {"title": "Merek truk apa saja yang bisa dilayani bengkel Master Truck?",
+         "content": "Truk niaga merek Scania, Volvo, Hino, Mitsubishi Fuso, Isuzu, "
+                    "Mercedes-Benz, MAN, dan UD Trucks. Untuk merek tertentu, "
+                    "hubungi kami dulu supaya ketersediaan suku cadangnya bisa dicek lebih dulu."},
+        {"title": "Bagaimana jaminan suku cadang dan garansi pengerjaan turun mesin?",
+         # TODO: konfirmasi pemilik — klaim suku cadang asli 100% & garansi 180 hari/50.000 km.
+         "content": "Suku cadang kami jamin keasliannya. Untuk pengerjaan turun mesin dan transmisi, "
+                    "ada garansi tertulis hingga " + CLAIMS["garansi_overhaul"] + " atau " + CLAIMS["garansi_km"] + "."},
+        {"title": "Bagaimana kerja sama perawatan armada untuk perusahaan?",
+         # TODO: konfirmasi pemilik — diskon 18%, layanan tanpa antre, termin bisnis.
+         "content": "Kami menyediakan kontrak perawatan bulanan maupun tahunan. Perusahaan Anda mendapat "
+                    "jadwal servis tanpa antre, diskon suku cadang hingga " + CLAIMS["diskon_prime"] +
+                    ", laporan digital, dan pilihan bayar termin setelah disetujui."},
+        {"title": "Apakah ada tempat penyimpanan truk yang menginap?",
+         # TODO: konfirmasi pemilik — luas bengkel 8.000 m² & pengawasan 24 jam.
+         "content": "Ada. Area bengkel seluas " + CLAIMS["luas_bengkel"] +
+                    " dijaga petugas keamanan 24 jam dengan kamera pengawas di setiap stall dan area parkir."}
     ], cls="faq-accordion-box")
 ]
 sections.append(sec_faq)
 
 
 # --- 10. SECTION 9: FINAL HIGH IMPACT ACTION BANNER ---
+# Ronde 21 3c: HTML inline diganti container native Elementor (gradien via kontrol
+# background) + widget Heading + Text + 2 tombol Button native.
 sec_cta = el_container("stitch-sec-cta", boxed=1240, bg=C["white"],
                        style={"padding": px4(48, 20, 64, 20)}, nav="Action Banner")
-sec_cta["elements"] = [
+
+# Pesan tombol telepon: nomor asli belum ada -> arahkan ke WhatsApp (TODO pemilik).
+CTA_WA_TEXT = "Halo Master Truck, saya butuh bantuan untuk armada saya."
+
+cta_banner = el_container("final-banner", boxed=None,
+                          style={
+                              "padding": px4(56, 40, 56, 40),
+                              "border_radius": rad(24),
+                              "background_background": "gradient",
+                              "background_color": "#00164e",
+                              "background_color_b": "#1e3a8a",
+                              "background_gradient_angle": {"unit": "deg", "size": 135},
+                              "box_shadow_box_shadow_type": "yes",
+                              "box_shadow_box_shadow": shadow(0, 20, 48, 0, "rgba(0,35,111,0.25)"),
+                              "flex_direction": "row",
+                              "flex_align_items": "center",
+                              "flex_justify_content": "space-between",
+                              "flex_wrap": "wrap",
+                              "flex_gap": fsize(28),
+                          }, nav="Banner Ajakan")
+cta_banner["elements"] = [
+    col(None, "final-banner-text", [
+        W_heading("Hotline Siaga 24 Jam", tag="p", cls="cta-chip", size=12, weight=800,
+                  color=C["white"], ls=1.0, margin=px4(0, 0, 12, 0)),
+        W_heading("Armada Mogok di Jalan atau Perlu Jadwal Servis Rutin?", tag="h2", size=32,
+                  weight=800, color=C["white"], ls=-0.5, margin=px4(0, 0, 12, 0)),
+        W_text("Tim montir spesialis dan armada derek kami siaga 24 jam. Hubungi kami untuk "
+               "penanganan cepat, atau jadwalkan pengecekan rutin bengkel.",
+               size=16, color="#bec6e0", margin=px4(0, 0, 0, 0)),
+    ], {"max_width": {"unit": "px", "size": 680}, "padding": px4(0, 0, 0, 0)}),
     inner([
-        col(100, "", [
-            W_text(
-                '<div style="background:linear-gradient(135deg, #00164e 0%, #1e3a8a 100%);border-radius:24px;'
-                'padding:48px 40px;color:#ffffff;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px;'
-                'box-shadow:0 20px 48px rgba(0,35,111,0.25);">'
-                '<div style="max-width:680px;">'
-                '<div style="display:inline-block;padding:4px 10px;background:#fd651e;color:#ffffff;border-radius:6px;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">Hotline Siaga 24/7</div>'
-                '<h2 style="font-family:Plus Jakarta Sans;font-size:32px;font-weight:800;color:#ffffff;line-height:1.2;margin:0 0 12px 0;">'
-                'Armada Mogok di Jalan atau Perlu Jadwal Servis Rutin?</h2>'
-                '<p style="font-size:16px;color:#bec6e0;line-height:1.6;margin:0;">'
-                'Tim teknisi spesialis dan armada rescue kami siaga 24 jam melayani kebutuhan armada Anda. Hubungi kami sekarang untuk penanganan cepat atau jadwalkan inspeksi rutin bengkel.'
-                '</p>'
-                '</div>'
-                '<div style="display:flex;flex-direction:column;gap:12px;min-width:240px;">'
-                '<a href="tel:0812MASTERTRUCK" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;background:#fd651e;color:#ffffff;text-decoration:none;border-radius:12px;font-family:Plus Jakarta Sans;font-weight:800;font-size:16px;box-shadow:0 8px 20px rgba(253,101,30,0.4);">'
-                '📞 Hubungi Dispatcher 24 Jam</a>'
-                '<a href="#quick-booking" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 28px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.3);color:#ffffff;text-decoration:none;border-radius:12px;font-family:Plus Jakarta Sans;font-weight:700;font-size:15px;">'
-                'Jadwalkan Servis Online</a>'
-                '</div>'
-                '</div>'
-            )
-        ])
-    ], css_classes="final-banner-row", direction="row")
+        # TODO: konfirmasi pemilik — nomor telepon asli; sementara ke WhatsApp.
+        W_button("Hubungi Tim Darurat 24 Jam", link=wa_link(CTA_WA_TEXT),
+                 icon="fas fa-phone-alt", bg=C["secondary"], text_color=C["white"],
+                 radius=12, pad=(16, 28), cls="btn-cta-primary"),
+        W_button("Jadwalkan Servis Online", link="#quick-booking", icon="fas fa-calendar-alt",
+                 bg="rgba(255,255,255,0.1)", text_color=C["white"], radius=12, pad=(14, 28),
+                 border="rgba(255,255,255,0.3)", cls="btn-cta-secondary"),
+    # Ronde 4 (10.4): dua tombol BERDAMPINGAN (row), lebar mengikuti isi.
+    ], css_classes="final-banner-btns", direction="row",
+       style={"flex_gap": fsize(12), "flex_align_items": "center",
+              "flex_wrap": "wrap", "padding": px4(0, 0, 0, 0)}),
+]
+sec_cta["elements"] = [
+    inner([cta_banner], css_classes="final-banner-row", direction="row")
 ]
 sections.append(sec_cta)
 
 
-# --- 11. FOOTER ---
+# --- 10b. SECTION: LOKASI & JAM BUKA (Ronde 21 4d) ---
+# Data dari SITE_DATA; alamat jalan lengkap & data belum pasti = TODO pemilik.
+sec_loc = el_container("stitch-sec-location", css_id="lokasi", boxed=1240, bg=C["surface_low"],
+                       style={"padding": px4(64, 20, 64, 20)}, nav="Lokasi & Jam Buka")
+sec_loc["elements"] = [
+    W_heading("LOKASI &amp; JAM BUKA", tag="p", align="center", size=13, weight=700,
+              color=C["secondary"], ls=1.0),
+    W_heading("Lokasi &amp; Jam Buka", tag="h2", align="center", size=34, weight=800,
+              color=C["primary"], ls=-0.8, margin=px4(6, 0, 28, 0)),
+    inner([
+        col(58, "location-info-col", [
+            W_heading("Bengkel KIM III Medan", tag="h3", size=20, weight=700,
+                      color=C["primary"], margin=px4(0, 0, 6, 0)),
+            # TODO: konfirmasi pemilik — nama jalan & nomor (ADDRESS_DETAIL masih kosong).
+            W_text(ADDRESS + (" (" + ADDRESS_DETAIL + ")" if ADDRESS_DETAIL else ""),
+                   size=16, color=C["text_muted"], margin=px4(0, 0, 18, 0)),
+            W_heading("Jam Buka", tag="h3", size=20, weight=700, color=C["primary"],
+                      margin=px4(0, 0, 6, 0)),
+            W_text(HOURS + " · " + HOURS_TOWING,
+                   size=16, color=C["text_muted"], margin=px4(0, 0, 0, 0)),
+        ], {"padding": px4(0, 20, 0, 0)}),
+        col(42, "location-cta-col", [
+            W_button("Buka di Google Maps", link=MAPS_URL, icon="fas fa-map-marker-alt",
+                     bg=C["primary"], text_color=C["white"], radius=12, pad=(15, 26),
+                     cls="btn-maps", margin=px4(0, 0, 12, 0)),
+            W_button("Chat WhatsApp", link=wa_link("Halo Master Truck, saya mau tahu alamat & jam buka bengkelnya."),
+                     icon="fab fa-whatsapp", bg=C["secondary"], text_color=C["white"],
+                     radius=12, pad=(15, 26), cls="btn-wa"),
+        ], {"padding": px4(0, 0, 0, 0)}),
+    ], css_classes="location-row", direction="row",
+       style={"flex_gap": fsize(24), "flex_align_items": "center"}),
+]
+sections.append(sec_loc)
+
+
+# --- 11. FOOTER (Ronde 21 3c: Heading + Icon List/Text native, kontak dari SITE_DATA) ---
+# Satu workshop saja (KIM III Medan). Nama jalan lengkap = TODO pemilik
+# (alamat "Jl. Pulau Nias Selatan No. 8" lama TIDAK dipertahankan karena belum terkonfirmasi).
 footer = el_container("stitch-footer", css_id="kontak", boxed=1240, bg=C["white"],
                       style={"padding": px4(48, 20, 24, 20), "border_border": "solid",
                              "border_width": px4(1, 0, 0, 0), "border_color": C["border"]}, nav="Footer")
+
+FOOTER_LINKS = [
+    ("#layanan", "Turun Mesin &amp; Perbaikan Besar"),
+    ("#layanan", "Kalibrasi Injektor &amp; Pompa Solar"),
+    ("#layanan", "Servis Rem &amp; Kaki-Kaki"),
+    ("#layanan", "Perbaikan Transmisi &amp; Gardan"),
+    ("#layanan", "Servis Rutin &amp; Perawatan Berkala"),
+]
+
 footer["elements"] = [
     inner([
         col(35, "footer-col-brand", [
-            W_text('<div style="margin-bottom:14px;">'
-                   '<div style="font-family:Plus Jakarta Sans;font-size:20px;font-weight:800;color:#00236f;">MASTER TRUCK</div>'
-                   '<div style="font-size:12px;color:#757682;font-weight:600;text-transform:uppercase;">PT Lotus Prima Mandiri</div>'
-                   '</div>'
-                   '<p style="font-size:14px;color:#444651;line-height:1.65;max-width:320px;">'
-                   'Pusat layanan perbaikan, perawatan preventif, dan rekondisi armada kendaraan komersial terpercaya dengan standar operasional OEM internasional.'
-                   '</p>'
-                   '<div style="font-size:13px;color:#00236f;font-weight:700;margin-top:16px;">'
-                   '📞 Hotline: 0812-MASTER-TRUCK / 061-8888-1234<br>'
-                   '✉️ Email: fleet@mastertruck.co.id'
-                   '</div>')
+            W_heading("MASTER TRUCK", tag="p", cls="footer-brand-name", size=20, weight=800,
+                      color=C["primary"], ls=-0.5, margin=px4(0, 0, 4, 0)),
+            # Nama PT seragam dari SITE_DATA (vs lama: "PT Lotus Prima Mandiri").
+            # TODO: konfirmasi pemilik — nama PT resmi.
+            W_text('<span class="footer-company">' + COMPANY_NAME + '</span>',
+                   size=13, color="#757682", margin=px4(0, 0, 14, 0)),
+            W_text("Bengkel perawatan, perbaikan, dan rekondisi armada truk niaga "
+                   "di KIM III Medan.",
+                   size=14, color=C["text_muted"], margin=px4(0, 0, 16, 0), lh=1.65),
+            # Kontak dari SITE_DATA; tanda telepon tetap tertulis tetapi
+            # tautannya diarahkan ke WhatsApp selama nomor asli belum ada.
+            W_text('<div class="footer-contact">'
+                   '<i class="fas fa-phone-alt" aria-hidden="true"></i> '
+                   '<a href="' + tel_link() + '">' + PHONE_DISPLAY + '</a>'
+                   + (' · <a href="' + tel_link() + '">' + LANDLINE_DISPLAY + '</a>' if LANDLINE_DISPLAY else '')
+                   + '<br><i class="fas fa-envelope" aria-hidden="true"></i> '
+                   '<a href="mailto:' + EMAIL + '">' + EMAIL + '</a></div>',
+                   size=14, color=C["primary"], margin=px4(0, 0, 16, 0)),
+            # Ronde 4 (11.1): 4 lingkaran kontak 40px outline, gap 12, hover aksen.
+            W_text('<div class="footer-social">'
+                   '<a href="' + tel_link() + '" aria-label="Telepon Master Truck"><i class="fas fa-phone-alt" aria-hidden="true"></i></a>'
+                   '<a href="' + wa_link(WA_DEFAULT_TEXT) + '" target="_blank" rel="noopener" aria-label="Chat WhatsApp Master Truck"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>'
+                   '<a href="mailto:' + EMAIL + '" aria-label="Email Master Truck"><i class="fas fa-envelope" aria-hidden="true"></i></a>'
+                   '<a href="' + MAPS_URL + '" target="_blank" rel="noopener" aria-label="Lokasi bengkel Master Truck"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></a>'
+                   '</div>', size=14, color=C["text_muted"], margin=px4(0, 0, 0, 0)),
         ]),
         col(20, "footer-col-links", [
-            W_text('<div style="font-family:Plus Jakarta Sans;font-size:14px;font-weight:800;color:#00236f;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;">Layanan Utama</div>'
-                   '<div style="display:flex;flex-direction:column;gap:8px;font-size:14px;color:#444651;">'
-                   '<a href="#layanan" style="color:#444651;text-decoration:none;">Overhaul Mesin Diesel</a>'
-                   '<a href="#layanan" style="color:#444651;text-decoration:none;">Kalibrasi Injektor Common Rail</a>'
-                   '<a href="#layanan" style="color:#444651;text-decoration:none;">Rem Angin &amp; Pneumatik</a>'
-                   '<a href="#layanan" style="color:#444651;text-decoration:none;">Transmisi &amp; Gardan Heavy Duty</a>'
-                   '<a href="#layanan" style="color:#444651;text-decoration:none;">Spooring 3D Laser Alignment</a>'
-                   '</div>')
+            W_heading("Layanan Utama", tag="p", cls="footer-col-title", size=14, weight=800,
+                      color=C["primary"], ls=1.0, margin=px4(0, 0, 14, 0)),
+            W_text('<nav class="footer-links" aria-label="Layanan utama">'
+                   + ''.join('<a href="%s">%s</a>' % (h, t) for h, t in FOOTER_LINKS)
+                   + '</nav>', size=14, color=C["text_muted"], margin=px4(0, 0, 0, 0)),
         ]),
         col(25, "footer-col-facility", [
-            W_text('<div style="font-family:Plus Jakarta Sans;font-size:14px;font-weight:800;color:#00236f;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;">Workshop &amp; Pool</div>'
-                   '<div style="font-size:14px;color:#444651;line-height:1.6;">'
-                   '<b>Workshop KIM III:</b><br>'
-                   'Kawasan Industri Medan (KIM) III, Jl. Pulau Nias Selatan No. 8, Medan, Sumatera Utara.<br><br>'
-                   '<b>Workshop Cikarang:</b><br>'
-                   'Kawasan Industri GIIC Cikarang Pusat, Bekasi, Jawa Barat.'
-                   '</div>')
+            W_heading("Workshop", tag="p", cls="footer-col-title", size=14, weight=800,
+                      color=C["primary"], ls=1.0, margin=px4(0, 0, 14, 0)),
+            # Satu workshop saja. Alamat jalan lengkap = TODO konfirmasi pemilik.
+            W_text('<b>Workshop KIM III Medan</b><br>' + ADDRESS,
+                   size=14, color=C["text_muted"], margin=px4(0, 0, 0, 0), lh=1.7),
         ]),
         col(20, "footer-col-cert", [
-            W_text('<div style="font-family:Plus Jakarta Sans;font-size:14px;font-weight:800;color:#00236f;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;">Standar Mutu</div>'
-                   '<div style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:#444651;">'
-                   '<span>🏅 ISO 9001:2015 Certified</span>'
-                   '<span>🏅 Sistem Manajemen K3 (SMK3)</span>'
-                   '<span>🏅 Certified Bosch Diesel Center</span>'
-                   '<span>🏅 Rekanan Asuransi Komersial</span>'
-                   '</div>')
+            W_heading("Standar Mutu", tag="p", cls="footer-col-title", size=14, weight=800,
+                      color=C["primary"], ls=1.0, margin=px4(0, 0, 14, 0)),
+            # TODO: konfirmasi pemilik — sertifikat & klaim. "Certified Bosch Diesel Center"
+            # dan "Rekanan Asuransi Komersial" DIHAPUS dari tampilan (risiko hukum
+            # bila tak terbukti) — lihat RISKY_CLAIMS dan docs/DATA-PEMILIK.md.
+            W_iconlist([
+                CLAIMS["iso9001"],
+                CLAIMS["smk3"],
+                "Garansi pengerjaan tertulis",
+            ], icon="fas fa-award", color=C["secondary"], size=14),
         ]),
     ], css_classes="footer-main-row", direction="row", style={"flex_gap": fsize(20), "margin": px4(0, 0, 32, 0)}),
-    # Copyright
-    W_text('<div style="text-align:center;padding-top:20px;border-top:1px solid #e2e8f0;font-size:13px;color:#757682;">'
-           '© 2026 PT Lotus Prima Mandiri · Master Truck. Hak Cipta Dilindungi Undang-Undang.'
-           '</div>', align="center")
+    # Ronde 4 (11.3): SATU baris — copyright di kiri, menu di kanan
+    # (tanpa inline style; tata letak di mt-custom.css .footer-bottom).
+    W_text('<div class="footer-bottom">'
+           '<div class="footer-copy">© 2026 ' + COMPANY_NAME + ' · Master Truck. Hak Cipta Dilindungi Undang-Undang.'
+           + (' · <a href="' + PRIVACY_URL + '">Kebijakan Privasi</a>' if PRIVACY_URL else '')
+           + '</div>'
+           '<nav class="footer-menu" aria-label="Menu footer">'
+           '<a href="#header-carousel">Beranda</a>'
+           '<a href="#layanan">Layanan</a>'
+           '<a href="#fleet">Paket Fleet</a>'
+           '<a href="#fasilitas">Fasilitas</a>'
+           '<a href="#faq">Tanya Jawab</a>'
+           '<a href="#kontak">Kontak</a>'
+           '<span class="footer-menu-sep" aria-hidden="true">|</span>'
+           '<a href="' + LOGIN_URL + '">Masuk</a>'
+           '<a href="' + REGISTER_URL + '">Daftar</a>'
+           '</nav></div>')
 ]
 sections.append(footer)
 
 
 # =====================================================================
-# SIMPAN & DEPLOY KE WORDPRESS PAGE 59
+# ID ELEMEN DETERMINISTIK (Ronde 21 butir 3a)
+# id = hash stabil dari path/slug elemen (bukan acak), sehingga git diff JSON
+# terbaca dan CSS Elementor tidak berubah tanpa alasan.
 # =====================================================================
+
+def _element_slug(el):
+    st = el.get("settings") or {}
+    bits = []
+    for k in ("css_classes", "_element_id", "_title"):
+        v = st.get(k)
+        if v:
+            bits.append(str(v))
+    if el.get("widgetType"):
+        bits.append(str(el["widgetType"]))
+        title = st.get("title") or st.get("text") or ""
+        if title:
+            bits.append(re.sub(r"<[^>]+>", "", str(title))[:24])
+    slug = "-".join(bits) or str(el.get("elType") or "el")
+    slug = re.sub(r"[^a-zA-Z0-9_-]+", "-", slug).strip("-").lower()
+    return slug or str(el.get("elType") or "el")
+
+
+def assign_deterministic_ids(elements, path="", used=None):
+    """Tulis ulang semua id elemen menjadi hash stabil dari path-nya."""
+    if used is None:
+        used = set()
+    for i, el in enumerate(elements):
+        base = f"{path}/{i}-{_element_slug(el)}"
+        digest = hashlib.sha1(base.encode("utf-8")).hexdigest()
+        n = 7
+        while digest[:n] in used:      # kolisi: perpanjang hash
+            n += 1
+        el["id"] = digest[:n]
+        used.add(el["id"])
+        assign_deterministic_ids(el.get("elements") or [], base, used)
+    return used
+
+
+ids_used = assign_deterministic_ids(sections)
+print(f"deterministic ids: {len(ids_used)} elemen (tanpa id acak)")
+
+# =====================================================================
+# SELF-CHECK KONTEN (Ronde 21 butir 1a, 1c, 3d, 7)
+# =====================================================================
+FORBIDDEN_TEXT = ["cikarang", "tanjung priok", "jabodetabek", "karawang",
+                  "trans-jawa", "giic"]
+EMOJI_TEXT = ["✔", "★", "➔", "📞", "✉", "🏅", "⚡", "✅", "⭐", "✦", "🎉", "❗"]
+
+
+def selfcheck(text, claims=True):
+    """claims=False dipakai saat memeriksa JSON build (angka statistik dirender
+    oleh widget Counter, jadi belum berupa teks utuh)."""
+    errors = []
+    low = text.lower()
+    for word in FORBIDDEN_TEXT:
+        if word in low:
+            errors.append(f"kota/wilayah terlarang masih ada: {word!r}")
+    for emo in EMOJI_TEXT:
+        if emo in text:
+            errors.append(f"emoji tersisa: {emo!r}")
+    if "\ufe0f" in text:
+        errors.append("variation selector emoji (U+FE0F) tersisa")
+    for m in re.finditer("tel:([^\s\"'<>]+)", text):
+        val = m.group(1)
+        if not re.fullmatch(r"tel:\+?[0-9]{9,15}", val):
+            errors.append(f"tautan tel: tidak valid -> {val!r}")
+    for m in re.finditer(r"https?://localhost(:[0-9]+)?", text):
+        site = re.match(r"https?://localhost(:[0-9]+)?", SITE_URL)
+        if site and site.group(0) != m.group(0):
+            errors.append(f"host localhost asing di HTML -> {m.group(0)!r} (situs: {site.group(0)!r})")
+    if claims:
+        for claim in (CLAIMS["on_time"], CLAIMS["truk_ditangani"]):
+            if claim not in text:
+                errors.append(f"format angka klaim hilang: {claim!r}")
+    return errors
+
+
 payload = json.dumps(sections, ensure_ascii=False, indent=2)
 out_file = Path("elementor-exports/beranda-stitch-elementor.json")
 out_file.parent.mkdir(parents=True, exist_ok=True)
@@ -976,6 +1473,16 @@ print(f"Stitch Elementor: {len(sections)} sections generated ({len(payload)} byt
 n_cont = payload.count('"elType": "container"')
 n_legacy = payload.count('"elType": "section"') + payload.count('"elType": "column"')
 print(f"containers={n_cont} legacy_section_column={n_legacy}")
+
+# Self-check WAJIB lulus sebelum deploy (exit non-zero bila gagal).
+build_errors = selfcheck(payload, claims=False)
+if build_errors:
+    print("SELF-CHECK GAGAL — perbaiki dulu sebelum deploy:")
+    for e in build_errors:
+        print("  -", e)
+    sys.exit(1)
+print("SELF-CHECK OK: tanpa kota terlarang, tanpa emoji, tel: valid, "
+      "tanpa host localhost asing, format angka klaim benar.")
 
 REGEN_PHP = """<?php
 delete_post_meta(59, '_elementor_element_cache');
@@ -993,10 +1500,81 @@ delete_post_meta(59, '_elementor_element_cache');
 echo "element cache invalidated\\n";
 """
 
+# Ekspor data live + baca hash build terakhir (Ronde 21 butir 3b).
+EXPORT_LIVE_PHP = """<?php
+$raw = get_post_meta(59, '_elementor_data', true);
+file_put_contents('/tmp/live-page59.json', is_string($raw) ? $raw : '');
+$stored = get_post_meta(59, '_mt_last_build_hash', true);
+echo 'STORED_HASH=' . ( is_string( $stored ) ? $stored : '' ) . "\\n";
+"""
+
+SET_HASH_PHP = """<?php
+update_post_meta(59, '_mt_last_build_hash', getenv('MT_BUILD_HASH'));
+echo 'hash build tersimpan: ' . get_post_meta(59, '_mt_last_build_hash', true) . "\\n";
+"""
+
+
+def canonical_hash(text):
+    """Hash stabil: JSON dinormalkan dulu supaya spasi/format tak memicu alarm."""
+    try:
+        norm = json.dumps(json.loads(text), sort_keys=True, separators=(",", ":"),
+                          ensure_ascii=False)
+    except Exception:
+        norm = text
+    return hashlib.sha256(norm.encode("utf-8")).hexdigest()
+
+
+def export_and_guard(force=False):
+    """(i) ekspor data live ke archive/backups/live-page59-<timestamp>.json,
+    (ii) bandingkan hash live dengan _mt_last_build_hash.
+    Return (True, jalur_backup) bila aman dilanjutkan."""
+    ts = datetime.now().strftime("%Y%m%d-%H%M%S")
+    dest = Path("archive/backups") / f"live-page59-{ts}.json"
+    dest.parent.mkdir(parents=True, exist_ok=True)
+
+    with tempfile.NamedTemporaryFile("w", suffix=".php", delete=False, encoding="utf-8") as fh:
+        fh.write(EXPORT_LIVE_PHP)
+        host_php = fh.name
+    subprocess.run(["docker", "cp", host_php, f"{CONTAINER}:/tmp/export-live59.php"], check=True)
+    res = subprocess.run(
+        ["docker", "exec", CONTAINER, "wp", "--allow-root", "--path=/var/www/html",
+         "eval-file", "/tmp/export-live59.php"],
+        check=True, capture_output=True, text=True, encoding="utf-8")
+    stored = ""
+    for line in (res.stdout or "").splitlines():
+        if line.startswith("STORED_HASH="):
+            stored = line.split("=", 1)[1].strip()
+
+    subprocess.run(["docker", "cp", f"{CONTAINER}:/tmp/live-page59.json", str(dest)], check=True)
+    live_text = dest.read_text(encoding="utf-8") if dest.exists() else ""
+    if not live_text.strip():
+        print("Peringatan: data live kosong/tidak terbaca — backup tetap dibuat.")
+        return True, dest
+
+    live_hash = canonical_hash(live_text)
+    if not stored:
+        print("Catatan: riwayat build (_mt_last_build_hash) belum ada — "
+              "backup live tetap diekspor, deploy dilanjutkan.")
+        return True, dest
+    if live_hash == stored:
+        return True, dest
+
+    print("=" * 72)
+    print("HENTI: isi _elementor_data live BERBEDA dari build terakhir.")
+    print("Kemungkinan pengelola sudah mengedit Beranda lewat Elementor.")
+    print(f"  backup live : {dest}")
+    print(f"  hash live   : {live_hash[:16]}...")
+    print(f"  hash build  : {stored[:16]}...")
+    print("Solusi: tarik perubahan pengelola dulu, atau ulangi dengan --force "
+          "bila yakin perubahan live boleh ditimpa.")
+    print("=" * 72)
+    return bool(force), dest
+
+
 def deploy():
     print(f"Deploying to WordPress container {CONTAINER} (Post ID {PAGE_ID})...")
     subprocess.run(["docker", "cp", str(out_file), f"{CONTAINER}:/tmp/beranda-stitch.json"], check=True)
-    
+
     eval_php = """
     $json = file_get_contents('/tmp/beranda-stitch.json');
     if (!$json) { echo "Gagal baca json\\n"; exit(1); }
@@ -1036,19 +1614,57 @@ def deploy():
     subprocess.run(["docker", "cp", regen_host, f"{CONTAINER}:/tmp/regen59.php"], check=True)
     subprocess.run(["docker", "exec", CONTAINER, "wp", "--allow-root", "--path=/var/www/html", "eval-file", "/tmp/regen59.php"], check=True)
     print("CSS regenerated and cache flushed.")
-    import urllib.request
+
+    # Simpan hash build ini sebagai patokan pengaman timpa berikutnya.
+    build_hash = canonical_hash(payload)
+    with tempfile.NamedTemporaryFile("w", suffix=".php", delete=False, encoding="utf-8") as fh:
+        fh.write(SET_HASH_PHP)
+        hash_host = fh.name
+    subprocess.run(["docker", "cp", hash_host, f"{CONTAINER}:/tmp/set-hash59.php"], check=True)
+    subprocess.run(["docker", "exec", "-e", f"MT_BUILD_HASH={build_hash}", CONTAINER,
+                    "wp", "--allow-root", "--path=/var/www/html", "eval-file",
+                    "/tmp/set-hash59.php"], check=True)
+
     try:
-        with urllib.request.urlopen("http://localhost:5000/", timeout=30) as resp:
+        with urllib.request.urlopen(SITE_URL + "/", timeout=30) as resp:
             html = resp.read().decode("utf-8", "ignore")
             assert "stitch-navbar" in html, "ASSERT FAILED: stitch-navbar tidak ditemukan"
             assert "stitch-sec-hero" in html, "ASSERT FAILED: stitch-sec-hero tidak ditemukan"
             assert "nav-actions" in html, "ASSERT FAILED: nav-actions tidak ditemukan"
             assert "btn-nav-login" in html, "ASSERT FAILED: btn-nav-login tidak ditemukan"
             assert "btn-nav-register" in html, "ASSERT FAILED: btn-nav-register tidak ditemukan"
-            print("ASSERT OK: stitch-navbar, stitch-sec-hero, nav-actions, dan tombol Masuk/Daftar berhasil ter-render (PASS).")
+            assert "mt-booking-form" in html, "ASSERT FAILED: form booking tidak ditemukan"
+            assert "stitch-nav-burger" in html, "ASSERT FAILED: hamburger mobile tidak ditemukan"
+            assert "id=\"cara-kerja\"" in html or 'id="cara-kerja"' in html, \
+                "ASSERT FAILED: section Cara Kerja tidak ditemukan"
+            # claims=False: angka Counter diformat JS ("5.200+"), jadi belum utuh
+            # di HTML mentah — pemeriksaan format angka ada di tests/verify-stitch.cjs.
+            render_errors = selfcheck(html, claims=False)
+            assert not render_errors, "ASSERT FAILED: " + "; ".join(render_errors)
+            print("ASSERT OK: navbar, hero, nav-actions, form booking, hamburger, "
+                  "Cara Kerja ter-render; self-check HTML lulus (PASS).")
     except Exception as e:
         print(f"Peringatan prapemanasan render: {e}")
+        raise
+
 
 if __name__ == "__main__":
+    ap = argparse.ArgumentParser(description="Bangun & deploy Beranda Stitch (Page 59)")
+    ap.add_argument("--dry-run", action="store_true",
+                    help="bangun + self-check + cek pengaman, tanpa menyentuh WordPress")
+    ap.add_argument("--force", action="store_true",
+                    help="tetap deploy walau data live berbeda dari build terakhir")
+    args = ap.parse_args()
+
+    safe, backup_path = export_and_guard(force=args.force)
+    if args.dry_run:
+        print(f"DRY-RUN: JSON siap ({len(payload)} bytes). Tidak ada perubahan di WordPress.")
+        print(f"         backup live: {backup_path}")
+        sys.exit(0 if safe else 2)
+    if not safe:
+        print("Deploy DIBATALKAN. Ulangi dengan --force bila yakin perubahan live boleh ditimpa.")
+        sys.exit(2)
     deploy()
+    print("DEPLOY SELESAI.")
+
 

@@ -82,4 +82,38 @@ Anda dapat dengan mudah mengatur bagaimana website Master Truck muncul di hasil 
 2. Pada bagian **Local SEO**: Anda bisa memastikan Nama Bisnis, Logo, dan Jam Operasional (Senin–Sabtu 08.00–20.00) sudah sesuai.
 3. Klik tombol biru **Save Changes** di bagian bawah untuk menyimpan.
 
+## 6b. Membaca Skor SEO di Dasbor Pengelola
+
+Cara menampilkan dan membaca kartu **Skor SEO** di dasbor pengelola WordPress:
+
+1. Masuk ke dasbor (`/wp-admin/`).
+2. Di panel sisi kanan (widget **Status Situs**), lihat kartu **Skor SEO (Rank Math)** yang berada di atas daftar periksa **Siap tayang di Google**.
+3. Kartu ini menampilkan skor utama (0–100) dengan cincir warna:
+   - **Hijau** (>= 80): Bagus
+   - **Oranye** (50–79): Cukup
+   - **Merah** (< 50): Perlu diperbaiki
+4. Di bawah skor, daftar **7–8 pemeriksaan** utama:
+   - Judul Google (SEO Title)
+   - Deskripsi Google (SEO Description)
+   - Kata kunci utama terisi
+   - Peta situs (sitemap) aktif
+   - Mesin pencari diizinkan mengindeks situs
+   - Data bisnis lokal (schema) terisi (Nama, Alamat, Telepon)
+   - Semua gambar di Beranda punya teks alt
+   - Tepat 1 judul utama (H1) di Beranda
+5. Setiap pemeriksaan memiliki label status:
+   - **✓ Lolos** (ok)
+   - **! Perlu konfirmasi** (todo)
+   - **✕ Belum lolos** (bad)
+6. Setiap item memiliki tombol aksi yang menghalaman pengaturan terkait:
+   - **Perbaiki di editor**: Buka editor Elementor Page 59
+   - **Buka Peta Situs**: Pengaturan SEO → Peta Situs
+   - **Buka Local SEO**: Pengaturan SEO → Judul & Meta → Local SEO
+   - **Buka Media**: Menu Media untuk menambahkan teks alt
+7. Klik **Periksa Ulang** untuk memperbarui skor setelah mengubah isi halaman.
+8. Skor disimpan selama 10 menit dalam cache sebelum diperbarui lagi.
+9. Ringkasan skor per halaman publik juga ditampilkan di kartu.
+
+Catatan: Skor ini dihitung berdasarkan konfigurasi Rank Math di halaman Beranda — bukan jaminan posisi di Google. Aktifkan mode Lanjutan (Pengguna → Profil → centang *Tampilkan semua menu WordPD*) untuk melihat semua pemeriksaan tambahan.
+
 

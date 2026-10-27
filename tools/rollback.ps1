@@ -5,7 +5,7 @@
     rollback.ps1 -To <tag-atau-hash> [-RestoreDb] [-WhatIf]
       (a) git restore --source=<ref> --staged --worktree -- <path terlacak>
       (b) -RestoreDb: impor database/mt_site.sql dari ref itu
-      (c) python tools/build-beranda-elementor.py (deploy Page 59)
+      (c) python tools/build-stitch-elementor.py --force (deploy Page 59)
       (d) sync-to-wp, (e) wp elementor flush-css + curl, (f) assertion +
           test editor, (g) commit "rollback ke <ref>" + push (non-force).
       -WhatIf: hanya tampilkan daftar file yang akan berubah.
@@ -41,7 +41,8 @@ if ($RestoreDb) {
     Write-Host "OK database dari $To diimpor (kata sandi admin perlu diatur ulang)"
 }
 
-python tools/build-beranda-elementor.py --url $Url --container $Container
+# --force: rollback memang sengaja menimpa data live (hash build lama tidak cocok).
+python tools/build-stitch-elementor.py --force
 if ($LASTEXITCODE -ne 0) { Write-Host "build gagal"; exit 1 }
 powershell -NoProfile -ExecutionPolicy Bypass -File sync-to-wp.ps1 -Container $Container
 docker exec $Container wp --allow-root --path=/var/www/html elementor flush-css | Out-Null

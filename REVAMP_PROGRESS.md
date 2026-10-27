@@ -601,6 +601,195 @@ Dokumen ini memantau progres refaktor landing page Beranda (WordPress + Elemento
 
 ---
 
+## RONDE 21 (REVAMP13) — 2026-10-26
+
+Fokus ronde ini: **kejujuran konten, keamanan builder, kecepatan, dan aksesibilitas**.
+Beranda tetap desain Stitch yang sama (15 section), tetapi seluruh angka/klaim
+kini terpusat & ditandai, booking benar-benar berfungsi, builder mustahil
+menimpa pekerjaan pengelola tanpa sadar, dan CSS ramping 37,8%.
+
+- [x] **1. Satu sumber kebenaran data (`SITE_DATA` + `CLAIMS`)**:
+  - Blok `SITE_DATA` (nama PT, telepon, WA, alamat, jam, area, URL portal) & `CLAIMS`
+    (21 angka klaim: 5.200+ truk, 99,2% tepat waktu, 15+ bay, ISO 9001, dst.)
+    didefinisikan **sekali** di `tools/build-stitch-elementor.py`; seluruh section,
+    topbar, dan schema mengambil nilai dari sana.
+  - Semua nilai yang belum pasti ditandai `# TODO: konfirmasi pemilik` dan
+    didaftarkan di **`docs/DATA-PEMILIK.md`** (tabel: nilai saat ini, muncul di mana,
+    cara mengubah). Tidak ada angka yang dihapus — hanya dikumpulkan & ditandai.
+  - `PHONE_TEL` sengaja DIKOSONGKAN selama nomor asli belum ada → `tel_link()`
+    mengarahkan tombol telepon ke WhatsApp, sehingga **tidak ada tautan `tel:` palsu**.
+  - Self-check build (`selfcheck()`) menggagalkan build bila masih ada: kota/wilayah
+    terlarang (`cikarang`, `tanjung priok`, `jabodetabek`, `karawang`, `trans-jawa`, `giic`),
+    emoji, variation selector `U+FE0F`, tautan `tel:` tidak valid, host `localhost` asing,
+    atau format angka klaim (`5.200+` / `99,2%`) yang hilang.
+  - Testimoni & logo merek punya **flag konten** (`SHOW_TESTIMONIALS`, `SHOW_BRAND_LOGOS`)
+    agar pemilik bisa mematikannya sebelum situs tayang bila data asli/izin belum ada.
+- [x] **2. Booking benar-benar berfungsi**:
+  - Form `#mt-booking-form` (unit → kebutuhan → waktu) membangun pesan WhatsApp
+    sesuai pilihan dan membuka `wa.me` — diuji end-to-end oleh `verify-stitch.cjs`
+    (URL terbentuk benar, **pengiriman otomatis dihindari**).
+  - Tombol Masuk/Daftar memakai `FLEET_URL` (env `MT_FLEET_URL`), default = URL situs
+    sehingga **tidak ada URL pengembangan `localhost:3000`** yang bocor ke HTML produksi.
+  - Menu mobile: tombol hamburger `.stitch-nav-burger` membuka panel dropdown
+    (aria-expanded benar, semua tautan di dalam layar, klik tautan menutup panel + mengubah hash).
+  - Anchor menu di bawah navbar: `scroll-margin-top` disesuaikan (118px, +32px bila admin bar).
+- [x] **3. Builder deterministik & aman**:
+  - `nid()`: ID elemen dihasilkan dari **sha1 path** (`assign_deterministic_ids`),
+    bukan `secrets` acak → JSON diff stabil antar-build & perubahan tak sengaja kecil.
+  - **Pengaman timpa**: build mengekspor isi live Page 59 ke
+    `archive/backups/live-page59-<timestamp>.json` sebelum menimpa, lalu
+    `export_and_guard()` membandingkan isi lama vs baru; bila berbeda, deploy dibatalkan
+    dan minta `--force`. `--dry-run` hanya membangun tanpa menyentuh situs.
+  - Widget **native Elementor** dipakai penuh (Heading, Text, Button, Image,
+    **Counter**, **Icon**, **Icon List**, **Accordion**) — daftar yang tadinya ber-emoji `✔`
+    diganti widget Icon List native (ikon Font Awesome, bukan emoji).
+  - Generator lama dipindah ke **`tools/legacy/build-beranda-elementor.py`**;
+    `tools/rollback.ps1` & `tools/rollback.sh` kini memakai builder Stitch.
+- [x] **4. Struktur & konten**:
+  - Judul section dipendekkan; heading berhirarki semantik (tepat **1 H1** di hero).
+  - Section **Cara Kerja**, baris **logo merek resmi** (6 gambar, `loading=lazy`),
+  - Section **Lokasi & Jam** (alamat KIM III, jam Senin–Sabtu 08.00–20.00, derek 24 jam,
+    tautan Google Maps), dan **footer tahun otomatis** (mengikuti tahun berjalan).
+- [x] **5. Aksesibilitas**:
+  - Semua `<img>` ber-**alt deskriptif** (0 tanpa alt), aria-label pada tombol ikon,
+    hamburger punya `aria-expanded`, kontras teks memadai, target sentuh ≥ 44px,
+    fokus keyboard terlihat, dan tanpa horizontal scroll di 320–1920px.
+- [x] **6. Kecepatan — audit CSS mati**:
+  - `tests/css-crawl.cjs` menelusuri **semua halaman publish** (beranda + 14 halaman lain)
+    pada desktop & mobile (termasuk status saat scroll) lalu menandai setiap selector
+    yang tidak match di halaman mana pun; aturan yang **aman** dibuang oleh
+    `tests/remove-dead-css.py` (editor/state/hover/fokus/`aria-`/sticky selalu dipertahankan).
+  - `assets/css/mt-custom.css`: **2.014 → 1.630 baris**, **92.096 → 57.298 byte (−37,8%)**.
+  - Verifikasi regresi visual: perbandingan piksel screenshot sebelum/sesudah
+    **identik di semua viewport** (1366, 1440, 1024, 768, 390) — hanya noise animasi
+    counter yang berubah tiap run, bukan pergeseran layout.
+  - Request halaman beranda: 52 total (document 1, stylesheet 23, script 20, font 5, image 3);
+    **tanpa request baru** akibat ronde ini.
+- [x] **7. Dokumentasi & alat uji**:
+  - **`tests/verify-stitch.cjs`** (regresi desain Stitch, **41 assertion**):
+    struktur section, format angka Indonesia, 0 emoji, 0 kota terlarang, tautan `tel:` valid,
+    0 host localhost asing, tepat 1 H1, alt gambar, semua anchor menuju elemen nyata,
+    overflow 320–1920px, perilaku menu mobile, booking WhatsApp, kesehatan editor.
+  - **`docs/DATA-PEMILIK.md`** (baru): tabel data yang wajib dikonfirmasi pemilik +
+    cara mengubahnya; dirujuk dari README & penanda TODO di builder.
+  - `docs/PANDUAN-PENGELOLA.md` bagian **6b**: cara membaca kartu **Skor SEO** di dasbor.
+  - `README.md`: nama generator (kini `build-stitch-elementor.py`), daftar test,
+    daftar tag (`pre-ronde21`, `ronde21-done`), rujukan `docs/DATA-PEMILIK.md`.
+- [x] **Verifikasi & Safety**:
+  - Test suite baru `tests/verify-stitch.cjs`: **41 / 41 PASS (100%)**.
+  - Editor: Page 59 termuat dengan **15 section == hasil build**, 0 console error.
+  - Build self-check lolos (tanpa kota terlarang, tanpa emoji, `tel:` valid, klaim utuh).
+  - Screenshot sebelum/sesudah: `playwright_review/sebelum_revamp13/` &
+    `playwright_review/sesudah_revamp13/` (desktop + mobile).
+  - Backup pre-ronde: `archive/backups/_backup_revamp13_20261026_ronde21/` +
+    4 ekspor live Page 59 (`archive/backups/live-page59-*.json`).
+  - Git tag `pre-ronde21` (sebelum) & `ronde21-done` (akhir).
+  - Perbaikan pendukung: flag `--force` pada `wp user delete` di uji ternyata tidak valid
+    (menyebabkan user uji sisa) → diganti `--yes`; 4 user uji lama dibersihkan.
+
+---
+
+---
+
+## RONDE 4 (SERI RAPIKAN TOTAL) — 2026-10-27
+
+Fokus: "Rapikan total" Beranda (Page 59, **desain Stitch**) memakai prinsip spek RONDE 4
+seri lama: navbar, sistem tombol, kesejajaran global, footer & tombol melayang, plus
+suite verifikasi baru. Palet dan copy TIDAK berubah (navy `#00236F` + oranye `#fd651e`;
+WhatsApp `#25D366`) — aturan "aksen biru" berasal dari seri desain lama yang sudah
+diganti Stitch, jadi tidak dipaksakan ke halaman ini.
+Backup: `archive/backups/_backup_ronde4_20261027/` (builder, mt-custom.css, main.js,
+JSON, database_dump.sql).
+
+- [x] **1. Navbar**: brand ikon 36px + judul 17px bold nowrap + sub 12px abu nowrap
+  (line-height 1.15; inline style di HTML diganti class `.brand-title`/`.brand-sub`
+  di mt-custom.css); menu tepat **6 item** (Beranda | Layanan | Paket Fleet | Fasilitas |
+  Pertanyaan Umum | Kontak) 15px/600 nowrap **gap 28px**, tinggi link 22px (target ≤24);
+  Masuk & Daftar tinggi **44px** gap **12px**; bar 69px (≤72) dan sticky `is-scrolled`
+  (bayangan tipis) kini **58px** (≤60) berkat padding inner dinolkan saat scroll.
+- [x] **1.3 Drawer ≤991px**: bar hanya berisi brand + hamburger 44px (aksi tidak lagi
+  berdiri di bar); panel melebar **penuh layar** di bawah bar (dianchor ke
+  `.stitch-navbar`; `.e-con-inner`, `.stitch-nav-row`, dan widget pembungkus dibuat
+  static agar tak menempel ke tombol 44px); link **18px** gap 16 + Masuk/Daftar 48px
+  **penuh lebar di dasar drawer** (dipindah JS `placeNavActions()` + resize); menutup
+  saat link diklik, Esc, atau klik di luar.
+- [x] **2. Sistem tombol**: satu dasar `.mt-btn` (inline-flex, gap 8, tinggi 48,
+  padding 0 22, nowrap, radius 10, ikon 16) di mt-custom.css + kelas `mt-btn` otomatis
+  dari `W_button` untuk semua widget Button; varian nav 44px; **tombol booking WA
+  nowrap** (1 baris di HP: font 14 + padding 16); 0 slot ikon kosong (17 tombol diukur).
+- [x] **3. Kesejajaran**: FAQ `boxed` 960 → **1240** — kini semua 15 section tepat
+  **100..1340 @1440** dan **63..1303 @1365** (toleransi 1px, diuji otomatis).
+- [x] **4. Hero**: bottom **773px ≤ 800** @1440x800, ruang mati di bawah **0px**,
+  padding atas HP 24px.
+- [x] **8. Logo merek**: tinggi maks **32px**, `object-fit: contain`, kotak kolom dan
+  jarak antar logo seragam (6 kolom 16% + gap 16).
+- [x] **10.1 Cara Kerja**: garis penghubung 1px `#BFDBFE` di celah 20px antar kartu
+  (desktop); tinggi kartu seragam (spread 0px).
+- [x] **10.2 Testimoni**: ikon kutip **28px `#BFDBFE`** di pojok kanan atas (berada di
+  zona padding sehingga tak pernah menimpa teks), kutipan **17px/1.6**.
+- [x] **10.3 FAQ**: tiap item kartu sendiri (border 1px `#E2E8F0`, radius 12, jarak 12,
+  padding 18x20), judul navy 17px/600, judul terbuka memakai warna aksen aktif
+  Elementor; **ikon +/- native di kanan** — perbaikan bug: setting `icon` lama dikasih
+  dict sehingga PHP mencetak "Array" dan ikon hilang; pindah ke
+  `selected_icon`/`selected_active_icon`.
+- [x] **10.4 CTA penutup**: dua tombol kini **berdampingan** (row + wrap), padding
+  banner 56px; lebar = container.
+- [x] **11. Footer**: 4 lingkaran kontak 40px outline (telepon/WA/email/lokasi) hover
+  `#2563EB`; link slate `#475569` hover `#2563EB` tanpa garis bawah; **baris bawah satu
+  baris**: copyright kiri + menu kanan (Beranda…Kontak + **Masuk | Daftar**); jarak
+  halaman ke bawah footer **0px** (≤40).
+- [x] **11.5 Tombol melayang**: back-to-top **44px** putih berborder + panah navy di
+  kanan-bawah 24px dengan kedalaman **84px** (tepat di atas WhatsApp 48px `#25D366` di
+  24/24); back-to-top disembunyikan ≤991px; `padding-bottom:76px` di HP dihapus (bar CTA
+  mobile tidak ada di desain ini) sehingga tak ada ruang kosong 76px di bawah footer.
+- [x] **12. Foto**: hanya dipakai di hero (1 foto), 6 kartu fasilitas, dan baris logo
+  — semua WebP/PNG, `cover` untuk foto, `contain` untuk logo, alt bahasa Indonesia.
+  **PLACEHOLDER untuk diganti pemilik** (foto stok generik, bukan bengkel/armada asli):
+  `stitch_img_2.webp` (hero), `stitch_img_3..8.webp` (Pit Servis 20 m, Overhead Crane
+  10 Ton, Spooring 3D Laser, Dynometer, Kalibrasi Injektor, Ruang Istirahat); logo merek
+  `pertamina/mobil/dunlop/gs-astra/incoe/sakura` (resolusi campuran — Incoe & Dunlop
+  visual kecil, sudah dinormalisasi 32px; idealnya diganti logo vektor tinggi seragam).
+- [x] **13. Verifikasi**: suite BARU `tests/verify-layout.cjs` **41/41 PASS** (spek 13.1
+  disesuaikan: link navbar ≤24px & 1 baris @1440/1280/1024; ≤991px hamburger + drawer +
+  tak ada tombol di bar; tepi konten section; tinggi kartu seragam; tanpa slot ikon
+  kosong; hero muat 1440x800 + tanpa ruang mati; gap footer ≤40; tanpa biru default
+  WordPress; teks tak berpotongan dengan gambar di kartu konten). Regresi
+  `tests/verify-stitch.cjs` **41/41 PASS** (termasuk editor 15 section, 0 console error).
+  `tests/verify-revamp3.cjs` **gagal sejak sebelum ronde ini** — selektornya milik desain
+  lama (`#about`, `#service`, `sec-team-cards`, `.navbar-toggler`) yang memang tidak ada
+  di desain Stitch (dibuktikan pada HTML live sebelum perubahan ronde ini).
+- [x] **Capture**: `tests/shot-ronde4.cjs` (reducedMotion, scroll bertahap, tunggu
+  counter) → full-page + viewport di **1440/1365/1024/768/390** + crop 15 section
+  `tests/artifacts/ronde4-section-*.png`; seluruhnya diperiksa manual (navbar, hero,
+  logo, cara kerja + konektor, testimoni + ikon kutip, FAQ + ikon +/−, CTA, footer,
+  tombol melayang, dan HP 390 viewport & full-page). Tanpa scroll horizontal di semua
+  viewport (scrollW == clientW).
+- [x] **Perbaikan alat**: `sync-to-wp.sh` — (1) filter `name=^/x$` tak cocok lagi di
+  Docker versi baru, (2) `docker cp src/. dest` ternyata menyalin FOLDER sehingga
+  css/js yang dimuat halaman tidak pernah ter-update (kini salin file-per-file),
+  (3) `MSYS2_ARG_CONV_EXCL=/var` agar jalur container tak dikonversi Git Bash,
+  (4) `chown uploads` tak lagi mematikan script. `export-dump-sanitized.sh` fallback ke
+  `python` (alias `python3` Microsoft Store selalu gagal).
+- [x] **Dump**: `database_dump.sql` **dan** `database/mt_site.sql` diregenerasi
+  tersanitasi (hash 0, email 3, baris dibuang 56, 2,00 MB, UTF-8).
+
+- [x] **Perbaikan temuan review screenshot**: pil status kartu telematika
+  terpotong `SIA` di 768px (flex `title-group` mengecil dan memotong pil) →
+  `flex-wrap: wrap` + `flex: 0 0 auto` pada pil; kini `SIAP JALAN` utuh
+  (diukur: `clipped=false`).
+
+**Butir spek yang TIDAK BERLAKU untuk desain sekarang (N/A)**: 5.x Layanan tanpa foto
+(layanan Stitch memang tanpa foto, kartu seragam), 6 Produk, 7 Tentang (foto 4:5),
+9 Derek 24 Jam (hanya tombol & CTA), 4.3 proof bar overlap, 1.1 "Bengkel Truk Medan"
+(sub brand tetap "Spesialis Truk & Armada Niaga" — copy tak diubah).
+
+**Deviasi yang disengaja**: (a) palet tetap navy+oranye (bukan biru penuh) — kecuali
+hover link footer & tombol melayang yang memakai `#2563EB` sesuai spek 11.2/11.5;
+(b) radius mengikuti sistem desain (tombol 10, pill nav 999, banner CTA 24, foto 16–28);
+(c) tinggi bar 69px (spek 72px) — masih ≤72 dan dipertahankan dari ronde sebelumnya.
+
+---
+
 ## Baseline Temuan Fase 0
 
 | Metrik | Nilai Awal | Target Akhir |

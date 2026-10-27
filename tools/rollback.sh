@@ -18,7 +18,8 @@ if [[ $RESTORE -eq 1 ]]; then
   rm -f /tmp/mt_rollback_dump.sql
   echo "OK database dari $TO diimpor (kata sandi admin perlu diatur ulang)"
 fi
-python3 tools/build-beranda-elementor.py
+# --force: rollback memang sengaja menimpa data live (hash build lama tidak cocok).
+python3 tools/build-stitch-elementor.py --force
 bash sync-to-wp.sh
 docker exec lpm-wp-app wp --allow-root --path=/var/www/html elementor flush-css >/dev/null
 curl -s -o /dev/null -w '%{http_code}\n' http://localhost:5000/
