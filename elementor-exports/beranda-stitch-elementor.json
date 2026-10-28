@@ -12,7 +12,7 @@
       "_title": "Top Bar",
       "css_classes": "stitch-topbar",
       "background_background": "classic",
-      "background_color": "#F1F3F5",
+      "background_color": "#F4F7FB",
       "padding": {
         "unit": "px",
         "top": "4",
@@ -30,7 +30,7 @@
         "left": "0",
         "isLinked": ""
       },
-      "border_color": "#E3E6EA"
+      "border_color": "#DDE3EC"
     },
     "elements": [
       {
@@ -118,7 +118,7 @@
                 "id": "d0ab2b3",
                 "elType": "widget",
                 "settings": {
-                  "editor": "<div style=\"display:flex;align-items:center;gap:16px;color:#6B7280;font-size:12px;font-weight:600;letter-spacing:0.2px;white-space:nowrap;\"><div class=\"topbar-hotline-item\" style=\"display:inline-flex;align-items:center;gap:6px;\"><span style=\"background:#0B0C10;color:#FFFFFF;border:1px solid #0B0C10;font-size:10px;font-weight:800;padding:2px 7px;border-radius:999px;letter-spacing:0.5px;\">SOS</span><span style=\"text-transform:uppercase;color:#0B0C10;font-weight:700;\">Hotline 24 Jam:</span> <a href=\"https://wa.me/6281288881234?text=Halo%20Master%20Truck%2C%20saya%20butuh%20bantuan%20untuk%20armada%20saya.\" style=\"color:#0B0C10;text-decoration:none;font-weight:700;\">0812-MASTER-TRUCK</a></div><div class=\"topbar-location-item\" style=\"display:inline-flex;align-items:center;gap:6px;color:#6B7280;\"><i class=\"fas fa-map-marker-alt\" style=\"color:#C69A43;font-size:11px;\"></i> <span style=\"color:#3F4651;\">Medan</span></div></div>",
+                  "editor": "<div style=\"display:flex;align-items:center;gap:16px;color:#5B6B80;font-size:12px;font-weight:600;letter-spacing:0.2px;white-space:nowrap;\"><div class=\"topbar-hotline-item\" style=\"display:inline-flex;align-items:center;gap:6px;\"><span style=\"background:#0B1F3A;color:#FFFFFF;border:1px solid #0B1F3A;font-size:10px;font-weight:800;padding:2px 7px;border-radius:999px;letter-spacing:0.5px;\">SOS</span><span style=\"text-transform:uppercase;color:#0B1F3A;font-weight:700;\">Hotline 24 Jam:</span> <a href=\"https://wa.me/6281288881234?text=Halo%20Master%20Truck%2C%20saya%20butuh%20bantuan%20untuk%20armada%20saya.\" style=\"color:#0B1F3A;text-decoration:none;font-weight:700;\">0812-MASTER-TRUCK</a></div><div class=\"topbar-location-item\" style=\"display:inline-flex;align-items:center;gap:6px;color:#5B6B80;\"><i class=\"fas fa-map-marker-alt\" style=\"color:#2457A6;font-size:11px;\"></i> <span style=\"color:#44546A;\">Medan</span></div></div>",
                   "align": "left",
                   "typography_typography": "custom",
                   "typography_font_family": "Inter",
@@ -130,7 +130,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#6B7280",
+                  "text_color": "#5B6B80",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -194,7 +194,7 @@
                 "id": "c32ea56",
                 "elType": "widget",
                 "settings": {
-                  "editor": "<div style=\"display:flex;align-items:center;justify-content:flex-end;gap:16px;color:#6B7280;font-size:12px;white-space:nowrap;\"><div class=\"topbar-hours-item\" style=\"display:inline-flex;align-items:center;gap:6px;\"><i class=\"fas fa-clock\" style=\"color:#6B7280;font-size:11px;\"></i> <span style=\"color:#3F4651;\">Senin – Sabtu: 08.00 – 20.00 | Derek &amp; bantuan darurat 24 jam</span></div><div class=\"topbar-iso-item\" style=\"border-left:1px solid #C9CDD3;padding-left:14px;display:inline-flex;align-items:center;gap:6px;\"><i class=\"fas fa-shield-alt\" style=\"color:#C69A43;font-size:11px;\"></i> <span style=\"color:#3F4651;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;\">Standar ISO 9001:2015</span></div></div>",
+                  "editor": "<div style=\"display:flex;align-items:center;justify-content:flex-end;gap:16px;color:#5B6B80;font-size:12px;white-space:nowrap;\"><div class=\"topbar-hours-item\" style=\"display:inline-flex;align-items:center;gap:6px;\"><i class=\"fas fa-clock\" style=\"color:#5B6B80;font-size:11px;\"></i> <span style=\"color:#44546A;\">Senin – Sabtu: 08.00 – 20.00 | Derek &amp; bantuan darurat 24 jam</span></div><div class=\"topbar-iso-item\" style=\"border-left:1px solid #C3CEDC;padding-left:14px;display:inline-flex;align-items:center;gap:6px;\"><i class=\"fas fa-shield-alt\" style=\"color:#2457A6;font-size:11px;\"></i> <span style=\"color:#44546A;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;\">Standar ISO 9001:2015</span></div></div>",
                   "align": "left",
                   "typography_typography": "custom",
                   "typography_font_family": "Inter",
@@ -206,7 +206,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#6B7280",
+                  "text_color": "#5B6B80",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -262,7 +262,7 @@
         "left": "0",
         "isLinked": ""
       },
-      "border_color": "#E3E6EA",
+      "border_color": "#DDE3EC",
       "sticky": "top",
       "sticky_offset": 0,
       "sticky_on": [
@@ -519,7 +519,7 @@
                             "unit": "em",
                             "size": 1.6
                           },
-                          "text_color": "#6B7280",
+                          "text_color": "#5B6B80",
                           "_margin": {
                             "unit": "px",
                             "top": "0",
@@ -590,7 +590,7 @@
                 "id": "b5348f5",
                 "elType": "widget",
                 "settings": {
-                  "editor": "<button class=\"stitch-nav-burger\" type=\"button\" aria-label=\"Buka menu navigasi\" aria-expanded=\"false\" aria-controls=\"stitch-menu-panel\"><span></span><span></span><span></span></button><nav class=\"stitch-menu-panel\" id=\"stitch-menu-panel\" aria-label=\"Menu utama\"><a href=\"#header-carousel\">Beranda</a><a href=\"#layanan\">Layanan</a><a href=\"#fleet\">Paket Fleet</a><a href=\"#fasilitas\">Fasilitas</a><a href=\"#faq\">Pertanyaan Umum</a><a href=\"#kontak\">Kontak</a></nav>",
+                  "editor": "<button class=\"stitch-nav-burger\" type=\"button\" aria-label=\"Buka menu navigasi\" aria-expanded=\"false\" aria-controls=\"stitch-menu-panel\"><span></span><span></span><span></span></button><nav class=\"stitch-menu-panel\" id=\"stitch-menu-panel\" aria-label=\"Menu utama\"><button class=\"stitch-menu-close\" type=\"button\" aria-label=\"Tutup menu\"><span>Tutup Menu</span><span class=\"mt-close-icon\" aria-hidden=\"true\">&times;</span></button><a href=\"#header-carousel\">Beranda</a><a href=\"#layanan\">Layanan</a><a href=\"#fleet\">Paket Fleet</a><a href=\"#fasilitas\">Fasilitas</a><a href=\"#faq\">Pertanyaan Umum</a><a href=\"#kontak\">Kontak</a></nav>",
                   "align": "left",
                   "typography_typography": "custom",
                   "typography_font_family": "Inter",
@@ -602,7 +602,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#6B7280",
+                  "text_color": "#5B6B80",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -719,22 +719,22 @@
                         "size": 15
                       },
                       "typography_font_weight": "700",
-                      "button_text_color": "#0B0C10",
-                      "background_color": "transparent",
+                      "button_text_color": "#2457A6",
+                      "background_color": "#E3ECF8",
                       "border_radius": {
                         "unit": "px",
-                        "top": "999",
-                        "right": "999",
-                        "bottom": "999",
-                        "left": "999",
+                        "top": "10",
+                        "right": "10",
+                        "bottom": "10",
+                        "left": "10",
                         "isLinked": true
                       },
                       "button_padding": {
                         "unit": "px",
                         "top": "9",
-                        "right": "14",
+                        "right": "18",
                         "bottom": "9",
-                        "left": "14",
+                        "left": "18",
                         "isLinked": ""
                       },
                       "_margin": {
@@ -746,7 +746,8 @@
                         "isLinked": ""
                       },
                       "__globals__": {
-                        "button_text_color": "globals/colors?id=primary"
+                        "background_color": "globals/colors?id=accent",
+                        "button_text_color": "globals/colors?id=secondary"
                       },
                       "selected_icon": {
                         "value": "fas fa-user-circle",
@@ -781,13 +782,13 @@
                       },
                       "typography_font_weight": "700",
                       "button_text_color": "#FFFFFF",
-                      "background_color": "#0B0C10",
+                      "background_color": "#0B1F3A",
                       "border_radius": {
                         "unit": "px",
-                        "top": "999",
-                        "right": "999",
-                        "bottom": "999",
-                        "left": "999",
+                        "top": "10",
+                        "right": "10",
+                        "bottom": "10",
+                        "left": "10",
                         "isLinked": true
                       },
                       "button_padding": {
@@ -840,7 +841,7 @@
       "_element_id": "header-carousel",
       "css_classes": "stitch-sec-hero",
       "background_background": "classic",
-      "background_color": "#F7F8FA",
+      "background_color": "#FFFFFF",
       "padding": {
         "unit": "px",
         "top": "24",
@@ -942,7 +943,7 @@
                 "id": "ba5010a",
                 "elType": "widget",
                 "settings": {
-                  "title": "<i class=\"fas fa-shield-alt\" style=\"color:#8A5F12;margin-right:6px;font-size:11px;\"></i>BENGKEL REKANAN RESMI &amp; SPESIALIS HEAVY DUTY TRUCK #1",
+                  "title": "<i class=\"fas fa-shield-alt\" style=\"color:#2457A6;margin-right:6px;font-size:11px;\"></i>BENGKEL REKANAN RESMI &amp; SPESIALIS HEAVY DUTY TRUCK #1",
                   "header_size": "p",
                   "align": "left",
                   "typography_typography": "custom",
@@ -956,7 +957,7 @@
                     "unit": "em",
                     "size": 1.15
                   },
-                  "title_color": "#0B0C10",
+                  "title_color": "#0B1F3A",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -995,7 +996,7 @@
                     "unit": "em",
                     "size": 1.15
                   },
-                  "title_color": "#0B0C10",
+                  "title_color": "#0B1F3A",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -1032,7 +1033,7 @@
                     "unit": "em",
                     "size": 1.55
                   },
-                  "text_color": "#6B7280",
+                  "text_color": "#5B6B80",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -1114,8 +1115,8 @@
                         "size": 15
                       },
                       "typography_font_weight": "700",
-                      "button_text_color": "#0B0C10",
-                      "background_color": "#E8B84A",
+                      "button_text_color": "#FFFFFF",
+                      "background_color": "#2457A6",
                       "border_radius": {
                         "unit": "px",
                         "top": "12",
@@ -1141,8 +1142,7 @@
                         "isLinked": ""
                       },
                       "__globals__": {
-                        "background_color": "globals/colors?id=r23goldb",
-                        "button_text_color": "globals/colors?id=primary"
+                        "background_color": "globals/colors?id=secondary"
                       },
                       "selected_icon": {
                         "value": "fas fa-calendar-alt",
@@ -1176,8 +1176,8 @@
                         "size": 15
                       },
                       "typography_font_weight": "700",
-                      "button_text_color": "#0B0C10",
-                      "background_color": "transparent",
+                      "button_text_color": "#0B1F3A",
+                      "background_color": "#FFFFFF",
                       "border_radius": {
                         "unit": "px",
                         "top": "12",
@@ -1214,6 +1214,16 @@
                         "unit": "px",
                         "size": 8
                       },
+                      "border_border": "solid",
+                      "border_width": {
+                        "unit": "px",
+                        "top": "1.5",
+                        "right": "1.5",
+                        "bottom": "1.5",
+                        "left": "1.5",
+                        "isLinked": ""
+                      },
+                      "border_color": "#0B1F3A",
                       "_css_classes": "btn-hero-secondary mt-btn"
                     },
                     "elements": [],
@@ -1226,7 +1236,7 @@
                 "id": "af594ae",
                 "elType": "widget",
                 "settings": {
-                  "editor": "<div class=\"hero-brands-block\"><div class=\"brand-label\" style=\"font-size:12px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;\">Spesialisasi Brand Heavy Duty &amp; Light Commercial:</div><div class=\"brand-chips-row\"><span class=\"brand-chip\">SCANIA</span><span class=\"brand-chip\">VOLVO TRUCKS</span><span class=\"brand-chip\">HINO 500 &amp; 300</span><span class=\"brand-chip\">MITSUBISHI FUSO</span><span class=\"brand-chip\">ISUZU GIGA</span><span class=\"brand-chip\">MERCEDES AXOR</span></div></div>",
+                  "editor": "<div class=\"hero-brands-block\"><div class=\"brand-label\" style=\"font-size:12px;font-weight:700;color:#5B6B80;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;\">Spesialisasi Brand Heavy Duty &amp; Light Commercial:</div><div class=\"brand-chips-row\"><span class=\"brand-chip\">SCANIA</span><span class=\"brand-chip\">VOLVO TRUCKS</span><span class=\"brand-chip\">HINO 500 &amp; 300</span><span class=\"brand-chip\">MITSUBISHI FUSO</span><span class=\"brand-chip\">ISUZU GIGA</span><span class=\"brand-chip\">MERCEDES AXOR</span></div></div>",
                   "align": "left",
                   "typography_typography": "custom",
                   "typography_font_family": "Inter",
@@ -1238,7 +1248,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#6B7280",
+                  "text_color": "#5B6B80",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -1384,7 +1394,7 @@
                         "unit": "em",
                         "size": 1.6
                       },
-                      "text_color": "#6B7280",
+                      "text_color": "#5B6B80",
                       "_margin": {
                         "unit": "px",
                         "top": "0",
@@ -1456,7 +1466,7 @@
             "left": "1",
             "isLinked": ""
           },
-          "border_color": "#E3E6EA",
+          "border_color": "#DDE3EC",
           "border_radius": {
             "unit": "px",
             "top": "20",
@@ -1531,7 +1541,7 @@
                 "left": "0",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA"
+              "border_color": "#DDE3EC"
             },
             "elements": [
               {
@@ -1581,8 +1591,8 @@
                         "library": "fa-solid"
                       },
                       "view": "framed",
-                      "primary_color": "#8A5F12",
-                      "secondary_color": "#FBF4E1",
+                      "primary_color": "#2457A6",
+                      "secondary_color": "#E3ECF8",
                       "align": "left",
                       "size": {
                         "unit": "px",
@@ -1618,7 +1628,7 @@
                       },
                       "__globals__": {
                         "primary_color": "globals/colors?id=secondary",
-                        "secondary_color": "globals/colors?id=r23goldtint"
+                        "secondary_color": "globals/colors?id=accent"
                       },
                       "_css_classes": "stat-icon"
                     },
@@ -1673,8 +1683,8 @@
                           "thousand_separator_char": ".",
                           "title": "Truk &amp; Trailer Ditangani",
                           "title_tag": "p",
-                          "number_color": "#0B0C10",
-                          "title_color": "#6B7280",
+                          "number_color": "#0B1F3A",
+                          "title_color": "#5B6B80",
                           "typography_number_typography": "custom",
                           "typography_number_font_family": "Plus Jakarta Sans",
                           "typography_number_font_size": {
@@ -1772,7 +1782,7 @@
                 "left": "0",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA"
+              "border_color": "#DDE3EC"
             },
             "elements": [
               {
@@ -1822,8 +1832,8 @@
                         "library": "fa-solid"
                       },
                       "view": "framed",
-                      "primary_color": "#8A5F12",
-                      "secondary_color": "#FBF4E1",
+                      "primary_color": "#2457A6",
+                      "secondary_color": "#E3ECF8",
                       "align": "left",
                       "size": {
                         "unit": "px",
@@ -1859,7 +1869,7 @@
                       },
                       "__globals__": {
                         "primary_color": "globals/colors?id=secondary",
-                        "secondary_color": "globals/colors?id=r23goldtint"
+                        "secondary_color": "globals/colors?id=accent"
                       },
                       "_css_classes": "stat-icon"
                     },
@@ -1914,8 +1924,8 @@
                           "thousand_separator_char": ".",
                           "title": "Selesai Tepat Waktu",
                           "title_tag": "p",
-                          "number_color": "#0B0C10",
-                          "title_color": "#6B7280",
+                          "number_color": "#0B1F3A",
+                          "title_color": "#5B6B80",
                           "typography_number_typography": "custom",
                           "typography_number_font_family": "Plus Jakarta Sans",
                           "typography_number_font_size": {
@@ -2013,7 +2023,7 @@
                 "left": "0",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA"
+              "border_color": "#DDE3EC"
             },
             "elements": [
               {
@@ -2063,8 +2073,8 @@
                         "library": "fa-solid"
                       },
                       "view": "framed",
-                      "primary_color": "#8A5F12",
-                      "secondary_color": "#FBF4E1",
+                      "primary_color": "#2457A6",
+                      "secondary_color": "#E3ECF8",
                       "align": "left",
                       "size": {
                         "unit": "px",
@@ -2100,7 +2110,7 @@
                       },
                       "__globals__": {
                         "primary_color": "globals/colors?id=secondary",
-                        "secondary_color": "globals/colors?id=r23goldtint"
+                        "secondary_color": "globals/colors?id=accent"
                       },
                       "_css_classes": "stat-icon"
                     },
@@ -2155,8 +2165,8 @@
                           "thousand_separator_char": ".",
                           "title": "Bengkel Standar ISO 9001:2015",
                           "title_tag": "p",
-                          "number_color": "#0B0C10",
-                          "title_color": "#6B7280",
+                          "number_color": "#0B1F3A",
+                          "title_color": "#5B6B80",
                           "typography_number_typography": "custom",
                           "typography_number_font_family": "Plus Jakarta Sans",
                           "typography_number_font_size": {
@@ -2294,8 +2304,8 @@
                         "library": "fa-solid"
                       },
                       "view": "framed",
-                      "primary_color": "#8A5F12",
-                      "secondary_color": "#FBF4E1",
+                      "primary_color": "#2457A6",
+                      "secondary_color": "#E3ECF8",
                       "align": "left",
                       "size": {
                         "unit": "px",
@@ -2331,7 +2341,7 @@
                       },
                       "__globals__": {
                         "primary_color": "globals/colors?id=secondary",
-                        "secondary_color": "globals/colors?id=r23goldtint"
+                        "secondary_color": "globals/colors?id=accent"
                       },
                       "_css_classes": "stat-icon"
                     },
@@ -2386,8 +2396,8 @@
                           "thousand_separator_char": ".",
                           "title": "Garansi Resmi Overhaul",
                           "title_tag": "p",
-                          "number_color": "#0B0C10",
-                          "title_color": "#6B7280",
+                          "number_color": "#0B1F3A",
+                          "title_color": "#5B6B80",
                           "typography_number_typography": "custom",
                           "typography_number_font_family": "Plus Jakarta Sans",
                           "typography_number_font_size": {
@@ -2457,7 +2467,7 @@
       "_element_id": "quick-booking",
       "css_classes": "stitch-sec-booking",
       "background_background": "classic",
-      "background_color": "#FFFFFF",
+      "background_color": "#F4F7FB",
       "padding": {
         "unit": "px",
         "top": "96",
@@ -2494,7 +2504,7 @@
             "unit": "em",
             "size": 1.15
           },
-          "title_color": "#3F4651",
+          "title_color": "#5B6B80",
           "_margin": {
             "unit": "px",
             "top": "0",
@@ -2508,8 +2518,9 @@
             "size": 1.0
           },
           "__globals__": {
-            "title_color": "globals/colors?id=text"
-          }
+            "title_color": "globals/colors?id=r23muted"
+          },
+          "_css_classes": "sec-eyebrow"
         },
         "elements": [],
         "widgetType": "heading"
@@ -2532,7 +2543,7 @@
             "unit": "em",
             "size": 1.15
           },
-          "title_color": "#0B0C10",
+          "title_color": "#0B1F3A",
           "_margin": {
             "unit": "px",
             "top": "6",
@@ -2568,7 +2579,7 @@
             "unit": "em",
             "size": 1.6
           },
-          "text_color": "#3F4651",
+          "text_color": "#44546A",
           "_margin": {
             "unit": "px",
             "top": "0",
@@ -2666,7 +2677,7 @@
                 "id": "8f53a48",
                 "elType": "widget",
                 "settings": {
-                  "editor": "<form id=\"mt-booking-form\" class=\"booking-card\"><div class=\"booking-grid\"><div><label for=\"mt-booking-unit\" style=\"display:block;font-family:Plus Jakarta Sans;font-size:14px;font-weight:700;color:#0B0C10;margin-bottom:8px;\">1. Tipe truk Anda</label><select id=\"mt-booking-unit\" name=\"unit\" style=\"width:100%;height:48px;padding:0 14px;border:1px solid #E3E6EA;border-radius:12px;font-family:Inter;font-size:16px;background:#F7F8FA;\"><option>Truk trailer / tractor head (Scania, Volvo, Hino)</option><option>Truk box, tangki, atau gandeng (Fuso, Isuzu Giga)</option><option>Truk dump / tronton</option><option>Truk ringan (Canter, Dutro, Elf)</option><option>Lainnya / belum yakin</option></select></div><div><label for=\"mt-booking-need\" style=\"display:block;font-family:Plus Jakarta Sans;font-size:14px;font-weight:700;color:#0B0C10;margin-bottom:8px;\">2. Kebutuhan servis</label><select id=\"mt-booking-need\" name=\"need\" style=\"width:100%;height:48px;padding:0 14px;border:1px solid #E3E6EA;border-radius:12px;font-family:Inter;font-size:16px;background:#F7F8FA;\"><option>Servis rutin &amp; ganti oli</option><option>Turun mesin / overhaul</option><option>Servis rem, kaki-kaki &amp; suspensi</option><option>Kalibrasi injektor &amp; pompa solar</option><option>Perbaikan kelistrikan &amp; AC</option><option>Derek &amp; bantuan darurat</option><option>Lainnya</option></select></div><div><label for=\"mt-booking-time\" style=\"display:block;font-family:Plus Jakarta Sans;font-size:14px;font-weight:700;color:#0B0C10;margin-bottom:8px;\">3. Waktu kedatangan</label><select id=\"mt-booking-time\" name=\"time\" style=\"width:100%;height:48px;padding:0 14px;border:1px solid #E3E6EA;border-radius:12px;font-family:Inter;font-size:16px;background:#F7F8FA;\"><option>Bengkel KIM III Medan — hari ini</option><option>Bengkel KIM III Medan — besok</option><option>Bengkel KIM III Medan — pekan ini</option><option>Ditangani di lokasi armada Anda (Medan sekitarnya)</option></select></div></div><div class=\"booking-actions\"><div style=\"font-size:14px;color:#3F4651;display:flex;align-items:center;gap:8px;max-width:46ch;\"><i class=\"fas fa-info-circle\" style=\"color:#8A5F12;\" aria-hidden=\"true\"></i><span>Pesan dibuka lewat WhatsApp, lalu dikonfirmasi oleh tim kami sebelum servis dimulai.</span></div><a id=\"mt-booking-wa\" class=\"btn-booking-wa\" href=\"https://wa.me/6281288881234?text=Halo%20Master%20Truck%2C%20saya%20ingin%20jadwal%20servis.\" data-wa=\"6281288881234\" target=\"_blank\" rel=\"noopener\" aria-label=\"Kirim permintaan jadwal servis via WhatsApp\" style=\"display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:14px 28px;background:#25D366;color:#FFFFFF;text-decoration:none;border-radius:12px;font-family:Plus Jakarta Sans;font-weight:700;font-size:15px;box-shadow:0 8px 20px rgba(37,211,102,0.35);\"><i class=\"fab fa-whatsapp\" aria-hidden=\"true\"></i>Kirim Permintaan Jadwal via WhatsApp</a></div></form>",
+                  "editor": "<form id=\"mt-booking-form\" class=\"booking-card\"><div class=\"booking-grid\"><div><label for=\"mt-booking-unit\" style=\"display:block;font-family:Plus Jakarta Sans;font-size:14px;font-weight:700;color:#0B1F3A;margin-bottom:8px;\">1. Tipe truk Anda</label><select id=\"mt-booking-unit\" name=\"unit\" style=\"width:100%;height:48px;padding:0 14px;border:1px solid #DDE3EC;border-radius:12px;font-family:Inter;font-size:16px;background:#F4F7FB;\"><option>Truk trailer / tractor head (Scania, Volvo, Hino)</option><option>Truk box, tangki, atau gandeng (Fuso, Isuzu Giga)</option><option>Truk dump / tronton</option><option>Truk ringan (Canter, Dutro, Elf)</option><option>Lainnya / belum yakin</option></select></div><div><label for=\"mt-booking-need\" style=\"display:block;font-family:Plus Jakarta Sans;font-size:14px;font-weight:700;color:#0B1F3A;margin-bottom:8px;\">2. Kebutuhan servis</label><select id=\"mt-booking-need\" name=\"need\" style=\"width:100%;height:48px;padding:0 14px;border:1px solid #DDE3EC;border-radius:12px;font-family:Inter;font-size:16px;background:#F4F7FB;\"><option>Servis rutin &amp; ganti oli</option><option>Turun mesin / overhaul</option><option>Servis rem, kaki-kaki &amp; suspensi</option><option>Kalibrasi injektor &amp; pompa solar</option><option>Perbaikan kelistrikan &amp; AC</option><option>Derek &amp; bantuan darurat</option><option>Lainnya</option></select></div><div><label for=\"mt-booking-time\" style=\"display:block;font-family:Plus Jakarta Sans;font-size:14px;font-weight:700;color:#0B1F3A;margin-bottom:8px;\">3. Waktu kedatangan</label><select id=\"mt-booking-time\" name=\"time\" style=\"width:100%;height:48px;padding:0 14px;border:1px solid #DDE3EC;border-radius:12px;font-family:Inter;font-size:16px;background:#F4F7FB;\"><option>Bengkel KIM III Medan — hari ini</option><option>Bengkel KIM III Medan — besok</option><option>Bengkel KIM III Medan — pekan ini</option><option>Ditangani di lokasi armada Anda (Medan sekitarnya)</option></select></div></div><div class=\"booking-actions\"><div style=\"font-size:14px;color:#44546A;display:flex;align-items:center;gap:8px;max-width:46ch;\"><i class=\"fas fa-info-circle\" style=\"color:#2457A6;\" aria-hidden=\"true\"></i><span>Pesan dibuka lewat WhatsApp, lalu dikonfirmasi oleh tim kami sebelum servis dimulai.</span></div><a id=\"mt-booking-wa\" class=\"btn-booking-wa\" href=\"https://wa.me/6281288881234?text=Halo%20Master%20Truck%2C%20saya%20ingin%20jadwal%20servis.\" data-wa=\"6281288881234\" target=\"_blank\" rel=\"noopener\" aria-label=\"Kirim permintaan jadwal servis via WhatsApp\" style=\"display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:14px 28px;background:#15803D;color:#FFFFFF;text-decoration:none;border-radius:12px;font-family:Plus Jakarta Sans;font-weight:700;font-size:15px;box-shadow:0 8px 20px rgba(37,211,102,0.35);\"><i class=\"fab fa-whatsapp\" aria-hidden=\"true\"></i>Kirim Permintaan Jadwal via WhatsApp</a></div></form>",
                   "align": "left",
                   "typography_typography": "custom",
                   "typography_font_family": "Inter",
@@ -2678,7 +2689,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#6B7280",
+                  "text_color": "#5B6B80",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -2716,7 +2727,7 @@
       "_title": "Keunggulan",
       "css_classes": "stitch-sec-features",
       "background_background": "classic",
-      "background_color": "#F1F3F5",
+      "background_color": "#FFFFFF",
       "padding": {
         "unit": "px",
         "top": "96",
@@ -2753,7 +2764,7 @@
             "unit": "em",
             "size": 1.15
           },
-          "title_color": "#3F4651",
+          "title_color": "#5B6B80",
           "_margin": {
             "unit": "px",
             "top": "0",
@@ -2767,8 +2778,9 @@
             "size": 1.0
           },
           "__globals__": {
-            "title_color": "globals/colors?id=text"
-          }
+            "title_color": "globals/colors?id=r23muted"
+          },
+          "_css_classes": "sec-eyebrow"
         },
         "elements": [],
         "widgetType": "heading"
@@ -2791,7 +2803,7 @@
             "unit": "em",
             "size": 1.15
           },
-          "title_color": "#0B0C10",
+          "title_color": "#0B1F3A",
           "_margin": {
             "unit": "px",
             "top": "6",
@@ -2827,7 +2839,7 @@
             "unit": "em",
             "size": 1.6
           },
-          "text_color": "#3F4651",
+          "text_color": "#44546A",
           "_margin": {
             "unit": "px",
             "top": "0",
@@ -2930,7 +2942,7 @@
                 "left": "1",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA",
+              "border_color": "#DDE3EC",
               "border_radius": {
                 "unit": "px",
                 "top": "18",
@@ -2960,7 +2972,7 @@
                     "size": 18
                   },
                   "title_typography_font_weight": "700",
-                  "title_color": "#3F4651",
+                  "title_color": "#44546A",
                   "description_typography_typography": "custom",
                   "description_typography_font_family": "Inter",
                   "description_typography_font_size": {
@@ -2971,8 +2983,8 @@
                     "unit": "em",
                     "size": 1.55
                   },
-                  "description_color": "#6B7280",
-                  "primary_color": "#8A5F12",
+                  "description_color": "#5B6B80",
+                  "primary_color": "#2457A6",
                   "__globals__": {
                     "title_color": "globals/colors?id=text",
                     "description_color": "globals/colors?id=r23muted",
@@ -3036,7 +3048,7 @@
                 "left": "1",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA",
+              "border_color": "#DDE3EC",
               "border_radius": {
                 "unit": "px",
                 "top": "18",
@@ -3066,7 +3078,7 @@
                     "size": 18
                   },
                   "title_typography_font_weight": "700",
-                  "title_color": "#3F4651",
+                  "title_color": "#44546A",
                   "description_typography_typography": "custom",
                   "description_typography_font_family": "Inter",
                   "description_typography_font_size": {
@@ -3077,8 +3089,8 @@
                     "unit": "em",
                     "size": 1.55
                   },
-                  "description_color": "#6B7280",
-                  "primary_color": "#8A5F12",
+                  "description_color": "#5B6B80",
+                  "primary_color": "#2457A6",
                   "__globals__": {
                     "title_color": "globals/colors?id=text",
                     "description_color": "globals/colors?id=r23muted",
@@ -3142,7 +3154,7 @@
                 "left": "1",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA",
+              "border_color": "#DDE3EC",
               "border_radius": {
                 "unit": "px",
                 "top": "18",
@@ -3172,7 +3184,7 @@
                     "size": 18
                   },
                   "title_typography_font_weight": "700",
-                  "title_color": "#3F4651",
+                  "title_color": "#44546A",
                   "description_typography_typography": "custom",
                   "description_typography_font_family": "Inter",
                   "description_typography_font_size": {
@@ -3183,8 +3195,8 @@
                     "unit": "em",
                     "size": 1.55
                   },
-                  "description_color": "#6B7280",
-                  "primary_color": "#8A5F12",
+                  "description_color": "#5B6B80",
+                  "primary_color": "#2457A6",
                   "__globals__": {
                     "title_color": "globals/colors?id=text",
                     "description_color": "globals/colors?id=r23muted",
@@ -3248,7 +3260,7 @@
                 "left": "1",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA",
+              "border_color": "#DDE3EC",
               "border_radius": {
                 "unit": "px",
                 "top": "18",
@@ -3278,7 +3290,7 @@
                     "size": 18
                   },
                   "title_typography_font_weight": "700",
-                  "title_color": "#3F4651",
+                  "title_color": "#44546A",
                   "description_typography_typography": "custom",
                   "description_typography_font_family": "Inter",
                   "description_typography_font_size": {
@@ -3289,8 +3301,8 @@
                     "unit": "em",
                     "size": 1.55
                   },
-                  "description_color": "#6B7280",
-                  "primary_color": "#8A5F12",
+                  "description_color": "#5B6B80",
+                  "primary_color": "#2457A6",
                   "__globals__": {
                     "title_color": "globals/colors?id=text",
                     "description_color": "globals/colors?id=r23muted",
@@ -3324,7 +3336,7 @@
       "_element_id": "layanan",
       "css_classes": "stitch-sec-services",
       "background_background": "classic",
-      "background_color": "#FFFFFF",
+      "background_color": "#F4F7FB",
       "padding": {
         "unit": "px",
         "top": "96",
@@ -3361,7 +3373,7 @@
             "unit": "em",
             "size": 1.15
           },
-          "title_color": "#3F4651",
+          "title_color": "#5B6B80",
           "_margin": {
             "unit": "px",
             "top": "0",
@@ -3375,8 +3387,9 @@
             "size": 1.0
           },
           "__globals__": {
-            "title_color": "globals/colors?id=text"
-          }
+            "title_color": "globals/colors?id=r23muted"
+          },
+          "_css_classes": "sec-eyebrow"
         },
         "elements": [],
         "widgetType": "heading"
@@ -3399,7 +3412,7 @@
             "unit": "em",
             "size": 1.15
           },
-          "title_color": "#0B0C10",
+          "title_color": "#0B1F3A",
           "_margin": {
             "unit": "px",
             "top": "6",
@@ -3435,7 +3448,7 @@
             "unit": "em",
             "size": 1.6
           },
-          "text_color": "#3F4651",
+          "text_color": "#44546A",
           "_margin": {
             "unit": "px",
             "top": "0",
@@ -3546,7 +3559,7 @@
                 "left": "1",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA",
+              "border_color": "#DDE3EC",
               "border_radius": {
                 "unit": "px",
                 "top": "18",
@@ -3576,7 +3589,7 @@
                     "size": 18
                   },
                   "title_typography_font_weight": "700",
-                  "title_color": "#3F4651",
+                  "title_color": "#44546A",
                   "description_typography_typography": "custom",
                   "description_typography_font_family": "Inter",
                   "description_typography_font_size": {
@@ -3587,8 +3600,8 @@
                     "unit": "em",
                     "size": 1.55
                   },
-                  "description_color": "#6B7280",
-                  "primary_color": "#8A5F12",
+                  "description_color": "#5B6B80",
+                  "primary_color": "#2457A6",
                   "__globals__": {
                     "title_color": "globals/colors?id=text",
                     "description_color": "globals/colors?id=r23muted",
@@ -3617,7 +3630,7 @@
                     "size": 15
                   },
                   "typography_font_weight": "700",
-                  "button_text_color": "#0B0C10",
+                  "button_text_color": "#0B1F3A",
                   "background_color": "transparent",
                   "border_radius": {
                     "unit": "px",
@@ -3713,7 +3726,7 @@
                 "left": "1",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA",
+              "border_color": "#DDE3EC",
               "border_radius": {
                 "unit": "px",
                 "top": "18",
@@ -3743,7 +3756,7 @@
                     "size": 18
                   },
                   "title_typography_font_weight": "700",
-                  "title_color": "#3F4651",
+                  "title_color": "#44546A",
                   "description_typography_typography": "custom",
                   "description_typography_font_family": "Inter",
                   "description_typography_font_size": {
@@ -3754,8 +3767,8 @@
                     "unit": "em",
                     "size": 1.55
                   },
-                  "description_color": "#6B7280",
-                  "primary_color": "#8A5F12",
+                  "description_color": "#5B6B80",
+                  "primary_color": "#2457A6",
                   "__globals__": {
                     "title_color": "globals/colors?id=text",
                     "description_color": "globals/colors?id=r23muted",
@@ -3784,7 +3797,7 @@
                     "size": 15
                   },
                   "typography_font_weight": "700",
-                  "button_text_color": "#0B0C10",
+                  "button_text_color": "#0B1F3A",
                   "background_color": "transparent",
                   "border_radius": {
                     "unit": "px",
@@ -3880,7 +3893,7 @@
                 "left": "1",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA",
+              "border_color": "#DDE3EC",
               "border_radius": {
                 "unit": "px",
                 "top": "18",
@@ -3910,7 +3923,7 @@
                     "size": 18
                   },
                   "title_typography_font_weight": "700",
-                  "title_color": "#3F4651",
+                  "title_color": "#44546A",
                   "description_typography_typography": "custom",
                   "description_typography_font_family": "Inter",
                   "description_typography_font_size": {
@@ -3921,8 +3934,8 @@
                     "unit": "em",
                     "size": 1.55
                   },
-                  "description_color": "#6B7280",
-                  "primary_color": "#8A5F12",
+                  "description_color": "#5B6B80",
+                  "primary_color": "#2457A6",
                   "__globals__": {
                     "title_color": "globals/colors?id=text",
                     "description_color": "globals/colors?id=r23muted",
@@ -3951,7 +3964,7 @@
                     "size": 15
                   },
                   "typography_font_weight": "700",
-                  "button_text_color": "#0B0C10",
+                  "button_text_color": "#0B1F3A",
                   "background_color": "transparent",
                   "border_radius": {
                     "unit": "px",
@@ -4087,7 +4100,7 @@
                 "left": "1",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA",
+              "border_color": "#DDE3EC",
               "border_radius": {
                 "unit": "px",
                 "top": "18",
@@ -4117,7 +4130,7 @@
                     "size": 18
                   },
                   "title_typography_font_weight": "700",
-                  "title_color": "#3F4651",
+                  "title_color": "#44546A",
                   "description_typography_typography": "custom",
                   "description_typography_font_family": "Inter",
                   "description_typography_font_size": {
@@ -4128,8 +4141,8 @@
                     "unit": "em",
                     "size": 1.55
                   },
-                  "description_color": "#6B7280",
-                  "primary_color": "#8A5F12",
+                  "description_color": "#5B6B80",
+                  "primary_color": "#2457A6",
                   "__globals__": {
                     "title_color": "globals/colors?id=text",
                     "description_color": "globals/colors?id=r23muted",
@@ -4158,7 +4171,7 @@
                     "size": 15
                   },
                   "typography_font_weight": "700",
-                  "button_text_color": "#1B1F27",
+                  "button_text_color": "#16305A",
                   "background_color": "transparent",
                   "border_radius": {
                     "unit": "px",
@@ -4252,7 +4265,7 @@
                 "left": "1",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA",
+              "border_color": "#DDE3EC",
               "border_radius": {
                 "unit": "px",
                 "top": "18",
@@ -4282,7 +4295,7 @@
                     "size": 18
                   },
                   "title_typography_font_weight": "700",
-                  "title_color": "#3F4651",
+                  "title_color": "#44546A",
                   "description_typography_typography": "custom",
                   "description_typography_font_family": "Inter",
                   "description_typography_font_size": {
@@ -4293,8 +4306,8 @@
                     "unit": "em",
                     "size": 1.55
                   },
-                  "description_color": "#6B7280",
-                  "primary_color": "#8A5F12",
+                  "description_color": "#5B6B80",
+                  "primary_color": "#2457A6",
                   "__globals__": {
                     "title_color": "globals/colors?id=text",
                     "description_color": "globals/colors?id=r23muted",
@@ -4323,7 +4336,7 @@
                     "size": 15
                   },
                   "typography_font_weight": "700",
-                  "button_text_color": "#0B0C10",
+                  "button_text_color": "#0B1F3A",
                   "background_color": "transparent",
                   "border_radius": {
                     "unit": "px",
@@ -4419,7 +4432,7 @@
                 "left": "1",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA",
+              "border_color": "#DDE3EC",
               "border_radius": {
                 "unit": "px",
                 "top": "18",
@@ -4449,7 +4462,7 @@
                     "size": 18
                   },
                   "title_typography_font_weight": "700",
-                  "title_color": "#3F4651",
+                  "title_color": "#44546A",
                   "description_typography_typography": "custom",
                   "description_typography_font_family": "Inter",
                   "description_typography_font_size": {
@@ -4460,8 +4473,8 @@
                     "unit": "em",
                     "size": 1.55
                   },
-                  "description_color": "#6B7280",
-                  "primary_color": "#8A5F12",
+                  "description_color": "#5B6B80",
+                  "primary_color": "#2457A6",
                   "__globals__": {
                     "title_color": "globals/colors?id=text",
                     "description_color": "globals/colors?id=r23muted",
@@ -4490,7 +4503,7 @@
                     "size": 15
                   },
                   "typography_font_weight": "700",
-                  "button_text_color": "#0B0C10",
+                  "button_text_color": "#0B1F3A",
                   "background_color": "transparent",
                   "border_radius": {
                     "unit": "px",
@@ -4556,7 +4569,7 @@
       "_element_id": "fleet",
       "css_classes": "stitch-sec-fleet",
       "background_background": "classic",
-      "background_color": "#F1F3F5",
+      "background_color": "#FFFFFF",
       "padding": {
         "unit": "px",
         "top": "96",
@@ -4593,7 +4606,7 @@
             "unit": "em",
             "size": 1.15
           },
-          "title_color": "#3F4651",
+          "title_color": "#5B6B80",
           "_margin": {
             "unit": "px",
             "top": "0",
@@ -4607,8 +4620,9 @@
             "size": 1.0
           },
           "__globals__": {
-            "title_color": "globals/colors?id=text"
-          }
+            "title_color": "globals/colors?id=r23muted"
+          },
+          "_css_classes": "sec-eyebrow"
         },
         "elements": [],
         "widgetType": "heading"
@@ -4631,7 +4645,7 @@
             "unit": "em",
             "size": 1.15
           },
-          "title_color": "#0B0C10",
+          "title_color": "#0B1F3A",
           "_margin": {
             "unit": "px",
             "top": "6",
@@ -4667,7 +4681,7 @@
             "unit": "em",
             "size": 1.6
           },
-          "text_color": "#3F4651",
+          "text_color": "#44546A",
           "_margin": {
             "unit": "px",
             "top": "0",
@@ -4771,7 +4785,7 @@
                 "left": "1",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA",
+              "border_color": "#DDE3EC",
               "border_radius": {
                 "unit": "px",
                 "top": "20",
@@ -4800,7 +4814,7 @@
                     "unit": "em",
                     "size": 1.15
                   },
-                  "title_color": "#0B0C10",
+                  "title_color": "#0B1F3A",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -4824,7 +4838,7 @@
                 "id": "7efaaf5",
                 "elType": "widget",
                 "settings": {
-                  "editor": "<p style='font-size:14px;color:#6B7280;margin-bottom:16px;'>Untuk perusahaan kecil dengan armada 5–15 unit truk.</p>",
+                  "editor": "<p style='font-size:14px;color:#5B6B80;margin-bottom:16px;'>Untuk perusahaan kecil dengan armada 5–15 unit truk.</p>",
                   "align": "left",
                   "typography_typography": "custom",
                   "typography_font_family": "Inter",
@@ -4836,7 +4850,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#6B7280",
+                  "text_color": "#5B6B80",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -4902,12 +4916,12 @@
                     "value": "fas fa-check",
                     "library": "fa-solid"
                   },
-                  "icon_color": "#8A5F12",
+                  "icon_color": "#2457A6",
                   "icon_size": {
                     "unit": "px",
                     "size": 14
                   },
-                  "text_color": "#3F4651",
+                  "text_color": "#44546A",
                   "text_typography_typography": "custom",
                   "text_typography_font_family": "Inter",
                   "text_typography_font_size": {
@@ -4957,8 +4971,8 @@
                     "size": 15
                   },
                   "typography_font_weight": "700",
-                  "button_text_color": "#0B0C10",
-                  "background_color": "#F1F3F5",
+                  "button_text_color": "#0B1F3A",
+                  "background_color": "#E3ECF8",
                   "border_radius": {
                     "unit": "px",
                     "top": "10",
@@ -4984,7 +4998,7 @@
                     "isLinked": ""
                   },
                   "__globals__": {
-                    "background_color": "globals/colors?id=r23tint",
+                    "background_color": "globals/colors?id=accent",
                     "button_text_color": "globals/colors?id=primary"
                   },
                   "_css_classes": "mt-btn"
@@ -5045,7 +5059,7 @@
                 "left": "1",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA",
+              "border_color": "#DDE3EC",
               "border_radius": {
                 "unit": "px",
                 "top": "20",
@@ -5068,7 +5082,7 @@
                 "id": "2419496",
                 "elType": "widget",
                 "settings": {
-                  "editor": "<div style=\"display:inline-block;padding:4px 10px;background:#FBF4E1;color:#0B0C10;border:1px solid #E3E6EA;border-radius:6px;font-size:12px;font-weight:800;text-transform:uppercase;margin-bottom:8px;\">Paling Populer</div>",
+                  "editor": "<div style=\"display:inline-block;padding:4px 10px;background:#E3ECF8;color:#0B1F3A;border:1px solid #DDE3EC;border-radius:6px;font-size:12px;font-weight:800;text-transform:uppercase;margin-bottom:8px;\">Paling Populer</div>",
                   "align": "left",
                   "typography_typography": "custom",
                   "typography_font_family": "Inter",
@@ -5080,7 +5094,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#6B7280",
+                  "text_color": "#5B6B80",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -5114,7 +5128,7 @@
                     "unit": "em",
                     "size": 1.15
                   },
-                  "title_color": "#0B0C10",
+                  "title_color": "#0B1F3A",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -5138,7 +5152,7 @@
                 "id": "cf3b8b1",
                 "elType": "widget",
                 "settings": {
-                  "editor": "<p style='font-size:14px;color:#6B7280;margin-bottom:16px;'>Untuk perusahaan menengah dengan armada 15–50 unit truk.</p>",
+                  "editor": "<p style='font-size:14px;color:#5B6B80;margin-bottom:16px;'>Untuk perusahaan menengah dengan armada 15–50 unit truk.</p>",
                   "align": "left",
                   "typography_typography": "custom",
                   "typography_font_family": "Inter",
@@ -5150,7 +5164,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#6B7280",
+                  "text_color": "#5B6B80",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -5224,12 +5238,12 @@
                     "value": "fas fa-check",
                     "library": "fa-solid"
                   },
-                  "icon_color": "#8A5F12",
+                  "icon_color": "#2457A6",
                   "icon_size": {
                     "unit": "px",
                     "size": 14
                   },
-                  "text_color": "#3F4651",
+                  "text_color": "#44546A",
                   "text_typography_typography": "custom",
                   "text_typography_font_family": "Inter",
                   "text_typography_font_size": {
@@ -5279,14 +5293,14 @@
                     "size": 15
                   },
                   "typography_font_weight": "700",
-                  "button_text_color": "#0B0C10",
-                  "background_color": "#E8B84A",
+                  "button_text_color": "#FFFFFF",
+                  "background_color": "#2457A6",
                   "border_radius": {
                     "unit": "px",
-                    "top": "10",
-                    "right": "10",
-                    "bottom": "10",
-                    "left": "10",
+                    "top": "12",
+                    "right": "12",
+                    "bottom": "12",
+                    "left": "12",
                     "isLinked": true
                   },
                   "button_padding": {
@@ -5306,8 +5320,7 @@
                     "isLinked": ""
                   },
                   "__globals__": {
-                    "background_color": "globals/colors?id=r23goldb",
-                    "button_text_color": "globals/colors?id=primary"
+                    "background_color": "globals/colors?id=secondary"
                   },
                   "_css_classes": "btn-fleet-primary mt-btn"
                 },
@@ -5367,7 +5380,7 @@
                 "left": "1",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA",
+              "border_color": "#DDE3EC",
               "border_radius": {
                 "unit": "px",
                 "top": "20",
@@ -5396,7 +5409,7 @@
                     "unit": "em",
                     "size": 1.15
                   },
-                  "title_color": "#0B0C10",
+                  "title_color": "#0B1F3A",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -5420,7 +5433,7 @@
                 "id": "3f1dff9",
                 "elType": "widget",
                 "settings": {
-                  "editor": "<p style='font-size:14px;color:#6B7280;margin-bottom:16px;'>Untuk perusahaan besar dengan armada lebih dari 50 unit truk.</p>",
+                  "editor": "<p style='font-size:14px;color:#5B6B80;margin-bottom:16px;'>Untuk perusahaan besar dengan armada lebih dari 50 unit truk.</p>",
                   "align": "left",
                   "typography_typography": "custom",
                   "typography_font_family": "Inter",
@@ -5432,7 +5445,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#6B7280",
+                  "text_color": "#5B6B80",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -5506,12 +5519,12 @@
                     "value": "fas fa-check",
                     "library": "fa-solid"
                   },
-                  "icon_color": "#8A5F12",
+                  "icon_color": "#2457A6",
                   "icon_size": {
                     "unit": "px",
                     "size": 14
                   },
-                  "text_color": "#3F4651",
+                  "text_color": "#44546A",
                   "text_typography_typography": "custom",
                   "text_typography_font_family": "Inter",
                   "text_typography_font_size": {
@@ -5562,7 +5575,7 @@
                   },
                   "typography_font_weight": "700",
                   "button_text_color": "#FFFFFF",
-                  "background_color": "#0B0C10",
+                  "background_color": "#0B1F3A",
                   "border_radius": {
                     "unit": "px",
                     "top": "10",
@@ -5627,7 +5640,7 @@
       "_element_id": "cara-kerja",
       "css_classes": "stitch-sec-workflow",
       "background_background": "classic",
-      "background_color": "#FFFFFF",
+      "background_color": "#F4F7FB",
       "padding": {
         "unit": "px",
         "top": "96",
@@ -5664,7 +5677,7 @@
             "unit": "em",
             "size": 1.15
           },
-          "title_color": "#3F4651",
+          "title_color": "#5B6B80",
           "_margin": {
             "unit": "px",
             "top": "0",
@@ -5678,8 +5691,9 @@
             "size": 1.0
           },
           "__globals__": {
-            "title_color": "globals/colors?id=text"
-          }
+            "title_color": "globals/colors?id=r23muted"
+          },
+          "_css_classes": "sec-eyebrow"
         },
         "elements": [],
         "widgetType": "heading"
@@ -5702,7 +5716,7 @@
             "unit": "em",
             "size": 1.15
           },
-          "title_color": "#0B0C10",
+          "title_color": "#0B1F3A",
           "_margin": {
             "unit": "px",
             "top": "6",
@@ -5738,7 +5752,7 @@
             "unit": "em",
             "size": 1.6
           },
-          "text_color": "#3F4651",
+          "text_color": "#44546A",
           "_margin": {
             "unit": "px",
             "top": "0",
@@ -5841,7 +5855,7 @@
                 "left": "1",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA",
+              "border_color": "#DDE3EC",
               "border_radius": {
                 "unit": "px",
                 "top": "18",
@@ -5856,7 +5870,7 @@
                 "id": "501e9c7",
                 "elType": "widget",
                 "settings": {
-                  "editor": "<span style=\"display:inline-block;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#6B7280;\">Langkah 1</span>",
+                  "editor": "<span style=\"display:inline-block;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#5B6B80;\">Langkah 1</span>",
                   "align": "left",
                   "typography_typography": "custom",
                   "typography_font_family": "Inter",
@@ -5868,7 +5882,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#6B7280",
+                  "text_color": "#5B6B80",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -5893,8 +5907,8 @@
                     "library": "fa-solid"
                   },
                   "view": "framed",
-                  "primary_color": "#8A5F12",
-                  "secondary_color": "#FBF4E1",
+                  "primary_color": "#2457A6",
+                  "secondary_color": "#E3ECF8",
                   "align": "left",
                   "size": {
                     "unit": "px",
@@ -5930,7 +5944,7 @@
                   },
                   "__globals__": {
                     "primary_color": "globals/colors?id=secondary",
-                    "secondary_color": "globals/colors?id=r23goldtint"
+                    "secondary_color": "globals/colors?id=accent"
                   },
                   "_css_classes": "step-icon"
                 },
@@ -5955,7 +5969,7 @@
                     "unit": "em",
                     "size": 1.15
                   },
-                  "title_color": "#0B0C10",
+                  "title_color": "#0B1F3A",
                   "_margin": {
                     "unit": "px",
                     "top": "14",
@@ -5991,7 +6005,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#6B7280",
+                  "text_color": "#5B6B80",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -6060,7 +6074,7 @@
                 "left": "1",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA",
+              "border_color": "#DDE3EC",
               "border_radius": {
                 "unit": "px",
                 "top": "18",
@@ -6075,7 +6089,7 @@
                 "id": "2e57dda",
                 "elType": "widget",
                 "settings": {
-                  "editor": "<span style=\"display:inline-block;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#6B7280;\">Langkah 2</span>",
+                  "editor": "<span style=\"display:inline-block;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#5B6B80;\">Langkah 2</span>",
                   "align": "left",
                   "typography_typography": "custom",
                   "typography_font_family": "Inter",
@@ -6087,7 +6101,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#6B7280",
+                  "text_color": "#5B6B80",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -6112,8 +6126,8 @@
                     "library": "fa-solid"
                   },
                   "view": "framed",
-                  "primary_color": "#8A5F12",
-                  "secondary_color": "#FBF4E1",
+                  "primary_color": "#2457A6",
+                  "secondary_color": "#E3ECF8",
                   "align": "left",
                   "size": {
                     "unit": "px",
@@ -6149,7 +6163,7 @@
                   },
                   "__globals__": {
                     "primary_color": "globals/colors?id=secondary",
-                    "secondary_color": "globals/colors?id=r23goldtint"
+                    "secondary_color": "globals/colors?id=accent"
                   },
                   "_css_classes": "step-icon"
                 },
@@ -6174,7 +6188,7 @@
                     "unit": "em",
                     "size": 1.15
                   },
-                  "title_color": "#0B0C10",
+                  "title_color": "#0B1F3A",
                   "_margin": {
                     "unit": "px",
                     "top": "14",
@@ -6210,7 +6224,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#6B7280",
+                  "text_color": "#5B6B80",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -6279,7 +6293,7 @@
                 "left": "1",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA",
+              "border_color": "#DDE3EC",
               "border_radius": {
                 "unit": "px",
                 "top": "18",
@@ -6294,7 +6308,7 @@
                 "id": "89a4bed",
                 "elType": "widget",
                 "settings": {
-                  "editor": "<span style=\"display:inline-block;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#6B7280;\">Langkah 3</span>",
+                  "editor": "<span style=\"display:inline-block;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#5B6B80;\">Langkah 3</span>",
                   "align": "left",
                   "typography_typography": "custom",
                   "typography_font_family": "Inter",
@@ -6306,7 +6320,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#6B7280",
+                  "text_color": "#5B6B80",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -6331,8 +6345,8 @@
                     "library": "fa-solid"
                   },
                   "view": "framed",
-                  "primary_color": "#8A5F12",
-                  "secondary_color": "#FBF4E1",
+                  "primary_color": "#2457A6",
+                  "secondary_color": "#E3ECF8",
                   "align": "left",
                   "size": {
                     "unit": "px",
@@ -6368,7 +6382,7 @@
                   },
                   "__globals__": {
                     "primary_color": "globals/colors?id=secondary",
-                    "secondary_color": "globals/colors?id=r23goldtint"
+                    "secondary_color": "globals/colors?id=accent"
                   },
                   "_css_classes": "step-icon"
                 },
@@ -6393,7 +6407,7 @@
                     "unit": "em",
                     "size": 1.15
                   },
-                  "title_color": "#0B0C10",
+                  "title_color": "#0B1F3A",
                   "_margin": {
                     "unit": "px",
                     "top": "14",
@@ -6429,7 +6443,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#6B7280",
+                  "text_color": "#5B6B80",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -6498,7 +6512,7 @@
                 "left": "1",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA",
+              "border_color": "#DDE3EC",
               "border_radius": {
                 "unit": "px",
                 "top": "18",
@@ -6513,7 +6527,7 @@
                 "id": "a5bf400",
                 "elType": "widget",
                 "settings": {
-                  "editor": "<span style=\"display:inline-block;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#6B7280;\">Langkah 4</span>",
+                  "editor": "<span style=\"display:inline-block;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#5B6B80;\">Langkah 4</span>",
                   "align": "left",
                   "typography_typography": "custom",
                   "typography_font_family": "Inter",
@@ -6525,7 +6539,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#6B7280",
+                  "text_color": "#5B6B80",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -6550,8 +6564,8 @@
                     "library": "fa-solid"
                   },
                   "view": "framed",
-                  "primary_color": "#8A5F12",
-                  "secondary_color": "#FBF4E1",
+                  "primary_color": "#2457A6",
+                  "secondary_color": "#E3ECF8",
                   "align": "left",
                   "size": {
                     "unit": "px",
@@ -6587,7 +6601,7 @@
                   },
                   "__globals__": {
                     "primary_color": "globals/colors?id=secondary",
-                    "secondary_color": "globals/colors?id=r23goldtint"
+                    "secondary_color": "globals/colors?id=accent"
                   },
                   "_css_classes": "step-icon"
                 },
@@ -6612,7 +6626,7 @@
                     "unit": "em",
                     "size": 1.15
                   },
-                  "title_color": "#0B0C10",
+                  "title_color": "#0B1F3A",
                   "_margin": {
                     "unit": "px",
                     "top": "14",
@@ -6648,7 +6662,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#6B7280",
+                  "text_color": "#5B6B80",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -6724,7 +6738,7 @@
             "unit": "em",
             "size": 1.15
           },
-          "title_color": "#3F4651",
+          "title_color": "#5B6B80",
           "_margin": {
             "unit": "px",
             "top": "0",
@@ -6738,8 +6752,9 @@
             "size": 1.0
           },
           "__globals__": {
-            "title_color": "globals/colors?id=text"
-          }
+            "title_color": "globals/colors?id=r23muted"
+          },
+          "_css_classes": "sec-eyebrow"
         },
         "elements": [],
         "widgetType": "heading"
@@ -6762,7 +6777,7 @@
             "unit": "em",
             "size": 1.15
           },
-          "title_color": "#0B0C10",
+          "title_color": "#0B1F3A",
           "_margin": {
             "unit": "px",
             "top": "6",
@@ -6798,7 +6813,7 @@
             "unit": "em",
             "size": 1.6
           },
-          "text_color": "#3F4651",
+          "text_color": "#44546A",
           "_margin": {
             "unit": "px",
             "top": "0",
@@ -6909,7 +6924,7 @@
                 "left": "1",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA",
+              "border_color": "#DDE3EC",
               "border_radius": {
                 "unit": "px",
                 "top": "18",
@@ -6969,7 +6984,7 @@
                     "unit": "em",
                     "size": 1.15
                   },
-                  "title_color": "#0B0C10",
+                  "title_color": "#0B1F3A",
                   "_margin": {
                     "unit": "px",
                     "top": "12",
@@ -7005,7 +7020,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#3F4651",
+                  "text_color": "#44546A",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -7074,7 +7089,7 @@
                 "left": "1",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA",
+              "border_color": "#DDE3EC",
               "border_radius": {
                 "unit": "px",
                 "top": "18",
@@ -7134,7 +7149,7 @@
                     "unit": "em",
                     "size": 1.15
                   },
-                  "title_color": "#0B0C10",
+                  "title_color": "#0B1F3A",
                   "_margin": {
                     "unit": "px",
                     "top": "12",
@@ -7170,7 +7185,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#3F4651",
+                  "text_color": "#44546A",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -7239,7 +7254,7 @@
                 "left": "1",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA",
+              "border_color": "#DDE3EC",
               "border_radius": {
                 "unit": "px",
                 "top": "18",
@@ -7299,7 +7314,7 @@
                     "unit": "em",
                     "size": 1.15
                   },
-                  "title_color": "#0B0C10",
+                  "title_color": "#0B1F3A",
                   "_margin": {
                     "unit": "px",
                     "top": "12",
@@ -7335,7 +7350,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#3F4651",
+                  "text_color": "#44546A",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -7444,7 +7459,7 @@
                 "left": "1",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA",
+              "border_color": "#DDE3EC",
               "border_radius": {
                 "unit": "px",
                 "top": "18",
@@ -7504,7 +7519,7 @@
                     "unit": "em",
                     "size": 1.15
                   },
-                  "title_color": "#0B0C10",
+                  "title_color": "#0B1F3A",
                   "_margin": {
                     "unit": "px",
                     "top": "12",
@@ -7540,7 +7555,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#3F4651",
+                  "text_color": "#44546A",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -7609,7 +7624,7 @@
                 "left": "1",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA",
+              "border_color": "#DDE3EC",
               "border_radius": {
                 "unit": "px",
                 "top": "18",
@@ -7669,7 +7684,7 @@
                     "unit": "em",
                     "size": 1.15
                   },
-                  "title_color": "#0B0C10",
+                  "title_color": "#0B1F3A",
                   "_margin": {
                     "unit": "px",
                     "top": "12",
@@ -7705,7 +7720,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#3F4651",
+                  "text_color": "#44546A",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -7774,7 +7789,7 @@
                 "left": "1",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA",
+              "border_color": "#DDE3EC",
               "border_radius": {
                 "unit": "px",
                 "top": "18",
@@ -7834,7 +7849,7 @@
                     "unit": "em",
                     "size": 1.15
                   },
-                  "title_color": "#0B0C10",
+                  "title_color": "#0B1F3A",
                   "_margin": {
                     "unit": "px",
                     "top": "12",
@@ -7870,7 +7885,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#3F4651",
+                  "text_color": "#44546A",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -7909,7 +7924,7 @@
       "_element_id": "merek",
       "css_classes": "stitch-sec-brands",
       "background_background": "classic",
-      "background_color": "#FFFFFF",
+      "background_color": "#F4F7FB",
       "padding": {
         "unit": "px",
         "top": "96",
@@ -7946,7 +7961,7 @@
             "unit": "em",
             "size": 1.15
           },
-          "title_color": "#3F4651",
+          "title_color": "#5B6B80",
           "_margin": {
             "unit": "px",
             "top": "0",
@@ -7960,8 +7975,9 @@
             "size": 1.0
           },
           "__globals__": {
-            "title_color": "globals/colors?id=text"
-          }
+            "title_color": "globals/colors?id=r23muted"
+          },
+          "_css_classes": "sec-eyebrow"
         },
         "elements": [],
         "widgetType": "heading"
@@ -7984,7 +8000,7 @@
             "unit": "em",
             "size": 1.15
           },
-          "title_color": "#0B0C10",
+          "title_color": "#0B1F3A",
           "_margin": {
             "unit": "px",
             "top": "6",
@@ -8020,7 +8036,7 @@
             "unit": "em",
             "size": 1.6
           },
-          "text_color": "#6B7280",
+          "text_color": "#5B6B80",
           "_margin": {
             "unit": "px",
             "top": "0",
@@ -8502,7 +8518,7 @@
       "_title": "Testimoni",
       "css_classes": "stitch-sec-testimonials",
       "background_background": "classic",
-      "background_color": "#F1F3F5",
+      "background_color": "#FFFFFF",
       "padding": {
         "unit": "px",
         "top": "96",
@@ -8539,7 +8555,7 @@
             "unit": "em",
             "size": 1.15
           },
-          "title_color": "#3F4651",
+          "title_color": "#5B6B80",
           "_margin": {
             "unit": "px",
             "top": "0",
@@ -8553,8 +8569,9 @@
             "size": 1.0
           },
           "__globals__": {
-            "title_color": "globals/colors?id=text"
-          }
+            "title_color": "globals/colors?id=r23muted"
+          },
+          "_css_classes": "sec-eyebrow"
         },
         "elements": [],
         "widgetType": "heading"
@@ -8577,7 +8594,7 @@
             "unit": "em",
             "size": 1.15
           },
-          "title_color": "#0B0C10",
+          "title_color": "#0B1F3A",
           "_margin": {
             "unit": "px",
             "top": "6",
@@ -8613,7 +8630,7 @@
             "unit": "em",
             "size": 1.6
           },
-          "text_color": "#3F4651",
+          "text_color": "#44546A",
           "_margin": {
             "unit": "px",
             "top": "0",
@@ -8716,7 +8733,7 @@
                 "left": "1",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA",
+              "border_color": "#DDE3EC",
               "border_radius": {
                 "unit": "px",
                 "top": "20",
@@ -8731,7 +8748,7 @@
                 "id": "44ded10",
                 "elType": "widget",
                 "settings": {
-                  "editor": "<div style='font-size:16px;color:#C69A43;margin-bottom:10px;' role=\"img\" aria-label=\"Nilai 5 dari 5\"><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i></div><p style='font-size:15px;color:#3F4651;line-height:1.65;font-style:italic;margin-bottom:20px;'>&ldquo;Sejak armada kami dirawat di sini, truk lebih jarang mogok di jalan. Pekerjaannya dijelaskan dulu sebelum dimulai, jadi jadwal operasional kami tidak terganggu.&rdquo;</p><div style='display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid #E3E6EA;'><div aria-hidden=\"true\" style='width:48px;height:48px;flex:0 0 48px;border-radius:50%;background:#FBF4E1;color:#0B0C10;display:flex;align-items:center;justify-content:center;font-family:Plus Jakarta Sans;font-size:15px;font-weight:800;letter-spacing:0.5px;' >PA</div><div><div style='font-family:Plus Jakarta Sans;font-size:15px;font-weight:700;color:#0B0C10;'>Pelanggan armada ekspedisi</div><div style='font-size:14px;color:#6B7280;'>Contoh testimoni — akan diganti testimoni asli</div></div></div>",
+                  "editor": "<div style='font-size:16px;color:#2457A6;margin-bottom:10px;' role=\"img\" aria-label=\"Nilai 5 dari 5\"><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i></div><p style='font-size:15px;color:#44546A;line-height:1.65;font-style:italic;margin-bottom:20px;'>&ldquo;Sejak armada kami dirawat di sini, truk lebih jarang mogok di jalan. Pekerjaannya dijelaskan dulu sebelum dimulai, jadi jadwal operasional kami tidak terganggu.&rdquo;</p><div style='display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid #DDE3EC;'><div aria-hidden=\"true\" style='width:48px;height:48px;flex:0 0 48px;border-radius:50%;background:#E3ECF8;color:#0B1F3A;display:flex;align-items:center;justify-content:center;font-family:Plus Jakarta Sans;font-size:15px;font-weight:800;letter-spacing:0.5px;' >PA</div><div><div style='font-family:Plus Jakarta Sans;font-size:15px;font-weight:700;color:#0B1F3A;'>Pelanggan armada ekspedisi</div><div style='font-size:14px;color:#5B6B80;'>Contoh testimoni — akan diganti testimoni asli</div></div></div>",
                   "align": "left",
                   "typography_typography": "custom",
                   "typography_font_family": "Inter",
@@ -8743,7 +8760,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#6B7280",
+                  "text_color": "#5B6B80",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -8812,7 +8829,7 @@
                 "left": "1",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA",
+              "border_color": "#DDE3EC",
               "border_radius": {
                 "unit": "px",
                 "top": "20",
@@ -8827,7 +8844,7 @@
                 "id": "38dd540",
                 "elType": "widget",
                 "settings": {
-                  "editor": "<div style='font-size:16px;color:#C69A43;margin-bottom:10px;' role=\"img\" aria-label=\"Nilai 5 dari 5\"><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i></div><p style='font-size:15px;color:#3F4651;line-height:1.65;font-style:italic;margin-bottom:20px;'>&ldquo;Laporan pengerjaannya jelas dan suku cadangnya terasa asli. Kalau ada pertanyaan, pihak bengkel cepat menjawab.&rdquo;</p><div style='display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid #E3E6EA;'><div aria-hidden=\"true\" style='width:48px;height:48px;flex:0 0 48px;border-radius:50%;background:#FBF4E1;color:#0B0C10;display:flex;align-items:center;justify-content:center;font-family:Plus Jakarta Sans;font-size:15px;font-weight:800;letter-spacing:0.5px;' >PT</div><div><div style='font-family:Plus Jakarta Sans;font-size:15px;font-weight:700;color:#0B0C10;'>Pelanggan perusahaan transportasi</div><div style='font-size:14px;color:#6B7280;'>Contoh testimoni — akan diganti testimoni asli</div></div></div>",
+                  "editor": "<div style='font-size:16px;color:#2457A6;margin-bottom:10px;' role=\"img\" aria-label=\"Nilai 5 dari 5\"><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i></div><p style='font-size:15px;color:#44546A;line-height:1.65;font-style:italic;margin-bottom:20px;'>&ldquo;Laporan pengerjaannya jelas dan suku cadangnya terasa asli. Kalau ada pertanyaan, pihak bengkel cepat menjawab.&rdquo;</p><div style='display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid #DDE3EC;'><div aria-hidden=\"true\" style='width:48px;height:48px;flex:0 0 48px;border-radius:50%;background:#E3ECF8;color:#0B1F3A;display:flex;align-items:center;justify-content:center;font-family:Plus Jakarta Sans;font-size:15px;font-weight:800;letter-spacing:0.5px;' >PT</div><div><div style='font-family:Plus Jakarta Sans;font-size:15px;font-weight:700;color:#0B1F3A;'>Pelanggan perusahaan transportasi</div><div style='font-size:14px;color:#5B6B80;'>Contoh testimoni — akan diganti testimoni asli</div></div></div>",
                   "align": "left",
                   "typography_typography": "custom",
                   "typography_font_family": "Inter",
@@ -8839,7 +8856,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#6B7280",
+                  "text_color": "#5B6B80",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -8908,7 +8925,7 @@
                 "left": "1",
                 "isLinked": ""
               },
-              "border_color": "#E3E6EA",
+              "border_color": "#DDE3EC",
               "border_radius": {
                 "unit": "px",
                 "top": "20",
@@ -8923,7 +8940,7 @@
                 "id": "1be269d",
                 "elType": "widget",
                 "settings": {
-                  "editor": "<div style='font-size:16px;color:#C69A43;margin-bottom:10px;' role=\"img\" aria-label=\"Nilai 5 dari 5\"><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i></div><p style='font-size:15px;color:#3F4651;line-height:1.65;font-style:italic;margin-bottom:20px;'>&ldquo;Truk kami pernah mogok malam hari dan tim derek datang menolong. Truk bisa kembali jalan tanpa menunggu lama.&rdquo;</p><div style='display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid #E3E6EA;'><div aria-hidden=\"true\" style='width:48px;height:48px;flex:0 0 48px;border-radius:50%;background:#FBF4E1;color:#0B0C10;display:flex;align-items:center;justify-content:center;font-family:Plus Jakarta Sans;font-size:15px;font-weight:800;letter-spacing:0.5px;' >PU</div><div><div style='font-family:Plus Jakarta Sans;font-size:15px;font-weight:700;color:#0B0C10;'>Pelanggan usaha pengiriman</div><div style='font-size:14px;color:#6B7280;'>Contoh testimoni — akan diganti testimoni asli</div></div></div>",
+                  "editor": "<div style='font-size:16px;color:#2457A6;margin-bottom:10px;' role=\"img\" aria-label=\"Nilai 5 dari 5\"><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i></div><p style='font-size:15px;color:#44546A;line-height:1.65;font-style:italic;margin-bottom:20px;'>&ldquo;Truk kami pernah mogok malam hari dan tim derek datang menolong. Truk bisa kembali jalan tanpa menunggu lama.&rdquo;</p><div style='display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid #DDE3EC;'><div aria-hidden=\"true\" style='width:48px;height:48px;flex:0 0 48px;border-radius:50%;background:#E3ECF8;color:#0B1F3A;display:flex;align-items:center;justify-content:center;font-family:Plus Jakarta Sans;font-size:15px;font-weight:800;letter-spacing:0.5px;' >PU</div><div><div style='font-family:Plus Jakarta Sans;font-size:15px;font-weight:700;color:#0B1F3A;'>Pelanggan usaha pengiriman</div><div style='font-size:14px;color:#5B6B80;'>Contoh testimoni — akan diganti testimoni asli</div></div></div>",
                   "align": "left",
                   "typography_typography": "custom",
                   "typography_font_family": "Inter",
@@ -8935,7 +8952,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#6B7280",
+                  "text_color": "#5B6B80",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -8974,7 +8991,7 @@
       "_element_id": "faq",
       "css_classes": "stitch-sec-faq",
       "background_background": "classic",
-      "background_color": "#FFFFFF",
+      "background_color": "#F4F7FB",
       "padding": {
         "unit": "px",
         "top": "96",
@@ -9011,7 +9028,7 @@
             "unit": "em",
             "size": 1.15
           },
-          "title_color": "#3F4651",
+          "title_color": "#5B6B80",
           "_margin": {
             "unit": "px",
             "top": "0",
@@ -9025,8 +9042,9 @@
             "size": 1.0
           },
           "__globals__": {
-            "title_color": "globals/colors?id=text"
-          }
+            "title_color": "globals/colors?id=r23muted"
+          },
+          "_css_classes": "sec-eyebrow"
         },
         "elements": [],
         "widgetType": "heading"
@@ -9049,7 +9067,7 @@
             "unit": "em",
             "size": 1.15
           },
-          "title_color": "#0B0C10",
+          "title_color": "#0B1F3A",
           "_margin": {
             "unit": "px",
             "top": "6",
@@ -9085,7 +9103,7 @@
             "unit": "em",
             "size": 1.6
           },
-          "text_color": "#3F4651",
+          "text_color": "#44546A",
           "_margin": {
             "unit": "px",
             "top": "0",
@@ -9142,8 +9160,8 @@
             "size": 17
           },
           "title_typography_font_weight": "700",
-          "title_color": "#0B0C10",
-          "tab_active_color": "#0B0C10",
+          "title_color": "#0B1F3A",
+          "tab_active_color": "#0B1F3A",
           "content_typography_typography": "custom",
           "content_typography_font_family": "Inter",
           "content_typography_font_size": {
@@ -9154,7 +9172,7 @@
             "unit": "em",
             "size": 1.6
           },
-          "content_color": "#6B7280",
+          "content_color": "#5B6B80",
           "__globals__": {
             "title_color": "globals/colors?id=primary",
             "content_color": "globals/colors?id=r23muted"
@@ -9180,7 +9198,7 @@
       "_title": "Action Banner",
       "css_classes": "stitch-sec-cta",
       "background_background": "classic",
-      "background_color": "#F7F8FA",
+      "background_color": "#FFFFFF",
       "padding": {
         "unit": "px",
         "top": "48",
@@ -9261,7 +9279,7 @@
                 "isLinked": true
               },
               "background_background": "classic",
-              "background_color": "#0B0C10",
+              "background_color": "#0B1F3A",
               "box_shadow_box_shadow_type": "yes",
               "box_shadow_box_shadow": {
                 "horizontal": 0,
@@ -9338,7 +9356,7 @@
                         "unit": "em",
                         "size": 1.15
                       },
-                      "title_color": "#0B0C10",
+                      "title_color": "#0B1F3A",
                       "_margin": {
                         "unit": "px",
                         "top": "0",
@@ -9485,8 +9503,8 @@
                         "size": 15
                       },
                       "typography_font_weight": "700",
-                      "button_text_color": "#0B0C10",
-                      "background_color": "#E8B84A",
+                      "button_text_color": "#0B1F3A",
+                      "background_color": "#FFFFFF",
                       "border_radius": {
                         "unit": "px",
                         "top": "12",
@@ -9512,7 +9530,6 @@
                         "isLinked": ""
                       },
                       "__globals__": {
-                        "background_color": "globals/colors?id=r23goldb",
                         "button_text_color": "globals/colors?id=primary"
                       },
                       "selected_icon": {
@@ -9624,7 +9641,7 @@
       "_element_id": "lokasi",
       "css_classes": "stitch-sec-location",
       "background_background": "classic",
-      "background_color": "#F1F3F5",
+      "background_color": "#F4F7FB",
       "padding": {
         "unit": "px",
         "top": "96",
@@ -9661,7 +9678,7 @@
             "unit": "em",
             "size": 1.15
           },
-          "title_color": "#3F4651",
+          "title_color": "#5B6B80",
           "_margin": {
             "unit": "px",
             "top": "0",
@@ -9675,8 +9692,9 @@
             "size": 1.0
           },
           "__globals__": {
-            "title_color": "globals/colors?id=text"
-          }
+            "title_color": "globals/colors?id=r23muted"
+          },
+          "_css_classes": "sec-eyebrow"
         },
         "elements": [],
         "widgetType": "heading"
@@ -9699,7 +9717,7 @@
             "unit": "em",
             "size": 1.15
           },
-          "title_color": "#0B0C10",
+          "title_color": "#0B1F3A",
           "_margin": {
             "unit": "px",
             "top": "6",
@@ -9816,7 +9834,7 @@
                     "unit": "em",
                     "size": 1.15
                   },
-                  "title_color": "#0B0C10",
+                  "title_color": "#0B1F3A",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -9852,7 +9870,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#3F4651",
+                  "text_color": "#44546A",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -9886,7 +9904,7 @@
                     "unit": "em",
                     "size": 1.15
                   },
-                  "title_color": "#0B0C10",
+                  "title_color": "#0B1F3A",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -9922,7 +9940,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#3F4651",
+                  "text_color": "#44546A",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -10001,7 +10019,7 @@
                   },
                   "typography_font_weight": "700",
                   "button_text_color": "#FFFFFF",
-                  "background_color": "#0B0C10",
+                  "background_color": "#0B1F3A",
                   "border_radius": {
                     "unit": "px",
                     "top": "12",
@@ -10062,7 +10080,7 @@
                   },
                   "typography_font_weight": "700",
                   "button_text_color": "#FFFFFF",
-                  "background_color": "#25D366",
+                  "background_color": "#15803D",
                   "border_radius": {
                     "unit": "px",
                     "top": "12",
@@ -10125,7 +10143,7 @@
       "_element_id": "kontak",
       "css_classes": "stitch-footer",
       "background_background": "classic",
-      "background_color": "#F7F8FA",
+      "background_color": "#F4F7FB",
       "padding": {
         "unit": "px",
         "top": "48",
@@ -10143,7 +10161,7 @@
         "left": "0",
         "isLinked": ""
       },
-      "border_color": "#E3E6EA"
+      "border_color": "#DDE3EC"
     },
     "elements": [
       {
@@ -10250,7 +10268,7 @@
                     "unit": "em",
                     "size": 1.15
                   },
-                  "title_color": "#0B0C10",
+                  "title_color": "#0B1F3A",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -10287,7 +10305,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#6B7280",
+                  "text_color": "#5B6B80",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -10319,7 +10337,7 @@
                     "unit": "em",
                     "size": 1.65
                   },
-                  "text_color": "#3F4651",
+                  "text_color": "#44546A",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -10351,7 +10369,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#3F4651",
+                  "text_color": "#44546A",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -10383,7 +10401,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#6B7280",
+                  "text_color": "#5B6B80",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -10461,7 +10479,7 @@
                     "unit": "em",
                     "size": 1.15
                   },
-                  "title_color": "#0B0C10",
+                  "title_color": "#0B1F3A",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -10498,7 +10516,7 @@
                     "unit": "em",
                     "size": 1.6
                   },
-                  "text_color": "#3F4651",
+                  "text_color": "#44546A",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -10576,7 +10594,7 @@
                     "unit": "em",
                     "size": 1.15
                   },
-                  "title_color": "#0B0C10",
+                  "title_color": "#0B1F3A",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -10613,7 +10631,7 @@
                     "unit": "em",
                     "size": 1.7
                   },
-                  "text_color": "#3F4651",
+                  "text_color": "#44546A",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -10691,7 +10709,7 @@
                     "unit": "em",
                     "size": 1.15
                   },
-                  "title_color": "#0B0C10",
+                  "title_color": "#0B1F3A",
                   "_margin": {
                     "unit": "px",
                     "top": "0",
@@ -10746,12 +10764,12 @@
                     "value": "fas fa-award",
                     "library": "fa-solid"
                   },
-                  "icon_color": "#C69A43",
+                  "icon_color": "#2457A6",
                   "icon_size": {
                     "unit": "px",
                     "size": 14
                   },
-                  "text_color": "#3F4651",
+                  "text_color": "#44546A",
                   "text_typography_typography": "custom",
                   "text_typography_font_family": "Inter",
                   "text_typography_font_size": {
@@ -10775,7 +10793,7 @@
                     "isLinked": ""
                   },
                   "__globals__": {
-                    "icon_color": "globals/colors?id=r23gold",
+                    "icon_color": "globals/colors?id=secondary",
                     "text_color": "globals/colors?id=text"
                   }
                 },
@@ -10804,7 +10822,7 @@
             "unit": "em",
             "size": 1.6
           },
-          "text_color": "#6B7280",
+          "text_color": "#5B6B80",
           "_margin": {
             "unit": "px",
             "top": "0",
@@ -10899,7 +10917,7 @@
               },
               "typography_font_weight": "700",
               "button_text_color": "#FFFFFF",
-              "background_color": "#25D366",
+              "background_color": "#15803D",
               "border_radius": {
                 "unit": "px",
                 "top": "12",
@@ -10957,8 +10975,8 @@
                 "size": 15
               },
               "typography_font_weight": "700",
-              "button_text_color": "#0B0C10",
-              "background_color": "#E8B84A",
+              "button_text_color": "#FFFFFF",
+              "background_color": "#2457A6",
               "border_radius": {
                 "unit": "px",
                 "top": "12",
@@ -10984,8 +11002,7 @@
                 "isLinked": ""
               },
               "__globals__": {
-                "background_color": "globals/colors?id=r23goldb",
-                "button_text_color": "globals/colors?id=primary"
+                "background_color": "globals/colors?id=secondary"
               },
               "selected_icon": {
                 "value": "fas fa-calendar-alt",
