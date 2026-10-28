@@ -16,7 +16,7 @@
 | --- | --- | --- |
 | `COMPANY_NAME` | PT Master Truck Indonesia | **Kandidat ganda** — footer lama menulis "PT Lotus Prima Mandiri". Pilih satu. |
 | `PHONE_DISPLAY` | `0812-MASTER-TRUCK` | **Placeholder** — tampil di topbar, belum nomor asli. |
-| `PHONE_TEL` | *(kosong)* | Sengaja dikosongkan; tombol telepon diarahkan ke WhatsApp sampai nomor asli ada. Isi format `+62…`. **RONDE 24–25 — prioritas TINGGI: mayoritas pengunjung dari HP; isi nomor telepon asli: konversi utama di HP**: mayoritas pengunjung dari HP; isi nomor asli — builder otomatis mengubah semua titik kontak (topbar, hero, bar aksi bawah HP, footer, lokasi) menjadi `tel:` yang valid. Bila masih kosong, tak ada `tel:` palsu (fallback aman ke WhatsApp, label tidak menjanjikan telepon). |
+| `PHONE_TEL` | *(kosong)* | Sengaja dikosongkan; `"0812-MASTER-TRUCK"` berisi huruf dan tidak bisa ditelepon (bukan angka valid). Seluruh blok hotline dan tombol darurat diarahkan aman ke WhatsApp tanpa membuat `tel:` palsu. **RONDE 26 — prioritas TINGGI**: Masukkan nomor telepon asli (format `+628…`) agar pengunjung seluler di Medan dapat langsung melakukan panggilan suara darurat 24 jam dengan sekali ketuk. |
 | `LANDLINE_DISPLAY` | `061-8888-1234` | Belum dipastikan. |
 | `WA_NUMBER` | `6281288881234` | Belum dipastikan — dipakai semua tombol `wa.me`. |
 | `EMAIL` | `fleet@mastertruck.co.id` | Belum dipastikan. |

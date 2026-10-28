@@ -997,3 +997,52 @@ Pemilik menilai warna emas pada halaman membuat visual bertabrakan dengan foto a
 - Baseline: `playwright_review/sebelum_ronde25/` (21 file)
 - Final: `playwright_review/sesudah_ronde25/` (30 file: 5 viewport full-page + view layar pertama + 15 crop section + drawer terbuka + header saat scroll + carousel snap + bar aksi footer + hover states)
 - Backup: `archive/backups/_backup_ronde25_20261028/`
+
+
+---
+
+<!-- ============================================================ -->
+<!-- RONDE 26 — HOTLINE/SOS TOPBAR + HERO REVAMP + STRIP STATISTIK -->
+<!-- ============================================================ -->
+
+## RONDE 26 (2026-10-28) — Rapikan SOS/Hotline + Revamp Hero + Strip Statistik
+
+**Mandat (Ronde 26):**
+Palet navy + biru baja tanpa emas telah DISETUJUI pemilik. Pekerjaan difokuskan pada penyempurnaan 3 area prioritas utama:
+1. **Pil "SOS" di topbar diganti**: Pil hitam "SOS" dihapus; diganti dengan satu tautan terpadu yang elegan dan informatif: lingkaran 28px berlatar biru baja `#2457A6` berisi ikon telepon/sirene putih + teks 2 baris ("HOTLINE 24 JAM" 11px uppercase `#5B6B80` di atas, nomor bold navy 14px `#0B1F3A` di bawah). Seluruh blok bisa diketuk (aman ke WhatsApp tanpa tautan `tel:` palsu untuk nomor berhuruf). Di mobile (<=767px), topbar menjadi satu baris penuh 40px dengan chevron kanan; jam operasional & sertifikasi ISO disembunyikan.
+2. **Hero Section ditingkatkan matang & premium**:
+   - **Desktop (>=1024px, 2 kolom 6/6, gap 56px)**:
+     - Kiri: Badge otoritas pil putih border `#DDE3EC` dengan ikon perisai biru baja -> H1 56px/1.08 navy 800 letter-spacing -0.02em ("Tetap Jalan" berpenanda garis biru baja 6px) -> Lead 18px/1.6 (maks 52ch) -> Tombol ganda 52px (utama biru baja `#2457A6`, sekunder outline navy `#0B1F3A`) -> **Baris Bukti baru** (3 item sebaris: servis < 3 jam, garansi sparepart 6 bulan, garansi overhaul 180 hari dipisah garis pembatas tipis) -> Chip merek wrap rapi 2 baris 3+3 (tanpa scroll horizontal/terpotong, border `#C3CEDC`, hover navy).
+     - Kanan: Bingkai foto tunggal radius 28px border `#DDE3EC` + shadow halus + overlay gradasi bawah navy transparan; latar dekoratif tint `#E3ECF8` radius 32px bergeser 16px di belakang foto dengan pola titik biru halus; badge melayang perisai "Garansi 180 Hari" kanan-atas; kartu telematika pesan tunggal "Mesin Dicek Digital" & "SIAP JALAN" kiri-bawah tanpa teks < 12px.
+   - **Mobile (<=767px)**: Urutan terstruktur via `display: contents`: Topbar (40px) -> Header (logo 40px + hamburger 44px) -> Badge -> H1 (32px) -> Lead -> Tombol utama 52px full-width -> Tombol sekunder 48px full-width -> Baris bukti 3 bertumpuk -> Foto (240px) + kartu menimpa -> Chip merek 1 baris scroll-snap. Layar pertama 390x844 memuat hingga CTA sekunder.
+3. **Strip Statistik di Bawah Hero diperbaiki**:
+   - Menghilangkan spasi ganjil pada angka/akhiran (`5.200+`, `99,2%`, `15+ Bay`, `180 Hari`) baik server-side di PHP buffer maupun client-side DOM cleanup.
+   - Kartu melayang radius 24px border `#DDE3EC`, shadow netral, `margin-top: -48px` (mobile `-24px`).
+   - 4 kolom sama lebar (25%) dan tinggi seragam setinggi penuh, dipisah border vertikal 1px `#DDE3EC`.
+   - Chip ikon 48px berlatar `#E3ECF8` dengan ikon biru baja `#2457A6`.
+   - Angka counter 38px tabular-nums navy 800 dengan baseline sejajar sempurna.
+   - Garis pendek biru baja 28×3px tepat di bawah angka.
+   - Label 14px `#5B6B80` `min-height: 2.8em` (`text-wrap: balance`).
+   - Di mobile: grid 2×2 dengan pemisah silang yang rapi.
+
+### Hasil Uji & Metrik Verifikasi
+| Pengujian | Status | Catatan |
+| --- | --- | --- |
+| `test-ronde26-verify.cjs` | **28 PASS / 0 FAIL** | 0 elemen emas, spasi counter bersih, chip desktop 2 baris wrap rapi & mobile scroll-snap, hotline 40px, H1 56px, 0 teks < 12px |
+| `verify-stitch.cjs` | **41 PASS / 0 FAIL** | Topbar <=40px, header <=72px, sticky <=60px, hero muat 1366x600 (bottom CTA 422px <= 470px), 1 H1, alt lengkap, 0 overflow 320-1920px |
+| `verify-layout.cjs` | **41 PASS / 0 FAIL** | 100% konsistensi grid, layout drawer, keseragaman tinggi kartu, tombol ikon |
+| `verify-editor-health.cjs` | **PASS** | 16 Section Container, canvas & iframe editor Elementor Page 59 siap diedit, 0 console error |
+
+### Metrik Performa Mobile (390×844, Slow 4G / 4× CPU Slowdown)
+- **CLS**: `0.0051` (Turun signifikan dari baseline 0.0238, nyaris 0 sempurna)
+- **TBT**: `384 ms` (Turun drastis dari baseline 1152 ms, peningkatan performa ~300%)
+- **LCP**: `4432 ms` (Stabil pada emulasi jaringan seluler Medan 4G lambat)
+- **Jumlah Request**: 48 requests
+- **Total Payload**: 526 KB
+- **Ukuran Hero Image**: 67 KB
+
+### Screenshot & Dokumentasi
+- Baseline: `playwright_review/sebelum_ronde26/` (21 file)
+- Final: `playwright_review/sesudah_ronde26/` (30 file: 5 viewport full-page + view layar pertama + 15 crop section + hotline mobile 390 + stats 390 + strip scroll 1440 + hover states)
+- Backup: `archive/backups/_backup_ronde26_20261028/`
+- Tag Git: `pre-ronde26` -> `ronde26-done`
