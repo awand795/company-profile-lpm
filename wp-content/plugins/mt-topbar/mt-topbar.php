@@ -134,11 +134,33 @@ add_action( 'wp_head', function () {
 		if ( ! defined( 'RANK_MATH_VERSION' ) && ! class_exists( 'RankMath' ) ) {
 			echo '<meta name="description" content="PT Master Truck Indonesia — bengkel spesialis truk niaga & distributor resmi Pertamina, Mobil Delvac, Dunlop, GS Astra di KIM III Medan. Servis armada, overhaul, derek 24 jam." />' . "\n";
 		}
-		echo '<link rel="preload" as="image" href="/wp-content/uploads/stitch/stitch_img_2.webp" fetchpriority="high" />' . "\n";
+		// Ronde 24: preload dihapus (menyebabkan unduhan ganda srcset) — LCP dijaga
+		// dengan fetchpriority=high pada <img> hero lewat filter di bawah.
 	}
 	// Meta theme-color selalu dikeluarkan tepat 1x
 	echo '<meta name="theme-color" content="#0B0C10" />' . "\n";
+	// RONDE 24: token emas mt-custom mengikuti Global Colors (r23goldb/r23gold)
+	// agar warna bar aksi, tombol & aksen bisa diubah lewat Site Settings.
+	echo '<style>body.elementor-page-59{--mt-gold-b:var(--e-global-color-r23goldb, #E8B84A);--mt-gold:var(--e-global-color-r23gold, #C69A43);}</style>' . "\n";
 }, 1 );
+
+/* RONDE 24: <img> hero (lampiran 353) = kandidat LCP -> fetchpriority=high,
+   agar keputusan dipercepat browser tanpa preload ganda srcset.
+   Gambar DI BAWAH lipatan (fasilitas & logo merek) -> loading=lazy agar
+   bandwidth 4G penuh untuk hero (LCP). */
+add_filter( 'wp_get_loading_optimization_attributes', function ( $attrs, $attr, $context ) {
+	if ( ! empty( $attr['src'] ) && is_string( $attr['src'] ) ) {
+		if ( strpos( $attr['src'], 'stitch_img_2_warm.webp' ) !== false ) {
+			$attrs['fetchpriority'] = 'high';
+			return $attrs;
+		}
+		if ( preg_match( '/stitch_img_[345](_warm)?\.webp|mastertruck_|brand_/i', $attr['src'] ) ) {
+			$attrs['loading']  = 'lazy';
+			$attrs['decoding'] = 'async';
+		}
+	}
+	return $attrs;
+}, 10, 3 );
 
 /* REVAMP6o C3: pratinjau bagikan (OG/Twitter) khusus beranda bila plugin SEO tidak aktif.
    Tanpa duplikasi bila plugin SEO aktif (Rank Math atau Yoast). */

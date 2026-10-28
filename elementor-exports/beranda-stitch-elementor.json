@@ -449,6 +449,14 @@
                             "left": "0",
                             "isLinked": ""
                           },
+                          "image_border_radius": {
+                            "unit": "px",
+                            "top": "10",
+                            "right": "10",
+                            "bottom": "10",
+                            "left": "10",
+                            "isLinked": true
+                          },
                           "_css_classes": "brand-logo-img",
                           "image_alt": "Logo Master Truck"
                         },
@@ -737,7 +745,9 @@
                         "left": "0",
                         "isLinked": ""
                       },
-                      "__globals__": {},
+                      "__globals__": {
+                        "button_text_color": "globals/colors?id=primary"
+                      },
                       "selected_icon": {
                         "value": "fas fa-user-circle",
                         "library": "fa-solid"
@@ -837,6 +847,14 @@
         "right": "24",
         "bottom": "40",
         "left": "24",
+        "isLinked": ""
+      },
+      "padding_mobile": {
+        "unit": "px",
+        "top": "24",
+        "right": "20",
+        "bottom": "40",
+        "left": "20",
         "isLinked": ""
       }
     },
@@ -1096,8 +1114,8 @@
                         "size": 15
                       },
                       "typography_font_weight": "700",
-                      "button_text_color": "#FFFFFF",
-                      "background_color": "#0B0C10",
+                      "button_text_color": "#0B0C10",
+                      "background_color": "#E8B84A",
                       "border_radius": {
                         "unit": "px",
                         "top": "12",
@@ -1123,7 +1141,8 @@
                         "isLinked": ""
                       },
                       "__globals__": {
-                        "background_color": "globals/colors?id=primary"
+                        "background_color": "globals/colors?id=r23goldb",
+                        "button_text_color": "globals/colors?id=primary"
                       },
                       "selected_icon": {
                         "value": "fas fa-calendar-alt",
@@ -1183,7 +1202,9 @@
                         "left": "0",
                         "isLinked": ""
                       },
-                      "__globals__": {},
+                      "__globals__": {
+                        "button_text_color": "globals/colors?id=primary"
+                      },
                       "selected_icon": {
                         "value": "fas fa-phone-alt",
                         "library": "fa-solid"
@@ -2439,9 +2460,17 @@
       "background_color": "#FFFFFF",
       "padding": {
         "unit": "px",
-        "top": "64",
+        "top": "96",
         "right": "20",
-        "bottom": "64",
+        "bottom": "96",
+        "left": "20",
+        "isLinked": ""
+      },
+      "padding_mobile": {
+        "unit": "px",
+        "top": "56",
+        "right": "20",
+        "bottom": "56",
         "left": "20",
         "isLinked": ""
       }
@@ -2690,9 +2719,17 @@
       "background_color": "#F1F3F5",
       "padding": {
         "unit": "px",
-        "top": "72",
+        "top": "96",
         "right": "20",
-        "bottom": "72",
+        "bottom": "96",
+        "left": "20",
+        "isLinked": ""
+      },
+      "padding_mobile": {
+        "unit": "px",
+        "top": "56",
+        "right": "20",
+        "bottom": "56",
         "left": "20",
         "isLinked": ""
       }
@@ -3290,9 +3327,17 @@
       "background_color": "#FFFFFF",
       "padding": {
         "unit": "px",
-        "top": "72",
+        "top": "96",
         "right": "20",
-        "bottom": "72",
+        "bottom": "96",
+        "left": "20",
+        "isLinked": ""
+      },
+      "padding_mobile": {
+        "unit": "px",
+        "top": "56",
+        "right": "20",
+        "bottom": "56",
         "left": "20",
         "isLinked": ""
       }
@@ -3598,7 +3643,9 @@
                     "left": "0",
                     "isLinked": ""
                   },
-                  "__globals__": {},
+                  "__globals__": {
+                    "button_text_color": "globals/colors?id=primary"
+                  },
                   "selected_icon": {
                     "value": "fas fa-arrow-right",
                     "library": "fa-solid"
@@ -3763,7 +3810,9 @@
                     "left": "0",
                     "isLinked": ""
                   },
-                  "__globals__": {},
+                  "__globals__": {
+                    "button_text_color": "globals/colors?id=primary"
+                  },
                   "selected_icon": {
                     "value": "fas fa-arrow-right",
                     "library": "fa-solid"
@@ -3928,7 +3977,9 @@
                     "left": "0",
                     "isLinked": ""
                   },
-                  "__globals__": {},
+                  "__globals__": {
+                    "button_text_color": "globals/colors?id=primary"
+                  },
                   "selected_icon": {
                     "value": "fas fa-arrow-right",
                     "library": "fa-solid"
@@ -4298,7 +4349,9 @@
                     "left": "0",
                     "isLinked": ""
                   },
-                  "__globals__": {},
+                  "__globals__": {
+                    "button_text_color": "globals/colors?id=primary"
+                  },
                   "selected_icon": {
                     "value": "fas fa-arrow-right",
                     "library": "fa-solid"
@@ -4463,7 +4516,9 @@
                     "left": "0",
                     "isLinked": ""
                   },
-                  "__globals__": {},
+                  "__globals__": {
+                    "button_text_color": "globals/colors?id=primary"
+                  },
                   "selected_icon": {
                     "value": "fas fa-arrow-right",
                     "library": "fa-solid"
@@ -4504,9 +4559,17 @@
       "background_color": "#F1F3F5",
       "padding": {
         "unit": "px",
-        "top": "72",
+        "top": "96",
         "right": "20",
-        "bottom": "72",
+        "bottom": "96",
+        "left": "20",
+        "isLinked": ""
+      },
+      "padding_mobile": {
+        "unit": "px",
+        "top": "56",
+        "right": "20",
+        "bottom": "56",
         "left": "20",
         "isLinked": ""
       }
@@ -4920,7 +4983,10 @@
                     "left": "0",
                     "isLinked": ""
                   },
-                  "__globals__": {},
+                  "__globals__": {
+                    "background_color": "globals/colors?id=r23tint",
+                    "button_text_color": "globals/colors?id=primary"
+                  },
                   "_css_classes": "mt-btn"
                 },
                 "elements": [],
@@ -4973,13 +5039,13 @@
               "border_border": "solid",
               "border_width": {
                 "unit": "px",
-                "top": "2",
-                "right": "2",
-                "bottom": "2",
-                "left": "2",
+                "top": "1",
+                "right": "1",
+                "bottom": "1",
+                "left": "1",
                 "isLinked": ""
               },
-              "border_color": "#C69A43",
+              "border_color": "#E3E6EA",
               "border_radius": {
                 "unit": "px",
                 "top": "20",
@@ -5213,8 +5279,8 @@
                     "size": 15
                   },
                   "typography_font_weight": "700",
-                  "button_text_color": "#FFFFFF",
-                  "background_color": "#0B0C10",
+                  "button_text_color": "#0B0C10",
+                  "background_color": "#E8B84A",
                   "border_radius": {
                     "unit": "px",
                     "top": "10",
@@ -5240,7 +5306,8 @@
                     "isLinked": ""
                   },
                   "__globals__": {
-                    "background_color": "globals/colors?id=primary"
+                    "background_color": "globals/colors?id=r23goldb",
+                    "button_text_color": "globals/colors?id=primary"
                   },
                   "_css_classes": "btn-fleet-primary mt-btn"
                 },
@@ -5563,9 +5630,17 @@
       "background_color": "#FFFFFF",
       "padding": {
         "unit": "px",
-        "top": "72",
+        "top": "96",
         "right": "20",
-        "bottom": "72",
+        "bottom": "96",
+        "left": "20",
+        "isLinked": ""
+      },
+      "padding_mobile": {
+        "unit": "px",
+        "top": "56",
+        "right": "20",
+        "bottom": "56",
         "left": "20",
         "isLinked": ""
       }
@@ -6615,9 +6690,17 @@
       "background_color": "#FFFFFF",
       "padding": {
         "unit": "px",
-        "top": "72",
+        "top": "96",
         "right": "20",
-        "bottom": "72",
+        "bottom": "96",
+        "left": "20",
+        "isLinked": ""
+      },
+      "padding_mobile": {
+        "unit": "px",
+        "top": "56",
+        "right": "20",
+        "bottom": "56",
         "left": "20",
         "isLinked": ""
       }
@@ -7829,6 +7912,14 @@
       "background_color": "#FFFFFF",
       "padding": {
         "unit": "px",
+        "top": "96",
+        "right": "20",
+        "bottom": "96",
+        "left": "20",
+        "isLinked": ""
+      },
+      "padding_mobile": {
+        "unit": "px",
         "top": "56",
         "right": "20",
         "bottom": "56",
@@ -8414,9 +8505,17 @@
       "background_color": "#F1F3F5",
       "padding": {
         "unit": "px",
-        "top": "72",
+        "top": "96",
         "right": "20",
-        "bottom": "72",
+        "bottom": "96",
+        "left": "20",
+        "isLinked": ""
+      },
+      "padding_mobile": {
+        "unit": "px",
+        "top": "56",
+        "right": "20",
+        "bottom": "56",
         "left": "20",
         "isLinked": ""
       }
@@ -8878,9 +8977,17 @@
       "background_color": "#FFFFFF",
       "padding": {
         "unit": "px",
-        "top": "72",
+        "top": "96",
         "right": "20",
-        "bottom": "72",
+        "bottom": "96",
+        "left": "20",
+        "isLinked": ""
+      },
+      "padding_mobile": {
+        "unit": "px",
+        "top": "56",
+        "right": "20",
+        "bottom": "56",
         "left": "20",
         "isLinked": ""
       }
@@ -9137,6 +9244,14 @@
                 "left": "40",
                 "isLinked": ""
               },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "36",
+                "right": "20",
+                "bottom": "36",
+                "left": "20",
+                "isLinked": ""
+              },
               "border_radius": {
                 "unit": "px",
                 "top": "24",
@@ -9145,30 +9260,15 @@
                 "left": "24",
                 "isLinked": true
               },
-              "background_background": "gradient",
-              "background_color": "#FFFFFF",
-              "background_color_b": "#F7F8FA",
-              "background_gradient_angle": {
-                "unit": "deg",
-                "size": 180
-              },
-              "border_border": "solid",
-              "border_width": {
-                "unit": "px",
-                "top": "2",
-                "right": "1",
-                "bottom": "0",
-                "left": "1",
-                "isLinked": ""
-              },
-              "border_color": "#C69A43",
+              "background_background": "classic",
+              "background_color": "#0B0C10",
               "box_shadow_box_shadow_type": "yes",
               "box_shadow_box_shadow": {
                 "horizontal": 0,
                 "vertical": 20,
                 "blur": 48,
                 "spread": 0,
-                "color": "rgba(11,12,16,0.06)"
+                "color": "rgba(11,12,16,0.28)"
               },
               "flex_align_items": "center",
               "flex_justify_content": "space-between",
@@ -9238,7 +9338,7 @@
                         "unit": "em",
                         "size": 1.15
                       },
-                      "title_color": "#3F4651",
+                      "title_color": "#0B0C10",
                       "_margin": {
                         "unit": "px",
                         "top": "0",
@@ -9252,7 +9352,7 @@
                         "size": 1.0
                       },
                       "__globals__": {
-                        "title_color": "globals/colors?id=text"
+                        "title_color": "globals/colors?id=primary"
                       },
                       "_css_classes": "cta-chip"
                     },
@@ -9277,7 +9377,7 @@
                         "unit": "em",
                         "size": 1.15
                       },
-                      "title_color": "#0B0C10",
+                      "title_color": "#FFFFFF",
                       "_margin": {
                         "unit": "px",
                         "top": "0",
@@ -9290,9 +9390,7 @@
                         "unit": "px",
                         "size": -0.5
                       },
-                      "__globals__": {
-                        "title_color": "globals/colors?id=primary"
-                      }
+                      "__globals__": {}
                     },
                     "elements": [],
                     "widgetType": "heading"
@@ -9313,7 +9411,7 @@
                         "unit": "em",
                         "size": 1.6
                       },
-                      "text_color": "#3F4651",
+                      "text_color": "#FFFFFF",
                       "_margin": {
                         "unit": "px",
                         "top": "0",
@@ -9322,9 +9420,7 @@
                         "left": "0",
                         "isLinked": ""
                       },
-                      "__globals__": {
-                        "text_color": "globals/colors?id=text"
-                      }
+                      "__globals__": {}
                     },
                     "elements": [],
                     "widgetType": "text-editor"
@@ -9389,8 +9485,8 @@
                         "size": 15
                       },
                       "typography_font_weight": "700",
-                      "button_text_color": "#FFFFFF",
-                      "background_color": "#0B0C10",
+                      "button_text_color": "#0B0C10",
+                      "background_color": "#E8B84A",
                       "border_radius": {
                         "unit": "px",
                         "top": "12",
@@ -9416,7 +9512,8 @@
                         "isLinked": ""
                       },
                       "__globals__": {
-                        "background_color": "globals/colors?id=primary"
+                        "background_color": "globals/colors?id=r23goldb",
+                        "button_text_color": "globals/colors?id=primary"
                       },
                       "selected_icon": {
                         "value": "fas fa-phone-alt",
@@ -9450,8 +9547,8 @@
                         "size": 15
                       },
                       "typography_font_weight": "700",
-                      "button_text_color": "#0B0C10",
-                      "background_color": "#FFFFFF",
+                      "button_text_color": "#FFFFFF",
+                      "background_color": "transparent",
                       "border_radius": {
                         "unit": "px",
                         "top": "12",
@@ -9489,13 +9586,13 @@
                       "border_border": "solid",
                       "border_width": {
                         "unit": "px",
-                        "top": "1",
-                        "right": "1",
-                        "bottom": "1",
-                        "left": "1",
+                        "top": "1.5",
+                        "right": "1.5",
+                        "bottom": "1.5",
+                        "left": "1.5",
                         "isLinked": ""
                       },
-                      "border_color": "#E3E6EA",
+                      "border_color": "#FFFFFF",
                       "_css_classes": "btn-cta-secondary mt-btn"
                     },
                     "elements": [],
@@ -9530,9 +9627,17 @@
       "background_color": "#F1F3F5",
       "padding": {
         "unit": "px",
-        "top": "64",
+        "top": "96",
         "right": "20",
-        "bottom": "64",
+        "bottom": "96",
+        "left": "20",
+        "isLinked": ""
+      },
+      "padding_mobile": {
+        "unit": "px",
+        "top": "56",
+        "right": "20",
+        "bottom": "56",
         "left": "20",
         "isLinked": ""
       }
@@ -9957,7 +10062,7 @@
                   },
                   "typography_font_weight": "700",
                   "button_text_color": "#FFFFFF",
-                  "background_color": "#1DA851",
+                  "background_color": "#25D366",
                   "border_radius": {
                     "unit": "px",
                     "top": "12",
@@ -10714,6 +10819,190 @@
         },
         "elements": [],
         "widgetType": "text-editor"
+      }
+    ],
+    "isInner": false
+  },
+  {
+    "id": "9ecae85",
+    "elType": "container",
+    "settings": {
+      "flex_direction": "column",
+      "content_width": "full",
+      "_title": "Bar Aksi Mobile",
+      "css_classes": "mt-action-bar mt-action-bar-inline",
+      "padding": {
+        "unit": "px",
+        "top": "8",
+        "right": "12",
+        "bottom": "8",
+        "left": "12",
+        "isLinked": ""
+      }
+    },
+    "elements": [
+      {
+        "id": "0d4578e",
+        "elType": "container",
+        "settings": {
+          "content_width": "full",
+          "flex_direction": "row",
+          "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_tablet": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_mobile": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "flex_gap": {
+            "unit": "px",
+            "size": 10
+          },
+          "css_classes": "mt-action-bar-row",
+          "flex_align_items": "center",
+          "flex_wrap": "nowrap"
+        },
+        "elements": [
+          {
+            "id": "fe74173",
+            "elType": "widget",
+            "settings": {
+              "text": "Chat WhatsApp",
+              "link": {
+                "url": "https://wa.me/6281288881234?text=Halo%20Master%20Truck%2C%20saya%20butuh%20bantuan.",
+                "is_external": "",
+                "nofollow": ""
+              },
+              "align": "left",
+              "typography_typography": "custom",
+              "typography_font_family": "Plus Jakarta Sans",
+              "typography_font_size": {
+                "unit": "px",
+                "size": 15
+              },
+              "typography_font_weight": "700",
+              "button_text_color": "#FFFFFF",
+              "background_color": "#25D366",
+              "border_radius": {
+                "unit": "px",
+                "top": "12",
+                "right": "12",
+                "bottom": "12",
+                "left": "12",
+                "isLinked": true
+              },
+              "button_padding": {
+                "unit": "px",
+                "top": "15",
+                "right": "20",
+                "bottom": "15",
+                "left": "20",
+                "isLinked": ""
+              },
+              "_margin": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "__globals__": {},
+              "selected_icon": {
+                "value": "fab fa-whatsapp",
+                "library": "fa-brands"
+              },
+              "icon_align": "after",
+              "icon_indent": {
+                "unit": "px",
+                "size": 8
+              },
+              "_css_classes": "act-wa mt-btn"
+            },
+            "elements": [],
+            "widgetType": "button"
+          },
+          {
+            "id": "48f5528",
+            "elType": "widget",
+            "settings": {
+              "text": "Jadwalkan Servis",
+              "link": {
+                "url": "#quick-booking",
+                "is_external": "",
+                "nofollow": ""
+              },
+              "align": "left",
+              "typography_typography": "custom",
+              "typography_font_family": "Plus Jakarta Sans",
+              "typography_font_size": {
+                "unit": "px",
+                "size": 15
+              },
+              "typography_font_weight": "700",
+              "button_text_color": "#0B0C10",
+              "background_color": "#E8B84A",
+              "border_radius": {
+                "unit": "px",
+                "top": "12",
+                "right": "12",
+                "bottom": "12",
+                "left": "12",
+                "isLinked": true
+              },
+              "button_padding": {
+                "unit": "px",
+                "top": "15",
+                "right": "20",
+                "bottom": "15",
+                "left": "20",
+                "isLinked": ""
+              },
+              "_margin": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "__globals__": {
+                "background_color": "globals/colors?id=r23goldb",
+                "button_text_color": "globals/colors?id=primary"
+              },
+              "selected_icon": {
+                "value": "fas fa-calendar-alt",
+                "library": "fa-solid"
+              },
+              "icon_align": "after",
+              "icon_indent": {
+                "unit": "px",
+                "size": 8
+              },
+              "_css_classes": "act-book mt-btn"
+            },
+            "elements": [],
+            "widgetType": "button"
+          }
+        ],
+        "isInner": true
       }
     ],
     "isInner": false

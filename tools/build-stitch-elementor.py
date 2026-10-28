@@ -188,6 +188,9 @@ TOK = {
     "gold":       "#C69A43",   # aksen: garis, ikon, titik, bintang (BUKAN teks)
     "gold_dark":  "#8A5F12",   # ikon di latar terang
     "gold_tint":  "#FBF4E1",   # latar ikon/badge(chip label)
+    "gold_bright":     "#E8B84A",  # RONDE 24: emas cerah isian tombol/chip
+    "gold_bright_hot": "#D9A53A",  # hover emas cerah
+    "gold_bright_press": "#C99530",# tekan emas cerah
     "ok":         "#047857",   # status SIAP JALAN / dot live
     "ok_bg":      "#ECFDF5",
 }
@@ -218,6 +221,9 @@ C = {
     "gold_500": TOK["gold"],
     "gold_400": TOK["gold"],
     "gold_200": TOK["gold_tint"],
+    "gold_bright": TOK["gold_bright"],       # RONDE 24: tombol/chip utama
+    "gold_bright_hot": TOK["gold_bright_hot"],
+    "gold_bright_press": TOK["gold_bright_press"],
     "on_gold": TOK["white"],
     "silver": TOK["ink"],        # dulu teks di latar gelap -> kini judul
     "silver_2": TOK["text"],     # dulu teks redup -> kini teks isi
@@ -248,6 +254,7 @@ GLO = {
     "silver":   "globals/colors?id=r23silver",    # #C9CDD3
     "gold":     "globals/colors?id=r23gold",      # #C69A43
     "goldtint": "globals/colors?id=r23goldtint",  # #FBF4E1
+    "gold_bright": "globals/colors?id=r23goldb",  # RONDE 24: emas tombol #E8B84A
 }
 
 def add_globals(s, **roles):
@@ -376,6 +383,7 @@ def grole(colorhex):
             C["gold_600"]: "gold_dark",
             C["gold_400"]: "gold_dark",
             C["gold_500"]: "gold",
+            C["gold_bright"]: "gold_bright",
             C["gold_200"]: "goldtint",
             C["ivory_2"]: "tint",
             C["surface_low"]: "tint",
@@ -435,7 +443,7 @@ def W_button(text, link="#", icon="", ipos="after", align="left", cls="", bg=C["
         "button_padding": px4(*pad),
         "_margin": margin if margin is not None else px4(0, 0, 0, 0),
     }
-    add_globals(s, background_color=(grole(bg) if bg == C["primary"] else None))
+    add_globals(s, background_color=grole(bg), button_text_color=grole(text_color))
     if icon:
         if icon.startswith("fab"):
             lib = "fa-brands"
@@ -677,7 +685,7 @@ nav["elements"] = [inner([
     col(32, "stitch-brand-col", [
         inner([
             col(None, "brand-logo-container", [
-                W_image("logo", alt="Logo Master Truck", cls="brand-logo-img", radius=0)
+                W_image("logo", alt="Logo Master Truck", cls="brand-logo-img", radius=10)
             ], cstyle={"width": {"unit": "px", "size": 100}, "padding": px4(0, 0, 0, 0)}),
             col(None, "brand-text-container", [
                 # Ronde 22 (B1): teks "MASTER TRUCK" ganda DIHAPUS — sudah ada di logo.
@@ -737,7 +745,7 @@ def stat_col(icon, num, suffix, label, decimals=0, border=True):
 
 
 hero = el_container("stitch-sec-hero", css_id="header-carousel", boxed=1240, bg=C["surface"],
-                    style={"padding": px4(24, 24, 40, 24)}, nav="Hero")
+                    style={"padding": px4(24, 24, 40, 24), "padding_mobile": px4(24, 20, 40, 20)}, nav="Hero")
 hero["elements"] = [
     # Top Row: Text (50%) vs Visual (50%)
     inner([
@@ -763,7 +771,7 @@ hero["elements"] = [
             # Dual CTAs: SATU container row tanpa col terpisah -> margin-bottom: 24px
             inner([
                 W_button("Jadwalkan Servis Sekarang", link="#quick-booking", icon="fas fa-calendar-alt",
-                         bg=C["primary"], text_color=C["white"], radius=12, pad=(13, 26), cls="btn-hero-primary"),
+                         bg=C["gold_bright"], text_color=C["ink"], radius=12, pad=(13, 26), cls="btn-hero-primary"),
                 # TODO: konfirmasi pemilik — nomor telepon asli; sementara diarahkan ke WhatsApp.
                 W_button("Derek &amp; Darurat 24 Jam", link=tel_link("Halo Master Truck, saya butuh bantuan derek/dermaga darurat."), icon="fas fa-phone-alt",
                          bg="transparent", text_color=C["primary"], radius=12, pad=(13, 24), cls="btn-hero-secondary"),
@@ -834,7 +842,7 @@ sections.append(hero)
 
 # --- 3. SECTION 2: INTERACTIVE QUICK BOOKING & ESTIMATOR WIDGET ---
 sec_book = el_container("stitch-sec-booking", css_id="quick-booking", boxed=1240, bg=C["white"],
-                        style={"padding": px4(64, 20, 64, 20)}, nav="Booking Estimator")
+                        style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(56, 20, 56, 20)}, nav="Booking Estimator")
 # Pesan default (dipakai bila JS belum aktif) — Ronde 21 2a.
 BOOKING_DEFAULT_TEXT = "Halo Master Truck, saya ingin jadwal servis."
 
@@ -918,7 +926,7 @@ sections.append(sec_book)
 
 # --- 4. SECTION 3: KEUNGGULAN UTAMA (WHY CHOOSE MASTER TRUCK) ---
 sec_feat = el_container("stitch-sec-features", boxed=1240, bg=C["surface_low"],
-                        style={"padding": px4(72, 20, 72, 20)}, nav="Keunggulan")
+                        style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(56, 20, 56, 20)}, nav="Keunggulan")
 sec_feat["elements"] = [
     # Header
     W_heading("KENAPA PILIH MASTER TRUCK", tag="p", align="center", size=13, weight=700, color=C["text_dark"], ls=1.0),
@@ -966,7 +974,7 @@ sections.append(sec_feat)
 
 # --- 5. SECTION 4: KATALOG LAYANAN UTAMA (DETAILED SERVICES) ---
 sec_svc = el_container("stitch-sec-services", css_id="layanan", boxed=1240, bg=C["white"],
-                       style={"padding": px4(72, 20, 72, 20)}, nav="Layanan")
+                       style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(56, 20, 56, 20)}, nav="Layanan")
 sec_svc["elements"] = [
     W_heading("LAYANAN KAMI", tag="p", align="center", size=13, weight=700, color=C["text_dark"], ls=1.0),
     # Ronde 21 4a: judul ≤ 8 kata + bahasa awam, deskripsi ≤ 2 baris.
@@ -1032,7 +1040,7 @@ sections.append(sec_svc)
 
 # --- 6. SECTION 5: PAKET KHUSUS FLEET MAINTENANCE CONTRACT (B2B) ---
 sec_fleet = el_container("stitch-sec-fleet", css_id="fleet", boxed=1240, bg=C["surface_low"],
-                         style={"padding": px4(72, 20, 72, 20)}, nav="Paket Fleet")
+                         style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(56, 20, 56, 20)}, nav="Paket Fleet")
 sec_fleet["elements"] = [
     W_heading("UNTUK PERUSAHAAN &amp; ARMADA", tag="p", align="center", size=13, weight=700, color=C["text_dark"], ls=1.0),
     # Ronde 21 4a: judul ≤ 8 kata, bahasa awam (PMP -> "Paket Perawatan Armada").
@@ -1074,9 +1082,9 @@ sec_fleet["elements"] = [
                 "Pantau status pengerjaan lewat laporan digital",
                 "Garansi pengerjaan turun mesin " + CLAIMS["garansi_overhaul"],
             ], cls="fleet-feature-list"),
-            W_button("Pilih Paket Utama", link="#quick-booking", bg=C["primary"], text_color=C["white"], radius=10, pad=(14, 24), margin=px4(24, 0, 0, 0), cls="btn-fleet-primary")
+            W_button("Pilih Paket Utama", link="#quick-booking", bg=C["gold_bright"], text_color=C["ink"], radius=10, pad=(14, 24), margin=px4(24, 0, 0, 0), cls="btn-fleet-primary")
         ], {"padding": px4(32, 24, 28, 24), "background_background": "classic", "background_color": C["white"],
-            "border_border": "solid", "border_width": px4(2, 2, 2, 2), "border_color": C["gold_500"], "border_radius": rad(20),
+            "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"], "border_radius": rad(20),
             "box_shadow_box_shadow_type": "yes", "box_shadow_box_shadow": shadow(0, 16, 40, -10, "rgba(11,12,16,0.10)")}),
 
         # Tier 3 — nama paket lama: "Enterprise Fleet"
@@ -1103,7 +1111,7 @@ sections.append(sec_fleet)
 # --- 6b. SECTION: CARA KERJA (Ronde 21 4b) ---
 # 4 langkah memakai teks Ronde 5 (tanpa klaim baru).
 sec_work = el_container("stitch-sec-workflow", css_id="cara-kerja", boxed=1240, bg=C["white"],
-                        style={"padding": px4(72, 20, 72, 20)}, nav="Cara Kerja")
+                        style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(56, 20, 56, 20)}, nav="Cara Kerja")
 
 
 def step_card(no, icon, title, desc):
@@ -1140,7 +1148,7 @@ sections.append(sec_work)
 
 # --- 7. SECTION 6: SHOWCASE FASILITAS BENGKEL MODERN ---
 sec_fac = el_container("stitch-sec-facilities", css_id="fasilitas", boxed=1240, bg=C["white"],
-                       style={"padding": px4(72, 20, 72, 20)}, nav="Fasilitas")
+                       style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(56, 20, 56, 20)}, nav="Fasilitas")
 sec_fac["elements"] = [
     W_heading("FASILITAS BENGKEL", tag="p", align="center", size=13, weight=700, color=C["text_dark"], ls=1.0),
     # Ronde 21 4a: judul ≤ 8 kata, tanpa jargon.
@@ -1199,7 +1207,7 @@ sections.append(sec_fac)
 # Tampil hanya bila SHOW_BRAND_LOGOS=True.
 # TODO: konfirmasi pemilik — izin penggunaan logo merek.
 sec_brand = el_container("stitch-sec-brands", css_id="merek", boxed=1240, bg=C["white"],
-                         style={"padding": px4(56, 20, 56, 20)}, nav="Merek Resmi")
+                         style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(56, 20, 56, 20)}, nav="Merek Resmi")
 BRAND_LOGO_ITEMS = [
     ("brand_pertamina", "Logo Pertamina Lubricants"),
     ("brand_mobil", "Logo pelumas Mobil Delvac"),
@@ -1231,7 +1239,7 @@ if SHOW_BRAND_LOGOS:
 # avatar inisial. TODO: konfirmasi pemilik — ganti dengan testimoni asli +
 # izin tertulis, atau matikan SHOW_TESTIMONIALS sebelum situs tayang.
 sec_testi = el_container("stitch-sec-testimonials", boxed=1240, bg=C["surface_low"],
-                         style={"padding": px4(72, 20, 72, 20)}, nav="Testimoni")
+                         style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(56, 20, 56, 20)}, nav="Testimoni")
 
 
 def testi_card(quote, initials, name, role):
@@ -1284,7 +1292,7 @@ if SHOW_TESTIMONIALS:
 
 # --- 9. SECTION 8: FAQ ACCORDION ---
 sec_faq = el_container("stitch-sec-faq", css_id="faq", boxed=1240, bg=C["white"],
-                       style={"padding": px4(72, 20, 72, 20)}, nav="FAQ")
+                       style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(56, 20, 56, 20)}, nav="FAQ")
 sec_faq["elements"] = [
     W_heading("PERTANYAAN UMUM", tag="p", align="center", size=13, weight=700, color=C["text_dark"], ls=1.0),
     # Ronde 21 4a: judul ≤ 8 kata, bahasa awam.
@@ -1332,18 +1340,15 @@ CTA_WA_TEXT = "Halo Master Truck, saya butuh bantuan untuk armada saya."
 
 # Ronde 23: pita CTA TERANG — gradien putih -> surface, border halus + hairline emas tipis di atas.
 cta_banner = el_container("final-banner", boxed=None,
+                          # Ronde 24 (2.6): SATU-SATUNYA permukaan gelap besar = kartu Ink.
                           style={
                               "padding": px4(56, 40, 56, 40),
+                              "padding_mobile": px4(36, 20, 36, 20),
                               "border_radius": rad(24),
-                              "background_background": "gradient",
-                              "background_color": "#FFFFFF",
-                              "background_color_b": "#F7F8FA",
-                              "background_gradient_angle": {"unit": "deg", "size": 180},
-                              "border_border": "solid",
-                              "border_width": px4(2, 1, 0, 1),
-                              "border_color": C["gold_500"],
+                              "background_background": "classic",
+                              "background_color": C["ink"],
                               "box_shadow_box_shadow_type": "yes",
-                              "box_shadow_box_shadow": shadow(0, 20, 48, 0, "rgba(11,12,16,0.06)"),
+                              "box_shadow_box_shadow": shadow(0, 20, 48, 0, "rgba(11,12,16,0.28)"),
                               "flex_direction": "row",
                               "flex_align_items": "center",
                               "flex_justify_content": "space-between",
@@ -1353,21 +1358,21 @@ cta_banner = el_container("final-banner", boxed=None,
 cta_banner["elements"] = [
     col(None, "final-banner-text", [
         W_heading("Hotline Siaga 24 Jam", tag="p", cls="cta-chip", size=12, weight=800,
-                  color=C["text_dark"], ls=1.0, margin=px4(0, 0, 12, 0)),
+                  color=C["ink"], ls=1.0, margin=px4(0, 0, 12, 0)),
         W_heading("Armada Mogok di Jalan atau Perlu Jadwal Servis Rutin?", tag="h2", size=32,
-                  weight=800, color=C["title"], ls=-0.5, margin=px4(0, 0, 12, 0)),
+                  weight=800, color=C["white"], ls=-0.5, margin=px4(0, 0, 12, 0)),
         W_text("Tim montir spesialis dan armada derek kami siaga 24 jam. Hubungi kami untuk "
                "penanganan cepat, atau jadwalkan pengecekan rutin bengkel.",
-               size=16, color=C["text_dark"], margin=px4(0, 0, 0, 0)),
+               size=16, color=C["white"], margin=px4(0, 0, 0, 0)),
     ], {"max_width": {"unit": "px", "size": 680}, "padding": px4(0, 0, 0, 0)}),
     inner([
         # TODO: konfirmasi pemilik — nomor telepon asli; sementara ke WhatsApp.
         W_button("Hubungi Tim Darurat 24 Jam", link=wa_link(CTA_WA_TEXT),
-                 icon="fas fa-phone-alt", bg=C["primary"], text_color=C["white"],
+                 icon="fas fa-phone-alt", bg=C["gold_bright"], text_color=C["ink"],
                  radius=12, pad=(16, 28), cls="btn-cta-primary"),
         W_button("Jadwalkan Servis Online", link="#quick-booking", icon="fas fa-calendar-alt",
-                 bg=C["white"], text_color=C["title"], radius=12, pad=(14, 28),
-                 border=C["border"], cls="btn-cta-secondary"),
+                 bg="transparent", text_color=C["white"], radius=12, pad=(14, 28),
+                 border=C["white"], border_width=1.5, cls="btn-cta-secondary"),
     # Ronde 4 (10.4): dua tombol BERDAMPINGAN (row), lebar mengikuti isi.
     ], css_classes="final-banner-btns", direction="row",
        style={"flex_gap": fsize(12), "flex_align_items": "center",
@@ -1382,7 +1387,7 @@ sections.append(sec_cta)
 # --- 10b. SECTION: LOKASI & JAM BUKA (Ronde 21 4d) ---
 # Data dari SITE_DATA; alamat jalan lengkap & data belum pasti = TODO pemilik.
 sec_loc = el_container("stitch-sec-location", css_id="lokasi", boxed=1240, bg=C["surface_low"],
-                       style={"padding": px4(64, 20, 64, 20)}, nav="Lokasi & Jam Buka")
+                       style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(56, 20, 56, 20)}, nav="Lokasi & Jam Buka")
 sec_loc["elements"] = [
     W_heading("LOKASI &amp; JAM BUKA", tag="p", align="center", size=13, weight=700,
               color=C["text_dark"], ls=1.0),
@@ -1405,7 +1410,7 @@ sec_loc["elements"] = [
                      bg=C["primary"], text_color=C["white"], radius=12, pad=(15, 26),
                      cls="btn-maps", margin=px4(0, 0, 12, 0)),
             W_button("Chat WhatsApp", link=wa_link("Halo Master Truck, saya mau tahu alamat & jam buka bengkelnya."),
-                     icon="fab fa-whatsapp", bg="#1DA851", text_color=C["white"],
+                     icon="fab fa-whatsapp", bg="#25D366", text_color=C["white"],
                      radius=12, pad=(15, 26), cls="btn-wa"),
         ], {"padding": px4(0, 0, 0, 0)}),
     ], css_classes="location-row", direction="row",
@@ -1504,6 +1509,32 @@ footer["elements"] = [
            '</nav></div>')
 ]
 sections.append(footer)
+
+# ---------------------------------------------------------------------
+# RONDE 24 (3.2) — BAR AKSI MENEMPEL di bawah layar (hanya <=767px via CSS).
+# Kiri: [Telepon] bila PHONE_TEL valid, selain itu [Chat WhatsApp];
+# Kanan: [Jadwalkan Servis] (emas cerah, teks Ink). Tanpa klaim/copy baru —
+# label sama dengan tombol yang sudah ada di halaman.
+# ---------------------------------------------------------------------
+PHONE_READY = PHONE_TEL.startswith("+62") and PHONE_TEL[3:].isdigit()
+if PHONE_READY:
+    ACT_LEFT_TEXT, ACT_LEFT_ICON, ACT_LEFT_CLS = "Telepon", "fas fa-phone-alt", "act-phone"
+else:
+    ACT_LEFT_TEXT, ACT_LEFT_ICON, ACT_LEFT_CLS = "Chat WhatsApp", "fab fa-whatsapp", "act-wa"
+
+sec_action = el_container("mt-action-bar mt-action-bar-inline", boxed=None, bg=None,
+                          style={"padding": px4(8, 12, 8, 12)}, nav="Bar Aksi Mobile")
+sec_action["elements"] = [inner([
+    W_button(ACT_LEFT_TEXT, link=tel_link("Halo Master Truck, saya butuh bantuan."),
+             icon=ACT_LEFT_ICON, bg="#25D366", text_color=C["white"],
+             radius=12, pad=(15, 20), cls=ACT_LEFT_CLS),
+    W_button("Jadwalkan Servis", link="#quick-booking", icon="fas fa-calendar-alt",
+             bg=C["gold_bright"], text_color=C["ink"], radius=12, pad=(15, 20),
+             cls="act-book"),
+], css_classes="mt-action-bar-row", direction="row",
+    style={"flex_gap": fsize(10), "flex_align_items": "center",
+           "flex_wrap": "nowrap", "padding": px4(0, 0, 0, 0)})]
+sections.append(sec_action)
 
 
 # =====================================================================
@@ -1663,6 +1694,7 @@ $old['custom_colors'] = [
     ['_id' => 'r23silver',   'title' => 'Silver',    'color' => '#C9CDD3'],
     ['_id' => 'r23gold',     'title' => 'Emas aksen','color' => '#C69A43'],
     ['_id' => 'r23goldtint', 'title' => 'Gold Tint', 'color' => '#FBF4E1'],
+    ['_id' => 'r23goldb',    'title' => 'Emas tombol','color' => '#E8B84A'],
 ];
 update_post_meta($kid, '_elementor_page_settings', $old);
 echo 'kit ' . $kid . ' global colors updated (ronde23 palette)\\n';
