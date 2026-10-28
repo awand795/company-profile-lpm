@@ -1,0 +1,40 @@
+{
+ "fase": "sebelum",
+ "tgl": "2026-10-27T09:21:10.514Z",
+ "load_ms": 10434,
+ "lcp": 5564,
+ "cls": 0.09237383708725184,
+ "tbt": 347,
+ "requests": 49,
+ "totalKB": 724,
+ "cssKB": 282,
+ "jsKB": 143,
+ "imgKB": 350,
+ "heroKB": 208,
+ "heroName": "stitch_img_2.webp",
+ "heroW": "-",
+ "top": [
+  "208KB stitch_img_2.webp",
+  "80KB fa-brands-400.woff2",
+  "77KB fa-solid-900.woff2",
+  "67KB stitch_img_2_warm-768x428.webp",
+  "43KB stitch_img_3_warm.webp",
+  "33KB mastertruck_official_logo.webp",
+  "30KB jquery.min.js",
+  "19KB frontend.min.js"
+ ],
+ "smallTapTargets": [
+  "A. h=14 \"0812-MASTER-TRUCK\"",
+  "A.brand-text-link h=18 \"Spesialis Truk & Armada \"",
+  "A.elementor-accordion-title h=34 \"Merek truk apa saja yang\"",
+  "A.elementor-accordion-title h=34 \"Bagaimana kerja sama per\"",
+  "A.elementor-accordion-title h=34 \"Apakah ada tempat penyim\"",
+  "A. h=17 \"0812-MASTER-TRUCK\"",
+  "A. h=17 \"061-8888-1234\"",
+  "A. h=17 \"fleet@mastertruck.co.id\"",
+  "A. h=40 \"\"",
+  "A. h=40 \"\""
+ ],
+ "scrollW": 390,
+ "innerW": 390
+}

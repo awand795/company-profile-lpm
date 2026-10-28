@@ -138,8 +138,10 @@ function contrast(fg, bg) {
   const inkOk = (s) => !!s && /rgba\(11, 12, 16, 1\)|#0B0C10|rgb\(11, 12, 16\)/i.test(s);
   const whiteOk = (s) => !!s && /rgba\(255, 255, 255, 1\)|rgb\(255, 255, 255\)|rgb\(255,255,255\)/i.test(s);
   const waOk = (s) => !!s && /rgba\(37, 211, 102, 1\)|rgb\(37, 211, 102\)/i.test(s);
-  check('5a. tombol hero utama Ink', inkOk(btns.heroPrimaryBg), btns.heroPrimaryBg);
-  check('5b. teks tombol hero putih', whiteOk(btns.heroPrimaryFg), btns.heroPrimaryFg);
+  // Ronde 24: tombol utama = emas cerah #E8B84A + teks Ink (masih tanpa emas sebagai teks).
+  const goldBrightOk = (s) => !!s && /rgb\(232, 184, 74\)|rgb\(232,184,74\)/i.test(s);
+  check('5a. tombol hero utama emas cerah (ronde24)', goldBrightOk(btns.heroPrimaryBg), btns.heroPrimaryBg);
+  check('5b. teks tombol hero Ink (ronde24)', inkOk(btns.heroPrimaryFg), btns.heroPrimaryFg);
   check('5c. tombol Daftar Ink', inkOk(btns.registerBg), btns.registerBg);
   check('5d. teks Daftar putih', whiteOk(btns.registerFg), btns.registerFg);
   check('5e. tombol WA tetap #25D366', waOk(btns.waBg), btns.waBg);
