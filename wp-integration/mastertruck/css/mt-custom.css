@@ -3021,3 +3021,785 @@ body.elementor-page-59 .elementor-59 .stitch-navbar.sticky-scrolled {
     background-color: rgba(255, 255, 255, 0.96);
     background-image: none;
 }
+
+/* =====================================================================
+   RONDE 26 (REVAMP19) — TOPBAR SOS/HOTLINE + HERO REVAMP + STRIP STATISTIK
+   Sesuai spesifikasi Ronde 26:
+   1. Hotline terpadu di topbar (ikon lingkaran 28px #2457A6, teks 2 baris)
+   2. Hero Desktop: authority pill, H1 56px + penanda 6px biru baja, dual CTAs 52px,
+      baris bukti 3 item sebaris, brand chips wrap 2 baris (3+3),
+      bingkai foto tunggal 28px + backdrop tint 32px + perisai garansi + kartu telematika pesan tunggal.
+   3. Hero Mobile: urutan rapi (badge -> H1 -> lead -> tombol -> bukti -> foto -> chips),
+      layar pertama 390x844 memuat hingga CTA sekunder.
+   4. Strip Statistik: kartu melayang -48px desktop / -24px mobile, 4 kolom seragam
+      setinggi penuh dengan pembatas vertikal 1px #DDE3EC, chip ikon 48px #E3ECF8,
+      angka 38px tabular-nums navy 800, garis pendek biru 28x3px di bawah angka,
+      label 14px min-height 2.8em. Mobile 2x2 pemisah silang.
+   ===================================================================== */
+
+/* --- 1. TOPBAR HOTLINE --- */
+body.elementor-page-59 .stitch-topbar {
+    background-color: var(--mt-surface);
+    border-bottom: 1px solid var(--mt-border);
+    min-height: 38px;
+}
+body.elementor-page-59 .topbar-left-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+}
+body.elementor-page-59 .topbar-hotline-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 2px 0;
+    transition: opacity 0.2s ease;
+}
+body.elementor-page-59 .topbar-hotline-link:hover {
+    text-decoration: none;
+}
+body.elementor-page-59 .topbar-hotline-link .hotline-icon-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    border-radius: 50%;
+    background-color: var(--mt-blue);
+    color: #FFFFFF;
+    font-size: 13px;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+body.elementor-page-59 .topbar-hotline-link:hover .hotline-icon-circle {
+    background-color: var(--mt-blue-hover);
+    transform: scale(1.05);
+}
+body.elementor-page-59 .topbar-hotline-link .hotline-text-wrap {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.15;
+}
+body.elementor-page-59 .topbar-hotline-link .hotline-lbl {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--mt-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+body.elementor-page-59 .topbar-hotline-link .hotline-num {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--mt-navy);
+    transition: color 0.2s ease;
+}
+body.elementor-page-59 .topbar-hotline-link:hover .hotline-num {
+    color: var(--mt-blue);
+}
+body.elementor-page-59 .topbar-hotline-link:focus-visible {
+    outline: 2px solid var(--mt-blue);
+    outline-offset: 2px;
+    border-radius: 6px;
+}
+body.elementor-page-59 .topbar-hotline-link .hotline-chevron {
+    display: none;
+}
+body.elementor-page-59 .topbar-location-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    color: var(--mt-text);
+}
+body.elementor-page-59 .topbar-right-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    font-size: 12.5px;
+    color: var(--mt-text);
+}
+body.elementor-page-59 .topbar-hours-item,
+body.elementor-page-59 .topbar-iso-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+@media (max-width: 767.98px) {
+    body.elementor-page-59 .stitch-topbar {
+        height: 40px !important;
+        min-height: 40px !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    body.elementor-page-59 .topbar-right-col,
+    body.elementor-page-59 .topbar-location-item {
+        display: none !important;
+    }
+    body.elementor-page-59 .topbar-left-col {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 1 1 100% !important;
+    }
+    body.elementor-page-59 .topbar-left-wrap {
+        width: 100% !important;
+        display: flex !important;
+    }
+    body.elementor-page-59 .topbar-hotline-link {
+        width: 100% !important;
+        min-height: 40px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+    }
+    body.elementor-page-59 .topbar-hotline-link .hotline-chevron {
+        display: inline-flex !important;
+        margin-left: auto !important;
+        color: var(--mt-blue);
+        font-size: 13px;
+    }
+}
+
+/* Hero responsif untuk layar desktop tinggi pendek (mis. 1366x600) agar ATF tombol <= 460px */
+@media (max-height: 680px) and (min-width: 992px) {
+    body.elementor-page-59 .stitch-sec-hero {
+        padding-top: 10px !important;
+        padding-bottom: 24px !important;
+    }
+    body.elementor-page-59 .hero-authority-badge {
+        margin-bottom: 8px !important;
+    }
+    body.elementor-page-59 .hero-title {
+        margin-bottom: 10px !important;
+    }
+    body.elementor-page-59 .hero-title .elementor-heading-title {
+        font-size: 42px !important;
+        line-height: 1.12 !important;
+        margin-bottom: 10px !important;
+    }
+    body.elementor-page-59 .hero-lead {
+        font-size: 15px !important;
+        line-height: 1.45 !important;
+        margin-bottom: 14px !important;
+    }
+    body.elementor-page-59 .hero-btns-row {
+        margin-bottom: 14px !important;
+    }
+    body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button,
+    body.elementor-page-59 .elementor-59 .btn-hero-secondary .elementor-button {
+        height: 48px !important;
+        min-height: 48px !important;
+    }
+}
+body.elementor-page-59 .stitch-sec-hero {
+    background-color: #FFFFFF;
+}
+body.elementor-page-59 .hero-authority-badge {
+    margin-bottom: 14px;
+}
+body.elementor-page-59 .hero-authority-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: #FFFFFF;
+    border: 1px solid var(--mt-border);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--mt-navy);
+    letter-spacing: 0.5px;
+    box-shadow: 0 1px 3px rgba(11, 31, 58, 0.04);
+}
+body.elementor-page-59 .hero-authority-pill i {
+    color: var(--mt-blue);
+    font-size: 13px;
+}
+
+body.elementor-page-59 .hero-title .elementor-heading-title {
+    font-size: 56px;
+    line-height: 1.08;
+    font-weight: 800;
+    color: var(--mt-navy);
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+body.elementor-page-59 .hero-brand-highlight {
+    color: var(--mt-navy);
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+}
+body.elementor-page-59 .hero-brand-highlight::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 100%;
+    height: 6px;
+    background-color: var(--mt-blue);
+    border-radius: 3px;
+    z-index: -1;
+}
+
+body.elementor-page-59 .hero-lead {
+    max-width: 52ch;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--mt-text);
+}
+
+body.elementor-page-59 .hero-btns-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button {
+    background-color: var(--mt-blue) !important;
+    background-image: none !important;
+    color: #FFFFFF !important;
+    height: 52px;
+    min-height: 52px;
+    padding: 0 26px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 16px rgba(36, 87, 166, 0.22);
+    border: none;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button:hover {
+    background-color: var(--mt-blue-hover) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(36, 87, 166, 0.28);
+}
+body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button:active {
+    background-color: var(--mt-blue-press) !important;
+    transform: translateY(0);
+}
+body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button .elementor-button-icon {
+    color: #FFFFFF !important;
+    margin-right: 8px;
+}
+body.elementor-page-59 .elementor-59 .btn-hero-secondary .elementor-button {
+    background-color: #FFFFFF !important;
+    color: var(--mt-navy) !important;
+    border: 1.5px solid var(--mt-navy) !important;
+    height: 52px;
+    min-height: 52px;
+    padding: 0 24px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+body.elementor-page-59 .elementor-59 .btn-hero-secondary .elementor-button:hover {
+    background-color: var(--mt-surface) !important;
+    transform: translateY(-2px);
+}
+body.elementor-page-59 .elementor-59 .btn-hero-secondary .elementor-button:active {
+    transform: translateY(0);
+}
+body.elementor-page-59 .elementor-59 .btn-hero-secondary .elementor-button .elementor-button-icon {
+    color: var(--mt-navy) !important;
+    margin-right: 8px;
+}
+
+/* Baris Bukti 3 item sebaris */
+body.elementor-page-59 .hero-proof-widget {
+    margin-bottom: 24px;
+}
+body.elementor-page-59 .hero-proof-bar {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: #FFFFFF;
+    border: 1px solid var(--mt-border);
+    border-radius: 12px;
+    padding: 10px 16px;
+    box-shadow: 0 1px 3px rgba(11, 31, 58, 0.03);
+}
+body.elementor-page-59 .hero-proof-bar .proof-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--mt-text);
+    white-space: nowrap;
+}
+body.elementor-page-59 .hero-proof-bar .proof-item i {
+    color: var(--mt-blue);
+    font-size: 15px;
+    flex-shrink: 0;
+}
+body.elementor-page-59 .hero-proof-bar .proof-divider {
+    width: 1px;
+    height: 18px;
+    background: var(--mt-border);
+    flex-shrink: 0;
+}
+
+/* Brand Chips Hero */
+body.elementor-page-59 .hero-brands-block .brand-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--mt-muted);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+@media (min-width: 768px) {
+    body.elementor-page-59 .hero-brands-block .brand-chips-row {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+        max-width: 520px !important;
+        overflow: visible !important;
+        -webkit-mask-image: none !important;
+        mask-image: none !important;
+    }
+    body.elementor-page-59 .hero-brands-block .brand-chip {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        height: 32px !important;
+        min-height: 32px !important;
+        padding: 0 14px !important;
+        border: 1px solid var(--mt-silver) !important;
+        border-radius: 8px !important;
+        background: #FFFFFF !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        color: var(--mt-text) !important;
+        letter-spacing: 0.3px !important;
+        box-shadow: none !important;
+        transition: border-color 0.2s ease, color 0.2s ease !important;
+        cursor: default !important;
+    }
+    body.elementor-page-59 .hero-brands-block .brand-chip:hover {
+        border-color: var(--mt-navy) !important;
+        color: var(--mt-navy) !important;
+    }
+}
+
+/* Kolom Kanan Visual Showcase Hero */
+body.elementor-page-59 .hero-visual-card-wrap {
+    position: relative;
+    width: 100%;
+}
+body.elementor-page-59 .hero-visual-card-wrap::before {
+    content: "";
+    position: absolute;
+    right: -16px;
+    bottom: -16px;
+    width: 100%;
+    height: 100%;
+    background-color: var(--mt-blue-tint);
+    border-radius: 32px;
+    z-index: 1;
+    pointer-events: none;
+    background-image: radial-gradient(var(--mt-blue) 1.5px, transparent 1.5px);
+    background-size: 18px 18px;
+    opacity: 0.35;
+}
+body.elementor-page-59 .hero-truck-img {
+    position: relative;
+    z-index: 2;
+    border-radius: 28px;
+    border: 1px solid var(--mt-border);
+    box-shadow: 0 24px 48px rgba(11, 31, 58, 0.14);
+    overflow: hidden;
+    background: #FFFFFF;
+}
+body.elementor-page-59 .hero-truck-img img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 27px;
+}
+body.elementor-page-59 .hero-truck-img::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 45%;
+    background: linear-gradient(to top, rgba(11, 31, 58, 0.45) 0%, transparent 100%);
+    pointer-events: none;
+    border-radius: 0 0 27px 27px;
+}
+body.elementor-page-59 .hero-floating-shield-wrap {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 3;
+}
+body.elementor-page-59 .hero-floating-shield {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: #FFFFFF;
+    border: 1px solid var(--mt-border);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(11, 31, 58, 0.12);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--mt-navy);
+}
+body.elementor-page-59 .hero-floating-shield i {
+    color: var(--mt-blue);
+    font-size: 15px;
+}
+
+body.elementor-page-59 .hero-telematics-card {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    z-index: 3;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--mt-border);
+    border-radius: 16px;
+    padding: 14px 18px;
+    box-shadow: 0 12px 32px rgba(11, 31, 58, 0.14);
+}
+body.elementor-page-59 .hero-telematics-compact {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+body.elementor-page-59 .telematics-left-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+body.elementor-page-59 .telematics-chip-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: var(--mt-blue-tint);
+    color: var(--mt-blue);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+body.elementor-page-59 .telematics-title-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1 1 auto;
+}
+body.elementor-page-59 .telematics-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--mt-navy);
+}
+body.elementor-page-59 .telematics-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: var(--mt-ok-bg);
+    color: var(--mt-ok);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-left: auto;
+}
+body.elementor-page-59 .telematics-single-desc {
+    font-size: 12.5px;
+    line-height: 1.45;
+    color: var(--mt-muted);
+    margin: 0;
+}
+
+/* --- MOBILE HERO (<=767px) --- */
+@media (max-width: 767.98px) {
+    body.elementor-page-59 .hero-main-row {
+        flex-direction: column !important;
+        gap: 18px !important;
+    }
+    body.elementor-page-59 .hero-text-col {
+        display: contents !important;
+    }
+    body.elementor-page-59 .hero-authority-badge {
+        order: 1 !important;
+        margin-bottom: 10px !important;
+    }
+    body.elementor-page-59 .hero-title {
+        order: 2 !important;
+        margin-bottom: 12px !important;
+    }
+    body.elementor-page-59 .hero-title .elementor-heading-title {
+        font-size: 32px !important;
+        line-height: 1.15 !important;
+        text-align: left !important;
+    }
+    body.elementor-page-59 .hero-lead {
+        order: 3 !important;
+        font-size: 15px !important;
+        line-height: 1.5 !important;
+        margin-bottom: 18px !important;
+        text-align: left !important;
+    }
+    body.elementor-page-59 .hero-btns-row {
+        order: 4 !important;
+        width: 100% !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        margin-bottom: 18px !important;
+    }
+    body.elementor-page-59 .hero-btns-row .btn-hero-primary,
+    body.elementor-page-59 .hero-btns-row .btn-hero-secondary {
+        width: 100% !important;
+    }
+    body.elementor-page-59 .hero-btns-row .btn-hero-primary .elementor-button {
+        width: 100% !important;
+        height: 52px !important;
+    }
+    body.elementor-page-59 .hero-btns-row .btn-hero-secondary .elementor-button {
+        width: 100% !important;
+        height: 48px !important;
+    }
+    body.elementor-page-59 .hero-proof-widget {
+        order: 5 !important;
+        width: 100% !important;
+        margin-bottom: 20px !important;
+    }
+    body.elementor-page-59 .hero-proof-bar {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 8px !important;
+        width: 100% !important;
+        padding: 12px 14px !important;
+    }
+    body.elementor-page-59 .hero-proof-bar .proof-divider {
+        display: none !important;
+    }
+    body.elementor-page-59 .hero-proof-bar .proof-item {
+        font-size: 13px !important;
+    }
+    body.elementor-page-59 .hero-visual-col {
+        order: 6 !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin-bottom: 16px !important;
+    }
+    body.elementor-page-59 .hero-visual-card-wrap::before {
+        display: none !important;
+    }
+    body.elementor-page-59 .hero-truck-img {
+        border-radius: 16px !important;
+    }
+    body.elementor-page-59 .hero-truck-img img {
+        height: 240px !important;
+        aspect-ratio: auto !important;
+        border-radius: 15px !important;
+    }
+    body.elementor-page-59 .hero-floating-shield-wrap {
+        top: 10px !important;
+        right: 10px !important;
+    }
+    body.elementor-page-59 .hero-floating-shield {
+        padding: 5px 10px !important;
+        font-size: 11.5px !important;
+    }
+    body.elementor-page-59 .hero-telematics-card {
+        bottom: 10px !important;
+        left: 10px !important;
+        right: 10px !important;
+        padding: 10px 12px !important;
+        border-radius: 12px !important;
+    }
+    body.elementor-page-59 .hero-telematics-card .telematics-title {
+        font-size: 13px !important;
+    }
+    body.elementor-page-59 .hero-telematics-card .telematics-single-desc {
+        font-size: 12px !important;
+    }
+    body.elementor-page-59 .hero-brands-widget {
+        order: 7 !important;
+        width: 100% !important;
+    }
+    body.elementor-page-59 .hero-brands-block .brand-chips-row {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        gap: 8px !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+        padding-bottom: 6px !important;
+    }
+    body.elementor-page-59 .hero-brands-block .brand-chip {
+        flex: 0 0 auto !important;
+        scroll-snap-align: start !important;
+        height: 32px !important;
+        padding: 0 12px !important;
+        font-size: 12px !important;
+    }
+}
+
+/* --- 3. STRIP STATISTIK DI BAWAH HERO --- */
+body.elementor-page-59 .hero-stats-inner {
+    background: #FFFFFF !important;
+    border: 1px solid var(--mt-border) !important;
+    border-radius: 24px !important;
+    box-shadow: 0 12px 32px rgba(11, 31, 58, 0.08) !important;
+    padding: 28px 32px !important;
+    margin-top: -48px !important;
+    position: relative !important;
+    z-index: 5 !important;
+    display: flex !important;
+    align-items: stretch !important;
+}
+body.elementor-page-59 .hero-stats-inner .stat-col {
+    flex: 1 1 25% !important;
+    max-width: 25% !important;
+    position: relative;
+    padding: 0 20px !important;
+    display: flex !important;
+    align-items: stretch !important;
+}
+body.elementor-page-59 .hero-stats-inner .stat-col:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--mt-border);
+}
+body.elementor-page-59 .hero-stats-inner .stat-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+    width: 100% !important;
+}
+body.elementor-page-59 .hero-stats-inner .stat-icon .elementor-icon {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    border-radius: 12px !important;
+    background: var(--mt-blue-tint) !important;
+    color: var(--mt-blue) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 20px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+body.elementor-page-59 .hero-stats-inner .stat-text-col {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 auto !important;
+}
+body.elementor-page-59 .hero-stats-inner .stat-number .elementor-counter-number-wrapper {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 38px !important;
+    line-height: 1.1 !important;
+    font-weight: 800 !important;
+    color: var(--mt-navy) !important;
+    font-variant-numeric: tabular-nums !important;
+    display: inline !important;
+    letter-spacing: -0.5px !important;
+}
+body.elementor-page-59 .hero-stats-inner .stat-number .elementor-counter-number-prefix,
+body.elementor-page-59 .hero-stats-inner .stat-number .elementor-counter-number,
+body.elementor-page-59 .hero-stats-inner .stat-number .elementor-counter-number-suffix {
+    display: inline !important;
+    vertical-align: baseline !important;
+}
+body.elementor-page-59 .hero-stats-inner .stat-number .elementor-counter-number-prefix:empty {
+    display: none !important;
+}
+body.elementor-page-59 .hero-stats-inner .stat-number .elementor-counter-number-wrapper::after {
+    display: none !important;
+}
+body.elementor-page-59 .hero-stats-inner .stat-number .elementor-counter-title::before {
+    content: "";
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: var(--mt-blue);
+    border-radius: 2px;
+    margin: 8px 0;
+}
+body.elementor-page-59 .hero-stats-inner .stat-number .elementor-counter-title {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    font-weight: 600 !important;
+    color: var(--mt-muted) !important;
+    margin: 0 !important;
+    min-height: 2.8em !important;
+    text-wrap: balance !important;
+}
+
+/* Strip Statistik Mobile (<=767px): Grid 2x2 dengan pemisah silang */
+@media (max-width: 767.98px) {
+    body.elementor-page-59 .hero-stats-inner {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0 !important;
+        padding: 20px 16px !important;
+        border-radius: 16px !important;
+        margin-top: 24px !important;
+    }
+    body.elementor-page-59 .hero-stats-inner .stat-col {
+        max-width: 100% !important;
+        flex: 1 1 100% !important;
+        padding: 12px !important;
+        display: flex !important;
+    }
+    body.elementor-page-59 .hero-stats-inner .stat-col:not(:last-child)::after {
+        display: none !important;
+    }
+    body.elementor-page-59 .hero-stats-inner .stat-col:nth-child(1),
+    body.elementor-page-59 .hero-stats-inner .stat-col:nth-child(3) {
+        border-right: 1px solid var(--mt-border) !important;
+    }
+    body.elementor-page-59 .hero-stats-inner .stat-col:nth-child(1),
+    body.elementor-page-59 .hero-stats-inner .stat-col:nth-child(2) {
+        border-bottom: 1px solid var(--mt-border) !important;
+    }
+    body.elementor-page-59 .hero-stats-inner .stat-icon .elementor-icon {
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        font-size: 17px !important;
+        border-radius: 10px !important;
+    }
+    body.elementor-page-59 .hero-stats-inner .stat-number .elementor-counter-number-wrapper {
+        font-size: 28px !important;
+    }
+    body.elementor-page-59 .hero-stats-inner .stat-number .elementor-counter-title {
+        font-size: 12.5px !important;
+        min-height: 0 !important;
+    }
+}

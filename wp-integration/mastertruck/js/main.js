@@ -526,31 +526,27 @@
             }
         }
 
-        // REVAMP6j E2: di editor Elementor, counter langsung nilai akhir (tanpa animasi).
-        // Widget editor dirender async + animasi counter Elementor menimpa,
-        // jadi snap diulang singkat (hanya mode editor, tanpa efek ke frontend).
-        if (isPage59 && inEditor) {
-            var mtSnapCounters = function () {
-                Array.prototype.forEach.call(document.querySelectorAll('.elementor-counter-number'), function (el) {
-                    var to = el.getAttribute('data-to-value');
-                    if (to === null || to === '') { return; }
-                    var delim = el.getAttribute('data-delimiter') || '';
-                    var out = String(Math.round(parseFloat(to)));
-                    if (delim) {
-                        out = out.replace(/\B(?=(\d{3})+(?!\d))/g, delim);
-                    }
-                    if (el.textContent !== out) { el.textContent = out; }
-                    if (el.getAttribute('data-duration') !== '0') { el.setAttribute('data-duration', '0'); }
-                });
-            };
+        // REVAMP6j E2 & Ronde 26: pastikan counter langsung diformat dengan delimiter (5.200+)
+        var mtSnapCounters = function () {
+            Array.prototype.forEach.call(document.querySelectorAll('.elementor-counter-number'), function (el) {
+                var to = el.getAttribute('data-to-value');
+                if (to === null || to === '') { return; }
+                var delim = el.getAttribute('data-delimiter') || '';
+                var out = String(Math.round(parseFloat(to)));
+                if (delim) {
+                    out = out.replace(/\B(?=(\d{3})+(?!\d))/g, delim);
+                }
+                if (el.textContent !== out) { el.textContent = out; }
+                if (el.getAttribute('data-duration') !== '0') { el.setAttribute('data-duration', '0'); }
+            });
+        };
+        mtSnapCounters();
+        var mtSnapTries = 0;
+        var mtSnapTimer = setInterval(function () {
             mtSnapCounters();
-            var mtSnapTries = 0;
-            var mtSnapTimer = setInterval(function () {
-                mtSnapCounters();
-                mtSnapTries++;
-                if (mtSnapTries >= 30) { clearInterval(mtSnapTimer); }
-            }, 500);
-        }
+            mtSnapTries++;
+            if (mtSnapTries >= 20) { clearInterval(mtSnapTimer); }
+        }, 200);
 
         // 2) Carousel HP: matikan fade tepi kanan saat sudah di ujung scroll
         ['.sec-services-cards', '.sec-team-cards', '.sec-testimonial-cards'].forEach(function (sel) {
@@ -658,6 +654,34 @@
         document.addEventListener('DOMContentLoaded', mtInitActionBar);
     } else {
         mtInitActionBar();
+    }
+
+    // =====================================================
+    // RONDE 26 — Bersihkan whitespace text node di counter
+    // =====================================================
+    function mtCleanCounterWhitespace() {
+        var wrappers = document.querySelectorAll('.elementor-counter-number-wrapper');
+        for (var i = 0; i < wrappers.length; i++) {
+            var wrap = wrappers[i];
+            var childNodes = wrap.childNodes;
+            for (var j = childNodes.length - 1; j >= 0; j--) {
+                var node = childNodes[j];
+                if (node.nodeType === 3 && !node.textContent.trim()) {
+                    wrap.removeChild(node);
+                }
+            }
+        }
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function () {
+            mtCleanCounterWhitespace();
+            setTimeout(mtCleanCounterWhitespace, 400);
+            setTimeout(mtCleanCounterWhitespace, 1500);
+        });
+    } else {
+        mtCleanCounterWhitespace();
+        setTimeout(mtCleanCounterWhitespace, 400);
+        setTimeout(mtCleanCounterWhitespace, 1500);
     }
 
 })(jQuery);

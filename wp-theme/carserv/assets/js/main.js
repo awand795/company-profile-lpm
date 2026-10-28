@@ -153,20 +153,33 @@
         });
     }
 
-    // Section Active Scrollspy via IntersectionObserver
-    // Nav Elementor = widget .nav-menu-link (bukan .nav-link bootstrap),
-    // href dibaca dari tombol di dalamnya.
+    // Set alt text for images missing alt (accessibility fix)
     $(document).ready(function () {
-        const sections = document.querySelectorAll('#header-carousel, #about, #service, #principals, #testimonial, #faq, #contact');
-        const navWidgets = document.querySelectorAll('.navbar-right-inner .nav-menu-link');
+        // Skip images that already have alt text
+        $('img').each(function () {
+            var $img = $(this);
+            if (!$img.attr('alt') || $img.attr('alt').trim() === '') {
+                // Set alt based on image source or position
+                var src = $img.attr('src') || '';
+                if (src.includes('mastertruck_official_logo')) {
+                    $img.attr('alt', 'Logo Master Truck');
+                } else if (src.includes('stitch_img') && src.includes('.webp')) {
+                    $img.attr('alt', 'Gambar layanan bengkel Master Truck');
+                }
+            }
+        });
+    });
+    // Ronde 23: section & nav sesuai markup Stitch live (id & kelas aktual).
+    $(document).ready(function () {
+        const sections = document.querySelectorAll('#header-carousel, #layanan, #fleet, #fasilitas, #faq, #kontak');
+        const navWidgets = document.querySelectorAll('.stitch-menu-panel a');
 
         function setActive(id) {
-            navWidgets.forEach(function (widget) {
-                const a = widget.querySelector('a');
-                if (a && a.getAttribute('href') === '#' + id) {
-                    widget.classList.add('nav-link-active');
+            navWidgets.forEach(function (a) {
+                if (a.getAttribute('href') === '#' + id) {
+                    a.classList.add('nav-link-active');
                 } else {
-                    widget.classList.remove('nav-link-active');
+                    a.classList.remove('nav-link-active');
                 }
             });
         }
@@ -258,25 +271,130 @@
         }
         placeNavActions();
         window.addEventListener('resize', placeNavActions);
-        function closeMenu() {
+
+        // Ronde 25: tombol tutup jelas di dalam panel + fokus ter-trap + body terkunci.
+        var closeBtn = null;
+        var lastFocus = null;
+        function focusables() {
+            return [].slice.call(menuCol.querySelectorAll(
+                'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+            )).filter(function (el) { return el.offsetParent !== null; });
+        }
+        function isOpen() { return menuCol.classList.contains('is-open'); }
+        function closeMenu(restore) {
+            if (!isOpen()) { return; }
             menuCol.classList.remove('is-open');
             burger.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('mt-drawer-open');
+            if (restore !== false && lastFocus && lastFocus.focus) { lastFocus.focus(); }
+            lastFocus = null;
+        }
+        function openMenu() {
+            lastFocus = document.activeElement;
+            menuCol.classList.add('is-open');
+            burger.setAttribute('aria-expanded', 'true');
+            document.body.classList.add('mt-drawer-open');
+            var first = menuCol.querySelector('.stitch-menu-close') || focusables()[0];
+            if (first && first.focus) { first.focus(); }
+        }
+        closeBtn = menuCol.querySelector('.stitch-menu-close');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                closeMenu();
+            });
         }
         burger.addEventListener('click', function (e) {
             e.preventDefault();
-            var open = menuCol.classList.toggle('is-open');
-            burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+            if (isOpen()) { closeMenu(); } else { openMenu(); }
         });
         // Klik tautan di panel: tutup panel, biarkan browser menggulir ke tujuan.
         menuCol.addEventListener('click', function (e) {
             var link = e.target && e.target.closest ? e.target.closest('a') : null;
-            if (link) { closeMenu(); }
+            if (link) { closeMenu(false); }
         });
         document.addEventListener('click', function (e) {
-            if (!menuCol.contains(e.target)) { closeMenu(); }
+            if (isOpen() && !menuCol.contains(e.target)) { closeMenu(false); }
         });
         document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') { closeMenu(); }
+            if (!isOpen()) { return; }
+            if (e.key === 'Escape') { closeMenu(); return; }
+            if (e.key !== 'Tab') { return; }
+            var items = focusables();
+            if (!items.length) { return; }
+            var first = items[0];
+            var last = items[items.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
+        });
+        // Layar besar: pastikan kunci gulir dilepas.
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 991) {
+                closeMenu(false);
+                document.body.classList.remove('mt-drawer-open');
+            }
+        });
+    });
+
+    // ===== RONDE 25: titik indikator carousel (Layanan/Fasilitas/Testimoni) =====
+    // Kartu di HP digeser horizontal (CSS scroll-snap); titik dibuat di sini agar
+    // pengunjung tahu masih ada kartu berikutnya. Tanpa pustaka.
+    $(document).ready(function () {
+        var rows = [].slice.call(document.querySelectorAll(
+            '.services-row-1, .services-row-2, .fac-row-1, .fac-row-2, .testimonials-row'
+        ));
+        rows.forEach(function (row) {
+            if (row.getAttribute('data-mt-dots') === '1') { return; }
+            var cards = [].slice.call(row.children).filter(function (el) {
+                return el.nodeType === 1 && el.classList.contains('e-con');
+            });
+            if (cards.length < 2) { return; }
+            row.setAttribute('data-mt-dots', '1');
+
+            var dots = document.createElement('div');
+            dots.className = 'mt-carousel-dots';
+            cards.forEach(function (card, i) {
+                var dot = document.createElement('button');
+                dot.type = 'button';
+                dot.setAttribute('aria-label', 'Ke kartu ' + (i + 1) + ' dari ' + cards.length);
+                if (i === 0) { dot.setAttribute('aria-current', 'true'); }
+                dot.addEventListener('click', function () {
+                    var left = row.scrollLeft + (card.getBoundingClientRect().left - row.getBoundingClientRect().left) - 20;
+                    if (row.scrollTo) {
+                        row.scrollTo({ left: Math.max(0, left), behavior: 'smooth' });
+                    } else {
+                        row.scrollLeft = Math.max(0, left);
+                    }
+                });
+                dots.appendChild(dot);
+            });
+            if (row.parentNode) { row.parentNode.insertBefore(dots, row.nextSibling); }
+
+            var ticking = false;
+            row.addEventListener('scroll', function () {
+                if (ticking) { return; }
+                ticking = true;
+                window.requestAnimationFrame(function () {
+                    ticking = false;
+                    var anchor = row.getBoundingClientRect().left + 20;
+                    var best = 0;
+                    var bestGap = Infinity;
+                    cards.forEach(function (card, i) {
+                        var gap = Math.abs(card.getBoundingClientRect().left - anchor);
+                        if (gap < bestGap) { bestGap = gap; best = i; }
+                    });
+                    [].forEach.call(dots.children, function (dot, i) {
+                        if (i === best) { dot.setAttribute('aria-current', 'true'); }
+                        else { dot.removeAttribute('aria-current'); }
+                    });
+                });
+            }, { passive: true });
         });
     });
 
@@ -386,11 +504,11 @@
         if (isPage59 && !inEditor && !reduce && 'IntersectionObserver' in window) {
             var targets = document.querySelectorAll(
                 'body.elementor-page-59 .elementor-59 > .e-con' +
-                ':not(.navbar):not(.mt-hero-slide):not(.top-bar-custom):not(.mt-wa-float-section), ' +
+                ':not(.navbar):not(.mt-hero-slide):not(.top-bar-custom):not(.mt-wa-float-section):not(.mt-action-bar), ' +
                 'body.elementor-page-59 > .elementor > .elementor-top-section' +
-                ':not(.navbar):not(.mt-hero-slide):not(.top-bar-custom):not(.mt-wa-float-section), ' +
+                ':not(.navbar):not(.mt-hero-slide):not(.top-bar-custom):not(.mt-wa-float-section):not(.mt-action-bar), ' +
                 'body.elementor-page-59 > .elementor > .e-con' +
-                ':not(.navbar):not(.mt-hero-slide):not(.top-bar-custom):not(.mt-wa-float-section)'
+                ':not(.navbar):not(.mt-hero-slide):not(.top-bar-custom):not(.mt-wa-float-section):not(.mt-action-bar)'
             );
             if (targets.length) {
                 var io = new IntersectionObserver(function (entries) {
@@ -408,31 +526,27 @@
             }
         }
 
-        // REVAMP6j E2: di editor Elementor, counter langsung nilai akhir (tanpa animasi).
-        // Widget editor dirender async + animasi counter Elementor menimpa,
-        // jadi snap diulang singkat (hanya mode editor, tanpa efek ke frontend).
-        if (isPage59 && inEditor) {
-            var mtSnapCounters = function () {
-                Array.prototype.forEach.call(document.querySelectorAll('.elementor-counter-number'), function (el) {
-                    var to = el.getAttribute('data-to-value');
-                    if (to === null || to === '') { return; }
-                    var delim = el.getAttribute('data-delimiter') || '';
-                    var out = String(Math.round(parseFloat(to)));
-                    if (delim) {
-                        out = out.replace(/\B(?=(\d{3})+(?!\d))/g, delim);
-                    }
-                    if (el.textContent !== out) { el.textContent = out; }
-                    if (el.getAttribute('data-duration') !== '0') { el.setAttribute('data-duration', '0'); }
-                });
-            };
+        // REVAMP6j E2 & Ronde 26: pastikan counter langsung diformat dengan delimiter (5.200+)
+        var mtSnapCounters = function () {
+            Array.prototype.forEach.call(document.querySelectorAll('.elementor-counter-number'), function (el) {
+                var to = el.getAttribute('data-to-value');
+                if (to === null || to === '') { return; }
+                var delim = el.getAttribute('data-delimiter') || '';
+                var out = String(Math.round(parseFloat(to)));
+                if (delim) {
+                    out = out.replace(/\B(?=(\d{3})+(?!\d))/g, delim);
+                }
+                if (el.textContent !== out) { el.textContent = out; }
+                if (el.getAttribute('data-duration') !== '0') { el.setAttribute('data-duration', '0'); }
+            });
+        };
+        mtSnapCounters();
+        var mtSnapTries = 0;
+        var mtSnapTimer = setInterval(function () {
             mtSnapCounters();
-            var mtSnapTries = 0;
-            var mtSnapTimer = setInterval(function () {
-                mtSnapCounters();
-                mtSnapTries++;
-                if (mtSnapTries >= 30) { clearInterval(mtSnapTimer); }
-            }, 500);
-        }
+            mtSnapTries++;
+            if (mtSnapTries >= 20) { clearInterval(mtSnapTimer); }
+        }, 200);
 
         // 2) Carousel HP: matikan fade tepi kanan saat sudah di ujung scroll
         ['.sec-services-cards', '.sec-team-cards', '.sec-testimonial-cards'].forEach(function (sel) {
@@ -514,5 +628,60 @@
         }
     });
 
-})(jQuery);
 
+    // =====================================================
+    // RONDE 24 (3.2) — Bar aksi mobile sembunyi saat form fokus
+    // =====================================================
+    function mtInitActionBar() {
+        var bar = document.querySelector('.mt-action-bar');
+        if (!bar) return;
+        document.addEventListener('focusin', function (e) {
+            var t = e.target;
+            if (t && t.matches && t.matches('input, select, textarea')) {
+                bar.classList.add('is-hidden');
+            }
+        });
+        document.addEventListener('focusout', function () {
+            setTimeout(function () {
+                var a = document.activeElement;
+                if (!a || !a.matches || !a.matches('input, select, textarea')) {
+                    bar.classList.remove('is-hidden');
+                }
+            }, 140);
+        });
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', mtInitActionBar);
+    } else {
+        mtInitActionBar();
+    }
+
+    // =====================================================
+    // RONDE 26 — Bersihkan whitespace text node di counter
+    // =====================================================
+    function mtCleanCounterWhitespace() {
+        var wrappers = document.querySelectorAll('.elementor-counter-number-wrapper');
+        for (var i = 0; i < wrappers.length; i++) {
+            var wrap = wrappers[i];
+            var childNodes = wrap.childNodes;
+            for (var j = childNodes.length - 1; j >= 0; j--) {
+                var node = childNodes[j];
+                if (node.nodeType === 3 && !node.textContent.trim()) {
+                    wrap.removeChild(node);
+                }
+            }
+        }
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function () {
+            mtCleanCounterWhitespace();
+            setTimeout(mtCleanCounterWhitespace, 400);
+            setTimeout(mtCleanCounterWhitespace, 1500);
+        });
+    } else {
+        mtCleanCounterWhitespace();
+        setTimeout(mtCleanCounterWhitespace, 400);
+        setTimeout(mtCleanCounterWhitespace, 1500);
+    }
+
+})(jQuery);
