@@ -1,0 +1,31 @@
+{
+ "fase": "sesudah",
+ "tgl": "2026-10-28T09:03:42.050Z",
+ "load_ms": 9941,
+ "lcp": 4432,
+ "cls": 0.005065705755879968,
+ "tbt": 384,
+ "requests": 48,
+ "totalKB": 526,
+ "cssKB": 83,
+ "jsKB": 144,
+ "imgKB": 143,
+ "heroKB": 67,
+ "heroName": "stitch_img_2_warm-768x428.webp",
+ "heroW": "-",
+ "top": [
+  "80KB fa-brands-400.woff2",
+  "77KB fa-solid-900.woff2",
+  "67KB stitch_img_2_warm-768x428.webp",
+  "43KB stitch_img_3_warm.webp",
+  "33KB mastertruck_official_logo.webp",
+  "30KB jquery.min.js",
+  "23KB mt-custom.css",
+  "19KB frontend.min.js"
+ ],
+ "smallTapTargets": [
+  "A.topbar-hotline-link h=40 \"HOTLINE 24 JAM0812-MASTE\""
+ ],
+ "scrollW": 390,
+ "innerW": 390
+}

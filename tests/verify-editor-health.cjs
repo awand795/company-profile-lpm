@@ -70,8 +70,11 @@ const { execSync } = require('child_process');
         }
 
         // 4. Periksa isi preview iframe
-        const frame = page.frameLocator('#elementor-preview-iframe');
-        const frameBody = await frame.locator('body').innerHTML();
+        await page.waitForSelector('#elementor-preview-iframe', { timeout: 35000 });
+        const iframeElement = await page.$('#elementor-preview-iframe');
+        const frame = await iframeElement.contentFrame();
+        await frame.waitForSelector('body', { timeout: 35000 });
+        const frameBody = await frame.content();
 
         const hasNavbarPill = frameBody.includes('navbar-pill') || frameBody.includes('stitch-navbar');
         // RONDE 19c: Judul hero dipersingkat dari "Solusi Servis & Pemeliharaan Armada Truk Bersama MASTER TRUCK..."
