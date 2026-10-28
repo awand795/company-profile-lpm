@@ -210,6 +210,8 @@ C = {
     "title": TOK["navy"],
     "text_dark": TOK["text"],
     "text_muted": TOK["muted"],
+    "text": TOK["text"],
+    "muted": TOK["muted"],
     "border": TOK["border"],
     "emerald": TOK["ok"],
     "emerald_bg": TOK["ok_bg"],
@@ -394,7 +396,7 @@ def grole(colorhex):
         }
     return _GMAP.get(colorhex)
 
-def W_heading(title, tag="h2", align="left", cls="", size=36, weight=700, color=C["primary"], margin=None, ls=-0.5):
+def W_heading(title, tag="h2", align="left", cls="", size=36, weight=700, color=C["primary"], margin=None, ls=-0.5, lh=1.15):
     s = {
         "title": title,
         "header_size": tag,
@@ -403,7 +405,7 @@ def W_heading(title, tag="h2", align="left", cls="", size=36, weight=700, color=
         "typography_font_family": "Plus Jakarta Sans",
         "typography_font_size": fsize(size),
         "typography_font_weight": str(weight),
-        "typography_line_height": {"unit": "em", "size": 1.15},
+        "typography_line_height": {"unit": "em", "size": lh},
         "title_color": color,
         "_margin": margin if margin is not None else px4(0, 0, 0, 0),
     }
@@ -644,31 +646,31 @@ sections = []
 
 ## --- 1. TOPBAR & FLOATING NAVBAR ---
 topbar = el_container("stitch-topbar", boxed=1240, bg=C["surface"],
-                      style={"padding": px4(4, 24, 4, 24), "border_border": "solid",
+                      style={"padding": px4(2, 24, 2, 24), "border_border": "solid",
                              "border_width": px4(0, 0, 1, 0), "border_color": C["border"]},
                       nav="Top Bar")
 topbar["elements"] = [inner([
-    col(40, "topbar-left-col", [
-        W_text('<div style="display:flex;align-items:center;gap:16px;color:#5B6B80;font-size:12px;font-weight:600;letter-spacing:0.2px;white-space:nowrap;">'
-               '<div class="topbar-hotline-item" style="display:inline-flex;align-items:center;gap:6px;">'
-               '<span style="background:#0B1F3A;color:#FFFFFF;border:1px solid #0B1F3A;font-size:10px;font-weight:800;padding:2px 7px;border-radius:999px;letter-spacing:0.5px;">SOS</span>'
-               '<span style="text-transform:uppercase;color:#0B1F3A;font-weight:700;">Hotline 24 Jam:</span> '
-               # TODO: konfirmasi pemilik — "0812-MASTER-TRUCK" masih placeholder.
-               # Karena nomor asli belum ada, tautan diarahkan ke WhatsApp (bukan tel: palsu).
-               '<a href="' + tel_link() + '" style="color:#0B1F3A;text-decoration:none;font-weight:700;">' + PHONE_DISPLAY + '</a>'
-               '</div>'
-               '<div class="topbar-location-item" style="display:inline-flex;align-items:center;gap:6px;color:#5B6B80;">'
+    col(45, "topbar-left-col", [
+        W_text('<div class="topbar-left-wrap">'
+               '<a href="' + tel_link() + '" class="topbar-hotline-link" aria-label="Hotline 24 Jam: ' + PHONE_DISPLAY + '">'
+               '<span class="hotline-icon-circle"><i class="fas fa-phone-volume"></i></span>'
+               '<span class="hotline-text-wrap">'
+               '<span class="hotline-lbl">HOTLINE 24 JAM</span>'
+               '<span class="hotline-num">' + PHONE_DISPLAY + '</span>'
+               '</span>'
+               '<i class="fas fa-chevron-right hotline-chevron"></i>'
+               '</a>'
+               '<div class="topbar-location-item">'
                '<i class="fas fa-map-marker-alt" style="color:#2457A6;font-size:11px;"></i> <span style="color:#44546A;">Medan</span>'
                '</div>'
                '</div>')
     ]),
-    col(60, "topbar-right-col", [
-        W_text('<div style="display:flex;align-items:center;justify-content:flex-end;gap:16px;color:#5B6B80;font-size:12px;white-space:nowrap;">'
-               '<div class="topbar-hours-item" style="display:inline-flex;align-items:center;gap:6px;">'
+    col(55, "topbar-right-col", [
+        W_text('<div class="topbar-right-wrap">'
+               '<div class="topbar-hours-item">'
                '<i class="fas fa-clock" style="color:#5B6B80;font-size:11px;"></i> <span style="color:#44546A;">' + HOURS + ' | Derek &amp; bantuan darurat 24 jam</span>'
                '</div>'
-               '<div class="topbar-iso-item" style="border-left:1px solid #C3CEDC;padding-left:14px;display:inline-flex;align-items:center;gap:6px;">'
-               # TODO: konfirmasi pemilik — klaim ISO 9001 harus punya sertifikat aktif.
+               '<div class="topbar-iso-item">'
                '<i class="fas fa-shield-alt" style="color:#2457A6;font-size:11px;"></i> <span style="color:#44546A;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;">Standar ' + CLAIMS["iso9001"] + '</span>'
                '</div>'
                '</div>')
@@ -729,12 +731,9 @@ sections.append(nav)
 # --- 2. SECTION 1: HERO SECTION ---
 # Ronde 19c: padding atas 24px, ritme presisi, hero muat ATF 1366x600 & 1366x768
 
-# Kartu statistik hero (Ronde 21 3c): kolom berisi widget Icon + Counter native.
-def stat_col(icon, num, suffix, label, decimals=0, border=True):
-    cstyle = {"padding": px4(18, 20, 18, 20) if border else px4(14, 20, 14, 20)}
-    if border:
-        cstyle.update({"border_border": "solid", "border_width": px4(0, 1, 0, 0),
-                       "border_color": C["border"]})
+# Kartu statistik hero (Ronde 26): kolom berisi widget Icon + Counter native.
+def stat_col(icon, num, suffix, label, decimals=0):
+    cstyle = {"padding": px4(0, 0, 0, 0)}
     return col(25, "stat-col", [
         inner([
             W_icon(icon, cls="stat-icon"),
@@ -744,46 +743,47 @@ def stat_col(icon, num, suffix, label, decimals=0, border=True):
             ], css_classes="stat-text-col", direction="column",
                style={"flex_gap": fsize(0)}),
         ], css_classes="stat-item", direction="row",
-           style={"flex_gap": fsize(14), "flex_align_items": "center"}),
+           style={"flex_gap": fsize(16), "flex_align_items": "flex-start"}),
     ], cstyle)
 
 
 hero = el_container("stitch-sec-hero", css_id="header-carousel", boxed=1240, bg=C["white"],
-                    style={"padding": px4(24, 24, 40, 24), "padding_mobile": px4(24, 20, 40, 20)}, nav="Hero")
+                    style={"padding": px4(24, 24, 64, 24), "padding_mobile": px4(20, 20, 48, 20)}, nav="Hero")
 hero["elements"] = [
     # Top Row: Text (50%) vs Visual (50%)
     inner([
         col(50, "hero-text-col", [
-            # Authority Badge (Eyebrow) -> margin-bottom: 12px
-            W_heading('<i class="fas fa-shield-alt" style="color:#2457A6;margin-right:6px;font-size:11px;"></i>BENGKEL REKANAN RESMI &amp; SPESIALIS HEAVY DUTY TRUCK #1',
+            # Authority Badge (Eyebrow) -> pil putih border #DDE3EC
+            W_heading('<span class="hero-authority-pill"><i class="fas fa-shield-alt"></i>BENGKEL REKANAN RESMI &amp; SPESIALIS HEAVY DUTY TRUCK #1</span>',
                       tag="p", cls="hero-authority-badge", size=12, weight=700, color=C["primary"], ls=0.8,
-                      margin=px4(0, 0, 12, 0)),
-            # Headline (Ronde 19c: Ringkas 2 baris, H1 48px desktop / 40px laptop, "Tetap Jalan" oranye highlight)
-            # TEKS LAMA: Solusi Servis & Pemeliharaan Armada Truk Bersama MASTER TRUCK Tanpa Downtime Berkepanjangan
-            W_heading('Servis Truk Cepat,<br>Armada Anda <span class="hero-brand-highlight">Tetap Jalan</span>',
-                      tag="h1", cls="hero-title", size=48, weight=800, color=C["primary"], ls=-0.8,
                       margin=px4(0, 0, 14, 0)),
-            # Description Lead (lebar maks 520px) -> margin-bottom: 20px
-            # versi lama:
-            # "Pusat rekayasa mekanikal dan perbaikan mesin diesel Euro 4, overhaul transmisi, "
-            # "kalibrasi injektor common rail, hingga kontrak pemeliharaan fleet logistik dengan "
-            # "jaminan 100% suku cadang orisinal OEM dan mekanik berlisensi pabrikan."
-            # TODO: konfirmasi pemilik
+            # Headline (Ronde 26: 56px desktop / 32px mobile, garis penanda biru baja 6px)
+            W_heading('Servis Truk Cepat,<br>Armada Anda <span class="hero-brand-highlight">Tetap Jalan</span>',
+                      tag="h1", cls="hero-title", size=56, weight=800, color=C["primary"], ls=-1.0,
+                      margin=px4(0, 0, 16, 0), lh=1.08),
+            # Description Lead (lebar maks 52ch) -> margin-bottom: 22px
             W_text("Bengkel khusus truk untuk servis rutin, perbaikan mesin diesel, sampai kontrak perawatan armada. "
                    "Sparepart asli dan mekanik berlisensi pabrikan.",
-                   cls="hero-lead", size=16, color=C["text_muted"], margin=px4(0, 0, 20, 0), lh=1.55),
-            # Dual CTAs: SATU container row tanpa col terpisah -> margin-bottom: 24px
+                   cls="hero-lead", size=18, color=C["text"], margin=px4(0, 0, 22, 0), lh=1.6),
+            # Dual CTAs: SATU container row tanpa col terpisah -> margin-bottom: 22px
             inner([
                 W_button("Jadwalkan Servis Sekarang", link="#quick-booking", icon="fas fa-calendar-alt",
-                         bg=C["blue"], text_color=C["white"], radius=12, pad=(13, 26), cls="btn-hero-primary"),
+                         bg=C["blue"], text_color=C["white"], radius=12, pad=(15, 26), cls="btn-hero-primary"),
                 # TODO: konfirmasi pemilik — nomor telepon asli; sementara diarahkan ke WhatsApp.
                 W_button("Derek &amp; Darurat 24 Jam", link=tel_link("Halo Master Truck, saya butuh bantuan derek/dermaga darurat."), icon="fas fa-phone-alt",
-                         bg=C["white"], text_color=C["primary"], radius=12, pad=(13, 24), border=C["primary"], border_width=1.5, cls="btn-hero-secondary"),
-            ], css_classes="hero-btns-row", direction="row", style={"flex_gap": fsize(14), "margin": px4(0, 0, 24, 0), "flex_align_items": "center", "flex_justify_content": "flex-start"}),
-            # Supported Brands (1 baris 6 chip outline tipis, label 12px) -> label margin 10px
+                         bg=C["white"], text_color=C["primary"], radius=12, pad=(14, 24), border=C["primary"], border_width=1.5, cls="btn-hero-secondary"),
+            ], css_classes="hero-btns-row", direction="row", style={"flex_gap": fsize(12), "margin": px4(0, 0, 22, 0), "flex_align_items": "center", "flex_justify_content": "flex-start"}),
+            # Baris Bukti (Ronde 26: 3 item resmi sebaris dipisah garis tipis)
+            W_text('<div class="hero-proof-bar">'
+                   '<div class="proof-item"><i class="fas fa-clock"></i> <span>Servis berkala &lt; 3 jam</span></div>'
+                   '<div class="proof-divider"></div>'
+                   '<div class="proof-item"><i class="fas fa-certificate"></i> <span>Garansi suku cadang 6 bulan</span></div>'
+                   '<div class="proof-divider"></div>'
+                   '<div class="proof-item"><i class="fas fa-shield-alt"></i> <span>Garansi overhaul 180 hari</span></div>'
+                   '</div>', cls="hero-proof-widget", margin=px4(0, 0, 24, 0)),
+            # Supported Brands (desktop wrap 2 baris 3+3, mobile scroll-snap)
             W_text('<div class="hero-brands-block">'
-                   '<div class="brand-label" style="font-size:12px;font-weight:700;color:#5B6B80;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">'
-                   'Spesialisasi Brand Heavy Duty &amp; Light Commercial:</div>'
+                   '<div class="brand-label">SPESIALISASI BRAND HEAVY DUTY &amp; LIGHT COMMERCIAL:</div>'
                    '<div class="brand-chips-row">'
                    '<span class="brand-chip">SCANIA</span>'
                    '<span class="brand-chip">VOLVO TRUCKS</span>'
@@ -794,12 +794,14 @@ hero["elements"] = [
                    '</div></div>', cls="hero-brands-widget", margin=px4(0, 0, 0, 0)),
         ], {"padding": px4(0, 20, 0, 0)}),
 
-        # Visual Showcase Right (50% lebar, foto dominan 360px + kartu telematika 1 baris ringkas overlap <= 6%)
+        # Visual Showcase Right (50% lebar, foto dominan + latar dekoratif tint + kartu pesan tunggal)
         col(50, "hero-visual-col", [
             inner([
                 # Main Photo
                 W_image("hero", alt="Dua truk niaga sedang masuk ke dalam bengkel Master Truck, diperiksa dua montir berseragam", cls="hero-truck-img", radius=28, margin=px4(0, 0, 0, 0)),
-                # Horizontal Hanging Telematics Card (Ronde 19c: 1 baris ringkas, overlap <= 6%, tidak tabrak WA)
+                # Badge melayang kanan-atas foto
+                W_text('<div class="hero-floating-shield"><i class="fas fa-shield-alt"></i> <span>Garansi 180 Hari</span></div>', cls="hero-floating-shield-wrap", margin=px4(0, 0, 0, 0)),
+                # Kartu pesan tunggal "Mesin Dicek Digital" menimpa bawah foto
                 W_text('<div class="hero-telematics-compact">'
                        '<div class="telematics-left-block">'
                        '<div class="telematics-chip-icon"><i class="fas fa-microchip"></i></div>'
@@ -808,38 +810,25 @@ hero["elements"] = [
                        '<span class="telematics-status-pill"><span class="status-live-dot"></span>SIAP JALAN</span>'
                        '</div>'
                        '</div>'
-                       '<div class="telematics-metrics-block">'
-                       '<div class="metric-item">'
-                       '<div class="metric-val">' + CLAIMS["jam_telematika"] + '</div>'
-                       '<div class="metric-lbl">Servis berkala</div>'
-                       '</div>'
-                       '<div class="metric-divider"></div>'
-                       '<div class="metric-item">'
-                       '<div class="metric-val">' + CLAIMS["garansi_sparepart"] + '</div>'
-                       '<div class="metric-lbl">Garansi suku cadang asli</div>'
-                       '</div>'
-                       '</div>'
-                       '<div class="telematics-desc" style="display:none;">Injektor common rail: kondisi optimal</div>'
+                       '<div class="telematics-single-desc">Diagnostik scanner multi-brand, kelistrikan &amp; emisi optimal</div>'
                        '</div>', cls="hero-telematics-card", margin=px4(0, 0, 0, 0)),
             ], css_classes="hero-visual-card-wrap", direction="column", style={"padding": px4(0, 0, 0, 0)})
         ], {"padding": px4(0, 0, 0, 20)}),
-    ], css_classes="hero-main-row", direction="row", style={"flex_align_items": "flex-start"}),
+    ], css_classes="hero-main-row", direction="row", style={"flex_align_items": "center"}),
 
-    # Bottom Trust Metric Bar — Ronde 21 3c: widget Icon + Counter NATIVE,
-    # 4 kartu seragam (ikon tint navy ink + ikon navy; oranye hanya CTA).
-    # Semua angka diambil dari CLAIMS (semuanya TODO: konfirmasi pemilik).
+    # Bottom Trust Metric Bar — Ronde 26: 4 kolom seragam, pemisah 1px penuh, margin-top -48px
     inner([
         stat_col("fas fa-truck", 5200, "+", "Truk &amp; Trailer Ditangani"),
         # 99,2% : widget Counter Elementor tak punya desimal -> angka 99 + akhiran ",2%"
         stat_col("fas fa-stopwatch", 99, ",2%", "Selesai Tepat Waktu"),
         stat_col("fas fa-warehouse", 15, "+ Bay", "Bengkel Standar " + CLAIMS["iso9001"]),
-        stat_col("fas fa-shield-alt", 180, " Hari", "Garansi Resmi Overhaul", border=False),
+        stat_col("fas fa-shield-alt", 180, " Hari", "Garansi Resmi Overhaul"),
     ], css_classes="hero-stats-inner", direction="row",
         style={"background_background": "classic", "background_color": C["white"],
                "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"],
-               "border_radius": rad(20), "box_shadow_box_shadow_type": "yes",
-               "box_shadow_box_shadow": shadow(0, 12, 32, -8, "rgba(11,12,16,0.08)"),
-               "margin": px4(24, 0, 0, 0)}),
+               "border_radius": rad(24), "box_shadow_box_shadow_type": "yes",
+               "box_shadow_box_shadow": shadow(0, 12, 32, -8, "rgba(11,31,58,0.08)"),
+               "margin": px4(-48, 0, 0, 0)}),
 ]
 sections.append(hero)
 

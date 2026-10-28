@@ -441,3 +441,17 @@ add_filter( 'wp_resource_hints', function ( $urls, $relation_type ) {
 	}
 	return $urls;
 }, 10, 2 );
+
+/* ------------------------------------------------------------------ Counter: hilangkan spasi nyasar antara angka dan suffix */
+add_action( 'template_redirect', function() {
+	if ( is_admin() || ( defined( 'REST_REQUEST' ) && REST_REQUEST ) ) return;
+	ob_start( function( $html ) {
+		return preg_replace(
+			'/(<div class="elementor-counter-number-wrapper">)\s*(<span[^>]*class="[^"]*elementor-counter-number-prefix[^"]*"[^>]*>.*?<\/span>)\s*(<span[^>]*class="[^"]*elementor-counter-number[^"]*"[^>]*>.*?<\/span>)\s*(<span[^>]*class="[^"]*elementor-counter-number-suffix[^"]*"[^>]*>.*?<\/span>)\s*(<\/div>)/s',
+			'$1$2$3$4$5',
+			$html
+		);
+	} );
+} );
+
+
