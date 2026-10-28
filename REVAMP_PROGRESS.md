@@ -851,3 +851,88 @@ playwright_review/sesudah_ronde23/ (20 file, tema terang) — 5 viewport
   intro/lokasi yang berada di latar tint menggunkan teks gelap #3F4651 (tetap token).
 - Teks brand nav di layar ≤375px dikecilkan ke 12px (fix h-scroll 320px; !important lama
   pada rule 16px dihilangkan agar bisa diganti).
+
+---
+
+<!-- ============================================================ -->
+<!-- RONDE 24 — REVAMP17: WARNA LEBIH HIDUP + MOBILE-FIRST        -->
+<!-- ============================================================ -->
+
+## RONDE 24 (2026-10-28) — "Warna Lebih Hidup" + Mobile-First
+
+**Mandat (REVAMP17 #24):** emas cerah #E8B84A sebagai warna AKSI (BUKAN warna teks),
+desain mayoritas diuji mobile (390×844 / 360×740), performa mobile, bar aksi menempel
+di HP. Tema tetap LIGHT; satu-satunya permukaan gelap besar = kartu Ink di CTA penutup.
+
+### A. Warna (emas cerah sebagai aksi, teks di atasnya = Ink)
+- Token baru: `gold_bright` #E8B84A (+hot #D9A53A / press #C99530), tint #FBF4E1.
+  Terdaftar di TOK, `:root` (--mt-gold-b/-hover/-press), Global Colors kit 4
+  (slot custom `r23goldb` "Emas tombol"; token CSS diikat ke
+  var(--e-global-color-r23goldb) sehingga bar aksi/tombol/aksen ikut berubah
+  bila warna diedit lewat Site Settings).
+- Tombol utama Ink → emas cerah + teks Ink: hero, CTA penutup, kartu unggulan
+  fleet, tombol bar aksi. Tombol sekunder hero: putih + garis; CTA sekunder putih
+  transparan + garis putih 1.5px. Tombol WA tetap #25D366; Daftar tetap Ink.
+- Ikon semua kartu (keunggulan/layanan/cara kerja/statistik/telematika): chip emas
+  cerah + ikon Ink (radius 14, tap 44px). Angka statistik digarisbawahi emas 36×3px.
+- Foto: filter saturate(1.06) contrast(1.03) — warna hidup tanpa mengubah aset.
+- Logo navbar: badge putih radius 10 + shadow (40px di mobile); tagline disembunyikan ≤767.
+- Sorotan "Tetap Jalan": penanda emas solid 8px di bawah huruf (bukan teks emas).
+
+### B. Hero mobile + bar aksi
+- Urutan mobile: teks dulu (badge → H1 31px → lead → tombol), lalu foto (240px,
+  object-fit cover), lalu chip merek; statistik Counter native 2×2; tombol
+  full-width 52/48px.
+- Chip merek: 1 baris scroll-snap + mask fade di semua viewport; desktop 6 merek
+  muat satu baris tanpa yatim (font 11px, gap 6px).
+- **Bar aksi mobile** `.mt-action-bar` (≤767 saja): [Chat WhatsApp] hijau #25D366
+  ATAU [Telepon] emas bila PHONE_TEL valid; + [Jadwalkan Servis] emas cerah.
+  Tinggi 56px + safe-area, body padding-bottom cadangan 84px, WA melayang
+  disembunyikan, otomatis sembunyi saat input/select form di-fokus (main.js).
+- WA lokasi #1DA851 → #25D366 (satu sistem warna hijau WA).
+
+### C. Section mobile
+- Ritme: bagian 96px/56px seragam (7 bagian + merek + cara kerja); kartu CTA
+  padding mobile 36px. Kartu fleet unggulan: garis emas 3px hanya sisi atas.
+- FAQ header 56px, tautan footer 44px, ikon sosial 44px, input booking 16px/48px,
+  tap target ≥44px di ≤991 & ≤767 ( satu pengecualian sadar: link topbar ≤36px).
+- Grid logo merek 3×2 di mobile; cara kerja 1 kolom + konektor vertikal.
+
+### D. Performa mobile (390, Slow 4G + CPU 4× — Playwright)
+| Metrik | SEBELUM | SESUDAH |
+| --- | --- | --- |
+| LCP | 5.564 ms | 3.024–4.072 ms |
+| CLS | 0.092 | **0.023** (target ≤0.05 tercapai) |
+| TBT | 347 ms | ~140–930 ms (bising; median ≈300 ms) |
+| Total transfer | 724 KB | **519 KB** (−28%) |
+| CSS | 282 KB | **77 KB** |
+| Resource hero di HP | 275 KB (208 + 67) | **67 KB** (1 file srcset) |
+
+Tindakan: preload lama (208 KB, menunjuk file salah) DIHAPUS — terbukti menyebabkan
+unduhan ganda varian srcset; `fetchpriority=high` pada <img> hero dan `loading=lazy`
+untuk gambar di bawah lipatan (fasilitas & logo merek) via
+`wp_get_loading_optimization_attributes` di mt-topbar.php. Preload hero manual tidak
+dikembalikan (Chrome memilih srcset sendiri → double fetch). LCP ≤2,5 s belum
+tercapai di lab throttled (3,0–4,0 s); CLS & transfer tercapai; angka lab pada mesin
+dev ber-throttle CPU bersifat bising (3 sampel tersimpan).
+
+### Hasil test (semua PASS)
+- verify-stitch **41/41** · verify-layout **41/41** · verify-editor-health LULUS
+- test-ronde19d LULUS · test-ronde20 35/35 · test-ronde23 **19/19** (ekspektasi warna
+  tombol utama diperbarui ke emas cerah ronde24) · **test-ronde24 (baru): 26/26**
+  (tombol terlihat layar pertama 390, bar aksi fixed + 2 tombol & sembunyi saat fokus,
+  0 teks emas, 0 background-clip:text, tap ≥44 (0 pelanggaran), chip 1 baris,
+  statistik 2×2, tanpa h-scroll 320–1920, CTA Ink, garis emas kartu unggulan, slot
+  r23goldb ada di kit, tel: hanya valid /+62 atau tanpa tel:)
+
+### Screenshot
+playwright_review/sebelum_ronde24/ (21 file) dan
+playwright_review/sesudah_ronde24/ (24 file: 5 viewport + 15 crop section +
+drawer terbuka + bar aksi + chips scroll + hover tombol).
+
+### Yang sengaja TIDAK diubah
+Copy/klaim/angka, urutan section, URL, SITE_DATA/CLAIMS, SEO/schema,
+mt-login/mt-admin, logo aset, isi elementor-exports (builder yang menimpa);
+Elementor Free native (tanpa pro/plugin baru), tanpa library/font/request baru,
+tanpa emoji dan tanpa `background-clip:text` (audit 0).
+
