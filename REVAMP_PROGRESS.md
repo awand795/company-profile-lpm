@@ -936,3 +936,64 @@ mt-login/mt-admin, logo aset, isi elementor-exports (builder yang menimpa);
 Elementor Free native (tanpa pro/plugin baru), tanpa library/font/request baru,
 tanpa emoji dan tanpa `background-clip:text` (audit 0).
 
+
+
+---
+
+<!-- ============================================================ -->
+<!-- RONDE 25 — PALET NAVY + BIRU BAJA (TANPA EMAS) + MOBILE RAPI  -->
+<!-- ============================================================ -->
+
+## RONDE 25 (2026-10-28) — Palet Navy + Biru Baja (Tanpa Emas) + Rapikan Mobile
+
+**Mandat (Ronde 25):**
+Pemilik menilai warna emas pada halaman membuat visual bertabrakan dengan foto armada/bengkel yang dominan navy/putih/abu baja, serta berebut perhatian dengan logo resmi Master Truck yang sudah beraksen emas.
+**KEPUTUSAN FINAL**: Palet resmi diganti total ke **Navy + Biru Baja, TANPA EMAS** di seluruh halaman. Emas hanya ada di dalam file logo asli. Seluruh sisa token emas dihapus. Mayoritas pengunjung mengakses dari HP (Medan, jaringan seluler), sehingga pengujian mobile-first di 390x844 dan 360x740 menjadi prioritas tertinggi.
+
+### A. Palet Resmi (Satu Sumber Kebenaran)
+- **Navy** (judul H1/H2, tombol Daftar, ikon gelap, kartu CTA) : `#0B1F3A` | hover `#16305A`
+- **Biru baja** (tombol utama, link teks, menu aktif, garis penanda): `#2457A6` | hover `#1B4587` | tekan `#163A73`
+- **Tint biru** (latar tombol Masuk, chip ikon, badge pill)       : `#E3ECF8` | hover `#D2E1F5`
+- **Teks isi**                                                  : `#44546A`
+- **Teks redup** (label, caption; rasio kontras >= 4,5:1)       : `#5B6B80`
+- **Permukaan abu-biru** (section selang-seling, topbar, footer): `#F4F7FB`
+- **Border halus / tegas**                                      : `#DDE3EC` / `#C3CEDC`
+- **Putih**                                                     : `#FFFFFF`
+- **Hijau status** (SIAP JALAN, titik live)                     : `#047857` (teks) / `#ECFDF5` (latar)
+- **Hijau WhatsApp** (tombol bar aksi & floating, teks putih AA): `#15803D` (ikon floating `#25D366`)
+- **Elementor Global Colors Kit 4**: Primary (`#0B1F3A`), Secondary (`#2457A6`), Text (`#44546A`), Accent (`#E3ECF8`), Surface (`#F4F7FB`), Border (`#DDE3EC`), Muted (`#5B6B80`), Silver (`#C3CEDC`), Biru hover `r25bluehot` (`#1B4587`), Success `r25success` (`#047857`). Seluruh widget menempel via `__globals__`.
+
+### B. Header, Hero, dan Tombol
+- **Tombol Hero & CTA**: Tinggi 52px, radius 12px, latar `#2457A6` teks putih tebal 700, shadow `0 6px 16px rgba(36,87,166,.22)`. Di HP full-width.
+- **Tombol Sekunder**: Putih, border 1.5px navy, teks navy.
+- **Header Desktop**: Logo tinggi 44px di badge radius 12px + shadow tipis; menu link `#44546A` hover navy + underline biru baja; tombol Masuk (tint biru `#E3ECF8`, teks/ikon user `#2457A6`, tinggi 44px, radius 10px); tombol Daftar (navy `#0B1F3A`, teks putih, tinggi 44px, radius 10px), jarak antar tombol 10px.
+- **Hero**: Gradasi putih ke `#F4F7FB` + glow biru 5% di belakang foto; judul navy 800; penanda kata "Tetap Jalan" menggunakan garis solid biru baja 6px di bawah huruf; foto bingkai putih + border `#DDE3EC` + shadow halus; chip "Mesin Dicek Digital" berlatar putih dengan chip ikon tint biru `#E3ECF8` dan badge "SIAP JALAN" hijau tint.
+
+### C. Section, Kartu, dan Footer
+- **Ritme latar**: Putih -> `#F4F7FB` -> Putih secara konsisten.
+- **Kartu**: Radius 16-20px, border `#DDE3EC`, chip ikon tint biru `#E3ECF8` dengan ikon biru baja `#2457A6`.
+- **Kartu Unggulan**: Garis atas aksen 3px biru baja `#2457A6`.
+- **Statistik Counter**: Angka navy 800 dengan garis aksen biru baja di bawahnya.
+- **Kartu CTA Penutup**: Satu-satunya kartu navy gelap `#0B1F3A` di tengah halaman terang; judul & lead putih; tombol utama putih teks navy; tombol sekunder outline putih.
+- **Footer**: Terang berlatar `#F4F7FB`, judul kolom navy, tautan `#44546A` hover navy + garis bawah biru baja.
+
+### D. Mobile: Rapi & Mudah Dipakai
+- **Layar pertama 390x844**: Topbar hotline (<=36px) -> Header logo 40px + hamburger 44px -> Badge -> H1 (3 baris) -> Lead -> Tombol utama full-width 52px -> Tombol sekunder full-width 48px -> Foto hero (240px object-fit cover) -> Chip merek scroll.
+- **Drawer Mobile**: Tombol tutup jelas, link menu 18px tinggi 56px dengan divider `#DDE3EC`, tombol Masuk (tint) dan Daftar (navy) 48px full-width di dasar panel. Focus trap, tutup via Esc/klik backdrop, overflow body terkunci.
+- **Bar Aksi HP** (`.mt-action-bar` <= 767px): Fixed di bawah tinggi 56px + safe-area; 2 tombol [Chat WhatsApp] (#15803D teks putih AA) dan [Jadwalkan Servis] (#2457A6 teks putih); WA melayang disembunyikan di HP; sembunyi otomatis saat keyboard/form booking fokus.
+- **Carousel HP**: 5 baris kartu (Layanan baris 1 & 2, Fasilitas baris 1 & 2, Testimoni) scroll-snap horizontal dengan preview kartu berikutnya + indikator titik navigasi 44px.
+
+### E. Hasil Performa & Pengujian
+| Pengujian | Status | Catatan |
+| --- | --- | --- |
+| `verify-stitch.cjs` | **41 PASS / 0 FAIL** | Topbar <=40, header <=72, sticky <=60, hero muat 1366x600, alt img lengkap, 0 emoji, booking WA valid |
+| `verify-layout.cjs` | **41 PASS / 0 FAIL** | Kesejajaran grid, drawer 56px, kartu seragam, tanpa overflow horizontal 320-1920 |
+| `verify-editor-health.cjs` | **PASS** | 16 Section Container, canvas & preview iframe Elementor Page 59 termuat normal, 0 console error |
+| `test-ronde23-verify.cjs` | **19 PASS / 0 FAIL** | Penyesuaian ekspektasi palet baru navy + biru baja |
+| `test-ronde24-verify.cjs` | **26 PASS / 0 FAIL** | Semua bar aksi & responsivitas mobile PASS |
+| `test-ronde25-verify.cjs` | **17 PASS / 0 FAIL** | 0 warna berhue emas tersisa di elemen non-gambar, 0 background-clip:text, kontras >= 4,5:1, tap >= 44px |
+
+### Screenshot & Dokumentasi
+- Baseline: `playwright_review/sebelum_ronde25/` (21 file)
+- Final: `playwright_review/sesudah_ronde25/` (30 file: 5 viewport full-page + view layar pertama + 15 crop section + drawer terbuka + header saat scroll + carousel snap + bar aksi footer + hover states)
+- Backup: `archive/backups/_backup_ronde25_20261028/`

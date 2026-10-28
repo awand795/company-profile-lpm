@@ -16,7 +16,7 @@
 | --- | --- | --- |
 | `COMPANY_NAME` | PT Master Truck Indonesia | **Kandidat ganda** — footer lama menulis "PT Lotus Prima Mandiri". Pilih satu. |
 | `PHONE_DISPLAY` | `0812-MASTER-TRUCK` | **Placeholder** — tampil di topbar, belum nomor asli. |
-| `PHONE_TEL` | *(kosong)* | Sengaja dikosongkan; tombol telepon diarahkan ke WhatsApp sampai nomor asli ada. Isi format `+62…`. **RONDE 24 — prioritas TINGGI**: mayoritas pengunjung dari HP; isi nomor asli — builder otomatis mengubah semua titik kontak (topbar, hero, bar aksi bawah HP, footer, lokasi) menjadi `tel:` yang valid. Bila masih kosong, tak ada `tel:` palsu (fallback aman ke WhatsApp, label tidak menjanjikan telepon). |
+| `PHONE_TEL` | *(kosong)* | Sengaja dikosongkan; tombol telepon diarahkan ke WhatsApp sampai nomor asli ada. Isi format `+62…`. **RONDE 24–25 — prioritas TINGGI: mayoritas pengunjung dari HP; isi nomor telepon asli: konversi utama di HP**: mayoritas pengunjung dari HP; isi nomor asli — builder otomatis mengubah semua titik kontak (topbar, hero, bar aksi bawah HP, footer, lokasi) menjadi `tel:` yang valid. Bila masih kosong, tak ada `tel:` palsu (fallback aman ke WhatsApp, label tidak menjanjikan telepon). |
 | `LANDLINE_DISPLAY` | `061-8888-1234` | Belum dipastikan. |
 | `WA_NUMBER` | `6281288881234` | Belum dipastikan — dipakai semua tombol `wa.me`. |
 | `EMAIL` | `fleet@mastertruck.co.id` | Belum dipastikan. |
@@ -72,7 +72,7 @@ tetap tayang, jika tidak: hapus atau ganti dengan kalimat yang dapat dibuktikan.
 | Kebijakan Privasi (`PRIVACY_URL`) | *(kosong — tautan tidak ditampilkan)* | Halaman Kebijakan Privasi (post ID 3) masih **draft**; isi URL setelah diterbitkan. `MT_PRIVACY_URL=…` |
 | Logo merek (`SHOW_BRAND_LOGOS`) | `True` | **TODO**: izin pemakaian logo Pertamina/Mobil/Dunlop/GS Astra/Incoe/Sakura. Matikan dengan `False` bila belum ada izin. |
 | Testimoni (`SHOW_TESTIMONIALS`) | `True` | Matikan dengan `False` bila testimoni asli belum tersedia (kartu memakai data placeholder). |
-| Foto fasilitas/hero | aset `stitch_*` di Media Library | Konfirmasi bahwa foto adalah bengkel sendiri (bukan stok pihak lain). **RONDE 24**: foto hero/fasilitas masih berasal dari pembuatan aset (risiko tampak seperti karya AI & foto armada Hino-Scania generik, bukan bengkel asli). Ganti dengan **foto asli bengkel** saat tersedia — prioritas SEDANG; warna foto hanya diberi grading hangat ringan via CSS (aman untuk foto pengganti). |
+| Foto fasilitas/hero | aset `stitch_*` di Media Library | Konfirmasi bahwa foto adalah bengkel sendiri (bukan stok pihak lain). **RONDE 24–25**: foto hero/fasilitas masih memuat merek Hino/Scania dan berisiko tampak seperti buatan AI, bukan bengkel asli. Ganti dengan foto asli bengkel saat tersedia — prioritas TINGGI masih berasal dari pembuatan aset (risiko tampak seperti karya AI & foto armada Hino-Scania generik, bukan bengkel asli). Ganti dengan **foto asli bengkel** saat tersedia — prioritas SEDANG; warna foto hanya diberi grading hangat ringan via CSS (aman untuk foto pengganti). |
 
 ## 5. Halaman terkait
 
