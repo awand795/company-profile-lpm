@@ -962,7 +962,7 @@
                     "unit": "px",
                     "top": "0",
                     "right": "0",
-                    "bottom": "14",
+                    "bottom": "20",
                     "left": "0",
                     "isLinked": ""
                   },
@@ -1038,7 +1038,7 @@
                     "unit": "px",
                     "top": "0",
                     "right": "0",
-                    "bottom": "22",
+                    "bottom": "28",
                     "left": "0",
                     "isLinked": ""
                   },
@@ -1089,7 +1089,7 @@
                     "unit": "px",
                     "top": "0",
                     "right": "0",
-                    "bottom": "22",
+                    "bottom": "32",
                     "left": "0",
                     "isLinked": ""
                   },
@@ -1234,39 +1234,6 @@
               },
               {
                 "id": "af594ae",
-                "elType": "widget",
-                "settings": {
-                  "editor": "<div class=\"hero-proof-bar\"><div class=\"proof-item\"><i class=\"fas fa-clock\"></i> <span>Servis berkala &lt; 3 jam</span></div><div class=\"proof-divider\"></div><div class=\"proof-item\"><i class=\"fas fa-certificate\"></i> <span>Garansi suku cadang 6 bulan</span></div><div class=\"proof-divider\"></div><div class=\"proof-item\"><i class=\"fas fa-shield-alt\"></i> <span>Garansi overhaul 180 hari</span></div></div>",
-                  "align": "left",
-                  "typography_typography": "custom",
-                  "typography_font_family": "Inter",
-                  "typography_font_size": {
-                    "unit": "px",
-                    "size": 16
-                  },
-                  "typography_line_height": {
-                    "unit": "em",
-                    "size": 1.6
-                  },
-                  "text_color": "#5B6B80",
-                  "_margin": {
-                    "unit": "px",
-                    "top": "0",
-                    "right": "0",
-                    "bottom": "24",
-                    "left": "0",
-                    "isLinked": ""
-                  },
-                  "__globals__": {
-                    "text_color": "globals/colors?id=r23muted"
-                  },
-                  "_css_classes": "hero-proof-widget"
-                },
-                "elements": [],
-                "widgetType": "text-editor"
-              },
-              {
-                "id": "512ba03",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div class=\"hero-brands-block\"><div class=\"brand-label\">SPESIALISASI BRAND HEAVY DUTY &amp; LIGHT COMMERCIAL:</div><div class=\"brand-chips-row\"><span class=\"brand-chip\">SCANIA</span><span class=\"brand-chip\">VOLVO TRUCKS</span><span class=\"brand-chip\">HINO 500 &amp; 300</span><span class=\"brand-chip\">MITSUBISHI FUSO</span><span class=\"brand-chip\">ISUZU GIGA</span><span class=\"brand-chip\">MERCEDES AXOR</span></div></div>",
@@ -1415,39 +1382,6 @@
                     "id": "379bba0",
                     "elType": "widget",
                     "settings": {
-                      "editor": "<div class=\"hero-floating-shield\"><i class=\"fas fa-shield-alt\"></i> <span>Garansi 180 Hari</span></div>",
-                      "align": "left",
-                      "typography_typography": "custom",
-                      "typography_font_family": "Inter",
-                      "typography_font_size": {
-                        "unit": "px",
-                        "size": 16
-                      },
-                      "typography_line_height": {
-                        "unit": "em",
-                        "size": 1.6
-                      },
-                      "text_color": "#5B6B80",
-                      "_margin": {
-                        "unit": "px",
-                        "top": "0",
-                        "right": "0",
-                        "bottom": "0",
-                        "left": "0",
-                        "isLinked": ""
-                      },
-                      "__globals__": {
-                        "text_color": "globals/colors?id=r23muted"
-                      },
-                      "_css_classes": "hero-floating-shield-wrap"
-                    },
-                    "elements": [],
-                    "widgetType": "text-editor"
-                  },
-                  {
-                    "id": "369f728",
-                    "elType": "widget",
-                    "settings": {
                       "editor": "<div class=\"hero-telematics-compact\"><div class=\"telematics-left-block\"><div class=\"telematics-chip-icon\"><i class=\"fas fa-microchip\"></i></div><div class=\"telematics-title-group\"><div class=\"telematics-title\">Mesin Dicek Digital</div><span class=\"telematics-status-pill\"><span class=\"status-live-dot\"></span>SIAP JALAN</span></div></div><div class=\"telematics-single-desc\">Diagnostik scanner multi-brand, kelistrikan &amp; emisi optimal</div></div>",
                       "align": "left",
                       "typography_typography": "custom",
@@ -1551,7 +1485,7 @@
           },
           "margin": {
             "unit": "px",
-            "top": "-48",
+            "top": "48",
             "right": "0",
             "bottom": "0",
             "left": "0",
@@ -1745,7 +1679,7 @@
                           "typography_number_font_family": "Plus Jakarta Sans",
                           "typography_number_font_size": {
                             "unit": "px",
-                            "size": 26
+                            "size": 34
                           },
                           "typography_number_font_weight": "800",
                           "typography_number_line_height": {
@@ -1976,7 +1910,7 @@
                           "typography_number_font_family": "Plus Jakarta Sans",
                           "typography_number_font_size": {
                             "unit": "px",
-                            "size": 26
+                            "size": 34
                           },
                           "typography_number_font_weight": "800",
                           "typography_number_line_height": {
@@ -2207,7 +2141,7 @@
                           "typography_number_font_family": "Plus Jakarta Sans",
                           "typography_number_font_size": {
                             "unit": "px",
-                            "size": 26
+                            "size": 34
                           },
                           "typography_number_font_weight": "800",
                           "typography_number_line_height": {
@@ -2438,7 +2372,7 @@
                           "typography_number_font_family": "Plus Jakarta Sans",
                           "typography_number_font_size": {
                             "unit": "px",
-                            "size": 26
+                            "size": 34
                           },
                           "typography_number_font_weight": "800",
                           "typography_number_line_height": {

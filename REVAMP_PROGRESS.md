@@ -1046,3 +1046,52 @@ Palet navy + biru baja tanpa emas telah DISETUJUI pemilik. Pekerjaan difokuskan 
 - Final: `playwright_review/sesudah_ronde26/` (30 file: 5 viewport full-page + view layar pertama + 15 crop section + hotline mobile 390 + stats 390 + strip scroll 1440 + hover states)
 - Backup: `archive/backups/_backup_ronde26_20261028/`
 - Tag Git: `pre-ronde26` -> `ronde26-done`
+
+---
+
+<!-- ============================================================ -->
+<!-- RONDE 27 — PERBAIKI HERO + STRIP STATISTIK YANG RUSAK       -->
+<!-- ============================================================ -->
+
+## RONDE 27 (2026-10-28) — Perbaiki Hero + Strip Statistik yang Rusak: Sederhanakan, Jangan Tambah
+
+**Prinsip Kerja:**
+Palet navy + biru baja tanpa emas sudah FINAL dan DISETUJUI pemilik. Pekerjaan difokuskan pada pembersihan dan perbaikan tata letak hero dan strip statistik dengan prinsip: **SEDERHANAKAN, JANGAN TAMBAH**. Tidak ada margin negatif untuk tata letak utama; semua komponen mengalir normal dalam flex/grid dan container membungkus isi secara otomatis.
+
+### 5 Cacat yang Telah Diperbaiki (Hasil Verifikasi):
+1. **Strip statistik menimpa baris kedua chip merek**:
+   - Diperbaiki dengan mengubah `margin-top: -48px` menjadi aliran normal `margin-top: 48px` (desktop) dan `margin-top: 32px` (mobile). Jarak bersih chip merek ke strip statistik di desktop kini 68px (bebas dari tumpukan).
+2. **Baris bukti menempel ke label merek dan melebar ke kolom foto**:
+   - **DIHAPUS**. Seluruh klaim (*Servis berkala < 3 jam*, *Garansi suku cadang 6 bulan*, *Garansi overhaul 180 hari*) sudah terwakili di strip statistik. Kolom kiri kini mengalir teratur dengan jarak vertikal rapi (badge -> H1 20px -> lead 16px -> tombol 28px -> label merek 32px -> chip 12px).
+3. **Kartu "Mesin Dicek Digital" menjulur keluar dari bawah foto dan tertimpa strip**:
+   - Diperbaiki sehingga kartu berada **DI DALAM batas foto** di sudut kiri-bawah (`bottom: 20px; left: 20px; max-width: 70%;` desktop, `bottom: 12px; left: 12px; max-width: 88%;` mobile) dengan teks rata kiri. Badge melayang perisai *"Garansi 180 Hari"* di kanan-atas foto telah **DIHAPUS**.
+4. **Klaim DUPLIKAT "180 Hari", "6 Bulan", dan "< 3 Jam"**:
+   - Dengan menghapus baris bukti dan badge melayang di atas foto, klaim *"180 Hari"* hanya muncul tepat 1 kali di hero (pada kolom ke-4 strip statistik).
+5. **Isi strip berantakan (ikon menabrak teks, pembatas bergeser, teks tidak sejajar)**:
+   - Diperbaiki dengan struktur CSS Grid terpadu: container `display: grid; grid-template-columns: repeat(4, 1fr); padding: 32px;` dengan border vertikal pembatas 1px `#DDE3EC`.
+   - Tiap item menggunakan sub-grid `48px 1fr` gap 16px (mobile `40px 1fr` gap 12px) dengan chip ikon 48px latar `#E3ECF8` ikon 22px `#2457A6`.
+   - Angka counter 34px tabular-nums navy 800 rata KIRI dengan `white-space: nowrap`.
+   - Garis biru baja 28×3px di atas label mengalir normal tanpa menimpa huruf.
+   - Label 14px `#5B6B80` rata KIRI dengan `min-height: 2.8em` dan sejajar sempurna pada baris yang sama di ke-4 kolom.
+   - Mobile: grid 2×2 dengan pemisah silang yang rapi.
+
+### Hasil Uji & Metrik Verifikasi
+| Pengujian | Status | Catatan |
+| --- | --- | --- |
+| `test-ronde27-verify.cjs` | **10 PASS / 0 FAIL** | Jarak strip > 30px (68px), baris bukti terhapus, badge foto terhapus, kartu telematika di dalam foto (ratio 63.2%), 180 hari tepat 1x, chip wrap desktop, strip 4 kolom ikon 48px rata kiri sejajar, mobile 390 tombol sekunder di ATF (571px <= 844px), mobile chip snap 1 baris, mobile stats grid 2x2 |
+| `verify-stitch.cjs` | **41 PASS / 0 FAIL** | Topbar <=40px, header <=72px, sticky <=60px, hero muat 1366x600 (bottom CTA 422px <= 470px), 1 H1, alt lengkap, 0 overflow 320-1920px |
+| `verify-editor-health.cjs` | **PASS** | 16 Section Container, canvas & iframe editor Elementor Page 59 termuat normal, 0 console error |
+
+### Metrik Performa Mobile (390×844, Slow 4G / 4× CPU Slowdown)
+- **CLS**: `0.0049` (Sangat stabil di bawah batas Core Web Vitals 0.1)
+- **TBT**: `384 ms` (Stabil & responsif)
+- **LCP**: `3404 ms` (Meningkat lebih cepat dari Ronde 26: 4432 ms -> 3404 ms)
+- **Jumlah Request**: 48 requests
+- **Total Payload**: 526 KB
+- **Ukuran Hero Image**: 67 KB
+
+### Screenshot & Dokumentasi
+- Baseline: `playwright_review/sebelum_ronde27/` (16 file kondisi awal)
+- Final: `playwright_review/sesudah_ronde27/` (16 file: 5 viewport full-page + view layar pertama + crop section detail)
+- Backup: `archive/backups/_backup_ronde27_20261028/`
+- Tag Git: `pre-ronde27` -> `ronde27-done`
