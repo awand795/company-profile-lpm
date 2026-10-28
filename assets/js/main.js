@@ -156,7 +156,19 @@
     // Set alt text for images missing alt (accessibility fix)
     $(document).ready(function () {
         // Skip images that already have alt text
-        $('img').each(function () {            var $img = $(this);            if (!$img.attr('alt') || $img.attr('alt').trim() === '') {                // Set alt based on image source or position                var src = $img.attr('src') || '';                if (src.includes('mastertruck_official_logo')) {                    $img.attr('alt', 'Logo Master Truck');                } else if (src.includes('stitch_img') && src.includes('.webp')) {                    $img.attr('alt', 'Gambar layanan bengkel Master Truck');                }            }        });    });
+        $('img').each(function () {
+            var $img = $(this);
+            if (!$img.attr('alt') || $img.attr('alt').trim() === '') {
+                // Set alt based on image source or position
+                var src = $img.attr('src') || '';
+                if (src.includes('mastertruck_official_logo')) {
+                    $img.attr('alt', 'Logo Master Truck');
+                } else if (src.includes('stitch_img') && src.includes('.webp')) {
+                    $img.attr('alt', 'Gambar layanan bengkel Master Truck');
+                }
+            }
+        });
+    });
     // Ronde 23: section & nav sesuai markup Stitch live (id & kelas aktual).
     $(document).ready(function () {
         const sections = document.querySelectorAll('#header-carousel, #layanan, #fleet, #fasilitas, #faq, #kontak');
@@ -515,5 +527,32 @@
         }
     });
 
-})(jQuery);
 
+    // =====================================================
+    // RONDE 24 (3.2) — Bar aksi mobile sembunyi saat form fokus
+    // =====================================================
+    function mtInitActionBar() {
+        var bar = document.querySelector('.mt-action-bar');
+        if (!bar) return;
+        document.addEventListener('focusin', function (e) {
+            var t = e.target;
+            if (t && t.matches && t.matches('input, select, textarea')) {
+                bar.classList.add('is-hidden');
+            }
+        });
+        document.addEventListener('focusout', function () {
+            setTimeout(function () {
+                var a = document.activeElement;
+                if (!a || !a.matches || !a.matches('input, select, textarea')) {
+                    bar.classList.remove('is-hidden');
+                }
+            }, 140);
+        });
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', mtInitActionBar);
+    } else {
+        mtInitActionBar();
+    }
+
+})(jQuery);

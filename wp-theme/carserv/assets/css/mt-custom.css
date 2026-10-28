@@ -18,6 +18,9 @@
     --mt-gold: #C69A43;     /* garis, ikon, titik, bintang */
     --mt-gold-dark: #8A5F12;/* ikon di latar terang */
     --mt-gold-tint: #FBF4E1;/* latar ikon/badge */
+    --mt-gold-b: #E8B84A;      /* RONDE 24: emas cerah isian tombol/chip */
+    --mt-gold-b-hover: #D9A53A;/* hover */
+    --mt-gold-b-press: #C99530;/* tekan */
     --mt-ok: #047857;       /* SIAP JALAN / dot live */
     --mt-ok-bg: #ECFDF5;
 }
@@ -486,8 +489,8 @@ body.elementor-page-59 .stitch-topbar {
     background-color: #F1F3F5 !important;
 }
 body.elementor-page-59 .stitch-topbar > .e-con-inner {
-    padding-top: 3px !important;
-    padding-bottom: 3px !important;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
 }
 body.elementor-page-59 .stitch-topbar-row {
     padding-top: 0px !important;
@@ -809,7 +812,7 @@ body.elementor-page-59 .brand-label {
 }
 body.elementor-page-59 .brand-chips-row {
     display: flex;
-    flex-wrap: wrap !important;
+    flex-wrap: nowrap;
     gap: 8px;
     align-items: center;
     max-width: 100% !important;
@@ -817,8 +820,8 @@ body.elementor-page-59 .brand-chips-row {
 }
 @media (max-width: 767.98px) {
     body.elementor-page-59 .brand-chips-row {
-        justify-content: center !important;
-        gap: 6px !important;
+        justify-content: flex-start !important;
+        gap: 8px !important;
     }
     body.elementor-page-59 .brand-chip {
         padding: 0 8px !important;
@@ -1262,11 +1265,12 @@ body.is-webdriver .status-live-dot {
     body.elementor-page-59 .brand-text-container {
         width: auto !important;
     }
-    body.elementor-page-59 .stitch-brand-col img {
-        height: 30px !important;
+    body.elementor-page-59 .stitch-brand-col .brand-logo-img img {
+        height: 40px !important;
+        background: #FFFFFF;
     }
-    body.elementor-page-59 .stitch-brand-col span:first-child {
-        font-size: 16px;
+    body.elementor-page-59 .brand-text-link {
+        display: none;
     }
     body.elementor-page-59 .btn-nav-login {
         display: none !important;
@@ -1302,7 +1306,7 @@ body.is-webdriver .status-live-dot {
         text-align: center !important;
     }
     body.elementor-page-59 .stitch-sec-hero .hero-title .elementor-heading-title {
-        font-size: 28px !important;
+        font-size: 31px !important;
         line-height: 1.2 !important;
         text-align: center !important;
     }
@@ -1334,7 +1338,7 @@ body.is-webdriver .status-live-dot {
         text-align: center !important;
     }
     body.elementor-page-59 .stitch-sec-hero .hero-brands-block > div:last-child {
-        justify-content: center !important;
+        justify-content: flex-start !important;
     }
     /* Mobile visual & telematics card adjustment */
     body.elementor-page-59 .hero-visual-card-wrap::before {
@@ -1669,8 +1673,10 @@ body.elementor-page-59 .mt-btn .elementor-button {
     align-items: center !important;
     justify-content: center !important;
     gap: 8px !important;
-    height: 48px !important;
-    min-height: 48px !important;
+    /* Ronde 24: tinggi tidak lagi !important — tombol utama (hero 52, bar aksi 56)
+       butuh tinggi lebih; fallback 48px tetap jadi dasar. */
+    height: 48px;
+    min-height: 48px;
     padding: 0 22px !important;
     white-space: nowrap !important;
     border-radius: 10px !important;
@@ -1997,14 +2003,13 @@ body.elementor-page-59 .floating-wa-btn {
     right: 24px;
     bottom: 24px;
 }
-/* --- 11.4 <= 767px: tanpa bar CTA bawah di halaman ini -> ruang cadangan
-       76px di bawah footer dihapus; WA melayang tetap tampil --- */
+/* --- 11.4 <= 767px (diubah Ronde 24): bar aksi menggantikan WA melayang ------ */
 @media (max-width: 767.98px) {
     body.elementor-page-59 {
         padding-bottom: 0;
     }
     body.elementor-page-59 .floating-wa-btn {
-        display: grid !important;
+        display: none !important;
     }
 }
 @media (max-width: 991.98px) {
@@ -2096,3 +2101,415 @@ body.elementor-page-59 .elementor-59 h1 .elementor-heading-title {
 @media (max-width: 375.98px){
 body.elementor-page-59 .brand-text-link span:first-child{font-size:12px;letter-spacing:0}
 }
+/* =====================================================================
+   RONDE 24 (REVAMP17) — WARNA LEBIH HIDUP + MOBILE-FIRST
+   (ditempatkan paling akhir agar mengesampingkan rule ronde sebelumnya
+    dengan specificity sama; tanpa !important baru)
+   ===================================================================== */
+
+/* --- A1. LOGO: badge putih radius 10 + shadow tipis; tagline hidup lagi --- */
+body.elementor-page-59 .stitch-brand-col .brand-logo-img img {
+    height: 44px;
+    background: #FFFFFF;
+    border: 1px solid var(--mt-border);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(11, 12, 16, 0.08);
+    padding: 4px 6px;
+    box-sizing: border-box;
+}
+body.elementor-page-59 .stitch-brand-col .e-con-inner {
+    gap: 12px;
+}
+body.elementor-page-59 .brand-sub {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--mt-text);
+    letter-spacing: 0.2px;
+}
+
+/* --- A2. SOROTAN "Tetap Jalan": penanda emas cerah solid 8px --- */
+body.elementor-page-59 .elementor-59 .hero-brand-highlight::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+    width: 100%;
+    height: 8px;
+    background: var(--mt-gold-b);
+    opacity: 1;
+    border-radius: 4px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* --- A3. TOMBOL UTAMA: emas cerah FLAT + teks Ink --- */
+body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button,
+body.elementor-page-59 .elementor-59 .btn-fleet-primary .elementor-button,
+body.elementor-page-59 .elementor-59 .btn-cta-primary .elementor-button {
+    background-color: var(--mt-gold-b);
+    background-image: none;
+    color: var(--mt-ink);
+    box-shadow: 0 6px 16px rgba(201, 149, 48, 0.28);
+    border: 0;
+}
+body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button:hover,
+body.elementor-page-59 .elementor-59 .btn-fleet-primary .elementor-button:hover,
+body.elementor-page-59 .elementor-59 .btn-cta-primary .elementor-button:hover {
+    background-color: var(--mt-gold-b-hover);
+    transform: translateY(-2px);
+}
+body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button:active,
+body.elementor-page-59 .elementor-59 .btn-fleet-primary .elementor-button:active,
+body.elementor-page-59 .elementor-59 .btn-cta-primary .elementor-button:active {
+    background-color: var(--mt-gold-b-press);
+    transform: translateY(0);
+}
+body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button:focus-visible,
+body.elementor-page-59 .elementor-59 .btn-fleet-primary .elementor-button:focus-visible,
+body.elementor-page-59 .elementor-59 .btn-cta-primary .elementor-button:focus-visible {
+    outline: 2px solid var(--mt-navy);
+    outline-offset: 2px;
+}
+body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button .elementor-button-icon,
+body.elementor-page-59 .elementor-59 .btn-cta-primary .elementor-button .elementor-button-icon {
+    color: var(--mt-ink);
+}
+
+/* Tombol sekunder di kartu CTA (latar Ink): outline putih, hover emas */
+body.elementor-page-59 .elementor-59 .btn-cta-secondary .elementor-button {
+    background-color: transparent;
+    border: 1.5px solid #FFFFFF;
+    color: #FFFFFF;
+}
+body.elementor-page-59 .elementor-59 .btn-cta-secondary .elementor-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--mt-gold-b);
+    color: #FFFFFF;
+}
+
+/* --- A4. CHIP IKON KARTU: emas cerah + ikon Ink, radius 14 --- */
+/* Specificity >= rule post-59 (view-framed .elementor-icon) */
+body.elementor-page-59 .elementor-59 .elementor-widget.feat-card-box .elementor-icon,
+body.elementor-page-59 .elementor-59 .elementor-widget.svc-box .elementor-icon,
+body.elementor-page-59 .elementor-59 .elementor-widget.step-icon .elementor-icon,
+body.elementor-page-59 .elementor-59 .e-con.stat-item .elementor-icon,
+body.elementor-page-59 .elementor-59 .telematics-chip-icon {
+    background: var(--mt-gold-b);
+    color: var(--mt-ink);
+    border-radius: 14px;
+}
+body.elementor-page-59 .elementor-59 .elementor-widget.feat-card-box .elementor-icon,
+body.elementor-page-59 .elementor-59 .elementor-widget.svc-box .elementor-icon,
+body.elementor-page-59 .elementor-59 .elementor-widget.step-icon .elementor-icon,
+body.elementor-page-59 .elementor-59 .e-con.stat-item .elementor-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 11px;
+    box-sizing: border-box;
+    font-size: 22px;
+    line-height: 1;
+}
+body.elementor-page-59 .elementor-59 .feat-card-box .elementor-icon .e-font-icon-svg,
+body.elementor-page-59 .elementor-59 .svc-box .elementor-icon .e-font-icon-svg,
+body.elementor-page-59 .elementor-59 .step-icon .elementor-icon .e-font-icon-svg,
+body.elementor-page-59 .elementor-59 .stat-item .elementor-icon .e-font-icon-svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* --- A5. ANGKA STATISTIK: garis emas pendek di bawah angka --- */
+body.elementor-page-59 .elementor-59 .stat-number .elementor-counter-number-wrapper::after {
+    content: "";
+    display: block;
+    width: 36px;
+    height: 3px;
+    background: var(--mt-gold-b);
+    border-radius: 2px;
+    margin-top: 6px;
+}
+
+/* --- A6. KARTU UNGGULAN FLEET: border halus + garis emas 3px sisi atas --- */
+body.elementor-page-59 .elementor-59 .fleet-tier-col.featured {
+    border: 1px solid var(--mt-border);
+    border-top: 3px solid var(--mt-gold-b);
+}
+body.elementor-page-59 .elementor-59 .fleet-tier-col.featured:hover {
+    box-shadow: 0 16px 40px -10px rgba(11, 12, 16, 0.12);
+}
+
+/* --- A7. CHIP MEREK HERO: 1 baris scroll-snap lembut (mobile & desktop) --- */
+body.elementor-page-59 .hero-brands-block .brand-chips-row {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 16px, #000 calc(100% - 16px), transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0, #000 16px, #000 calc(100% - 16px), transparent 100%);
+}
+body.elementor-page-59 .hero-brands-block::-webkit-scrollbar,
+body.elementor-page-59 .hero-brands-block .brand-chips-row::-webkit-scrollbar {
+    display: none;
+}
+body.elementor-page-59 .hero-brands-block .brand-chip {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    white-space: nowrap;
+    background: #FFFFFF;
+    border-color: var(--mt-silver);
+    color: var(--mt-text);
+    box-shadow: none;
+}
+@media (min-width: 768px) {
+    /* Desktop: chip dipadatkan agar 6 merek muat 1 baris tanpa terpotong */
+    body.elementor-page-59 .hero-brands-block .brand-chip {
+        flex: 0 0 auto;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-left: 8px;
+        padding-right: 8px;
+        font-size: 11px;
+        letter-spacing: 0.2px;
+    }
+    body.elementor-page-59 .hero-brands-block .brand-chips-row {
+        gap: 6px;
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+}
+
+/* --- B1. BAR AKSI MOBILE (<=767px): WA hijau + Jadwalkan Servis emas --- */
+@media (min-width: 768px) {
+    body.elementor-page-59 .mt-action-bar {
+        display: none;
+    }
+}
+@media (max-width: 767.98px) {
+    body.elementor-page-59 {
+        padding-bottom: calc(84px + env(safe-area-inset-bottom));
+    }
+    body.elementor-page-59 .mt-action-bar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1040;
+        background: #FFFFFF;
+        border-top: 1px solid var(--mt-border);
+        box-shadow: 0 -6px 20px rgba(11, 12, 16, 0.08);
+        padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
+    }
+    body.elementor-page-59 .mt-action-bar-row {
+        display: flex;
+        gap: 10px;
+        padding: 0;
+    }
+    body.elementor-page-59 .mt-action-bar .mt-btn {
+        flex: 1 1 0;
+        padding: 0;
+    }
+    body.elementor-page-59 .mt-action-bar .mt-btn .elementor-button {
+        width: 100%;
+        height: 56px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    /* Gantikan tombol WA melayang agar tidak dobel */
+    body.elementor-page-59 .floating-wa-btn {
+        display: none;
+    }
+    body.elementor-page-59 .mt-action-bar.is-hidden {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(8px);
+    }
+}
+body.elementor-page-59 .act-wa .elementor-button {
+    background-color: #25D366;
+    color: #FFFFFF;
+}
+body.elementor-page-59 .act-wa .elementor-button:hover {
+    background-color: #128C7E;
+    color: #FFFFFF;
+}
+/* Bila PHONE_TEL valid, tombol kiri menjadi [Telepon] (emas cerah, teks Ink) */
+body.elementor-page-59 .act-phone .elementor-button {
+    background-color: var(--mt-gold-b);
+    color: var(--mt-ink);
+    box-shadow: 0 6px 16px rgba(201, 149, 48, 0.28);
+}
+body.elementor-page-59 .act-book .elementor-button {
+    background-color: var(--mt-gold-b);
+    color: var(--mt-ink);
+    box-shadow: 0 6px 16px rgba(201, 149, 48, 0.28);
+}
+body.elementor-page-59 .mt-action-bar.is-hidden {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* --- B2. HERO MOBILE (3.1): teks dulu, foto di bawah, tombol full-width --- */
+@media (max-width: 767.98px) {
+    body.elementor-page-59 .stitch-sec-hero .txt-col,
+    body.elementor-page-59 .stitch-sec-hero .hero-text-col {
+        order: 0;
+    }
+    body.elementor-page-59 .stitch-sec-hero .hero-visual-col {
+        order: 1;
+        width: 100%;
+    }
+    body.elementor-page-59 .stitch-sec-hero .hero-btns-row {
+        flex-direction: column;
+    }
+    body.elementor-page-59 .stitch-sec-hero .hero-btns-row .mt-btn {
+        width: 100%;
+    }
+    body.elementor-page-59 .stitch-sec-hero .hero-btns-row .btn-hero-primary .elementor-button {
+        width: 100%;
+        min-height: 52px;
+        justify-content: center;
+    }
+    body.elementor-page-59 .stitch-sec-hero .hero-btns-row .btn-hero-secondary .elementor-button {
+        width: 100%;
+        min-height: 48px;
+        justify-content: center;
+    }
+    body.elementor-page-59 .hero-truck-img img {
+        height: 240px;
+        object-fit: cover;
+        object-position: 55% center;
+    }
+    /* Statistik 2x2 */
+    body.elementor-page-59 .hero-stats-inner {
+        flex-wrap: wrap;
+    }
+    body.elementor-page-59 .hero-stats-inner .stat-col {
+        width: calc(50% - 8px);
+        min-width: calc(50% - 8px);
+    }
+    body.elementor-page-59 .hero-stats-inner .stat-col .stat-item {
+        display: flex;
+    }
+    /* Kartu stack 1 kolom + jarak vertikal seragam dari builder mobile padding */
+    body.elementor-page-59 .stitch-topbar .stitch-topbar-hide-mobile,
+    body.elementor-page-59 .stitch-topbar-hour-item {
+        display: none;
+    }
+}
+
+/* --- C1. TAP TARGET & TEKS (3.4) --- */
+@media (max-width: 991.98px) {
+    body.elementor-page-59 .footer-links a,
+    body.elementor-page-59 .footer-contact a,
+    body.elementor-page-59 .footer-menu a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+    }
+    body.elementor-page-59 .footer-links a + a {
+        margin-left: 8px;
+    }
+}
+/* Ikon sosial footer & tautan topbar & judul FAQ: area sentuh >= 44px */
+body.elementor-page-59 .footer-social a {
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+body.elementor-page-59 a.elementor-accordion-title {
+    display: flex;
+    align-items: center;
+    min-height: 56px;
+    padding: 0 20px;
+}
+@media (max-width: 767.98px) {
+    body.elementor-page-59 .topbar-left-col a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 32px;
+    }
+}
+body.elementor-page-59 .faq-accordion-box .elementor-tab-title {
+    padding: 15px 20px;
+    min-height: 56px;
+}
+
+/* --- C2c. CARA KERJA: 1 kolom + garis vertikal di mobile --- */
+@media (max-width: 767.98px) {
+    body.elementor-page-59 .workflow-row {
+        flex-direction: column;
+        gap: 14px;
+    }
+    body.elementor-page-59 .workflow-row .step-card {
+        width: 100%;
+        position: relative;
+    }
+    body.elementor-page-59 .workflow-row .step-card:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -15px;
+        width: 2px;
+        height: 14px;
+        background: var(--mt-silver);
+        transform: translateX(-50%);
+    }
+}
+
+/* --- C2b. LOGO MEREK: grid 3x2 di mobile --- */
+@media (max-width: 767.98px) {
+    body.elementor-page-59 .brand-logos-row {
+        flex-wrap: wrap;
+    }
+    body.elementor-page-59 .brand-logos-row .brand-logo-col {
+        width: calc(33.333% - 12px);
+        min-width: calc(33.333% - 12px);
+    }
+    body.elementor-page-59 .brand-logos-row .brand-logo-row-img img {
+        height: 44px;
+        object-fit: contain;
+    }
+}
+
+/* --- C2. KARTU & SECTION MOBILE (3.6) — 1 kolom sudah native; baris-focus: --- */
+@media (max-width: 767.98px) {
+    body.elementor-page-59 .booking-card {
+        padding: 20px;
+    }
+    body.elementor-page-59 .booking-card input,
+    body.elementor-page-59 .booking-card select,
+    body.elementor-page-59 .booking-card textarea {
+        font-size: 16px; /* cegah zoom otomatis iOS */
+        min-height: 48px;
+    }
+}
+
+/* --- A8. FOTO HERO: grading hangat ringan (port-foto dipertahankan) --- */
+body.elementor-page-59 .hero-truck-img img,
+body.elementor-page-59 .svc-img,
+body.elementor-page-59 .fac-img {
+    filter: saturate(1.06) contrast(1.03);
+}
+
+/* --- C3. MOBILE ≤767px: tagline disembunyikan; logo 40px (2.2) --- */
+@media (max-width: 767.98px) {
+    body.elementor-page-59 .brand-text-link {
+        display: none;
+    }
+    body.elementor-page-59 .stitch-brand-col .brand-logo-img img {
+        height: 40px;
+    }
+    body.elementor-page-59 header.elementor,
+    body.elementor-page-59 .stitch-navbar.sticky-top {
+        max-width: 100vw;
+    }
+}
+
