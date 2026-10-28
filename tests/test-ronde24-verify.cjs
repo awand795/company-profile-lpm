@@ -2,7 +2,7 @@
  * RONDE 24 (REVAMP17) — verifikasi "warna lebih hidup + mobile-first".
  * Pemakaian: node tests/test-ronde24-verify.cjs
  * Sumber kebenaran: palet ronde24 (TOK tools/build-stitch-elementor.py) +
- * aturan 2.x & 3.x: emas bukan warna teks, satu kartu Ink, bar aksi mobile,
+ * aturan 2.x & 3.x (RONDE 25: palet navy + biru baja), satu kartu navy, bar aksi mobile,
  * layar pertama 390, tap target >=44px (kecuali topbar <=36px), tel: valid.
  */
 const { chromium } = require('playwright');
@@ -33,7 +33,7 @@ const GOLD_TEXT = /rgb\((192, 154, 67|138, 95, 18|232, 184, 74|217, 165, 58|201,
     return { top: Math.round(r.top), h: Math.round(r.height), w: Math.round(r.width), visible: r.top >= 0 && r.bottom <= window.innerHeight && r.width > 100, bg: getComputedStyle(el).backgroundColor, color: getComputedStyle(el).color };
   });
   check('1. tombol utama hero visible layar pertama 390', !!(heroBtn && heroBtn.visible), JSON.stringify(heroBtn));
-  check('1b. tombol utama = emas cerah + teks Ink', heroBtn && heroBtn.bg === 'rgb(232, 184, 74)' && heroBtn.color === 'rgb(11, 12, 16)', heroBtn && heroBtn.bg + '/' + heroBtn.color);
+  check('1b. tombol utama = biru baja + teks putih', heroBtn && heroBtn.bg === 'rgb(36, 87, 166)' && heroBtn.color === 'rgb(255, 255, 255)', heroBtn && heroBtn.bg + '/' + heroBtn.color);
   check('1c. tinggi tombol utama >= 52px', heroBtn && heroBtn.h >= 52, heroBtn && heroBtn.h);
 
   // 2. Bar aksi menempel di bawah, dua tombol, tidak aktif di desktop
@@ -54,7 +54,7 @@ const GOLD_TEXT = /rgb\((192, 154, 67|138, 95, 18|232, 184, 74|217, 165, 58|201,
     };
   });
   check('2. bar aksi fixed bottom @390', bar && bar.pos === 'fixed' && Math.abs(bar.bottom - bar.innerH) <= 2, JSON.stringify(bar && { pos: bar.pos, bottom: bar.bottom, innerH: bar.innerH }));
-  check('2b. bar aksi 2 tombol [WA hijau + Jadwalkan emas]', bar && bar.btnCount === 2 && bar.waGreen === 'rgb(37, 211, 102)' && bar.bookBg === 'rgb(232, 184, 74)' && bar.bookColor === 'rgb(11, 12, 16)', bar && [bar.waGreen, bar.bookBg, bar.bookColor].join(' | '));
+  check('2b. bar aksi 2 tombol [WA hijau AA + Jadwalkan biru]', bar && bar.btnCount === 2 && bar.waGreen === 'rgb(21, 128, 61)' && bar.bookBg === 'rgb(36, 87, 166)' && bar.bookColor === 'rgb(255, 255, 255)', bar && [bar.waGreen, bar.bookBg, bar.bookColor].join(' | '));
   check('2c. tombol WA melayang TIDAK tampil @390 (tidak dobel)', bar && bar.floatWa === 'none', bar && 'floating-wa=' + bar.floatWa);
 
   // 2d. bar aksi sembunyi saat field form fokus, muncul lagi saat blur
@@ -139,7 +139,7 @@ const GOLD_TEXT = /rgb\((192, 154, 67|138, 95, 18|232, 184, 74|217, 165, 58|201,
     }
     return bad;
   }, String(GOLD_TEXT).replace(/^\/|\/i$/g, ''));
-  check('8. 0 teks berwarna emas', goldText.length === 0, JSON.stringify(goldText.slice(0, 5)));
+  check('8. 0 teks berwarna emas/kuning', goldText.length === 0, JSON.stringify(goldText.slice(0, 5)));
 
   // 9. Tanpa background-clip:text
   const clip = await page.evaluate(() => {
@@ -210,37 +210,37 @@ const GOLD_TEXT = /rgb\((192, 154, 67|138, 95, 18|232, 184, 74|217, 165, 58|201,
   check('14. bar aksi disembunyikan di desktop', desk.barDisplay === 'none', desk.barDisplay);
   check('15. chip merek desktop: jika 1 baris, semua chip tidak terpotong ATAU scroll rapi', desk.chipSingle || desk.overflow, JSON.stringify({ koji: desk.chipSingle, overflow: desk.overflow }));
 
-  check('16. kartu CTA penutup = Ink (satu-satunya blok gelap)', desk.ctaBg === 'rgb(11, 12, 16)', desk.ctaBg);
-  check('17. tombol CTA utama emas cerah + teks Ink', desk.ctaBtnBg === 'rgb(232, 184, 74)' && desk.ctaBtnColor === 'rgb(11, 12, 16)', desk.ctaBtnBg + '/' + desk.ctaBtnColor);
+  check('16. kartu CTA penutup = navy (satu-satunya blok gelap)', desk.ctaBg === 'rgb(11, 31, 58)', desk.ctaBg);
+  check('17. tombol CTA utama putih + teks navy', desk.ctaBtnBg === 'rgb(255, 255, 255)' && desk.ctaBtnColor === 'rgb(11, 31, 58)', desk.ctaBtnBg + '/' + desk.ctaBtnColor);
 
-  // 18. Ikon chip kartu = emas cerah + ikon Ink, radius 14
+  // 18. Ikon chip kartu = tint biru + ikon biru baja, radius 14
   const iconChip = await p2.evaluate(() => {
     const el = document.querySelector('.feat-card-box .elementor-icon');
     if (!el) return null;
     const cs = getComputedStyle(el);
     return { bg: cs.backgroundColor, color: cs.color };
   });
-  check('18. chip ikon kartu emas cerah + ikon Ink', iconChip && iconChip.bg === 'rgb(232, 184, 74)' && iconChip.color === 'rgb(11, 12, 16)', iconChip && JSON.stringify(iconChip));
+  check('18. chip ikon kartu tint biru + ikon biru', iconChip && iconChip.bg === 'rgb(227, 236, 248)' && iconChip.color === 'rgb(36, 87, 166)', iconChip && JSON.stringify(iconChip));
 
-  // 19. Garis emas atas kartu fleet unggulan
+  // 19. Garis biru atas kartu fleet unggulan
   const feat = await p2.evaluate(() => {
     const el = document.querySelector('.fleet-tier-col.featured');
     const cs = getComputedStyle(el);
     return { top: cs.borderTopWidth + ' ' + cs.borderTopColor };
   });
-  check('19. kartu unggulan garis emas 3px sisi atas', feat.top.startsWith('3px') && feat.top.includes('232, 184, 74'), feat.top);
+  check('19. kartu unggulan garis biru 3px sisi atas', feat.top.startsWith('3px') && feat.top.includes('36, 87, 166'), feat.top);
 
-  // 20. Sorotan "Tetap Jalan": marker emas 8px di bawah huruf
+  // 20. Sorotan "Tetap Jalan": garis biru 6px di bawah huruf
   const hi = await p2.evaluate(() => {
     const el = document.querySelector('.hero-brand-highlight');
     const aft = getComputedStyle(el, '::after');
     return { h: aft.height, bg: aft.backgroundColor };
   });
-  check('20. penanda sorotan tetap-jalan emas 8px', hi.h === '8px' && (hi.bg === 'rgb(232, 184, 74)' || hi.bg === 'rgba(232, 184, 74, 1)'), JSON.stringify(hi));
+  check('20. penanda sorotan tetap-jalan biru 6px', hi.h === '6px' && (hi.bg === 'rgb(36, 87, 166)' || hi.bg === 'rgba(36, 87, 166, 1)'), JSON.stringify(hi));
 
-  // 21. Global color emas tombol terdaftar di kit (bisa diubah via editor)
+  // 21. Global color biru hover terdaftar di kit (bisa diubah via editor)
   const html = await p2.content();
-  check('21. Global Colors memuat slot r23goldb (emas tombol)', html.includes('r23goldb'), 'r23goldb x' + (html.match(/r23goldb/g) || []).length);
+  check('21. Global Colors memuat slot r25bluehot (biru hover)', html.includes('r25bluehot'), 'r25bluehot x' + (html.match(/r25bluehot/g) || []).length);
 
   await ctx2.close();
   await browser.close();

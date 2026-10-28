@@ -1,0 +1,31 @@
+{
+ "fase": "sesudah",
+ "tgl": "2026-10-28T07:55:07.191Z",
+ "load_ms": 9206,
+ "lcp": 3316,
+ "cls": 0.02384422542207106,
+ "tbt": 944,
+ "requests": 48,
+ "totalKB": 523,
+ "cssKB": 80,
+ "jsKB": 144,
+ "imgKB": 143,
+ "heroKB": 67,
+ "heroName": "stitch_img_2_warm-768x428.webp",
+ "heroW": "-",
+ "top": [
+  "80KB fa-brands-400.woff2",
+  "77KB fa-solid-900.woff2",
+  "67KB stitch_img_2_warm-768x428.webp",
+  "43KB stitch_img_3_warm.webp",
+  "33KB mastertruck_official_logo.webp",
+  "30KB jquery.min.js",
+  "20KB mt-custom.css",
+  "19KB frontend.min.js"
+ ],
+ "smallTapTargets": [
+  "A. h=32 \"0812-MASTER-TRUCK\""
+ ],
+ "scrollW": 390,
+ "innerW": 390
+}

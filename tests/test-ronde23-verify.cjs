@@ -1,15 +1,15 @@
 /**
  * RONDE 23 (REVAMP16) — tests/test-ronde23-verify.cjs
- * Hukum palet terang (selaras logo hitam–perak–emas):
+ * Hukum palet terang (RONDE 25: navy + biru baja, tanpa emas di halaman):
  *  [1] topbar / navbar sticky / footer latar TERANG (lightness >= 200)
- *  [2] TIDAK ada elemen TEKS berwarna emas (rgb(198,154,67) / rgb(138,95,18))
- *      — emas hanya boleh di garis, ikon <i>/svg, titik, bintang, dan latar tint
+ *  [2] TIDAK ada elemen TEKS berwarna emas/kuning (hue 25-65, saturasi > 25%)
+ *      — emas hanya boleh ada di dalam berkas gambar logo
  *  [3] TIDAK ada background-clip:text di stylesheet halaman
  *  [4] kontras teks >= 4,5:1 (diukurcomputed vs latar leluhur paling dekat)
  *      pengecualian: tombol/link WhatsApp (putih di atas hijau brand #25D366
  *      sesuai keputusan ronde — tak masuk ukuran ini)
- *  [5] tombol utama hero/CTA/fleet/Daftar = Ink bg + teks putih; tombol WA tetap #25D366
- *  [6] nav aktif = pil #F1F3F5 dengan teks Ink
+ *  [5] tombol utama = biru baja #2457A6 + teks putih; Daftar = navy; WA = hijau #15803D
+ *  [6] nav aktif = teks navy + garis bawah biru (tanpa pil)
  *  [7] tanpa horizontal scroll di 1920, 1366x600, 768, 390
  *
  * Pemakaian: node tests/test-ronde23-verify.cjs
@@ -31,7 +31,8 @@ function parseRgb(str) {
 }
 function isLightBg(str) {
   const c = parseRgb(str);
-  if (!c || c.a < 1) return false;
+  // Ronde 25: header sticky boleh putih 96% + blur (masih permukaan terang).
+  if (!c || c.a < 0.9) return false;
   return (c.r + c.g + c.b) / 3 >= 200;
 }
 function lum(c) {
@@ -135,16 +136,16 @@ function contrast(fg, bg) {
       waFg: fg('.btn-booking-wa'),
     };
   });
-  const inkOk = (s) => !!s && /rgba\(11, 12, 16, 1\)|#0B0C10|rgb\(11, 12, 16\)/i.test(s);
+  const navyOk = (s) => !!s && /rgba\(11, 31, 58, 1\)|#0B1F3A|rgb\(11, 31, 58\)/i.test(s);
+  const blueOk = (s) => !!s && /rgba\(36, 87, 166, 1\)|#2457A6|rgb\(36, 87, 166\)/i.test(s);
   const whiteOk = (s) => !!s && /rgba\(255, 255, 255, 1\)|rgb\(255, 255, 255\)|rgb\(255,255,255\)/i.test(s);
-  const waOk = (s) => !!s && /rgba\(37, 211, 102, 1\)|rgb\(37, 211, 102\)/i.test(s);
-  // Ronde 24: tombol utama = emas cerah #E8B84A + teks Ink (masih tanpa emas sebagai teks).
-  const goldBrightOk = (s) => !!s && /rgb\(232, 184, 74\)|rgb\(232,184,74\)/i.test(s);
-  check('5a. tombol hero utama emas cerah (ronde24)', goldBrightOk(btns.heroPrimaryBg), btns.heroPrimaryBg);
-  check('5b. teks tombol hero Ink (ronde24)', inkOk(btns.heroPrimaryFg), btns.heroPrimaryFg);
-  check('5c. tombol Daftar Ink', inkOk(btns.registerBg), btns.registerBg);
+  const waOk = (s) => !!s && /rgba\(21, 128, 61, 1\)|rgb\(21, 128, 61\)/i.test(s);
+  // Ronde 25: tombol utama = biru baja #2457A6 + teks putih; Daftar = navy.
+  check('5a. tombol hero utama biru baja (ronde25)', blueOk(btns.heroPrimaryBg), btns.heroPrimaryBg);
+  check('5b. teks tombol hero putih (ronde25)', whiteOk(btns.heroPrimaryFg), btns.heroPrimaryFg);
+  check('5c. tombol Daftar navy', navyOk(btns.registerBg), btns.registerBg);
   check('5d. teks Daftar putih', whiteOk(btns.registerFg), btns.registerFg);
-  check('5e. tombol WA tetap #25D366', waOk(btns.waBg), btns.waBg);
+  check('5e. tombol WA hijau AA #15803D', waOk(btns.waBg), btns.waBg);
   check('5f. teks tombol WA putih', whiteOk(btns.waFg), btns.waFg);
 
   // 6. nav aktif pil tint + teks Ink (js scrollspy butuh scroll dulu)
@@ -155,8 +156,8 @@ function contrast(fg, bg) {
     if (!a) return null;
     return { bg: getComputedStyle(a).backgroundColor, fg: getComputedStyle(a).color };
   });
-  check('6a. nav aktif pil tint', activePill && isLightBg(activePill.bg), activePill ? activePill.bg : 'tidak ada');
-  check('6b. teks nav aktif BUKAN emas', activePill && !/rgb\(198, 154, 67\)|rgb\(198,154,67\)|rgb\(138, 95, 18\)/i.test(activePill.fg), activePill ? activePill.fg : '-');
+  check('6a. nav aktif tanpa pil (latar transparan)', activePill && /rgba\(0, 0, 0, 0\)|transparent/.test(activePill.bg), activePill ? activePill.bg : 'tidak ada');
+  check('6b. teks nav aktif navy (bukan emas)', activePill && navyOk(activePill.fg), activePill ? activePill.fg : '-');
 
   await ctx.close();
 
