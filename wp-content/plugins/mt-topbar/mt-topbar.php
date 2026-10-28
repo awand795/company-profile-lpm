@@ -138,10 +138,10 @@ add_action( 'wp_head', function () {
 		// dengan fetchpriority=high pada <img> hero lewat filter di bawah.
 	}
 	// Meta theme-color selalu dikeluarkan tepat 1x
-	echo '<meta name="theme-color" content="#0B0C10" />' . "\n";
-	// RONDE 24: token emas mt-custom mengikuti Global Colors (r23goldb/r23gold)
-	// agar warna bar aksi, tombol & aksen bisa diubah lewat Site Settings.
-	echo '<style>body.elementor-page-59{--mt-gold-b:var(--e-global-color-r23goldb, #E8B84A);--mt-gold:var(--e-global-color-r23gold, #C69A43);}</style>' . "\n";
+	echo '<meta name="theme-color" content="#0B1F3A" />' . "\n";
+	// RONDE 25: token warna mt-custom mengikuti Global Colors (navy + biru baja)
+	// agar warna tombol, bar aksi & aksen bisa diubah lewat Site Settings.
+	echo '<style>body.elementor-page-59{--mt-navy:var(--e-global-color-primary, #0B1F3A);--mt-blue:var(--e-global-color-secondary, #2457A6);--mt-blue-hover:var(--e-global-color-r25bluehot, #1B4587);--mt-blue-tint:var(--e-global-color-accent, #E3ECF8);--mt-text:var(--e-global-color-text, #44546A);--mt-muted:var(--e-global-color-r23muted, #5B6B80);--mt-surface:var(--e-global-color-r23surface, #F4F7FB);--mt-border:var(--e-global-color-r23border, #DDE3EC);--mt-silver:var(--e-global-color-r23silver, #C3CEDC);}</style>' . "\n";
 }, 1 );
 
 /* RONDE 24: <img> hero (lampiran 353) = kandidat LCP -> fetchpriority=high,
