@@ -933,15 +933,15 @@ body.elementor-page-59 .hero-telematics-card {
     left: 20px !important;
     right: auto !important;
     z-index: 3 !important;
-    max-width: 70% !important;
+    max-width: 78% !important;
     width: auto !important;
-    background: rgba(255, 255, 255, 0.96) !important;
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
+    background: #FFFFFF !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     border: 1px solid var(--mt-border) !important;
     border-radius: 16px !important;
-    padding: 12px 16px !important;
-    box-shadow: 0 12px 32px rgba(11, 31, 58, 0.14) !important;
+    padding: 14px 16px !important;
+    box-shadow: 0 12px 28px rgba(11, 31, 58, 0.12) !important;
     box-sizing: border-box !important;
     text-align: left !important;
 }
@@ -3510,12 +3510,12 @@ body.elementor-page-59 .telematics-single-desc {
         aspect-ratio: auto !important;
         border-radius: 15px !important;
     }
-    body.elementor-page-59 .hero-telematics-card {
+    body.elementor-page-59 .elementor-59 .stitch-sec-hero .hero-telematics-card {
         bottom: 12px !important;
         left: 12px !important;
         max-width: 88% !important;
         padding: 10px 12px !important;
-        border-radius: 12px !important;
+        border-radius: 16px !important;
         text-align: left !important;
     }
     body.elementor-page-59 .hero-telematics-card .telematics-title {
@@ -3701,4 +3701,171 @@ body.elementor-page-59 .hero-stats-inner .stat-number .elementor-counter-title {
         min-height: 0 !important;
         text-align: left !important;
     }
+}
+
+/* =====================================================================
+   RONDE 28 (REVAMP21) - HERO: SATU PIL BADGE, FOTO SEJAJAR KOLOM TEKS,
+   DEKORASI TINT TUNGGAL, KARTU TELEMATIKA RAPI.
+   Catatan kerja: blok ini sengaja diletakkan paling akhir dan TIDAK
+   menambah deklarasi !important baru (cukup spesifisitas lebih tinggi).
+   ===================================================================== */
+
+/* --- A. BADGE: SATU PIL (bingkai/ring pada wrapper DIHAPUS) --- */
+body.elementor-page-59 .elementor-59 .stitch-sec-hero .hero-authority-badge {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    max-width: 100%;
+    align-self: flex-start;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    outline: none;
+}
+body.elementor-page-59 .elementor-59 .stitch-sec-hero .hero-authority-badge .elementor-heading-title {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--mt-navy);
+}
+body.elementor-page-59 .elementor-59 .stitch-sec-hero .hero-authority-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    max-width: 100%;
+    padding: 8px 14px;
+    border: 1px solid var(--mt-border);
+    border-radius: 999px;
+    background: #FFFFFF;
+    box-shadow: none;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--mt-navy);
+}
+body.elementor-page-59 .elementor-59 .stitch-sec-hero .hero-authority-pill i {
+    color: var(--mt-blue);
+    font-size: 14px;
+    line-height: 1;
+    margin-right: 0;
+}
+
+/* --- B. FOTO SEJAJAR KOLOM TEKS (2 kolom, tinggi foto = tinggi kolom teks) --- */
+@media (min-width: 1024px) {
+    /* Ritme dirapatkan sedikit agar tinggi kolom teks + foto tetap di 420-520px */
+    body.elementor-page-59 .elementor-59 .stitch-sec-hero .hero-title .elementor-heading-title {
+        line-height: 1.04;
+    }
+    body.elementor-page-59 .elementor-59 .stitch-sec-hero .hero-lead {
+        line-height: 1.5;
+    }
+    body.elementor-page-59 .elementor-59 .stitch-sec-hero .hero-main-row {
+        align-items: stretch;
+    }
+    body.elementor-page-59 .elementor-59 .stitch-sec-hero .hero-visual-col {
+        display: flex;
+        align-items: stretch;
+        align-self: stretch;
+    }
+    body.elementor-page-59 .elementor-59 .stitch-sec-hero .hero-visual-card-wrap {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+    body.elementor-page-59 .elementor-59 .stitch-sec-hero .hero-truck-img {
+        flex: 1 1 auto;
+        height: 100%;
+        min-height: 420px;
+        max-height: 520px;
+        border: 1px solid var(--mt-border);
+        border-radius: 28px;
+        box-shadow: 0 24px 48px rgba(11, 31, 58, .14);
+    }
+    body.elementor-page-59 .elementor-59 .stitch-sec-hero .hero-truck-img .elementor-widget-container {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        border-radius: 27px;
+    }
+    body.elementor-page-59 .elementor-59 .stitch-sec-hero .hero-truck-img img {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: auto;
+        object-fit: cover;
+        object-position: 50% 30%;
+        border-radius: 27px;
+    }
+    /* Chip merek didorong ke dasar kolom: tepi bawah foto = tepi bawah chip terakhir */
+    body.elementor-page-59 .elementor-59 .stitch-sec-hero .hero-brands-widget {
+        margin-top: auto;
+    }
+    body.elementor-page-59 .elementor-59 .stitch-sec-hero .hero-brands-block .brand-chips-row {
+        padding-bottom: 0;
+    }
+}
+
+/* --- C. DEKORASI: HANYA SATU BLOK TINT DI BELAKANG FOTO (pola titik dihapus) --- */
+body.elementor-page-59 .elementor-59 .stitch-sec-hero .hero-visual-card-wrap::after {
+    content: none;
+    display: none;
+    background-image: none;
+}
+body.elementor-page-59 .elementor-59 .stitch-sec-hero .hero-visual-card-wrap::before {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    margin: 0;
+    transform: translate(16px, 16px);
+    background-color: var(--mt-blue-tint);
+    background-image: none;
+    border: 0;
+    border-radius: 32px;
+    opacity: 1;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* --- D. KARTU "MESIN DICEK DIGITAL": LEBAR = ISI, DI DALAM FOTO KIRI-BAWAH --- */
+/* (kotak/padding/latar kartu diatur pada aturan aslinya: max-width 78%, padding 14px 16px, putih) */
+body.elementor-page-59 .elementor-59 .stitch-sec-hero .hero-telematics-card .telematics-chip-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 10px;
+    background: var(--mt-blue-tint);
+    color: var(--mt-blue);
+    font-size: 15px;
+}
+body.elementor-page-59 .elementor-59 .stitch-sec-hero .hero-telematics-card .telematics-title {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--mt-navy);
+    white-space: nowrap;
+}
+body.elementor-page-59 .elementor-59 .stitch-sec-hero .hero-telematics-card .telematics-status-pill {
+    font-size: 12px;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+body.elementor-page-59 .elementor-59 .stitch-sec-hero .hero-telematics-card .telematics-single-desc {
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--mt-muted);
+    text-align: left;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
 }

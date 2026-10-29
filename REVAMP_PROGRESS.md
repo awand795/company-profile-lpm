@@ -1095,3 +1095,66 @@ Palet navy + biru baja tanpa emas sudah FINAL dan DISETUJUI pemilik. Pekerjaan d
 - Final: `playwright_review/sesudah_ronde27/` (16 file: 5 viewport full-page + view layar pertama + crop section detail)
 - Backup: `archive/backups/_backup_ronde27_20261028/`
 - Tag Git: `pre-ronde27` -> `ronde27-done`
+
+---
+
+<!-- ============================================================ -->
+<!-- RONDE 28 - 4 CACAT HERO PAGE 59                              -->
+<!-- ============================================================ -->
+
+## RONDE 28 (2026-10-29) - Perbaikan 4 Cacat Hero Page 59 (Badge, Foto, Dekorasi, Kartu)
+
+**Mandat:** Hanya memperbaiki 4 cacat hero. Warna/token (`#0B1F3A` + `#2457A6`, tanpa emas), copy/klaim, urutan section, URL, strip statistik, topbar, dan header **tidak diubah**.
+
+### 4 Cacat yang Diperbaiki
+
+| Kode | Cacat sebelum | Perbaikan | Hasil ukur sesudah |
+| --- | --- | --- | --- |
+| **A** | Badge otoritas berbingkai ganda (wrapper + pil sama-sama punya border/padding/latar) | Bingkai wrapper dihapus total; hanya satu pil putih `1px #DDE3EC` radius 999, padding `8px 14px`, teks 12px/700 uppercase navy, ikon perisai 14px biru baja | Pil `443,8 × 32,4 px`; kotak wrapper = kotak pil (selisih 0px); mobile 390 dua baris, tetap `fit-content` |
+| **B** | Foto tidak sejajar kolom teks (atas foto di bawah badge, bawah foto jauh di atas chip terakhir), rasio terpotong | Baris 2 kolom `align-items: stretch`; foto `height:100%`, `min-height:420px`, `max-height:520px`, `object-fit:cover`, `object-position:50% 30%`, radius 28, satu border `1px #DDE3EC`, shadow `0 24px 48px rgba(11,31,58,.14)`; chip merek didorong ke dasar kolom | Atas foto = atas badge dan bawah foto = bawah chip terakhir (selisih **0px**) di 1024/1280/1366/1440/1920; tinggi foto 495-517,7px (420px di 1366×600); CTA bawah **415px** (target <= 460) |
+| **C** | Pola titik (`radial-gradient`) menembus tepi atas foto + blok tint tidak terlihat | Pola titik dihapus (`content:none`); dekorasi tinggal SATU blok tint `#E3ECF8` radius 32, `translate(16px,16px)`, z-index 1 (di bawah foto), `pointer-events:none` | `radial-gradient` titik = 0; tint `rgb(227,236,248)` radius 32px, transform `matrix(1,0,0,1,16,16)`, tanpa perubahan ukuran foto / h-scroll |
+| **D** | Kartu "Mesin Dicek Digital" melebar/keluar konteks foto, teks tidak rata kiri | Kartu `width:fit-content`, `max-width:78%` foto, kiri-bawah offset 20px, putih radius 16, padding `14px 16px`, shadow netral; baris 1 = chip ikon 36px + judul 15px/700 + pil "SIAP JALAN" sebaris; baris 2 = 13px `#5B6B80` rata kiri maks 2 baris | 1440: `393 × 90,8px` = 65,5% foto, offset 20/20px; 1024: 78% (cap); 390: `308 × 111px` = 88%, offset 12/12px, seluruhnya di dalam foto |
+
+**Catatan teknis:**
+- Blok CSS Ronde 28 ditambahkan di akhir `assets/css/mt-custom.css` tanpa deklarasi `!important` baru. Dua aturan `!important` lama (kartu telematika basis + mobile) disunting **di tempat** karena Elementor sudah memaksa properti tersebut.
+- Konsekuensi B: `line-height` H1 1,08 -> 1,04 dan lead 1,6 -> 1,5 khusus >= 1024px agar tinggi kolom teks tetap <= 520px (batas tinggi foto). Tidak ada margin negatif untuk tata letak utama.
+- Chip merek tetap 3+3 (tidak menambah tinggi).
+
+### Screenshot (sebelum -> sesudah)
+
+| Viewport | Sebelum | Sesudah |
+| --- | --- | --- |
+| 1440×900 | `playwright_review/sebelum_ronde28/ronde28-1440-view.png` / `-full.png` | `playwright_review/sesudah_ronde28/ronde28-1440-view.png` / `-full.png` |
+| 1366×600 | `.../sebelum_ronde28/ronde28-1366x600-view.png` / `-full.png` | `.../sesudah_ronde28/ronde28-1366x600-view.png` / `-full.png` |
+| 1024×768 | `.../sebelum_ronde28/ronde28-1024-view.png` / `-full.png` | `.../sesudah_ronde28/ronde28-1024-view.png` / `-full.png` |
+| 768×1024 | `.../sebelum_ronde28/ronde28-768-view.png` / `-full.png` | `.../sesudah_ronde28/ronde28-768-view.png` / `-full.png` |
+| 390×844 | `.../sebelum_ronde28/ronde28-390x844-view.png` / `-full.png` | `.../sesudah_ronde28/ronde28-390x844-view.png` / `-full.png` |
+| Crop detail | `.../sebelum_ronde28/ronde28-crop-{hero,badge,foto,kartu,chip}.png` | `.../sesudah_ronde28/ronde28-crop-{hero,badge,foto,kartu,chip}.png` |
+
+### Hasil Uji
+
+| Pengujian | Status | Catatan |
+| --- | --- | --- |
+| `tests/test-ronde28-verify.cjs` (baru) | **47 PASS / 0 FAIL** | A1-A8 badge, B1-B6 foto/alignment, C1-C4 dekorasi, D1-D7 kartu, M1-M5 metrik lama |
+| `verify-stitch.cjs` | **41 PASS / 0 FAIL** | CTA 1366×600 = 415px <= 470; 0 overflow 320-1920; 1 H1; alt lengkap |
+| `verify-layout.cjs` | **40 PASS / 1 FAIL** | Satu-satunya gagal: "HERO muat 1440×800 (bottom <= 800)" = 919px. **Pre-existing & struktural**: sebelum Ronde 28 = 942px (membaik 23px), karena strip statistik berada di dalam `.stitch-sec-hero` sementara foto wajib >= 420px. Tidak mungkin <= 800 tanpa memindahkan strip atau melanggar tinggi foto. |
+| `verify-editor-health.cjs` | **PASS** | 16 section, editor & preview iframe Page 59 normal, 0 console error |
+| `test-ronde27-verify.cjs` | **10 PASS / 0 FAIL** | Kartu telematika tetap di dalam foto (rasio 65,5% <= 75%) |
+| `test-ronde25-verify.cjs` | **17 PASS / 0 FAIL** | Palet tanpa emas, kontras, tap target |
+| `test-ronde26-verify.cjs` | **25 PASS / 3 FAIL** | Gagal karena ekspektasi lama yang sudah dihapus di Ronde 27 (baris bukti 3 item, badge melayang perisai, garis 28×3px). Bukan regresi Ronde 28. |
+| `test-ronde24-verify.cjs` | **25 PASS / 1 FAIL** | Cek "statistik mobile 2x2" memakai posisi `top` negatif karena halaman sudah di-scroll ke footer oleh langkah sebelumnya (masalah pengukuran test lama). Tidak terkait hero. |
+| `test-ronde19d-verify.cjs` | **FAIL (pre-existing)** | Target CTA <= 470px di 1366×768; terukur 517px. Simulasi CSS pra-Ronde 28 = **529px**, jadi sudah gagal sebelum ronde ini dan justru membaik 12px. Target 470 berasal dari desain hero Ronde 19-20. |
+
+### File yang Berubah
+- `assets/css/mt-custom.css` (+175/-8) dan mirror identik `wp-integration/mastertruck/css/mt-custom.css`, `wp-theme/carserv/assets/css/mt-custom.css`
+- `tests/test-ronde28-verify.cjs` (baru), `tests/shot-ronde28.cjs` (baru)
+- `database_dump.sql`, `database/mt_site.sql` (regenerasi tersanitasi)
+- `REVAMP_PROGRESS.md`
+
+### Sengaja TIDAK Diubah
+- Warna/token, copy & klaim, urutan section, URL, strip statistik, topbar, header, `tools/build-stitch-elementor.py`, dan `elementor-exports/*.json`.
+- Diketahui pre-existing di luar lingkup: nav header bertumpuk dengan tagline pada lebar tepat 1024px (terlihat sama pada screenshot sebelum), serta kegagalan `verify-layout` HERO <= 800px di atas.
+
+### Backup & Tag
+- Backup: `archive/backups/_backup_ronde28_20261029/` (builder, CSS, JS, JSON, dua dump)
+- Tag Git: `pre-ronde28` -> `ronde28-done`
