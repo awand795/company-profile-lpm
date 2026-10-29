@@ -1231,3 +1231,67 @@ Tambahan: strip tablet 768 menjadi 2x2 dan sel desktop memakai lebar penuh, memp
 - Data pemilik prioritas TINGGI: `docs/DATA-PEMILIK.md` bagian 0
 
 **Tag:** `ronde29-fase3`, `ronde29-done`
+
+<!-- ============================================================ -->
+<!-- RONDE 30 - PADDING KARTU TABLET/HP (AKAR: BUILDER)           -->
+<!-- ============================================================ -->
+
+## RONDE 30 (2026-10-29) - Padding Kartu Tablet/HP dari Builder + Keunggulan, Paket, Strip, Hero Desktop
+
+**Mandat:** perbaiki padding kartu di tablet/HP pada akarnya (`col()` builder),
+rapikan Keunggulan & Paket di mobile, strip statistik, dan finishing hero
+desktop. Copy/klaim/urutan section/URL/palet/SEO, `mt-login`, `mt-admin`,
+`WA_NUMBER`, `PHONE_TEL` tidak diubah.
+
+### Akar masalah & perbaikan
+`col()` dan `inner()` di `tools/build-stitch-elementor.py` selalu menulis
+`padding_tablet = padding_mobile = 0`, sehingga SEMUA kartu kehilangan padding di
+≤1023,98px. Ditambahkan `responsive_padding(d)` (tablet = desktop; mobile:
+atas/bawah `min(d,20)`, kiri/kanan `max(16,min(d,18))`) dan `card_padding()`
+yang dipakai `col()` **dan** `inner()`. Padding 0 tetap 0.
+
+### Hasil ukur
+| Butir | Sebelum | Sesudah |
+| --- | --- | --- |
+| Kartu melanggar (<16px) 360/375/390/414/480/768 | 26 kartu | **0 kartu** |
+| Padding kartu mobile | 0 | 18px kiri/kanan |
+| Keunggulan mobile | ikon tengah, teks tengah | ikon 44px kiri, semua teks kiri, 1 kolom gap 12px |
+| Tombol paket mobile | lebar isi (~190px), tidak full | selebar kartu, 48px, radius 12 |
+| Badge "Paling Populer" | menimpa garis tepi | di dalam padding, `fit-content`, margin-bottom 12px |
+| Garis strip statistik | sebaris di kiri label | **di atas** label (display:block), label 12→13px |
+| Header → badge desktop (1366/1440) | 24px | **36px** |
+| Foto → chip terakhir desktop | 58,5px | **0px** |
+| Chip → kartu strip desktop | 68px | **48px** |
+| Kartu strip → eyebrow desktop | 156,1px | **90,5px** |
+| Header → badge mobile 390 | 24px | **20px** |
+| Foto/chip → kartu strip mobile | 68px | **24px** |
+| Kartu strip → eyebrow mobile | 89,9px | **62,6px** |
+| Sorotan "Tetap Jalan" | `#E3ECF8` pucat, 62% tinggi | `#BBD3F2` (`--mt-blue-mark`), tinggi .38em, bottom .06em |
+| `!important` di mt-custom.css | 170 | **170** (tidak bertambah) |
+
+Tablet 768: kartu Layanan jadi 2 kolom dan kartu Paket 1 kolom agar tombol
+("Konsultasi Servis", "Tanya Paket Korporat") utuh di dalam kartu — sebelumnya
+kotak tombol 222,5px di ruang isi 179,1px (menembus tepi kartu).
+
+### Uji
+- `tests/test-ronde30-verify.cjs` (baru): **70 PASS / 0 FAIL** — 5 viewport HP
+  dengan device emulation + 768 + 1366/1440; audit 33 kartu; Keunggulan/Paket/
+  strip; hero desktop; overflow 320–1920; teks <12px; tap target; `!important`.
+- `verify-stitch.cjs` 41/41, `verify-editor-health.cjs` PASS,
+  `verify-ronde29-fase3.cjs` 22/22 (3 assertion diperbarui),
+  `test-ronde28-verify.cjs` 47/47 (4 assertion lama diperbarui),
+  `test-ronde27-verify.cjs` 10/10, `test-ronde25-verify.cjs` 17/17.
+- `verify-layout.cjs` 40/41: satu-satunya gagal adalah HERO ≤800px @1440×800
+  (885px) — pre-existing struktural (Ronde 28: 942px, Ronde 29: 919px).
+- Editor Page 59: 16 section, 0 console error; `feat-bento-col`,
+  `fleet-tier-col`, `hero-stats-inner`, `step-card` semuanya `elType=container`
+  (bisa diedit dari panel).
+
+### Bukti & berkas
+- Screenshot: `playwright_review/sebelum_ronde30/` & `sesudah_ronde30/`
+  (12 section × 390×844 + 360×740, hero 1366×600 / 1440×900 / 1024×768).
+- Laporan lengkap: `docs/LAPORAN-RONDE30.md`
+- Dump tersanitasi: `database/mt_site.sql` + `database_dump.sql` (2,06 MB)
+- Backup: `archive/backups/_backup_ronde30_20261029/`
+
+**Tag:** `pre-ronde30` → `ronde30-done`

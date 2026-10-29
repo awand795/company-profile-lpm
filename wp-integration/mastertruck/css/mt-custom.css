@@ -7,6 +7,7 @@
     --mt-blue-hover: #1B4587;
     --mt-blue-press: #163A73;
     --mt-blue-tint: #E3ECF8;     /* latar Masuk, chip ikon, badge */
+    --mt-blue-mark: #BBD3F2;     /* stabilo sorotan judul (belakang huruf) */
     --mt-blue-tint-hover: #D2E1F5;
     --mt-ink: #0B1F3A;           /* alias lama -> navy */
     --mt-charcoal: #16305A;
@@ -2283,7 +2284,7 @@ body.elementor-page-59 .elementor-59 .topbar-hotline-link .hotline-text-wrap {
 }
 body.elementor-page-59 .elementor-59 .topbar-hotline-link .hotline-lbl {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
     color: var(--mt-muted);
     text-transform: uppercase;
@@ -2349,8 +2350,8 @@ body.elementor-page-59 .elementor-59 .stitch-sec-hero {
     overflow: hidden;
 }
 body.elementor-page-59 .elementor-59 .stitch-sec-hero > .e-con-inner {
-    padding-top: 24px;
-    padding-bottom: 40px;
+    padding-top: 36px;
+    padding-bottom: 16px;
 }
 body.elementor-page-59 .elementor-59 .stitch-sec-hero .elementor-widget {
     margin-bottom: 0;
@@ -2820,8 +2821,8 @@ body.elementor-page-59 .elementor-59 .hero-stats-inner .elementor-counter {
     align-items: flex-start;
 }
 body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-number .elementor-counter-title {
-    display: flex;
-    align-items: center;
+    /* Ronde 30: block (bukan flex) agar garis biru tampil DI ATAS label. */
+    display: block;
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     line-height: 1.4;
@@ -2940,8 +2941,8 @@ body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-number .elementor-c
    --------------------------------------------------------------------- */
 @media (max-width: 767.98px) {
     body.elementor-page-59 .elementor-59 .stitch-sec-hero > .e-con-inner {
-        padding-top: 24px;
-        padding-bottom: 24px;
+        padding-top: 20px;
+        padding-bottom: 4px;
     }
     body.elementor-page-59 .elementor-59 .stitch-topbar {
         display: block;
@@ -3126,7 +3127,7 @@ body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-number .elementor-c
         gap: 0;
         padding: 20px 16px;
         border-radius: 16px;
-        margin-top: 32px;
+        margin-top: 8px;
     }
     body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-col {
         width: calc(50% - 8px);
@@ -3170,9 +3171,10 @@ body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-number .elementor-c
    8. DESKTOP PENDEK (<= 680px tinggi) & ANIMASI
    --------------------------------------------------------------------- */
 @media (max-height: 680px) and (min-width: 992px) {
+    /* Ronde 30: hero pendek tetap memakai ritme .e-con-inner (36/16). */
     body.elementor-page-59 .elementor-59 .stitch-sec-hero {
-        padding-top: 10px;
-        padding-bottom: 24px;
+        padding-top: 0;
+        padding-bottom: 0;
     }
     body.elementor-page-59 .elementor-59 .hero-title .elementor-heading-title {
         font-size: 42px;
@@ -3272,7 +3274,9 @@ body.is-webdriver .hero-telematics-card {
 
 /* 3A. Sorotan H1 menjadi marker stabilo, bukan garis bawah. */
 body.elementor-page-59 .elementor-59 .hero-brand-highlight {
-    background-image: linear-gradient(180deg, transparent 56%, #E3ECF8 56%, #E3ECF8 92%, transparent 92%);
+    background-image: linear-gradient(180deg,
+        transparent calc(100% - 0.44em), var(--mt-blue-mark) calc(100% - 0.44em),
+        var(--mt-blue-mark) calc(100% - 0.06em), transparent calc(100% - 0.06em));
     background-repeat: no-repeat;
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
@@ -3285,34 +3289,37 @@ body.elementor-page-59 .elementor-59 .hero-brand-highlight::after {
 
 /* 3B + 3C. Foto proporsional, tint di dalam grid, overlay lebih lembut. */
 @media (min-width: 1024px) {
+    /* Ronde 30 E1: dasar foto sejajar dasar chip merek terakhir (<= 4px).
+       Kolom foto ikut meregang setinggi baris; tint menggantung 16px ke
+       bawah + ke kanan, tepi kanannya tetap di tepi kanan grid. */
     body.elementor-page-59 .elementor-59 .hero-visual-col {
-        align-items: flex-start;
-        align-self: center;
+        align-items: stretch;
+        align-self: stretch;
     }
     body.elementor-page-59 .elementor-59 .hero-visual-card-wrap {
-        height: auto;
-        padding: 0 16px 16px 0;
+        height: 100%;
+        padding: 0 16px 0 0;
     }
     body.elementor-page-59 .elementor-59 .hero-visual-card-wrap::before {
         top: 16px;
         right: 0;
-        bottom: 0;
+        bottom: -16px;
         left: 16px;
         transform: none;
         border-radius: 28px;
         background-size: auto;
     }
     body.elementor-page-59 .elementor-59 .hero-truck-img {
-        flex: 0 0 auto;
+        flex: 1 1 auto;
         width: 100%;
         height: auto;
         min-height: 0;
         max-height: none;
-        aspect-ratio: 1.55;
+        aspect-ratio: auto;
     }
     body.elementor-page-59 .elementor-59 .hero-truck-img img {
         height: 100%;
-        aspect-ratio: 1.55;
+        aspect-ratio: auto;
         border-radius: 26px;
     }
     body.elementor-page-59 .elementor-59 .hero-truck-img::after {
@@ -3372,7 +3379,7 @@ body.elementor-page-59 .elementor-59 .hero-brand-highlight::after {
         line-height: 1.1;
     }
     body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-number .elementor-counter-title {
-        font-size: 12px;
+        font-size: 13px;
         line-height: 1.4;
         max-height: calc(1.4em * 3);
         overflow: hidden;
@@ -3381,11 +3388,11 @@ body.elementor-page-59 .elementor-59 .hero-brand-highlight::after {
     body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-number .elementor-counter-title::before {
         width: 24px;
         height: 3px;
-        margin: 6px 0 4px;
+        margin: 8px 0 6px;
     }
-    /* 3F. Napas bawah hero 28px; section booking sudah 44px dari builder. */
+    /* 3F/Ronde 30 E4. Napas bawah hero tipis; section booking tetap 44px. */
     body.elementor-page-59 .elementor-59 .stitch-sec-hero > .e-con-inner {
-        padding-bottom: 28px;
+        padding-bottom: 0;
     }
 }
 
@@ -3458,5 +3465,97 @@ body.elementor-page-59 .btn-booking-wa {
     }
     body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-col:not(:last-child)::after {
         display: none;
+    }
+}
+
+/* =====================================================================
+   RONDE 30 - padding kartu tablet/HP (builder), Keunggulan & Paket
+   mobile, strip statistik, hero desktop. Tanpa deklarasi paksa baru.
+   ===================================================================== */
+
+/* C. Badge "Paling Populer": bagian isi kartu, rata kiri, tak menimpa garis. */
+body.elementor-page-59 .elementor-59 .fleet-badge {
+    display: inline-block;
+    width: fit-content;
+    margin: 0 0 8px;
+    padding: 4px 10px;
+    background: var(--mt-blue-tint);
+    color: var(--mt-navy);
+    border: 1px solid var(--mt-border);
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 767.98px) {
+    body.elementor-page-59 .elementor-59 .fleet-badge {
+        margin-bottom: 12px;
+    }
+
+    /* C. Tombol paket: selebar kartu, 48px, radius 12. */
+    body.elementor-page-59 .elementor-59 .fleet-tier-col .elementor-button {
+        width: 100%;
+        min-height: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    body.elementor-page-59 .elementor-59 .fleet-tier-col:not(.featured) .elementor-button {
+        background-color: var(--mt-blue-tint);
+        color: var(--mt-blue);
+    }
+
+    /* C. Daftar centang: ikon 16px, jarak 10px, teks 15px. */
+    body.elementor-page-59 .elementor-59 .fleet-tier-col .elementor-icon-list-item:not(:last-child) {
+        margin-bottom: 10px;
+    }
+    body.elementor-page-59 .elementor-59 .fleet-tier-col .elementor-icon-list-icon i {
+        font-size: 16px;
+        width: 16px;
+    }
+    body.elementor-page-59 .elementor-59 .fleet-tier-col .elementor-icon-list-text {
+        font-size: 15px;
+        line-height: 1.5;
+        color: var(--mt-text);
+    }
+
+    /* B. Keunggulan: ikon kiri + semua teks rata kiri. */
+    body.elementor-page-59 .elementor-59 .feat-card-box .elementor-icon-box-wrapper {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 14px;
+        text-align: start;
+    }
+    body.elementor-page-59 .elementor-59 .feat-card-box .elementor-icon-box-title,
+    body.elementor-page-59 .elementor-59 .feat-card-box .elementor-icon-box-description {
+        text-align: left;
+    }
+}
+
+/* RONDE 30 - tablet 768-1023.98px: kartu layanan 2 kolom dan paket 1 kolom
+   agar tombol ("Konsultasi Servis", "Tanya Paket Korporat") muat di dalam
+   kartu (jarak tombol ke tepi kartu >= 16px, tanpa overflow). */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+    body.elementor-page-59 .elementor-59 .services-row-1,
+    body.elementor-page-59 .elementor-59 .services-row-2 {
+        flex-wrap: wrap;
+    }
+    body.elementor-page-59 .elementor-59 .services-row-1 > .svc-card-col,
+    body.elementor-page-59 .elementor-59 .services-row-2 > .svc-card-col {
+        width: calc(50% - 10px);
+        max-width: calc(50% - 10px);
+    }
+    body.elementor-page-59 .elementor-59 .fleet-pricing-row {
+        flex-direction: column;
+    }
+    body.elementor-page-59 .elementor-59 .fleet-pricing-row > .fleet-tier-col {
+        width: 100%;
+        max-width: 100%;
     }
 }

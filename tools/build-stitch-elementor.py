@@ -283,6 +283,30 @@ def px4(*args):
         t = r = b = l = 0
     return {"unit": "px", "top": str(t), "right": str(r), "bottom": str(b), "left": str(l), "isLinked": ""}
 
+def responsive_padding(d):
+    """Padding tablet = desktop; mobile: atas/bawah <=20, kiri/kanan 16-18."""
+    def v(k):
+        try:
+            return float(d.get(k, 0))
+        except Exception:
+            return 0.0
+    if not any(v(k) for k in ('top', 'right', 'bottom', 'left')):
+        return d
+    return px4(min(v('top'), 20), max(16, min(v('right'), 18)),
+               min(v('bottom'), 20), max(16, min(v('left'), 18)))
+
+
+def card_padding(cstyle):
+    """Lengkapi padding responsif untuk kartu; padding 0 tetap 0."""
+    if not cstyle or 'padding' not in cstyle:
+        return cstyle
+    out = dict(cstyle)
+    if 'padding_tablet' not in out:
+        out['padding_tablet'] = cstyle['padding']
+    if 'padding_mobile' not in out:
+        out['padding_mobile'] = responsive_padding(cstyle['padding'])
+    return out
+
 def rad(v):
     return {"unit": "px", "top": str(v), "right": str(v), "bottom": str(v), "left": str(v), "isLinked": True}
 
@@ -329,7 +353,7 @@ def inner(children, css_classes="", direction="row", style=None):
     if css_classes:
         s["css_classes"] = css_classes
     if style:
-        s.update(style)
+        s.update(card_padding(dict(style)))
     return {
         "id": nid(),
         "elType": "container",
@@ -352,7 +376,7 @@ def col(size, cls, widgets, cstyle=None):
     if cls:
         s["css_classes"] = cls
     if cstyle:
-        s.update(cstyle)
+        s.update(card_padding(dict(cstyle)))
     return {
         "id": nid(),
         "elType": "container",
@@ -432,7 +456,7 @@ def W_text(html, align="left", cls="", size=16, color=C["text_muted"], margin=No
         s["_css_classes"] = cls
     return W("text-editor", s)
 
-def W_button(text, link="#", icon="", ipos="after", align="left", cls="", bg=C["primary"], text_color=C["white"], radius=12, pad=(14, 24, 14, 24), margin=None, border=None, border_width=1):
+def W_button(text, link="#", icon="", ipos="after", align="left", cls="", bg=C["primary"], text_color=C["white"], radius=12, pad=(14, 24, 14, 24), margin=None, border=None, border_width=1, align_mobile=None):
     s = {
         "text": text,
         "link": {"url": link, "is_external": "", "nofollow": ""},
@@ -463,6 +487,9 @@ def W_button(text, link="#", icon="", ipos="after", align="left", cls="", bg=C["
         s["border_width"] = px4(border_width, border_width, border_width, border_width)
         s["border_color"] = border
         s["border_radius"] = rad(radius)
+    # Ronde 30: tombol paket full-width di mobile lewat kontrol native (Align).
+    if align_mobile:
+        s["align_mobile"] = align_mobile
     if cls:
         s["_css_classes"] = cls
     # Ronde 4 (2.1): satu kelas dasar .mt-btn untuk SEMUA tombol —
@@ -585,7 +612,8 @@ def W_iconlist(items, cls="", icon="fas fa-check", color=None, size=15,
         s["_css_classes"] = cls
     return W("icon-list", s)
 
-def W_iconbox(icon, title, desc="", tag="h3", pos="top", cls="", tsize=18, dsize=14, icolor=C["blue"], tcolor=C["text_dark"]):
+def W_iconbox(icon, title, desc="", tag="h3", pos="top", cls="", tsize=18, dsize=14, icolor=C["blue"], tcolor=C["text_dark"],
+              pos_mobile=None, align_mobile=None, gap_mobile=None, tsize_mobile=None):
     s = {
         "selected_icon": {"value": icon, "library": "fa-solid"},
         "title_text": title,
@@ -604,6 +632,15 @@ def W_iconbox(icon, title, desc="", tag="h3", pos="top", cls="", tsize=18, dsize
         "description_color": C["text_muted"],
         "primary_color": icolor,
     }
+    # Ronde 30: kontrol native responsif — ikon kiri + teks kiri di mobile.
+    if pos_mobile:
+        s["position_mobile"] = pos_mobile
+    if align_mobile:
+        s["text_align_mobile"] = align_mobile
+    if gap_mobile is not None:
+        s["icon_space_mobile"] = fsize(gap_mobile)
+    if tsize_mobile:
+        s["title_typography_font_size_mobile"] = fsize(tsize_mobile)
     add_globals(s,
                 title_color=grole(tcolor),
                 description_color=grole(C["text_muted"]),
@@ -748,7 +785,8 @@ def stat_col(icon, num, suffix, label, decimals=0):
 
 
 hero = el_container("stitch-sec-hero", css_id="header-carousel", boxed=1240, bg=C["white"],
-                    style={"padding": px4(24, 24, 64, 24), "padding_mobile": px4(20, 20, 48, 20)}, nav="Hero")
+                    style={"padding": px4(36, 24, 16, 24), "padding_mobile": px4(20, 20, 4, 20),
+                           "flex_gap": fsize(0)}, nav="Hero")
 hero["elements"] = [
     # Top Row: Text (50%) vs Visual (50%)
     inner([
@@ -825,7 +863,7 @@ sections.append(hero)
 
 # --- 3. SECTION 2: INTERACTIVE QUICK BOOKING & ESTIMATOR WIDGET ---
 sec_book = el_container("stitch-sec-booking", css_id="quick-booking", boxed=1240, bg=C["surface"],
-                        style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(44, 20, 44, 20)}, nav="Booking Estimator")
+                        style={"padding": px4(64, 20, 96, 20), "padding_mobile": px4(44, 20, 44, 20)}, nav="Booking Estimator")
 # Pesan default (dipakai bila JS belum aktif) — Ronde 21 2a.
 BOOKING_DEFAULT_TEXT = "Halo Master Truck, saya ingin jadwal servis."
 
@@ -924,31 +962,36 @@ sec_feat["elements"] = [
             # RISKY_CLAIMS & docs/DATA-PEMILIK.md.
             W_iconbox("fas fa-laptop-code", "Diagnostik Komputer Modern",
                       "Pemindaian akurat kerusakan sistem kelistrikan, mesin, dan sensor gas buang memakai alat diagnostik yang sesuai merek truk Anda.",
-                      cls="feat-card-box", tsize=18, dsize=14, icolor=C["blue"])
-        ], {"padding": px4(24, 20, 24, 20), "width_mobile": {"unit": "%", "size": 100}, "background_background": "classic", "background_color": C["white"],
+                      cls="feat-card-box", tsize=18, dsize=14, icolor=C["blue"],
+                      pos_mobile="inline-start", align_mobile="start", gap_mobile=14, tsize_mobile=17)
+        ], {"padding": px4(24, 20, 24, 20), "padding_mobile": px4(18, 16, 18, 16), "width_mobile": {"unit": "%", "size": 100}, "background_background": "classic", "background_color": C["white"],
             "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"], "border_radius": rad(18)}),
         col(25, "feat-bento-col", [
             # TODO: konfirmasi pemilik — nama pemasok (principal) & angka 100%.
             W_iconbox("fas fa-shield-alt", "Suku Cadang Asli",
                       "Jaminan keaslian 100% suku cadang dari pemasok resmi (Bosch, Denso, Wabco, Sakura, Pertamina Lubricants).",
-                      cls="feat-card-box", tsize=18, dsize=14, icolor=C["blue"])
-        ], {"padding": px4(24, 20, 24, 20), "width_mobile": {"unit": "%", "size": 100}, "background_background": "classic", "background_color": C["white"],
+                      cls="feat-card-box", tsize=18, dsize=14, icolor=C["blue"],
+                      pos_mobile="inline-start", align_mobile="start", gap_mobile=14, tsize_mobile=17)
+        ], {"padding": px4(24, 20, 24, 20), "padding_mobile": px4(18, 16, 18, 16), "width_mobile": {"unit": "%", "size": 100}, "background_background": "classic", "background_color": C["white"],
             "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"], "border_radius": rad(18)}),
         col(25, "feat-bento-col", [
             # TODO: konfirmasi pemilik — kapasitas derek 25 ton.
             W_iconbox("fas fa-truck-pickup", "Derek &amp; Bantuan Darurat 24 Jam",
                       "Unit derek " + CLAIMS["derek_ton"] + " siaga 24 jam untuk menolong truk trailer dan truk gandeng yang mengalami insiden di jalan.",
-                      cls="feat-card-box", tsize=18, dsize=14, icolor=C["blue"])
-        ], {"padding": px4(24, 20, 24, 20), "width_mobile": {"unit": "%", "size": 100}, "background_background": "classic", "background_color": C["white"],
+                      cls="feat-card-box", tsize=18, dsize=14, icolor=C["blue"],
+                      pos_mobile="inline-start", align_mobile="start", gap_mobile=14, tsize_mobile=17)
+        ], {"padding": px4(24, 20, 24, 20), "padding_mobile": px4(18, 16, 18, 16), "width_mobile": {"unit": "%", "size": 100}, "background_background": "classic", "background_color": C["white"],
             "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"], "border_radius": rad(18)}),
         col(25, "feat-bento-col", [
             # TODO: konfirmasi pemilik — ketentuan denda keterlambatan.
             W_iconbox("fas fa-stopwatch", "Kepastian Waktu Selesai",
                       "Waktu pengerjaan disepakati di awal. Bila pekerjaan melebihi waktu yang disepakati, ada ketentuan denda keterlambatan.",
-                      cls="feat-card-box", tsize=18, dsize=14, icolor=C["blue"])
-        ], {"padding": px4(24, 20, 24, 20), "width_mobile": {"unit": "%", "size": 100}, "background_background": "classic", "background_color": C["white"],
+                      cls="feat-card-box", tsize=18, dsize=14, icolor=C["blue"],
+                      pos_mobile="inline-start", align_mobile="start", gap_mobile=14, tsize_mobile=17)
+        ], {"padding": px4(24, 20, 24, 20), "padding_mobile": px4(18, 16, 18, 16), "width_mobile": {"unit": "%", "size": 100}, "background_background": "classic", "background_color": C["white"],
             "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"], "border_radius": rad(18)}),
-    ], css_classes="features-grid-row", direction="row", style={"flex_gap": fsize(20), "flex_direction_mobile": "column"})
+    ], css_classes="features-grid-row", direction="row",
+       style={"flex_gap": fsize(20), "flex_gap_mobile": fsize(12), "flex_direction_mobile": "column"})
 ]
 sections.append(sec_feat)
 
@@ -1044,14 +1087,14 @@ sec_fleet["elements"] = [
                 "Laporan servis dirangkum tiap bulan",
                 "Petugas layanan khusus untuk perusahaan Anda",
             ], cls="fleet-feature-list"),
-            W_button("Pilih Paket Dasar", link="#quick-booking", bg=C["surface_low"], text_color=C["primary"], radius=10, pad=(12, 20), margin=px4(24, 0, 0, 0))
+            W_button("Pilih Paket Dasar", link="#quick-booking", bg=C["surface_low"], text_color=C["primary"], radius=10, pad=(12, 20), margin=px4(24, 0, 0, 0), align_mobile="justify")
         ], {"padding": px4(32, 24, 28, 24), "background_background": "classic", "background_color": C["white"],
             "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"], "border_radius": rad(20)}),
 
         # Tier 2 (Featured / Populer) — nama paket lama: "Prime Fleet"
         col(34, "fleet-tier-col featured", [
             # TODO: konfirmasi pemilik — label "Paling Populer" (bukti popularitas).
-            W_text('<div style="display:inline-block;padding:4px 10px;background:#E3ECF8;color:#0B1F3A;border:1px solid #DDE3EC;border-radius:6px;font-size:12px;font-weight:800;text-transform:uppercase;margin-bottom:8px;">Paling Populer</div>'),
+            W_text('<div class="fleet-badge">Paling Populer</div>', cls="fleet-badge-widget"),
             W_heading("Paket Utama", tag="h3", size=24, weight=800, color=C["primary"], margin=px4(0, 0, 6, 0)),
             W_text("<p style='font-size:14px;color:#5B6B80;margin-bottom:16px;'>Untuk perusahaan menengah dengan armada 15–50 unit truk.</p>", margin=px4(0, 0, 12, 0)),
             # TODO: konfirmasi pemilik — diskon 18%, garansi 180 hari.
@@ -1063,7 +1106,7 @@ sec_fleet["elements"] = [
                 "Pantau status pengerjaan lewat laporan digital",
                 "Garansi pengerjaan turun mesin " + CLAIMS["garansi_overhaul"],
             ], cls="fleet-feature-list"),
-            W_button("Pilih Paket Utama", link="#quick-booking", bg=C["blue"], text_color=C["white"], radius=12, pad=(14, 24), margin=px4(24, 0, 0, 0), cls="btn-fleet-primary")
+            W_button("Pilih Paket Utama", link="#quick-booking", bg=C["blue"], text_color=C["white"], radius=12, pad=(14, 24), margin=px4(24, 0, 0, 0), cls="btn-fleet-primary", align_mobile="justify")
         ], {"padding": px4(32, 24, 28, 24), "background_background": "classic", "background_color": C["white"],
             "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"], "border_radius": rad(20),
             "box_shadow_box_shadow_type": "yes", "box_shadow_box_shadow": shadow(0, 16, 40, -10, "rgba(11,12,16,0.10)")}),
@@ -1081,10 +1124,11 @@ sec_fleet["elements"] = [
                 "Pembayaran termin 45–60 hari",
                 "Pengecekan keselamatan berkala",
             ], cls="fleet-feature-list"),
-            W_button("Tanya Paket Korporat", link="#quick-booking", icon="fas fa-arrow-right", bg=C["primary"], text_color=C["white"], radius=10, pad=(12, 20), margin=px4(24, 0, 0, 0))
+            W_button("Tanya Paket Korporat", link="#quick-booking", icon="fas fa-arrow-right", bg=C["primary"], text_color=C["white"], radius=10, pad=(12, 20), margin=px4(24, 0, 0, 0), align_mobile="justify")
         ], {"padding": px4(32, 24, 28, 24), "background_background": "classic", "background_color": C["white"],
             "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"], "border_radius": rad(20)}),
-    ], css_classes="fleet-pricing-row", direction="row", style={"flex_gap": fsize(20), "flex_align_items": "stretch"})
+    ], css_classes="fleet-pricing-row", direction="row",
+       style={"flex_gap": fsize(20), "flex_gap_mobile": fsize(16), "flex_align_items": "stretch"})
 ]
 sections.append(sec_fleet)
 

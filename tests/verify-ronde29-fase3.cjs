@@ -38,15 +38,20 @@ function ck(code, name, ok, detail) {
             wrapPad: [cs(wrap).paddingTop, cs(wrap).paddingRight, cs(wrap).paddingBottom, cs(wrap).paddingLeft],
             tint: { top: tint.top, right: tint.right, bottom: tint.bottom, left: tint.left, transform: tint.transform },
             wrap: r(wrap), col: r(col),
+            photoB: r(photo).b,
+            chipB: Math.max(...[...document.querySelectorAll('.hero-brands-block .brand-chip')].map((e) => r(e).b)),
             chipRows: Object.values(rows), chipCount: chips.length,
         };
     });
     ck('3A', 'H1 memakai marker highlight, bukan garis bawah', /linear-gradient/.test(d1440.markerBg) && d1440.markerAfter === 'none', d1440.markerBg.slice(0, 80));
     ck('3B', 'Foto >= 640px @1440', d1440.photo.w >= 640, `${d1440.photo.w}x${d1440.photo.h}`);
-    ck('3B', 'Rasio foto 1,5-1,6', d1440.ratio >= 1.5 && d1440.ratio <= 1.6, d1440.ratio.toFixed(3));
+    // Ronde 30 E1 menggantikan target rasio 1,55: tinggi foto kini mengikuti
+    // kolom teks agar dasar foto sejajar dasar chip merek terakhir.
+    ck('3B', 'Dasar foto = dasar chip terakhir (<= 4px)', Math.abs(d1440.photoB - d1440.chipB) <= 4, `${d1440.photoB.toFixed(1)}/${d1440.chipB.toFixed(1)}`);
     ck('3B', 'Overlay foto 0.30', /0\.3\b|0\.30\b/.test(d1440.overlay), d1440.overlay);
     ck('3B', 'Kartu telematika <= 62% lebar foto', d1440.cardPct <= 0.62, d1440.cardPct.toFixed(3));
-    ck('3C', 'Tint di dalam grid, padding 16px kanan/bawah', d1440.wrapPad[1] === '16px' && d1440.wrapPad[2] === '16px' && d1440.tint.transform === 'none', JSON.stringify(d1440.wrapPad));
+    // Ronde 30 E1: padding-bawah 16px dihapus; tint menggantung 16px ke bawah.
+    ck('3C', 'Tint di dalam grid, padding 16px kanan, bawah 0, tint -16px', d1440.wrapPad[1] === '16px' && d1440.wrapPad[2] === '0px' && d1440.tint.transform === 'none' && d1440.tint.bottom === '-16px', `${JSON.stringify(d1440.wrapPad)} ${d1440.tint.bottom}`);
     ck('3C', 'Tepi tint tidak keluar kolom', parseFloat(d1440.tint.right) <= d1440.wrap.w + 0.5 && parseFloat(d1440.tint.bottom) <= d1440.wrap.b + 0.5 && d1440.wrap.r <= d1440.col.r + 0.5, `tint ${d1440.tint.right}/${d1440.tint.bottom}`);
     ck('3D', 'Enam chip merek = 2 baris x 3', d1440.chipCount === 6 && d1440.chipRows.length === 2 && d1440.chipRows.every((n) => n === 3), d1440.chipRows.join(','));
     await page.close();
@@ -103,7 +108,8 @@ function ck(code, name, ok, detail) {
     ck('3E', 'Sel penuh, ikon 36px', Math.abs(m.colW - (m.statsW - 32)) < 3 && m.icon.w === 36 && m.icon.h === 36, `${m.colW}/${m.icon.w}`);
     ck('3E', 'Angka clamp dan garis 24x3', m.numFs >= 24 && m.numFs <= 30 && m.lineW === '24px' && m.lineH === '3px', `${m.numFs}px ${m.lineW}x${m.lineH}`);
     ck('3E', 'Label maksimal 3 baris', m.titleLines <= 3.05, m.titleLines.toFixed(2));
-    ck('3F', 'Hero padding-bottom 28px mobile', m.heroInnerPb === '28px', m.heroInnerPb);
+    // Ronde 30 E4: padding bawah hero mobile 0 (jarak total ke eyebrow 56-64px).
+    ck('3F', 'Hero padding-bottom 0px mobile', m.heroInnerPb === '0px', m.heroInnerPb);
     ck('3F', 'Section booking padding 44px mobile', m.bookPad === '44px', m.bookPad);
     ck('3F', 'Jarak strip -> section booking <= 72px', m.gap <= 72, m.gap.toFixed(1));
     ck('3F', 'Eyebrow/H2/lead booking rata kiri', [m.eyebrowAlign, m.h2Align, m.leadAlign].every((x) => x === 'start' || x === 'left'), `${m.eyebrowAlign}/${m.h2Align}/${m.leadAlign}`);

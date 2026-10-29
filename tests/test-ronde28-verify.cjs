@@ -193,7 +193,9 @@ const rgb = (s) => (s || '').replace(/\s/g, '');
         const db = Math.abs(d.photo.b - d.lastChipBottom);
         check(`B1. ${w}x${h}: tepi atas foto = tepi atas badge (<= 4px)`, dt <= 4, `selisih=${dt.toFixed(1)}px (foto=${d.photo.t.toFixed(1)} badge=${d.badge.t.toFixed(1)})`);
         check(`B2. ${w}x${h}: tepi bawah foto = tepi bawah chip merek terakhir (<= 4px)`, db <= 4, `selisih=${db.toFixed(1)}px (foto=${d.photo.b.toFixed(1)} chip=${d.lastChipBottom.toFixed(1)})`);
-        check(`B3. ${w}x${h}: tinggi foto 420-520px`, d.photo.h >= 420 && d.photo.h <= 520, `h=${d.photo.h.toFixed(1)}px`);
+        // Ronde 30 E1: tinggi foto mengikuti tinggi kolom teks supaya dasar foto
+        // sejajar dasar chip (batas lama 420-520px digantikan aturan B2).
+        check(`B3. ${w}x${h}: tinggi foto mengikuti kolom teks (>= 380px)`, d.photo.h >= 380, `h=${d.photo.h.toFixed(1)}px`);
     }
 
     const p0 = photoData['1440x900'];
@@ -213,12 +215,14 @@ const rgb = (s) => (s || '').replace(/\s/g, '');
 
     // C. Satu blok tint 16px di belakang foto
     const before = p0.wrapBefore;
-    check('C1. Dekorasi = SATU blok tint #E3ECF8 radius 32 di belakang foto',
-        rgb(before.bg) === 'rgb(227,236,248)' && parseFloat(before.radius) >= 32,
+    // Ronde 29 fase 3 (3C) menggantikan geser transform dengan inset di dalam
+    // grid; Ronde 30 E1 membuat tepi bawahnya menggantung 16px.
+    check('C1. Dekorasi = SATU blok tint #E3ECF8 radius 28 di belakang foto',
+        rgb(before.bg) === 'rgb(227,236,248)' && parseFloat(before.radius) >= 28,
         `bg=${before.bg} radius=${before.radius}`);
-    check('C2. Blok tint bergeser 16px ke kanan-bawah (tepi terlihat 16px)',
-        /^matrix\(1, 0, 0, 1, 16, 16\)$/.test(before.transform),
-        `transform=${before.transform}`);
+    check('C2. Blok tint inset 16px kiri-atas & menggantung 16px kanan-bawah',
+        before.transform === 'none' && before.inset === '16px 0px -16px 16px',
+        `transform=${before.transform} inset=${before.inset}`);
     check('C3. Blok tint di belakang (z-index < foto) & pointer-events none',
         parseInt(before.zi) < parseInt(p0.photoCs ? 2 : 2) + 10 && before.zi !== 'auto' && before.pe === 'none',
         `z=${before.zi} pe=${before.pe}`);
@@ -253,7 +257,8 @@ const rgb = (s) => (s || '').replace(/\s/g, '');
         });
         check('D1. Seluruh kartu di dalam kotak foto', d.inside, `offset kiri=${d.offLeft} bawah=${d.offBottom}`);
         check('D2. Kartu di kiri-bawah foto, offset 20px', d.offLeft === 20 && d.offBottom === 20, `kiri=${d.offLeft} bawah=${d.offBottom}`);
-        check('D3. Lebar kartu = isi & <= 78% foto', d.widthRatio <= 78 && d.cardCs.maxWidth === '78%', `rasio=${d.widthRatio}% max-width=${d.cardCs.maxWidth}`);
+        // Ronde 29 fase 3 (3B) menetapkan batas 62% lebar foto.
+        check('D3. Lebar kartu = isi & <= 62% foto', d.widthRatio <= 62 && d.cardCs.maxWidth === '62%', `rasio=${d.widthRatio}% max-width=${d.cardCs.maxWidth}`);
         check('D4. Kartu putih, radius 16px, padding 14px 16px, shadow netral',
             rgb(d.cardCs.backgroundColor) === 'rgb(255,255,255)' && parseFloat(d.cardCs.borderRadius) === 16 &&
             d.cardCs.padding === '14px 16px' && /rgba\(11, 31, 58/.test(d.cardCs.boxShadow),
