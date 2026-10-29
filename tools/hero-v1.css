@@ -434,7 +434,7 @@ body.elementor-page-59 .elementor-59 .hero-telematics-card {
     left: 20px;
     right: auto;
     width: auto;
-    max-width: 78% !important; /* menimpa max-width 100% widget Elementor */
+    max-width: 62% !important; /* menimpa max-width 100% widget Elementor */
     z-index: 3;
     background: #FFFFFF;
     border: 1px solid var(--mt-border);

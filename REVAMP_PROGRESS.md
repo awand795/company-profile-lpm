@@ -1194,3 +1194,40 @@ Blok pengganti ada di `tools/hero-v1.css` (komentar `HERO v1 (konsolidasi Ronde 
 
 **File:** 3 salinan `mt-custom.css` (hash sama), `tools/hero-v1.css`, 4 skrip uji baru, laporan, progress.
 **Tag:** `ronde29-fase2`
+
+<!-- ============================================================ -->
+<!-- RONDE 29 - FASE 3: PERBAIKAN 3A-3H                            -->
+<!-- ============================================================ -->
+
+## RONDE 29 FASE 3 (2026-10-29) - Perbaikan Hero, Strip, Booking, Keunggulan
+
+**Mandat:** Perbaiki 3A-3H tanpa mengubah copy/klaim/urutan/URL/palet. Setiap perubahan dideploy ke live Page 59, lalu diukur ulang.
+
+| Kode | Hasil |
+| --- | --- |
+| 3A | H1 memakai marker stabilo (gradient tint), bukan garis bawah |
+| 3B | Foto 646x416,8px @1440 (rasio 1,55), overlay 0,30, kartu 60,9% |
+| 3C | Tint di dalam grid; padding kanan/bawah 16px; tanpa transform |
+| 3D | 6 chip = 2 baris x 3; CTA 1366x600 bawah 415px |
+| 3E | Strip mobile 1 kolom; ikon 36; angka clamp 27,3px; garis 24x3; label <=3 baris |
+| 3F | Hero pb 28px; section booking pt 44px; jarak ke section 40px; eyebrow/H2/lead kiri |
+| 3G | Form booking 0 inline style; select 48/16; tombol WA 53,6px |
+| 3H | Keunggulan mobile 1 kolom via `flex_direction_mobile` + `width_mobile` |
+
+Tambahan: strip tablet 768 menjadi 2x2 dan sel desktop memakai lebar penuh, memperbaiki bug lama area teks 0px.
+
+### Uji
+
+- `verify-ronde29-fase3.cjs`: **22 PASS / 0 FAIL**
+- `verify-stitch.cjs`: **41 PASS / 0 FAIL**
+- `verify-editor-health.cjs`: **PASS**
+- `verify-layout.cjs`: **40 PASS / 1 FAIL** (hero 1440x800 919px, pre-existing Ronde 28 942px)
+
+### Bukti & laporan
+
+- Screenshot 8 viewport: `playwright_review/sesudah_ronde29_fase3/`
+- Laporan lengkap: `docs/LAPORAN-RONDE29.md`
+- Dump tersanitasi: `database/mt_site.sql`
+- Data pemilik prioritas TINGGI: `docs/DATA-PEMILIK.md` bagian 0
+
+**Tag:** `ronde29-fase3`, `ronde29-done`

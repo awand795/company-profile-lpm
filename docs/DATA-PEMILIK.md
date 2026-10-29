@@ -10,6 +10,17 @@
 > jalankan `python tools/build-stitch-elementor.py` untuk mendeploy ulang.
 > Nilai di halaman, topbar (`mt-topbar.php`), dan schema SEO harus tetap satu suara.
 
+## 0. Prioritas TINGGI Ronde 29 (wajib sebelum produksi)
+
+| Data / klaim | Nilai saat ini | Tindakan wajib |
+| --- | --- | --- |
+| Nomor WhatsApp asli | `6281288881234` (placeholder) | Ganti dengan nomor WA resmi yang aktif di semua CTA; uji satu pesan. |
+| `PHONE_DISPLAY` / `PHONE_TEL` | `0812-MASTER-TRUCK` / kosong | Isi nomor telepon asli format `+628...` agar tombol darurat bisa menelepon. |
+| Foto hero | aset `stitch_*` (berisi merek Hino/Scania) | Ganti dengan foto bengkel sendiri; risiko tampak seperti foto AI/stok. |
+| Klaim "Rekanan Resmi" | badge hero | Sertakan surat/penunjukan principal atau ubah menjadi "spesialis". |
+| Klaim "#1" | badge hero | Sertakan bukti survei/penghargaan; bila tidak ada, hapus "#1". |
+| Klaim "ISO 9001:2015" | topbar, strip statistik, fasilitas | Lampirkan sertifikat valid + masa berlaku; bila tidak ada, turunkan klaim. |
+
 ## 1. Identitas & Kontak (`SITE_DATA`)
 
 | Kunci | Nilai Saat Ini | Status / Catatan |

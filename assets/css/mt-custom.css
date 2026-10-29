@@ -2637,7 +2637,7 @@ body.elementor-page-59 .elementor-59 .hero-telematics-card {
     left: 20px;
     right: auto;
     width: auto;
-    max-width: 78% !important; /* menimpa max-width 100% widget Elementor */
+    max-width: 62% !important; /* menimpa max-width 100% widget Elementor */
     z-index: 3;
     background: #FFFFFF;
     border: 1px solid var(--mt-border);
@@ -3261,5 +3261,202 @@ body.is-webdriver .hero-telematics-card {
     }
     body.elementor-page-59 .status-live-dot {
         animation: none;
+    }
+}
+
+/* =====================================================================
+   RONDE 29 FASE 3 - perbaikan visual hero, strip, booking, keunggulan
+   3A marker H1, 3B foto+overlay, 3C tint dalam grid, 3D chip 3+3,
+   3E strip mobile vertikal, 3F ritme mobile, 3G form tanpa inline.
+   ===================================================================== */
+
+/* 3A. Sorotan H1 menjadi marker stabilo, bukan garis bawah. */
+body.elementor-page-59 .elementor-59 .hero-brand-highlight {
+    background-image: linear-gradient(180deg, transparent 56%, #E3ECF8 56%, #E3ECF8 92%, transparent 92%);
+    background-repeat: no-repeat;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    padding: 0 2px;
+}
+body.elementor-page-59 .elementor-59 .hero-brand-highlight::after {
+    content: none;
+    display: none;
+}
+
+/* 3B + 3C. Foto proporsional, tint di dalam grid, overlay lebih lembut. */
+@media (min-width: 1024px) {
+    body.elementor-page-59 .elementor-59 .hero-visual-col {
+        align-items: flex-start;
+        align-self: center;
+    }
+    body.elementor-page-59 .elementor-59 .hero-visual-card-wrap {
+        height: auto;
+        padding: 0 16px 16px 0;
+    }
+    body.elementor-page-59 .elementor-59 .hero-visual-card-wrap::before {
+        top: 16px;
+        right: 0;
+        bottom: 0;
+        left: 16px;
+        transform: none;
+        border-radius: 28px;
+        background-size: auto;
+    }
+    body.elementor-page-59 .elementor-59 .hero-truck-img {
+        flex: 0 0 auto;
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        max-height: none;
+        aspect-ratio: 1.55;
+    }
+    body.elementor-page-59 .elementor-59 .hero-truck-img img {
+        height: 100%;
+        aspect-ratio: 1.55;
+        border-radius: 26px;
+    }
+    body.elementor-page-59 .elementor-59 .hero-truck-img::after {
+        background: linear-gradient(to top, rgba(11, 31, 58, 0.30) 0%, rgba(11, 31, 58, 0.12) 55%, transparent 100%);
+        border-radius: 0 0 25px 25px;
+    }
+    /* 3D. Enam chip merek selalu 3 + 3 di desktop. */
+    body.elementor-page-59 .elementor-59 .hero-brands-block .brand-chips-row {
+        display: grid;
+        grid-template-columns: repeat(3, max-content);
+        max-width: none;
+        overflow: visible;
+    }
+}
+
+/* 3E. Strip statistik mobile: satu kolom, tiap sel vertikal dan terbaca. */
+@media (max-width: 767.98px) {
+    body.elementor-page-59 .elementor-59 .hero-stats-inner {
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+    }
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-col {
+        width: 100%;
+        max-width: none;
+        padding: 14px 0;
+    }
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-col:nth-child(n) {
+        border-right: 0;
+        border-bottom: 1px solid var(--mt-border);
+    }
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-col:last-child {
+        border-bottom: 0;
+    }
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-item {
+        grid-template-columns: 36px 1fr;
+        gap: 12px;
+        align-items: flex-start;
+    }
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-icon {
+        display: flex;
+        align-items: flex-start;
+    }
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-icon .elementor-icon {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        border-radius: 9px;
+        font-size: 16px;
+    }
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-text-col {
+        width: auto;
+        min-width: 0;
+    }
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-number .elementor-counter-number-wrapper {
+        font-size: clamp(24px, 7vw, 30px);
+        line-height: 1.1;
+    }
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-number .elementor-counter-title {
+        font-size: 12px;
+        line-height: 1.4;
+        max-height: calc(1.4em * 3);
+        overflow: hidden;
+        min-height: 0;
+    }
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-number .elementor-counter-title::before {
+        width: 24px;
+        height: 3px;
+        margin: 6px 0 4px;
+    }
+    /* 3F. Napas bawah hero 28px; section booking sudah 44px dari builder. */
+    body.elementor-page-59 .elementor-59 .stitch-sec-hero > .e-con-inner {
+        padding-bottom: 28px;
+    }
+}
+
+/* 3G. Form booking memakai kelas; tidak ada inline style di markup. */
+body.elementor-page-59 .booking-card label {
+    display: block;
+    margin-bottom: 8px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--mt-navy);
+}
+body.elementor-page-59 .booking-card select {
+    width: 100%;
+    height: 48px;
+    padding: 0 14px;
+    border: 1px solid var(--mt-border);
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: var(--mt-navy);
+    background: var(--mt-surface);
+}
+body.elementor-page-59 .booking-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 46ch;
+    font-size: 14px;
+    color: var(--mt-text);
+}
+body.elementor-page-59 .booking-info i {
+    color: var(--mt-blue);
+}
+body.elementor-page-59 .btn-booking-wa {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 14px 28px;
+    background: #15803D;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
+}
+/* 3E lanjutan. Di desktop/tablet sel tidak boleh menyusut 25%: isi teks
+   butuh lebar penuh sel. Tablet memakai 2x2 agar label tidak terpotong. */
+@media (min-width: 768px) {
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-col {
+        width: auto;
+        max-width: 100%;
+    }
+}
+@media (min-width: 768px) and (max-width: 1023.98px) {
+    body.elementor-page-59 .elementor-59 .hero-stats-inner {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-col {
+        padding: 16px;
+    }
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-col:nth-child(odd) {
+        border-right: 1px solid var(--mt-border);
+    }
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-col:nth-child(-n + 2) {
+        border-bottom: 1px solid var(--mt-border);
+    }
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-col:not(:last-child)::after {
+        display: none;
     }
 }

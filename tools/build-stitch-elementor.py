@@ -752,7 +752,7 @@ hero = el_container("stitch-sec-hero", css_id="header-carousel", boxed=1240, bg=
 hero["elements"] = [
     # Top Row: Text (50%) vs Visual (50%)
     inner([
-        col(50, "hero-text-col", [
+        col(45, "hero-text-col", [
             # Authority Badge (Eyebrow) -> pil putih border #DDE3EC, jarak ke H1 20px
             W_heading('<span class="hero-authority-pill"><i class="fas fa-shield-alt"></i>BENGKEL REKANAN RESMI &amp; SPESIALIS HEAVY DUTY TRUCK #1</span>',
                       tag="p", cls="hero-authority-badge", size=12, weight=700, color=C["primary"], ls=0.8,
@@ -787,7 +787,7 @@ hero["elements"] = [
         ], {"padding": px4(0, 20, 0, 0)}),
 
         # Visual Showcase Right (50% lebar, foto dominan + latar dekoratif tint + kartu pesan tunggal di dalam foto)
-        col(50, "hero-visual-col", [
+        col(55, "hero-visual-col", [
             inner([
                 # Main Photo
                 W_image("hero", alt="Dua truk niaga sedang masuk ke dalam bengkel Master Truck, diperiksa dua montir berseragam", cls="hero-truck-img", radius=28, margin=px4(0, 0, 0, 0)),
@@ -825,7 +825,7 @@ sections.append(hero)
 
 # --- 3. SECTION 2: INTERACTIVE QUICK BOOKING & ESTIMATOR WIDGET ---
 sec_book = el_container("stitch-sec-booking", css_id="quick-booking", boxed=1240, bg=C["surface"],
-                        style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(56, 20, 56, 20)}, nav="Booking Estimator")
+                        style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(44, 20, 44, 20)}, nav="Booking Estimator")
 # Pesan default (dipakai bila JS belum aktif) — Ronde 21 2a.
 BOOKING_DEFAULT_TEXT = "Halo Master Truck, saya ingin jadwal servis."
 
@@ -839,9 +839,9 @@ BOOKING_FORM_HTML = (
     '<div class="booking-grid">'
     # Input 1
     '<div>'
-    '<label for="mt-booking-unit" style="display:block;font-family:Plus Jakarta Sans;font-size:14px;font-weight:700;color:#0B1F3A;margin-bottom:8px;">'
+    '<label for="mt-booking-unit">'
     '1. Tipe truk Anda</label>'
-    '<select id="mt-booking-unit" name="unit" style="width:100%;height:48px;padding:0 14px;border:1px solid #DDE3EC;border-radius:12px;font-family:Inter;font-size:16px;background:#F4F7FB;">'
+    '<select id="mt-booking-unit" name="unit">'
     '<option>Truk trailer / tractor head (Scania, Volvo, Hino)</option>'
     '<option>Truk box, tangki, atau gandeng (Fuso, Isuzu Giga)</option>'
     '<option>Truk dump / tronton</option>'
@@ -851,9 +851,9 @@ BOOKING_FORM_HTML = (
     '</div>'
     # Input 2
     '<div>'
-    '<label for="mt-booking-need" style="display:block;font-family:Plus Jakarta Sans;font-size:14px;font-weight:700;color:#0B1F3A;margin-bottom:8px;">'
+    '<label for="mt-booking-need">'
     '2. Kebutuhan servis</label>'
-    '<select id="mt-booking-need" name="need" style="width:100%;height:48px;padding:0 14px;border:1px solid #DDE3EC;border-radius:12px;font-family:Inter;font-size:16px;background:#F4F7FB;">'
+    '<select id="mt-booking-need" name="need">'
     '<option>Servis rutin &amp; ganti oli</option>'
     '<option>Turun mesin / overhaul</option>'
     '<option>Servis rem, kaki-kaki &amp; suspensi</option>'
@@ -865,9 +865,9 @@ BOOKING_FORM_HTML = (
     '</div>'
     # Input 3 — konteks Medan / KIM III
     '<div>'
-    '<label for="mt-booking-time" style="display:block;font-family:Plus Jakarta Sans;font-size:14px;font-weight:700;color:#0B1F3A;margin-bottom:8px;">'
+    '<label for="mt-booking-time">'
     '3. Waktu kedatangan</label>'
-    '<select id="mt-booking-time" name="time" style="width:100%;height:48px;padding:0 14px;border:1px solid #DDE3EC;border-radius:12px;font-family:Inter;font-size:16px;background:#F4F7FB;">'
+    '<select id="mt-booking-time" name="time">'
     '<option>Bengkel KIM III Medan — hari ini</option>'
     '<option>Bengkel KIM III Medan — besok</option>'
     '<option>Bengkel KIM III Medan — pekan ini</option>'
@@ -877,26 +877,24 @@ BOOKING_FORM_HTML = (
     '</div>'
     # Action Button Row
     '<div class="booking-actions">'
-    '<div style="font-size:14px;color:#44546A;display:flex;align-items:center;gap:8px;max-width:46ch;">'
-    '<i class="fas fa-info-circle" style="color:#2457A6;" aria-hidden="true"></i>'
+    '<div class="booking-info">'
+    '<i class="fas fa-info-circle" aria-hidden="true"></i>'
     '<span>Pesan dibuka lewat WhatsApp, lalu dikonfirmasi oleh tim kami sebelum servis dimulai.</span>'
     '</div>'
     # href awal = fallback tanpa JS; JS menggantinya dengan pesan berisi 3 pilihan.
     '<a id="mt-booking-wa" class="btn-booking-wa" href="' + wa_link(BOOKING_DEFAULT_TEXT) + '" '
     'data-wa="' + WA_NUMBER + '" target="_blank" rel="noopener" '
-    'aria-label="Kirim permintaan jadwal servis via WhatsApp" '
-    'style="display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:14px 28px;background:#15803D;color:#FFFFFF;'
-    'text-decoration:none;border-radius:12px;font-family:Plus Jakarta Sans;font-weight:700;font-size:15px;box-shadow:0 8px 20px rgba(37,211,102,0.35);">'
+    'aria-label="Kirim permintaan jadwal servis via WhatsApp">'
     '<i class="fab fa-whatsapp" aria-hidden="true"></i>Kirim Permintaan Jadwal via WhatsApp</a>'
     '</div></form>'
 )
 
 sec_book["elements"] = [
     # Header (widget native)
-    W_heading("JADWAL SERVIS ONLINE", tag="p", align="center", size=13, weight=700, color=C["text_muted"], ls=1.0, cls="sec-eyebrow"),
-    W_heading("Pesan Jadwal Servis Anda", tag="h2", align="center", size=34, weight=800, color=C["primary"], ls=-0.8, margin=px4(6, 0, 12, 0)),
+    W_heading("JADWAL SERVIS ONLINE", tag="p", align="left", size=13, weight=700, color=C["text_muted"], ls=1.0, cls="sec-eyebrow"),
+    W_heading("Pesan Jadwal Servis Anda", tag="h2", align="left", size=34, weight=800, color=C["primary"], ls=-0.8, margin=px4(6, 0, 12, 0)),
     W_text("Pilih tipe truk, kebutuhan servis, dan waktu kedatangan. Setelah dikirim, kami hubungi Anda lewat WhatsApp untuk mengonfirmasi jadwal.",
-           align="center", size=16, color=C["text_dark"], margin=px4(0, 0, 40, 0)),
+           align="left", size=16, color=C["text_dark"], margin=px4(0, 0, 40, 0)),
     # Form Card (select boleh tetap HTML widget — teks judul & label di atas widget native)
     inner([
         col(100, "booking-form-box", [
@@ -909,7 +907,7 @@ sections.append(sec_book)
 
 # --- 4. SECTION 3: KEUNGGULAN UTAMA (WHY CHOOSE MASTER TRUCK) ---
 sec_feat = el_container("stitch-sec-features", boxed=1240, bg=C["white"],
-                        style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(56, 20, 56, 20)}, nav="Keunggulan")
+                        style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(44, 20, 44, 20)}, nav="Keunggulan")
 sec_feat["elements"] = [
     # Header
     W_heading("KENAPA PILIH MASTER TRUCK", tag="p", align="center", size=13, weight=700, color=C["text_muted"], ls=1.0, cls="sec-eyebrow"),
@@ -927,37 +925,37 @@ sec_feat["elements"] = [
             W_iconbox("fas fa-laptop-code", "Diagnostik Komputer Modern",
                       "Pemindaian akurat kerusakan sistem kelistrikan, mesin, dan sensor gas buang memakai alat diagnostik yang sesuai merek truk Anda.",
                       cls="feat-card-box", tsize=18, dsize=14, icolor=C["blue"])
-        ], {"padding": px4(24, 20, 24, 20), "background_background": "classic", "background_color": C["white"],
+        ], {"padding": px4(24, 20, 24, 20), "width_mobile": {"unit": "%", "size": 100}, "background_background": "classic", "background_color": C["white"],
             "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"], "border_radius": rad(18)}),
         col(25, "feat-bento-col", [
             # TODO: konfirmasi pemilik — nama pemasok (principal) & angka 100%.
             W_iconbox("fas fa-shield-alt", "Suku Cadang Asli",
                       "Jaminan keaslian 100% suku cadang dari pemasok resmi (Bosch, Denso, Wabco, Sakura, Pertamina Lubricants).",
                       cls="feat-card-box", tsize=18, dsize=14, icolor=C["blue"])
-        ], {"padding": px4(24, 20, 24, 20), "background_background": "classic", "background_color": C["white"],
+        ], {"padding": px4(24, 20, 24, 20), "width_mobile": {"unit": "%", "size": 100}, "background_background": "classic", "background_color": C["white"],
             "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"], "border_radius": rad(18)}),
         col(25, "feat-bento-col", [
             # TODO: konfirmasi pemilik — kapasitas derek 25 ton.
             W_iconbox("fas fa-truck-pickup", "Derek &amp; Bantuan Darurat 24 Jam",
                       "Unit derek " + CLAIMS["derek_ton"] + " siaga 24 jam untuk menolong truk trailer dan truk gandeng yang mengalami insiden di jalan.",
                       cls="feat-card-box", tsize=18, dsize=14, icolor=C["blue"])
-        ], {"padding": px4(24, 20, 24, 20), "background_background": "classic", "background_color": C["white"],
+        ], {"padding": px4(24, 20, 24, 20), "width_mobile": {"unit": "%", "size": 100}, "background_background": "classic", "background_color": C["white"],
             "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"], "border_radius": rad(18)}),
         col(25, "feat-bento-col", [
             # TODO: konfirmasi pemilik — ketentuan denda keterlambatan.
             W_iconbox("fas fa-stopwatch", "Kepastian Waktu Selesai",
                       "Waktu pengerjaan disepakati di awal. Bila pekerjaan melebihi waktu yang disepakati, ada ketentuan denda keterlambatan.",
                       cls="feat-card-box", tsize=18, dsize=14, icolor=C["blue"])
-        ], {"padding": px4(24, 20, 24, 20), "background_background": "classic", "background_color": C["white"],
+        ], {"padding": px4(24, 20, 24, 20), "width_mobile": {"unit": "%", "size": 100}, "background_background": "classic", "background_color": C["white"],
             "border_border": "solid", "border_width": px4(1, 1, 1, 1), "border_color": C["border"], "border_radius": rad(18)}),
-    ], css_classes="features-grid-row", direction="row", style={"flex_gap": fsize(20)})
+    ], css_classes="features-grid-row", direction="row", style={"flex_gap": fsize(20), "flex_direction_mobile": "column"})
 ]
 sections.append(sec_feat)
 
 
 # --- 5. SECTION 4: KATALOG LAYANAN UTAMA (DETAILED SERVICES) ---
 sec_svc = el_container("stitch-sec-services", css_id="layanan", boxed=1240, bg=C["surface"],
-                       style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(56, 20, 56, 20)}, nav="Layanan")
+                       style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(44, 20, 44, 20)}, nav="Layanan")
 sec_svc["elements"] = [
     W_heading("LAYANAN KAMI", tag="p", align="center", size=13, weight=700, color=C["text_muted"], ls=1.0, cls="sec-eyebrow"),
     # Ronde 21 4a: judul ≤ 8 kata + bahasa awam, deskripsi ≤ 2 baris.
@@ -1023,7 +1021,7 @@ sections.append(sec_svc)
 
 # --- 6. SECTION 5: PAKET KHUSUS FLEET MAINTENANCE CONTRACT (B2B) ---
 sec_fleet = el_container("stitch-sec-fleet", css_id="fleet", boxed=1240, bg=C["white"],
-                         style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(56, 20, 56, 20)}, nav="Paket Fleet")
+                         style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(44, 20, 44, 20)}, nav="Paket Fleet")
 sec_fleet["elements"] = [
     W_heading("UNTUK PERUSAHAAN &amp; ARMADA", tag="p", align="center", size=13, weight=700, color=C["text_muted"], ls=1.0, cls="sec-eyebrow"),
     # Ronde 21 4a: judul ≤ 8 kata, bahasa awam (PMP -> "Paket Perawatan Armada").
@@ -1094,7 +1092,7 @@ sections.append(sec_fleet)
 # --- 6b. SECTION: CARA KERJA (Ronde 21 4b) ---
 # 4 langkah memakai teks Ronde 5 (tanpa klaim baru).
 sec_work = el_container("stitch-sec-workflow", css_id="cara-kerja", boxed=1240, bg=C["surface"],
-                        style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(56, 20, 56, 20)}, nav="Cara Kerja")
+                        style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(44, 20, 44, 20)}, nav="Cara Kerja")
 
 
 def step_card(no, icon, title, desc):
@@ -1131,7 +1129,7 @@ sections.append(sec_work)
 
 # --- 7. SECTION 6: SHOWCASE FASILITAS BENGKEL MODERN ---
 sec_fac = el_container("stitch-sec-facilities", css_id="fasilitas", boxed=1240, bg=C["white"],
-                       style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(56, 20, 56, 20)}, nav="Fasilitas")
+                       style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(44, 20, 44, 20)}, nav="Fasilitas")
 sec_fac["elements"] = [
     W_heading("FASILITAS BENGKEL", tag="p", align="center", size=13, weight=700, color=C["text_muted"], ls=1.0, cls="sec-eyebrow"),
     # Ronde 21 4a: judul ≤ 8 kata, tanpa jargon.
@@ -1190,7 +1188,7 @@ sections.append(sec_fac)
 # Tampil hanya bila SHOW_BRAND_LOGOS=True.
 # TODO: konfirmasi pemilik — izin penggunaan logo merek.
 sec_brand = el_container("stitch-sec-brands", css_id="merek", boxed=1240, bg=C["surface"],
-                         style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(56, 20, 56, 20)}, nav="Merek Resmi")
+                         style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(44, 20, 44, 20)}, nav="Merek Resmi")
 BRAND_LOGO_ITEMS = [
     ("brand_pertamina", "Logo Pertamina Lubricants"),
     ("brand_mobil", "Logo pelumas Mobil Delvac"),
@@ -1222,7 +1220,7 @@ if SHOW_BRAND_LOGOS:
 # avatar inisial. TODO: konfirmasi pemilik — ganti dengan testimoni asli +
 # izin tertulis, atau matikan SHOW_TESTIMONIALS sebelum situs tayang.
 sec_testi = el_container("stitch-sec-testimonials", boxed=1240, bg=C["white"],
-                         style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(56, 20, 56, 20)}, nav="Testimoni")
+                         style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(44, 20, 44, 20)}, nav="Testimoni")
 
 
 def testi_card(quote, initials, name, role):
@@ -1275,7 +1273,7 @@ if SHOW_TESTIMONIALS:
 
 # --- 9. SECTION 8: FAQ ACCORDION ---
 sec_faq = el_container("stitch-sec-faq", css_id="faq", boxed=1240, bg=C["surface"],
-                       style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(56, 20, 56, 20)}, nav="FAQ")
+                       style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(44, 20, 44, 20)}, nav="FAQ")
 sec_faq["elements"] = [
     W_heading("PERTANYAAN UMUM", tag="p", align="center", size=13, weight=700, color=C["text_muted"], ls=1.0, cls="sec-eyebrow"),
     # Ronde 21 4a: judul ≤ 8 kata, bahasa awam.
@@ -1370,7 +1368,7 @@ sections.append(sec_cta)
 # --- 10b. SECTION: LOKASI & JAM BUKA (Ronde 21 4d) ---
 # Data dari SITE_DATA; alamat jalan lengkap & data belum pasti = TODO pemilik.
 sec_loc = el_container("stitch-sec-location", css_id="lokasi", boxed=1240, bg=C["surface"],
-                       style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(56, 20, 56, 20)}, nav="Lokasi & Jam Buka")
+                       style={"padding": px4(96, 20, 96, 20), "padding_mobile": px4(44, 20, 44, 20)}, nav="Lokasi & Jam Buka")
 sec_loc["elements"] = [
     W_heading("LOKASI &amp; JAM BUKA", tag="p", align="center", size=13, weight=700,
               color=C["text_muted"], ls=1.0, cls="sec-eyebrow"),

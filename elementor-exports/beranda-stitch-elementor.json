@@ -934,7 +934,7 @@
               },
               "width": {
                 "unit": "%",
-                "size": 50
+                "size": 45
               },
               "css_classes": "hero-text-col"
             },
@@ -1304,7 +1304,7 @@
               },
               "width": {
                 "unit": "%",
-                "size": 50
+                "size": 55
               },
               "css_classes": "hero-visual-col"
             },
@@ -2448,9 +2448,9 @@
       },
       "padding_mobile": {
         "unit": "px",
-        "top": "56",
+        "top": "44",
         "right": "20",
-        "bottom": "56",
+        "bottom": "44",
         "left": "20",
         "isLinked": ""
       }
@@ -2462,7 +2462,7 @@
         "settings": {
           "title": "JADWAL SERVIS ONLINE",
           "header_size": "p",
-          "align": "center",
+          "align": "left",
           "typography_typography": "custom",
           "typography_font_family": "Plus Jakarta Sans",
           "typography_font_size": {
@@ -2501,7 +2501,7 @@
         "settings": {
           "title": "Pesan Jadwal Servis Anda",
           "header_size": "h2",
-          "align": "center",
+          "align": "left",
           "typography_typography": "custom",
           "typography_font_family": "Plus Jakarta Sans",
           "typography_font_size": {
@@ -2538,7 +2538,7 @@
         "elType": "widget",
         "settings": {
           "editor": "Pilih tipe truk, kebutuhan servis, dan waktu kedatangan. Setelah dikirim, kami hubungi Anda lewat WhatsApp untuk mengonfirmasi jadwal.",
-          "align": "center",
+          "align": "left",
           "typography_typography": "custom",
           "typography_font_family": "Inter",
           "typography_font_size": {
@@ -2647,7 +2647,7 @@
                 "id": "8f53a48",
                 "elType": "widget",
                 "settings": {
-                  "editor": "<form id=\"mt-booking-form\" class=\"booking-card\"><div class=\"booking-grid\"><div><label for=\"mt-booking-unit\" style=\"display:block;font-family:Plus Jakarta Sans;font-size:14px;font-weight:700;color:#0B1F3A;margin-bottom:8px;\">1. Tipe truk Anda</label><select id=\"mt-booking-unit\" name=\"unit\" style=\"width:100%;height:48px;padding:0 14px;border:1px solid #DDE3EC;border-radius:12px;font-family:Inter;font-size:16px;background:#F4F7FB;\"><option>Truk trailer / tractor head (Scania, Volvo, Hino)</option><option>Truk box, tangki, atau gandeng (Fuso, Isuzu Giga)</option><option>Truk dump / tronton</option><option>Truk ringan (Canter, Dutro, Elf)</option><option>Lainnya / belum yakin</option></select></div><div><label for=\"mt-booking-need\" style=\"display:block;font-family:Plus Jakarta Sans;font-size:14px;font-weight:700;color:#0B1F3A;margin-bottom:8px;\">2. Kebutuhan servis</label><select id=\"mt-booking-need\" name=\"need\" style=\"width:100%;height:48px;padding:0 14px;border:1px solid #DDE3EC;border-radius:12px;font-family:Inter;font-size:16px;background:#F4F7FB;\"><option>Servis rutin &amp; ganti oli</option><option>Turun mesin / overhaul</option><option>Servis rem, kaki-kaki &amp; suspensi</option><option>Kalibrasi injektor &amp; pompa solar</option><option>Perbaikan kelistrikan &amp; AC</option><option>Derek &amp; bantuan darurat</option><option>Lainnya</option></select></div><div><label for=\"mt-booking-time\" style=\"display:block;font-family:Plus Jakarta Sans;font-size:14px;font-weight:700;color:#0B1F3A;margin-bottom:8px;\">3. Waktu kedatangan</label><select id=\"mt-booking-time\" name=\"time\" style=\"width:100%;height:48px;padding:0 14px;border:1px solid #DDE3EC;border-radius:12px;font-family:Inter;font-size:16px;background:#F4F7FB;\"><option>Bengkel KIM III Medan — hari ini</option><option>Bengkel KIM III Medan — besok</option><option>Bengkel KIM III Medan — pekan ini</option><option>Ditangani di lokasi armada Anda (Medan sekitarnya)</option></select></div></div><div class=\"booking-actions\"><div style=\"font-size:14px;color:#44546A;display:flex;align-items:center;gap:8px;max-width:46ch;\"><i class=\"fas fa-info-circle\" style=\"color:#2457A6;\" aria-hidden=\"true\"></i><span>Pesan dibuka lewat WhatsApp, lalu dikonfirmasi oleh tim kami sebelum servis dimulai.</span></div><a id=\"mt-booking-wa\" class=\"btn-booking-wa\" href=\"https://wa.me/6281288881234?text=Halo%20Master%20Truck%2C%20saya%20ingin%20jadwal%20servis.\" data-wa=\"6281288881234\" target=\"_blank\" rel=\"noopener\" aria-label=\"Kirim permintaan jadwal servis via WhatsApp\" style=\"display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:14px 28px;background:#15803D;color:#FFFFFF;text-decoration:none;border-radius:12px;font-family:Plus Jakarta Sans;font-weight:700;font-size:15px;box-shadow:0 8px 20px rgba(37,211,102,0.35);\"><i class=\"fab fa-whatsapp\" aria-hidden=\"true\"></i>Kirim Permintaan Jadwal via WhatsApp</a></div></form>",
+                  "editor": "<form id=\"mt-booking-form\" class=\"booking-card\"><div class=\"booking-grid\"><div><label for=\"mt-booking-unit\">1. Tipe truk Anda</label><select id=\"mt-booking-unit\" name=\"unit\"><option>Truk trailer / tractor head (Scania, Volvo, Hino)</option><option>Truk box, tangki, atau gandeng (Fuso, Isuzu Giga)</option><option>Truk dump / tronton</option><option>Truk ringan (Canter, Dutro, Elf)</option><option>Lainnya / belum yakin</option></select></div><div><label for=\"mt-booking-need\">2. Kebutuhan servis</label><select id=\"mt-booking-need\" name=\"need\"><option>Servis rutin &amp; ganti oli</option><option>Turun mesin / overhaul</option><option>Servis rem, kaki-kaki &amp; suspensi</option><option>Kalibrasi injektor &amp; pompa solar</option><option>Perbaikan kelistrikan &amp; AC</option><option>Derek &amp; bantuan darurat</option><option>Lainnya</option></select></div><div><label for=\"mt-booking-time\">3. Waktu kedatangan</label><select id=\"mt-booking-time\" name=\"time\"><option>Bengkel KIM III Medan — hari ini</option><option>Bengkel KIM III Medan — besok</option><option>Bengkel KIM III Medan — pekan ini</option><option>Ditangani di lokasi armada Anda (Medan sekitarnya)</option></select></div></div><div class=\"booking-actions\"><div class=\"booking-info\"><i class=\"fas fa-info-circle\" aria-hidden=\"true\"></i><span>Pesan dibuka lewat WhatsApp, lalu dikonfirmasi oleh tim kami sebelum servis dimulai.</span></div><a id=\"mt-booking-wa\" class=\"btn-booking-wa\" href=\"https://wa.me/6281288881234?text=Halo%20Master%20Truck%2C%20saya%20ingin%20jadwal%20servis.\" data-wa=\"6281288881234\" target=\"_blank\" rel=\"noopener\" aria-label=\"Kirim permintaan jadwal servis via WhatsApp\"><i class=\"fab fa-whatsapp\" aria-hidden=\"true\"></i>Kirim Permintaan Jadwal via WhatsApp</a></div></form>",
                   "align": "left",
                   "typography_typography": "custom",
                   "typography_font_family": "Inter",
@@ -2708,9 +2708,9 @@
       },
       "padding_mobile": {
         "unit": "px",
-        "top": "56",
+        "top": "44",
         "right": "20",
-        "bottom": "56",
+        "bottom": "44",
         "left": "20",
         "isLinked": ""
       }
@@ -2859,7 +2859,8 @@
             "unit": "px",
             "size": 20
           },
-          "css_classes": "features-grid-row"
+          "css_classes": "features-grid-row",
+          "flex_direction_mobile": "column"
         },
         "elements": [
           {
@@ -2901,6 +2902,10 @@
                 "size": 25
               },
               "css_classes": "feat-bento-col",
+              "width_mobile": {
+                "unit": "%",
+                "size": 100
+              },
               "background_background": "classic",
               "background_color": "#FFFFFF",
               "border_border": "solid",
@@ -3007,6 +3012,10 @@
                 "size": 25
               },
               "css_classes": "feat-bento-col",
+              "width_mobile": {
+                "unit": "%",
+                "size": 100
+              },
               "background_background": "classic",
               "background_color": "#FFFFFF",
               "border_border": "solid",
@@ -3113,6 +3122,10 @@
                 "size": 25
               },
               "css_classes": "feat-bento-col",
+              "width_mobile": {
+                "unit": "%",
+                "size": 100
+              },
               "background_background": "classic",
               "background_color": "#FFFFFF",
               "border_border": "solid",
@@ -3219,6 +3232,10 @@
                 "size": 25
               },
               "css_classes": "feat-bento-col",
+              "width_mobile": {
+                "unit": "%",
+                "size": 100
+              },
               "background_background": "classic",
               "background_color": "#FFFFFF",
               "border_border": "solid",
@@ -3317,9 +3334,9 @@
       },
       "padding_mobile": {
         "unit": "px",
-        "top": "56",
+        "top": "44",
         "right": "20",
-        "bottom": "56",
+        "bottom": "44",
         "left": "20",
         "isLinked": ""
       }
@@ -4550,9 +4567,9 @@
       },
       "padding_mobile": {
         "unit": "px",
-        "top": "56",
+        "top": "44",
         "right": "20",
-        "bottom": "56",
+        "bottom": "44",
         "left": "20",
         "isLinked": ""
       }
@@ -5621,9 +5638,9 @@
       },
       "padding_mobile": {
         "unit": "px",
-        "top": "56",
+        "top": "44",
         "right": "20",
-        "bottom": "56",
+        "bottom": "44",
         "left": "20",
         "isLinked": ""
       }
@@ -6682,9 +6699,9 @@
       },
       "padding_mobile": {
         "unit": "px",
-        "top": "56",
+        "top": "44",
         "right": "20",
-        "bottom": "56",
+        "bottom": "44",
         "left": "20",
         "isLinked": ""
       }
@@ -7905,9 +7922,9 @@
       },
       "padding_mobile": {
         "unit": "px",
-        "top": "56",
+        "top": "44",
         "right": "20",
-        "bottom": "56",
+        "bottom": "44",
         "left": "20",
         "isLinked": ""
       }
@@ -8499,9 +8516,9 @@
       },
       "padding_mobile": {
         "unit": "px",
-        "top": "56",
+        "top": "44",
         "right": "20",
-        "bottom": "56",
+        "bottom": "44",
         "left": "20",
         "isLinked": ""
       }
@@ -8972,9 +8989,9 @@
       },
       "padding_mobile": {
         "unit": "px",
-        "top": "56",
+        "top": "44",
         "right": "20",
-        "bottom": "56",
+        "bottom": "44",
         "left": "20",
         "isLinked": ""
       }
@@ -9622,9 +9639,9 @@
       },
       "padding_mobile": {
         "unit": "px",
-        "top": "56",
+        "top": "44",
         "right": "20",
-        "bottom": "56",
+        "bottom": "44",
         "left": "20",
         "isLinked": ""
       }
