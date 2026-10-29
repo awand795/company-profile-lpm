@@ -1295,3 +1295,36 @@ kotak tombol 222,5px di ruang isi 179,1px (menembus tepi kartu).
 - Backup: `archive/backups/_backup_ronde30_20261029/`
 
 **Tag:** `pre-ronde30` → `ronde30-done`
+
+<!-- ============================================================ -->
+<!-- RONDE 31 - BENTUK KARTU JELAS + KARTU OVERLAY HERO            -->
+<!-- ============================================================ -->
+
+## RONDE 31 (2026-10-29) - Revamp bentuk kartu & kartu overlay hero
+
+**Keluhan pengelola:** kartu overlay putih di atas foto hero dan kartu-kartu
+putih di section putih "bentuknya tidak jelas".
+
+**Diagnosis terukur:** kartu `#FFFFFF` duduk di section yang juga `#FFFFFF`,
+hanya dipisah border 1px `#DDE3EC`; radius campur aduk (12 / 16 / 18 / 24px);
+beberapa kartu tanpa shadow. Kartu overlay hero adalah kotak putih polos di
+atas foto terang.
+
+**Perbaikan (hanya `mt-custom.css`, tanpa `!important` baru, palet tetap):**
+1. Satu sistem kartu grid (Keunggulan, Layanan, Cara Kerja, Fasilitas,
+   Testimoni, Paket): radius 18px, border 1px `--mt-silver` (#C3CEDC),
+   shadow `0 10px 24px rgba(11,31,58,.07)`, hover border biru baja + naik 2px.
+   Kartu "Paling Populer" mempertahankan border atas 3px biru baja + shadow
+   lebih tebal.
+2. FAQ radius 14px, kartu booking 20px, kartu strip statistik 20px — satu
+   bahasa bentuk.
+3. Kartu overlay hero "Mesin Dicek Digital" jadi **solid navy** `#0B1F3A`,
+   border putih 22%, judul putih, deskripsi putih 78%, chip ikon biru baja,
+   pil "SIAP JALAN" hijau lembut.
+
+**Uji:** `test-ronde25` 17/17 (kontras kembali lulus), `test-ronde28` 47/47
+(D4–D6 disesuaikan ke spek Ronde 31), `test-ronde30` 70/70,
+`verify-ronde29-fase3` 22/22, `verify-stitch` 41/41, `!important` tetap 170.
+Screenshot: `playwright_review/revamp31/`.
+
+**Tag:** `pre-ronde31` -> `ronde31-done`

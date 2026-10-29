@@ -3559,3 +3559,82 @@ body.elementor-page-59 .elementor-59 .fleet-badge {
         max-width: 100%;
     }
 }
+
+/* =====================================================================
+   RONDE 31 - bentuk kartu jelas & konsisten, kartu overlay hero kaca navy
+   (tanpa perubahan copy/palet/struktur; tanpa deklarasi paksa baru)
+   ===================================================================== */
+
+/* 1. Sistem kartu grid: SATU bentuk -> radius 18px, border tegas, shadow
+   navy halus. Tanpa ini kartu putih di section putih "tak terbaca". */
+body.elementor-page-59 .elementor-59 .feat-bento-col,
+body.elementor-page-59 .elementor-59 .svc-card-col,
+body.elementor-page-59 .elementor-59 .step-card,
+body.elementor-page-59 .elementor-59 .fac-card-col,
+body.elementor-page-59 .elementor-59 .testi-card-col,
+body.elementor-page-59 .elementor-59 .fleet-tier-col {
+    background: #FFFFFF;
+    border: 1px solid var(--mt-silver);
+    border-radius: 18px;
+    box-shadow: 0 10px 24px rgba(11, 31, 58, 0.07);
+}
+body.elementor-page-59 .elementor-59 .fleet-tier-col.featured {
+    border: 1px solid var(--mt-silver);
+    border-top: 3px solid var(--mt-blue);
+    box-shadow: 0 14px 32px rgba(11, 31, 58, 0.12);
+}
+@media (hover: hover) and (pointer: fine) {
+    body.elementor-page-59 .elementor-59 .feat-bento-col:hover,
+    body.elementor-page-59 .elementor-59 .svc-card-col:hover,
+    body.elementor-page-59 .elementor-59 .step-card:hover,
+    body.elementor-page-59 .elementor-59 .fac-card-col:hover,
+    body.elementor-page-59 .elementor-59 .testi-card-col:hover,
+    body.elementor-page-59 .elementor-59 .fleet-tier-col:hover {
+        border-color: var(--mt-blue);
+        box-shadow: 0 14px 30px rgba(11, 31, 58, 0.10);
+        transform: translateY(-2px);
+    }
+}
+
+/* 2. Kartu FAQ & kartu besar (booking, strip) ikut radius & border yang sama
+   supaya bentuk seluruh halaman satu bahasa. */
+body.elementor-page-59 .faq-accordion-box .elementor-accordion-item {
+    border: 1px solid var(--mt-silver);
+    border-radius: 14px;
+    box-shadow: 0 6px 16px rgba(11, 31, 58, 0.05);
+}
+body.elementor-page-59 .booking-card {
+    border: 1px solid var(--mt-silver);
+    border-radius: 20px;
+    box-shadow: 0 14px 32px rgba(11, 31, 58, 0.08);
+}
+body.elementor-page-59 .elementor-59 .hero-stats-inner {
+    border-color: var(--mt-silver);
+    border-radius: 20px;
+}
+
+/* 3. Kartu overlay hero: kaca navy di atas foto (bukan kotak putih polos). */
+body.elementor-page-59 .elementor-59 .hero-telematics-card {
+    background: var(--mt-navy);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 16px;
+    box-shadow: 0 16px 32px rgba(11, 31, 58, 0.28);
+}
+body.elementor-page-59 .elementor-59 .hero-telematics-card .telematics-title {
+    color: #FFFFFF;
+}
+body.elementor-page-59 .elementor-59 .hero-telematics-card .telematics-single-desc {
+    color: rgba(255, 255, 255, 0.78);
+}
+body.elementor-page-59 .elementor-59 .hero-telematics-card .telematics-chip-icon {
+    background: var(--mt-blue);
+    color: #FFFFFF;
+}
+body.elementor-page-59 .elementor-59 .hero-telematics-card .telematics-status-pill {
+    background: rgba(236, 253, 245, 0.14);
+    border-color: rgba(167, 243, 208, 0.45);
+    color: #A7F3D0;
+}
+body.elementor-page-59 .elementor-59 .hero-telematics-card .status-live-dot {
+    background: #34D399;
+}

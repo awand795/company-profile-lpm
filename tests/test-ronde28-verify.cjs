@@ -259,17 +259,18 @@ const rgb = (s) => (s || '').replace(/\s/g, '');
         check('D2. Kartu di kiri-bawah foto, offset 20px', d.offLeft === 20 && d.offBottom === 20, `kiri=${d.offLeft} bawah=${d.offBottom}`);
         // Ronde 29 fase 3 (3B) menetapkan batas 62% lebar foto.
         check('D3. Lebar kartu = isi & <= 62% foto', d.widthRatio <= 62 && d.cardCs.maxWidth === '62%', `rasio=${d.widthRatio}% max-width=${d.cardCs.maxWidth}`);
-        check('D4. Kartu putih, radius 16px, padding 14px 16px, shadow netral',
-            rgb(d.cardCs.backgroundColor) === 'rgb(255,255,255)' && parseFloat(d.cardCs.borderRadius) === 16 &&
+        // Ronde 31: kartu overlay hero jadi solid navy (bukan kotak putih polos).
+        check('D4. Kartu navy solid, radius 16px, padding 14px 16px, shadow navy',
+            rgb(d.cardCs.backgroundColor) === 'rgb(11,31,58)' && parseFloat(d.cardCs.borderRadius) === 16 &&
             d.cardCs.padding === '14px 16px' && /rgba\(11, 31, 58/.test(d.cardCs.boxShadow),
             `bg=${d.cardCs.backgroundColor} r=${d.cardCs.borderRadius} pad=${d.cardCs.padding}`);
         check('D5. Baris 1: chip ikon 36px + judul 15px bold navy + pil "SIAP JALAN" sebaris',
             Math.round(d.icon.w) === 36 && Math.round(d.icon.h) === 36 &&
-            parseFloat(d.titleCs.fontSize) === 15 && d.titleCs.fontWeight === '700' && rgb(d.titleCs.color) === 'rgb(11,31,58)' &&
+            parseFloat(d.titleCs.fontSize) === 15 && d.titleCs.fontWeight === '700' && rgb(d.titleCs.color) === 'rgb(255,255,255)' &&
             Math.abs((d.pill.t + d.pill.h / 2) - (d.title.t + d.title.h / 2)) <= 4,
             `icon=${d.icon.w}x${d.icon.h} title=${d.titleCs.fontSize}/${d.titleCs.fontWeight} pilY=${d.pill.t.toFixed(0)} titleY=${d.title.t.toFixed(0)}`);
-        check('D6. Baris 2: deskripsi 13px #5B6B80, rata kiri, maks 2 baris',
-            parseFloat(d.descCs.fontSize) === 13 && rgb(d.descCs.color) === 'rgb(91,107,128)' &&
+        check('D6. Baris 2: deskripsi 13px putih transparan, rata kiri, maks 2 baris',
+            parseFloat(d.descCs.fontSize) === 13 && /rgba?\(255,\s*255,\s*255/.test(d.descCs.color) &&
             d.descCs.textAlign === 'left' && parseInt(d.descCs.webkitLineClamp) === 2 && d.descLines <= 2,
             `fs=${d.descCs.fontSize} align=${d.descCs.textAlign} clamp=${d.descCs.webkitLineClamp} baris=${d.descLines}`);
         await ctx.close();
