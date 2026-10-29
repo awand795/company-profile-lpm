@@ -1,0 +1,1063 @@
+﻿/* =====================================================================
+   HERO v1 (konsolidasi Ronde 29)
+   Satu blok bersih untuk topbar, hero, dan strip statistik. Menggantikan
+   seluruh rule ronde 5-28 untuk lingkup ini. Tampilan harus SAMA dengan
+   kondisi sebelum konsolidasi (diverifikasi pixel-diff <= 0,5%).
+   Prinsip:
+   - Spesifisitas `body.elementor-page-59 .elementor-59 ...` menggantikan
+     `!important`; sisanya hanya untuk menimpa CSS inline Elementor.
+   - Base + tablet (<= 1023.98px) + mobile (<= 767.98px).
+   ===================================================================== */
+
+/* ---------------------------------------------------------------------
+   1. TOPBAR
+   --------------------------------------------------------------------- */
+body.elementor-page-59 .elementor-59 .stitch-topbar {
+    font-family: 'Inter', sans-serif;
+    background-color: #E3ECF8 !important; /* menimpa background container Elementor */
+    border-bottom: 1px solid var(--mt-border);
+    min-height: 38px;
+}
+body.elementor-page-59 .elementor-59 .stitch-topbar > .e-con-inner {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+body.elementor-page-59 .elementor-59 .stitch-topbar-row {
+    padding-top: 0;
+    padding-bottom: 0;
+    flex-wrap: nowrap;
+}
+body.elementor-page-59 .elementor-59 .stitch-topbar a {
+    transition: color 0.2s ease;
+}
+body.elementor-page-59 .elementor-59 .stitch-topbar a:hover {
+    color: #0B1F3A;
+}
+body.elementor-page-59 .elementor-59 .topbar-left-col .elementor-widget {
+    line-height: 1.2;
+    justify-content: center;
+}
+body.elementor-page-59 .elementor-59 .topbar-left-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+}
+body.elementor-page-59 .elementor-59 .topbar-hotline-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 2px 0;
+    transition: opacity 0.2s ease;
+}
+body.elementor-page-59 .elementor-59 .topbar-hotline-link:hover {
+    text-decoration: none;
+}
+body.elementor-page-59 .elementor-59 .topbar-hotline-link .hotline-icon-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    border-radius: 50%;
+    background-color: var(--mt-blue);
+    color: #FFFFFF;
+    font-size: 13px;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+body.elementor-page-59 .elementor-59 .topbar-hotline-link:hover .hotline-icon-circle {
+    background-color: var(--mt-blue-hover);
+    transform: scale(1.05);
+}
+body.elementor-page-59 .elementor-59 .topbar-hotline-link .hotline-text-wrap {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.15;
+}
+body.elementor-page-59 .elementor-59 .topbar-hotline-link .hotline-lbl {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--mt-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+body.elementor-page-59 .elementor-59 .topbar-hotline-link .hotline-num {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--mt-navy);
+    transition: color 0.2s ease;
+}
+body.elementor-page-59 .elementor-59 .topbar-hotline-link:hover .hotline-num {
+    color: var(--mt-blue);
+}
+body.elementor-page-59 .elementor-59 .topbar-hotline-link:focus-visible {
+    outline: 2px solid var(--mt-blue);
+    outline-offset: 2px;
+    border-radius: 6px;
+}
+body.elementor-page-59 .elementor-59 .topbar-hotline-link .hotline-chevron {
+    display: none;
+}
+body.elementor-page-59 .elementor-59 .topbar-location-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    line-height: 25.6px;
+    color: var(--mt-text);
+}
+body.elementor-page-59 .elementor-59 .topbar-right-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    font-size: 12.5px;
+    color: var(--mt-text);
+}
+body.elementor-page-59 .elementor-59 .topbar-hours-item,
+body.elementor-page-59 .elementor-59 .topbar-iso-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+@media (max-width: 1199.98px) {
+    body.elementor-page-59 .elementor-59 .topbar-iso-item {
+        display: none;
+    }
+}
+
+/* ---------------------------------------------------------------------
+   2. HERO: dasar, badge, judul, lead, tombol, chip merek
+   --------------------------------------------------------------------- */
+body.elementor-page-59 .elementor-59 .stitch-sec-hero {
+    --kit-widget-spacing: 0px;
+    position: relative;
+    background-color: #FFFFFF;
+    background-image:
+        radial-gradient(circle 460px at 88% 12%, rgba(36, 87, 166, 0.05) 0%, transparent 68%),
+        linear-gradient(180deg, #FFFFFF 0%, #F4F7FB 100%);
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+body.elementor-page-59 .elementor-59 .stitch-sec-hero > .e-con-inner {
+    padding-top: 24px;
+    padding-bottom: 40px;
+}
+body.elementor-page-59 .elementor-59 .stitch-sec-hero .elementor-widget {
+    margin-bottom: 0;
+}
+body.elementor-page-59 .elementor-59 .hero-main-row {
+    align-items: stretch;
+}
+body.elementor-page-59 .elementor-59 .hero-text-col {
+    position: relative;
+    z-index: 2;
+}
+body.elementor-page-59 .elementor-59 .hero-authority-badge {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    max-width: 100%;
+    align-self: flex-start;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    border-radius: 999px;
+    color: var(--mt-text);
+    box-shadow: none;
+    outline: none;
+}
+body.elementor-page-59 .elementor-59 .hero-authority-badge.elementor-widget {
+    margin-bottom: 12px;
+}
+body.elementor-page-59 .elementor-59 .hero-authority-badge .elementor-heading-title {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--mt-navy);
+}
+body.elementor-page-59 .elementor-59 .hero-authority-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    max-width: 100%;
+    padding: 8px 14px;
+    border: 1px solid var(--mt-border);
+    border-radius: 999px;
+    background: #FFFFFF;
+    box-shadow: none;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--mt-navy);
+}
+body.elementor-page-59 .elementor-59 .hero-authority-pill i {
+    color: var(--mt-blue);
+    font-size: 14px;
+    line-height: 1;
+    margin-right: 0;
+}
+body.elementor-page-59 .elementor-59 .hero-title.elementor-widget {
+    margin-bottom: 14px;
+}
+body.elementor-page-59 .elementor-59 .hero-title .elementor-heading-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.04;
+    letter-spacing: -1px;
+    color: var(--mt-navy);
+    margin: 0;
+    max-width: 580px;
+    text-wrap: balance;
+    word-break: normal;
+    overflow-wrap: break-word;
+}
+body.elementor-page-59 .elementor-59 .hero-brand-highlight {
+    color: var(--mt-navy);
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+body.elementor-page-59 .elementor-59 .hero-brand-highlight::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 6px;
+    background-color: var(--mt-blue);
+    border-radius: 3px;
+    z-index: -1;
+    pointer-events: none;
+}
+body.elementor-page-59 .elementor-59 .hero-lead {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--mt-text);
+}
+body.elementor-page-59 .elementor-59 .hero-lead.elementor-widget {
+    margin-bottom: 20px;
+}
+body.elementor-page-59 .elementor-59 .hero-btns-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button {
+    background-color: var(--mt-blue) !important; /* menimpa setting tombol Elementor */
+    background-image: none;
+    color: #FFFFFF !important; /* menimpa setting tombol Elementor */
+    height: 52px;
+    min-height: 52px;
+    padding: 0 22px;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 16px rgba(36, 87, 166, 0.22);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button:hover {
+    background-color: var(--mt-blue-hover) !important; /* menimpa setting tombol Elementor */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(36, 87, 166, 0.28);
+}
+body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button:active {
+    background-color: var(--mt-blue-press) !important; /* menimpa setting tombol Elementor */
+    transform: translateY(0);
+}
+body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button:focus-visible {
+    outline: 2px solid var(--mt-navy);
+    outline-offset: 2px;
+}
+body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button .elementor-button-icon {
+    color: #FFFFFF !important; /* menimpa warna ikon Elementor */
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+}
+body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button:hover .elementor-button-icon {
+    transform: translateX(3px);
+}
+body.elementor-page-59 .elementor-59 .btn-hero-secondary .elementor-button {
+    background-color: #FFFFFF !important; /* menimpa setting tombol Elementor */
+    color: var(--mt-navy) !important; /* menimpa setting tombol Elementor */
+    border: 1.5px solid var(--mt-navy) !important; /* menimpa setting tombol Elementor */
+    height: 52px;
+    min-height: 52px;
+    padding: 0 22px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+body.elementor-page-59 .elementor-59 .btn-hero-secondary .elementor-button:hover {
+    background-color: var(--mt-surface) !important; /* menimpa setting tombol Elementor */
+    transform: translateY(-2px);
+}
+body.elementor-page-59 .elementor-59 .btn-hero-secondary .elementor-button:active {
+    transform: translateY(0);
+}
+body.elementor-page-59 .elementor-59 .btn-hero-secondary .elementor-button .elementor-button-icon {
+    color: var(--mt-navy) !important; /* menimpa warna ikon Elementor */
+    margin-right: 8px;
+}
+body.elementor-page-59 .elementor-59 .hero-brands-block .brand-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--mt-muted);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+body.elementor-page-59 .elementor-59 .hero-brands-block .brand-chips-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    max-width: 520px;
+    padding-bottom: 4px;
+    overflow: visible;
+    scroll-snap-type: x;
+}
+body.elementor-page-59 .elementor-59 .hero-brands-block .brand-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    height: 32px;
+    padding: 0 14px;
+    border: 1px solid var(--mt-silver);
+    border-radius: 8px;
+    background: #FFFFFF;
+    color: var(--mt-text);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    line-height: 28px;
+    white-space: nowrap;
+    box-shadow: none;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    cursor: auto;
+}
+body.elementor-page-59 .elementor-59 .hero-brands-block .brand-chip:hover {
+    border-color: var(--mt-navy);
+    color: var(--mt-navy);
+}
+
+/* ---------------------------------------------------------------------
+   3. HERO: foto, dekorasi tint tunggal, kartu telematika
+   --------------------------------------------------------------------- */
+body.elementor-page-59 .elementor-59 .hero-visual-card-wrap {
+    position: relative;
+    width: 100%;
+}
+body.elementor-page-59 .elementor-59 .hero-visual-card-wrap::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    transform: translate(16px, 16px);
+    background-color: var(--mt-blue-tint);
+    background-image: none;
+    background-size: 18px 18px;
+    border: 0;
+    border-radius: 32px;
+    opacity: 1;
+    z-index: 1;
+    pointer-events: none;
+}
+body.elementor-page-59 .elementor-59 .hero-visual-card-wrap::after {
+    content: none;
+    display: none;
+}
+body.elementor-page-59 .elementor-59 .hero-truck-img {
+    position: relative;
+    z-index: 2;
+    border-radius: 28px;
+    border: 1px solid var(--mt-border);
+    box-shadow: 0 24px 48px rgba(11, 31, 58, 0.14);
+    overflow: hidden;
+    background: #FFFFFF;
+}
+body.elementor-page-59 .elementor-59 .hero-truck-img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: 45% 50%;
+    border-radius: 28px;
+}
+body.elementor-page-59 .elementor-59 .hero-truck-img::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 45%;
+    background: linear-gradient(to top, rgba(11, 31, 58, 0.45) 0%, transparent 100%);
+    pointer-events: none;
+    border-radius: 0 0 27px 27px;
+}
+body.elementor-page-59 .elementor-59 .hero-telematics-card {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: auto;
+    width: auto;
+    max-width: 78% !important; /* menimpa max-width 100% widget Elementor */
+    z-index: 3;
+    background: #FFFFFF;
+    border: 1px solid var(--mt-border);
+    border-radius: 16px;
+    padding: 14px 16px;
+    box-sizing: border-box;
+    box-shadow: 0 12px 28px rgba(11, 31, 58, 0.12);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    text-align: left;
+}
+body.elementor-page-59 .elementor-59 .hero-telematics-compact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    text-align: left;
+}
+body.elementor-page-59 .elementor-59 .telematics-left-block {
+    display: flex;
+    flex: 1 1 0;
+    min-width: 0;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+}
+body.elementor-page-59 .elementor-59 .telematics-chip-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 10px;
+    background: var(--mt-blue-tint);
+    color: var(--mt-blue);
+    font-size: 15px;
+    flex-shrink: 0;
+}
+body.elementor-page-59 .elementor-59 .telematics-title-group {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 0;
+    align-items: center;
+    gap: 10px;
+    flex: 1 1 auto;
+}
+body.elementor-page-59 .elementor-59 .telematics-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--mt-navy);
+    white-space: nowrap;
+}
+body.elementor-page-59 .elementor-59 .telematics-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 22px;
+    padding: 3px 8px;
+    border: 1px solid #A7F3D0;
+    border-radius: 999px;
+    background: var(--mt-ok-bg);
+    color: var(--mt-ok);
+    box-sizing: border-box;
+    flex-shrink: 0;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    margin-left: auto;
+}
+body.elementor-page-59 .elementor-59 .telematics-single-desc {
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--mt-muted);
+    margin: 0;
+    text-align: left;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+/* ---------------------------------------------------------------------
+   4. STRIP STATISTIK (desktop & tablet: 4 kolom)
+   --------------------------------------------------------------------- */
+body.elementor-page-59 .elementor-59 .hero-stats-inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: stretch;
+    gap: 0;
+    padding: 32px;
+    margin-top: 48px;
+    background: #FFFFFF;
+    border: 1px solid var(--mt-border);
+    border-radius: 24px;
+    box-shadow: 0 12px 32px rgba(11, 31, 58, 0.08);
+    position: relative;
+    z-index: 5;
+}
+body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-col {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    padding: 0 20px;
+}
+body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-col:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--mt-border);
+}
+body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-item {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    align-items: start;
+    gap: 16px;
+    width: 100%;
+}
+body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-icon .elementor-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    margin: 0;
+    padding: 0;
+    border-radius: 12px;
+    background: var(--mt-blue-tint);
+    color: var(--mt-blue);
+    font-size: 22px;
+}
+body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-icon .elementor-icon .e-font-icon-svg {
+    width: 100%;
+    height: 100%;
+}
+body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-text-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-number {
+    text-align: left;
+}
+body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-number .elementor-counter-number-wrapper {
+    display: block;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 34px;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--mt-navy);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    text-align: left;
+}
+body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-number .elementor-counter-number-wrapper::after {
+    display: none;
+}
+body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-number .elementor-counter-number-prefix,
+body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-number .elementor-counter-number,
+body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-number .elementor-counter-number-suffix {
+    display: inline;
+    white-space: nowrap;
+    vertical-align: baseline;
+}
+body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-number .elementor-counter-number-prefix:empty {
+    display: none;
+}
+body.elementor-page-59 .elementor-59 .hero-stats-inner .elementor-counter {
+    align-items: flex-start;
+}
+body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-number .elementor-counter-title {
+    display: flex;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 600;
+    color: var(--mt-muted);
+    margin: 0;
+    min-height: 2.8em;
+    text-align: left;
+    white-space: normal;
+}
+body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-number .elementor-counter-title::before {
+    content: "";
+    display: block;
+    width: 28px;
+    height: 3px;
+    margin: 8px 0 6px;
+    background-color: var(--mt-blue);
+    border-radius: 2px;
+}
+
+/* ---------------------------------------------------------------------
+   5. TABLET (768 - 1023.98px)
+   --------------------------------------------------------------------- */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+    body.elementor-page-59 .elementor-59 .hero-title .elementor-heading-title {
+        font-size: 34px;
+        line-height: 1.1;
+    }
+    body.elementor-page-59 .elementor-59 .hero-truck-img {
+        height: 340px;
+        min-height: 0;
+        max-height: none;
+    }
+}
+@media (max-width: 991.98px) {
+    body.elementor-page-59 .elementor-59 .hero-main-row {
+        flex-direction: column;
+        align-items: center;
+    }
+    body.elementor-page-59 .elementor-59 .hero-text-col,
+    body.elementor-page-59 .elementor-59 .hero-visual-col {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    body.elementor-page-59 .elementor-59 .hero-authority-badge {
+        order: 1;
+    }
+    body.elementor-page-59 .elementor-59 .hero-title {
+        order: 2;
+    }
+    body.elementor-page-59 .elementor-59 .hero-lead {
+        order: 3;
+    }
+    body.elementor-page-59 .elementor-59 .hero-btns-row {
+        order: 4;
+    }
+    body.elementor-page-59 .elementor-59 .hero-brands-widget {
+        order: 5;
+    }
+}
+
+/* ---------------------------------------------------------------------
+   6. DESKTOP (>= 1024px)
+   --------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+    body.elementor-page-59 .elementor-59 .hero-lead {
+        line-height: 1.5;
+    }
+    body.elementor-page-59 .elementor-59 .hero-visual-col {
+        display: flex;
+        align-items: stretch;
+        align-self: stretch;
+    }
+    body.elementor-page-59 .elementor-59 .hero-visual-card-wrap {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    body.elementor-page-59 .elementor-59 .hero-truck-img {
+        flex: 1 1 auto;
+        height: 100%;
+        min-height: 420px;
+        max-height: 520px;
+    }
+    body.elementor-page-59 .elementor-59 .hero-truck-img .elementor-widget-container {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        border-radius: 27px;
+    }
+    body.elementor-page-59 .elementor-59 .hero-truck-img img {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: auto;
+        object-position: 50% 30%;
+        border-radius: 27px;
+    }
+    body.elementor-page-59 .elementor-59 .hero-brands-widget {
+        margin-top: auto;
+    }
+    body.elementor-page-59 .elementor-59 .hero-brands-block .brand-chips-row {
+        padding-bottom: 0;
+    }
+}
+@media (min-width: 1024px) and (max-width: 1279.98px) {
+    body.elementor-page-59 .elementor-59 .hero-title .elementor-heading-title {
+        font-size: 40px;
+        line-height: 1.1;
+    }
+}
+
+/* ---------------------------------------------------------------------
+   7. MOBILE (<= 767.98px)
+   --------------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+    body.elementor-page-59 .elementor-59 .stitch-sec-hero > .e-con-inner {
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+    body.elementor-page-59 .elementor-59 .stitch-topbar {
+        display: block;
+        height: 40px;
+        min-height: 40px;
+        max-height: 36px;
+        overflow: hidden;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    body.elementor-page-59 .elementor-59 .stitch-topbar > .e-con-inner {
+        padding: 2px 12px;
+        max-height: 34px;
+    }
+    body.elementor-page-59 .elementor-59 .stitch-topbar-row {
+        justify-content: center;
+        align-items: center;
+        max-height: 32px;
+    }
+    body.elementor-page-59 .elementor-59 .topbar-right-col,
+    body.elementor-page-59 .elementor-59 .topbar-location-item {
+        display: none;
+        line-height: 1.2;
+    }
+    body.elementor-page-59 .elementor-59 .topbar-left-col {
+        width: 100%;
+        max-width: 100%;
+        flex: 1 1 100%;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+    body.elementor-page-59 .elementor-59 .topbar-left-wrap {
+        width: 100%;
+        display: flex;
+    }
+    body.elementor-page-59 .elementor-59 .topbar-hotline-link {
+        width: 100%;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    body.elementor-page-59 .elementor-59 .topbar-hotline-link .hotline-chevron {
+        display: inline-flex;
+        margin-left: auto;
+        color: var(--mt-blue);
+        font-size: 13px;
+    }
+
+    body.elementor-page-59 .elementor-59 .hero-main-row {
+        flex-direction: column;
+        gap: 18px;
+    }
+    body.elementor-page-59 .elementor-59 .hero-text-col {
+        display: contents;
+    }
+    body.elementor-page-59 .elementor-59 .hero-authority-badge {
+        order: 1;
+        align-self: center;
+        margin-bottom: 12px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    body.elementor-page-59 .elementor-59 .hero-title {
+        order: 2;
+        text-align: center;
+    }
+    body.elementor-page-59 .elementor-59 .hero-title .elementor-heading-title {
+        font-size: 31px;
+        line-height: 1.2;
+        text-align: center;
+    }
+    body.elementor-page-59 .elementor-59 .hero-lead {
+        order: 3;
+        font-size: 15px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    body.elementor-page-59 .elementor-59 .hero-btns-row {
+        order: 4;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+    body.elementor-page-59 .elementor-59 .hero-btns-row .btn-hero-primary,
+    body.elementor-page-59 .elementor-59 .hero-btns-row .btn-hero-secondary {
+        width: 100%;
+    }
+    body.elementor-page-59 .elementor-59 .hero-btns-row .btn-hero-primary .elementor-button {
+        width: 100%;
+        height: 52px;
+    }
+    body.elementor-page-59 .elementor-59 .hero-btns-row .btn-hero-secondary .elementor-button {
+        width: 100%;
+        height: 48px;
+        min-height: 48px;
+    }
+    body.elementor-page-59 .elementor-59 .hero-visual-col {
+        order: 5;
+        width: 100%;
+        padding: 0;
+        margin-bottom: 16px;
+    }
+    body.elementor-page-59 .elementor-59 .hero-visual-card-wrap::before {
+        display: none;
+        top: -4px;
+        right: -4px;
+        bottom: -4px;
+        left: -4px;
+        border-radius: 26px;
+        transform: none;
+    }
+    body.elementor-page-59 .elementor-59 .hero-truck-img {
+        border-radius: 16px;
+        max-height: 280px;
+    }
+    body.elementor-page-59 .elementor-59 .hero-truck-img img {
+        height: 240px;
+        aspect-ratio: auto;
+        object-position: 55% 50%;
+        border-radius: 15px;
+    }
+    body.elementor-page-59 .elementor-59 .hero-telematics-card {
+        bottom: 12px;
+        left: 12px;
+        max-width: 88% !important; /* menimpa max-width 100% widget Elementor */
+        padding: 10px 12px;
+        border-radius: 16px;
+    }
+    body.elementor-page-59 .elementor-59 .hero-telematics-card .telematics-title {
+        font-size: 13px;
+    }
+    body.elementor-page-59 .elementor-59 .hero-telematics-card .telematics-single-desc {
+        font-size: 12px;
+    }
+    body.elementor-page-59 .elementor-59 .hero-brands-widget {
+        order: 5;
+        width: 100%;
+        text-align: center;
+    }
+    body.elementor-page-59 .elementor-59 .hero-brands-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    body.elementor-page-59 .elementor-59 .hero-brands-block .brand-chips-row {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 100%;
+        max-width: 100%;
+        justify-content: flex-start;
+        gap: 8px;
+        padding-bottom: 6px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -webkit-mask-image: linear-gradient(to right, #000 85%, transparent 100%);
+        mask-image: linear-gradient(to right, #000 85%, transparent 100%);
+    }
+    body.elementor-page-59 .elementor-59 .hero-brands-block .brand-chip {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        height: 32px;
+        padding: 0 12px;
+        font-size: 12px;
+    }
+    body.elementor-page-59 .elementor-59 .hero-brands-block .brand-chip:hover {
+        border-color: var(--mt-silver);
+        color: var(--mt-text);
+    }
+
+    body.elementor-page-59 .elementor-59 .hero-stats-inner {
+        grid-template-columns: repeat(2, 1fr);
+        flex-direction: column;
+        gap: 0;
+        padding: 20px 16px;
+        border-radius: 16px;
+        margin-top: 32px;
+    }
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-col {
+        width: calc(50% - 8px);
+        max-width: 100%;
+        flex: 1 1 100%;
+        padding: 12px;
+        display: flex;
+    }
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-col:not(:last-child)::after {
+        display: none;
+    }
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-col:nth-child(1),
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-col:nth-child(3) {
+        border-right: 1px solid var(--mt-border);
+    }
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-col:nth-child(1),
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-col:nth-child(2) {
+        border-bottom: 1px solid var(--mt-border);
+    }
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-item {
+        grid-template-columns: 40px 1fr;
+        gap: 12px;
+    }
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-icon .elementor-icon {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        border-radius: 10px;
+        font-size: 18px;
+    }
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-number .elementor-counter-number-wrapper {
+        font-size: 26px;
+    }
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-number .elementor-counter-title {
+        font-size: 12px;
+        min-height: 0;
+    }
+}
+
+/* ---------------------------------------------------------------------
+   8. DESKTOP PENDEK (<= 680px tinggi) & ANIMASI
+   --------------------------------------------------------------------- */
+@media (max-height: 680px) and (min-width: 992px) {
+    body.elementor-page-59 .elementor-59 .stitch-sec-hero {
+        padding-top: 10px;
+        padding-bottom: 24px;
+    }
+    body.elementor-page-59 .elementor-59 .hero-title .elementor-heading-title {
+        font-size: 42px;
+        line-height: 1.12;
+        margin-bottom: 10px;
+    }
+    body.elementor-page-59 .elementor-59 .hero-lead {
+        font-size: 15px;
+        line-height: 1.45;
+    }
+    body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button,
+    body.elementor-page-59 .elementor-59 .btn-hero-secondary .elementor-button {
+        height: 48px;
+        min-height: 48px;
+    }
+}
+body.elementor-page-59 .elementor-59 .hero-authority-badge {
+    animation: heroFadeUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+body.elementor-page-59 .elementor-59 .hero-title {
+    animation: heroFadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
+}
+body.elementor-page-59 .elementor-59 .hero-lead {
+    animation: heroFadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.10s both;
+}
+body.elementor-page-59 .elementor-59 .hero-btns-row {
+    animation: heroFadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+body.elementor-page-59 .elementor-59 .hero-brands-widget {
+    animation: heroFadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.20s both;
+}
+body.elementor-page-59 .elementor-59 .hero-visual-card-wrap {
+    animation: heroScaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+}
+body.elementor-page-59 .elementor-59 .hero-telematics-card {
+    animation: heroFadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
+}
+html.no-anim body.elementor-page-59 .elementor-59 .hero-title,
+html.no-anim body.elementor-page-59 .elementor-59 .hero-lead {
+    animation: none;
+}
+
+/* Editor & webdriver: pastikan konten tidak tersembunyi oleh animasi.
+   !important diperlukan karena animasi `both` mengunci opacity/transform. */
+body.elementor-editor-active .elementor-59 .hero-authority-badge,
+body.elementor-editor-active .elementor-59 .hero-title,
+body.elementor-editor-active .elementor-59 .hero-lead,
+body.elementor-editor-active .elementor-59 .hero-btns-row,
+body.elementor-editor-active .elementor-59 .hero-brands-widget,
+body.elementor-editor-active .elementor-59 .hero-truck-img,
+body.elementor-editor-active .elementor-59 .hero-telematics-card,
+body.elementor-editor-preview .elementor-59 .hero-authority-badge,
+body.elementor-editor-preview .elementor-59 .hero-title,
+body.elementor-editor-preview .elementor-59 .hero-lead,
+body.elementor-editor-preview .elementor-59 .hero-btns-row,
+body.elementor-editor-preview .elementor-59 .hero-brands-widget,
+body.elementor-editor-preview .elementor-59 .hero-truck-img,
+body.elementor-editor-preview .elementor-59 .hero-telematics-card,
+body.is-webdriver .hero-authority-badge,
+body.is-webdriver .hero-title,
+body.is-webdriver .hero-lead,
+body.is-webdriver .hero-btns-row,
+body.is-webdriver .hero-brands-widget,
+body.is-webdriver .hero-truck-img,
+body.is-webdriver .hero-telematics-card {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+    body.elementor-page-59 .elementor-59 .hero-authority-badge,
+    body.elementor-page-59 .elementor-59 .hero-title,
+    body.elementor-page-59 .elementor-59 .hero-lead,
+    body.elementor-page-59 .elementor-59 .hero-btns-row,
+    body.elementor-page-59 .elementor-59 .hero-brands-widget,
+    body.elementor-page-59 .elementor-59 .hero-truck-img,
+    body.elementor-page-59 .elementor-59 .hero-visual-card-wrap,
+    body.elementor-page-59 .elementor-59 .hero-telematics-card {
+        animation: none;
+    }
+    body.elementor-page-59 .elementor-59 .btn-hero-primary .elementor-button,
+    body.elementor-page-59 .elementor-59 .btn-hero-secondary .elementor-button,
+    body.elementor-page-59 .elementor-59 .brand-chip {
+        transition: none;
+        transform: none;
+    }
+    body.elementor-page-59 .status-live-dot {
+        animation: none;
+    }
+}
+

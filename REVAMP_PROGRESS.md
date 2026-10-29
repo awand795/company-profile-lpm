@@ -1158,3 +1158,39 @@ Palet navy + biru baja tanpa emas sudah FINAL dan DISETUJUI pemilik. Pekerjaan d
 ### Backup & Tag
 - Backup: `archive/backups/_backup_ronde28_20261029/` (builder, CSS, JS, JSON, dua dump)
 - Tag Git: `pre-ronde28` -> `ronde28-done`
+
+<!-- ============================================================ -->
+<!-- RONDE 29 - FASE 2: KONSOLIDASI CSS HERO/STRIP/TOPBAR         -->
+<!-- ============================================================ -->
+
+## RONDE 29 FASE 2 (2026-10-29) - Konsolidasi Tanpa Perubahan Visual
+
+**Mandat:** Hapus rule topbar/hero/strip yang bertumpuk, ganti satu blok bersih; hasil visual wajib sama (pixel diff <= 0,5%/viewport).
+
+### Angka
+
+| Metrik | Sebelum | Sesudah | Perubahan |
+| --- | ---: | ---: | ---: |
+| Baris CSS | 3872 | 3266 | **-606** |
+| Rule lingkup | 305 | 154 | -49,5% |
+| `!important` total | 483 | 170 | **-64,8%** |
+| `!important` lingkup | 116 | 11 | **-90,5%** |
+| Rule lingkup dihapus | - | 288 | 46 `@media` kosong ikut dibuang |
+
+Blok pengganti ada di `tools/hero-v1.css` (komentar `HERO v1 (konsolidasi Ronde 29)`), termasuk kompensasi quirk lama (lebar `.stat-col` mobile, badge melebar, urutan merek-foto) agar no-op.
+
+### Bukti no-op
+
+- Screenshot stabil 8 viewport (view + full) di `playwright_review/fase2_stable/`.
+- `tests/pixel-diff-stable.cjs`: **0,0000% berbeda di 16/16 gambar**.
+- Fingerprint: **0 perbedaan rect**; sisa perbedaan hanya properti nonvisual (cursor, pseudo `display:none`, sisa `min-width` grid).
+- Laporan: `playwright_review/sesudah_ronde29_fase2/laporan_fase2.md`.
+
+### Uji
+
+- `verify-stitch.cjs`: **41 PASS / 0 FAIL**
+- `verify-editor-health.cjs`: **PASS**
+- `verify-layout.cjs`: **40 PASS / 1 FAIL** — hero 1440x800 bottom 919px, pre-existing struktural (Ronde 28: 942px), bukan regresi konsolidasi.
+
+**File:** 3 salinan `mt-custom.css` (hash sama), `tools/hero-v1.css`, 4 skrip uji baru, laporan, progress.
+**Tag:** `ronde29-fase2`
