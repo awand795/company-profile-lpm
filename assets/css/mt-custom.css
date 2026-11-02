@@ -2125,6 +2125,30 @@ body.elementor-page-59 .btn-booking-wa {
         box-shadow: 0 4px 18px -4px rgba(15, 23, 42, 0.05) !important;
     }
 
+    /* Fasilitas Showcase di Mobile */
+    body.elementor-page-59 .fac-row-1,
+    body.elementor-page-59 .fac-row-2 {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+        margin-bottom: 16px !important;
+    }
+    body.elementor-page-59 .fac-card-col {
+        width: 100% !important;
+        box-shadow: 0 4px 18px -4px rgba(15, 23, 42, 0.05) !important;
+    }
+
+    /* Testimoni di Mobile */
+    body.elementor-page-59 .testimonials-row {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+    body.elementor-page-59 .testi-card-col {
+        width: 100% !important;
+        box-shadow: 0 4px 18px -4px rgba(15, 23, 42, 0.05) !important;
+    }
+
     /* Lokasi & Jam Buka di Mobile */
     body.elementor-page-59 .location-row {
         flex-direction: column !important;

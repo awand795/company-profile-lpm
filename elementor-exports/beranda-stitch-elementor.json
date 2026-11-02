@@ -420,7 +420,7 @@
                         "elType": "widget",
                         "settings": {
                           "image": {
-                            "url": "http://localhost:8923/wp-content/uploads/stitch/stitch_logo_transparan.png",
+                            "url": "http://52.77.133.95:8923/wp-content/uploads/stitch/stitch_logo_transparan.png",
                             "id": 351
                           },
                           "image_size": "full",
@@ -676,7 +676,7 @@
                     "settings": {
                       "text": "Masuk",
                       "link": {
-                        "url": "http://localhost:8923/#login",
+                        "url": "http://52.77.133.95:8923/#login",
                         "is_external": "",
                         "nofollow": ""
                       },
@@ -734,7 +734,7 @@
                     "settings": {
                       "text": "Daftar",
                       "link": {
-                        "url": "http://localhost:8923/#register",
+                        "url": "http://52.77.133.95:8923/#register",
                         "is_external": "",
                         "nofollow": ""
                       },
@@ -1219,7 +1219,7 @@
                     "elType": "widget",
                     "settings": {
                       "image": {
-                        "url": "http://localhost:8923/wp-content/uploads/stitch/stitch_img_2.webp",
+                        "url": "http://52.77.133.95:8923/wp-content/uploads/stitch/stitch_img_2.webp",
                         "id": 342
                       },
                       "image_size": "full",
@@ -4033,7 +4033,1741 @@
     "isInner": false
   },
   {
-    "id": "420738c",
+    "id": "233fd3e",
+    "elType": "container",
+    "settings": {
+      "flex_direction": "column",
+      "boxed_width": {
+        "unit": "px",
+        "size": 1240
+      },
+      "content_width": "boxed",
+      "_title": "Fasilitas",
+      "_element_id": "fasilitas",
+      "css_classes": "stitch-sec-facilities",
+      "background_background": "classic",
+      "background_color": "#f2f4f6",
+      "padding": {
+        "unit": "px",
+        "top": "72",
+        "right": "20",
+        "bottom": "72",
+        "left": "20",
+        "isLinked": ""
+      }
+    },
+    "elements": [
+      {
+        "id": "1520c94",
+        "elType": "widget",
+        "settings": {
+          "title": "FASILITAS BENGKEL",
+          "header_size": "p",
+          "align": "center",
+          "typography_typography": "custom",
+          "typography_font_family": "Plus Jakarta Sans",
+          "typography_font_size": {
+            "unit": "px",
+            "size": 13
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+            "unit": "em",
+            "size": 1.15
+          },
+          "title_color": "#fd651e",
+          "_margin": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "typography_letter_spacing": {
+            "unit": "px",
+            "size": 1.0
+          }
+        },
+        "elements": [],
+        "widgetType": "heading"
+      },
+      {
+        "id": "f0d9902",
+        "elType": "widget",
+        "settings": {
+          "title": "Fasilitas Bengkel",
+          "header_size": "h2",
+          "align": "center",
+          "typography_typography": "custom",
+          "typography_font_family": "Plus Jakarta Sans",
+          "typography_font_size": {
+            "unit": "px",
+            "size": 34
+          },
+          "typography_font_weight": "800",
+          "typography_line_height": {
+            "unit": "em",
+            "size": 1.15
+          },
+          "title_color": "#00236f",
+          "_margin": {
+            "unit": "px",
+            "top": "6",
+            "right": "0",
+            "bottom": "14",
+            "left": "0",
+            "isLinked": ""
+          },
+          "typography_letter_spacing": {
+            "unit": "px",
+            "size": -0.8
+          }
+        },
+        "elements": [],
+        "widgetType": "heading"
+      },
+      {
+        "id": "12f7d0d",
+        "elType": "widget",
+        "settings": {
+          "editor": "Dirancang untuk truk besar dan trailer, dengan kapasitas hingga 12 Bay unit pengerjaan bersamaan.",
+          "align": "center",
+          "typography_typography": "custom",
+          "typography_font_family": "Inter",
+          "typography_font_size": {
+            "unit": "px",
+            "size": 16
+          },
+          "typography_line_height": {
+            "unit": "em",
+            "size": 1.6
+          },
+          "text_color": "#444651",
+          "_margin": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "48",
+            "left": "0",
+            "isLinked": ""
+          }
+        },
+        "elements": [],
+        "widgetType": "text-editor"
+      },
+      {
+        "id": "0b3a937",
+        "elType": "container",
+        "settings": {
+          "content_width": "full",
+          "flex_direction": "row",
+          "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_tablet": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_mobile": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "flex_gap": {
+            "unit": "px",
+            "size": 20
+          },
+          "css_classes": "fac-row-1",
+          "margin": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "20",
+            "left": "0",
+            "isLinked": ""
+          }
+        },
+        "elements": [
+          {
+            "id": "992dde9",
+            "elType": "container",
+            "settings": {
+              "content_width": "full",
+              "flex_direction": "column",
+              "padding": {
+                "unit": "px",
+                "top": "16",
+                "right": "16",
+                "bottom": "18",
+                "left": "16",
+                "isLinked": ""
+              },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 33
+              },
+              "css_classes": "fac-card-col",
+              "background_background": "classic",
+              "background_color": "#ffffff",
+              "border_radius": {
+                "unit": "px",
+                "top": "18",
+                "right": "18",
+                "bottom": "18",
+                "left": "18",
+                "isLinked": true
+              }
+            },
+            "elements": [
+              {
+                "id": "f1891a5",
+                "elType": "widget",
+                "settings": {
+                  "image": {
+                    "url": "http://52.77.133.95:8923/wp-content/uploads/stitch/stitch_img_3.webp",
+                    "id": 343
+                  },
+                  "image_size": "full",
+                  "caption_source": "none",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  },
+                  "image_border_radius": {
+                    "unit": "px",
+                    "top": "16",
+                    "right": "16",
+                    "bottom": "16",
+                    "left": "16",
+                    "isLinked": true
+                  }
+                },
+                "elements": [],
+                "widgetType": "image"
+              },
+              {
+                "id": "e8f652f",
+                "elType": "widget",
+                "settings": {
+                  "title": "Pit Servis 20 Meter",
+                  "header_size": "h3",
+                  "align": "left",
+                  "typography_typography": "custom",
+                  "typography_font_family": "Plus Jakarta Sans",
+                  "typography_font_size": {
+                    "unit": "px",
+                    "size": 18
+                  },
+                  "typography_font_weight": "700",
+                  "typography_line_height": {
+                    "unit": "em",
+                    "size": 1.15
+                  },
+                  "title_color": "#00236f",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "12",
+                    "right": "0",
+                    "bottom": "4",
+                    "left": "0",
+                    "isLinked": ""
+                  },
+                  "typography_letter_spacing": {
+                    "unit": "px",
+                    "size": -0.5
+                  }
+                },
+                "elements": [],
+                "widgetType": "heading"
+              },
+              {
+                "id": "d5b14ce",
+                "elType": "widget",
+                "settings": {
+                  "editor": "Jalur kolong untuk memeriksa gardan dan sasis, dengan lampu terang dan saluran oli tertutup.",
+                  "align": "left",
+                  "typography_typography": "custom",
+                  "typography_font_family": "Inter",
+                  "typography_font_size": {
+                    "unit": "px",
+                    "size": 14
+                  },
+                  "typography_line_height": {
+                    "unit": "em",
+                    "size": 1.6
+                  },
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
+                },
+                "elements": [],
+                "widgetType": "text-editor"
+              }
+            ],
+            "isInner": true
+          },
+          {
+            "id": "5f3030d",
+            "elType": "container",
+            "settings": {
+              "content_width": "full",
+              "flex_direction": "column",
+              "padding": {
+                "unit": "px",
+                "top": "16",
+                "right": "16",
+                "bottom": "18",
+                "left": "16",
+                "isLinked": ""
+              },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 33
+              },
+              "css_classes": "fac-card-col",
+              "background_background": "classic",
+              "background_color": "#ffffff",
+              "border_radius": {
+                "unit": "px",
+                "top": "18",
+                "right": "18",
+                "bottom": "18",
+                "left": "18",
+                "isLinked": true
+              }
+            },
+            "elements": [
+              {
+                "id": "2f25ca6",
+                "elType": "widget",
+                "settings": {
+                  "image": {
+                    "url": "http://52.77.133.95:8923/wp-content/uploads/stitch/stitch_img_4.webp",
+                    "id": 344
+                  },
+                  "image_size": "full",
+                  "caption_source": "none",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  },
+                  "image_border_radius": {
+                    "unit": "px",
+                    "top": "16",
+                    "right": "16",
+                    "bottom": "16",
+                    "left": "16",
+                    "isLinked": true
+                  }
+                },
+                "elements": [],
+                "widgetType": "image"
+              },
+              {
+                "id": "78c89a6",
+                "elType": "widget",
+                "settings": {
+                  "title": "Overhead Crane 10 Ton",
+                  "header_size": "h3",
+                  "align": "left",
+                  "typography_typography": "custom",
+                  "typography_font_family": "Plus Jakarta Sans",
+                  "typography_font_size": {
+                    "unit": "px",
+                    "size": 18
+                  },
+                  "typography_font_weight": "700",
+                  "typography_line_height": {
+                    "unit": "em",
+                    "size": 1.15
+                  },
+                  "title_color": "#00236f",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "12",
+                    "right": "0",
+                    "bottom": "4",
+                    "left": "0",
+                    "isLinked": ""
+                  },
+                  "typography_letter_spacing": {
+                    "unit": "px",
+                    "size": -0.5
+                  }
+                },
+                "elements": [],
+                "widgetType": "heading"
+              },
+              {
+                "id": "7c20c99",
+                "elType": "widget",
+                "settings": {
+                  "editor": "Derek gantung untuk mengangkat komponen berat seperti kabin, transmisi, dan mesin dengan aman.",
+                  "align": "left",
+                  "typography_typography": "custom",
+                  "typography_font_family": "Inter",
+                  "typography_font_size": {
+                    "unit": "px",
+                    "size": 14
+                  },
+                  "typography_line_height": {
+                    "unit": "em",
+                    "size": 1.6
+                  },
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
+                },
+                "elements": [],
+                "widgetType": "text-editor"
+              }
+            ],
+            "isInner": true
+          },
+          {
+            "id": "f572b8f",
+            "elType": "container",
+            "settings": {
+              "content_width": "full",
+              "flex_direction": "column",
+              "padding": {
+                "unit": "px",
+                "top": "16",
+                "right": "16",
+                "bottom": "18",
+                "left": "16",
+                "isLinked": ""
+              },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 33
+              },
+              "css_classes": "fac-card-col",
+              "background_background": "classic",
+              "background_color": "#ffffff",
+              "border_radius": {
+                "unit": "px",
+                "top": "18",
+                "right": "18",
+                "bottom": "18",
+                "left": "18",
+                "isLinked": true
+              }
+            },
+            "elements": [
+              {
+                "id": "f55d72b",
+                "elType": "widget",
+                "settings": {
+                  "image": {
+                    "url": "http://52.77.133.95:8923/wp-content/uploads/stitch/stitch_img_5.webp",
+                    "id": 345
+                  },
+                  "image_size": "full",
+                  "caption_source": "none",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  },
+                  "image_border_radius": {
+                    "unit": "px",
+                    "top": "16",
+                    "right": "16",
+                    "bottom": "16",
+                    "left": "16",
+                    "isLinked": true
+                  }
+                },
+                "elements": [],
+                "widgetType": "image"
+              },
+              {
+                "id": "be60480",
+                "elType": "widget",
+                "settings": {
+                  "title": "Mesin Spooring 3D Laser",
+                  "header_size": "h3",
+                  "align": "left",
+                  "typography_typography": "custom",
+                  "typography_font_family": "Plus Jakarta Sans",
+                  "typography_font_size": {
+                    "unit": "px",
+                    "size": 18
+                  },
+                  "typography_font_weight": "700",
+                  "typography_line_height": {
+                    "unit": "em",
+                    "size": 1.15
+                  },
+                  "title_color": "#00236f",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "12",
+                    "right": "0",
+                    "bottom": "4",
+                    "left": "0",
+                    "isLinked": ""
+                  },
+                  "typography_letter_spacing": {
+                    "unit": "px",
+                    "size": -0.5
+                  }
+                },
+                "elements": [],
+                "widgetType": "heading"
+              },
+              {
+                "id": "b5e7201",
+                "elType": "widget",
+                "settings": {
+                  "editor": "Menyetel kelurusan roda dan as roda truk memakai laser, supaya ban aus merata dan kemudi nyaman.",
+                  "align": "left",
+                  "typography_typography": "custom",
+                  "typography_font_family": "Inter",
+                  "typography_font_size": {
+                    "unit": "px",
+                    "size": 14
+                  },
+                  "typography_line_height": {
+                    "unit": "em",
+                    "size": 1.6
+                  },
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
+                },
+                "elements": [],
+                "widgetType": "text-editor"
+              }
+            ],
+            "isInner": true
+          }
+        ],
+        "isInner": true
+      },
+      {
+        "id": "12851e4",
+        "elType": "container",
+        "settings": {
+          "content_width": "full",
+          "flex_direction": "row",
+          "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_tablet": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_mobile": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "flex_gap": {
+            "unit": "px",
+            "size": 20
+          },
+          "css_classes": "fac-row-2"
+        },
+        "elements": [
+          {
+            "id": "d62ce65",
+            "elType": "container",
+            "settings": {
+              "content_width": "full",
+              "flex_direction": "column",
+              "padding": {
+                "unit": "px",
+                "top": "16",
+                "right": "16",
+                "bottom": "18",
+                "left": "16",
+                "isLinked": ""
+              },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 33
+              },
+              "css_classes": "fac-card-col",
+              "background_background": "classic",
+              "background_color": "#ffffff",
+              "border_radius": {
+                "unit": "px",
+                "top": "18",
+                "right": "18",
+                "bottom": "18",
+                "left": "18",
+                "isLinked": true
+              }
+            },
+            "elements": [
+              {
+                "id": "f74b5a7",
+                "elType": "widget",
+                "settings": {
+                  "image": {
+                    "url": "http://52.77.133.95:8923/wp-content/uploads/stitch/stitch_img_6.webp",
+                    "id": 346
+                  },
+                  "image_size": "full",
+                  "caption_source": "none",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  },
+                  "image_border_radius": {
+                    "unit": "px",
+                    "top": "16",
+                    "right": "16",
+                    "bottom": "16",
+                    "left": "16",
+                    "isLinked": true
+                  }
+                },
+                "elements": [],
+                "widgetType": "image"
+              },
+              {
+                "id": "4fe9dd8",
+                "elType": "widget",
+                "settings": {
+                  "title": "Uji Performa Dynometer",
+                  "header_size": "h3",
+                  "align": "left",
+                  "typography_typography": "custom",
+                  "typography_font_family": "Plus Jakarta Sans",
+                  "typography_font_size": {
+                    "unit": "px",
+                    "size": 18
+                  },
+                  "typography_font_weight": "700",
+                  "typography_line_height": {
+                    "unit": "em",
+                    "size": 1.15
+                  },
+                  "title_color": "#00236f",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "12",
+                    "right": "0",
+                    "bottom": "4",
+                    "left": "0",
+                    "isLinked": ""
+                  },
+                  "typography_letter_spacing": {
+                    "unit": "px",
+                    "size": -0.5
+                  }
+                },
+                "elements": [],
+                "widgetType": "heading"
+              },
+              {
+                "id": "847ef34",
+                "elType": "widget",
+                "settings": {
+                  "editor": "Mengukur tenaga mesin dan putaran roda di tempat, untuk memastikan truk sehat sebelum diserahkan.",
+                  "align": "left",
+                  "typography_typography": "custom",
+                  "typography_font_family": "Inter",
+                  "typography_font_size": {
+                    "unit": "px",
+                    "size": 14
+                  },
+                  "typography_line_height": {
+                    "unit": "em",
+                    "size": 1.6
+                  },
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
+                },
+                "elements": [],
+                "widgetType": "text-editor"
+              }
+            ],
+            "isInner": true
+          },
+          {
+            "id": "42723c7",
+            "elType": "container",
+            "settings": {
+              "content_width": "full",
+              "flex_direction": "column",
+              "padding": {
+                "unit": "px",
+                "top": "16",
+                "right": "16",
+                "bottom": "18",
+                "left": "16",
+                "isLinked": ""
+              },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 33
+              },
+              "css_classes": "fac-card-col",
+              "background_background": "classic",
+              "background_color": "#ffffff",
+              "border_radius": {
+                "unit": "px",
+                "top": "18",
+                "right": "18",
+                "bottom": "18",
+                "left": "18",
+                "isLinked": true
+              }
+            },
+            "elements": [
+              {
+                "id": "7547ded",
+                "elType": "widget",
+                "settings": {
+                  "image": {
+                    "url": "http://52.77.133.95:8923/wp-content/uploads/stitch/stitch_img_7.webp",
+                    "id": 347
+                  },
+                  "image_size": "full",
+                  "caption_source": "none",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  },
+                  "image_border_radius": {
+                    "unit": "px",
+                    "top": "16",
+                    "right": "16",
+                    "bottom": "16",
+                    "left": "16",
+                    "isLinked": true
+                  }
+                },
+                "elements": [],
+                "widgetType": "image"
+              },
+              {
+                "id": "378967b",
+                "elType": "widget",
+                "settings": {
+                  "title": "Ruang Kalibrasi Injektor",
+                  "header_size": "h3",
+                  "align": "left",
+                  "typography_typography": "custom",
+                  "typography_font_family": "Plus Jakarta Sans",
+                  "typography_font_size": {
+                    "unit": "px",
+                    "size": 18
+                  },
+                  "typography_font_weight": "700",
+                  "typography_line_height": {
+                    "unit": "em",
+                    "size": 1.15
+                  },
+                  "title_color": "#00236f",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "12",
+                    "right": "0",
+                    "bottom": "4",
+                    "left": "0",
+                    "isLinked": ""
+                  },
+                  "typography_letter_spacing": {
+                    "unit": "px",
+                    "size": -0.5
+                  }
+                },
+                "elements": [],
+                "widgetType": "heading"
+              },
+              {
+                "id": "4999602",
+                "elType": "widget",
+                "settings": {
+                  "editor": "Ruang bersih bebas debu untuk menguji dan menyetel injektor common rail supaya menyembur rata.",
+                  "align": "left",
+                  "typography_typography": "custom",
+                  "typography_font_family": "Inter",
+                  "typography_font_size": {
+                    "unit": "px",
+                    "size": 14
+                  },
+                  "typography_line_height": {
+                    "unit": "em",
+                    "size": 1.6
+                  },
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
+                },
+                "elements": [],
+                "widgetType": "text-editor"
+              }
+            ],
+            "isInner": true
+          },
+          {
+            "id": "dbbb2d1",
+            "elType": "container",
+            "settings": {
+              "content_width": "full",
+              "flex_direction": "column",
+              "padding": {
+                "unit": "px",
+                "top": "16",
+                "right": "16",
+                "bottom": "18",
+                "left": "16",
+                "isLinked": ""
+              },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 33
+              },
+              "css_classes": "fac-card-col",
+              "background_background": "classic",
+              "background_color": "#ffffff",
+              "border_radius": {
+                "unit": "px",
+                "top": "18",
+                "right": "18",
+                "bottom": "18",
+                "left": "18",
+                "isLinked": true
+              }
+            },
+            "elements": [
+              {
+                "id": "c329e76",
+                "elType": "widget",
+                "settings": {
+                  "image": {
+                    "url": "http://52.77.133.95:8923/wp-content/uploads/stitch/stitch_img_8.webp",
+                    "id": 348
+                  },
+                  "image_size": "full",
+                  "caption_source": "none",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  },
+                  "image_border_radius": {
+                    "unit": "px",
+                    "top": "16",
+                    "right": "16",
+                    "bottom": "16",
+                    "left": "16",
+                    "isLinked": true
+                  }
+                },
+                "elements": [],
+                "widgetType": "image"
+              },
+              {
+                "id": "3ef4748",
+                "elType": "widget",
+                "settings": {
+                  "title": "Ruang Istirahat Pengemudi",
+                  "header_size": "h3",
+                  "align": "left",
+                  "typography_typography": "custom",
+                  "typography_font_family": "Plus Jakarta Sans",
+                  "typography_font_size": {
+                    "unit": "px",
+                    "size": 18
+                  },
+                  "typography_font_weight": "700",
+                  "typography_line_height": {
+                    "unit": "em",
+                    "size": 1.15
+                  },
+                  "title_color": "#00236f",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "12",
+                    "right": "0",
+                    "bottom": "4",
+                    "left": "0",
+                    "isLinked": ""
+                  },
+                  "typography_letter_spacing": {
+                    "unit": "px",
+                    "size": -0.5
+                  }
+                },
+                "elements": [],
+                "widgetType": "heading"
+              },
+              {
+                "id": "91b5132",
+                "elType": "widget",
+                "settings": {
+                  "editor": "Ruang istirahat ber-AC dengan kursi nyaman, tempat salat, kamar mandi bersih, dan layar pantau pengerjaan truk.",
+                  "align": "left",
+                  "typography_typography": "custom",
+                  "typography_font_family": "Inter",
+                  "typography_font_size": {
+                    "unit": "px",
+                    "size": 14
+                  },
+                  "typography_line_height": {
+                    "unit": "em",
+                    "size": 1.6
+                  },
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
+                },
+                "elements": [],
+                "widgetType": "text-editor"
+              }
+            ],
+            "isInner": true
+          }
+        ],
+        "isInner": true
+      }
+    ],
+    "isInner": false
+  },
+  {
+    "id": "c9ad7b0",
+    "elType": "container",
+    "settings": {
+      "flex_direction": "column",
+      "boxed_width": {
+        "unit": "px",
+        "size": 1240
+      },
+      "content_width": "boxed",
+      "_title": "Testimoni",
+      "css_classes": "stitch-sec-testimonials",
+      "background_background": "classic",
+      "background_color": "#ffffff",
+      "padding": {
+        "unit": "px",
+        "top": "72",
+        "right": "20",
+        "bottom": "72",
+        "left": "20",
+        "isLinked": ""
+      }
+    },
+    "elements": [
+      {
+        "id": "e856aab",
+        "elType": "widget",
+        "settings": {
+          "title": "TESTIMONI PELANGGAN",
+          "header_size": "p",
+          "align": "center",
+          "typography_typography": "custom",
+          "typography_font_family": "Plus Jakarta Sans",
+          "typography_font_size": {
+            "unit": "px",
+            "size": 13
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+            "unit": "em",
+            "size": 1.15
+          },
+          "title_color": "#00236f",
+          "_margin": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "typography_letter_spacing": {
+            "unit": "px",
+            "size": 1.0
+          }
+        },
+        "elements": [],
+        "widgetType": "heading"
+      },
+      {
+        "id": "081ad62",
+        "elType": "widget",
+        "settings": {
+          "title": "Kata Pelanggan",
+          "header_size": "h2",
+          "align": "center",
+          "typography_typography": "custom",
+          "typography_font_family": "Plus Jakarta Sans",
+          "typography_font_size": {
+            "unit": "px",
+            "size": 34
+          },
+          "typography_font_weight": "800",
+          "typography_line_height": {
+            "unit": "em",
+            "size": 1.15
+          },
+          "title_color": "#00236f",
+          "_margin": {
+            "unit": "px",
+            "top": "6",
+            "right": "0",
+            "bottom": "14",
+            "left": "0",
+            "isLinked": ""
+          },
+          "typography_letter_spacing": {
+            "unit": "px",
+            "size": -0.8
+          }
+        },
+        "elements": [],
+        "widgetType": "heading"
+      },
+      {
+        "id": "1a3942a",
+        "elType": "widget",
+        "settings": {
+          "editor": "Cerita singkat dari pelanggan yang merawat armadanya bersama kami.",
+          "align": "center",
+          "typography_typography": "custom",
+          "typography_font_family": "Inter",
+          "typography_font_size": {
+            "unit": "px",
+            "size": 16
+          },
+          "typography_line_height": {
+            "unit": "em",
+            "size": 1.6
+          },
+          "text_color": "#444651",
+          "_margin": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "48",
+            "left": "0",
+            "isLinked": ""
+          }
+        },
+        "elements": [],
+        "widgetType": "text-editor"
+      },
+      {
+        "id": "fd7b6c5",
+        "elType": "container",
+        "settings": {
+          "content_width": "full",
+          "flex_direction": "row",
+          "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_tablet": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "padding_mobile": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "flex_gap": {
+            "unit": "px",
+            "size": 20
+          },
+          "css_classes": "testimonials-row"
+        },
+        "elements": [
+          {
+            "id": "9a0e867",
+            "elType": "container",
+            "settings": {
+              "content_width": "full",
+              "flex_direction": "column",
+              "padding": {
+                "unit": "px",
+                "top": "28",
+                "right": "24",
+                "bottom": "24",
+                "left": "24",
+                "isLinked": ""
+              },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 33
+              },
+              "css_classes": "testi-card-col",
+              "background_background": "classic",
+              "background_color": "#f7f9fb",
+              "border_border": "solid",
+              "border_width": {
+                "unit": "px",
+                "top": "1",
+                "right": "1",
+                "bottom": "1",
+                "left": "1",
+                "isLinked": ""
+              },
+              "border_color": "#e2e8f0",
+              "border_radius": {
+                "unit": "px",
+                "top": "20",
+                "right": "20",
+                "bottom": "20",
+                "left": "20",
+                "isLinked": true
+              }
+            },
+            "elements": [
+              {
+                "id": "cc9152d",
+                "elType": "widget",
+                "settings": {
+                  "editor": "<div style='font-size:16px;color:#fd651e;margin-bottom:10px;' role=\"img\" aria-label=\"Nilai 5 dari 5\"><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i></div><p style='font-size:15px;color:#191c1e;line-height:1.65;font-style:italic;margin-bottom:20px;'>&ldquo;Sejak armada kami dirawat di sini, truk lebih jarang mogok di jalan. Pekerjaannya dijelaskan dulu sebelum dimulai, jadi jadwal operasional kami tidak terganggu.&rdquo;</p><div style='display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid #e2e8f0;'><div aria-hidden=\"true\" style='width:48px;height:48px;flex:0 0 48px;border-radius:50%;background:#E8ECFF;color:#00236f;display:flex;align-items:center;justify-content:center;font-family:Plus Jakarta Sans;font-size:15px;font-weight:800;letter-spacing:0.5px;' >PA</div><div><div style='font-family:Plus Jakarta Sans;font-size:15px;font-weight:700;color:#00236f;'>Pelanggan armada ekspedisi</div><div style='font-size:14px;color:#757682;'>Contoh testimoni pelanggan</div></div></div>",
+                  "align": "left",
+                  "typography_typography": "custom",
+                  "typography_font_family": "Inter",
+                  "typography_font_size": {
+                    "unit": "px",
+                    "size": 16
+                  },
+                  "typography_line_height": {
+                    "unit": "em",
+                    "size": 1.6
+                  },
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
+                },
+                "elements": [],
+                "widgetType": "text-editor"
+              }
+            ],
+            "isInner": true
+          },
+          {
+            "id": "df4466d",
+            "elType": "container",
+            "settings": {
+              "content_width": "full",
+              "flex_direction": "column",
+              "padding": {
+                "unit": "px",
+                "top": "28",
+                "right": "24",
+                "bottom": "24",
+                "left": "24",
+                "isLinked": ""
+              },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 33
+              },
+              "css_classes": "testi-card-col",
+              "background_background": "classic",
+              "background_color": "#f7f9fb",
+              "border_border": "solid",
+              "border_width": {
+                "unit": "px",
+                "top": "1",
+                "right": "1",
+                "bottom": "1",
+                "left": "1",
+                "isLinked": ""
+              },
+              "border_color": "#e2e8f0",
+              "border_radius": {
+                "unit": "px",
+                "top": "20",
+                "right": "20",
+                "bottom": "20",
+                "left": "20",
+                "isLinked": true
+              }
+            },
+            "elements": [
+              {
+                "id": "f467e40",
+                "elType": "widget",
+                "settings": {
+                  "editor": "<div style='font-size:16px;color:#fd651e;margin-bottom:10px;' role=\"img\" aria-label=\"Nilai 5 dari 5\"><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i></div><p style='font-size:15px;color:#191c1e;line-height:1.65;font-style:italic;margin-bottom:20px;'>&ldquo;Laporan pengerjaannya jelas dan suku cadangnya terjamin asli. Kalau ada pertanyaan, pihak bengkel cepat menjawab.&rdquo;</p><div style='display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid #e2e8f0;'><div aria-hidden=\"true\" style='width:48px;height:48px;flex:0 0 48px;border-radius:50%;background:#E8ECFF;color:#00236f;display:flex;align-items:center;justify-content:center;font-family:Plus Jakarta Sans;font-size:15px;font-weight:800;letter-spacing:0.5px;' >PT</div><div><div style='font-family:Plus Jakarta Sans;font-size:15px;font-weight:700;color:#00236f;'>Pelanggan perusahaan transportasi</div><div style='font-size:14px;color:#757682;'>Contoh testimoni pelanggan</div></div></div>",
+                  "align": "left",
+                  "typography_typography": "custom",
+                  "typography_font_family": "Inter",
+                  "typography_font_size": {
+                    "unit": "px",
+                    "size": 16
+                  },
+                  "typography_line_height": {
+                    "unit": "em",
+                    "size": 1.6
+                  },
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
+                },
+                "elements": [],
+                "widgetType": "text-editor"
+              }
+            ],
+            "isInner": true
+          },
+          {
+            "id": "75c5e9f",
+            "elType": "container",
+            "settings": {
+              "content_width": "full",
+              "flex_direction": "column",
+              "padding": {
+                "unit": "px",
+                "top": "28",
+                "right": "24",
+                "bottom": "24",
+                "left": "24",
+                "isLinked": ""
+              },
+              "padding_tablet": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "padding_mobile": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+              },
+              "flex_gap": {
+                "unit": "px",
+                "size": 0
+              },
+              "width": {
+                "unit": "%",
+                "size": 33
+              },
+              "css_classes": "testi-card-col",
+              "background_background": "classic",
+              "background_color": "#f7f9fb",
+              "border_border": "solid",
+              "border_width": {
+                "unit": "px",
+                "top": "1",
+                "right": "1",
+                "bottom": "1",
+                "left": "1",
+                "isLinked": ""
+              },
+              "border_color": "#e2e8f0",
+              "border_radius": {
+                "unit": "px",
+                "top": "20",
+                "right": "20",
+                "bottom": "20",
+                "left": "20",
+                "isLinked": true
+              }
+            },
+            "elements": [
+              {
+                "id": "baa3b94",
+                "elType": "widget",
+                "settings": {
+                  "editor": "<div style='font-size:16px;color:#fd651e;margin-bottom:10px;' role=\"img\" aria-label=\"Nilai 5 dari 5\"><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i><i class=\"fas fa-star\" aria-hidden=\"true\"></i></div><p style='font-size:15px;color:#191c1e;line-height:1.65;font-style:italic;margin-bottom:20px;'>&ldquo;Truk kami pernah mengalami kendala teknis dan tim mekanik bengkel cepat tanggap menolong. Truk bisa kembali jalan tanpa menunggu lama.&rdquo;</p><div style='display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid #e2e8f0;'><div aria-hidden=\"true\" style='width:48px;height:48px;flex:0 0 48px;border-radius:50%;background:#E8ECFF;color:#00236f;display:flex;align-items:center;justify-content:center;font-family:Plus Jakarta Sans;font-size:15px;font-weight:800;letter-spacing:0.5px;' >PU</div><div><div style='font-family:Plus Jakarta Sans;font-size:15px;font-weight:700;color:#00236f;'>Pelanggan usaha pengiriman</div><div style='font-size:14px;color:#757682;'>Contoh testimoni pelanggan</div></div></div>",
+                  "align": "left",
+                  "typography_typography": "custom",
+                  "typography_font_family": "Inter",
+                  "typography_font_size": {
+                    "unit": "px",
+                    "size": 16
+                  },
+                  "typography_line_height": {
+                    "unit": "em",
+                    "size": 1.6
+                  },
+                  "text_color": "#444651",
+                  "_margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                  }
+                },
+                "elements": [],
+                "widgetType": "text-editor"
+              }
+            ],
+            "isInner": true
+          }
+        ],
+        "isInner": true
+      }
+    ],
+    "isInner": false
+  },
+  {
+    "id": "7d9b4c4",
+    "elType": "container",
+    "settings": {
+      "flex_direction": "column",
+      "boxed_width": {
+        "unit": "px",
+        "size": 1240
+      },
+      "content_width": "boxed",
+      "_title": "FAQ",
+      "_element_id": "faq",
+      "css_classes": "stitch-sec-faq",
+      "background_background": "classic",
+      "background_color": "#f2f4f6",
+      "padding": {
+        "unit": "px",
+        "top": "72",
+        "right": "20",
+        "bottom": "72",
+        "left": "20",
+        "isLinked": ""
+      }
+    },
+    "elements": [
+      {
+        "id": "61e839e",
+        "elType": "widget",
+        "settings": {
+          "title": "PERTANYAAN UMUM",
+          "header_size": "p",
+          "align": "center",
+          "typography_typography": "custom",
+          "typography_font_family": "Plus Jakarta Sans",
+          "typography_font_size": {
+            "unit": "px",
+            "size": 13
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+            "unit": "em",
+            "size": 1.15
+          },
+          "title_color": "#fd651e",
+          "_margin": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": ""
+          },
+          "typography_letter_spacing": {
+            "unit": "px",
+            "size": 1.0
+          }
+        },
+        "elements": [],
+        "widgetType": "heading"
+      },
+      {
+        "id": "af1bf7b",
+        "elType": "widget",
+        "settings": {
+          "title": "Pertanyaan Umum",
+          "header_size": "h2",
+          "align": "center",
+          "typography_typography": "custom",
+          "typography_font_family": "Plus Jakarta Sans",
+          "typography_font_size": {
+            "unit": "px",
+            "size": 32
+          },
+          "typography_font_weight": "800",
+          "typography_line_height": {
+            "unit": "em",
+            "size": 1.15
+          },
+          "title_color": "#00236f",
+          "_margin": {
+            "unit": "px",
+            "top": "6",
+            "right": "0",
+            "bottom": "14",
+            "left": "0",
+            "isLinked": ""
+          },
+          "typography_letter_spacing": {
+            "unit": "px",
+            "size": -0.8
+          }
+        },
+        "elements": [],
+        "widgetType": "heading"
+      },
+      {
+        "id": "09eaea3",
+        "elType": "widget",
+        "settings": {
+          "editor": "Pertanyaan yang paling sering ditanyakan calon pelanggan sebelum servis.",
+          "align": "center",
+          "typography_typography": "custom",
+          "typography_font_family": "Inter",
+          "typography_font_size": {
+            "unit": "px",
+            "size": 16
+          },
+          "typography_line_height": {
+            "unit": "em",
+            "size": 1.6
+          },
+          "text_color": "#444651",
+          "_margin": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "40",
+            "left": "0",
+            "isLinked": ""
+          }
+        },
+        "elements": [],
+        "widgetType": "text-editor"
+      },
+      {
+        "id": "940a431",
+        "elType": "widget",
+        "settings": {
+          "tabs": [
+            {
+              "tab_title": "Apakah Master Truck melayani servis panggilan atau kunjungan ke armada?",
+              "tab_content": "Ya. Kami memiliki unit servis keliling yang siap melayani perawatan berkala, perbaikan kelistrikan, sasis, dan rem di lokasi pool atau gudang Anda di Medan dan sekitarnya."
+            },
+            {
+              "tab_title": "Merek truk apa saja yang bisa dilayani bengkel Master Truck?",
+              "tab_content": "Truk niaga merek Hino, Mitsubishi Fuso, dan Isuzu, serta berbagai truk komersial lainnya. Hubungi kami untuk konfirmasi ketersediaan suku cadang."
+            },
+            {
+              "tab_title": "Bagaimana jaminan suku cadang dan garansi pengerjaan?",
+              "tab_content": "Suku cadang kami jamin 100% keasliannya dari pemasok resmi. Seluruh pengerjaan servis dan perbaikan didukung teknisi berpengalaman dan garansi kepuasan pengerjaan."
+            },
+            {
+              "tab_title": "Bagaimana kerja sama perawatan armada untuk perusahaan?",
+              "tab_content": "Kami menyediakan kontrak perawatan bulanan maupun tahunan. Perusahaan Anda mendapat jadwal servis tanpa antre, diskon suku cadang hingga 18%, laporan digital, dan pilihan bayar termin setelah disetujui."
+            },
+            {
+              "tab_title": "Apakah ada tempat penyimpanan truk yang menginap?",
+              "tab_content": "Ada. Area bengkel luas dengan 12 Bay kapasitas unit pengerjaan dijaga petugas keamanan 24 jam dengan kamera pengawas di setiap stall dan area parkir."
+            }
+          ],
+          "selected_icon": {
+            "value": "fas fa-plus",
+            "library": "fa-solid"
+          },
+          "selected_active_icon": {
+            "value": "fas fa-minus",
+            "library": "fa-solid"
+          },
+          "title_typography_typography": "custom",
+          "title_typography_font_family": "Plus Jakarta Sans",
+          "title_typography_font_size": {
+            "unit": "px",
+            "size": 17
+          },
+          "title_typography_font_weight": "700",
+          "title_color": "#00236f",
+          "tab_active_color": "#fd651e",
+          "content_typography_typography": "custom",
+          "content_typography_font_family": "Inter",
+          "content_typography_font_size": {
+            "unit": "px",
+            "size": 15
+          },
+          "content_typography_line_height": {
+            "unit": "em",
+            "size": 1.6
+          },
+          "content_color": "#444651",
+          "_css_classes": "faq-accordion-box"
+        },
+        "elements": [],
+        "widgetType": "accordion"
+      }
+    ],
+    "isInner": false
+  },
+  {
+    "id": "842eecf",
     "elType": "container",
     "settings": {
       "flex_direction": "column",
@@ -4058,7 +5792,7 @@
     },
     "elements": [
       {
-        "id": "e08abbd",
+        "id": "b5071a5",
         "elType": "widget",
         "settings": {
           "title": "LOKASI &amp; JAM BUKA",
@@ -4093,7 +5827,7 @@
         "widgetType": "heading"
       },
       {
-        "id": "4d7c99b",
+        "id": "da0027f",
         "elType": "widget",
         "settings": {
           "title": "Lokasi &amp; Jam Buka",
@@ -4128,7 +5862,7 @@
         "widgetType": "heading"
       },
       {
-        "id": "101c856",
+        "id": "3c07558",
         "elType": "container",
         "settings": {
           "content_width": "full",
@@ -4166,7 +5900,7 @@
         },
         "elements": [
           {
-            "id": "bbdd7fe",
+            "id": "fc60135",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -4207,7 +5941,7 @@
             },
             "elements": [
               {
-                "id": "492eac0",
+                "id": "0687c13",
                 "elType": "widget",
                 "settings": {
                   "title": "Bengkel KIM III Medan",
@@ -4242,7 +5976,7 @@
                 "widgetType": "heading"
               },
               {
-                "id": "b1f1feb",
+                "id": "92c24cd",
                 "elType": "widget",
                 "settings": {
                   "editor": "Kawasan Industri Medan (KIM) III, Medan, Sumatera Utara",
@@ -4271,7 +6005,7 @@
                 "widgetType": "text-editor"
               },
               {
-                "id": "8aa0d3c",
+                "id": "166c88d",
                 "elType": "widget",
                 "settings": {
                   "title": "Jam Buka",
@@ -4306,7 +6040,7 @@
                 "widgetType": "heading"
               },
               {
-                "id": "48ea181",
+                "id": "8ae8ede",
                 "elType": "widget",
                 "settings": {
                   "editor": "Senin – Sabtu: 08.00 – 20.00",
@@ -4338,7 +6072,7 @@
             "isInner": true
           },
           {
-            "id": "04ea26c",
+            "id": "b6f2432",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -4379,7 +6113,7 @@
             },
             "elements": [
               {
-                "id": "a14559d",
+                "id": "a50a03c",
                 "elType": "widget",
                 "settings": {
                   "text": "Buka di Google Maps",
@@ -4437,7 +6171,7 @@
                 "widgetType": "button"
               },
               {
-                "id": "a7a03eb",
+                "id": "9a7688b",
                 "elType": "widget",
                 "settings": {
                   "text": "Chat WhatsApp",
@@ -4504,7 +6238,7 @@
     "isInner": false
   },
   {
-    "id": "8a58fb4",
+    "id": "815adeb",
     "elType": "container",
     "settings": {
       "flex_direction": "column",
@@ -4539,7 +6273,7 @@
     },
     "elements": [
       {
-        "id": "eeda874",
+        "id": "ab30788",
         "elType": "container",
         "settings": {
           "content_width": "full",
@@ -4584,7 +6318,7 @@
         },
         "elements": [
           {
-            "id": "3e132ed",
+            "id": "b598e01",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -4625,7 +6359,7 @@
             },
             "elements": [
               {
-                "id": "aef0710",
+                "id": "06a766c",
                 "elType": "widget",
                 "settings": {
                   "title": "MASTER TRUCK",
@@ -4661,7 +6395,7 @@
                 "widgetType": "heading"
               },
               {
-                "id": "8a2563f",
+                "id": "2f23397",
                 "elType": "widget",
                 "settings": {
                   "editor": "<span class=\"footer-company\">PT Master Truck Indonesia</span>",
@@ -4690,7 +6424,7 @@
                 "widgetType": "text-editor"
               },
               {
-                "id": "6739f38",
+                "id": "6241b1d",
                 "elType": "widget",
                 "settings": {
                   "editor": "Bengkel perawatan, perbaikan, dan rekondisi armada truk niaga di KIM III Medan.",
@@ -4719,7 +6453,7 @@
                 "widgetType": "text-editor"
               },
               {
-                "id": "3148f55",
+                "id": "e3b629f",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div class=\"footer-contact\"><i class=\"fas fa-phone-alt\" aria-hidden=\"true\"></i> <a href=\"https://wa.me/6281288881234?text=Halo%20Master%20Truck%2C%20saya%20butuh%20bantuan%20untuk%20armada%20saya.\">0812-MASTER-TRUCK</a> · <a href=\"https://wa.me/6281288881234?text=Halo%20Master%20Truck%2C%20saya%20butuh%20bantuan%20untuk%20armada%20saya.\">061-8888-1234</a><br><i class=\"fas fa-envelope\" aria-hidden=\"true\"></i> <a href=\"mailto:fleet@mastertruck.co.id\">fleet@mastertruck.co.id</a></div>",
@@ -4748,7 +6482,7 @@
                 "widgetType": "text-editor"
               },
               {
-                "id": "ee5c5fc",
+                "id": "a8c4a46",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div class=\"footer-social\"><a href=\"https://wa.me/6281288881234?text=Halo%20Master%20Truck%2C%20saya%20butuh%20bantuan%20untuk%20armada%20saya.\" aria-label=\"Telepon Master Truck\"><i class=\"fas fa-phone-alt\" aria-hidden=\"true\"></i></a><a href=\"https://wa.me/6281288881234?text=Halo%20Master%20Truck%2C%20saya%20butuh%20bantuan%20untuk%20armada%20saya.\" target=\"_blank\" rel=\"noopener\" aria-label=\"Chat WhatsApp Master Truck\"><i class=\"fab fa-whatsapp\" aria-hidden=\"true\"></i></a><a href=\"mailto:fleet@mastertruck.co.id\" aria-label=\"Email Master Truck\"><i class=\"fas fa-envelope\" aria-hidden=\"true\"></i></a><a href=\"https://www.google.com/maps/search/?api=1&query=Kawasan%20Industri%20Medan%20%28KIM%29%20III%2C%20Medan%2C%20Sumatera%20Utara\" target=\"_blank\" rel=\"noopener\" aria-label=\"Lokasi bengkel Master Truck\"><i class=\"fas fa-map-marker-alt\" aria-hidden=\"true\"></i></a></div>",
@@ -4780,7 +6514,7 @@
             "isInner": true
           },
           {
-            "id": "3bf4bc8",
+            "id": "8ee4aca",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -4821,7 +6555,7 @@
             },
             "elements": [
               {
-                "id": "c84113a",
+                "id": "b66ee79",
                 "elType": "widget",
                 "settings": {
                   "title": "Layanan Utama",
@@ -4857,7 +6591,7 @@
                 "widgetType": "heading"
               },
               {
-                "id": "7e1cb3f",
+                "id": "726f029",
                 "elType": "widget",
                 "settings": {
                   "editor": "<nav class=\"footer-links\" aria-label=\"Layanan utama\"><a href=\"#layanan\">Overhoul Mesin</a><a href=\"#layanan\">Service Rutin dan Berkala</a><a href=\"#layanan\">Service Rem dan Kaki Kaki</a><a href=\"#layanan\">Electrical</a><a href=\"#layanan\">Ganti Ban</a><a href=\"#layanan\">Perbaikan Transmisi dan Gardan</a></nav>",
@@ -4889,7 +6623,7 @@
             "isInner": true
           },
           {
-            "id": "04650a6",
+            "id": "c9b6bdb",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -4930,7 +6664,7 @@
             },
             "elements": [
               {
-                "id": "e0ba0e1",
+                "id": "87b6cff",
                 "elType": "widget",
                 "settings": {
                   "title": "Workshop",
@@ -4966,7 +6700,7 @@
                 "widgetType": "heading"
               },
               {
-                "id": "fa6941f",
+                "id": "d72700a",
                 "elType": "widget",
                 "settings": {
                   "editor": "<b>Workshop KIM III Medan</b><br>Kawasan Industri Medan (KIM) III, Medan, Sumatera Utara",
@@ -4998,7 +6732,7 @@
             "isInner": true
           },
           {
-            "id": "63f7cc1",
+            "id": "2c327a0",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -5039,7 +6773,7 @@
             },
             "elements": [
               {
-                "id": "bc0d6ec",
+                "id": "5006060",
                 "elType": "widget",
                 "settings": {
                   "title": "Standar Mutu",
@@ -5075,7 +6809,7 @@
                 "widgetType": "heading"
               },
               {
-                "id": "2c7e828",
+                "id": "f135432",
                 "elType": "widget",
                 "settings": {
                   "icon_list": [
@@ -5147,10 +6881,10 @@
         "isInner": true
       },
       {
-        "id": "1f2af13",
+        "id": "a64bcf8",
         "elType": "widget",
         "settings": {
-          "editor": "<div class=\"footer-bottom\"><div class=\"footer-copy\">© 2026 PT Master Truck Indonesia · Master Truck. Hak Cipta Dilindungi Undang-Undang.</div><nav class=\"footer-menu\" aria-label=\"Menu footer\"><a href=\"#header-carousel\">Beranda</a><a href=\"#layanan\">Layanan</a><a href=\"#quick-booking\">Booking Servis</a><a href=\"#keunggulan\">Keunggulan</a><a href=\"#lokasi\">Lokasi</a><a href=\"#kontak\">Kontak</a><span class=\"footer-menu-sep\" aria-hidden=\"true\">|</span><a href=\"http://localhost:8923/#login\">Masuk</a><a href=\"http://localhost:8923/#register\">Daftar</a></nav></div>",
+          "editor": "<div class=\"footer-bottom\"><div class=\"footer-copy\">© 2026 PT Master Truck Indonesia · Master Truck. Hak Cipta Dilindungi Undang-Undang.</div><nav class=\"footer-menu\" aria-label=\"Menu footer\"><a href=\"#header-carousel\">Beranda</a><a href=\"#layanan\">Layanan</a><a href=\"#quick-booking\">Booking Servis</a><a href=\"#keunggulan\">Keunggulan</a><a href=\"#lokasi\">Lokasi</a><a href=\"#kontak\">Kontak</a><span class=\"footer-menu-sep\" aria-hidden=\"true\">|</span><a href=\"http://52.77.133.95:8923/#login\">Masuk</a><a href=\"http://52.77.133.95:8923/#register\">Daftar</a></nav></div>",
           "align": "left",
           "typography_typography": "custom",
           "typography_font_family": "Inter",

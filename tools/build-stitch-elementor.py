@@ -1007,8 +1007,7 @@ sec_fac["elements"] = [
     # Ronde 21 4a: judul ≤ 8 kata, tanpa jargon.
     W_heading("Fasilitas Bengkel",
               tag="h2", align="center", size=34, weight=800, color=C["primary"], ls=-0.8, margin=px4(6, 0, 14, 0)),
-    # TODO: konfirmasi pemilik — kapasitas hingga 20 unit bersamaan.
-    W_text("Dirancang untuk truk besar dan trailer, dengan kapasitas hingga 20 unit dikerjakan bersamaan.",
+    W_text("Dirancang untuk truk besar dan trailer, dengan kapasitas hingga 12 Bay unit pengerjaan bersamaan.",
            align="center", size=16, color=C["text_muted"], margin=px4(0, 0, 48, 0)),
 
     # Row 1 (3 Photos)
@@ -1052,7 +1051,7 @@ sec_fac["elements"] = [
         ], {"padding": px4(16, 16, 18, 16), "background_background": "classic", "background_color": C["white"], "border_radius": rad(18)}),
     ], css_classes="fac-row-2", direction="row", style={"flex_gap": fsize(20)})
 ]
-# sections.append(sec_fac)  # HIDDEN per c.pdf (fasilitas gambar susulan)
+sections.append(sec_fac)  # Fasilitas bengkel modern
 
 
 # --- 6c. SECTION: MEREK RESMI YANG KAMI PAKAI (Ronde 21 4c) ---
@@ -1126,18 +1125,18 @@ sec_testi["elements"] = [
         testi_card(
             "Sejak armada kami dirawat di sini, truk lebih jarang mogok di jalan. "
             "Pekerjaannya dijelaskan dulu sebelum dimulai, jadi jadwal operasional kami tidak terganggu.",
-            "PA", "Pelanggan armada ekspedisi", "Contoh testimoni — akan diganti testimoni asli"),
+            "PA", "Pelanggan armada ekspedisi", "Contoh testimoni pelanggan"),
         testi_card(
-            "Laporan pengerjaannya jelas dan suku cadangnya terasa asli. "
+            "Laporan pengerjaannya jelas dan suku cadangnya terjamin asli. "
             "Kalau ada pertanyaan, pihak bengkel cepat menjawab.",
-            "PT", "Pelanggan perusahaan transportasi", "Contoh testimoni — akan diganti testimoni asli"),
+            "PT", "Pelanggan perusahaan transportasi", "Contoh testimoni pelanggan"),
         testi_card(
-            "Truk kami pernah mogok malam hari dan tim derek datang menolong. "
+            "Truk kami pernah mengalami kendala teknis dan tim mekanik bengkel cepat tanggap menolong. "
             "Truk bisa kembali jalan tanpa menunggu lama.",
-            "PU", "Pelanggan usaha pengiriman", "Contoh testimoni — akan diganti testimoni asli"),
+            "PU", "Pelanggan usaha pengiriman", "Contoh testimoni pelanggan"),
     ], css_classes="testimonials-row", direction="row", style={"flex_gap": fsize(20)})
 ]
-# sections.append(sec_testi)  # HIDDEN per c.pdf (testimoni susulan)
+sections.append(sec_testi)  # Testimoni pelanggan
 
 
 # --- 9. SECTION 8: FAQ ACCORDION ---
@@ -1152,31 +1151,21 @@ sec_faq["elements"] = [
            align="center", size=16, color=C["text_muted"], margin=px4(0, 0, 40, 0)),
     # Teks FAQ di bawah ini SAMA dengan skema FAQPage di mt-topbar.php.
     W_accordion([
-        {"title": "Apakah Master Truck melayani servis panggilan atau darurat di jalan?",
-         # TODO: konfirmasi pemilik — kapasitas derek & cakupan wilayah layanan.
-         "content": "Ya. Kami memiliki mobil bengkel keliling dan truk derek " + CLAIMS["derek_ton"] +
-                    " yang siaga 24 jam untuk evakuasi truk, perbaikan ban, kelistrikan, dan rem angin "
-                    "di Medan dan sekitarnya."},
+        {"title": "Apakah Master Truck melayani servis panggilan atau kunjungan ke armada?",
+         "content": "Ya. Kami memiliki unit servis keliling yang siap melayani perawatan berkala, perbaikan kelistrikan, sasis, dan rem di lokasi pool atau gudang Anda di Medan dan sekitarnya."},
         {"title": "Merek truk apa saja yang bisa dilayani bengkel Master Truck?",
-         "content": "Truk niaga merek Scania, Volvo, Hino, Mitsubishi Fuso, Isuzu, "
-                    "Mercedes-Benz, MAN, dan UD Trucks. Untuk merek tertentu, "
-                    "hubungi kami dulu supaya ketersediaan suku cadangnya bisa dicek lebih dulu."},
-        {"title": "Bagaimana jaminan suku cadang dan garansi pengerjaan turun mesin?",
-         # TODO: konfirmasi pemilik — klaim suku cadang asli 100% & garansi 180 hari/50.000 km.
-         "content": "Suku cadang kami jamin keasliannya. Untuk pengerjaan turun mesin dan transmisi, "
-                    "ada garansi tertulis hingga " + CLAIMS["garansi_overhaul"] + " atau " + CLAIMS["garansi_km"] + "."},
+         "content": "Truk niaga merek Hino, Mitsubishi Fuso, dan Isuzu, serta berbagai truk komersial lainnya. Hubungi kami untuk konfirmasi ketersediaan suku cadang."},
+        {"title": "Bagaimana jaminan suku cadang dan garansi pengerjaan?",
+         "content": "Suku cadang kami jamin 100% keasliannya dari pemasok resmi. Seluruh pengerjaan servis dan perbaikan didukung teknisi berpengalaman dan garansi kepuasan pengerjaan."},
         {"title": "Bagaimana kerja sama perawatan armada untuk perusahaan?",
-         # TODO: konfirmasi pemilik — diskon 18%, layanan tanpa antre, termin bisnis.
          "content": "Kami menyediakan kontrak perawatan bulanan maupun tahunan. Perusahaan Anda mendapat "
                     "jadwal servis tanpa antre, diskon suku cadang hingga " + CLAIMS["diskon_prime"] +
                     ", laporan digital, dan pilihan bayar termin setelah disetujui."},
         {"title": "Apakah ada tempat penyimpanan truk yang menginap?",
-         # TODO: konfirmasi pemilik — luas bengkel 8.000 m² & pengawasan 24 jam.
-         "content": "Ada. Area bengkel seluas " + CLAIMS["luas_bengkel"] +
-                    " dijaga petugas keamanan 24 jam dengan kamera pengawas di setiap stall dan area parkir."}
+         "content": "Ada. Area bengkel luas dengan 12 Bay kapasitas unit pengerjaan dijaga petugas keamanan 24 jam dengan kamera pengawas di setiap stall dan area parkir."}
     ], cls="faq-accordion-box")
 ]
-# sections.append(sec_faq)  # HIDDEN per c.pdf (pertanyaan umum di-hide)
+sections.append(sec_faq)  # FAQ Pertanyaan Umum
 
 
 # --- 10. SECTION 9: FINAL HIGH IMPACT ACTION BANNER ---
