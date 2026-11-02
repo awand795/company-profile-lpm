@@ -540,15 +540,7 @@ body.elementor-page-59 .nav-actions {
     width: auto !important;
 }
 
-@keyframes mtLoginGlow {
-    0%, 100% {
-        box-shadow: 0 2px 8px rgba(15, 42, 92, 0.25);
-    }
-    50% {
-        box-shadow: 0 4px 16px rgba(15, 42, 92, 0.45), 0 0 0 2px rgba(15, 42, 92, 0.15);
-    }
-}
-
+/* --- Tombol Masuk & Daftar (Clean Outline + Solid Hierarchy) --- */
 body.elementor-page-59 .btn-nav-login .elementor-button {
     display: inline-flex !important;
     align-items: center !important;
@@ -557,23 +549,23 @@ body.elementor-page-59 .btn-nav-login .elementor-button {
     min-height: 40px !important;
     max-height: 40px !important;
     padding: 0 18px !important;
-    background: linear-gradient(135deg, #0F2A5C 0%, #1e3a8a 100%) !important;
-    color: #ffffff !important;
+    background: #ffffff !important;
+    color: #00236f !important;
     font-weight: 700 !important;
     font-size: 14px !important;
-    border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+    border: 1.5px solid #00236f !important;
     border-radius: 999px !important;
-    box-shadow: 0 2px 8px rgba(15, 42, 92, 0.25) !important;
-    animation: mtLoginGlow 3s ease-in-out infinite !important;
-    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    box-shadow: 0 2px 6px rgba(0, 35, 111, 0.08) !important;
+    animation: none !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
     cursor: pointer !important;
 }
 body.elementor-page-59 .btn-nav-login .elementor-button:hover {
-    background: linear-gradient(135deg, #001845 0%, #172554 100%) !important;
+    background: #00236f !important;
     color: #ffffff !important;
-    transform: translateY(-2px) scale(1.04) !important;
-    box-shadow: 0 6px 20px rgba(15, 42, 92, 0.45), 0 0 0 3px rgba(15, 42, 92, 0.2) !important;
-    animation: none !important;
+    border-color: #00236f !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 16px rgba(0, 35, 111, 0.22) !important;
 }
 body.elementor-page-59 .btn-nav-login .elementor-button:active {
     transform: translateY(0) scale(0.98) !important;
@@ -582,12 +574,12 @@ body.elementor-page-59 .btn-nav-login .elementor-button .elementor-button-icon {
     display: inline-flex !important;
     align-items: center !important;
     margin-right: 7px !important;
-    color: #93c5fd !important;
-    transition: transform 0.28s ease !important;
+    color: #00236f !important;
+    transition: all 0.25s ease !important;
 }
 body.elementor-page-59 .btn-nav-login .elementor-button:hover .elementor-button-icon {
-    transform: scale(1.22) rotate(-10deg) !important;
     color: #ffffff !important;
+    transform: scale(1.15) !important;
 }
 
 body.elementor-page-59 .btn-nav-register .elementor-button {
@@ -597,22 +589,24 @@ body.elementor-page-59 .btn-nav-register .elementor-button {
     height: 40px !important;
     min-height: 40px !important;
     max-height: 40px !important;
-    padding: 0 20px !important;
+    padding: 0 22px !important;
     background: #00236f !important;
     color: #ffffff !important;
     font-weight: 700 !important;
     font-size: 14px !important;
-    border: none !important;
+    border: 1.5px solid #00236f !important;
     border-radius: 999px !important;
     box-shadow: 0 4px 14px rgba(0, 35, 111, 0.20) !important;
-    transition: all 0.2s ease !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 body.elementor-page-59 .btn-nav-register .elementor-button:hover {
     background: #00164e !important;
+    border-color: #00164e !important;
     color: #ffffff !important;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(0, 35, 111, 0.28) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 18px rgba(0, 35, 111, 0.30) !important;
 }
+
 
 /* Nav Menu Links Hover and Active Underline Effect */
 body.elementor-page-59 .stitch-menu-col a {
@@ -2240,7 +2234,7 @@ body.elementor-page-59 .btn-booking-wa {
 @media (min-width: 992px) {
     body.elementor-page-59 .stitch-sec-hero {
         padding-top: 36px !important;
-        padding-bottom: 80px !important;
+        padding-bottom: 20px !important;
     }
     body.elementor-page-59 .elementor-59 .hero-stats-inner {
         margin-top: 60px !important;
@@ -2343,4 +2337,20 @@ body.elementor-page-59 .btn-booking-wa {
     body.elementor-page-59 .elementor-59 .hero-stats-inner {
         margin-top: 40px !important;
     }
+}
+
+
+/* --- Rapat Rhythm Antara Hero Stats & Booking Form --- */
+body.elementor-page-59 .stitch-sec-hero {
+    padding-bottom: 20px !important;
+}
+body.elementor-page-59 .stitch-sec-hero > .e-con-inner {
+    padding-bottom: 0px !important;
+}
+body.elementor-page-59 .stitch-sec-booking {
+    padding-top: 24px !important;
+    margin-top: 0px !important;
+}
+body.elementor-page-59 .stitch-sec-booking > .e-con-inner {
+    padding-top: 0px !important;
 }
