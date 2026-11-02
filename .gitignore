@@ -24,3 +24,5 @@ playwright_review/
 node_modules/
 tests/node_modules/
 
+site.tar.gz
+active_db.sql

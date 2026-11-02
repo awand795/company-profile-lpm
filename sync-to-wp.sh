@@ -13,7 +13,7 @@ set -euo pipefail
 # agar docker cp di Windows tetap menemukan file.
 export MSYS2_ARG_CONV_EXCL="/var"
 
-CONTAINER="lpm-wp-app"
+CONTAINER="mastertruck"
 THEME=""
 LEGACY_TEMPLATE=false
 while [[ $# -gt 0 ]]; do

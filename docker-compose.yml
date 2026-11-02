@@ -15,12 +15,12 @@ services:
 
   wordpress:
     image: wordpress:php8.2-apache
-    container_name: lpm-wp-app
+    container_name: mastertruck
     restart: unless-stopped
     depends_on:
       - db
     ports:
-      - "5000:80"
+      - "8923:80"
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: wordpress

@@ -2013,3 +2013,172 @@ body.elementor-page-59 .btn-booking-wa {
         padding-bottom: 24px !important;
     }
 }
+
+/* ============================================================
+   RONDE 33: POLISH TAMPILAN MOBILE & RESPONSIVE PREMIUM
+   Sesuai prompt PDF: 3 Stat Cards, Keunggulan 4 Bento,
+   Layanan 6 Cards, Lokasi, dan Form Booking yang rapi di HP.
+   ============================================================ */
+@media (max-width: 767.98px) {
+    /* Hero button full-width di HP */
+    body.elementor-page-59 .hero-btns-row {
+        width: 100% !important;
+        margin-bottom: 24px !important;
+    }
+    body.elementor-page-59 .hero-btns-row .btn-hero-primary {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+        padding: 14px 22px !important;
+        font-size: 15px !important;
+        font-weight: 700 !important;
+        border-radius: 12px !important;
+        box-shadow: 0 6px 20px rgba(253, 101, 30, 0.28) !important;
+    }
+
+    /* Brand Chips responsive wrap */
+    body.elementor-page-59 .brand-chips-row {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+    }
+    body.elementor-page-59 .brand-chip {
+        font-size: 12px !important;
+        font-weight: 700 !important;
+        padding: 6px 14px !important;
+        border-radius: 999px !important;
+        border: 1px solid #cbd5e1 !important;
+        background: #f8fafc !important;
+        color: #1e293b !important;
+    }
+
+    /* Strip 3 Statistik Hero di HP: 3 kolom rapi seimbang */
+    body.elementor-page-59 .elementor-59 .hero-stats-inner {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 8px !important;
+        padding: 16px 10px !important;
+        border-radius: 18px !important;
+        background: #ffffff !important;
+        box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.08) !important;
+        border: 1px solid #e2e8f0 !important;
+    }
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-col {
+        width: 100% !important;
+        padding: 6px 4px !important;
+        border-right: none !important;
+    }
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-item {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 6px !important;
+    }
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-icon {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 15px !important;
+    }
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-number .elementor-counter-number-wrapper {
+        font-size: 20px !important;
+        font-weight: 800 !important;
+        color: #00236f !important;
+    }
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-number .elementor-counter-title {
+        font-size: 11px !important;
+        line-height: 1.25 !important;
+        color: #64748b !important;
+        font-weight: 600 !important;
+    }
+
+    /* Keunggulan 4 Bento Cards di Mobile */
+    body.elementor-page-59 .features-grid-row {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+    body.elementor-page-59 .feat-bento-col {
+        width: 100% !important;
+        padding: 22px 18px !important;
+        border-radius: 18px !important;
+        background: #ffffff !important;
+        border: 1px solid #e2e8f0 !important;
+        box-shadow: 0 4px 18px -4px rgba(15, 23, 42, 0.05) !important;
+    }
+
+    /* Katalog 6 Layanan di Mobile */
+    body.elementor-page-59 .services-row-1,
+    body.elementor-page-59 .services-row-2 {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+        margin-bottom: 16px !important;
+    }
+    body.elementor-page-59 .svc-card-col {
+        width: 100% !important;
+        padding: 24px 20px !important;
+        border-radius: 18px !important;
+        background: #ffffff !important;
+        border: 1px solid #e2e8f0 !important;
+        box-shadow: 0 4px 18px -4px rgba(15, 23, 42, 0.05) !important;
+    }
+
+    /* Lokasi & Jam Buka di Mobile */
+    body.elementor-page-59 .location-row {
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+    body.elementor-page-59 .location-info-col,
+    body.elementor-page-59 .location-cta-col {
+        width: 100% !important;
+        padding: 0 !important;
+    }
+    body.elementor-page-59 .location-cta-col .btn-maps,
+    body.elementor-page-59 .location-cta-col .btn-wa {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    /* Footer di Mobile */
+    body.elementor-page-59 .footer-main-row {
+        flex-direction: column !important;
+        gap: 24px !important;
+    }
+    body.elementor-page-59 .footer-col-brand,
+    body.elementor-page-59 .footer-col-links,
+    body.elementor-page-59 .footer-col-facility,
+    body.elementor-page-59 .footer-col-cert {
+        width: 100% !important;
+    }
+}
+
+@media (min-width: 540px) and (max-width: 767.98px) {
+    body.elementor-page-59 .features-grid-row {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (min-width: 580px) and (max-width: 991.98px) {
+    body.elementor-page-59 .services-row-1,
+    body.elementor-page-59 .services-row-2 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 380px) {
+    body.elementor-page-59 .elementor-59 .hero-stats-inner {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+        padding: 18px 16px !important;
+    }
+    body.elementor-page-59 .elementor-59 .hero-stats-inner .stat-item {
+        flex-direction: row !important;
+        text-align: left !important;
+        gap: 14px !important;
+    }
+}

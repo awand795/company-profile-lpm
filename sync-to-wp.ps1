@@ -27,7 +27,7 @@
 #>
 [CmdletBinding()]
 param(
-    [string]$Container = 'lpm-wp-app',
+    [string]$Container = 'mastertruck',
     [string]$Theme = '',
     [switch]$SkipImages,
     [switch]$LegacyTemplate

@@ -35,8 +35,8 @@ param(
     [switch]$Rebuild,
     [switch]$SkipImport,
     [switch]$SkipAdminReset,
-    [string]$Url = 'http://localhost:5000',
-    [string]$App = 'lpm-wp-app',
+    [string]$Url = 'http://localhost:8923',
+    [string]$App = 'mastertruck',
     [string]$DbContainer = 'lpm-wp-db',
     [string]$DbUser = 'wordpress',
     [string]$DbPass = 'lotus_wp_password_2026',
@@ -221,10 +221,10 @@ foreach ($plug in @('mt-topbar','mt-booking','mt-login','mt-admin')) {
 
 # --- 5b. Bahasa Indonesia (paket terjemahan; idempoten) ----------------------
 Write-Step "Paket bahasa Indonesia"
-docker exec $App wp --allow-root --path=/var/www/html language core install id_ID 2>$null | Out-Null
-docker exec $App wp --allow-root --path=/var/www/html language plugin install --all id_ID 2>$null | Out-Null
-docker exec $App wp --allow-root --path=/var/www/html language theme install --all id_ID 2>$null | Out-Null
-docker exec $App wp --allow-root --path=/var/www/html site switch-language id_ID 2>$null | Out-Null
+docker exec $App sh -c "wp --allow-root --path=/var/www/html language core install id_ID 2>/dev/null; wp --allow-root --path=/var/www/html language plugin install --all id_ID 2>/dev/null; wp --allow-root --path=/var/www/html language theme install --all id_ID 2>/dev/null; wp --allow-root --path=/var/www/html site switch-language id_ID 2>/dev/null; exit 0" | Out-Null
+# language plugin
+# language theme
+# language switch
 Write-Ok "id_ID aktif (core/plugin/tema yang tersedia)"
 
 # --- 6. Sinkronisasi template & media ---------------------------------------

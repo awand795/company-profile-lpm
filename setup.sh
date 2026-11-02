@@ -26,12 +26,12 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$ROOT"
 
-APP="${MT_APP:-lpm-wp-app}"
+APP="${MT_APP:-mastertruck}"
 DB="${MT_DB:-lpm-wp-db}"
 DB_USER="${MT_DB_USER:-wordpress}"
 DB_PASS="${MT_DB_PASS:-lotus_wp_password_2026}"
 DB_NAME="${MT_DB_NAME:-wordpress}"
-URL="${MT_URL:-http://localhost:5000}"
+URL="${MT_URL:-http://localhost:8923}"
 DUMP="${MT_DUMP:-database/mt_site.sql}"
 COMPOSE_FILE="${MT_COMPOSE_FILE:-docker-compose.yml}"
 DO_REBUILD=0
