@@ -99,7 +99,7 @@
               },
               "width": {
                 "unit": "%",
-                "size": 40
+                "size": 50
               },
               "css_classes": "topbar-left-col"
             },
@@ -108,7 +108,7 @@
                 "id": "d0ab2b3",
                 "elType": "widget",
                 "settings": {
-                  "editor": "<div style=\"display:flex;align-items:center;gap:16px;color:#94a3b8;font-size:12px;font-weight:600;letter-spacing:0.2px;white-space:nowrap;\"><div class=\"topbar-hotline-item\" style=\"display:inline-flex;align-items:center;gap:6px;\"><span style=\"background:rgba(253,101,30,0.18);color:#fd651e;border:1px solid rgba(253,101,30,0.35);font-size:10px;font-weight:800;padding:2px 7px;border-radius:999px;letter-spacing:0.5px;\">SOS</span><span style=\"text-transform:uppercase;color:#cbd5e1;font-weight:700;\">Hotline 24 Jam:</span> <a href=\"https://wa.me/6281288881234?text=Halo%20Master%20Truck%2C%20saya%20butuh%20bantuan%20untuk%20armada%20saya.\" style=\"color:#ffffff;text-decoration:none;font-weight:700;\">0812-MASTER-TRUCK</a></div><div class=\"topbar-location-item\" style=\"display:inline-flex;align-items:center;gap:6px;color:#94a3b8;\"><i class=\"fas fa-map-marker-alt\" style=\"color:#fd651e;font-size:11px;\"></i> <span style=\"color:#e2e8f0;\">Medan</span></div></div>",
+                  "editor": "<div style=\"display:flex;align-items:center;gap:16px;color:#94a3b8;font-size:12px;font-weight:600;letter-spacing:0.2px;white-space:nowrap;\"><div class=\"topbar-location-item\" style=\"display:inline-flex;align-items:center;gap:6px;color:#94a3b8;\"><i class=\"fas fa-map-marker-alt\" style=\"color:#fd651e;font-size:11px;\"></i> <span style=\"color:#e2e8f0;\">Medan</span></div></div>",
                   "align": "left",
                   "typography_typography": "custom",
                   "typography_font_family": "Inter",
@@ -172,7 +172,7 @@
               },
               "width": {
                 "unit": "%",
-                "size": 60
+                "size": 50
               },
               "css_classes": "topbar-right-col"
             },
@@ -420,7 +420,7 @@
                         "elType": "widget",
                         "settings": {
                           "image": {
-                            "url": "http://52.77.133.95:8923/wp-content/uploads/stitch/stitch_logo_transparan.png",
+                            "url": "http://localhost:8923/wp-content/uploads/stitch/stitch_logo_transparan.png",
                             "id": 351
                           },
                           "image_size": "full",
@@ -676,7 +676,7 @@
                     "settings": {
                       "text": "Masuk",
                       "link": {
-                        "url": "http://52.77.133.95:8923/#login",
+                        "url": "http://52.77.133.95:3000#login",
                         "is_external": "",
                         "nofollow": ""
                       },
@@ -734,7 +734,7 @@
                     "settings": {
                       "text": "Daftar",
                       "link": {
-                        "url": "http://52.77.133.95:8923/#register",
+                        "url": "http://52.77.133.95:3000#register",
                         "is_external": "",
                         "nofollow": ""
                       },
@@ -1048,7 +1048,7 @@
                     "settings": {
                       "text": "Jadwalkan Servis Sekarang",
                       "link": {
-                        "url": "#quick-booking",
+                        "url": "http://52.77.133.95:3000#login",
                         "is_external": "",
                         "nofollow": ""
                       },
@@ -1219,7 +1219,7 @@
                     "elType": "widget",
                     "settings": {
                       "image": {
-                        "url": "http://52.77.133.95:8923/wp-content/uploads/stitch/stitch_img_2.webp",
+                        "url": "http://localhost:8923/wp-content/uploads/stitch/stitch_img_2.webp",
                         "id": 342
                       },
                       "image_size": "full",
@@ -4257,7 +4257,7 @@
                 "elType": "widget",
                 "settings": {
                   "image": {
-                    "url": "http://52.77.133.95:8923/wp-content/uploads/stitch/stitch_img_3.webp",
+                    "url": "http://localhost:8923/wp-content/uploads/stitch/stitch_img_3.webp",
                     "id": 343
                   },
                   "image_size": "full",
@@ -4405,7 +4405,7 @@
                 "elType": "widget",
                 "settings": {
                   "image": {
-                    "url": "http://52.77.133.95:8923/wp-content/uploads/stitch/stitch_img_4.webp",
+                    "url": "http://localhost:8923/wp-content/uploads/stitch/stitch_img_4.webp",
                     "id": 344
                   },
                   "image_size": "full",
@@ -4553,7 +4553,7 @@
                 "elType": "widget",
                 "settings": {
                   "image": {
-                    "url": "http://52.77.133.95:8923/wp-content/uploads/stitch/stitch_img_5.webp",
+                    "url": "http://localhost:8923/wp-content/uploads/stitch/stitch_img_5.webp",
                     "id": 345
                   },
                   "image_size": "full",
@@ -4741,7 +4741,7 @@
                 "elType": "widget",
                 "settings": {
                   "image": {
-                    "url": "http://52.77.133.95:8923/wp-content/uploads/stitch/stitch_img_6.webp",
+                    "url": "http://localhost:8923/wp-content/uploads/stitch/stitch_img_6.webp",
                     "id": 346
                   },
                   "image_size": "full",
@@ -4889,7 +4889,7 @@
                 "elType": "widget",
                 "settings": {
                   "image": {
-                    "url": "http://52.77.133.95:8923/wp-content/uploads/stitch/stitch_img_7.webp",
+                    "url": "http://localhost:8923/wp-content/uploads/stitch/stitch_img_7.webp",
                     "id": 347
                   },
                   "image_size": "full",
@@ -5037,7 +5037,7 @@
                 "elType": "widget",
                 "settings": {
                   "image": {
-                    "url": "http://52.77.133.95:8923/wp-content/uploads/stitch/stitch_img_8.webp",
+                    "url": "http://localhost:8923/wp-content/uploads/stitch/stitch_img_8.webp",
                     "id": 348
                   },
                   "image_size": "full",
@@ -5581,193 +5581,7 @@
     "isInner": false
   },
   {
-    "id": "7d9b4c4",
-    "elType": "container",
-    "settings": {
-      "flex_direction": "column",
-      "boxed_width": {
-        "unit": "px",
-        "size": 1240
-      },
-      "content_width": "boxed",
-      "_title": "FAQ",
-      "_element_id": "faq",
-      "css_classes": "stitch-sec-faq",
-      "background_background": "classic",
-      "background_color": "#f2f4f6",
-      "padding": {
-        "unit": "px",
-        "top": "72",
-        "right": "20",
-        "bottom": "72",
-        "left": "20",
-        "isLinked": ""
-      }
-    },
-    "elements": [
-      {
-        "id": "61e839e",
-        "elType": "widget",
-        "settings": {
-          "title": "PERTANYAAN UMUM",
-          "header_size": "p",
-          "align": "center",
-          "typography_typography": "custom",
-          "typography_font_family": "Plus Jakarta Sans",
-          "typography_font_size": {
-            "unit": "px",
-            "size": 13
-          },
-          "typography_font_weight": "700",
-          "typography_line_height": {
-            "unit": "em",
-            "size": 1.15
-          },
-          "title_color": "#fd651e",
-          "_margin": {
-            "unit": "px",
-            "top": "0",
-            "right": "0",
-            "bottom": "0",
-            "left": "0",
-            "isLinked": ""
-          },
-          "typography_letter_spacing": {
-            "unit": "px",
-            "size": 1.0
-          }
-        },
-        "elements": [],
-        "widgetType": "heading"
-      },
-      {
-        "id": "af1bf7b",
-        "elType": "widget",
-        "settings": {
-          "title": "Pertanyaan Umum",
-          "header_size": "h2",
-          "align": "center",
-          "typography_typography": "custom",
-          "typography_font_family": "Plus Jakarta Sans",
-          "typography_font_size": {
-            "unit": "px",
-            "size": 32
-          },
-          "typography_font_weight": "800",
-          "typography_line_height": {
-            "unit": "em",
-            "size": 1.15
-          },
-          "title_color": "#00236f",
-          "_margin": {
-            "unit": "px",
-            "top": "6",
-            "right": "0",
-            "bottom": "14",
-            "left": "0",
-            "isLinked": ""
-          },
-          "typography_letter_spacing": {
-            "unit": "px",
-            "size": -0.8
-          }
-        },
-        "elements": [],
-        "widgetType": "heading"
-      },
-      {
-        "id": "09eaea3",
-        "elType": "widget",
-        "settings": {
-          "editor": "Pertanyaan yang paling sering ditanyakan calon pelanggan sebelum servis.",
-          "align": "center",
-          "typography_typography": "custom",
-          "typography_font_family": "Inter",
-          "typography_font_size": {
-            "unit": "px",
-            "size": 16
-          },
-          "typography_line_height": {
-            "unit": "em",
-            "size": 1.6
-          },
-          "text_color": "#444651",
-          "_margin": {
-            "unit": "px",
-            "top": "0",
-            "right": "0",
-            "bottom": "40",
-            "left": "0",
-            "isLinked": ""
-          }
-        },
-        "elements": [],
-        "widgetType": "text-editor"
-      },
-      {
-        "id": "940a431",
-        "elType": "widget",
-        "settings": {
-          "tabs": [
-            {
-              "tab_title": "Apakah Master Truck melayani servis panggilan atau kunjungan ke armada?",
-              "tab_content": "Ya. Kami memiliki unit servis keliling yang siap melayani perawatan berkala, perbaikan kelistrikan, sasis, dan rem di lokasi pool atau gudang Anda di Medan dan sekitarnya."
-            },
-            {
-              "tab_title": "Merek truk apa saja yang bisa dilayani bengkel Master Truck?",
-              "tab_content": "Truk niaga merek Hino, Mitsubishi Fuso, dan Isuzu, serta berbagai truk komersial lainnya. Hubungi kami untuk konfirmasi ketersediaan suku cadang."
-            },
-            {
-              "tab_title": "Bagaimana jaminan suku cadang dan garansi pengerjaan?",
-              "tab_content": "Suku cadang kami jamin 100% keasliannya dari pemasok resmi. Seluruh pengerjaan servis dan perbaikan didukung teknisi berpengalaman dan garansi kepuasan pengerjaan."
-            },
-            {
-              "tab_title": "Bagaimana kerja sama perawatan armada untuk perusahaan?",
-              "tab_content": "Kami menyediakan kontrak perawatan bulanan maupun tahunan. Perusahaan Anda mendapat jadwal servis tanpa antre, diskon suku cadang hingga 18%, laporan digital, dan pilihan bayar termin setelah disetujui."
-            },
-            {
-              "tab_title": "Apakah ada tempat penyimpanan truk yang menginap?",
-              "tab_content": "Ada. Area bengkel luas dengan 12 Bay kapasitas unit pengerjaan dijaga petugas keamanan 24 jam dengan kamera pengawas di setiap stall dan area parkir."
-            }
-          ],
-          "selected_icon": {
-            "value": "fas fa-plus",
-            "library": "fa-solid"
-          },
-          "selected_active_icon": {
-            "value": "fas fa-minus",
-            "library": "fa-solid"
-          },
-          "title_typography_typography": "custom",
-          "title_typography_font_family": "Plus Jakarta Sans",
-          "title_typography_font_size": {
-            "unit": "px",
-            "size": 17
-          },
-          "title_typography_font_weight": "700",
-          "title_color": "#00236f",
-          "tab_active_color": "#fd651e",
-          "content_typography_typography": "custom",
-          "content_typography_font_family": "Inter",
-          "content_typography_font_size": {
-            "unit": "px",
-            "size": 15
-          },
-          "content_typography_line_height": {
-            "unit": "em",
-            "size": 1.6
-          },
-          "content_color": "#444651",
-          "_css_classes": "faq-accordion-box"
-        },
-        "elements": [],
-        "widgetType": "accordion"
-      }
-    ],
-    "isInner": false
-  },
-  {
-    "id": "842eecf",
+    "id": "7b23419",
     "elType": "container",
     "settings": {
       "flex_direction": "column",
@@ -5792,7 +5606,7 @@
     },
     "elements": [
       {
-        "id": "b5071a5",
+        "id": "4e28ea8",
         "elType": "widget",
         "settings": {
           "title": "LOKASI &amp; JAM BUKA",
@@ -5827,7 +5641,7 @@
         "widgetType": "heading"
       },
       {
-        "id": "da0027f",
+        "id": "fad6dc8",
         "elType": "widget",
         "settings": {
           "title": "Lokasi &amp; Jam Buka",
@@ -5862,7 +5676,7 @@
         "widgetType": "heading"
       },
       {
-        "id": "3c07558",
+        "id": "40fb0f9",
         "elType": "container",
         "settings": {
           "content_width": "full",
@@ -5900,7 +5714,7 @@
         },
         "elements": [
           {
-            "id": "fc60135",
+            "id": "34f5c27",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -5941,7 +5755,7 @@
             },
             "elements": [
               {
-                "id": "0687c13",
+                "id": "e93b89b",
                 "elType": "widget",
                 "settings": {
                   "title": "Bengkel KIM III Medan",
@@ -5976,7 +5790,7 @@
                 "widgetType": "heading"
               },
               {
-                "id": "92c24cd",
+                "id": "f2a1cf5",
                 "elType": "widget",
                 "settings": {
                   "editor": "Kawasan Industri Medan (KIM) III, Medan, Sumatera Utara",
@@ -6005,7 +5819,7 @@
                 "widgetType": "text-editor"
               },
               {
-                "id": "166c88d",
+                "id": "f1d6a00",
                 "elType": "widget",
                 "settings": {
                   "title": "Jam Buka",
@@ -6040,7 +5854,7 @@
                 "widgetType": "heading"
               },
               {
-                "id": "8ae8ede",
+                "id": "9878418",
                 "elType": "widget",
                 "settings": {
                   "editor": "Senin – Sabtu: 08.00 – 20.00",
@@ -6072,7 +5886,7 @@
             "isInner": true
           },
           {
-            "id": "b6f2432",
+            "id": "b07a312",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -6113,7 +5927,7 @@
             },
             "elements": [
               {
-                "id": "a50a03c",
+                "id": "088a061",
                 "elType": "widget",
                 "settings": {
                   "text": "Buka di Google Maps",
@@ -6171,7 +5985,7 @@
                 "widgetType": "button"
               },
               {
-                "id": "9a7688b",
+                "id": "75b562b",
                 "elType": "widget",
                 "settings": {
                   "text": "Chat WhatsApp",
@@ -6238,7 +6052,7 @@
     "isInner": false
   },
   {
-    "id": "815adeb",
+    "id": "6982a38",
     "elType": "container",
     "settings": {
       "flex_direction": "column",
@@ -6273,7 +6087,7 @@
     },
     "elements": [
       {
-        "id": "ab30788",
+        "id": "026db1b",
         "elType": "container",
         "settings": {
           "content_width": "full",
@@ -6318,7 +6132,7 @@
         },
         "elements": [
           {
-            "id": "b598e01",
+            "id": "1425250",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -6359,7 +6173,7 @@
             },
             "elements": [
               {
-                "id": "06a766c",
+                "id": "7b0e331",
                 "elType": "widget",
                 "settings": {
                   "title": "MASTER TRUCK",
@@ -6395,7 +6209,7 @@
                 "widgetType": "heading"
               },
               {
-                "id": "2f23397",
+                "id": "2f17238",
                 "elType": "widget",
                 "settings": {
                   "editor": "<span class=\"footer-company\">PT Master Truck Indonesia</span>",
@@ -6424,7 +6238,7 @@
                 "widgetType": "text-editor"
               },
               {
-                "id": "6241b1d",
+                "id": "28c1445",
                 "elType": "widget",
                 "settings": {
                   "editor": "Bengkel perawatan, perbaikan, dan rekondisi armada truk niaga di KIM III Medan.",
@@ -6453,7 +6267,7 @@
                 "widgetType": "text-editor"
               },
               {
-                "id": "e3b629f",
+                "id": "4898042",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div class=\"footer-contact\"><i class=\"fas fa-phone-alt\" aria-hidden=\"true\"></i> <a href=\"https://wa.me/6281288881234?text=Halo%20Master%20Truck%2C%20saya%20butuh%20bantuan%20untuk%20armada%20saya.\">0812-MASTER-TRUCK</a> · <a href=\"https://wa.me/6281288881234?text=Halo%20Master%20Truck%2C%20saya%20butuh%20bantuan%20untuk%20armada%20saya.\">061-8888-1234</a><br><i class=\"fas fa-envelope\" aria-hidden=\"true\"></i> <a href=\"mailto:fleet@mastertruck.co.id\">fleet@mastertruck.co.id</a></div>",
@@ -6482,7 +6296,7 @@
                 "widgetType": "text-editor"
               },
               {
-                "id": "a8c4a46",
+                "id": "17bdf1f",
                 "elType": "widget",
                 "settings": {
                   "editor": "<div class=\"footer-social\"><a href=\"https://wa.me/6281288881234?text=Halo%20Master%20Truck%2C%20saya%20butuh%20bantuan%20untuk%20armada%20saya.\" aria-label=\"Telepon Master Truck\"><i class=\"fas fa-phone-alt\" aria-hidden=\"true\"></i></a><a href=\"https://wa.me/6281288881234?text=Halo%20Master%20Truck%2C%20saya%20butuh%20bantuan%20untuk%20armada%20saya.\" target=\"_blank\" rel=\"noopener\" aria-label=\"Chat WhatsApp Master Truck\"><i class=\"fab fa-whatsapp\" aria-hidden=\"true\"></i></a><a href=\"mailto:fleet@mastertruck.co.id\" aria-label=\"Email Master Truck\"><i class=\"fas fa-envelope\" aria-hidden=\"true\"></i></a><a href=\"https://www.google.com/maps/search/?api=1&query=Kawasan%20Industri%20Medan%20%28KIM%29%20III%2C%20Medan%2C%20Sumatera%20Utara\" target=\"_blank\" rel=\"noopener\" aria-label=\"Lokasi bengkel Master Truck\"><i class=\"fas fa-map-marker-alt\" aria-hidden=\"true\"></i></a></div>",
@@ -6514,7 +6328,7 @@
             "isInner": true
           },
           {
-            "id": "8ee4aca",
+            "id": "5d6bd84",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -6555,7 +6369,7 @@
             },
             "elements": [
               {
-                "id": "b66ee79",
+                "id": "1e5ad4d",
                 "elType": "widget",
                 "settings": {
                   "title": "Layanan Utama",
@@ -6591,7 +6405,7 @@
                 "widgetType": "heading"
               },
               {
-                "id": "726f029",
+                "id": "1881381",
                 "elType": "widget",
                 "settings": {
                   "editor": "<nav class=\"footer-links\" aria-label=\"Layanan utama\"><a href=\"#layanan\">Overhoul Mesin</a><a href=\"#layanan\">Service Rutin dan Berkala</a><a href=\"#layanan\">Service Rem dan Kaki Kaki</a><a href=\"#layanan\">Electrical</a><a href=\"#layanan\">Ganti Ban</a><a href=\"#layanan\">Perbaikan Transmisi dan Gardan</a></nav>",
@@ -6623,7 +6437,7 @@
             "isInner": true
           },
           {
-            "id": "c9b6bdb",
+            "id": "65e7f46",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -6664,7 +6478,7 @@
             },
             "elements": [
               {
-                "id": "87b6cff",
+                "id": "16a38af",
                 "elType": "widget",
                 "settings": {
                   "title": "Workshop",
@@ -6700,7 +6514,7 @@
                 "widgetType": "heading"
               },
               {
-                "id": "d72700a",
+                "id": "a9849ea",
                 "elType": "widget",
                 "settings": {
                   "editor": "<b>Workshop KIM III Medan</b><br>Kawasan Industri Medan (KIM) III, Medan, Sumatera Utara",
@@ -6732,7 +6546,7 @@
             "isInner": true
           },
           {
-            "id": "2c327a0",
+            "id": "49e8e65",
             "elType": "container",
             "settings": {
               "content_width": "full",
@@ -6773,7 +6587,7 @@
             },
             "elements": [
               {
-                "id": "5006060",
+                "id": "2dbb6ec",
                 "elType": "widget",
                 "settings": {
                   "title": "Standar Mutu",
@@ -6809,7 +6623,7 @@
                 "widgetType": "heading"
               },
               {
-                "id": "f135432",
+                "id": "aaea7c6",
                 "elType": "widget",
                 "settings": {
                   "icon_list": [
@@ -6881,10 +6695,10 @@
         "isInner": true
       },
       {
-        "id": "a64bcf8",
+        "id": "31f0cd0",
         "elType": "widget",
         "settings": {
-          "editor": "<div class=\"footer-bottom\"><div class=\"footer-copy\">© 2026 PT Master Truck Indonesia · Master Truck. Hak Cipta Dilindungi Undang-Undang.</div><nav class=\"footer-menu\" aria-label=\"Menu footer\"><a href=\"#header-carousel\">Beranda</a><a href=\"#layanan\">Layanan</a><a href=\"#quick-booking\">Booking Servis</a><a href=\"#keunggulan\">Keunggulan</a><a href=\"#lokasi\">Lokasi</a><a href=\"#kontak\">Kontak</a><span class=\"footer-menu-sep\" aria-hidden=\"true\">|</span><a href=\"http://52.77.133.95:8923/#login\">Masuk</a><a href=\"http://52.77.133.95:8923/#register\">Daftar</a></nav></div>",
+          "editor": "<div class=\"footer-bottom\"><div class=\"footer-copy\">© 2026 PT Master Truck Indonesia · Master Truck. Hak Cipta Dilindungi Undang-Undang.</div><nav class=\"footer-menu\" aria-label=\"Menu footer\"><a href=\"#header-carousel\">Beranda</a><a href=\"#layanan\">Layanan</a><a href=\"#quick-booking\">Booking Servis</a><a href=\"#keunggulan\">Keunggulan</a><a href=\"#lokasi\">Lokasi</a><a href=\"#kontak\">Kontak</a><span class=\"footer-menu-sep\" aria-hidden=\"true\">|</span><a href=\"http://52.77.133.95:3000#login\">Masuk</a><a href=\"http://52.77.133.95:3000#register\">Daftar</a></nav></div>",
           "align": "left",
           "typography_typography": "custom",
           "typography_font_family": "Inter",

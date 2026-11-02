@@ -57,9 +57,9 @@ AREA = "Medan dan sekitarnya"                # TODO: konfirmasi pemilik — deta
 # Nilai default sengaja BUKAN localhost:3000 supaya tidak ada URL pengembangan
 # asing di HTML (Ronde 21 butir 7). Portal lokal tetap bisa dipakai saat build:
 #   MT_FLEET_URL=http://localhost:3000 python tools/build-stitch-elementor.py
-FLEET_URL = os.environ.get("MT_FLEET_URL", SITE_URL)
-LOGIN_URL = f"{FLEET_URL.rstrip('/')}/#login"
-REGISTER_URL = f"{FLEET_URL.rstrip('/')}/#register"
+FLEET_URL = os.environ.get("MT_FLEET_URL", "http://52.77.133.95:3000")
+LOGIN_URL = "http://52.77.133.95:3000#login"
+REGISTER_URL = "http://52.77.133.95:3000#register"
 
 # TODO: konfirmasi pemilik — halaman Kebijakan Privasi (post ID 3) masih DRAFT.
 # Isi URL-nya SETELAH halaman itu diterbitkan; kosong = tautan tidak ditampilkan
@@ -521,21 +521,14 @@ topbar = el_container("stitch-topbar", boxed=1240, bg=C["tertiary"],
                       style={"padding": px4(4, 24, 4, 24)},
                       nav="Top Bar")
 topbar["elements"] = [inner([
-    col(40, "topbar-left-col", [
+    col(50, "topbar-left-col", [
         W_text('<div style="display:flex;align-items:center;gap:16px;color:#94a3b8;font-size:12px;font-weight:600;letter-spacing:0.2px;white-space:nowrap;">'
-               '<div class="topbar-hotline-item" style="display:inline-flex;align-items:center;gap:6px;">'
-               '<span style="background:rgba(253,101,30,0.18);color:#fd651e;border:1px solid rgba(253,101,30,0.35);font-size:10px;font-weight:800;padding:2px 7px;border-radius:999px;letter-spacing:0.5px;">SOS</span>'
-               '<span style="text-transform:uppercase;color:#cbd5e1;font-weight:700;">Hotline 24 Jam:</span> '
-               # TODO: konfirmasi pemilik — "0812-MASTER-TRUCK" masih placeholder.
-               # Karena nomor asli belum ada, tautan diarahkan ke WhatsApp (bukan tel: palsu).
-               '<a href="' + tel_link() + '" style="color:#ffffff;text-decoration:none;font-weight:700;">' + PHONE_DISPLAY + '</a>'
-               '</div>'
                '<div class="topbar-location-item" style="display:inline-flex;align-items:center;gap:6px;color:#94a3b8;">'
                '<i class="fas fa-map-marker-alt" style="color:#fd651e;font-size:11px;"></i> <span style="color:#e2e8f0;">Medan</span>'
                '</div>'
                '</div>')
     ]),
-    col(60, "topbar-right-col", [
+    col(50, "topbar-right-col", [
         W_text('<div style="display:flex;align-items:center;justify-content:flex-end;gap:16px;color:#94a3b8;font-size:12px;white-space:nowrap;">'
                '<div class="topbar-hours-item" style="display:inline-flex;align-items:center;gap:6px;">'
                '<i class="fas fa-clock" style="color:#94a3b8;font-size:11px;"></i> <span style="color:#e2e8f0;">' + HOURS + '</span>'
@@ -639,9 +632,9 @@ hero["elements"] = [
             W_text("Bengkel khusus truk untuk servis rutin, perbaikan mesin diesel, sampai kontrak perawatan armada. "
                    "Sparepart asli dan mekanik berlisensi pabrikan.",
                    cls="hero-lead", size=16, color=C["text_muted"], margin=px4(0, 0, 20, 0), lh=1.55),
-            # CTA Hero: Jadwalkan Servis Sekarang (Derek & Darurat 24 Jam dihilangkan per a.pdf)
+            # CTA Hero: Jadwalkan Servis Sekarang (link sama kayak login per user request)
             inner([
-                W_button("Jadwalkan Servis Sekarang", link="#quick-booking", icon="fas fa-calendar-alt",
+                W_button("Jadwalkan Servis Sekarang", link=LOGIN_URL, icon="fas fa-calendar-alt",
                          bg=C["secondary"], text_color=C["white"], radius=12, pad=(13, 26), cls="btn-hero-primary"),
             ], css_classes="hero-btns-row", direction="row", style={"flex_gap": fsize(14), "margin": px4(0, 0, 24, 0), "flex_align_items": "center", "flex_justify_content": "flex-start"}),
             # Supported Brands (Hanya HINO, Mitsubishi dan Isuzu per a.pdf)
@@ -1165,7 +1158,7 @@ sec_faq["elements"] = [
          "content": "Ada. Area bengkel luas dengan 12 Bay kapasitas unit pengerjaan dijaga petugas keamanan 24 jam dengan kamera pengawas di setiap stall dan area parkir."}
     ], cls="faq-accordion-box")
 ]
-sections.append(sec_faq)  # FAQ Pertanyaan Umum
+# sections.append(sec_faq)  # HIDDEN per user prompt
 
 
 # --- 10. SECTION 9: FINAL HIGH IMPACT ACTION BANNER ---
