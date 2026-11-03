@@ -4545,3 +4545,10 @@ body.elementor-page-59 .stitch-sec-booking > .e-con-inner {
         display: none !important;
     }
 }
+
+/* Sembunyikan floating scroll hint pada desktop & tablet (layar >= 768px) agar tidak merusak tampilan desktop */
+@media (min-width: 768px) {
+    .mt-hero-scroll-hint {
+        display: none !important;
+    }
+}
