@@ -126,7 +126,7 @@ $theme_uri = get_template_directory_uri();
                     <h6 class="text-primary text-uppercase">// Tentang Kami //</h6>
                     <h1 class="mb-4"><span class="text-primary">Master Truck</span> Mitra Andal Perawatan Truk &amp; Alat Berat Anda</h1>
                     <p class="mb-4">
-                        <strong>PT Master Truck Indonesia</strong> berlokasi strategis di Kawasan Industri Medan III (KIM III). Kami adalah pusat perawatan rekayasa truk niaga dan alat berat sekaligus <strong>distributor nasional resmi</strong> pelumas Pertamina Lubricants, Mobil, ban Dunlop, serta aki Incoe/GS Astra.
+                        <strong>Master Truck</strong> berlokasi strategis di Kawasan Industri Medan III (KIM III). Kami adalah pusat perawatan rekayasa truk niaga dan alat berat sekaligus <strong>distributor nasional resmi</strong> pelumas Pertamina Lubricants, Mobil, ban Dunlop, serta aki Incoe/GS Astra.
                     </p>
                     <p class="mb-4">
                         Seluruh alur pengerjaan bengkel kami terintegrasi langsung dengan portal operasional <strong>Web Fleet Management System</strong> &mdash; memudahkan pengelola armada memantau status SPK aktif, approval estimasi biaya, dan faktur digital secara transparan.

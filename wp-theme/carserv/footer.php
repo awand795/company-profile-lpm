@@ -10,7 +10,7 @@ $mt_contact = mt_get_contact_data();
         <div class="container py-4">
             <div class="row g-4 g-lg-5">
                 <div class="col-lg-4 col-md-6">
-                    <h4 class="mb-3 footer-heading">PT MASTER TRUCK INDONESIA</h4>
+                    <h4 class="mb-3 footer-heading">Master Truck</h4>
                     <p class="mb-3 text-muted">Pusat bengkel rekayasa spesialis armada truk niaga &amp; alat berat, serta distributor resmi pelumas industri, ban komersial, dan suku cadang OEM di Sumatera Utara.</p>
                     <div class="d-flex align-items-start mb-2">
                         <i class="fa fa-map-marker-alt text-primary me-3 mt-1"></i>
@@ -85,7 +85,7 @@ $mt_contact = mt_get_contact_data();
             <div class="copyright">
                 <div class="row align-items-center">
                     <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
-                        &copy; <?php echo date( 'Y' ); ?> <a href="#">PT MASTER TRUCK INDONESIA</a>. Seluruh Hak Cipta Dilindungi.
+                        &copy; <?php echo date( 'Y' ); ?> <a href="#">Master Truck</a>. Seluruh Hak Cipta Dilindungi.
                     </div>
                     <div class="col-md-6 text-center text-md-end">
                         <div class="footer-menu">

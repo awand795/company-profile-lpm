@@ -81,7 +81,7 @@ if ( ! function_exists( 'mt_get_content' ) ) {
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <title>MASTER TRUCK — Bengkel Truk Terpercaya &amp; Sparepart Asli di Medan | KIM III</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="PT Master Truck Indonesia di KIM III Medan: 15 tahun merawat truk sekaligus menjual oli, ban, dan aki asli langsung dari pabriknya. Dipercaya 120+ perusahaan." name="description">
+    <meta content="Master Truck di KIM III Medan: 15 tahun merawat truk sekaligus menjual oli, ban, dan aki asli langsung dari pabriknya. Dipercaya 120+ perusahaan." name="description">
     <meta content="bengkel truk medan, sparepart truk asli medan, oli pertamina medan, ban dunlop medan, derek truk 24 jam medan" name="keywords">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232563EB'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='34' font-weight='900' fill='%23FFFFFF' text-anchor='middle'%3EMT%3C/text%3E%3C/svg%3E">
 
@@ -201,7 +201,7 @@ if ( ! function_exists( 'mt_get_content' ) ) {
                         <div class="container">
                             <div class="row align-items-center justify-content-center justify-content-lg-start">
                                 <div class="col-10 col-lg-7 text-center text-lg-start">
-                                    <span class="hero-brand-pill animated slideInDown"><span class="live-dot"></span><?php echo esc_html( mt_get_content( 'hero_s1_pill', 'PT Master Truck Indonesia • KIM III Medan' ) ); ?></span>
+                                    <span class="hero-brand-pill animated slideInDown"><span class="live-dot"></span><?php echo esc_html( mt_get_content( 'hero_s1_pill', 'Master Truck • KIM III Medan' ) ); ?></span>
                                     <h1 class="hero-title animated slideInDown"><?php echo wp_kses_post( mt_get_content( 'hero_s1_title', 'Master Truck: Bengkel Truk <span class="hero-brand-highlight">Terpercaya</span> di Medan' ) ); ?></h1>
                                     <p class="hero-lead d-none d-md-block animated slideInDown">
                                         <?php echo esc_html( mt_get_content( 'hero_s1_lead', 'Sudah 15 tahun kami merawat truk sekaligus menjual oli, ban, dan aki asli langsung dari pabriknya — dipercaya 120+ perusahaan.' ) ); ?>
@@ -226,7 +226,7 @@ if ( ! function_exists( 'mt_get_content' ) ) {
                                             <div class="hero-card-floating-bottom d-flex align-items-center gap-3">
                                                 <div class="icon-tint-wrap icon-tint-blue"><i class="fa fa-building"></i></div>
                                                 <div>
-                                                    <div class="hero-card-title">PT Master Truck Indonesia</div>
+                                                    <div class="hero-card-title">Master Truck</div>
                                                     <div class="hero-card-sub">Servis bergaransi, dicek 30 bagian</div>
                                                 </div>
                                             </div>
@@ -245,7 +245,7 @@ if ( ! function_exists( 'mt_get_content' ) ) {
                         <div class="container">
                             <div class="row align-items-center justify-content-center justify-content-lg-start">
                                 <div class="col-10 col-lg-7 text-center text-lg-start">
-                                    <span class="hero-brand-pill animated slideInDown"><span class="live-dot"></span><?php echo esc_html( mt_get_content( 'hero_s2_pill', 'PT Master Truck Indonesia • Distributor Nasional Resmi' ) ); ?></span>
+                                    <span class="hero-brand-pill animated slideInDown"><span class="live-dot"></span><?php echo esc_html( mt_get_content( 'hero_s2_pill', 'Master Truck • Distributor Nasional Resmi' ) ); ?></span>
                                     <h1 class="hero-title animated slideInDown"><?php echo wp_kses_post( mt_get_content( 'hero_s2_title', 'Master Truck: <span class="hero-brand-highlight">Sparepart Truk Asli</span> dari Pabrik' ) ); ?></h1>
                                     <p class="hero-lead d-none d-md-block animated slideInDown">
                                         <?php echo esc_html( mt_get_content( 'hero_s2_lead', 'Oli Pertamina, oli Mobil, ban Dunlop & aki GS Astra — dijamin asli dari pabriknya, dengan harga khusus untuk pelanggan perusahaan.' ) ); ?>
@@ -348,7 +348,7 @@ if ( ! function_exists( 'mt_get_content' ) ) {
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="about-img-box">
-                        <img src="<?php echo esc_url( $mt_base ); ?>/img/service-1.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Montir sedang memperbaiki mesin truk di bengkel PT Master Truck Indonesia" loading="lazy">
+                        <img src="<?php echo esc_url( $mt_base ); ?>/img/service-1.jpg?ver=<?php echo esc_attr( $mt_ver ); ?>" alt="Montir sedang memperbaiki mesin truk di bengkel Master Truck" loading="lazy">
                         <div class="about-exp-float-card">
                             <div class="icon-tint-wrap icon-tint-blue"><i class="fa fa-award"></i></div>
                             <div>
@@ -362,7 +362,7 @@ if ( ! function_exists( 'mt_get_content' ) ) {
                     <span class="badge-section-pill"><?php echo esc_html( mt_get_content( 'about_pill', 'Tentang Kami' ) ); ?></span>
                     <h2 class="mb-3"><?php echo wp_kses_post( mt_get_content( 'about_title', '<span class="text-primary">Master Truck</span>, Bengkel Truk Kepercayaan Anda di Medan' ) ); ?></h2>
                     <p class="mb-3">
-                        <?php echo wp_kses_post( mt_get_content( 'about_desc1', '<strong>PT Master Truck Indonesia</strong> ada di Kawasan Industri Medan III (KIM III). Kami merawat segala jenis truk dan mesin besar, sekaligus toko resmi oli Pertamina, oli Mobil, ban Dunlop, dan aki Incoe/GS Astra.' ) ); ?>
+                        <?php echo wp_kses_post( mt_get_content( 'about_desc1', '<strong>Master Truck</strong> ada di Kawasan Industri Medan III (KIM III). Kami merawat segala jenis truk dan mesin besar, sekaligus toko resmi oli Pertamina, oli Mobil, ban Dunlop, dan aki Incoe/GS Astra.' ) ); ?>
                     </p>
                     <p class="mb-4">
                         <?php echo esc_html( mt_get_content( 'about_desc2', 'Semua pengerjaan tercatat dan bisa dipantau online — ada foto buktinya sebelum Anda bayar.' ) ); ?>

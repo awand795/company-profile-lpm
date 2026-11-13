@@ -190,7 +190,7 @@ add_filter( 'wp_resource_hints', function( $urls, $relation_type ) {
  */
 function mt_get_contact_data() {
     return array(
-        'company_name'   => 'PT Master Truck Indonesia',
+        'company_name'   => 'Master Truck',
         'address'        => 'KIM III Medan — Sumatera Utara',
         'address_full'   => 'Jl. Pulau Nias Selatan No. 8, Kawasan Industri Medan III (KIM III), Saentis, Percut Sei Tuan, Deli Serdang, Sumatera Utara 20371',
         'phone'          => '061-8882-9999',

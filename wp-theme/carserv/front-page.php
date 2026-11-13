@@ -29,7 +29,7 @@ $mt_contact = mt_get_contact_data();
                                 <div class="col-12 col-lg-7 text-center text-lg-start pe-lg-4">
                                     <div class="hero-brand-pill">
                                         <span class="live-dot"></span>
-                                        <span>PT MASTER TRUCK INDONESIA &bull; KIM III MEDAN</span>
+                                        <span>Master Truck &bull; KIM III MEDAN</span>
                                     </div>
                                     <h1 class="hero-title">
                                         Solusi Perawatan &amp; Rekayasa Truk Niaga Bersama <span class="hero-brand-highlight">MASTER TRUCK</span>
@@ -218,7 +218,7 @@ $mt_contact = mt_get_contact_data();
                                 <i class="fa fa-calendar-alt"></i>
                             </div>
                             <div>
-                                <!-- TODO: konfirmasi data resmi tahun berdiri PT Master Truck Indonesia -->
+                                <!-- TODO: konfirmasi data resmi tahun berdiri Master Truck -->
                                 <div class="fw-bold text-dark fs-5">15+ Tahun</div>
                                 <small class="text-muted d-block">Pengalaman Rekayasa Truk KIM III</small>
                             </div>
@@ -235,7 +235,7 @@ $mt_contact = mt_get_contact_data();
                         Pusat Rekayasa Armada &amp; Distributor Resmi <span class="text-primary">MASTER TRUCK</span>
                     </h2>
                     <p class="text-muted mb-4" style="line-height: 1.7; font-size: 15.5px;">
-                        <strong>PT Master Truck Indonesia</strong> berlokasi strategis di Kawasan Industri Medan III (KIM III), Sumatera Utara. Kami hadir untuk membantu para pelaku usaha transportasi, perkebunan, dan logistik meminimalkan kerugian akibat downtime armada niaga melalui standar pemeliharaan teknis profesional, fasilitas bengkel modern, dan transparansi proses perbaikan.
+                        <strong>Master Truck</strong> berlokasi strategis di Kawasan Industri Medan III (KIM III), Sumatera Utara. Kami hadir untuk membantu para pelaku usaha transportasi, perkebunan, dan logistik meminimalkan kerugian akibat downtime armada niaga melalui standar pemeliharaan teknis profesional, fasilitas bengkel modern, dan transparansi proses perbaikan.
                     </p>
                     <p class="text-muted mb-4" style="line-height: 1.7; font-size: 15.5px;">
                         Selain fasilitas bengkel tugas berat, Master Truck dipercaya sebagai <strong>distributor resmi</strong> pelumas Pertamina Lubricants &amp; Mobil Delvac, ban truk komersial Dunlop, serta aki heavy-duty Incoe/GS Astra &mdash; memberikan jaminan kepastian harga pabrikan dan orisinalitas produk bagi mitra armada.
@@ -288,7 +288,7 @@ $mt_contact = mt_get_contact_data();
     <div class="fact-section-light">
         <div class="container">
             <div class="row g-4 text-center">
-                <!-- TODO: konfirmasi data resmi statistik armada PT Master Truck Indonesia -->
+                <!-- TODO: konfirmasi data resmi statistik armada Master Truck -->
                 <div class="col-lg-3 col-sm-6">
                     <div class="stat-card-soft stat-card-blue">
                         <div class="stat-icon-circle mx-auto">
@@ -804,7 +804,7 @@ $mt_contact = mt_get_contact_data();
                 </p>
             </div>
 
-            <!-- TODO: konfirmasi foto & data nama tim teknisi resmi PT Master Truck Indonesia -->
+            <!-- TODO: konfirmasi foto & data nama tim teknisi resmi Master Truck -->
             <div class="row g-4">
                 <div class="col-lg-3 col-md-6">
                     <div class="team-enterprise-card">
@@ -880,7 +880,7 @@ $mt_contact = mt_get_contact_data();
                 </p>
             </div>
 
-            <!-- TODO: konfirmasi data resmi testimoni pelanggan PT Master Truck Indonesia -->
+            <!-- TODO: konfirmasi data resmi testimoni pelanggan Master Truck -->
             <div class="owl-carousel testimonial-carousel position-relative">
                 
                 <div class="testimonial-enterprise-card text-center">

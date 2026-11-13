@@ -132,7 +132,7 @@ add_action( 'wp_head', function () {
 	if ( function_exists( 'is_page' ) && is_page( 59 ) ) {
 		// Deskripsi manual hanya dikeluarkan bila plugin SEO TIDAK aktif (mencegah duplikasi).
 		if ( ! defined( 'RANK_MATH_VERSION' ) && ! class_exists( 'RankMath' ) ) {
-			echo '<meta name="description" content="PT Master Truck Indonesia — bengkel spesialis truk niaga & distributor resmi Pertamina, Mobil Delvac, Dunlop, GS Astra di KIM III Medan. Servis armada, overhaul, derek 24 jam." />' . "\n";
+			echo '<meta name="description" content="Master Truck — bengkel spesialis truk niaga & distributor resmi Pertamina, Mobil Delvac, Dunlop, GS Astra di KIM III Medan. Servis armada, overhaul, derek 24 jam." />' . "\n";
 		}
 		echo '<link rel="preload" as="image" href="/wp-content/uploads/stitch/stitch_img_2.webp" fetchpriority="high" />' . "\n";
 	}
@@ -183,7 +183,7 @@ add_filter( 'rank_math/json_ld', function( $data, $jsonld ) {
 		'@type'                     => array( 'AutoRepair', 'LocalBusiness' ),
 		'@id'                       => home_url( '/#localbusiness' ),
 		'name'                      => 'Master Truck',
-		'legalName'                 => 'PT Master Truck Indonesia',
+		'legalName'                 => 'Master Truck',
 		'url'                       => $home,
 		'logo'                      => array(
 			'@type'      => 'ImageObject',

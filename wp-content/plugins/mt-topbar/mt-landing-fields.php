@@ -17,7 +17,7 @@ function mt_get_landing_fields_schema() {
 			'desc'   => 'Atur teks banner slide 1 & 2 di bagian paling atas halaman.',
 			'fields' => array(
 				// Slide 1
-				'hero_s1_pill'       => array( 'label' => 'Slide 1 — Badge / Label Atas', 'type' => 'text', 'default' => 'PT Master Truck Indonesia • KIM III Medan' ),
+				'hero_s1_pill'       => array( 'label' => 'Slide 1 — Badge / Label Atas', 'type' => 'text', 'default' => 'Master Truck • KIM III Medan' ),
 				'hero_s1_title'      => array( 'label' => 'Slide 1 — Judul Utama', 'type' => 'text', 'default' => 'Master Truck: Bengkel Truk <span class="hero-brand-highlight">Terpercaya</span> di Medan' ),
 				'hero_s1_lead'       => array( 'label' => 'Slide 1 — Deskripsi Singkat', 'type' => 'textarea', 'default' => 'Sudah 15 tahun kami merawat truk sekaligus menjual oli, ban, dan aki asli langsung dari pabriknya — dipercaya 120+ perusahaan.' ),
 				'hero_s1_stat1_num'  => array( 'label' => 'Slide 1 — Statistik 1 (Angka)', 'type' => 'text', 'default' => '15' ),
@@ -31,7 +31,7 @@ function mt_get_landing_fields_schema() {
 				'hero_s1_btn2_text'  => array( 'label' => 'Slide 1 — Teks Tombol Kedua', 'type' => 'text', 'default' => 'Portal Web Fleet' ),
 				'hero_s1_btn2_url'   => array( 'label' => 'Slide 1 — Link Tombol Kedua', 'type' => 'text', 'default' => 'http://localhost:3000/#login' ),
 				// Slide 2
-				'hero_s2_pill'       => array( 'label' => 'Slide 2 — Badge / Label Atas', 'type' => 'text', 'default' => 'PT Master Truck Indonesia • Distributor Nasional Resmi' ),
+				'hero_s2_pill'       => array( 'label' => 'Slide 2 — Badge / Label Atas', 'type' => 'text', 'default' => 'Master Truck • Distributor Nasional Resmi' ),
 				'hero_s2_title'      => array( 'label' => 'Slide 2 — Judul Utama', 'type' => 'text', 'default' => 'Master Truck: <span class="hero-brand-highlight">Sparepart Truk Asli</span> dari Pabrik' ),
 				'hero_s2_lead'       => array( 'label' => 'Slide 2 — Deskripsi Singkat', 'type' => 'textarea', 'default' => 'Oli Pertamina, oli Mobil, ban Dunlop & aki GS Astra — dijamin asli dari pabriknya, dengan harga khusus untuk pelanggan perusahaan.' ),
 				'hero_s2_stat1_num'  => array( 'label' => 'Slide 2 — Statistik 1 (Angka)', 'type' => 'text', 'default' => '15' ),
@@ -66,7 +66,7 @@ function mt_get_landing_fields_schema() {
 			'fields' => array(
 				'about_pill'       => array( 'label' => 'Badge / Label Bagian', 'type' => 'text', 'default' => 'Tentang Kami' ),
 				'about_title'      => array( 'label' => 'Judul Bagian', 'type' => 'text', 'default' => 'Master Truck, Bengkel Truk Kepercayaan Anda di Medan' ),
-				'about_desc1'      => array( 'label' => 'Paragraf 1 (Profil Bengkel)', 'type' => 'textarea', 'default' => 'PT Master Truck Indonesia ada di Kawasan Industri Medan III (KIM III). Kami merawat segala jenis truk dan mesin besar, sekaligus toko resmi oli Pertamina, oli Mobil, ban Dunlop, dan aki Incoe/GS Astra.' ),
+				'about_desc1'      => array( 'label' => 'Paragraf 1 (Profil Bengkel)', 'type' => 'textarea', 'default' => 'Master Truck ada di Kawasan Industri Medan III (KIM III). Kami merawat segala jenis truk dan mesin besar, sekaligus toko resmi oli Pertamina, oli Mobil, ban Dunlop, dan aki Incoe/GS Astra.' ),
 				'about_desc2'      => array( 'label' => 'Paragraf 2 (Transparansi Servis)', 'type' => 'textarea', 'default' => 'Semua pengerjaan tercatat dan bisa dipantau online — ada foto buktinya sebelum Anda bayar.' ),
 				'about_point1'     => array( 'label' => 'Poin Keunggulan 1', 'type' => 'text', 'default' => 'Segala jenis truk: tronton, trailer, dump truck, mesin besar' ),
 				'about_point2'     => array( 'label' => 'Poin Keunggulan 2', 'type' => 'text', 'default' => 'Progress servis terpantau dari HP, lengkap dengan foto' ),

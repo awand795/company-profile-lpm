@@ -5677,35 +5677,6 @@
                 "widgetType": "heading"
               },
               {
-                "id": "2f17238",
-                "elType": "widget",
-                "settings": {
-                  "editor": "<span class=\"footer-company\">PT Master Truck Indonesia</span>",
-                  "align": "left",
-                  "typography_typography": "custom",
-                  "typography_font_family": "Inter",
-                  "typography_font_size": {
-                    "unit": "px",
-                    "size": 13
-                  },
-                  "typography_line_height": {
-                    "unit": "em",
-                    "size": 1.6
-                  },
-                  "text_color": "#757682",
-                  "_margin": {
-                    "unit": "px",
-                    "top": "0",
-                    "right": "0",
-                    "bottom": "14",
-                    "left": "0",
-                    "isLinked": ""
-                  }
-                },
-                "elements": [],
-                "widgetType": "text-editor"
-              },
-              {
                 "id": "28c1445",
                 "elType": "widget",
                 "settings": {
@@ -6057,7 +6028,7 @@
         "id": "31f0cd0",
         "elType": "widget",
         "settings": {
-          "editor": "<div class=\"footer-bottom\"><div class=\"footer-copy\">© 2026 PT Master Truck Indonesia · Master Truck. Hak Cipta Dilindungi Undang-Undang.</div><nav class=\"footer-menu\" aria-label=\"Menu footer\"><a href=\"#header-carousel\">Beranda</a><a href=\"#layanan\">Layanan</a><a href=\"#quick-booking\">Booking Servis</a><a href=\"#keunggulan\">Keunggulan</a><a href=\"#lokasi\">Lokasi</a><a href=\"#kontak\">Kontak</a><span class=\"footer-menu-sep\" aria-hidden=\"true\">|</span><a href=\"http://52.77.133.95:3000#login\">Masuk</a><a href=\"http://52.77.133.95:3000#register\">Daftar</a></nav></div>",
+          "editor": "<div class=\"footer-bottom\"><div class=\"footer-copy\">© 2026 Master Truck. Hak Cipta Dilindungi Undang-Undang.</div><nav class=\"footer-menu\" aria-label=\"Menu footer\"><a href=\"#header-carousel\">Beranda</a><a href=\"#layanan\">Layanan</a><a href=\"#quick-booking\">Booking Servis</a><a href=\"#keunggulan\">Keunggulan</a><a href=\"#lokasi\">Lokasi</a><a href=\"#kontak\">Kontak</a><span class=\"footer-menu-sep\" aria-hidden=\"true\">|</span><a href=\"http://52.77.133.95:3000#login\">Masuk</a><a href=\"http://52.77.133.95:3000#register\">Daftar</a></nav></div>",
           "align": "left",
           "typography_typography": "custom",
           "typography_font_family": "Inter",
