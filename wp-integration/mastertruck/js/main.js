@@ -1063,11 +1063,7 @@
         }
 
     });
-
-
-
-
-    // ===== Testimonials Auto-Slide Carousel Engine (Google Reviews) =====
+    // ===== Testimonials Auto-Slide Carousel Engine (Google Reviews - 2 Pages) =====
     (function initTestimonialsCarousel() {
         function setup() {
             var row = document.querySelector('.stitch-sec-testimonials .testimonials-row');
@@ -1081,84 +1077,86 @@
                 setTimeout(function() { isHovered = false; }, 3000);
             }, { passive: true });
 
-            var interval = setInterval(function() {
-                if (isHovered) return;
-                var maxScroll = row.scrollWidth - row.clientWidth;
-                var card = row.querySelector('.testi-card-col');
-                var step = card ? (card.offsetWidth + 20) : 380;
+            function getMaxScroll() {
+                return row.scrollWidth - row.clientWidth;
+            }
 
-                if (row.scrollLeft + step >= maxScroll - 15) {
+            function goToPage(pageIdx) {
+                var maxScroll = getMaxScroll();
+                if (pageIdx === 0) {
                     row.scrollTo({ left: 0, behavior: 'smooth' });
                 } else {
-                    row.scrollBy({ left: step, behavior: 'smooth' });
+                    row.scrollTo({ left: maxScroll, behavior: 'smooth' });
                 }
-            }, 3800);
+            }
 
-            if (!document.querySelector('.testi-carousel-controls')) {
-                var controls = document.createElement('div');
-                controls.className = 'testi-carousel-controls';
-                controls.innerHTML = '<button type="button" class="testi-nav-btn prev" aria-label="Ulasan sebelumnya"><i class="fas fa-chevron-left"></i></button>' +
-                    '<div class="testi-dots"></div>' +
-                    '<button type="button" class="testi-nav-btn next" aria-label="Ulasan berikutnya"><i class="fas fa-chevron-right"></i></button>';
-                
-                row.parentNode.appendChild(controls);
+            var interval = setInterval(function() {
+                if (isHovered) return;
+                var maxScroll = getMaxScroll();
+                if (maxScroll <= 10) return;
+                if (row.scrollLeft < maxScroll / 2) {
+                    goToPage(1);
+                } else {
+                    goToPage(0);
+                }
+            }, 4500);
 
-                var prevBtn = controls.querySelector('.prev');
-                var nextBtn = controls.querySelector('.next');
-                var dotsContainer = controls.querySelector('.testi-dots');
-                var cards = row.querySelectorAll('.testi-card-col');
+            var existingControls = document.querySelector('.testi-carousel-controls');
+            if (existingControls) {
+                existingControls.parentNode.removeChild(existingControls);
+            }
 
-                cards.forEach(function(_, i) {
+            var controls = document.createElement('div');
+            controls.className = 'testi-carousel-controls';
+            controls.innerHTML = '<button type="button" class="testi-nav-btn prev" aria-label="Halaman ulasan sebelumnya"><i class="fas fa-chevron-left"></i></button>' +
+                '<div class="testi-dots"></div>' +
+                '<button type="button" class="testi-nav-btn next" aria-label="Halaman ulasan berikutnya"><i class="fas fa-chevron-right"></i></button>';
+            
+            row.parentNode.appendChild(controls);
+
+            var prevBtn = controls.querySelector('.prev');
+            var nextBtn = controls.querySelector('.next');
+            var dotsContainer = controls.querySelector('.testi-dots');
+
+            for (var p = 0; p < 2; p++) {
+                (function(pageIdx) {
                     var dot = document.createElement('button');
-                    dot.className = 'testi-dot' + (i === 0 ? ' active' : '');
-                    dot.setAttribute('aria-label', 'Lihat ulasan ' + (i + 1));
+                    dot.className = 'testi-dot' + (pageIdx === 0 ? ' active' : '');
+                    dot.setAttribute('aria-label', 'Halaman ' + (pageIdx + 1));
                     dot.addEventListener('click', function() {
-                        var c = cards[i];
-                        if (c) {
-                            row.scrollTo({ left: c.offsetLeft - row.offsetLeft, behavior: 'smooth' });
-                        }
+                        goToPage(pageIdx);
                     });
                     dotsContainer.appendChild(dot);
-                });
-
-                prevBtn.addEventListener('click', function() {
-                    var card = row.querySelector('.testi-card-col');
-                    var step = card ? (card.offsetWidth + 20) : 380;
-                    if (row.scrollLeft <= 15) {
-                        row.scrollTo({ left: row.scrollWidth - row.clientWidth, behavior: 'smooth' });
-                    } else {
-                        row.scrollBy({ left: -step, behavior: 'smooth' });
-                    }
-                });
-
-                nextBtn.addEventListener('click', function() {
-                    var card = row.querySelector('.testi-card-col');
-                    var step = card ? (card.offsetWidth + 20) : 380;
-                    var maxScroll = row.scrollWidth - row.clientWidth;
-                    if (row.scrollLeft + step >= maxScroll - 15) {
-                        row.scrollTo({ left: 0, behavior: 'smooth' });
-                    } else {
-                        row.scrollBy({ left: step, behavior: 'smooth' });
-                    }
-                });
-
-                row.addEventListener('scroll', function() {
-                    var center = row.scrollLeft + (row.clientWidth / 2);
-                    var activeIdx = 0;
-                    cards.forEach(function(card, idx) {
-                        var left = card.offsetLeft - row.offsetLeft;
-                        var right = left + card.offsetWidth;
-                        if (center >= left && center <= right) {
-                            activeIdx = idx;
-                        }
-                    });
-                    var dots = dotsContainer.querySelectorAll('.testi-dot');
-                    dots.forEach(function(d, idx) {
-                        if (idx === activeIdx) d.classList.add('active');
-                        else d.classList.remove('active');
-                    });
-                }, { passive: true });
+                })(p);
             }
+
+            prevBtn.addEventListener('click', function() {
+                var maxScroll = getMaxScroll();
+                if (row.scrollLeft > maxScroll / 2) {
+                    goToPage(0);
+                } else {
+                    goToPage(1);
+                }
+            });
+
+            nextBtn.addEventListener('click', function() {
+                var maxScroll = getMaxScroll();
+                if (row.scrollLeft < maxScroll / 2) {
+                    goToPage(1);
+                } else {
+                    goToPage(0);
+                }
+            });
+
+            row.addEventListener('scroll', function() {
+                var maxScroll = getMaxScroll();
+                var activePage = (row.scrollLeft >= maxScroll / 2) ? 1 : 0;
+                var dots = dotsContainer.querySelectorAll('.testi-dot');
+                dots.forEach(function(d, idx) {
+                    if (idx === activePage) d.classList.add('active');
+                    else d.classList.remove('active');
+                });
+            }, { passive: true });
         }
 
         if (document.readyState === 'loading') {
@@ -1167,6 +1165,7 @@
             setup();
         }
     })();
+
 
 
 })(jQuery);
